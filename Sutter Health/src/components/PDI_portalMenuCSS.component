@@ -1,0 +1,480 @@
+<apex:component >
+    <style>
+        /* adjust body when menu is open */
+        body.slide-active {
+        overflow-x: hidden
+        }
+        /*first child of #page-content so it doesn't shift around*/
+        .no-margin-top {
+        margin-top: 0px!important
+        }
+        /*wrap the entire page content but not nav inside this div if not a fixed top, don't add any top padding */
+        #page-content {
+        position: relative;
+        padding-top: 30px;
+        left: 0;
+        }
+        #page-content.slide-active {
+        padding-top: 0
+        }
+        
+        #slide-nav .navbar-toggle {
+        border-color: #f8ba20;
+        } 
+        #slide-nav .navbar-toggle:hover {
+        border-color: #f8ba20;
+        background-color: #f8ba20;
+        } 
+        #slide-nav .navbar-toggle .icon-bar {
+        background-color: #f8ba20;
+        }
+        #slide-nav .navbar-toggle:hover .icon-bar {
+        background-color: #fff;
+        }
+        .navbar-header {
+        position: relative
+        }
+        /* un fix the navbar when active so that all the menu items are accessible */
+        .navbar.navbar-fixed-top.slide-active {
+        position: relative
+        }
+        /* screw writing importants and shit, just stick it in max width since these classes are not shared between sizes */
+        @media (max-width:767px) {
+        
+        #practiceHelp, #resignHelp, #retiredHelp{
+        display:none;
+        }
+        
+        #home{
+        padding-top:35px;
+        }
+        
+        #home1{
+        padding-top:40px;
+        }
+        
+        #home2{
+        padding-top:40px;
+        }
+        
+        .top-bar1, .top-bar {
+        background-color: #fff;
+        border-bottom: 1px solid #f2f2f2;
+        height: 90px;
+        }
+        .dropbtn {
+        background-color: whitesmoke;
+        color: black;
+        padding: 6px;
+        height: auto;
+        font-size: 12px;
+        cursor: pointer;
+        border: none;
+        -webkit-border-radius: 2px 2px 2px 2px;
+        -moz-border-radius: 2px 2px 2px 2px;
+        border-radius: 5px 5px 5px 5px;
+        }
+        #slide-nav .container {
+        margin: 0!important;
+        padding: 0!important;
+        padding-top:150px;
+        height:100%;
+        }
+        #slide-nav .navbar-header {
+        margin: 0 auto;
+        padding: 0 15px;
+        
+        }
+        #slide-nav .navbar.slide-active {
+        position: absolute;
+        width: 80%;
+        top: -1px;
+        z-index: 1000;
+        }
+        #slide-nav #slidemenu {
+        background: #3CBCBC;
+        left: -100%;
+        width: 30%;
+        min-width: 0;
+        position: absolute;
+        padding-left: 0;
+        z-index: 2;
+        top: -8px;
+        margin: 0;
+        }
+        #slide-nav #slidemenu .navbar-nav {
+        min-width: 0;
+        width: 100%;
+        margin: 0;
+        }
+        #slide-nav #slidemenu .navbar-nav .dropdown-menu li a {
+        min-width: 0;
+        width: 80%;
+        white-space: normal;
+        }
+        #slide-nav {
+        border-top: 0
+        }
+        #slide-nav.navbar-inverse #slidemenu {
+        /*background: #333;*/
+        }
+        /* this is behind the navigation but the navigation is not inside it so that the navigation is accessible and scrolls*/
+        #navbar-height-col {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        bottom: 0;
+        width: 30%;
+        left: -30%;
+        background: #3CBCBC;
+        }
+        #navbar-height-col.inverse {
+        
+        z-index: 1;
+        border: 0;
+        }
+        #slide-nav .navbar-form {
+        width: 100%;
+        margin: 8px 0;
+        text-align: center;
+        overflow: hidden;
+        /*fast clearfixer*/
+        }
+        #slide-nav .navbar-form .form-control {
+        text-align: center
+        }
+        #slide-nav .navbar-form .btn {
+        width: 100%
+        }
+        #slide-nav #slidemenu .navbar-nav > li > a {
+        color:whitesmoke;
+        background-color: #3cBCBC;
+        }
+        }
+        @media (min-width:768px) { 
+        #practiceHelp, #resignHelp, #retiredHelp{
+        display:block;
+        }
+        
+        #page-content {
+        left: 0!important
+        }
+        .navbar.navbar-fixed-top.slide-active {
+        position: fixed
+        }
+        .navbar-header {
+        left: 0!important
+        }
+        }
+        
+        .navbar-brand {
+        float: left;
+        height: 50px;
+        padding: 11px 17px;
+        font-size: 18px;
+        line-height: 20px;
+        }
+        .navbar-inverse .navbar-nav > li {
+        margin-left: 6px;
+        }
+        .navbar-inverse .navbar-nav > li:first-child {
+        margin-left: 0;
+        }
+        .navbar-inverse .navbar-nav > li > a {
+        color: #999;
+        display: block;
+        font-size: 14px;
+        font-weight: 300;
+        padding: 28px 15px 28px 15px;
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        }
+        .navbar-inverse .navbar-nav > li > a.active, .navbar-inverse .navbar-nav > li:hover > a {
+        border-bottom: 2px solid;
+        border-color: #f8ba20;
+        color:#f8ba20;
+        }
+        .navbar-inverse .navbar-nav > .active > a:hover
+        {
+        color:#f8ba20;
+        background-color: white;
+        }
+        .navbar-inverse .navbar-nav > .active > a{
+        color: #999;
+        background-color: white;
+        border-bottom: 2px solid;
+        border-color: #f8ba20;
+        }
+        .navbar-inverse .navbar-nav > li > a i {
+        margin: 0 -2px 0 -5px;
+        }
+        
+        .navbar-inverse .navbar-nav > li > a:after {
+        position: absolute;
+        color:#999;
+        bottom: 0;
+        content: '';
+        left: 50%;
+        display: block;
+        height: 5px;
+        width: 5px;
+        opacity: 0;
+        margin: 0 0 -3px -2px;
+        -webkit-transform: rotate(20deg);
+        -moz-transform: rotate(20deg);
+        -ms-transform: rotate(20deg);
+        -o-transform: rotate(20deg);
+        transform: rotate(20deg);
+        position: absolute;
+        }
+        .navbar-inverse .navbar-nav > li > a.active:after {
+        opacity: 1;
+        }
+        .container-fluid {
+        margin-bottom: 3;
+        background: #fff;
+        border: none;
+        border-radius: 0;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        -o-border-radius: 0;
+        }
+        .navbar-default .navbar-nav > li > a.active, .navbar-default .navbar-nav > li:hover > a {
+        border-color: #f8ba20;
+        }
+        .navbar-default .navbar-nav > li > a.active, .navbar-default .navbar-nav > li:hover > a {
+        border-color: #f8ba20;
+        }
+        .navbar-inverse .navbar-nav > li {
+        margin-left: 6px;
+        }
+        .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+        border-color: #e7e7e7;
+        }
+        .navbar-nav {
+        float: right;
+        margin: 0;
+        }
+        .navbar-inverse {
+        border-style:none;
+        }
+        .navbar-inverse {
+        background-color: white;
+        border-color: #080808;
+        }
+        .navbar-inverse .navbar-nav > li > a:after {
+        background-color: #ee3733;
+        }
+        .navbar-inverse .navbar-nav > li > a.active:after {
+        opacity: 1;
+        }
+        ul, ol {
+        list-style: none;
+        }
+        ul {
+        padding: 0;
+        margin: 0;
+        }
+        a {
+        transition: color 0.2s ease-in-out;
+        -moz-transition: color 0.2s ease-in-out;
+        -webkit-transition: color 0.2s ease-in-out;
+        -o-transition: color 0.2s ease-in-out;
+        }
+        a:hover {
+        color: #f8ba20;
+        }
+        a, a:hover {
+        text-decoration: none;
+        }
+        i {
+        font-size: 1.1em;
+        }
+        .navbar-inverse .navbar-nav {
+        margin-right: 10px!important;
+        position: relative;
+        transition: all 0.4s ease-in-out;
+        -moz-transition: all 0.4s ease-in-out;
+        -webkit-transition: all 0.4s ease-in-out;
+        -o-transition: all 0.4s ease-in-out;
+        }
+        .checkbox label {
+        min-height: 20px;
+        padding-left: 40px;
+        margin-bottom: 0;
+        font-weight: 400;
+        cursor: pointer;
+        }
+        /*New Added CSS*/
+        @media screen and (min-width: 650px) {
+        #ul-menu-mobile{
+        display: none;
+        }
+        #MobileTabHeading{
+        display: none;
+        }
+        
+        #footerEmailNewLine{display:none;}
+        #footerEmail{display:none;}
+        }
+        @media screen and (max-width: 650px) {
+        
+        #ul-menu-list{
+        display: none;
+        }
+        #headerEmailNewLine{display:none;}
+        #headerEmail{display:none;}
+        
+        #footerEmailNewLine{display:block;}
+        #footerEmail{display:block;}
+        
+        .col-xs-3{float:right;}
+        .dropbtn{width: 150px;}
+        }
+        /*UniversalProviderLogin CSS Starts*/
+        .inner-addon .fa {
+        position: absolute;
+        padding: 10px;
+        pointer-events: none;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        }
+        
+        .right-addon .fa { right: 0px;} 
+        .glyphicon-lock:before {
+        content: "\1f512";
+        }
+        /*UniversalProviderLogin CSS Ends*/
+        
+        /*UniversalValidateProvider CSS Starts*/
+        
+        .not-active {
+        pointer-events: none;
+        cursor: default;
+        }
+        #el_loading {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height:2305px !important; /*change to YOUR page height*/
+            background-color: #000;
+            filter:alpha(opacity=50);
+            -moz-opacity:0.5;
+            -khtml-opacity: 0.5;
+            opacity: 0.5;
+            z-index: 998;
+        }
+        #loading-image {
+            position: absolute;
+            top: 400px;
+            left: 500px;
+            z-index: 100;
+        }
+        
+        .break1{ display: none; }
+        .break2{ display: none; }
+        .break3{ display: none; }
+        @media screen and (max-width: 500px)  {
+            .break1 { display: inline; }
+        }
+        
+        @media screen and (max-width: 990px)  {
+            .break2 { display: inline; }
+            #showComputer{display:none}
+            #mobileVanish{display:none}
+        }
+        
+        @media screen and (min-width: 990px)  {
+            .break2 { display: inline; }
+            #showMobile{display:none}
+            
+        }
+        
+        #home{padding-top:35px;}
+        
+        @media screen and (max-width: 348px) {
+        .btn-link, .btn-link:active, .btn-link:focus, .btn-link:hover {
+        border-color: transparent;
+        font-size: smaller;
+        }
+        }
+        @media screen and (max-width: 385px) {
+        .addrRadioValue{display:none;}
+        }
+        #tab1{display: block;}
+        #tab2{display: none;}
+        #tab3{display: none;}
+        #tab4{display: none;}
+        
+        .nav-tabs {
+        
+        padding: 2px 0px 0px 2px;
+        }   
+        
+        .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus,.nav-tabs>li.active>a:hover {
+        
+        border-bottom: 2px solid;
+        border-bottom-color: #2472b3;
+        }
+        .right-inner-addon {
+        position: relative;
+        }
+        .right-inner-addon input {
+        padding-right: 25px;    
+        }
+        .right-inner-addon span {
+        position: absolute;
+        right: 0px;
+        padding: 10px 25px;
+        }
+        
+        #email, #faxhelp, #adminNamehelp, #adminemailHelp, #adminPhone, #adminTitle {
+        position: absolute;
+        margin: 9px 0px 0px 8px;
+        } 
+        
+        #mobile {
+        position: absolute;
+        margin: 9px 0px 0px 8px;
+        }
+        
+        .btnlabel{
+        font-weight: 600;
+        font-size: 12px;    
+        }
+        .table-striped>tbody>tr:nth-of-type(odd) {
+        background-color: #E5E7E9;
+        }
+        #wrapper{
+        padding-left: 40px;
+        }
+        .bootstrap-sf1 .form-group {
+        margin-bottom: 3px;
+        color: #000;
+        }
+        .bootstrap-sf1 .form-control, .bootstrap-sf1 .form-group{
+        font-size :12px;
+        }
+        
+        .bootstrap-sf1 .form-group input.form-control, .bootstrap-sf1 .form-group select.formcontrol{
+        height: 28px;
+        }
+        .bootstrap-sf1 textarea {
+        resize: vertical;
+        }
+        .center {
+        text-align: center;
+        }
+        /*UniversalValidateProvider CSS Ends */
+        /* UFAQ CSS Starts */
+        .accordion-section-content.open{
+            background-color:#D3D3D3;
+         }
+        /* UFAQ CSS Ends */
+       
+    </style>
+</apex:component>

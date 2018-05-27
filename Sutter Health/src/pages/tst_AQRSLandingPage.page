@@ -1,0 +1,1212 @@
+<apex:page sidebar="false"  docType="html-5.0" applyHtmlTag="true" controller="AQRSCRMController" standardStylesheets="false" tabStyle="AQRS_CRM__tab">
+    <html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+    .th_fields{display:none !important;}
+     .btndesign {background:#30b2b1 !important;}
+     select[multiple], select[size] {
+    height: auto;
+    min-height: 280px;padding-left:0px !important;padding-right: 0px !important;
+    }
+    .list-group-horizontal .list-group-item {
+    display: inline-block;border:0px solid #ccc !important;
+}
+.list-group-horizontal .list-group-item {
+    margin-bottom: 0;
+    margin-left:-4px;
+    margin-right: 0;
+}
+.list-group-horizontal .list-group-item:first-child {
+    border-top-right-radius:0;
+    border-bottom-left-radius:4px;
+}
+.list-group-horizontal .list-group-item:last-child {
+    border-top-right-radius:4px;
+    border-bottom-left-radius:0;
+}
+     @media (min-width: 768px)
+    {
+    .modal-dialog {width:515px !important; margin: 30px auto;}
+    }
+    </style>
+
+    <script> 
+    $(document).ready(function(){
+    $("#hide1").click(function(){
+        $("#Apply_fielters").slideToggle(200);
+         $("#show1").show();
+         $("#hide1").hide();
+          //$("#filterhide").removeClass("col-md-9");
+          //$("#show1").addClass("arrowvalue");
+           });
+    $("#show1").click(function(){
+        $("#Apply_fielters").slideToggle(200);
+         $("#hide1").show();
+         $("#show1").hide();
+         //$("#filterhide").addClass("col-md-9");
+         //$("#show1").removeClass("arrowvalue");
+        
+    });
+});
+    $(document).ready(function(){
+    // alert();
+    $("#registerformlink").click(function(){
+    $("#GIC_Show_Fields").show();
+    $("#PVP_Show_Fields").hide();
+    });
+    $("#loginformlink").click(function(){
+    $("#GIC_Show_Fields").hide();
+    $("#PVP_Show_Fields").show();
+    });
+    renderTable();
+    });
+    $(function() {
+    var url = window.location.href; 
+    /* alert(url);
+    var protocol = location.protocol;
+    var slashes = protocol.concat("//");
+    var host = slashes.concat(window.location.hostname);
+    var my_url= host+"/apex/AQRSCRMLandingPage";
+    alert(my_url);
+
+    if(url==my_url) { */
+    //if(/GIC/.test(loc)) { 
+    /* $("#login-form").delay(100).fadeIn(100);
+    $("#register-form").fadeOut(100);
+    $("#secondtable").hide(100);
+    $("#Previsitplanning").show(100);
+    document.getElementById("secondtable").style.display="none";
+    document.getElementById("Previsitplanning").style.display="block";
+    $(".Pre_VisitPlanning").show(100);
+    $(".Gaps_inCare").hide(100);
+    $('.pvp_activeTab').addClass('active');
+    $('.gic_activeTab').removeClass('active');
+    $(this).addClass('active');
+    e.preventDefault();
+    }*/
+    // window.history.pushState('/apex/AQRSCRMLandingPage', 'Title', '/apex/AQRSCRMLandingPage?GIC');
+    var loc = window.location.href; 
+    //alert(loc);
+    if(/GIC/.test(loc)) { 
+    //alert();
+    $("#GIC_Show_Fields").show();
+    $("#PVP_Show_Fields").hide();
+    $("#register-form").delay(100).fadeIn(100);
+    $("#login-form").fadeOut(100);
+    $("#Previsitplanning").hide(100);
+    $("#secondtable").show(100);
+    document.getElementById("secondtable").style.display="block";
+    document.getElementById("Previsitplanning").style.display="none";
+    $(".Gaps_inCare").show(100);
+    $(".Pre_VisitPlanning").show(100);
+    $('.pvp_activeTab').removeClass('active');
+    $('.gic_activeTab').addClass('active');
+    $(this).addClass('active');
+    e.preventDefault();
+
+    }
+
+    else{
+    $("#login-form").delay(100).fadeIn(100);
+    $("#register-form").fadeOut(100);
+    $("#secondtable").hide(100);
+    $("#Previsitplanning").show(100);
+    document.getElementById("secondtable").style.display="none";
+    document.getElementById("Previsitplanning").style.display="block";
+    $(".Pre_VisitPlanning").show(100);
+    $(".Gaps_inCare").hide(100);
+    $('.pvp_activeTab').addClass('active');
+    $('.gic_activeTab').removeClass('active');
+    $(this).addClass('active');
+    e.preventDefault();
+    }
+
+
+    });
+    function preAjaxData(){
+    refreshMyPanel1();
+    history.pushState('/apex/AQRSCRMLandingPage', 'Title', '/apex/AQRSCRMLandingPage?PVP');
+    var url = window.location.href; 
+    // alert(url);
+    if(/PVP/.test(url)) { 
+    $("#login-form").delay(100).fadeIn(100);
+    $("#register-form").fadeOut(100);
+    $("#secondtable").hide(100);
+    $("#Previsitplanning").show(100);
+    document.getElementById("secondtable").style.display="none";
+    document.getElementById("Previsitplanning").style.display="block";
+    $(".Pre_VisitPlanning").show(100);
+    $(".Gaps_inCare").hide(100);
+    $('.pvp_activeTab').addClass('active');
+    $('.gic_activeTab').removeClass('active');
+    $(this).addClass('active');
+    //e.preventDefault();
+    
+    }
+    }
+    function processAjaxData(){
+    refreshMyPanel2();
+    history.pushState('/apex/AQRSCRMLandingPage', 'Title', '/apex/AQRSCRMLandingPage?GIC');
+    
+    var loc = window.location.href; 
+    //alert(loc);
+    if(/GIC/.test(loc)) { 
+    $("#register-form").delay(100).fadeIn(100);
+    $("#login-form").fadeOut(100);
+    $("#Previsitplanning").hide(100);
+    $("#secondtable").show(100);
+    document.getElementById("secondtable").style.display="block";
+    document.getElementById("Previsitplanning").style.display="none";
+    $(".Gaps_inCare").show(100);
+    $(".Pre_VisitPlanning").show(100);
+    $('.pvp_activeTab').removeClass('active');
+    $('.gic_activeTab').addClass('active');
+    $(this).addClass('active');
+    //e.preventDefault();
+    
+    }
+    }
+    /*       $(function() {
+    window.history.pushState('/apex/AQRSCRMLandingPage', 'Title', '/apex/AQRSCRMLandingPage?GIC');
+    var loc = window.location.href; 
+    alert(loc);
+    if(/GIC/.test(loc)) { 
+    $("#register-form").delay(100).fadeIn(100);
+    $("#login-form").fadeOut(100);
+    $("#Previsitplanning").hide(100);
+    $("#secondtable").show(100);
+    document.getElementById("secondtable").style.display="block";
+    document.getElementById("Previsitplanning").style.display="none";
+    $(".Gaps_inCare").show(100);
+    $(".Pre_VisitPlanning").show(100);
+    $('.pvp_activeTab').removeClass('active');
+    $('.gic_activeTab').addClass('active');
+    $(this).addClass('active');
+    e.preventDefault();
+
+    }
+
+    });*/
+
+    $('#loginformlink').click(function(e) {
+    $("#login-form").delay(100).fadeIn(100);
+    $("#register-form").fadeOut(100);
+    $("#secondtable").hide(100);
+    $("#Previsitplanning").show(100);
+    document.getElementById("secondtable").style.display="none";
+    document.getElementById("Previsitplanning").style.display="block";
+    $(".Pre_VisitPlanning").show(100);
+    $(".Gaps_inCare").hide(100);
+    $('#registerformlink').removeClass('active');
+    $(this).addClass('active');
+    e.preventDefault();
+
+
+    });
+    $('#registerformlink').click(function(e) {
+    $("#register-form").delay(100).fadeIn(100);
+    $("#login-form").fadeOut(100);
+    $("#Previsitplanning").hide(100);
+    $("#secondtable").show(100);
+    document.getElementById("secondtable").style.display="block";
+    document.getElementById("Previsitplanning").style.display="none";
+    $(".Gaps_inCare").show(100);
+    $(".Pre_VisitPlanning").show(100);
+    $('#loginformlink').removeClass('active');
+    $(this).addClass('active');
+    e.preventDefault();
+
+
+    });
+    function Gic_Function() {
+        
+      var parentUl = document.getElementById("errorList1");
+          parentUl.innerHTML ='';
+          
+         if($("[id$='toDate1']").val() < $("[id$='FromDate1']").val() && $("[id$='toDate1']").val()!='' && $("[id$='FromDate1']").val()!='')
+            {
+        document.getElementById("errorList1").innerHTML="From Date cannot be greater than To Date";
+                
+                return false;
+            }   
+
+    }
+    function myFunction() {
+        
+        var parentUl = document.getElementById("errorList");
+          parentUl.innerHTML ='';
+           $(".errorClass").css({"border-color":"#ccc"});
+     
+            
+            if($("[id$='toDate']").val() < $("[id$='fromDate']").val() && $("[id$='toDate']").val()!='' && $("[id$='fromDate']").val()!='')
+            {
+            document.getElementById("errorList").innerHTML="From Date cannot be greater than To Date";
+                
+                return false;
+            }
+            
+
+    } 
+ /*function myFunction1() {
+      var t1 = $("[id$='FromDate1']").val();
+      var t2 = $("[id$='toDate1']").val();
+         
+         if($("[id$='toDate1']").val() < $("[id$='FromDate1']").val())
+            {
+                alert("Inside condition");
+          
+               document.getElementById("errorList1").innerHTML="From Date cannot be greater than To Date");
+                
+                return false;
+            }   
+
+    } */
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <apex:stylesheet value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/bootstrap.min.css')}"/>
+    <apex:Stylesheet value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/bootstrap-datepicker.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/fixedColumns.dataTables.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/dataTables.bootstrap.min.css')}"/>
+    <!--<apex:stylesheet value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/site.css')}"/> -->
+    <apex:stylesheet value="{!URLFOR($Resource.AQRSCRM_comstyle)}"/>
+    <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/jquery-1.12.4.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/bootstrap.min.js.download')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/jquery.dataTables.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/dataTables.bootstrap.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/dataTables.fixedColumns.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/AQRSCRM_date-uk.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/main.js')}"/>
+    <apex:includeScript value="{!$Resource.Bootstrap_multipleSelect}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    window.onload = function() {
+    jQuery('input[type=text]').blur();
+    };
+    </script>
+    </head>
+    <apex:form >
+    <body class="">
+    <div class="clear" style="clear:both;"></div>
+    <!-- BEGIN # MODAL LOGIN -->
+    <div class="modal fade" id="Addmorefields-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <!-- TD
+    display fields should be tab and store in custom Settings and Tag to respective login user   -->
+    <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header" align="center">
+    <span id="PVP_Show_Fields"><h5><b>View More Fields from Pre-Visit Planning Table</b></h5></span>
+    <span id="GIC_Show_Fields" style="display:none;"><h5><b>View More Fields from Gaps In Care Table</b></h5></span>
+
+    <span><button type="button" style="float:right;">
+    <span class="glyphicon glyphicon-remove" aria-hidden="true" onclick="hidePopup();"></span>
+    </button></span>
+    </div>
+    <!-- Begin # DIV Form -->
+    <div id="div-forms">
+    <!-- Begin # Login Form -->
+    <div class="modal-body">
+    <apex:panelGrid columns="3" id="displayFieldPanel">
+    <apex:panelGroup >
+    <b>Available Fields</b><br/>   
+    <select multiple="true" id="availablePanel"></select>
+    </apex:panelGroup>
+    <apex:panelGroup >
+    <p style="clear:both;"></p>
+    <br/><br/>
+    <apex:commandButton value=">>" onclick="addField();return false;" style="width:24px;"  styleClass="btn btndesign addFieldButton"
+    reRender="availablePanel,selectedPanel"/>
+    <br/>
+    <apex:commandButton value="<<" onclick="removeField();return false;" style="width:24px;"  styleClass="btn btndesign addFieldButton"
+    reRender="availablePanel,selectedPanel"/>
+    </apex:panelGroup>
+    <apex:panelGroup >
+    <b>Selected Fields</b><br/>
+    <select multiple="true" id="selectedPanel"></select>
+    </apex:panelGroup>
+    <apex:PanelGroup >
+    <!-- <apex:commandButton action="{!save}" value="Submit" id="theSubmitButton" style="float:right;margin-top:15px;"/>
+    <apex:commandButton action="{!cancel}" value="Cancel" id="theCancelButton" onclick="window.top.close();" style="float:right;margin-top:15px;"/>
+    <apex:commandButton value="Cancel" id="theCancelButton" onclick="window.top.close();" style="float:right;margin-top:15px;"/>-->
+    </apex:PanelGroup>
+    </apex:panelGrid>
+    <!-- <apex:iframe src="/apex/AQRSShowMoreFieds" scrolling="true" height="360px" width="100%" /> -->
+    <!--<apex:commandLink value="Submit" action="{!setDisplayFields}" target="_parent" styleClass="btn" style="text-decoration:none;padding:4px;"/>-->
+    </div>
+    <div class="modal-footer">
+    <apex:commandLink value="Submit" onclick="submitDisplayFields();"   styleClass="btn searchbtn" style="text-decoration:none;padding:4px;" rerender="PatinetPVPList,example,pvvDatatable" oncomplete="hidePopup();" status="status"/>
+    <apex:commandLink value="Cancel"  id="theCancelButton" rerender="PatinetPVPList,pvvDatatable" onclick="hidePopup();"  styleClass="btn searchbtn" style="text-decoration:none;padding:4px;" />
+    
+    <div>
+    </div>
+    </div>
+    <!-- End # Login Form -->
+    <!-- End # DIV Form -->
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="container body-content" style="padding-left:0px;padding-right:0px;">
+    <script type="text/javascript">
+    var urlPrefix = window.location.href;
+    var UpdatedBy = "RamachP";
+    </script>
+    <form action="http://dcdwweb025:8871/" method="post">
+    <div class="bodycontainer ng-scope" ng-app="myApp" ng-controller="HomeCtrl" id="GridGrid" style="padding-top:0px;">
+    <div class="bodycontainer">
+    <ul class="nav nav-tabs">
+    </ul>
+    <div class="tab-content">
+    <div id="home" class="tab-pane fade active in">
+    <!-- active -->
+    <div class="row">
+    
+     <div class="Main_fielters">
+ <div class="">
+    <label style="float:left;padding-top:4px;">Foundation :&nbsp; </label>
+    <label> <apex:outputText value="{!filterWrap.foundation}" style="margin-top:-4px;font-size:11px;" /> </label>
+      <label> <a class="btn searchbtn" id="hide1">
+    <span class="glyphicon glyphicon-chevron-up"></span> Hide Apply Filters
+    </a></label>
+    <label>  <a class=" btn searchbtn" id="show1" style="display:none;">
+    Show Apply Filters <span class="glyphicon glyphicon-chevron-down"></span>
+    </a></label>
+
+    </div>
+    <div style="clear:both;"></div>
+
+    <ul class="col-md-12 list-group list-group-horizontal" style="margin:0px;" id="Apply_fielters">
+<apex:outputPanel id="dependentPanel">
+     <li class="col-md-3 list-group-item">
+     <div class="form-group Pre_isitPlanning">
+    <label>Facility </label>
+    <apex:selectList value="{!filterWrap.lstFacilities}" multiselect="true" size="5" styleClass="form-control show-tick">
+    <apex:selectOptions value="{!facilities}" />
+    </apex:selectList>
+    <apex:commandLink styleClass="btn searchbtn" action="{!actionUpdatePicklistVals}" rerender="dependentPanel" style="margin:5px 0px 0px 0px !important;" value="Apply" status="status"   ><apex:param assignTo="{!strClearFields}" value="facility"/></apex:commandLink>
+    </div>
+    </li>
+     <li class="col-md-3 list-group-item">
+     <div class="form-group Pre_isitPlanning">
+    <label>Division </label>
+    <apex:selectList value="{!filterWrap.lstDivision}" multiselect="true" size="5" styleClass="form-control show-tick">
+    <apex:selectOptions value="{!divisions}" />
+    </apex:selectList>
+    <apex:commandLink styleClass="btn searchbtn" action="{!actionUpdatePicklistVals}" rerender="dependentPanel" style="margin:5px 0px 0px 0px !important;" value="Apply" status="status"   ><apex:param assignTo="{!strClearFields}" value="division"/></apex:commandLink>
+    </div>
+    </li>
+     <li class="col-md-3 list-group-item">
+       <div class="form-group Pre_isitPlanning">
+    <label>Department </label>
+    <apex:selectList value="{!filterWrap.lstDepartment}" multiselect="true" size="5" styleClass="form-control show-tick">
+    <apex:selectOptions value="{!department}" />
+    </apex:selectList>
+    <apex:commandLink styleClass="btn searchbtn" action="{!actionUpdatePicklistVals}" rerender="dependentPanel" style="margin:5px 0px 0px 0px !important;" value="Apply" status="status"    ><apex:param assignTo="{!strClearFields}" value=""/></apex:commandLink>
+    </div>
+    </li>
+     <li class="col-md-3 list-group-item">
+    <div class="form-group Pre_isitPlanning">
+    <label>Provider </label>
+    <apex:selectList value="{!filterWrap.lstProvider}" multiselect="true" size="5" styleClass="form-control show-tick">
+    <apex:selectOptions value="{!provider}" />
+   <!-- <apex:actionSupport event="onchange" action="{!actionUpdatePicklistVals}" rerender="panel1" />-->
+    </apex:selectList>
+    </div>
+    </li>
+    </apex:outputPanel>
+    </ul>
+    <hr style="border:1px solid #E9E9E9  !important;"/>
+    </div>
+    
+    </div>
+    <div class="row" style="margin-top:0px">
+    <div class="col-md-12 tabledesign">
+    <div class="col-md-3 searchbox" id="searchboxid">
+    <div class="fcontainerbox">
+    <div id="accordion" class="panel-group">
+    <div class="panel panel-default">
+    <div class="panel panel-login">
+    <div class="panel-heading">
+    <div class="col-md-12">
+    <div class="col-md-6 col-sm-6 col-xs-6" style="padding:0px !important;">
+<!--     <a href="#" class="pvp_activeTab" id="loginformlink" onclick="preAjaxData();" status="status">Pre-Visit Planning </a>active -->
+    <apex:commandLink styleClass="pvp_activeTab" id="loginformlink" onclick="preAjaxData();" status="status" reRender="panel1Refresh"  value="Pre-Visit Planning"/>
+    </div>
+    <div class="col-md-6 col-sm-6 col-xs-6" style="padding:0px !important;">
+     <apex:commandLink styleClass="gic_activeTab" id="registerformlink" onclick="processAjaxData();" status="status" reRender="panel2Refresh" value="Gaps In Care"/>
+<!--    <a href="#" class="gic_activeTab" id="registerformlink" onclick="processAjaxData();" status="status"></a>-->
+    </div>
+    </div>
+        <!--<ul id="errorList" style="color:red;float:left;margin-top:6px;">
+        </ul>-->
+        <div style="clear:both;"></div>
+    <hr/>
+    </div>
+    <div class="panel-body">
+    <div class="col-md-12">
+   <div id="login-form"  style="display: block;">
+        <span id="errorList" style="color:red;float:left;margin-top:2px;"></span>
+        <div style="clear:both;"></div>
+        <apex:actionFunction name="refreshMyPanel1" reRender="panel1" action="{!refreshFilters}" id="panel1Refresh"/>
+    <apex:outputPanel id="panel1">
+    
+    <div class="form-group Pre_isitPlanning">
+    <label>Measure </label>
+    <apex:selectList id="measures" value="{!filterWrap.lstMeasure}" size="5" multiselect="true" styleClass="form-control show-tick">
+    <apex:selectOptions value="{!measures}"/>
+    </apex:selectList>
+    </div>
+    <div class="form-group Pre_isitPlanning">
+    <label>Patient </label>
+    <apex:inputText styleClass="form-control"  id="pvp_Patient" value="{!filterWrap.patientName}" />
+    </div>
+    <div class="form-group Pre_isitPlanning ">
+    <label>Patient MRN </label>
+    <input type="text" class="form-control" value="{!filterWrap.patientMRN}" />
+    </div>
+    <div class="form-group Pre_isitPlanning">
+    <label>Population </label>
+    <apex:selectList id="population" value="{!filterWrap.lstPopulation}" size="5" multiselect="true" styleClass="form-control show-tick">
+    <apex:selectOptions value="{!population}"/>
+    </apex:selectList>
+    </div>
+    <div class="form-group Pre_isitPlanning">
+    <label>Date Range </label>
+    <p> <apex:input type="date" value="{!fromDate}"  id="fromDate"  styleclass="form-control errorClass "/></p>
+    <label>To</label>
+    <p><apex:input type="date" value="{!toDate}"  id="toDate"  styleclass="form-control errorClass"/></p>
+    </div>
+    </apex:outputPanel>
+        <div class="buttonalign btnaligndpt">
+    <div style="width:220px;margin:auto;">
+    <apex:commandLink styleClass="btn searchbtn" onclick="return myFunction();" style="margin:5px 0px 0px 10px;" value="Search" rerender="example"  status="status" />
+    <apex:commandLink styleClass="btn searchbtn" style="margin-top:5px;" value="Reset"  action="{!resetFilters}" rerender="panel1,dependentPanel" status="status"/>
+    </div>
+    </div>
+    </div> <!-- PVP Tab closing -->
+
+    <div id="register-form"> 
+        <span id="errorList1" style="color:red;float:left;margin-top:2px;"></span> 
+        <div style="clear:both;"></div>
+        <apex:actionFunction name="refreshMyPanel2" reRender="panel2" action="{!refreshFilters}" id="panel2Refresh"/>
+        <apex:outputPanel id="panel2">
+    <div class="form-group Pre_isitPlanning">
+    <label>Measure </label>
+    <apex:selectList id="GIC_measures" value="{!filterWrap1.lstMeasure}" size="5" multiselect="true" styleClass="form-control show-tick">
+    <apex:selectOptions value="{!measures}"/>
+    </apex:selectList>
+    </div>
+    <div class="form-group Pre_isitPlanning">
+    <label>Patient </label>
+    <apex:inputText styleClass="form-control"  id="GIC_Patient" value="{!filterWrap1.patientName}" />
+    </div>
+    <div class="form-group Pre_isitPlanning ">
+    <label>Patient MRN </label>
+    <input type="text" class="form-control" value="{!filterWrap1.patientMRN}" />
+    </div>
+    <div class="form-group Pre_isitPlanning">
+    <label>Population </label>
+    <apex:selectList id="GIC_population" value="{!filterWrap1.lstPopulation}" size="5" multiselect="true" styleClass="form-control show-tick">
+    <apex:selectOptions value="{!population}"/>
+    </apex:selectList>
+    </div>
+    <div class="form-group Pre_isitPlanning">
+    <label>Date Range </label>
+    <p> <apex:input type="date" value="{!fromDate}"  id="FromDate1"  styleclass="form-control errorClass"/> </p>
+   <label>To</label>
+    <p> <apex:input type="date" value="{!toDate}"  id="toDate1"  styleclass="form-control errorClass"/></p>
+    </div>
+    </apex:outputPanel>
+        <div class="buttonalign btnaligndpt">
+    <div style="width:220px;margin:auto;">
+    <apex:commandLink styleClass="btn searchbtn" onclick="return Gic_Function();" style="margin-top:5px;" value="Search" rerender="gapsincare" status="status"  />
+    <apex:commandLink styleClass="btn searchbtn" style="margin-top:5px;" value="Reset"  action="{!resetFilters}" rerender="panel2,dependentPanel" status="status"/>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="col-md-9 col-sm-9 col-xs-12 spacing1 arrowmenuicons">
+    <button type="button" class="btn btn-default btn-sm left-arrow" id="hide">
+    <span class="glyphicon glyphicon-chevron-left"></span> Hide Filters
+    </button>
+    <button type="button" class="btn btn-default btn-sm right-arrow" id="show" style="display:none;">
+    Show Filters<span class="glyphicon glyphicon-chevron-right"></span>
+    </button>
+
+    </div> 
+
+
+
+    <apex:outputPanel id="PatinetPVPList">
+    <div class="col-md-9 col-xs-12" id="filterhide" >
+    <div id="no-more-tables">
+    <div>
+    <!-- style="overflow-x:scroll" -->
+    <div class="spacing1" id="mygrid" style="width:100% !important;">
+    <div class="planingtable" id="Previsitplanning" style="clear:both;">
+    <h5><b>Pre-Visit Planning</b></h5>
+    <div>
+    <!--<a onclick="exportTableToCSV('Patients.csv')" style="text-decoration: none;cursor: pointer;position:absolute;right:39px;top:0px;">
+    Export  To CSV</a>-->
+    <apex:commandlink action="{!createCSVPVP}" value="Export To CSV" target="_parent" style="text-decoration: none;cursor: pointer;position:absolute;right:39px;top:0px;"/>
+    <div style="clear:both"></div >
+    </div>
+    <table id="example" class="table-bordered table-striped table-condensed cf" cellspacing="0" width="100%">
+    <apex:commandlink onclick="fetchCustomSetting('PVP');"  value="Select Display Fields" styleClass="Show_morefields1"  rerender="availablePanel,selectedPanel"/>
+    <!--<a class="Show_morefields1" data-toggle="modal" data-target="#Addmorefields-modal">Select Display Fields</a>-->
+    <thead class="grdidhead cf">
+    <tr width="100%" id="fields_selected">
+    <th>Outreached</th>
+    <th>Patient Name</th>
+    <th>Patient MRN</th>
+    <th>Patient DOB</th>
+
+    <th data-orderable="false" >Gender</th><!--<apex:outputLabel value="Gender" rendered="{!PATIENT_GENDER}"></apex:outputLabel>-->
+    <th data-orderable="false" >Preferred Communication Method</th>
+    <th data-orderable="false" >Email Address</th>
+    <th data-orderable="false" >Home Phone</th>
+    <th data-orderable="false" >Possible Actions Needed</th>
+    <th data-orderable="false" >Provider Name</th>
+    <th data-orderable="false" >Measure Name</th>
+    <th data-orderable="false" >Next Appointment Type</th>
+    
+    <th data-orderable="false" id="PVPthLastAppointmentDate" >Last Appointment Date</th>
+    <th data-orderable="false" id="PVPthNextAppointmentDate">Next Appointment Date</th>
+    <th data-orderable="false" id="PVPthHCCGaps">HCC Gaps</th>
+    <th data-orderable="false" id="PVPthPayor">Payor</th>
+    <th data-orderable="false" id="PVPthAddress">Address</th>
+    <th data-orderable="false" id="PVPthRace">Race</th>
+    <th data-orderable="false" id="PVPthAWVGaps">AWV Gaps</th>
+    <th data-orderable="false" id="PVPthQualityGaps">Quality Gaps</th>
+    <th data-orderable="false" id="PVPthTotalGaps">Total Gaps</th>
+    <th data-orderable="false" id="PVPthLastAWVDate" >Last AWV Date</th>
+    <th data-orderable="false" id="PVPthNextAppointmentProvider">Next Appointment Provider</th>
+    <th data-orderable="false" id="PVPthNextAppointmentTime">Next Appointment Time</th>
+    <th data-orderable="false" id="PVPthPopulation">Population</th>
+    <th data-orderable="false" id="PVPthSpeciality">Speciality</th>
+    <th data-orderable="false" id="PVPthNextDepartmentName">Next Department Name</th> 
+
+    
+    <th data-orderable="false" id="PVPthLastAppointmentType" >Last Appointment Type</th>
+    <th data-orderable="false" id="PVPthDivision" >Division</th>
+    <th data-orderable="false" id="PVPthDepartment" >Department</th>
+    <th data-orderable="false" id="PVPthFacility" >Facility</th>       
+    </tr>
+    </thead>
+    <tbody>
+    <apex:repeat value="{!recievedpatientPVPList}" var="resPVP">
+    <tr width="100%" id="fields_data"  >
+    <td data-title="Outreached"><apex:outputText value="{!resPVP.outReached}"/></td>
+    <td data-title="Patient Name"><apex:outputText value="{!resPVP.patient_name}" /></td>
+    <td data-title="Patient MRN"><a href="/apex/tst_AQRS_Comm_Log?patinet_MRNID={!URLENCODE(resPVP.patient_mrn)}&tab_active=PVP">{!resPVP.patient_mrn}</a></td>
+    <td data-title="Patient DOB">
+    <span>
+    <apex:outputText value="{0,date,YYYYMMDD}">
+    <apex:param value="{!resPVP.patient_dob}" />
+    </apex:outputText>
+    </span>
+    <apex:outputText value="{0,date,MM/dd/yyyy}">
+    <apex:param value="{!resPVP.patient_dob}" />
+    </apex:outputText>
+    </td>
+    <td data-title="Patient Gender" ><apex:outputText value="{!resPVP.patient_gender}" /></td>
+    <td data-title="Preferred Communication Method" ><apex:outputText value="{!resPVP.preferred_communication_method}" /></td>
+    <td data-title="Email address" ><apex:outputText value="{!resPVP.email_address}" /></td>
+    <td data-title="patient Homephone" ><apex:outputText value="{!resPVP.patient_home_phone}" /></td>
+    <td data-title="Possible Actions Needed"  ><apex:outputText value="{!resPVP.possible_actions_needed}" /></td>
+    <td data-title="Provider Name"  ><apex:outputText value="{!resPVP.provider_ID}" /></td>
+    <td data-title="Measure Name"  ><apex:outputText value="{!resPVP.measure_Name}" /></td>    
+    <td data-title="Next Appointment Type"  ><apex:outputText value="{!resPVP.next_appointment_type}" /></td>
+    
+    <td data-title="Last Appointment Date" id="PVPtdLastAppointmentDate" ><apex:outputText value="{!resPVP.date_of_last_appointment}" /></td>
+    <td data-title="Next Appointment Date" id="PVPtdNextAppointmentDate" ><apex:outputText value="{!resPVP.date_of_next_appointment}" /></td>
+    <td data-title="HCC Gaps" id="PVPtdHCCGaps" ><apex:outputText value="{!resPVP.hcc_gaps}" /></td>
+    <td data-title="Payor" id="PVPtdPayor"><apex:outputText value="{!resPVP.payor_Name}" /></td>
+    <td data-title="Address" id="PVPtdAddress"><apex:outputText value="{!resPVP.patient_home_address}" /></td>
+    <td data-title="Race" id="PVPtdRace" ><apex:outputText value="{!resPVP.patient_Race}" /></td>
+    <td data-title="AWV GAPS" id="PVPtdAWVGaps" ><apex:outputText value="{!resPVP.awv_gaps}" /></td>
+    <td data-title="Quality Gaps" id="PVPtdQualityGaps" ><apex:outputText value="{!resPVP.quality_gaps}" /></td>    
+    <td data-title="Total Gaps" id="PVPtdTotalGaps" ><apex:outputText value="{!resPVP.total_Gaps}" /></td>    
+    <td data-title="Last AWV Date" id="PVPtdLastAWVDate" ><apex:outputText value="{!resPVP.last_awv_date}" /></td>    
+    <td data-title="Next Appointment Provider" id="PVPtdNextAppointmentProvider" ><apex:outputText value="{!resPVP.next_appointment_provider}" /></td>    
+    <td data-title="Next Appointment Time" id="PVPtdNextAppointmentTime" ><apex:outputText value="{!resPVP.next_Appointment_Time}" /></td>    
+    <td data-title="Population" id="PVPtdPopulation" ><apex:outputText value="{!resPVP.population}" /></td>    
+    <td data-title="Speciality" id="PVPtdSpeciality" ><apex:outputText value="{!resPVP.specialty}" /></td>    
+    <td data-title="Next Department Name" id="PVPtdNextDepartmentName" ><apex:outputText value="{!resPVP.next_appointment_department_name}" /></td>    
+    
+    <td data-title="Last Appointment Type" id="PVPtdLastAppointmentType" ><apex:outputText value="{!resPVP.last_appointment_type }" /></td>
+    <td data-title="Division" id="PVPtdDivision" ><apex:outputText value="{!resPVP.division_name }" /></td>
+    <td data-title="Department" id="PVPtdDepartment" ><apex:outputText value="{!resPVP.department_Name }" /></td>
+    <td data-title="Facility" id="PVPtdFacility" ><apex:outputText value="{!resPVP.facility_ID }" /></td>    
+    </tr>
+    </apex:repeat>
+    </tbody>
+    </table>
+    </div>
+    <div style="clear:both;"></div>
+    <div class="tabledisplay planingtable" id="secondtable" style="display:none;">
+    <h5><b>Gaps In Care</b></h5>
+    <div>
+    <!-- <a onclick=" exportTableToCSVGapsinCare('PatientsinGapsinCare.csv')" style="text-decoration: none;cursor: pointer;position:absolute;right:39px;top:0px;">
+    Export  To CSV</a>-->
+    <apex:commandlink action="{!createCSV}" value="Export To CSV" target="_blank" style="text-decoration: none;cursor: pointer;position:absolute;right:39px;top:0px;"/>
+    <div style="clear:both"></div >
+    </div>
+    <table id="gapsincare" class="table-bordered table-striped table-condensed cf" cellspacing="0" width="100%">
+    <apex:commandlink onclick="fetchCustomSetting('GIC');"  value="Select Display Fields" styleClass="Show_morefields1"  rerender="availablePanel,selectedPanel"/>
+    <!-- <a class="Show_morefields1" data-toggle="modal" data-target="#Addmorefields-modal">Select Display Fields</a>-->
+    <!-- <a class="Show_morefields22" id="gichidefields" style="display:none;">Hide Fields</a> -->
+    <thead class="grdidhead cf">
+    <tr width="100%" id="gicfields_selected">
+    <th>Outreached</th>
+    <th width="100%">Patient Name</th>
+    <th>Patient MRN</th>
+    <th>DOB</th>
+    <th data-orderable="false" >Gender</th><!--<apex:outputLabel value="Gender" rendered="{!PATIENT_GENDER}"></apex:outputLabel>-->
+    <th data-orderable="false" >Preferred Communication Method</th>
+    <th data-orderable="false" >Email Address</th>
+    <th data-orderable="false" >Home Phone</th> 
+    <th data-orderable="false" >Possible Actions Needed</th>
+   <th data-orderable="false" >Provider Name</th>
+    <th data-orderable="false" >Measure Name</th>
+    <th data-orderable="false" >Next Appointment Type</th>
+    
+    <th data-orderable="false" id="GICthLastAppointmentDate" >Last Appointment Date</th>
+    <th data-orderable="false" id="GICthNextAppointmentDate">Next Appointment Date</th>
+    <th data-orderable="false" id="GICthHCCGaps">HCC Gaps</th>   
+    <th data-orderable="false" id="GICthPayor">Payor</th>
+    <th data-orderable="false" id="GICthAddress">Address</th>
+    <th data-orderable="false" id="GICthRace" >Race</th>  
+
+    <th data-orderable="false" id="GICthTotalGaps">Total Gaps</th>
+    <th data-orderable="false" id="GICthLastAWVDate" >Last AWV Date</th>
+    <th data-orderable="false" id="GICthNextAppointmentProvider">Next Appointment Provider</th>
+    <th data-orderable="false" id="GICthNextAppointmentTime">Next Appointment Time</th>
+    <th data-orderable="false" id="GICthPopulation">Population</th>
+    <th data-orderable="false" id="GICthSpeciality">Speciality</th>
+    <th data-orderable="false" id="GICthDivision" >Division</th>
+    <th data-orderable="false" id="GICthDepartment" >Department</th>
+    <th data-orderable="false" id="GICthFacility" >Facility</th>
+    <th data-orderable="false" id="GICthQualifyingMeasure" >Qualifying Measure</th>
+    <th data-orderable="false" id="GICthLastBillDate" >Last Bill Date</th>
+    <th data-orderable="false" id="GICthAWVMeasurement" >AWV Measurement</th>   
+    </tr>
+    </thead>
+    <tbody>
+    <apex:repeat value="{!recievedPatientGICList}" var="resGIC">
+    <tr width="100%" id="fields_data"  >
+    <td data-title="Outreached">{!resGIC.outReached}</td>
+    <td data-title="Patient Name">{!resGIC.patient_name}</td>
+    <td data-title="Patient MRN"><a href="/apex/tst_AQRS_Comm_Log?patinet_MRNID={!URLENCODE(resGIC.patient_mrn)}&tab_active=GIC" >{!resGIC.patient_mrn}</a></td>
+    <td data-title="Patient DOB">
+    <span>
+    <apex:outputText value="{0,date,YYYYMMDD}">
+    <apex:param value="{!resGIC.patient_dob}" />
+    </apex:outputText>
+    </span>
+    <apex:outputText value="{0,date,MM/dd/yyyy}">
+    <apex:param value="{!resGIC.patient_dob}" />
+    </apex:outputText>
+    </td>
+    <td data-title="Patient Gender" ><apex:outputText value="{!resGIC.patient_gender}" /></td>
+    <td data-title="Preferred Communication Method" ><apex:outputText value="{!resGIC.preferred_communication_method}" /></td>
+    <td data-title="Email address" ><apex:outputText value="{!resGIC.email_Address}" /></td>
+    <td data-title="patient Homephone" ><apex:outputText value="{!resGIC.patient_home_phone}" /></td>
+    <td data-title="Possible Actions Needed" ><apex:outputText value="{!resGIC.possible_actions_needed}" /></td>    
+    <td data-title="Provider Name"  ><apex:outputText value="{!resGIC.provider_ID}" /></td>
+    <td data-title="Measure Name"  ><apex:outputText value="{!resGIC.measure_Name}" /></td>
+    <td data-title="Next Appointment Type"  ><apex:outputText value="{!resGIC.next_appointment_type}" /></td> 
+    
+    <td data-title="Last Appointment Date" id="GICtdLastAppointmentDate" ><apex:outputText value="{!resGIC.date_of_last_appointment}" /></td>
+    <td data-title="Next Appointment Date" id="GICtdNextAppointmentDate" ><apex:outputText value="{!resGIC.date_of_next_appointment}" /></td>
+    <td data-title="HCC Gaps" id="GICtdHCCGaps" ><apex:outputText value="{!resGIC.hcc}" /></td>
+    <td data-title="Payor" id="GICtdPayor"><apex:outputText value="{!resGIC.payor_Name}" /></td>
+    <td data-title="Address" id="GICtdAddress"><apex:outputText value="{!resGIC.patient_home_address}" /></td>
+    <td data-title="Race" id="GICtdRace"><apex:outputText value="{!resGIC.patient_Race}" /></td> 
+
+    <td data-title="Total Gaps" id="GICtdTotalGaps" ><apex:outputText value="{!resGIC.total_Gaps}" /></td>
+    <td data-title="Last AWV Date" id="GICtdLastAWVDate" ><apex:outputText value="{!resGIC.last_awv_date }" /></td>
+    <td data-title="Next Appointment Provider" id="GICtdNextAppointmentProvider" ><apex:outputText value="{!resGIC.next_appointment_provider }" /></td>
+    <td data-title="Next Appointment Time" id="GICtdNextAppointmentTime" ><apex:outputText value="{!resGIC.next_Appointment_Time }" /></td>
+    <td data-title="Population" id="GICtdPopulation" ><apex:outputText value="{!resGIC.population }" /></td>
+    <td data-title="Speciality" id="GICtdSpeciality" ><apex:outputText value="{!resGIC.specialty }" /></td>
+    <td data-title="Division" id="GICtdDivision" ><apex:outputText value="{!resGIC.division_name }" /></td>
+    <td data-title="Department" id="GICtdDepartmentt" ><apex:outputText value="{!resGIC.department_Name }" /></td>
+    <td data-title="Facility" id="GICtdFacility" ><apex:outputText value="{!resGIC.facility_ID }" /></td>
+    <td data-title="Qualifying Measure" id="GICtdQualifyingMeasure" ><apex:outputText value="{!resGIC.qualifying_measure}" /></td>
+    <td data-title="Last Bill Date" id="GICtdLastBillDate" ><apex:outputText value="{!resGIC.date_of_last_billed}" /></td>
+    <td data-title="AWV Measurement" id="GICtdAWVMeasurement" ><apex:outputText value="{!resGIC.awv_measurement_this_year}" /></td>    
+    </tr>
+    </apex:repeat>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </apex:outputPanel>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </form>
+    </div>
+    <div class="modal fade" id="Addmorefields-modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header" align="center">
+    <span><b>View More Fields from Gaps In Care Table</b></span>
+    <span><button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    </button></span>
+    </div>
+    <!-- Begin # DIV Form -->
+    <div id="div-forms">
+    <!-- Begin # Login Form -->
+    <div class="modal-body">
+    <div class="row" style="padding:0px 20px 0px 20px;">
+    <div class="addfields_left">
+    <div class="form-group">
+    <select class="form-control fieldsselct" multiple="multiple" id="gicselect1">
+    <option name="Date of Next Appointment" value="14/01/2018">Date of Next Appointment</option>
+    <option name="Next Appointment Type" value="Mobile">Next Appointment Type</option>
+    <option  name="Next Appointment Date" value="14/01/2018">Next Appointment Date</option>
+    <option  name="Date of Last Appointment" value="10-09-2017">Date of Last Appointment</option>
+    <option  name="HCC" value="HCC">HCC</option>
+    <option  name="Qualifying Measures" value="BreastCancerScreening">Qualifying Measures</option>
+    <option  name="AWV Measurement this year" value="AWV Scheduled">AWV Measurement this year</option>
+    <option  name="Date of Last Billed" value="10-09-2017">Date of Last Billed</option>
+    <option  name="Address" value="Yisrael Yisraeli, HaDoar 1/20, Jerusalem 1234567">Home Address</option>
+    <option  name="Race" value="White">Patient Race</option>
+    <option  name="Speciality" value="Speciality">Speciality</option>
+    </select>
+    </div>
+    </div>
+    <div class="Rightandleft_btn">
+    <div style="width: 25px;margin: auto;margin-top: 100px;">
+    <button style="font-size:24px"> <i class="fa fa-angle-double-right" id="gicadd_fields"></i></button>
+    <br/>
+    <button style="font-size:24px"><i class="fa fa-angle-double-left" id="gicremove_fields"></i></button>
+    </div>
+    </div>
+    <div class="addfields_right">
+    <div class="form-group">
+    <select class="form-control fieldsselct" multiple="multiple" id="gicselect2">
+    </select>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="modal-footer">
+    <div>
+    <button id="cancebtn" type="button" class="btn searchbtn" data-dismiss="modal" style="margin-top:0px;">Cancel</button>
+    <button id="gicsubmit_fields" type="button" class="btn searchbtn" data-dismiss="modal"  style="margin-top:0px;">Submit</button>
+    </div>
+    </div>
+    <!-- End # Login Form -->
+    <!-- End # DIV Form -->
+    </div>
+    </div>
+    </div>
+    </div>
+    <!-- END # MODAL LOGIN -->
+    <apex:actionStatus id="status">
+    <apex:facet name="start">
+    <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.25; z-index: 1000; background-color: black;">
+        &nbsp;
+    </div>
+    <div style="position: fixed; left: 0; top: 150px; bottom: 0; right: 0; z-index: 1001; margin: 15% 50%">
+        <div style="display: inline-block; padding: 2px; background-color: none !important; width: 125px;">
+            <img src="{!URLFOR($Resource.AQRS_ReloadIcon)}" style="float: left; margin: 8px;" width="46px" height="46px" />
+            
+        </div>
+    </div>
+    </apex:facet>
+</apex:actionStatus>
+    <apex:outputPanel id="scriptPanel">
+    <script type="text/javascript">
+    function CloseAndRefresh(){
+    window.opener.location.href="/{!$CurrentPage.parameters.PARAMNAME}";
+    self.close();
+    }
+    function resetValue()
+    { 
+
+    $('#myModal').addClass('hidepopup');
+    $('.modal-backdrop').removeClass('in');
+    $('.modal-backdrop').removeClass('modal-backdrop');
+    $('.modal-backdrop').removeClass('modal-dialog');
+    var parentUl = document.getElementById("errorList");
+    parentUl.innerHTML ='';
+    $(".errorClass").css({"border-color":"#ccc"});
+    $("#myform")[0].clear.click();
+
+
+    }
+    $(function() {
+    $('.multiselect-ui').multiselect({
+    includeSelectAllOption: true
+    });
+    $('.multiselect-ui1').multiselect({
+    includeSelectAllOption: true
+    });
+    $('.multiselect-ui2').multiselect({
+    includeSelectAllOption: true
+    });
+    $('.multiselect-ui3').multiselect({
+    includeSelectAllOption: true
+    });
+    });
+
+    function downloadCSV(csv, filename) {
+    var csvFile;
+    var downloadLink;
+
+    // CSV file
+    csvFile = new Blob([csv], {type: "text/csv"});
+
+    // Download link
+    downloadLink = document.createElement("a");
+
+    // File name
+    downloadLink.download = filename;
+
+    // Create a link to the file
+    downloadLink.href = window.URL.createObjectURL(csvFile);
+
+    // Hide download link
+    downloadLink.style.display = "none";
+
+    // Add the link to DOM
+    document.body.appendChild(downloadLink);
+
+    // Click download link
+    downloadLink.click();
+    }
+
+    function exportTableToCSV(filename) {
+    var csv = [];
+    var rows = document.querySelectorAll("#example tr");
+
+    for (var i = 0; i < rows.length; i++) {
+    var row = [], cols = rows[i].querySelectorAll("td, th");
+
+    for (var j = 0; j < cols.length; j++) 
+    row.push(cols[j].innerText);
+
+    csv.push(row.join(","));        
+    }
+
+    // Download CSV file
+    downloadCSV(csv.join("\n"), filename);
+    }
+
+    function exportTableToCSVGapsinCare(filename) {
+    var csv = [];
+    var rows = document.querySelectorAll("#gapsincare tr");
+
+    for (var i = 0; i < rows.length; i++) {
+    var row = [], cols = rows[i].querySelectorAll("td, th");
+
+    for (var j = 0; j < cols.length; j++) 
+    row.push(cols[j].innerText);
+
+    csv.push(row.join(","));        
+    }
+
+    // Download CSV file
+    downloadCSV(csv.join("\n"), filename);
+    }
+    function addURL(element)
+    {
+    $(element).attr('href', function() {
+    return this.href +'&tab_active=PVP';
+    });
+    }
+    function addURL1(element)
+    {
+    $(element).attr('href', function() {
+    return this.href +'&tab_active=GIC';
+    });
+    }
+    </script> 
+    </apex:outputPanel>
+    <apex:outputPanel id="pvvDatatable">            
+    <script>
+    
+    
+    var tablePVP = $('#example').DataTable( {
+    //bFilter:     false,
+    //bInfo:     true,
+    //scrollX:        false,
+    scrollCollapse: true,
+    paging:         true,
+    fixedColumns: false,
+    fnDrawCallback: function( oSettings ) { 
+        renderTable();     
+
+    }
+   // fnDrawCallback: function( oSettings ) {
+        //    componentHandler.upgradeDOM();
+
+    //}
+     } );
+    var table = $('#gapsincare').DataTable( {
+    fixedHeader:true,
+    // scrollX:        true,
+    scrollCollapse: true,
+    paging:         true,
+    fixedColumns: false,
+    fnDrawCallback: function( oSettings ) { 
+        renderTable();     
+
+    }
+
+    } );
+    
+     
+
+    renderTable();
+    
+
+    </script>
+
+
+
+    </apex:outputPanel>
+    <script>
+    
+    function hidePopup()
+    {
+    $('#Addmorefields-modal').modal('hide');
+    var loc = window.location.href; 
+    if(/GIC/.test(loc)) {
+    document.getElementById("secondtable").style.display="block";
+    document.getElementById("Previsitplanning").style.display="none";
+    }
+    if(/PVP/.test(url)) {
+    document.getElementById("secondtable").style.display="none";
+    document.getElementById("Previsitplanning").style.display="block";
+    }
+    }
+    function showPopup()
+    {
+    $('#Addmorefields-modal').modal('show');
+    }
+    var customSettingId='';
+    var filterType = '';
+    function fetchCustomSetting(type){
+            // Create a new Remote Object
+            var optavailable = document.getElementById("availablePanel");
+            var optselected = document.getElementById("selectedPanel");
+            optavailable.innerHTML='';
+            optselected.innerHTML = '';
+            var user = '{!$User.Id}';
+            var wh = new RemoteObjectModel.ShowMoreFields();
+           
+            // Use the Remote Object to query for 10 warehouse records
+            wh.retrieve({ where: {Name: {eq: user}}, limit: 1 }, function(err, records, event){
+                if(err) {
+                    alert(err.message);
+                }
+                else {
+                customSettingId = records[0].get("Id");
+                
+                if(type=='PVP')
+                {
+                    var selectedText = records[0].get("PVPSelectedFields"); 
+                    var availableText = records[0].get("PVPUnSeletedFields");
+                    filterType = 'PVP';
+                }
+                if(type=='GIC')
+                {
+                    var selectedText = records[0].get("GICSelectedFields"); 
+                    var availableText = records[0].get("GICUnSeletedFields");
+                    filterType ='GIC';
+                }
+                var optresultForSelected = '';
+                var optresultForUnSelected ='';
+                if(selectedText !='' && selectedText !=null && selectedText != undefined)optresultForSelected = selectedText.split(',');
+                if(availableText !='' && availableText !=null && availableText !=undefined)optresultForUnSelected = availableText.split(',');
+                
+                        for (i = 0; i < optresultForSelected.length; i++)
+                        {
+                           var myOption = document.createElement("option");
+                           myOption.text = optresultForSelected[i];
+                            myOption.value = optresultForSelected[i];
+                            optselected.add(myOption); 
+                        } 
+                        for (i = 0; i < optresultForUnSelected.length; i++)
+                        {
+                           var myOption = document.createElement("option");
+                           myOption.text = optresultForUnSelected[i];
+                            myOption.value = optresultForUnSelected[i];
+                            optavailable.add(myOption); 
+                        }   
+                }
+            });
+            $('#Addmorefields-modal').modal('show');
+        };
+        
+        function addField()
+        {
+           
+           $('#availablePanel option:selected').remove().appendTo('#selectedPanel');
+           
+        }
+        function removeField()
+        {
+           
+           $('#selectedPanel option:selected').remove().appendTo('#availablePanel');
+           
+        }
+        function submitDisplayFields()
+        {
+            $('#Addmorefields-modal').modal('hide');
+            var unselectedValue = '';
+            var user = '{!$User.Id}';
+            
+            $("#availablePanel option").each(function()
+                {
+                  
+                  unselectedValue += $(this).val() + ','; 
+                   
+            });
+            if(selectedValue  !='' && selectedValue  !='')
+            unselectedValue  = unselectedValue.substr(0, unselectedValue.length - 1);
+            
+            var selectedValue = '';
+            $("#selectedPanel option").each(function()
+                {
+                  selectedValue += $(this).val() + ',';         
+                   
+                
+            });
+            if(selectedValue  !='' && selectedValue  !='')
+            selectedValue  = selectedValue.substr(0, selectedValue.length - 1);
+            
+            var up = new  RemoteObjectModel.ShowMoreFields();
+            up.set('Id',customSettingId);
+            up.set('Name', user);
+            if(filterType =='PVP')
+            {
+            up.set('PVPSelectedFields',selectedValue);
+            up.set('PVPUnSeletedFields',unselectedValue  );
+            
+            }
+            if(filterType =='GIC')
+            {
+            up.set('GICSelectedFields',selectedValue);
+            up.set('GICUnSeletedFields',unselectedValue  ); 
+            }
+            up.update();
+              return true;
+            //hidePopup();
+            }
+            function renderTable()
+            {
+                var user = '{!$User.Id}';
+                var wht = new RemoteObjectModel.ShowMoreFields();
+           
+            
+            wht.retrieve({ where: {Name: {eq: user}}, limit: 1 }, function(err, records, event){
+                if(err) {
+                    alert(err.message);
+                }
+                else {
+                
+                
+                    //var selectedText = records[0].get("PVPSelectedFields"); 
+                    var availableText = records[0].get("PVPUnSeletedFields");
+                
+                   // var gicselectedText = records[0].get("GICSelectedFields"); 
+                    var gicavailableText = records[0].get("GICUnSeletedFields");
+                    
+                //var optresultForSelectedPVP = '';
+                var optresultForUnSelectedPVP = ''; 
+                //var optresultForSelectedGIC = '';
+                var optresultForUnSelectedGIC
+                //if(selectedText != '' && selectedText != null && selectedText != undefined)optresultForSelectedPVP = selectedText.split(',');
+                //if(gicselectedText !='' && gicselectedText !=null && gicselectedText !=undefined)optresultForSelectedGIC = gicselectedText.split(',');
+                if(availableText != '' && availableText != null && availableText != undefined)optresultForUnSelectedPVP = availableText.split(',');
+               if(gicavailableText !='' && gicavailableText !=null && gicavailableText !=undefined)optresultForUnSelectedGIC = gicavailableText.split(',');
+                 
+                       /* for (i = 0; i < optresultForSelectedPVP.length; i++)
+                        {
+                            
+                            optresultForSelectedPVP[i] = optresultForSelectedPVP[i].replace(/ /g, '');
+                            
+                            var valth = 'PVPth'+optresultForSelectedPVP[i];
+                              var valtd = 'PVPtd'+optresultForSelectedPVP[i];
+                  
+                              $('[id$="'+valth+'"]').css({"display":"run-in"});
+                              $('[id$="'+valtd+'"]').css({"display":"run-in"});
+                        } 
+                        
+                        for (i = 0; i < optresultForSelectedGIC.length; i++)
+                        {
+                            optresultForSelectedGIC[i] = optresultForSelectedGIC[i].replace(/ /g, '');
+                            var valth = 'GICth'+optresultForSelectedGIC[i];
+                              var valtd = 'GICtd'+optresultForSelectedGIC[i];
+                  
+                              $('[id$="'+valth+'"]').css({"display":"run-in "});
+                              $('[id$="'+valtd+'"]').css({"display":"run-in "});
+                        }*/
+                        
+                        for (i = 0; i < optresultForUnSelectedPVP.length; i++)
+                        {
+                          optresultForUnSelectedPVP[i] = optresultForUnSelectedPVP[i].replace(/ /g, '');
+                            var valth = 'PVPth'+optresultForUnSelectedPVP[i];
+                              var valtd = 'PVPtd'+optresultForUnSelectedPVP[i];
+                              
+                              $('[id$="'+valth+'"]').addClass('th_fields');
+                              $('[id$="'+valtd+'"]').addClass('th_fields');
+                        } 
+                        for (i = 0; i < optresultForUnSelectedGIC.length; i++)
+                        {
+                            optresultForUnSelectedGIC[i] = optresultForUnSelectedGIC[i].replace(/ /g, '');
+                            var valth = 'GICth'+optresultForUnSelectedGIC[i];
+                              var valtd = 'GICtd'+optresultForUnSelectedGIC[i];
+                  
+                              $('[id$="'+valth+'"]').addClass('th_fields');
+                              $('[id$="'+valtd+'"]').addClass('th_fields');
+                        }    
+                }
+            });
+            }
+    </script>
+    <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/typeahead.bundle.min.js.download')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/typeahead.jquery.js.download')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/bootstrap-datepicker.js.download')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/PatDisp.js.download')}"/>
+    <!-- BEGIN # BOOTSNIP INFO -->  
+    <!-- END # BOOTSNIP INFO -->
+    <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0" style="display: none;"></ul>
+    <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+    </body>
+    </apex:form>
+    <apex:remoteObjects jsNamespace="RemoteObjectModel">
+        <apex:remoteObjectModel name="AQRS_Dynamic_Field__c" jsShorthand="ShowMoreFields" fields="Name,Id">
+            <apex:remoteObjectField name="PVPSelectedFields__c" jsShorthand="PVPSelectedFields"/>
+            <apex:remoteObjectField name="PVPUnSelectedFields__c" jsShorthand="PVPUnSeletedFields"/>
+            <apex:remoteObjectField name="GICSelectedFields__c" jsShorthand="GICSelectedFields"/>
+            <apex:remoteObjectField name="GICUnSelectedFields__c" jsShorthand="GICUnSeletedFields"/>
+            
+        </apex:remoteObjectModel>
+    </apex:remoteObjects>
+    </html>
+    </apex:page>

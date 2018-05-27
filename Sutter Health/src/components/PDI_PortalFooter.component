@@ -1,0 +1,35 @@
+<apex:component >
+    <footer>
+        <div class="container"> 
+            <center>
+                <div class="copyright-section"><!-- Start Copyright -->
+                    <div id="footerEmailNewLine">
+                            <!-- Start Contact Info -->
+                            <span style="font-size: 12px;"><a href="#" style="color:white"> {!$Label.PDI_Header_Email_New_Line}</a> <a href="#" style="color:white"><i class="fa fa-phone"></i> {!$Label.PDI_Header_Phone_New_Line} </a> | <a href="{!$Label.PDI_Header_HN_Email} " style="color:white"><i class="fa fa-envelope-o"></i> {!$Label.PDI_HeaderN_Email}</a></span>
+                            
+                            <!-- End Contact Info -->
+                        </div>
+                    <div class="row" id="footerEmail">
+                        <div>
+                            <!-- Start Contact Info -->
+                            <span style="font-size: 12px;"><a href="#" style="color:white"> {!$Label.PDI_Header_Email}</a> <a href="#" style="color:white"><i class="fa fa-phone" ></i> {!$Label.PDI_Header_Phone} </a></span>
+                            
+                            <!-- End Contact Info -->
+                        </div>
+                        
+                        
+                    </div><!-- .row -->
+                    <div class="row">
+                        <div class="foot-up">
+                            &nbsp; &nbsp;&nbsp; &copy; 2016 Sutter Health. All rights reserved. Sutter Health is a registered trademark of Sutter Health®, Reg. U.S. Patent.  Trademark office.
+                        </div>
+                    </div>
+                    
+                </div><!-- End Copyright -->
+            </center>
+        </div> <!-- End Container  -->
+    </footer>
+    <div class="visible-xs">
+        
+    <a href="#" class="backto-top"><apex:image id="upparrow" url="{!URLFOR($Resource.PDI_Portalbootstrap,'images/uparrowicon.png')}"/></a></div>
+</apex:component>

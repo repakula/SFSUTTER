@@ -1,0 +1,1308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Medical Plan</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Medical Plans</value>
+    </caseValues>
+    <fields>
+        <label><!-- Acu/Chiro Other --></label>
+        <name>AcupunctureChiropractic_Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Acupuncture/Chiropractic --></label>
+        <name>Acupuncture_Chiropractic__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>XA01</masterLabel>
+            <translation><!-- XA01 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>XA02</masterLabel>
+            <translation><!-- XA02 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>XA03</masterLabel>
+            <translation><!-- XA03 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>XA04</masterLabel>
+            <translation><!-- XA04 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>XA05</masterLabel>
+            <translation><!-- XA05 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>XA06</masterLabel>
+            <translation><!-- XA06 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>XA07</masterLabel>
+            <translation><!-- XA07 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>XA08</masterLabel>
+            <translation><!-- XA08 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>XA09</masterLabel>
+            <translation><!-- XA09 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>XA10</masterLabel>
+            <translation><!-- XA10 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>XA11</masterLabel>
+            <translation><!-- XA11 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>XA12</masterLabel>
+            <translation><!-- XA12 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>XA13</masterLabel>
+            <translation><!-- XA13 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>XA14</masterLabel>
+            <translation><!-- XA14 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>XA15</masterLabel>
+            <translation><!-- XA15 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>XA16</masterLabel>
+            <translation><!-- XA16 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>XA17</masterLabel>
+            <translation><!-- XA17 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Acu Other --></label>
+        <name>Acupuncture_Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Acupuncture --></label>
+        <name>Acupuncture__c</name>
+        <picklistValues>
+            <masterLabel>AA01</masterLabel>
+            <translation><!-- AA01 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AA02</masterLabel>
+            <translation><!-- AA02 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AA03</masterLabel>
+            <translation><!-- AA03 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AA04</masterLabel>
+            <translation><!-- AA04 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AA05</masterLabel>
+            <translation><!-- AA05 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AA06</masterLabel>
+            <translation><!-- AA06 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AA07</masterLabel>
+            <translation><!-- AA07 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AA08</masterLabel>
+            <translation><!-- AA08 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AA09</masterLabel>
+            <translation><!-- AA09 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AA10</masterLabel>
+            <translation><!-- AA10 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AA11</masterLabel>
+            <translation><!-- AA11 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AA12</masterLabel>
+            <translation><!-- AA12 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AA13</masterLabel>
+            <translation><!-- AA13 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AA14</masterLabel>
+            <translation><!-- AA14 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AA15</masterLabel>
+            <translation><!-- AA15 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AA16</masterLabel>
+            <translation><!-- AA16 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Chiro Other --></label>
+        <name>Chiropractic_Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Chiropractic --></label>
+        <name>Chiropractic__c</name>
+        <picklistValues>
+            <masterLabel>CA01</masterLabel>
+            <translation><!-- CA01 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA02</masterLabel>
+            <translation><!-- CA02 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA03</masterLabel>
+            <translation><!-- CA03 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA04</masterLabel>
+            <translation><!-- CA04 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA05</masterLabel>
+            <translation><!-- CA05 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA06</masterLabel>
+            <translation><!-- CA06 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA07</masterLabel>
+            <translation><!-- CA07 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA08</masterLabel>
+            <translation><!-- CA08 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA09</masterLabel>
+            <translation><!-- CA09 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA10</masterLabel>
+            <translation><!-- CA10 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA11</masterLabel>
+            <translation><!-- CA11 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA12</masterLabel>
+            <translation><!-- CA12 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA13</masterLabel>
+            <translation><!-- CA13 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA14</masterLabel>
+            <translation><!-- CA14 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA15</masterLabel>
+            <translation><!-- CA15 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA16</masterLabel>
+            <translation><!-- CA16 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- CustMed Other --></label>
+        <name>CustomMedical_Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Custom/Medical --></label>
+        <name>Custom_Medical__c</name>
+        <picklistValues>
+            <masterLabel>HE05</masterLabel>
+            <translation><!-- HE05 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HE07</masterLabel>
+            <translation><!-- HE07 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HE55</masterLabel>
+            <translation><!-- HE55 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HE57</masterLabel>
+            <translation><!-- HE57 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML33</masterLabel>
+            <translation><!-- ML33 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML38</masterLabel>
+            <translation><!-- ML38 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML39</masterLabel>
+            <translation><!-- ML39 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Dental Other --></label>
+        <name>Dental_Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dental --></label>
+        <name>Dental__c</name>
+        <picklistValues>
+            <masterLabel>DL01</masterLabel>
+            <translation><!-- DL01 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DL02</masterLabel>
+            <translation><!-- DL02 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DL03</masterLabel>
+            <translation><!-- DL03 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DP01</masterLabel>
+            <translation><!-- DP01 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DP02</masterLabel>
+            <translation><!-- DP02 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DP03</masterLabel>
+            <translation><!-- DP03 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DP04</masterLabel>
+            <translation><!-- DP04 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DP05</masterLabel>
+            <translation><!-- DP05 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DP06</masterLabel>
+            <translation><!-- DP06 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DP07</masterLabel>
+            <translation><!-- DP07 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DP08</masterLabel>
+            <translation><!-- DP08 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DP09</masterLabel>
+            <translation><!-- DP09 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DP10</masterLabel>
+            <translation><!-- DP10 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DP11</masterLabel>
+            <translation><!-- DP11 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DS01</masterLabel>
+            <translation><!-- DS01 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- EC (Early Retiree) --></label>
+        <name>EC_Early_Retiree__c</name>
+    </fields>
+    <fields>
+        <label><!-- EC --></label>
+        <name>EC__c</name>
+    </fields>
+    <fields>
+        <label><!-- EE --></label>
+        <name>EE1__c</name>
+    </fields>
+    <fields>
+        <label><!-- EE --></label>
+        <name>EE2__c</name>
+    </fields>
+    <fields>
+        <label><!-- EE+1(Early Retiree) --></label>
+        <name>EE_1_Early_Retiree__c</name>
+    </fields>
+    <fields>
+        <label><!-- EE+1 --></label>
+        <name>EE_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- EE+2 (Early Retiree) --></label>
+        <name>EE_2_Early_Retiree__c</name>
+    </fields>
+    <fields>
+        <label><!-- EE+2 --></label>
+        <name>EE_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- EE (Early Retiree) --></label>
+        <name>EE_Early_Retiree1__c</name>
+    </fields>
+    <fields>
+        <label><!-- EE (Early Retiree) --></label>
+        <name>EE_Early_Retiree2__c</name>
+    </fields>
+    <fields>
+        <label><!-- EE (Early Retiree) --></label>
+        <name>EE_Early_Retiree__c</name>
+    </fields>
+    <fields>
+        <label><!-- EE --></label>
+        <name>EE__c</name>
+    </fields>
+    <fields>
+        <label><!-- EF(Early Retiree) --></label>
+        <name>EF_Early_Retiree_Sec1__c</name>
+    </fields>
+    <fields>
+        <label><!-- EF (Early Retiree) --></label>
+        <name>EF_Early_Retiree__c</name>
+    </fields>
+    <fields>
+        <label><!-- EF --></label>
+        <name>EF_Sec1__c</name>
+    </fields>
+    <fields>
+        <label><!-- EF --></label>
+        <name>EF__c</name>
+    </fields>
+    <fields>
+        <label><!-- ES (Early Retiree) --></label>
+        <name>ES_Early_Retiree__c</name>
+    </fields>
+    <fields>
+        <label><!-- ES --></label>
+        <name>ES__c</name>
+    </fields>
+    <fields>
+        <label><!-- HDHP --></label>
+        <name>HDHP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ind/Med Other --></label>
+        <name>IndividualMedical_Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Individual/Medical --></label>
+        <name>Individual_Medical__c</name>
+        <picklistValues>
+            <masterLabel>Bronze: MI04</masterLabel>
+            <translation><!-- Bronze: MI04 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold: MI02</masterLabel>
+            <translation><!-- Gold: MI02 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platinum: MI01</masterLabel>
+            <translation><!-- Platinum: MI01 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver: MI03</masterLabel>
+            <translation><!-- Silver: MI03 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Infertility --></label>
+        <name>Infertility__c</name>
+        <picklistValues>
+            <masterLabel>IF20</masterLabel>
+            <translation><!-- IF20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IF50</masterLabel>
+            <translation><!-- IF50 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Large Group Other --></label>
+        <name>Large_GroupMedical_Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Large Group/Medical --></label>
+        <name>Large_Group_Medical__c</name>
+        <picklistValues>
+            <masterLabel>HE01</masterLabel>
+            <translation><!-- HE01 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HE02</masterLabel>
+            <translation><!-- HE02 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HE03</masterLabel>
+            <translation><!-- HE03 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HE04</masterLabel>
+            <translation><!-- HE04 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HE06</masterLabel>
+            <translation><!-- HE06 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HE51</masterLabel>
+            <translation><!-- HE51 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HE52</masterLabel>
+            <translation><!-- HE52 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HE53</masterLabel>
+            <translation><!-- HE53 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HE54</masterLabel>
+            <translation><!-- HE54 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HE56</masterLabel>
+            <translation><!-- HE56 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HL01/HL51</masterLabel>
+            <translation><!-- HL01/HL51 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HL02/HL52</masterLabel>
+            <translation><!-- HL02/HL52 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HL03/HL53</masterLabel>
+            <translation><!-- HL03/HL53 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HL04/HL54</masterLabel>
+            <translation><!-- HL04/HL54 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HL06/HL56</masterLabel>
+            <translation><!-- HL06/HL56 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML01</masterLabel>
+            <translation><!-- ML01 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML02</masterLabel>
+            <translation><!-- ML02 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML03</masterLabel>
+            <translation><!-- ML03 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML04</masterLabel>
+            <translation><!-- ML04 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML05</masterLabel>
+            <translation><!-- ML05 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML06</masterLabel>
+            <translation><!-- ML06 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML07</masterLabel>
+            <translation><!-- ML07 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML08</masterLabel>
+            <translation><!-- ML08 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML09</masterLabel>
+            <translation><!-- ML09 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML10</masterLabel>
+            <translation><!-- ML10 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML11</masterLabel>
+            <translation><!-- ML11 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML12</masterLabel>
+            <translation><!-- ML12 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML13</masterLabel>
+            <translation><!-- ML13 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML14</masterLabel>
+            <translation><!-- ML14 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML15</masterLabel>
+            <translation><!-- ML15 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML16</masterLabel>
+            <translation><!-- ML16 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML17</masterLabel>
+            <translation><!-- ML17 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML18</masterLabel>
+            <translation><!-- ML18 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML19</masterLabel>
+            <translation><!-- ML19 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML20</masterLabel>
+            <translation><!-- ML20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML21</masterLabel>
+            <translation><!-- ML21 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML22</masterLabel>
+            <translation><!-- ML22 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML23</masterLabel>
+            <translation><!-- ML23 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML24</masterLabel>
+            <translation><!-- ML24 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML25</masterLabel>
+            <translation><!-- ML25 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML30</masterLabel>
+            <translation><!-- ML30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML31</masterLabel>
+            <translation><!-- ML31 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML32</masterLabel>
+            <translation><!-- ML32 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML40</masterLabel>
+            <translation><!-- ML40 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Medical Plan Notes --></label>
+        <name>Medical_Plan_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan ID --></label>
+        <name>Medical__c</name>
+        <picklistValues>
+            <masterLabel>Bronze: HS03/HS53</masterLabel>
+            <translation><!-- Bronze: HS03/HS53 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bronze: HS05/HS55</masterLabel>
+            <translation><!-- Bronze: HS05/HS55 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bronze: MI04</masterLabel>
+            <translation><!-- Bronze: MI04 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bronze: MS11</masterLabel>
+            <translation><!-- Bronze: MS11 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bronze: MS16</masterLabel>
+            <translation><!-- Bronze: MS16 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bronze: MS26</masterLabel>
+            <translation><!-- Bronze: MS26 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bronze: SE05/SE55</masterLabel>
+            <translation><!-- Bronze: SE05/SE55 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold: MI02</masterLabel>
+            <translation><!-- Gold: MI02 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold: MS02</masterLabel>
+            <translation><!-- Gold: MS02 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold: MS06</masterLabel>
+            <translation><!-- Gold: MS06 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold: MS07</masterLabel>
+            <translation><!-- Gold: MS07 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold: MS12</masterLabel>
+            <translation><!-- Gold: MS12 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold: MS13</masterLabel>
+            <translation><!-- Gold: MS13 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold: MS17</masterLabel>
+            <translation><!-- Gold: MS17 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold: MS22</masterLabel>
+            <translation><!-- Gold: MS22 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold: MS23</masterLabel>
+            <translation><!-- Gold: MS23 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold: MS27</masterLabel>
+            <translation><!-- Gold: MS27 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HE01</masterLabel>
+            <translation><!-- HE01 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HE01/HE51</masterLabel>
+            <translation><!-- HE01/HE51 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HE02</masterLabel>
+            <translation><!-- HE02 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HE02/HE52</masterLabel>
+            <translation><!-- HE02/HE52 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HE03</masterLabel>
+            <translation><!-- HE03 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HE03/HE53</masterLabel>
+            <translation><!-- HE03/HE53 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HE04</masterLabel>
+            <translation><!-- HE04 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HE04/HE54</masterLabel>
+            <translation><!-- HE04/HE54 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HE05/HE55</masterLabel>
+            <translation><!-- HE05/HE55 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HE06</masterLabel>
+            <translation><!-- HE06 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HE06/HE56</masterLabel>
+            <translation><!-- HE06/HE56 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HE51</masterLabel>
+            <translation><!-- HE51 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HE52</masterLabel>
+            <translation><!-- HE52 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HE53</masterLabel>
+            <translation><!-- HE53 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HE54</masterLabel>
+            <translation><!-- HE54 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HE56</masterLabel>
+            <translation><!-- HE56 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HL01/HL51</masterLabel>
+            <translation><!-- HL01/HL51 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HL02/HL52</masterLabel>
+            <translation><!-- HL02/HL52 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HL03/HL53</masterLabel>
+            <translation><!-- HL03/HL53 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HL04/HL54</masterLabel>
+            <translation><!-- HL04/HL54 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HL06/HL56</masterLabel>
+            <translation><!-- HL06/HL56 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML01</masterLabel>
+            <translation><!-- ML01 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML02</masterLabel>
+            <translation><!-- ML02 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML03</masterLabel>
+            <translation><!-- ML03 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML04</masterLabel>
+            <translation><!-- ML04 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML05</masterLabel>
+            <translation><!-- ML05 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML06</masterLabel>
+            <translation><!-- ML06 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML07</masterLabel>
+            <translation><!-- ML07 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML08</masterLabel>
+            <translation><!-- ML08 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML09</masterLabel>
+            <translation><!-- ML09 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML10</masterLabel>
+            <translation><!-- ML10 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML11</masterLabel>
+            <translation><!-- ML11 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML12</masterLabel>
+            <translation><!-- ML12 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML13</masterLabel>
+            <translation><!-- ML13 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML14</masterLabel>
+            <translation><!-- ML14 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML15</masterLabel>
+            <translation><!-- ML15 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML16</masterLabel>
+            <translation><!-- ML16 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML17</masterLabel>
+            <translation><!-- ML17 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML18</masterLabel>
+            <translation><!-- ML18 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML19</masterLabel>
+            <translation><!-- ML19 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML20</masterLabel>
+            <translation><!-- ML20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML21</masterLabel>
+            <translation><!-- ML21 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML22</masterLabel>
+            <translation><!-- ML22 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML23</masterLabel>
+            <translation><!-- ML23 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML24</masterLabel>
+            <translation><!-- ML24 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML25</masterLabel>
+            <translation><!-- ML25 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML30</masterLabel>
+            <translation><!-- ML30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML31</masterLabel>
+            <translation><!-- ML31 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML32</masterLabel>
+            <translation><!-- ML32 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML34</masterLabel>
+            <translation><!-- ML34 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML35</masterLabel>
+            <translation><!-- ML35 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML36</masterLabel>
+            <translation><!-- ML36 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML37</masterLabel>
+            <translation><!-- ML37 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML40</masterLabel>
+            <translation><!-- ML40 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platinum: MI01</masterLabel>
+            <translation><!-- Platinum: MI01 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platinum: MS03</masterLabel>
+            <translation><!-- Platinum: MS03 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platinum: MS04</masterLabel>
+            <translation><!-- Platinum: MS04 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platinum: MS05</masterLabel>
+            <translation><!-- Platinum: MS05 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platinum: MS18</masterLabel>
+            <translation><!-- Platinum: MS18 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platinum: MS19</masterLabel>
+            <translation><!-- Platinum: MS19 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platinum: MS20</masterLabel>
+            <translation><!-- Platinum: MS20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platinum: MS28</masterLabel>
+            <translation><!-- Platinum: MS28 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platinum: MS29</masterLabel>
+            <translation><!-- Platinum: MS29 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platinum: MS30</masterLabel>
+            <translation><!-- Platinum: MS30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver: HS01/HS51</masterLabel>
+            <translation><!-- Silver: HS01/HS51 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver: HS02/HS52</masterLabel>
+            <translation><!-- Silver: HS02/HS52 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver: HS04/HS54</masterLabel>
+            <translation><!-- Silver: HS04/HS54 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver: HS06/HS56</masterLabel>
+            <translation><!-- Silver: HS06/HS56 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver: MI03</masterLabel>
+            <translation><!-- Silver: MI03 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver: MS08</masterLabel>
+            <translation><!-- Silver: MS08 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver: MS09</masterLabel>
+            <translation><!-- Silver: MS09 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver: MS14</masterLabel>
+            <translation><!-- Silver: MS14 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver: MS15</masterLabel>
+            <translation><!-- Silver: MS15 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver: MS24</masterLabel>
+            <translation><!-- Silver: MS24 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver: MS25</masterLabel>
+            <translation><!-- Silver: MS25 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver: SE04/SE54</masterLabel>
+            <translation><!-- Silver: SE04/SE54 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver: SE06/SE56</masterLabel>
+            <translation><!-- Silver: SE06/SE56 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Plan Type --></label>
+        <name>Medical_type__c</name>
+        <picklistValues>
+            <masterLabel>Individual/Medical</masterLabel>
+            <translation><!-- Individual/Medical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Large Group/Medical</masterLabel>
+            <translation><!-- Large Group/Medical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Small Group/Medical</masterLabel>
+            <translation><!-- Small Group/Medical --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- No Medical Benefit Plan Change --></label>
+        <name>No_Medical_Benefit_Plan_Change__c</name>
+    </fields>
+    <fields>
+        <label><!-- No Optional Benefit Change --></label>
+        <name>No_Optional_Benefit_Change__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other Plan ID --></label>
+        <name>Other_Plan_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan Name (Active) --></label>
+        <name>Plan_Name_Active_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan Name (Active) --></label>
+        <name>Plan_Name_Active_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan Name (Active) --></label>
+        <name>Plan_Name_Active__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan Name (Early Retiree) --></label>
+        <name>Plan_Name_Early_Retiree_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan Name (Early Retiree) --></label>
+        <name>Plan_Name_Early_Retiree_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan Name (Early Retiree) --></label>
+        <name>Plan_Name_Early_Retiree__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prosthetic/Orthotic --></label>
+        <name>Prosthetic_Orthotic__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OP20</masterLabel>
+            <translation><!-- OP20 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Small Group Other --></label>
+        <name>Small_GroupMedical_Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Small Group/Medical --></label>
+        <name>Small_Group_Medical__c</name>
+        <picklistValues>
+            <masterLabel>Bronze: HS03/HS53</masterLabel>
+            <translation><!-- Bronze: HS03/HS53 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bronze: HS05/HS55</masterLabel>
+            <translation><!-- Bronze: HS05/HS55 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bronze: MS11</masterLabel>
+            <translation><!-- Bronze: MS11 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bronze: MS16</masterLabel>
+            <translation><!-- Bronze: MS16 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold: MS02</masterLabel>
+            <translation><!-- Gold: MS02 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold: MS06</masterLabel>
+            <translation><!-- Gold: MS06 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold: MS07</masterLabel>
+            <translation><!-- Gold: MS07 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold: MS12</masterLabel>
+            <translation><!-- Gold: MS12 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold: MS13</masterLabel>
+            <translation><!-- Gold: MS13 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold: MS17</masterLabel>
+            <translation><!-- Gold: MS17 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platinum: MS03</masterLabel>
+            <translation><!-- Platinum: MS03 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platinum: MS04</masterLabel>
+            <translation><!-- Platinum: MS04 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platinum: MS05</masterLabel>
+            <translation><!-- Platinum: MS05 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platinum: MS18</masterLabel>
+            <translation><!-- Platinum: MS18 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platinum: MS19</masterLabel>
+            <translation><!-- Platinum: MS19 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platinum: MS20</masterLabel>
+            <translation><!-- Platinum: MS20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver: HS01/HS51</masterLabel>
+            <translation><!-- Silver: HS01/HS51 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver: HS02/HS52</masterLabel>
+            <translation><!-- Silver: HS02/HS52 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver: HS04/HS54</masterLabel>
+            <translation><!-- Silver: HS04/HS54 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver: HS06/HS56</masterLabel>
+            <translation><!-- Silver: HS06/HS56 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver: MS08</masterLabel>
+            <translation><!-- Silver: MS08 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver: MS09</masterLabel>
+            <translation><!-- Silver: MS09 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver: MS14</masterLabel>
+            <translation><!-- Silver: MS14 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver: MS15</masterLabel>
+            <translation><!-- Silver: MS15 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sold Case Notification medical plan --></label>
+        <name>Sold_Case_Notification__c</name>
+        <relationshipLabel><!-- Medical Plans --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Standard Medical Plan Name --></label>
+        <name>Standard_Medical_Plan_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vision Other --></label>
+        <name>Vision_Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vision --></label>
+        <name>Vision__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VA01</masterLabel>
+            <translation><!-- VA01 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VA02</masterLabel>
+            <translation><!-- VA02 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VA03</masterLabel>
+            <translation><!-- VA03 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VA09</masterLabel>
+            <translation><!-- VA09 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VA10</masterLabel>
+            <translation><!-- VA10 --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Medical Plan Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Medical Plan Other --></label>
+        <name>Medical_Plan_Other</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Standard medical plan --></label>
+        <name>Standard_medical_plan</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please do not add hyper link to Medical Plan Notes. --></errorMessage>
+        <name>Restrict_Hyperlink</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -1,0 +1,218 @@
+<!--
+*     Page Name   : VFP24_Training_Request_Form
+*     Author      : Apoorv Kuchhal
+*     Date        : 26-Aug-2014 
+*     Project Name: CRM - SFT - Sutter Health
+*     Description :Ability for an S3 employee (of any level) to submit a request for Training
+-->
+
+<apex:page docType="html-5.0" standardController="Case" extensions="SH_VFC24_Training_Request_Form" showHeader="false"
+    sidebar="false" applyBodyTag="false" applyHtmlTag="false"
+    action="{!forwardToLoginPage}">
+    
+    <head>
+        <title>{!activePgName}</title>
+        <c:SH_HeaderResource />
+    </head>
+
+    <style>
+    .label {
+        text-align: left;
+    }
+    
+    .color {
+        color: #4A4A56;
+        font-family: Arial, Helvetica, sans-serif;
+        padding-left: 0px;
+    }
+    
+    .Margin {
+        padding-left: 300px;
+    }
+    
+    .bPageBlock {
+        border-top: 4px solid #FFFFFF;
+    }
+    
+    .CustomField {
+        color: rgb(102, 102, 102);
+        font-family: helvetica, arial, sans-serif;
+        font-size: 16px;
+    }
+    
+    .requiredLegend {
+        font-weight: normal;
+        color: White;
+    }
+    </style>
+    
+    <apex:includeScript value="/support/console/22.0/integration.js"/>
+        <script type="text/javascript">
+            
+            function closeTab() {
+                //if (sforce.console.isInConsole()) {    
+                    //First find the ID of the current tab to close it
+                    sforce.console.getEnclosingTabId(closeSubtab);
+                //}      
+            }
+                
+            var closeSubtab = function closeSubtab(result) {
+                //Now that we have the tab ID, we can close it
+                var tabId = result.id;
+                sforce.console.closeTab(tabId);
+            };  
+        </script>
+        
+        <body id="home" class="show-notification menu-open menu-visibility">
+
+        <c:SH_SearchBar isPreview="{!isPreview}" />
+        <!-- notification popup -->
+        <c:SH_Notification isPreview="{!isPreview}" id="notifComponent" Title="{!strTitle}" Description="{!strDescription}" Info="{!strInfo}" BrowserTitle="{!strBrowserTitle}" BrowserDescription="{!strBrowserDescription}" BrowserInfo="{!strBrowserInfo}" BrowserNotify="{!IsBrowser}" Notify="{!IsNotify}"/>
+        
+        <!-- Menu Item -->
+        <c:SH_MenuItem lstMenuItem="{!lstMenuItem }" isPreview="{!isPreview}" Category="{!strCategoryForHelp}" SubCategory="{!strSubCategoryForHelp}"  Team="{!strTeamForHelp}" CustomerIntent="{!strCustomerIntentForHelp}" L1="{!strL1}" L1Id="{!strL1Id}" L2="{!strL2}" L2Id="{!strL2Id}"/>
+
+        <!-- content -->
+        <div id="content-wrapper">
+            <!-- Header-->
+            <c:SH_Header isPreview="{!isPreview}" actiVePg="{!activePgName}"
+                breadCrumbs="{!BreadCrumbs}" />
+
+            <div id="content">
+                    <apex:pageMessages id="pgMsg"/>
+                    <apex:form id="pgform">
+                        <apex:outputPanel id="formarea" rendered="{!!showMsg}">     
+<!--                            <apex:sectionHeader title="Customer Inquiry Edit" subtitle="New Customer Inquiry" /> -->
+            
+                            <apex:pageBlock title="Training Request Form" mode="Edit" id="pb"  >
+                               <apex:pageBlockButtons >
+                                   <!--<apex:commandButton action="{!saveAndSend}"  value="Submit"   reRender="pgMsg, pgform" /> 
+                                   <apex:commandButton action="{!Cancel}" immediate="true" value="Cancel" />-->        
+                                   <apex:commandLink action="{!saveAndSend}" styleClass="btn" value="Submit"   reRender="pgMsg, pgform" />
+                                   <a href="{!strCancelLink}" class="btn">Cancel</a>
+                               </apex:pageBlockButtons>
+                               <br/>
+                            
+                               <!--<apex:pageBlockSection title="Training Information" columns="2" id="pgblk1" collapsible="false" rendered="{!renderform}" >-->
+                               <apex:pageBlockSection title="Training Information" columns="2" id="pgblk1" collapsible="false" >
+                                
+                                <apex:pageBlockSectionItem >
+                                    <apex:outputLabel > Subject </apex:outputLabel>
+                                    <apex:inputField value="{!case.Subject}" required="true" taborderhint="1"/>
+                                </apex:pageBlockSectionItem>
+                                
+                                <apex:pageBlockSectionItem >
+                                    <apex:outputLabel > Requested By </apex:outputLabel>
+                                    <apex:outputField value="{!caseRecord.ContactId}" label="Requested By" /> 
+                                </apex:pageBlockSectionItem>
+                                
+                                <apex:pageBlockSectionItem >
+                                    <apex:outputLabel > Request On Behalf Of </apex:outputLabel>
+                                    <apex:inputField value="{!case.Request_On_Behalf_Of__c}" style="width: 150px; height: 30px;" taborderhint="6"/>
+                                </apex:pageBlockSectionItem>
+                                
+                                <apex:pageBlockSectionItem >
+                                    <apex:outputLabel > Sub Type </apex:outputLabel>
+                                    <apex:inputField value="{!case.Sub_Type__c}" taborderhint="3"/>
+                                </apex:pageBlockSectionItem> 
+                                
+                                <apex:pageBlockSectionItem >
+                                    <apex:outputLabel > SME/Point(s) of Contact </apex:outputLabel>
+                                    <apex:inputField value="{!case.SME_Point_s_of_Contact__c}" style="width: 150px; height: 30px;" required="true" taborderhint="7"/>
+                                </apex:pageBlockSectionItem>
+                                   
+                                <apex:pageBlockSectionItem >
+                                    <apex:outputLabel > Desired Date </apex:outputLabel>
+                                    <apex:inputField value="{!case.Time_Frame__c}" required="true" taborderhint="4"/>
+                                </apex:pageBlockSectionItem>
+                                
+                                <apex:pageBlockSectionItem >
+                                    <apex:outputLabel > Functional Area </apex:outputLabel>
+                                    <apex:inputField value="{!case.Functional_Area__c}" required="true" taborderhint="8"/> 
+                                </apex:pageBlockSectionItem>
+                                
+                                <apex:pageBlockSectionItem >
+                                    <apex:outputLabel > Team </apex:outputLabel>
+                                    <apex:inputField value="{!case.Team_Training__c}" required="true" taborderhint="9"/>
+                                </apex:pageBlockSectionItem>
+                                   
+                                <apex:pageBlockSectionItem >
+                                    <apex:outputLabel > Comments </apex:outputLabel>
+                                    <apex:inputField value="{!case.Internal_Comments__c}" style="width: 400px; height: 50px;" required="true" taborderhint="5"/>
+                                </apex:pageBlockSectionItem>
+                                
+                                <apex:pageBlockSectionItem >
+                                    <apex:outputLabel > Priority </apex:outputLabel>
+                                    <apex:inputField value="{!case.Priority__c}" taborderhint="10"/>
+                                </apex:pageBlockSectionItem>   
+                                
+                                <apex:pageBlockSectionItem >
+                                    <apex:outputLabel > Type </apex:outputLabel>
+                                    <apex:inputField id="TypeTraning" value="{!case.Type_Training__c}" required="true" taborderhint="2" />
+                                </apex:pageBlockSectionItem>
+                                
+                               </apex:pageBlockSection>
+                           </apex:pageBlock>
+                       </apex:outputPanel>
+                    
+                        <apex:outputpanel id="thankyoumsg" rendered="{!showMsg}">
+                           <!--commented on 22-Sep-2015 by Saasfocus to stop redirection
+                            <div>
+                           <p><b>Thank you for your submission. Your Training Request number is {!caseNum}.</b></p>
+                           </div>
+                           
+                           <span style="width:30%;margin-left:150px;">
+                                <apex:commandButton action="{!okay}"  value="OK" />
+                            </span>
+                            -->
+                            <!--added on 22-Sep-2015 by Saasfocus to show success message-->
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <section class="form-section last-section">
+                                            <div style="display:block" class="success-notification">
+                                                <h4>Success! Thank you for your submission.</h4>
+                                                <p>Your Training Request number is {!caseNum}.</p>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </apex:outputpanel>
+                   </apex:form> 
+              </div>
+            </div>
+            
+        <!-- Footer --> 
+        <c:SH_Footer ></c:SH_Footer>
+
+        <script>
+            jQuery(document).ready(function(){
+                jQuery('div[Id$=pb]').css('background-color','#FFFFFF');
+                jQuery('div[Id$=pb]').css('padding-left','20px');
+                jQuery('div[Id$=pb]').css('margin-top','30px');
+                var element = jQuery('div[Id$=pb]').find('.mainTitle').clone();
+                jQuery('div[Id$=pb]').find('.mainTitle').remove();
+                jQuery('div[Id$=pb]').prepend(element);
+                jQuery('.secondaryPalette').css('border-color','#FFFFFF');
+                jQuery('.pbSubheader').css('background-color','#00A9A5');
+                jQuery('.pbSubheader').css('margin-top','20px');
+                jQuery('.mainTitle').css('font-size','36px');
+                jQuery('.mainTitle').css('font-weight','bold');
+                jQuery('.mainTitle').css('width','300px');
+                jQuery('.pbHeader').css('margin-top','20px');
+                jQuery('.pbHeader').css('margin-bottom','20px');
+                jQuery('.labelCol').css('color','rgb(102, 102, 102)');
+                jQuery('.labelCol').css('font-size','16px');
+                jQuery('.labelCol').css('font-family','helvetica, arial, sans-serif');
+                jQuery('Select[Id$=TypeTraning]').closest('td').attr('Colspan','2');
+            });
+        </script>
+        <apex:form >
+            <!-- added on 26-Aug-2015 for Notification -->
+            <apex:inputHidden id="hdnToolArticle" value="{!strToolArticeId}"/>
+            <apex:inputHidden id="hdnBrowserName" value="{!browserName}"/>
+            <apex:actionfunction name="showNotification" action="{!showNotification}" />
+        </apex:form> 
+        </body>     
+</apex:page>

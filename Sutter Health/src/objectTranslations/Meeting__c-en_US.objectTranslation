@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Meeting</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Meetings</value>
+    </caseValues>
+    <fields>
+        <label><!-- Comment --></label>
+        <name>Comment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Food for Thought --></label>
+        <name>Food_for_Thought__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Attendee --></label>
+        <name>Meeting_Attendee__c</name>
+        <relationshipLabel><!-- Meetings --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Meeting Type --></label>
+        <name>Meeting_Type__c</name>
+        <picklistValues>
+            <masterLabel>ChAM</masterLabel>
+            <translation><!-- ChAM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IS/SS/OGC</masterLabel>
+            <translation><!-- IS/SS/OGC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ISSC</masterLabel>
+            <translation><!-- ISSC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ISSC - SAFH</masterLabel>
+            <translation><!-- ISSC - SAFH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ISSC - SAH</masterLabel>
+            <translation><!-- ISSC - SAH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>IS/SS/OGC</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Meeting Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Committee --></label>
+        <name>Committee</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- IS/SS/OGC --></label>
+        <name>IS_SS_OGC</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- One-on-One --></label>
+        <name>One_on_One</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Print --></label>
+        <name>Print</name>
+    </webLinks>
+</CustomObjectTranslation>

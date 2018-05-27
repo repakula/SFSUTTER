@@ -1,0 +1,7 @@
+Dear {!Opportunity.OwnerFullName}, 
+
+The Opportunity for {!Opportunity.Account}/{!Opportunity.DBA__c}{!Opportunity.Employer_Type__c} has been closed as Won on {!Opportunity.CloseDate}, 
+
+New Objects may have been generated if they are applicable to your LOB. Please take the appropriate steps, if necessary. 
+
+Thank you.

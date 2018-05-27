@@ -1,0 +1,886 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Identify Member</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Identify Member</value>
+    </caseValues>
+    <fields>
+        <label><!-- Acknowledge Coaching --></label>
+        <name>Acknowledge_Coaching__c</name>
+        <picklistValues>
+            <masterLabel>Declined</masterLabel>
+            <translation><!-- Declined --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Acknowledge MHO --></label>
+        <name>Acknowledge_MHO__c</name>
+        <picklistValues>
+            <masterLabel>Declined</masterLabel>
+            <translation><!-- Declined --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Active Since Date --></label>
+        <name>Active_Since_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Birthdate --></label>
+        <name>Birthdate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Buildout Epic Shell Account --></label>
+        <name>Buildout_Epic_Shell_Account__c</name>
+    </fields>
+    <fields>
+        <label><!-- Call Back time (PST) --></label>
+        <name>Call_Back_time_PST__c</name>
+    </fields>
+    <fields>
+        <label><!-- Change PCP --></label>
+        <name>Change_PCP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Coaching Date --></label>
+        <name>Coaching_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Coaching Outcome --></label>
+        <name>Coaching_Outcome__c</name>
+        <picklistValues>
+            <masterLabel>Interested /Scheduled call back</masterLabel>
+            <translation><!-- Interested /Scheduled call back --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested/Member will call back to schedule</masterLabel>
+            <translation><!-- Interested/Member will call back to schedule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested/Requested and sent information</masterLabel>
+            <translation><!-- Interested/Requested and sent information --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No time</masterLabel>
+            <translation><!-- No time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not interested/no call back</masterLabel>
+            <translation><!-- Not interested/no call back --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Participating an another program</masterLabel>
+            <translation><!-- Participating an another program --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SHP Nav Transfer</masterLabel>
+            <translation><!-- SHP Nav Transfer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scheduled appointments at time of call</masterLabel>
+            <translation><!-- Scheduled appointments at time of call --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Collect Vital Triage --></label>
+        <name>Collect_Vital_Triage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Completed Date --></label>
+        <name>Completed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Confirm PCP --></label>
+        <name>Confirm_PCP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact County --></label>
+        <name>Contact_County__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Identify Member --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Days Remaining --></label>
+        <name>Days_Remaining__c</name>
+    </fields>
+    <fields>
+        <label><!-- Do Not Call --></label>
+        <name>Do_Not_Call__c</name>
+    </fields>
+    <fields>
+        <label><!-- Effective Date --></label>
+        <name>Effective_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employer Name --></label>
+        <name>Employer_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Epic Record --></label>
+        <name>Epic_Record__c</name>
+        <picklistValues>
+            <masterLabel>Created</masterLabel>
+            <translation><!-- Created --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pre-Existing</masterLabel>
+            <translation><!-- Pre-Existing --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- First Call Date --></label>
+        <name>First_Call_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Call --></label>
+        <name>First_Call__c</name>
+    </fields>
+    <fields>
+        <label><!-- Follow-Up Call Date --></label>
+        <name>Follow_Up_Call_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Follow Up Count --></label>
+        <name>Follow_Up_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- Foundation --></label>
+        <name>Foundation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fourth Call Date --></label>
+        <name>Fourth_Call_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fourth Call --></label>
+        <name>Fourth_Call__c</name>
+    </fields>
+    <fields>
+        <label><!-- Has Member Phone Number --></label>
+        <name>Has_Mamber_Phone_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- High Priority --></label>
+        <name>High_Priority__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Home Number --></label>
+        <name>Home_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- ID Card Followup --></label>
+        <name>ID_Card_Followup__c</name>
+    </fields>
+    <fields>
+        <label><!-- ID Card Received --></label>
+        <name>ID_Card_Received__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- ID Card Sent Date --></label>
+        <name>ID_Card_Sent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Interpreter Needed --></label>
+        <name>Interpreter_Needed__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Language --></label>
+        <name>Language__c</name>
+        <picklistValues>
+            <masterLabel>American Sign Language</masterLabel>
+            <translation><!-- American Sign Language --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Arabic</masterLabel>
+            <translation><!-- Arabic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cambodian</masterLabel>
+            <translation><!-- Cambodian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cantonese (China)</masterLabel>
+            <translation><!-- Cantonese (China) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chinese</masterLabel>
+            <translation><!-- Chinese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Croatian</masterLabel>
+            <translation><!-- Croatian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Czech</masterLabel>
+            <translation><!-- Czech --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Danish</masterLabel>
+            <translation><!-- Danish --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dutch</masterLabel>
+            <translation><!-- Dutch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Filipino</masterLabel>
+            <translation><!-- Filipino --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>French</masterLabel>
+            <translation><!-- French --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>German</masterLabel>
+            <translation><!-- German --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greek</masterLabel>
+            <translation><!-- Greek --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hebrew</masterLabel>
+            <translation><!-- Hebrew --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hindi</masterLabel>
+            <translation><!-- Hindi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hmong</masterLabel>
+            <translation><!-- Hmong --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Iranian</masterLabel>
+            <translation><!-- Iranian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Irish</masterLabel>
+            <translation><!-- Irish --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Italian</masterLabel>
+            <translation><!-- Italian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Japanese</masterLabel>
+            <translation><!-- Japanese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Khmer</masterLabel>
+            <translation><!-- Khmer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Korean</masterLabel>
+            <translation><!-- Korean --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lao</masterLabel>
+            <translation><!-- Lao --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Laotian</masterLabel>
+            <translation><!-- Laotian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Latvian</masterLabel>
+            <translation><!-- Latvian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mandarin (China)</masterLabel>
+            <translation><!-- Mandarin (China) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Norwegian</masterLabel>
+            <translation><!-- Norwegian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Persian</masterLabel>
+            <translation><!-- Persian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Polish</masterLabel>
+            <translation><!-- Polish --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Portuguese</masterLabel>
+            <translation><!-- Portuguese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Punjabi</masterLabel>
+            <translation><!-- Punjabi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Russian</masterLabel>
+            <translation><!-- Russian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Samoan</masterLabel>
+            <translation><!-- Samoan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sino-Tibetan</masterLabel>
+            <translation><!-- Sino-Tibetan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Slovenian</masterLabel>
+            <translation><!-- Slovenian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Somali</masterLabel>
+            <translation><!-- Somali --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spanish</masterLabel>
+            <translation><!-- Spanish --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Swedish</masterLabel>
+            <translation><!-- Swedish --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Thai</masterLabel>
+            <translation><!-- Thai --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tibetan</masterLabel>
+            <translation><!-- Tibetan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ukrainian</masterLabel>
+            <translation><!-- Ukrainian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vietnamese</masterLabel>
+            <translation><!-- Vietnamese --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Last Follow Up Comment --></label>
+        <name>Last_Follow_Up_Comment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Follow Up Date --></label>
+        <name>Last_Follow_Up_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- MHO Outcome --></label>
+        <name>MHO_Outcome__c</name>
+        <picklistValues>
+            <masterLabel>Completed enrollment at time of call</masterLabel>
+            <translation><!-- Completed enrollment at time of call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Does not have technology to complete enrollment</masterLabel>
+            <translation><!-- Does not have technology to complete enrollment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested /Member will call back to enroll</masterLabel>
+            <translation><!-- Interested /Member will call back to enroll --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested /Scheduled call back</masterLabel>
+            <translation><!-- Interested /Scheduled call back --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not interested/no callback</masterLabel>
+            <translation><!-- Not interested/no callback --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Previously enrolled prior to call</masterLabel>
+            <translation><!-- Previously enrolled prior to call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SHP Nav Transfer</masterLabel>
+            <translation><!-- SHP Nav Transfer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technical difficulties/Provided MHO toll free number</masterLabel>
+            <translation><!-- Technical difficulties/Provided MHO toll free number --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Member ID --></label>
+        <name>Member_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Member Name --></label>
+        <name>Member_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Member was provided Instructions to Portal --></help>
+        <label><!-- Member Portal --></label>
+        <name>Member_Portal__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Member Subscriber IM Record --></label>
+        <name>Member_Subscriber_IM_Record__c</name>
+        <relationshipLabel><!-- Non Subscriber IM --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Member Subscriber --></label>
+        <name>Member_Subscriber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mobile Phone --></label>
+        <name>Mobile_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Name --></label>
+        <name>Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Offer Coaching --></label>
+        <name>Offer_CoachingP__c</name>
+        <picklistValues>
+            <masterLabel>Declined</masterLabel>
+            <translation><!-- Declined --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Offered Health Coaching --></label>
+        <name>Offered_Health_Coaching__c</name>
+        <picklistValues>
+            <masterLabel>Health Coaching transfer</masterLabel>
+            <translation><!-- Health Coaching transfer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested /Scheduled call back</masterLabel>
+            <translation><!-- Interested /Scheduled call back --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested/Member will call back to schedule</masterLabel>
+            <translation><!-- Interested/Member will call back to schedule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested/Requested and sent information</masterLabel>
+            <translation><!-- Interested/Requested and sent information --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No time</masterLabel>
+            <translation><!-- No time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not interested/no call back</masterLabel>
+            <translation><!-- Not interested/no call back --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Participating an another program</masterLabel>
+            <translation><!-- Participating an another program --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scheduled appointments at time of call</masterLabel>
+            <translation><!-- Scheduled appointments at time of call --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Offered MHO --></label>
+        <name>Offered_MHO__c</name>
+        <picklistValues>
+            <masterLabel>Completed enrollment at time of call</masterLabel>
+            <translation><!-- Completed enrollment at time of call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Does not have technology to complete enrollment</masterLabel>
+            <translation><!-- Does not have technology to complete enrollment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested /Member will call back to enroll</masterLabel>
+            <translation><!-- Interested /Member will call back to enroll --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested /Scheduled call back</masterLabel>
+            <translation><!-- Interested /Scheduled call back --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MHO transfer</masterLabel>
+            <translation><!-- MHO transfer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not interested/no callback</masterLabel>
+            <translation><!-- Not interested/no callback --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Previously enrolled prior to call</masterLabel>
+            <translation><!-- Previously enrolled prior to call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technical difficulties/Provided MHO toll free number</masterLabel>
+            <translation><!-- Technical difficulties/Provided MHO toll free number --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Offered PCP Registration/Appointment --></label>
+        <name>Offered_PCP_Registration_Appointment__c</name>
+        <picklistValues>
+            <masterLabel>Appointment previously scheduled</masterLabel>
+            <translation><!-- Appointment previously scheduled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Changing PCP at later time</masterLabel>
+            <translation><!-- Changing PCP at later time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Complete Reg/No appointment scheduled</masterLabel>
+            <translation><!-- Complete Reg/No appointment scheduled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed Reg/Scheduled Appointment at time of call</masterLabel>
+            <translation><!-- Completed Reg/Scheduled Appointment at time of call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Established care prior to call</masterLabel>
+            <translation><!-- Established care prior to call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested /Scheduled call back</masterLabel>
+            <translation><!-- Interested /Scheduled call back --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested/Appointment Line Provided</masterLabel>
+            <translation><!-- Interested/Appointment Line Provided --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not interested/not ill</masterLabel>
+            <translation><!-- Not interested/not ill --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- PCP Information --></label>
+        <name>PCP_Information__c</name>
+        <relationshipLabel><!-- Identify Member --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- PCP Practitioner NPI --></label>
+        <name>PCP_Practitioner_NPI__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCP Practitioner Name --></label>
+        <name>PCP_Practitioner_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- PSR Queue Assigned --></label>
+        <name>PSR_Queue_Assigned__c</name>
+    </fields>
+    <fields>
+        <label><!-- PSR Queue --></label>
+        <name>PSR_Queue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Past Appt (Date / PCP) --></label>
+        <name>Past_Appt_Date_PCP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pre Nurse Visit --></label>
+        <name>Pre_Nurse_Visit__c</name>
+        <picklistValues>
+            <masterLabel>Declined</masterLabel>
+            <translation><!-- Declined --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Preferred Communication Method --></label>
+        <name>Preferred_Communication_Method__c</name>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fax</masterLabel>
+            <translation><!-- Fax --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Home Phone</masterLabel>
+            <translation><!-- Home Phone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Basket</masterLabel>
+            <translation><!-- In Basket --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mail</masterLabel>
+            <translation><!-- Mail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Work Phone</masterLabel>
+            <translation><!-- Work Phone --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Preferred Phone Number --></label>
+        <name>Preferred_Phone_Number__c</name>
+        <picklistValues>
+            <masterLabel>Home</masterLabel>
+            <translation><!-- Home --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mobile</masterLabel>
+            <translation><!-- Mobile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Work</masterLabel>
+            <translation><!-- Work --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Previous Plan --></label>
+        <name>Previous_Plan__c</name>
+    </fields>
+    <fields>
+        <label><!-- Priority --></label>
+        <name>Priority__c</name>
+    </fields>
+    <fields>
+        <label><!-- Process Started --></label>
+        <name>Process_Started__c</name>
+    </fields>
+    <fields>
+        <label><!-- Requested PCP --></label>
+        <name>Requested_PCP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Residential Address --></label>
+        <name>Residential_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scheduled Appt w/ PCP --></label>
+        <name>Scheduled_Appt_w_PCP__c</name>
+        <picklistValues>
+            <masterLabel>Declined</masterLabel>
+            <translation><!-- Declined --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Scheduled PCP Visit --></label>
+        <name>Scheduled_PCP_Visit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Second Call Date --></label>
+        <name>Second_Call_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Second Call --></label>
+        <name>Second_Call__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sign-up for MHO --></label>
+        <name>Sign_up_for_MHO__c</name>
+        <picklistValues>
+            <masterLabel>Declined</masterLabel>
+            <translation><!-- Declined --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Coaching</masterLabel>
+            <translation><!-- Coaching --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enrollment</masterLabel>
+            <translation><!-- Enrollment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Incomplete</masterLabel>
+            <translation><!-- Incomplete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scheduling</masterLabel>
+            <translation><!-- Scheduling --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Third Call Date --></label>
+        <name>Third_Call_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Third Call --></label>
+        <name>Third_Call__c</name>
+    </fields>
+    <fields>
+        <label><!-- Upcoming Appt (Date / PCP) --></label>
+        <name>Upcoming_Appt_Date_PCP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Update Demographics --></label>
+        <name>Update_Demographics__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Welcome Packet Followup --></label>
+        <name>Welcome_Packet_Followup__c</name>
+    </fields>
+    <fields>
+        <label><!-- Welcome Packet Received --></label>
+        <name>Welcome_Packet_Received__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Welcome Packet Sent Date --></label>
+        <name>Welcome_Packet_Sent_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Work Phone --></label>
+        <name>Work_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- 60 day queue --></label>
+        <name>X60_day_queue__c</name>
+    </fields>
+    <layouts>
+        <layout>SHP MSR Onboard Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Follow-Up --></label>
+            <section>Follow-Up</section>
+        </sections>
+        <sections>
+            <label><!-- Member Benefit information and Material --></label>
+            <section>Member Benefit information and Material</section>
+        </sections>
+        <sections>
+            <label><!-- Onboarding Checklist --></label>
+            <section>Onboarding Checklist</section>
+        </sections>
+        <sections>
+            <label><!-- PCP Information --></label>
+            <section>PCP Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>SHP Onboard Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Epic --></label>
+            <section>Epic</section>
+        </sections>
+        <sections>
+            <label><!-- Follow-Up --></label>
+            <section>Follow-Up</section>
+        </sections>
+        <sections>
+            <label><!-- Member Benefit information and Material --></label>
+            <section>Member Benefit information and Material</section>
+        </sections>
+        <sections>
+            <label><!-- Onboarding Checklist --></label>
+            <section>Onboarding Checklist</section>
+        </sections>
+        <sections>
+            <label><!-- PCP Information --></label>
+            <section>PCP Information</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Log Onboard Call --></label>
+        <name>Log_Onboard_Call</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Service Request --></label>
+        <name>Service_Request</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Record must be taken out of queue before it can be edited --></errorMessage>
+        <name>Owner_of_record</name>
+    </validationRules>
+</CustomObjectTranslation>

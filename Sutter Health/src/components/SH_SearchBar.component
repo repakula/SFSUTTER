@@ -1,0 +1,245 @@
+<apex:component controller="SH_SearchBarRemoteController" >
+    <apex:attribute name="isPreview" type="Boolean" description="True for preview pages."/>
+  <!-- search top bar -->
+  <style>
+  
+  .commandLink {
+      color: #fff;
+      height: 40px;
+      width: 70px;
+      float: left;
+      line-height: 40px;
+      border-radius: 20px;
+      padding-left: 16px;
+      font-size: 15px;
+    }
+   .search-input-wrapper a{
+       text-decoration:none;
+   }
+   .displayNone{
+    display:none;
+   }
+   @media (max-width: 479px){
+        .search-input-wrapper .commandLink {
+            display: none;
+        }
+    }
+    .Progressloading
+    {
+        background: #bbb4b4 url('{!URLFOR($Resource.SutterHealthCare, 'img/loading7_orange.gif')}') no-repeat right center / 20px 20px !important;
+        
+    }
+    /*added on 18-Aug-2015 for search bar look and feel*/
+    #search-bar input[type=text] {
+      border-radius: 5px;
+      margin-right: 35px;
+    }
+    @media (max-width: 1023px){
+        #search-bar input[type=text] {
+            margin-right: 16px;
+        }
+    }
+    
+    #txtSearchContent::-ms-clear {
+        display: none;
+    }
+    
+  </style>
+    <div id="search-bar" style="z-index: 101;" class="closed" >
+        <div class="container-fluid top-part">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <section class="text-section with-icon">
+                            <span class="data-icon icon-search-big"></span> 
+                            <apex:form id="search-form">
+                                <div class="search-input-wrapper" style="margin-top:15px;">
+                                    <input type="text" autocomplete="off" id="txtSearchContent" name="search" placeholder="enter minimum 3 characters" style="float:left;" class="{!IF(isPreview,'disabled','')}" />                                    
+                                    <apex:outputPanel rendered="{!IF(isPreview, true, false)}" >
+                                        <button id="btnSearchResult" class="background-orange {!IF(isPreview,'disabled','')}" type="submit"><i class="icon icon-arrow-right"></i>Go</button>
+                                    </apex:outputPanel>
+                                    <apex:commandLink id="lnkSearchKey" rendered="{!IF(isPreview, false, true)}" onclick="return ValidateSearchText();" styleClass="commandLink background-orange {!IF(isPreview,'disabled','')}" action="{!RedirectToSearchResultPage}" ><i class="icon icon-arrow-right"></i>Go</apex:commandLink>
+                                </div>
+                                <a style="margin-top:15px;" class="right close search-close" href="">
+                                    <label>Close</label>
+                                    <span class="data-icon icon-dotted-circle right">
+                                        <span class="data-icon icon-menu-close"></span>
+                                    </span>
+                                </a>
+                                <!-- <span style="color:red;float: left;font-size: 10px;margin-top: -5px;" class="displayNone" id="errorMsg"> Minimum 3 characters are required to search.</span>-->
+                               <apex:inputHidden id="hdnSearchContent" value="{!SearchString}"/>
+                            </apex:form> 
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid bottom-part">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <ul id="search-results">
+                            <li>
+                                <h2>
+                                    <i class="data-icon icon-benefits"></i>
+                                    <label></label>
+                                </h2>
+                                <div class="submenu">
+                                    <ul>
+                                        <li>
+                                            <a href="#"></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <h2>
+                                    <i class="data-icon icon-benefits"></i>
+                                    <label></label>
+                                </h2>
+                                <div class="submenu">
+                                    <ul>
+                                        <li>
+                                            <a href="#"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <h2>
+                                    <i class="data-icon icon-benefits"></i>
+                                    <label></label>
+                                </h2>
+                                <div class="submenu">
+                                    <ul>
+                                        <li>
+                                            <a href="#"></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+    
+    <script type="text/javascript">
+        jQuery(document).ready(function($){
+            $(".disabled").attr("disabled", "true");
+            $('[Id$=txtSearchContent]').keyup(function(){  
+                if($(this).val() != '' && $(this).val().length >= 3){
+                    //$('#errorMsg').addClass('displayNone');
+                    //to hide error message from textbox
+                    $('.search-input-wrapper').removeClass('error');
+                    $('[Id$=txtSearchContent]').addClass('Progressloading');                    
+                    getSearchResult();
+                }else{
+                    $('.bottom-part').css('display', 'none');
+                    $('#search-bar .bottom-part').removeClass('show');
+                }
+            });
+            $('[Id$=txtSearchContent]').keypress(function(e){
+                var code = e.keyCode || e.which;
+                 if(code == 13) { //Enter keycode
+                    e.preventDefault();
+                   $('[Id$=lnkSearchKey]').click();
+                 }
+            });
+        }); 
+        function getSearchResult() {
+            var searchString = jQuery('[Id$=txtSearchContent]').val();
+            
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.SH_SearchBarRemoteController.getSearchResult}',
+                searchString, 
+                function(result, event){
+                try{
+                    if (event.status) {  
+                            if(result.length <= 0){
+                                jQuery('[Id$=txtSearchContent]').removeClass('Progressloading');                                
+                                jQuery('.bottom-part').removeClass('show');                                                       
+                                return;
+                            }
+                            
+                            var obj = getJsonFromItems(result);                                   
+                            var toolData = jQuery.grep(obj, function (jsonObject) {                            
+                                return jsonObject.Type == 'TOOL';
+                            });
+                            var articleData = jQuery.grep(obj, function (jsonObject) {                            
+                                return jsonObject.Type != 'TOOL';
+                            });
+                            if(toolData != null || articleData != null){
+                                var toolCategoryHtml = (toolData !=null && toolData.length>0) ? GetCategoryHtml('TOOL', toolData): '';
+                                var articleCategoryHtml = (articleData !=null && articleData.length>0) ? GetCategoryHtml('ARTICLE', articleData): '';                                
+                                var clubbedHtml = toolCategoryHtml + articleCategoryHtml;
+                                jQuery('[Id$=search-results]').html(clubbedHtml);
+                                jQuery('.bottom-part').addClass('show');
+                            }else{
+                                jQuery('.bottom-part').removeClass('show');
+                            }                            
+                        } else if (event.type === 'exception') {
+                            document.getElementById("responseErrors").innerHTML = 
+                                event.message + "<br/>\n<pre>" + event.where + "</pre>";
+                        } else {
+                            document.getElementById("responseErrors").innerHTML = event.message;
+                        }
+                   }catch(err){
+                       console.log(err);
+                   }
+                   jQuery('[Id$=txtSearchContent]').removeClass('Progressloading');
+                }, 
+                {escape: true}
+            );
+        }
+        function getJsonFromItems(resultItem) {
+            /*var jsonResult = "[";
+            for (var k = 0; k < resultItem.length; k++) {
+                jsonResult = jsonResult + "{'Id' : '" + resultItem[k].Id + "'," +
+                                          "'Header' : '" + resultItem[k].Header + "'," +                                                  
+                                          "'Description' : '" + resultItem[k].Description + "'," +
+                                          "'link' : '" + resultItem[k].link + "'," +
+                                          "'Type' : '" + resultItem[k].Type + "'},";
+            }
+                
+            jsonResult = jsonResult.substr(0, jsonResult.length - 1) + "]";        
+            return eval("(" + jsonResult + ")");*/
+            return resultItem;
+        }
+        function ValidateSearchText(){
+            if(jQuery('[id$=txtSearchContent]').val() == '' || jQuery('[id$=txtSearchContent]').val().length < 3){
+                //$('#errorMsg').removeClass('displayNone');
+                //to show error message from textbox
+                jQuery('.search-input-wrapper').addClass('error');
+                return false;
+            }
+            else{
+                jQuery('[id$=hdnSearchContent]').val(jQuery('[id$=txtSearchContent]').val());
+                return true;
+            }
+        }
+        function GetCategoryHtml(CategoryName, items){
+            var topCategory = '<li><h2><i class="data-icon icon-benefits"></i><label>' + CategoryName + '</label></h2><div class="submenu"><ul>';
+            for(var i = 0; i < items.length; i++){
+                topCategory += '<li><a href="' + items[i].link + '">' + items[i].Header + '</a></li>';
+            }                                
+            topCategory += '</ul></div></li>';
+            return topCategory;
+        }
+        
+        function RemoveText()
+        {
+            jQuery('input[Id$=txtSearchContent]').val('');
+        }        
+    </script>
+</apex:component>

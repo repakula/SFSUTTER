@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>KnowledgeArticle$ArticleType</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle$Title</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle.ViewStats$Id</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle.ViewStats$NormalizedScore</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle.ViewStats$Channel</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle.ViewStats$ViewCount</field>
+    </columns>
+    <description>S3 Contract Articles Fields and Versions</description>
+    <filter>
+        <criteriaItems>
+            <column>KnowledgeArticle$ArticleType</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>ka0,ka1,ka2,ka3,ka4,ka5,ka6,ka7,ka8,ka9,kaH</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>S3 Contract Articles View Statistics</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Knowledge_Articles_with_View_Statistics__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>KnowledgeArticle$CreatedDate</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

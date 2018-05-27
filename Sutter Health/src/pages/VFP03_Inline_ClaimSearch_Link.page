@@ -1,0 +1,69 @@
+<!--
+*     Page Name   : VFP03_Inline_ClaimSearch_Link
+*     Author      : IDC Offshore	
+*     Date        : 24-Dec-2013
+*     Project Name: CRM - SFT - Sutter Health
+*     Description : Inline Visual force to show "Search Claims" link on the SHP Interaction log Detail Page.
+-->
+
+<!-- Page Definition: Without sidebar for use in the Service Console, Case sObject as Standard Controller -->
+<apex:page standardController="Case" sidebar="false" id="pg">
+	<!-- Reference to Javascript library for Salesforce Console Integration Toolkit -->
+	<apex:includeScript value="/support/console/28.0/integration.js"/>
+<!-- Table Component to show Search Claims link on the appropriate position on the Page -->	
+<table>
+	<tr>
+		<td width="85%">
+		</td>
+		<td>
+			<!-- OutputLink for Search Claims link that opens Claim Search subtab rendered only when Case in associated to a contact and contact's recordtyp is memeber or provider -->
+			<apex:outputLink id="searchClaimLink" rendered="{!OR(AND(Case.ContactId != null, Case.Contact.Recordtype.Name == $Label.CL08_Member),AND(Case.ContactId != null, Case.Contact.Recordtype.Name == $Label.CL09_SHPProvider))}" onclick="testOpenSubtab_inline();return false"><b>Search Claims</b></apex:outputLink>
+		</td>
+	</tr>
+</table>
+<!-- Script that contains javascript functions to open the subtab -->	
+<script>
+		/** @Description: function called from the inline vf page Search Claims lnk to get the Enclosing Tab's primary Id **/
+		function testOpenSubtab_inline(){
+			/** @Description: First find the ID of the primary tab to put the new subtab in **/
+            sforce.console.getEnclosingPrimaryTabId(openSubtab_inline);
+        }
+        /** @Description: function called to open subtab on click of Search Claims Link on Inline VF Page **/
+        var openSubtab_inline = function openSubtab(result) {
+        	
+            /** @Description: Variables defined to create the parameters string passed to the Claim Search page **/
+			var memberIdText = "memberId";
+			var providerIdText = "providerId";
+			var caseStatusText = "caseStatus";
+			var custIdText = "custId";
+			var equals = "=";
+			var and = "&";
+			var pTab = 'primaryTabId';
+			var mem = '{!Case.Contact.Member_ID__c}';
+			var prov = '{!Case.Contact.Supplier_SPS_Epic_ID__c}';
+			var custStatus = '';
+			var cust = '{!Case.id}';
+			var statusVar = '{!Case.Status}';
+        	if(statusVar == 'Closed'){
+        		custStatus = true;
+        	}
+        	else{
+        		custStatus = false;
+        	}
+        	/** @Description: fetch the primary tab id **/
+            var primaryTabId = result.id;
+            
+			/** @Description: Parameters string created **/
+			var parameters = memberIdText + equals + mem + and + providerIdText + equals + prov + and + caseStatusText + equals + custStatus + and + custIdText + equals + cust + and + pTab + equals + primaryTabId;
+			
+			/** @Description: Open the sub tab by passing the appropriate parameters **/
+            sforce.console.openSubtab(primaryTabId , '/apex/VFP02_Claim_Search?' + parameters, true, 
+                'Claim Search', null, openSuccess_inline, 'Claim Search');
+        };
+        /** @Description: Callback function **/
+        var openSuccess_inline = function openSuccess(result) {
+			/** @Description: Report whether we succeeded in opening the subtab **/
+        };
+        
+</script>
+</apex:page>

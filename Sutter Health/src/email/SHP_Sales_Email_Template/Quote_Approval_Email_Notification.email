@@ -1,0 +1,8 @@
+<html>
+<body>
+Hi,<br/><br/>
+Your Quote <a href="'{!$Label.HR193_QuoteListViewURL}'">{!Proposal__c.Name}</a> and attachements for {!Proposal__c.Account_Name__c}/DBA: {!Proposal__c.DBA__c}, {!Proposal__c.Email_Employer_Type__c} have generated. Please review.
+<br/><br/>
+Thank you.<br/>
+</body>
+</html>

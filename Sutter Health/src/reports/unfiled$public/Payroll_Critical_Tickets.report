@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CASE_NUMBER</field>
+    </columns>
+    <columns>
+        <field>OWNER</field>
+    </columns>
+    <columns>
+        <field>CREATED</field>
+    </columns>
+    <columns>
+        <field>CREATED_DATE</field>
+    </columns>
+    <columns>
+        <field>AGE</field>
+    </columns>
+    <columns>
+        <field>OPEN</field>
+    </columns>
+    <columns>
+        <field>CLOSED</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>STATUS</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Open,Escalated,In Progress,Pending,New,On Hold</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case.Team__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>[Tier 3] Payroll Review,[Tier 3] Payroll Absence Plans,[Tier 3] Payroll Accounting and Banking,[Tier 3] Payroll Deductions,[Tier 3] Payroll Leave Processing,[Tier 3] Payroll Taxes,[Tier 3] Payroll Upload</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>PRIORITY</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Critical</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Payroll Critical Tickets</name>
+    <params>
+        <name>units</name>
+        <value>d</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CaseList</reportType>
+    <scope>useronly</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>OWNER</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATEONLY</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

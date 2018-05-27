@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Benefit Plan Metadata</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Benefit Plan Metadata</value>
+    </caseValues>
+    <fields>
+        <label><!-- Ancillary EOC Version --></label>
+        <name>Ancillary_EOC_Version__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ancillary EOC --></label>
+        <name>Ancillary_EOC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ancillary GSA Version --></label>
+        <name>Ancillary_GSA_Version__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ancillary GSA --></label>
+        <name>Ancillary_GSA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ancillary SOB Version --></label>
+        <name>Ancillary_SOB_Version__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ancillary SOB --></label>
+        <name>Ancillary_SOB__c</name>
+    </fields>
+    <fields>
+        <label><!-- BCM Version --></label>
+        <name>BCM_Version__c</name>
+    </fields>
+    <fields>
+        <label><!-- BCM --></label>
+        <name>BCM__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Grid --></label>
+        <name>Benefit_Grid__c</name>
+        <relationshipLabel><!-- Benefit Plan Metadata --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Benefit Plan ID --></label>
+        <name>Benefit_Plan_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cost Share --></label>
+        <name>Cost_Share__c</name>
+    </fields>
+    <fields>
+        <label><!-- Custom Benefit Plan ID --></label>
+        <name>Custom_Benefit_Plan_ID__c</name>
+        <relationshipLabel><!-- Benefit Plan Metadata --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- DOV --></label>
+        <name>DOV__c</name>
+    </fields>
+    <fields>
+        <help><!-- for a Family of one Member --></help>
+        <label><!-- For self-only enrollment --></label>
+        <name>Deductible__c</name>
+    </fields>
+    <fields>
+        <label><!-- EOC Version --></label>
+        <name>EOC_Version__c</name>
+    </fields>
+    <fields>
+        <label><!-- EOC --></label>
+        <name>EOC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Effective Date --></label>
+        <name>Effective_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Emergency Room --></label>
+        <name>Emergency_Room__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Date --></label>
+        <name>End_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- for Family of two or more Members --></help>
+        <label><!-- For an entire Family --></label>
+        <name>Family_Deductible__c</name>
+    </fields>
+    <fields>
+        <help><!-- for Family of two or more Members --></help>
+        <label><!-- For an entire Family --></label>
+        <name>Family_OOPM__c</name>
+    </fields>
+    <fields>
+        <help><!-- for Family of one or more Members --></help>
+        <label><!-- For any one Member in a Family --></label>
+        <name>Ind_Family_Deductible__c</name>
+    </fields>
+    <fields>
+        <help><!-- for Family of one or more Members --></help>
+        <label><!-- For any one Member in a Family --></label>
+        <name>Ind_Family_OOPM__c</name>
+    </fields>
+    <fields>
+        <label><!-- Inpatient --></label>
+        <name>Inpatient__c</name>
+    </fields>
+    <fields>
+        <label><!-- ActivelyMarketed? --></label>
+        <name>IsActivelyMarketed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Custom Plan? --></label>
+        <name>IsCustom__c</name>
+    </fields>
+    <fields>
+        <label><!-- HMO? --></label>
+        <name>IsHMO__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mirrored? --></label>
+        <name>IsMirrored__c</name>
+    </fields>
+    <fields>
+        <label><!-- PartDCreditable? --></label>
+        <name>IsPartDCreditable__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rider? --></label>
+        <name>IsRider__c</name>
+    </fields>
+    <fields>
+        <label><!-- Market Segment --></label>
+        <name>Market_Segment__c</name>
+        <picklistValues>
+            <masterLabel>Individual</masterLabel>
+            <translation><!-- Individual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Large Group</masterLabel>
+            <translation><!-- Large Group --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Small Group</masterLabel>
+            <translation><!-- Small Group --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Medical OR Rider --></label>
+        <name>Medical_OR_Rider__c</name>
+    </fields>
+    <fields>
+        <label><!-- Object ID --></label>
+        <name>Object_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Office Visit --></label>
+        <name>Office_Visit__c</name>
+    </fields>
+    <fields>
+        <help><!-- for a Family of one Member --></help>
+        <label><!-- For self-only enrollment --></label>
+        <name>Out_of_Pocket_Maximum__c</name>
+    </fields>
+    <fields>
+        <label><!-- Outpatient --></label>
+        <name>Outpatient__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan Name --></label>
+        <name>Plan_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan Related to Account --></label>
+        <name>Plan_Related_to_Account__c</name>
+        <relationshipLabel><!-- Benefit Plan Metadata --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Plan Status --></label>
+        <name>Plan_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan Type --></label>
+        <name>Plan_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan Year --></label>
+        <name>Plan_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Previous Year Plan ID --></label>
+        <name>Previous_Year_Plan_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Class --></label>
+        <name>Product_Class__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Family --></label>
+        <name>Product_Family__c</name>
+        <picklistValues>
+            <masterLabel>Coinsurance</masterLabel>
+            <translation><!-- Coinsurance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HDHP</masterLabel>
+            <translation><!-- HDHP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HMO Local</masterLabel>
+            <translation><!-- HMO Local --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mirrored</masterLabel>
+            <translation><!-- Mirrored --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Split</masterLabel>
+            <translation><!-- Split --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standard</masterLabel>
+            <translation><!-- Standard --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Product Types --></label>
+        <name>Product_Types__c</name>
+        <picklistValues>
+            <masterLabel>HMO</masterLabel>
+            <translation><!-- HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HMO - Plus</masterLabel>
+            <translation><!-- HMO - Plus --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- RX - Tier 1 --></label>
+        <name>RX_Tier_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- RX - Tier 2 --></label>
+        <name>RX_Tier_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- RX - Tier 3 --></label>
+        <name>RX_Tier_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- RX - Tier 4 --></label>
+        <name>RX_Tier_4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rider Cost Share --></label>
+        <name>Rider_Cost_Share__c</name>
+    </fields>
+    <fields>
+        <label><!-- For an entire Family --></label>
+        <name>Rx_Deductible_Family__c</name>
+    </fields>
+    <fields>
+        <label><!-- For any one Member in a Family --></label>
+        <name>Rx_Deductible_Ind_Family__c</name>
+    </fields>
+    <fields>
+        <label><!-- For self-only enrollment --></label>
+        <name>Rx_Deductible_Individual__c</name>
+    </fields>
+    <fields>
+        <label><!-- SBC Version --></label>
+        <name>SBC_Version__c</name>
+    </fields>
+    <fields>
+        <label><!-- SBC --></label>
+        <name>SBC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Specialist Office Visit --></label>
+        <name>Specialist_Office_Visit__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field contains Benefit Plan ID_Plan Year_Plan Name --></help>
+        <label><!-- Unique ID --></label>
+        <name>Unique_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Version Number --></label>
+        <name>Version_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rider Visit Limit --></label>
+        <name>Visit_Limit__c</name>
+    </fields>
+    <fields>
+        <label><!-- distributionChannels --></label>
+        <name>distributionChannels__c</name>
+        <picklistValues>
+            <masterLabel>Direct</masterLabel>
+            <translation><!-- Direct --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Private Exchange</masterLabel>
+            <translation><!-- Private Exchange --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- fundingArrangements --></label>
+        <name>fundingArrangements__c</name>
+        <picklistValues>
+            <masterLabel>Fully Insured</masterLabel>
+            <translation><!-- Fully Insured --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- hixMetalLevel --></label>
+        <name>hixMetalLevel__c</name>
+    </fields>
+    <fields>
+        <label><!-- HDHP? --></label>
+        <name>isHDHP__c</name>
+    </fields>
+    <fields>
+        <label><!-- memberFundings --></label>
+        <name>memberFundings__c</name>
+        <picklistValues>
+            <masterLabel>HSA</masterLabel>
+            <translation><!-- HSA --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- planTypeAlternate --></label>
+        <name>planTypeAlternate__c</name>
+    </fields>
+    <fields>
+        <label><!-- udfplan_marketingPlanName --></label>
+        <name>udfplan_marketingPlanName__c</name>
+    </fields>
+    <layouts>
+        <layout>Benefit Plan Metadata Layout</layout>
+        <sections>
+            <label><!-- Annual Deductible (Not Integrated Unless Otherwise Stated) --></label>
+            <section>Annual Deductible (Not Integrated Unless Otherwise Stated)</section>
+        </sections>
+        <sections>
+            <label><!-- Annual Out of Pocket Maximum (OOPM) (Combined Medical and Pharmacy) --></label>
+            <section>Annual Out of Pocket Maximum (OOPM) (Combined Medical and Pharmacy)</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Documents --></label>
+            <section>Documents</section>
+        </sections>
+        <sections>
+            <label><!-- Rider Details --></label>
+            <section>Rider Details</section>
+        </sections>
+        <sections>
+            <label><!-- Separate Annual Deductible for Prescription Medications --></label>
+            <section>Separate Annual Deductible for Prescription Medications</section>
+        </sections>
+        <sections>
+            <label><!-- Service Details --></label>
+            <section>Service Details</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

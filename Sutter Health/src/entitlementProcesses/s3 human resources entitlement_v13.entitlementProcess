@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntitlementProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <SObjectType>Case</SObjectType>
+    <active>false</active>
+    <businessHours>S3 Business Hours</businessHours>
+    <entryStartDateField>Case.CreatedDate</entryStartDateField>
+    <exitCriteriaFilterItems>
+        <field>Case.IsClosed</field>
+        <operation>equals</operation>
+        <value>true</value>
+    </exitCriteriaFilterItems>
+    <isVersionDefault>true</isVersionDefault>
+    <milestones>
+        <milestoneCriteriaFormula>AND( 
+OR( 
+RecordType.Name = &apos;Human Resources&apos;, 
+RecordType.Name = &apos;Human Resources RO&apos; 
+), 
+
+OR( 
+ISPICKVAL(Customer_Intent__c, &apos;Intern/Externship/Volunteer&apos;), 
+ISPICKVAL(Customer_Intent__c, &apos;Learning Administration&apos;), 
+ISPICKVAL(Customer_Intent__c, &apos;Requisition&apos;), 
+ISPICKVAL(Sub_Function__c, &apos;HR Compensation&apos;), 
+ISPICKVAL(Customer_Intent__c, &apos;On-Boarding&apos;), 
+ISPICKVAL(Customer_Intent__c, &apos;Contingent Staffing&apos;), 
+ISPICKVAL(Customer_Intent__c, &apos;DMC Service Request&apos;), 
+ISPICKVAL(Customer_Intent__c, &apos;MyHIRE&apos;), 
+ISPICKVAL(Customer_Intent__c, &apos;MyPSDP&apos;), 
+ISPICKVAL(Customer_Intent__c, &apos;HR Data&apos;), 
+ISPICKVAL(Customer_Intent__c, &apos;HR Reporting&apos;), 
+ISPICKVAL(Customer_Intent__c, &apos;HRIS User Tool Support&apos;), 
+ISPICKVAL(Customer_Intent__c, &apos;HR-Health &amp; Welfare&apos;), 
+ISPICKVAL(Customer_Intent__c, &apos;Work/Life Event&apos;), 
+ISPICKVAL(Customer_Intent__c, &apos;Open Enrollment&apos;), 
+ISPICKVAL(Customer_Intent__c, &apos;Insurance (Medical, Dental, Vision)&apos;), 
+ISPICKVAL(Customer_Intent__c, &apos;HR-Disability Leave Management&apos;), 
+ISPICKVAL(Customer_Intent__c, &apos;HR - Defined Contribution&apos;), 
+ISPICKVAL(Customer_Intent__c, &apos;Withdraw/Loan Request&apos;), 
+ISPICKVAL(Customer_Intent__c, &apos;Transfer/Rollover/Change Request&apos;), 
+ISPICKVAL(Customer_Intent__c, &apos;Hardship Request&apos;), 
+ISPICKVAL(Customer_Intent__c, &apos;Retirement Inquiry&apos;), 
+ISPICKVAL(Customer_Intent__c, &apos;ERMA/Retiree Medical&apos;), 
+ISPICKVAL(Customer_Intent__c, &apos;RHCA&apos;), 
+ISPICKVAL(Sub_Function__c, &apos;General Inquiry&apos;) 
+), 
+
+NOT( 
+OR( 
+ISPICKVAL(Customer_Sub_Intents__c, &apos;Job Description&apos;), 
+ISPICKVAL(Customer_Sub_Intents__c, &apos;Ad Hoc Report Request&apos;) 
+) 
+) 
+)</milestoneCriteriaFormula>
+        <milestoneName>Resolution</milestoneName>
+        <minutesToComplete>1800</minutesToComplete>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <milestoneCriteriaFormula>AND( 
+OR( 
+RecordType.Name = &apos;Human Resources&apos;, 
+RecordType.Name = &apos;Human Resources RO&apos; 
+), 
+
+ISPICKVAL(Customer_Intent__c, &apos;Workforce Relations&apos;) 
+)</milestoneCriteriaFormula>
+        <milestoneName>Resolution</milestoneName>
+        <minutesToComplete>8400</minutesToComplete>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <milestoneCriteriaFormula>AND( 
+OR( 
+RecordType.Name = &apos;Human Resources&apos;, 
+RecordType.Name = &apos;Human Resources RO&apos; 
+), 
+
+ISPICKVAL(Customer_Intent__c, &apos;HR-Pension/Retiree Benefits&apos;), 
+
+NOT( 
+OR( 
+ISPICKVAL(Customer_Sub_Intents__c, &apos;Pension Benefit Payment Approval&apos;), 
+ISPICKVAL(Customer_Sub_Intents__c, &apos;Benefit Election Packet Mailed&apos;) 
+) 
+) 
+)</milestoneCriteriaFormula>
+        <milestoneName>Resolution</milestoneName>
+        <minutesToComplete>3000</minutesToComplete>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <milestoneCriteriaFormula>OR(
+RecordType.Name = &apos;Human Resources Adhoc Reports&apos;, 
+
+AND( 
+OR( 
+RecordType.Name = &apos;Human Resources&apos;, 
+RecordType.Name = &apos;Human Resources RO&apos;
+), 
+
+ISPICKVAL(Customer_Intent__c, &apos;HR Reporting&apos;), 
+ISPICKVAL(Customer_Sub_Intents__c, &apos;Ad Hoc Report Request&apos;)
+)
+)</milestoneCriteriaFormula>
+        <milestoneName>Resolution</milestoneName>
+        <minutesToComplete>2400</minutesToComplete>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <milestoneCriteriaFormula>AND(
+OR(
+RecordType.Name = &apos;Human Resources&apos;,
+RecordType.Name = &apos;Human Resources RO&apos;
+),
+
+ISPICKVAL(Customer_Intent__c, &apos;HR-Pension/Retiree Benefits&apos;),
+
+ISPICKVAL(Customer_Sub_Intents__c, &apos;Pension Benefit Payment Approval&apos;)
+)</milestoneCriteriaFormula>
+        <milestoneName>Resolution</milestoneName>
+        <minutesToComplete>6000</minutesToComplete>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <milestoneCriteriaFormula>OR(
+RecordType.Name = &apos;Human Resource Job Evaluation Form&apos;,
+
+AND( 
+OR( 
+RecordType.Name = &apos;Human Resources&apos;, 
+RecordType.Name = &apos;Human Resources RO&apos;
+), 
+
+OR( 
+AND( 
+ISPICKVAL(Customer_Intent__c, &apos;Requisition&apos;), 
+ISPICKVAL(Customer_Sub_Intents__c, &apos;Job Description&apos;) 
+), 
+
+AND( 
+ISPICKVAL(Customer_Intent__c, &apos;HR-Pension/Retiree Benefits&apos;), 
+ISPICKVAL(Customer_Sub_Intents__c, &apos;Benefit Election Packet Mailed&apos;) 
+), 
+
+AND( 
+ISPICKVAL(Customer_Intent__c, &apos;Employee Compensation&apos;), 
+ISPICKVAL(Customer_Sub_Intents__c, &apos;Job Evaluation&apos;)	
+) 
+)	
+)
+)</milestoneCriteriaFormula>
+        <milestoneName>Resolution</milestoneName>
+        <minutesToComplete>9000</minutesToComplete>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <name>S3 Human Resources Entitlement_V13</name>
+    <versionMaster>552G0000000V5nu</versionMaster>
+    <versionNumber>1</versionNumber>
+</EntitlementProcess>

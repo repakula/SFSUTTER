@@ -1,0 +1,57 @@
+<messaging:emailTemplate subject="ACTION REQUESTED - Sutter Provider Hub: Approve Access For Your Delegate:  {!relatedTo.Id}" replyTo="{!$Label.CL599_PDIApprovalReplyEmail}" recipientType="Contact" relatedToType="Contact_Validation_Summary__c">
+
+<messaging:htmlEmailBody >
+
+<html>
+<body>
+<table style="Width:700px;">
+<tr>
+<td style="Width:50px;"></td>
+<td style="Width:600px;font-family:Arial, sans-serif; font-size:11px;">
+<table>
+<tr><td><img src="https://suttercrm--sit--c.cs21.content.force.com/servlet/servlet.ImageServer?id=015q00000006VZi&oid=00Dq0000000BnAW&lastMod=1478522482000" height="54" width="162"/> 
+</td></tr>
+<tr valign="top"><td style="background-color:#FFFFFF; bEditID:r1st1; bLabel:header; vertical-align:top; height:5; text-align:left;"><img border="0" beditid="r1sp1" blabel="headerImage" id="r1sp1" src="https://suttercrm--sit--c.cs21.content.force.com/servlet/servlet.ImageServer?id=015q00000006WNi&oid=00Dq0000000BnAW&lastMod=1479214539000"/></td></tr>
+<tr><td>
+<p>Dear {!relatedTo.Name},</p>
+<p>The accuracy and integrity of your business information is a priority at Sutter Health. Accurate data ensures that your patients’ protected health information (PHI), as well as other important business related documents, are delivered to your preferred location. </p>
+<p>Sutter Health providers are asked to validate contact information every 6 months through the Sutter Provider Hub.</p>
+<p>If a patient of yours may ever be seen at a Sutter Health affiliate for future care or outpatient services (e.g. radiology \lab tests), and/or Sutter patients may be referred to you for follow-up care, it is important that you review--and if necessary update--your contact information.</p>
+<p> <span style="font-size=12px; color:Blue;">During a prior validation campaign, you or someone in your office identified a possible delegate to validate/modify your contact information on your behalf. We require your active approval of access for this individual. Approval will allow a Sutter Provider Hub portal account to be set up for the delegate so that he/she can manage your information.</span></p>
+<table border="0" >
+<tr><td><b>Delegate Information on file:</b></td></tr><tr>
+<td><b>Admin Title: </b>{!relatedTo.Admin_Assistant_Title__c}</td></tr>
+<tr><td><b>Admin Name: </b>{!relatedTo.Admin_Assistant__c}</td></tr>
+<tr><td><b>Admin Email: </b>{!relatedTo.Admin_Assistant_Email__c}</td></tr>
+<tr><td><b>Admin Phone: </b>{!relatedTo.Admin_Assistant_Phone__c}</td></tr>
+</table>
+<p><span style="font-size=12px; color:Blue;">Next Step: Please reply and enter “Approve” in the first line of the email body if you would like to authorize the admin identified above to validate your contact information.</span></p>
+<p><span style="font-size=12px; color:Blue;">If you do not respond with “Approve” the admin identified above will not have access to the Sutter Provider Hub to validate your contact information.</span></p>
+<p>For support, please contact the Physician Data Integrity Team at 916-297-9950 or CCPDIT@sutterhealth.org. Additional details are available on the <a href="http://sutterhealth.force.com/FAQ">FAQ</a> guide.</p>
+<p>We appreciate your help with this important effort!</p>
+
+<table border="0">
+<tr><td></td></tr>
+<tr>
+<td>Thank you,</td>
+</tr>
+<tr>
+<td>Arieh Rosenbaum, M.D.</td>
+</tr>
+<tr>
+<td>c/o  Sutter Provider Hub Team</td>
+</tr>
+</table>
+<p><span style="font-size:10.0pt;color:#1F497D">To confirm the authenticity of this message, please feel free to contact the IS Service Desk by phone, or Arieh Rosenbaum, M.D. Chief Medical Information Officer, West Bay Region (Rosenba@Sutterhealth.org)</span></p>
+</td>
+</tr>
+</table>
+</td>
+<td style="Width:50px;">
+</td>
+</tr>
+</table>
+</body>
+</html>
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>

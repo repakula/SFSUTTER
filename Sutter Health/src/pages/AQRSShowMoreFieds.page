@@ -1,0 +1,78 @@
+<apex:page showHeader="false" sidebar="false"><html><body>
+<!-- <style>
+.Available_Fields{width:45%;}
+.Add_and_remove{width:10%;}
+.Selected_Fields{width:45%;}
+</style> -->
+<apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/jquery-1.12.4.js')}"/>
+<script>
+        var fetchCustomSetting = function(){
+            // Create a new Remote Object
+            var user = '{!$User.ID}';
+            var wh = new SObjectModel.ShowMoreFields();
+           
+            // Use the Remote Object to query for 10 warehouse records
+            wh.retrieve({ where: {Name: {eq: user}}, limit: 1 }, function(err, records, event){
+                if(err) {
+                    alert(err.message);
+                }
+                else {
+                var optavailable = document.getElementById("availablePanel");
+                var optselected = document.getElementById("selectedPanel");
+                var selectedText = records[0].get("SelectedFields"); 
+                var availableText = records[0].get("UnSeletedFields");
+                var optresultForSelected = selectedText.split(',');
+                var optresultForUnSelected = availableText.split(',');
+                
+                        for (i = 0; i < optresultForSelected.length; i++)
+                        {
+                           var myOption = document.createElement("option");
+                           myOption.text = optresultForSelected[i];
+                            myOption.value = optresultForSelected[i];
+                            optselected.add(myOption); 
+                        } 
+                        for (i = 0; i < optresultForUnSelected.length; i++)
+                        {
+                           var myOption = document.createElement("option");
+                           myOption.text = optresultForUnSelected[i];
+                            myOption.value = optresultForUnSelected[i];
+                            optavailable.add(myOption); 
+                        }   
+                }
+            });
+        };
+        
+        function addField()
+        {
+           
+           $('#availablePanel option:selected').remove().appendTo('#selectedPanel');
+           
+        }
+        function removeField()
+        {
+           
+           $('#selectedPanel option:selected').remove().appendTo('#availablePanel');
+           
+        }
+    </script><button onclick="fetchCustomSetting();">Retrieve Custom setting</button><br/>
+    
+                <b>Available Fields</b><br/>   
+                <select multiple="true" id="availablePanel"></select>
+                
+                    <p style="clear:both;"></p>
+                    <br/><br/>
+                <button onclick="addField();">Add</button>
+                <button onclick="removeField();">Remove</button><br/>
+                    
+                <b>Selected Fields</b><br/>
+                <select multiple="true" id="selectedPanel"></select>
+                
+                     <apex:remoteObjects >
+        <apex:remoteObjectModel name="ShowMoreFields__c" jsShorthand="ShowMoreFields" fields="Name,Id">
+            <apex:remoteObjectField name="SelectedFields__c" jsShorthand="SelectedFields"/>
+            <apex:remoteObjectField name="UnSeletedFields__c" jsShorthand="UnSeletedFields"/>
+        </apex:remoteObjectModel>
+    </apex:remoteObjects>
+
+ </body></html>
+</apex:page>

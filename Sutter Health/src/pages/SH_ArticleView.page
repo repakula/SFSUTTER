@@ -1,0 +1,152 @@
+<apex:page docType="html-5.0" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" controller="SH_ArticleView" action="{!forwardToLoginPage}">
+    <head>
+        <title>{!activePgName}</title>
+        <c:SH_HeaderResource />
+    </head>
+    <style>
+      .articleDiv , .SuggestedArticle{
+        display:none;
+        width:100%;
+        height:100%;
+    }
+    .SuggestedArticle ul, .SuggestedArticle ol {
+    list-style-type: none!important;
+    }
+    
+    /*fix provided by designing team on 25-Aug-2015 for device compatility*/
+    #contentWrapper {
+        min-width: auto;
+    }
+  </style>
+    <body id="home" class="show-notification search menu-open menu-visibility">
+        <c:SH_SearchBar isPreview="{!isPreview}"/>
+        <!-- notification popup -->
+        <c:SH_Notification id="notifComponent" Title="{!strTitle}" Description="{!strDescription}" Info="{!strInfo}" BrowserTitle="{!strBrowserTitle}" BrowserDescription="{!strBrowserDescription}" BrowserInfo="{!strBrowserInfo}" BrowserNotify="{!IsBrowser}" Notify="{!IsNotify}"/>
+        <!-- Menu Item -->
+        <c:SH_MenuItem lstMenuItem="{!lstMenuItem }" isPreview="{!isPreview}" Category="{!strCategoryForHelp}" SubCategory="{!strSubCategoryForHelp}" Team="{!strTeamForHelp}" customerIntent="{!strCustomerIntentForHelp}" L1="{!strL1}" L1Id="{!strL1Id}" L2="{!strL2}" L2Id="{!strL2Id}"/>
+        
+        <!-- content -->
+        <div id="content-wrapper">
+            <!-- Header-->
+            <c:SH_Header isPreview="{!isPreview}" actiVePg="{!activePgName}" breadCrumbs="{!BreadCrumbs}"/>
+            
+            <div id="content" >
+                <!-- InSufficient privileges Pnl Starts-->
+                <apex:outputPanel id="InSufficientPrivilegePanel" layout="none" rendered="{!showPnl == 'showWarningMsgPnl'}">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <section class="text-section with-icon title">
+                                    <span class="data-icon icon-dotted-circle right forbidden-icon"><span class="data-icon icon-menu-close"></span></span>
+                                    <h1>Insufficient privileges</h1>    
+                                    <p>
+                                        No access page while viewing article.
+                                    </p>
+                                </section>
+        
+                                <section class="section-nav">
+                                    <a class="link background-orange" href="sh_landing">
+                                        <i class="icon icon-arrow-right"></i>
+                                        Back to Home page
+                                    </a>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </apex:outputPanel>
+                <!-- /InSufficient privileges Pnl Ends-->
+                
+                <div class="articleDiv">
+                    <apex:iframe id="iframeKV" src="{!imgBaseUrl + strKnowledgeArticleId}"/>
+                </div>
+                <!-- Suggested Articles starts-->
+                <apex:outputPanel id="SuggestedArticlePanel" layout="none" rendered="{!showPnl == 'showSuggestedArticlePnl'}">
+                    <div class="container SuggestedArticle">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <section class="text-section section-nav">
+                                    <h3>Suggested Articles</h3>
+                                    <ul>
+                                        <apex:repeat value="{!lstSuggestedArticles}" var="suggestedArticle">
+                                            <li><a href="SH_ArticleView?id={!suggestedArticle.strArticleId}"><i class="icon icon-benefits"></i><span class="link-text">{!suggestedArticle.strTitle}</span></a></li>
+                                        </apex:repeat>  
+                                    </ul>
+                                    
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </apex:outputPanel>
+                <!-- /Suggested Articles starts-->
+                
+            </div>
+        </div>
+                
+        <!-- Footer -->
+    <c:SH_Footer ></c:SH_Footer>
+    </body>
+    <apex:form >
+        <script>
+            jQuery(document).ready(function($){
+                InsertHistory();
+            });
+        </script>
+        <apex:actionFunction name="InsertHistory" action="{!CreateHistoryRecord}" rerender="stopPgReload"/>
+        <apex:outputpanel id="stopPgReload"></apex:outputpanel>
+        <!-- added on 25-Aug-2015 for Notification -->
+        <apex:inputHidden id="hdnToolArticle" value="{!strToolArticeId}"/>
+        <apex:inputHidden id="hdnBrowserName" value="{!browserName}"/>
+        <apex:actionfunction name="showNotification" action="{!showNotification}"/>
+    </apex:form>
+    <script>
+    
+        function resizeIframe(obj){
+             {obj.style.height = 0;};
+             {obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';}
+          }
+    
+        jQuery(document).ready(function($) {
+            $('#iframeKV').load(function(){
+                //alert('Inside Ready')
+                $(this).contents().find('#AppBodyHeader').hide();
+                $(this).contents().find('.ptBreadcrumb').hide();
+                $(this).contents().find('.links').hide();
+                $(this).contents().find('.zen').hide();
+                $(this).contents().find('html .brandPrimaryBrd').addClass('pgbrandPrimary');
+                $(this).contents().find('body.hasMotif').addClass('bodyhasMotif');
+                
+                
+                var styletag = ".selected {background: #00A9A5 !important;} .pgbrandPrimary {border : none!important;} .bodyhasMotif {background : none!important; margin :0px!important;} ";
+                
+                /*fix provided by designing team on 25-Aug-2015 for device compatility*/
+                styletag += " #contentWrapper { min-width: 0; } @media only screen and (max-width: 767px) { .knowledgeTOCRendererSections { display: none;} .voteFormPanel .articleRendererBorderRight { border: 0 none;} .voteFormPanel .articleRendererBorderRight .averageRatingPanel { display: none;} .articleRendererToolbar .x-toolbar-right { display: none; }}";
+                
+                /*fix provided by designing team on 12-Sep-2015 for font issue*/
+                styletag += " body.hasMotif, .hasMotif td{ font-family: helvetica, arial, sans-serif  !important;    font-size: 16px; color: #333333;} body .bPageTitle .ptBody h1.noSecondHeader{   font-size: 36px; font-weight: 700; color: #333333; line-height: 36px; padding-bottom:6px; margin:0;} .knowledgeTOCRendererContent .sectionContent table .fieldValue{ color: #666666 !important; } .sfdc_richtext, .sfdc_richtext span{ color: #666666 !important;   font-size:16px !important; font-family: helvetica, arial, sans-serif !important;} .knowledgeTOCRenderer a{ cursor: pointer; font-family: helvetica,arial,sans-serif; font-size: 16px; font-weight: normal; vertical-align: middle;   color:#1c7d73; text-decoration: underline;} .knowledgeTOCRenderer a:hover{ text-decoration: underline; color: #1c7d73;} .sectionName{ margin-top: 0;}";
+                
+                /*fix provided by designing team on 17-Sep-2015 for font issue*/
+                styletag += " @media only screen and (max-width: 767px) { body .bPageTitle .ptBody h1.noSecondHeader { font-size: 24px; line-height: 24px; } .knowledgeTOCRendererContent { padding-left: 0 } .knowledgeTOCRendererContent .sectionName { margin-left: 0; margin-right: 0; } .knowledgeTOCRendererContent .sectionContent { margin-left: 0; margin-right: 0; } .knowledgeTOCRendererContent .sectionContent table .fieldName { font-size: 13px; width: 70px; padding-right: 10px; } .knowledgeTOCRendererContent .sectionContent table .fieldValue { padding-right: 0; } .sfdc_richtext, .sfdc_richtext span, .knowledgeTOCRendererContent .sectionContent table .fieldValue { font-size: 13px !important; } .knowledgeTOCRendererSections { display: none; } }";
+                styletag += " @media only screen and (max-width: 479px) { body .bPageTitle .pageTitleIcon { margin-top: -5px; } body{ -webkit-text-size-adjust: none; } .knowledgeTOCRendererContent .sectionContent table .fieldName { font-size: 12px; width: 65px; } .sfdc_richtext, .sfdc_richtext span, .knowledgeTOCRendererContent .sectionContent table .fieldValue { font-size: 12px !important; } }";
+                
+                styletag += " .knowledgeTOCRenderer { height: auto !important; } .knowledgeTOCRendererContent { height: auto !important; }";
+                
+                styletag += " #iframeKV { overflow: hidden; } #contentWrapper .bodyDiv + table { display: none; } ";
+                
+                $(this).contents().find('style').append(styletag);
+                $(".articleDiv").show();  
+                $(".SuggestedArticle").show();
+                
+                $( window ).resize(function() {
+                    setTimeout(function(){
+                        document.getElementById('iframeKV').style.height = (document.getElementById('iframeKV').contentWindow.document.body.scrollHeight - 80) + "px";
+                    }, 400);
+                }).trigger('resize');
+                
+                $( window ).scroll(function() {
+                    document.getElementById('iframeKV').style.height = (document.getElementById('iframeKV').contentWindow.document.body.scrollHeight - 80) + "px";
+                })
+            });
+       });
+
+  </script>
+</apex:page>

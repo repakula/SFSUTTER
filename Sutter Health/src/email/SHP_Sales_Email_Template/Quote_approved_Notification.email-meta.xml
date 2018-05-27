@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Quote approved Notification</name>
+    <style>none</style>
+    <subject>Quote(s) Approved - Employer Name: {!Proposal__c.Account_Name__c}/DBA: {!Proposal__c.DBA__c} Employer Type: {!Proposal__c.Email_Employer_Type__c}</subject>
+    <textOnly>Hi,
+
+Quote: {!Proposal__c.Name} for {!Proposal__c.Account_Name__c}/DBA: {!Proposal__c.DBA__c}, {!Proposal__c.Email_Employer_Type__c}  has been approved by Sales Team.
+
+Thank you.</textOnly>
+    <type>custom</type>
+</EmailTemplate>

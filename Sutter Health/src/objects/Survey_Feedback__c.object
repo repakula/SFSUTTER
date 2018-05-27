@@ -1,0 +1,2094 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Affiliate__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey_Taken__r.Contact__r.Employee_Affiliate_Facility__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Affiliate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Agent_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey_Taken__r.Case__r.Owner:User.FirstName + &apos; &apos;+ Survey_Taken__r.Case__r.Owner:User.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Agent Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Agent_Outcome__c</fullName>
+        <externalId>false</externalId>
+        <label>Agent Outcome</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Coaching</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Issue Not Applicable to Agent</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>KM Needed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Training</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Aging_Days__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(NOT(ISPICKVAL(Status__c,&apos;closed&apos;)), TODAY() - DATEVALUE(CreatedDate),0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>How long has the feedback item been open?</inlineHelpText>
+        <label>Aging (Days)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey_Taken__r.Case__r.CaseNumber</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Case Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case_Owner__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey_Taken__r.Case__r.Owner:User.FirstName +&apos; &apos;+Survey_Taken__r.Case__r.Owner:User.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Case Owner</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Change_Owner__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Change Owner To</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>User.Profile.Name</field>
+                <operation>contains</operation>
+                <value>S3</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Survey_Feedback</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Closed_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Closed Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Contact_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey_Taken__r.Case__r.Contact_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contact Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Customer_Inquiry_Type_Txt__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Inquiry Type</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Customer_Inquiry_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey_Taken__r.Case__r.Customer_Inquiry_Type__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Customer Inquiry Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Customer_Outcome__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Outcome</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Customer Complaint</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Escalated to Tier 3</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No Customer Response</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Process Issue</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>System Issue</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Customer_Sub_Intent__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Survey_Taken__r.Case__r.Customer_Sub_Intents__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Customer Sub-Intent</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Email_Address_To_Send_Mail1__c</fullName>
+        <externalId>false</externalId>
+        <label>Email Address To Send Mail1</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Email_Address_To_Send_Mail2__c</fullName>
+        <externalId>false</externalId>
+        <label>Email Address To Send Mail2</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Email_Address_To_Send_Mail3__c</fullName>
+        <externalId>false</externalId>
+        <label>Email Address To Send Mail3</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Email_Address_Txt__c</fullName>
+        <externalId>false</externalId>
+        <label>Email Address</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Email_Address__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey_Taken__r.Contact__r.Email</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Email Address</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Employee_Id_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey_Taken__r.Contact__r.Employee_ID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Employee Id Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>InternalURL__c</fullName>
+        <externalId>false</externalId>
+        <formula>LEFT($Api.Partner_Server_URL_260, FIND( &apos;/services&apos;, $Api.Partner_Server_URL_260))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>InternalURL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Is_Email_Need_To_Send__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Email Need To Send</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Job_Title__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey_Taken__r.Contact__r.Title</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Job Title</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Net_Promoter_Category__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>0-6=Detractor 
+7-8= Passive
+9-10= Promoter</inlineHelpText>
+        <label>Net Promoter Category</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Detractor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Passive</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Promoter</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Outcome_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Outcome Comment</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Outcome__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What was the outcome of the survey feedback item?</inlineHelpText>
+        <label>Outcome</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Coaching</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Escalated to Tier 3</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Process Issue</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>System Issue</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Training</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Outside_of_SLA__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Outside of SLA</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Owner__c</fullName>
+        <externalId>false</externalId>
+        <formula>Owner:User.FirstName +&apos; &apos;+ Owner:User.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Owner</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Patient_Account_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey_Taken__r.Case__r.Patient_Account__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Patient Account Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Poor_NPS_Quality_Score_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Poor NPS/Quality Score Reason</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Follow-up Did Not Occur in Time</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Lack of Agent Expertise in Subject Area</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Poor Customer Service Experience</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Received Inaccurate Information</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>S3 Is the Only Option</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Unhappy with Call Tree/Prompts</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Preferred_Call_Back_Number_Txt__c</fullName>
+        <externalId>false</externalId>
+        <label>Preferred Call Back Number</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Preferred_Call_Back_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey_Taken__r.Case__r.Preferred_Callback_Number__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Preferred Call Back Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Priority__c</fullName>
+        <externalId>false</externalId>
+        <label>Priority</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Q_1_Was_your_issue_resolved__c</fullName>
+        <externalId>false</externalId>
+        <label>Q.1 Was your issue resolved? </label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Q_2_Times_you_contacted_S3_for_issue__c</fullName>
+        <externalId>false</externalId>
+        <label>Q.2 # Times you contacted S3 for issue</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Q_3_Rating_on_QoS_you_got_from_initial_a__c</fullName>
+        <externalId>false</externalId>
+        <label>Q.3 Agent quality score rating</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Q_4_Recommend_S3_Center_to_a_colleague__c</fullName>
+        <externalId>false</externalId>
+        <label>Q.4 Likely to recommend S3 (NPS)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Reason_for_Repeat_Call__c</fullName>
+        <externalId>false</externalId>
+        <label>Reason for Repeat Call</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Appeal Process</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Customer Did Not Receive Resolution</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HR Business Partner Related</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Manager Feedback</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No History of Previous Call</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Previous Call Unrelated to Current Issue</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Resolution Prompted Adtl Questions</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SR Closed Prior to Resolution</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Status Update</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Related_Case_Template__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey_Taken__r.Case__r.CaseNumber</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Related Case Template</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Related_Case_URL__c</fullName>
+        <externalId>false</externalId>
+        <label>Related Case URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Related_Case__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;javascript:if(typeof(srcUp)==&apos;function&apos;) {srcUp(&apos;/&quot; &amp; Survey_Taken__r.Case__c &amp; &quot;?isdtp=vw&apos;);}&quot;+ &quot; else {window.location.href=&apos;/&quot; &amp; Survey_Taken__r.Case__c &amp; &quot;&apos;}&quot;, Survey_Taken__r.Case__r.CaseNumber, &quot;_blank&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Related Case</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Requester_Email_Address__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey_Taken__r.Case__r.Requestor_Email__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Requester Email Address</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SR_Path__c</fullName>
+        <externalId>false</externalId>
+        <label>SR Path</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Tier 2</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tier 3</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tier 3 Multi</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Closed</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Sub_Function__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Survey_Taken__r.Case__r.Sub_Function__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sub-Function</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SurveyDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Date_Text__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF ( DATEVALUE(Survey_Taken__r.CreatedDate) &gt;=
+DATE ( YEAR (DATEVALUE(Survey_Taken__r.CreatedDate)),3,1)
++
+(
+14-
+CASE( MOD(DATE ( YEAR (DATEVALUE(Survey_Taken__r.CreatedDate)),3,1) - DATE (1900,1,7),7) ,
+0,7,MOD(DATE ( YEAR (DATEVALUE(Survey_Taken__r.CreatedDate)),3,1) - DATE (1900,1,7),7))
+)
+&amp;&amp;
+DATEVALUE(Survey_Taken__r.CreatedDate) &lt;
+DATE ( YEAR (DATEVALUE(Survey_Taken__r.CreatedDate)),11,1)
++
+(
+7-
+CASE( MOD(DATE ( YEAR (DATEVALUE(Survey_Taken__r.CreatedDate)),11,1) - DATE (1900,1,7),7) ,
+0,7,MOD(DATE ( YEAR (DATEVALUE(Survey_Taken__r.CreatedDate)),11,1) - DATE (1900,1,7),7))
+),
+LEFT ( TEXT (Survey_Taken__r.CreatedDate- 7/24 ), 16),
+LEFT ( TEXT (Survey_Taken__r.CreatedDate- 8/24), 16)
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Survey Date(Text)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Survey_Date__c</fullName>
+        <description>Old field name for Survey Feedback date.</description>
+        <externalId>false</externalId>
+        <formula>Survey_Taken__r.CreatedDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Survey Date (Deprecated)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Feedback_Type__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>&quot;Resolve=A caller has called more then two times and their issue is unresolved. 
+Review=A caller had either a) called more then two times and their issue is resolved or b) Has a survey score that is less than or equal to 6.&quot;</inlineHelpText>
+        <label>Survey Feedback Type</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Resolve</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Review</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Survey_ID_F__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey_Taken__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Survey ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Survey_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;javascript:if(typeof(srcUp)==&apos;function&apos;) {srcUp(&apos;/&quot; &amp; Survey_Taken__r.Id &amp; &quot;?isdtp=vw&apos;);}&quot;+ &quot; else {window.location.href=&apos;/&quot; &amp; Survey_Taken__r.Id &amp; &quot;&apos;}&quot;, Survey_Taken__r.Name, &quot;_blank&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Survey ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Survey_Taken_By_Contact_Txt__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Taken By Contact</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Survey_Taken_By_Contact__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey_Taken__r.Contact__r.FirstName &amp; &apos; &apos; &amp; Survey_Taken__r.Contact__r.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Survey Taken By Contact</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Survey_Taken__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Survey Taken</label>
+        <referenceTo>SurveyTaker__c</referenceTo>
+        <relationshipLabel>Survey Feedbacks</relationshipLabel>
+        <relationshipName>Survey_Feedbacks</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Target_Completion_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What is the Target Completion Date? High Priority=1 Business day and Medium Priority=2 Business Days</inlineHelpText>
+        <label>Target Completion Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Tier_3_Point_of_Contact__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Who is the Tier 3 Point of Contact that is assisting you?</inlineHelpText>
+        <label>Tier 3 Point of Contact</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Unresolved_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Unresolved Reason</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>3rd Party Reliant</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Approvals Pending</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Awaiting Customer Requested Info</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Customer Not Satisfied with Resolution</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Previous Calls Unrelated to Current Issue</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Referred to HRBP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SR in Process</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Timeframe Process Issue</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Vendor_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey_Taken__r.Contact__r.Vendor_ID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Vendor ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Violation__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK(Closed_Date__c ) ,IF( today() &gt; Target_Completion_Date__c ,IMAGE(&quot;/img/entitlement/casemilestone_isviolated.png&quot;,&quot;RED&quot;) ,&apos; &apos;),&apos; &apos;)</formula>
+        <label>Violation</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Who_Closed_Inquiry__c</fullName>
+        <externalId>false</externalId>
+        <label>Who Closed Inquiry</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Tier 1</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tier 2</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tier 3</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Survey Feedback</label>
+    <listViews>
+        <fullName>Accounts_Payable</fullName>
+        <columns>NAME</columns>
+        <columns>Survey_Feedback_Type__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Sub_Function__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Target_Completion_Date__c</columns>
+        <columns>Violation__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Sub_Function__c</field>
+            <operation>equals</operation>
+            <value>Accounts Payable</value>
+        </filters>
+        <label>S3 Accounts Payable</label>
+    </listViews>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Survey_Feedback_Type__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Sub_Function__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Target_Completion_Date__c</columns>
+        <columns>Violation__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Central_Business_Office_CBO</fullName>
+        <columns>NAME</columns>
+        <columns>Survey_Feedback_Type__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Sub_Function__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Target_Completion_Date__c</columns>
+        <columns>Violation__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Sub_Function__c</field>
+            <operation>equals</operation>
+            <value>Central Business Office (CBO)</value>
+        </filters>
+        <label>S3 Central Business Office (CBO)</label>
+    </listViews>
+    <listViews>
+        <fullName>HR_Benefits</fullName>
+        <columns>NAME</columns>
+        <columns>Survey_Feedback_Type__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Sub_Function__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Target_Completion_Date__c</columns>
+        <columns>Violation__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Sub_Function__c</field>
+            <operation>equals</operation>
+            <value>HR Benefits</value>
+        </filters>
+        <label>S3 HR Benefits</label>
+    </listViews>
+    <listViews>
+        <fullName>HR_Compensation_Feedback</fullName>
+        <columns>NAME</columns>
+        <columns>Survey_Feedback_Type__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Sub_Function__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Target_Completion_Date__c</columns>
+        <columns>Violation__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Sub_Function__c</field>
+            <operation>equals</operation>
+            <value>HR Compensation</value>
+        </filters>
+        <label>S3 HR Compensation</label>
+    </listViews>
+    <listViews>
+        <fullName>HR_Defined_Contribution</fullName>
+        <columns>NAME</columns>
+        <columns>Survey_Feedback_Type__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Sub_Function__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Target_Completion_Date__c</columns>
+        <columns>Violation__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Sub_Function__c</field>
+            <operation>equals</operation>
+            <value>Defined Contribution</value>
+        </filters>
+        <label>S3 HR Defined Contribution</label>
+    </listViews>
+    <listViews>
+        <fullName>HR_Information_System_HRIS</fullName>
+        <columns>NAME</columns>
+        <columns>Survey_Feedback_Type__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Sub_Function__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Target_Completion_Date__c</columns>
+        <columns>Violation__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Sub_Function__c</field>
+            <operation>equals</operation>
+            <value>HR Information System (HRIS)</value>
+        </filters>
+        <label>S3 HR Information System (HRIS)</label>
+    </listViews>
+    <listViews>
+        <fullName>HR_Learning</fullName>
+        <columns>NAME</columns>
+        <columns>Survey_Feedback_Type__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Sub_Function__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Target_Completion_Date__c</columns>
+        <columns>Violation__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Sub_Function__c</field>
+            <operation>equals</operation>
+            <value>Learning</value>
+        </filters>
+        <label>S3 HR Learning</label>
+    </listViews>
+    <listViews>
+        <fullName>HR_Pension</fullName>
+        <columns>NAME</columns>
+        <columns>Survey_Feedback_Type__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Sub_Function__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Target_Completion_Date__c</columns>
+        <columns>Violation__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Sub_Function__c</field>
+            <operation>equals</operation>
+            <value>HR Pension</value>
+        </filters>
+        <label>S3 HR Pension</label>
+    </listViews>
+    <listViews>
+        <fullName>HR_Recruitment</fullName>
+        <columns>NAME</columns>
+        <columns>Survey_Feedback_Type__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Sub_Function__c</columns>
+        <columns>Priority__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Target_Completion_Date__c</columns>
+        <columns>Violation__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Sub_Function__c</field>
+            <operation>equals</operation>
+            <value>Recruitment</value>
+        </filters>
+        <label>S3 HR Recruitment</label>
+    </listViews>
+    <listViews>
+        <fullName>HR_Workforce_Relations</fullName>
+        <columns>NAME</columns>
+        <columns>Survey_Feedback_Type__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Sub_Function__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Target_Completion_Date__c</columns>
+        <columns>Violation__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Sub_Function__c</field>
+            <operation>equals</operation>
+            <value>Workforce Relations</value>
+        </filters>
+        <label>S3 HR Workforce Relations</label>
+    </listViews>
+    <listViews>
+        <fullName>Payroll_T_E</fullName>
+        <columns>NAME</columns>
+        <columns>Survey_Feedback_Type__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Sub_Function__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Target_Completion_Date__c</columns>
+        <columns>Violation__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Sub_Function__c</field>
+            <operation>equals</operation>
+            <value>Payroll/T&amp;E</value>
+        </filters>
+        <label>S3 Payroll T&amp;E</label>
+    </listViews>
+    <listViews>
+        <fullName>Purchasing</fullName>
+        <columns>NAME</columns>
+        <columns>Survey_Feedback_Type__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Sub_Function__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Target_Completion_Date__c</columns>
+        <columns>Violation__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Sub_Function__c</field>
+            <operation>equals</operation>
+            <value>Purchasing</value>
+        </filters>
+        <label>S3 Purchasing</label>
+    </listViews>
+    <listViews>
+        <fullName>Recently_Viewed_Survey_Feedback</fullName>
+        <columns>NAME</columns>
+        <columns>Survey_Feedback_Type__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Sub_Function__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Target_Completion_Date__c</columns>
+        <columns>Violation__c</columns>
+        <filterScope>Mine</filterScope>
+        <label>Recently Viewed Survey Feedback</label>
+    </listViews>
+    <listViews>
+        <fullName>Survey_Feedback_Queue_Survey_Feedback</fullName>
+        <columns>NAME</columns>
+        <columns>Survey_Feedback_Type__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Sub_Function__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Target_Completion_Date__c</columns>
+        <columns>Violation__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>Queue:Survey Feedback</label>
+        <queue>Survey_Feedback_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <displayFormat>SF-{00000}</displayFormat>
+        <label>Survey Feedback Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Survey Feedback</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Employee</fullName>
+        <active>true</active>
+        <label>Employee</label>
+        <picklistValues>
+            <picklist>Agent_Outcome__c</picklist>
+            <values>
+                <fullName>Coaching</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Issue Not Applicable to Agent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KM Needed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Training</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Customer_Outcome__c</picklist>
+            <values>
+                <fullName>Customer Complaint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Escalated to Tier 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Customer Response</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System Issue</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Net_Promoter_Category__c</picklist>
+            <values>
+                <fullName>Detractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Promoter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Outcome__c</picklist>
+            <values>
+                <fullName>Coaching</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Escalated to Tier 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Training</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Poor_NPS_Quality_Score_Reason__c</picklist>
+            <values>
+                <fullName>Follow-up Did Not Occur in Time</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lack of Agent Expertise in Subject Area</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Poor Customer Service Experience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Received Inaccurate Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S3 Is the Only Option</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unhappy with Call Tree%2FPrompts</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason_for_Repeat_Call__c</picklist>
+            <values>
+                <fullName>Appeal Process</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Did Not Receive Resolution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HR Business Partner Related</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manager Feedback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No History of Previous Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Previous Call Unrelated to Current Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Resolution Prompted Adtl Questions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SR Closed Prior to Resolution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Status Update</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SR_Path__c</picklist>
+            <values>
+                <fullName>Tier 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tier 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tier 3 Multi</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Survey_Feedback_Type__c</picklist>
+            <values>
+                <fullName>Resolve</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Unresolved_Reason__c</picklist>
+            <values>
+                <fullName>3rd Party Reliant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approvals Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Awaiting Customer Requested Info</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Not Satisfied with Resolution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Previous Calls Unrelated to Current Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referred to HRBP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SR in Process</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Timeframe Process Issue</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Who_Closed_Inquiry__c</picklist>
+            <values>
+                <fullName>Tier 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tier 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tier 3</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Employee_RO</fullName>
+        <active>true</active>
+        <label>Employee RO</label>
+        <picklistValues>
+            <picklist>Agent_Outcome__c</picklist>
+            <values>
+                <fullName>Coaching</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Issue Not Applicable to Agent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KM Needed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Training</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Customer_Outcome__c</picklist>
+            <values>
+                <fullName>Customer Complaint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Escalated to Tier 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Customer Response</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System Issue</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Net_Promoter_Category__c</picklist>
+            <values>
+                <fullName>Detractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Promoter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Outcome__c</picklist>
+            <values>
+                <fullName>Coaching</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Escalated to Tier 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Training</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Poor_NPS_Quality_Score_Reason__c</picklist>
+            <values>
+                <fullName>Follow-up Did Not Occur in Time</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lack of Agent Expertise in Subject Area</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Poor Customer Service Experience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Received Inaccurate Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S3 Is the Only Option</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unhappy with Call Tree%2FPrompts</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason_for_Repeat_Call__c</picklist>
+            <values>
+                <fullName>Appeal Process</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Did Not Receive Resolution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HR Business Partner Related</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manager Feedback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No History of Previous Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Previous Call Unrelated to Current Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Resolution Prompted Adtl Questions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SR Closed Prior to Resolution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Status Update</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SR_Path__c</picklist>
+            <values>
+                <fullName>Tier 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tier 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tier 3 Multi</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Survey_Feedback_Type__c</picklist>
+            <values>
+                <fullName>Resolve</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Unresolved_Reason__c</picklist>
+            <values>
+                <fullName>3rd Party Reliant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approvals Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Awaiting Customer Requested Info</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Not Satisfied with Resolution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Previous Calls Unrelated to Current Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referred to HRBP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SR in Process</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Timeframe Process Issue</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Who_Closed_Inquiry__c</picklist>
+            <values>
+                <fullName>Tier 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tier 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tier 3</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Vendor</fullName>
+        <active>true</active>
+        <label>Vendor</label>
+        <picklistValues>
+            <picklist>Net_Promoter_Category__c</picklist>
+            <values>
+                <fullName>Detractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Promoter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Outcome__c</picklist>
+            <values>
+                <fullName>Coaching</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Escalated to Tier 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Training</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Survey_Feedback_Type__c</picklist>
+            <values>
+                <fullName>Resolve</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Vendor_RO</fullName>
+        <active>true</active>
+        <label>Vendor RO</label>
+        <picklistValues>
+            <picklist>Net_Promoter_Category__c</picklist>
+            <values>
+                <fullName>Detractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Promoter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Outcome__c</picklist>
+            <values>
+                <fullName>Coaching</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Escalated to Tier 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Training</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Survey_Feedback_Type__c</picklist>
+            <values>
+                <fullName>Resolve</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Cannot_change_Feedback_Status_to_New</fullName>
+        <active>true</active>
+        <description>Added as part of Req-3464</description>
+        <errorConditionFormula>AND( NOT( ISPICKVAL( PRIORVALUE( Status__c ) , &apos;New&apos;) ) , ISPICKVAL( Status__c , &apos;New&apos;))</errorConditionFormula>
+        <errorMessage>Status cannot be changed back to &quot;New&quot;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Change_Status_Validation</fullName>
+        <active>false</active>
+        <description>Error if Status changed by User other than Owner (Added as part of Req-3464)</description>
+        <errorConditionFormula>IF(
+AND
+( 
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,$Profile.Name &lt;&gt; &apos;Survey Force Profile&apos;,
+$User.Id &lt;&gt; PRIORVALUE(OwnerId),
+NOT(ISNEW())
+), true, false
+)</errorConditionFormula>
+        <errorMessage>You don&apos;t have permission to edit this survey Feedback record</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Closed_Survey_Feedback_Owner_Change</fullName>
+        <active>true</active>
+        <description>Cannot change owner of closed Feedback (Added as part of Req-3464)</description>
+        <errorConditionFormula>AND(   ISPICKVAL(Status__c,&apos;Closed&apos;)  , ISCHANGED( OwnerId) )</errorConditionFormula>
+        <errorMessage>You can not change the owner for closed request</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Outcome_Comments_Mandatory_on_Closure</fullName>
+        <active>true</active>
+        <errorConditionFormula>if(ISPICKVAL(Status__c,&apos;Closed&apos;) &amp;&amp; ISBLANK(Outcome_Comment__c),true, false)</errorConditionFormula>
+        <errorMessage>Outcome comments cannot be blank while closing the feedback.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Outcome_Mandatory_on_Closure</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(IF(ISPICKVAL(Status__c,&apos;Closed&apos;) &amp;&amp; ISBLANK(Text(Agent_Outcome__c)),true, false),IF(ISPICKVAL(Status__c,&apos;Closed&apos;) &amp;&amp; ISBLANK(Text(Customer_Outcome__c)),true, false))</errorConditionFormula>
+        <errorMessage>Agent Outcome and Customer Outcome cannot be blank while closing the feedback.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Prevent_User_to_Change_Owner_to_Queue</fullName>
+        <active>true</active>
+        <description>This is added as part of Req-3464.</description>
+        <errorConditionFormula>AND(CONTAINS($Profile.Name, &apos;S3&apos;) ,  ISCHANGED( OwnerId )  ,  BEGINS( OwnerId , &apos;00G&apos;))</errorConditionFormula>
+        <errorMessage>You Cannot change the Owner to a Queue. Please select a User.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Survey_Feedback_Owner_is_not_in_Queue</fullName>
+        <active>true</active>
+        <description>This is added as part of Req-3464.</description>
+        <errorConditionFormula>IF 
+(
+AND ($Profile.Name &lt;&gt; &apos;System Administrator&apos;,$Profile.Name &lt;&gt; &apos;Survey Force Profile&apos;, 
+BEGINS(PRIORVALUE(OwnerId), &apos;00G&apos;), NOT(ISNEW())
+), true, false
+)</errorConditionFormula>
+        <errorMessage>You cannot edit the Survey feedback without assigning it to yourself from the queue.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Tier_3_Point_of_Contact_is_Required</fullName>
+        <active>true</active>
+        <description>Tier_3_Point_of_Contact_is_Required</description>
+        <errorConditionFormula>AND(ISBLANK(Tier_3_Point_of_Contact__c),ISPICKVAL( Outcome__c,&apos;Escalated to Tier 3&apos;))</errorConditionFormula>
+        <errorMessage>&quot;Tier 3 Point of Contact&quot; cannot be blank if outcome is &quot;Escalated to Tier 3&quot;.</errorMessage>
+    </validationRules>
+</CustomObject>

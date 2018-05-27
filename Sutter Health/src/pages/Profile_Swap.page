@@ -1,0 +1,324 @@
+<apex:page controller="Profile_Swap_CC" applyHtmlTag="true" applyBodyTag="false" docType="html-5.0" showHeader="true" standardStylesheets="false" cache="false">
+
+<head>
+  <title>Profile Swap</title>
+  <apex:stylesheet value="{!URLFOR($Resource.SLDS100, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />
+</head>
+ <body>
+    <div class="slds"> 
+        <div class="slds-grid slds-grid--align-center">
+            <div  class="slds-box slds-theme--shade slds-col">
+                <div class="slds-popover slds-hide" id="responsePop" role="dialog">
+                    <div id="response" class="slds-popover__body"></div>
+                </div>
+                <h1 class="slds-section__title slds-text-heading--medium slds-text-align--center">Active User Swap</h1>
+                <div class="slds-panel__section slds-has-divider--bottom slds-has-divider--top">
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="primary">Active User :</label>
+                        <div class="slds-form-element__control">
+                            <div class="slds-select_container">
+                                <select class="slds-select" onchange="showDetails(this.value,'primaryDetails'); populateRelated(this);" id="primary"></select>
+                            </div>  
+                        </div>
+                    </div>
+                    
+                    <div class="slds-form-element">
+                      <label class="slds-form-element__label" for="secondary">Inactive User :</label>
+                      <div class="slds-form-element__control">
+                         <div class="slds-select_container">
+                            <select class="slds-select" onchange="showDetails(this.value,'secondaryDetails');" id="secondary"></select>
+                         </div> 
+                       </div>
+                    </div>
+                    
+                    <div class="slds-form-element">
+                        <button class="slds-button slds-button--brand slds-m-top--medium slds-m-bottom--medium" onclick="swapUsers();">Swap Active Users</button>
+                    </div>
+                </div>
+                <div class="slds-col--padded" >
+                    <div class="slds-form-element">
+                        <div id="primaryDetails">
+                        </div>
+                    </div>
+                    <div class="slds-form-element">
+                        <div id="secondaryDetails">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-spinner_container" id="loadSpinner">
+                <div class="slds-spinner slds-spinner--medium" aria-hidden="false" role="alert">
+                  <div class="slds-spinner__dot-a"></div>
+                  <div class="slds-spinner__dot-b"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+/************************
+Purpose: This adds classlist functionality which is not present in IE9
+Parameters: None
+Returns: None
+************************/
+Object.defineProperty(Element.prototype, 'classList', {
+    get: function() {
+        var self = this, bValue = self.className.split(" ")
+
+        bValue.add = function (){
+            var b;
+            for(i in arguments){
+                b = true;
+                for (var j = 0; j<bValue.length;j++){
+                    if (bValue[j] == arguments[i]){
+                        b = false;
+                        break;
+                    }
+                }
+                if(b){
+                    self.className += (self.className?" ":"")+arguments[i];
+                }
+            }
+        }
+        bValue.remove = function(){
+            self.className = "";
+            for(i in arguments){
+                for (var j = 0; j<bValue.length;j++){
+                    if(bValue[j] != arguments[i]){
+                        self.className += (self.className?" " :"")+bValue[j];
+                    }
+                }
+            }
+        }
+        bValue.contains = function(){
+            self.className = "";
+            var isFound = false;
+            for(i in arguments){
+                for (var j = 0; j<bValue.length;j++){
+                    if(bValue[j] == arguments[i]){
+                        isFound = true;
+                    }
+                }
+            }
+            return isFound
+        }
+        bValue.toggle = function(x){
+            var b;
+            if(x){
+                self.className = "";
+                b = false;
+                for (var j = 0; j<bValue.length;j++){
+                    if(bValue[j] != x){
+                        self.className += (self.className?" " :"")+bValue[j];
+                        b = false;
+                    } 
+                    else{
+                        b = true;
+                    }
+                }
+                if(!b){
+                    self.className += (self.className?" ":"")+x;
+                }
+            }
+            else{
+                throw new TypeError("Failed to execute 'toggle': 1 argument required");
+            }
+            return !b;
+        }
+
+        return bValue; 
+    },
+    enumerable: false
+})
+var primaryList;
+var secondaryList;
+/************************
+Purpose: Displays the details of the selected user
+Parameters: selectedvalue is the id of the selected user. Elementid specifies which list the user exists in and which detail element to dispay details in 
+Returns: None
+************************/
+function showDetails(selectedValue,elementId){
+    var innString;
+    var userList;
+    if(elementId == 'primaryDetails'){
+        userList = primaryList;
+        //Clear details on second picklist
+        document.getElementById('secondaryDetails').innerHTML = '';
+        
+    }
+    else if(elementId == 'secondaryDetails'){
+        userList = secondaryList;
+        
+    }
+    for(var i = 0; i < userList.length; i++){
+        
+        if(userList[i].Id == selectedValue){
+            innString = '<b><a target="_blank" href="/' + userList[i].Id + '">' + userList[i].Name + '</a></b><br/>\n' 
+            + '<em>Username:</em> ' + userList[i].Username + '<br/>\n'
+            + '<em>' + (elementId == 'primaryDetails' ? 'Active ' : 'Inactive ' ) + 'Role:</em> ' + (userList[i].UserRole && userList[i].UserRole.Name ? userList[i].UserRole.Name : '') + '<br/>\n' 
+            + '<em>Profile:</em> ' + (userList[i].Profile && userList[i].Profile.Name ? userList[i].Profile.Name : '');
+        }
+    }
+    document.getElementById(elementId).innerHTML = innString;
+}
+
+/************************
+Purpose: Takes the result of the javascript remoting call and display the results as options in the specified element
+Parameters: result and event are standard from javascript remoting.  ElementId specifies the element to add picklist options to 
+Returns: None
+************************/
+function populatePicklist(result, event, elementId) {
+   
+    if (event.status){
+        if(elementId == 'primary'){
+            primaryList = result;
+        }
+        else if(elementId == 'secondary'){
+            secondaryList = result;
+        }
+        var targetNode = document.getElementById(elementId);
+        while(targetNode.firstChild){
+            targetNode.removeChild(targetNode.firstChild);
+        }
+        var node = document.createElement("option");
+        node.setAttribute('value', '');
+        node.innerHTML = '--  None  -- ';
+        targetNode.appendChild(node);
+        for(var i = 0; i < result.length; i++){
+            node = document.createElement("option");
+            node.setAttribute('value', result[i].Id);
+            node.innerHTML = result[i].Name;
+            targetNode.appendChild(node);
+            //innString += "<option value=" + result[i].Id + ">" + result[i].Name + "</option>";
+        }
+
+        //console.log('completed add' + innString);
+    } 
+    else if (event.type === 'exception'){
+        responsePopVisable(true,'warning');
+        document.getElementById('response').innerHTML = 
+            event.message + "<br/>\n<pre>" + event.where + "</pre>";
+    } 
+    else{
+        responsePopVisable(true,'warning');
+        document.getElementById('response').innerHTML = event.message;
+    }
+    loadSpinner();
+}
+
+/************************
+Purpose: Displays the results of the attempted user swap in the response element
+Parameters: result and event are standard from javascript remoting 
+Returns: None
+************************/
+function updateUserReturn(result, event){
+         
+    if(event.status){
+        if(result == 'Update Successful'){
+            responsePopVisable(true,'success');
+        }
+        else{
+            responsePopVisable(true,'warning');
+        }
+        document.getElementById('response').innerHTML = result;
+        window.location.reload(true);
+    } 
+    else if (event.type === 'exception') {
+        responsePopVisable(true,'warning');
+        document.getElementById('response').innerHTML = 
+            event.message + "<br/>\n<pre>" + event.where + "</pre>";
+    }
+    else{
+        responsePopVisable(true,'warning');
+        document.getElementById('response').innerHTML = event.message;
+    }
+    loadSpinner();
+}
+
+/************************
+Purpose: Toggles the visibility of the load spinner
+Parameters: setvisible is truthy then the spinner is displayed else it is hidden
+Returns: None
+************************/
+function loadSpinner(setVisible){
+    if(setVisible && document.getElementById('loadSpinner').className.includes('slds-hide')){
+        document.getElementById('loadSpinner').classList.remove('slds-hide');
+    }
+    else if(!document.getElementById('loadSpinner').className.includes('slds-hide')){
+        document.getElementById('loadSpinner').classList.add('slds-hide');
+    }
+}
+function responsePopVisable(setVisible,responseType){
+    if(setVisible && document.getElementById('responsePop').className.includes('slds-hide')){
+        document.getElementById('responsePop').classList.remove('slds-hide');
+    }
+    else if(!document.getElementById('responsePop').className.includes('slds-hide')){
+        document.getElementById('responsePop').classList.add('slds-hide');
+    }
+    if(responseType == 'warning'){
+        document.getElementById('responsePop').classList.remove('slds-theme--success');
+        document.getElementById('responsePop').classList.add('slds-theme--warning');
+    }
+    else if(responseType == 'success'){
+        document.getElementById('responsePop').classList.remove('slds-theme--warning');
+        document.getElementById('responsePop').classList.add('slds-theme--success');
+    }
+    else{
+        document.getElementById('responsePop').classList.remove('slds-theme--warning');
+        document.getElementById('responsePop').classList.remove('slds-theme--success');
+    }
+}
+
+/*****
+Purpose: Calls the remoteAction to populate the active users picklist 
+Parameters: None
+Returns: None
+************************/
+function availableUsers(){
+    loadSpinner(true);
+    responsePopVisable();
+    Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.Profile_Swap_CC.getActiveUsers}', function(result,event){populatePicklist(result,event,'primary');});
+}
+
+/************************
+Purpose: Calls the remoteAction to populate the inactive users picklist based in the provided active user
+Parameters: selected value is the id of a selected active user
+Returns: None
+************************/
+function populateRelated(selected){
+    loadSpinner(true);
+    responsePopVisable();
+    Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.Profile_Swap_CC.getRelatedUsers}', selected.value, function(result,event){populatePicklist(result,event,'secondary');});
+}
+
+/************************
+Purpose: Calls the remoteAction to swap active and inactive user
+Parameters: None, Active and Inactive values are taken from the value for elements primary and secondary
+Returns: None
+************************/
+function swapUsers(){
+    
+    var primaryId = document.getElementById('primary').value;
+    var secondaryId = document.getElementById('secondary').value;
+    if(primaryId && secondaryId){
+        loadSpinner(true);
+        responsePopVisable();
+        Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.Profile_Swap_CC.swapUsers}', primaryId, secondaryId, function(result,event){updateUserReturn(result,event);});
+    }
+}
+
+//Populate the available active users picklist
+if ( window.addEventListener ) { 
+     window.addEventListener( "load", availableUsers, false );
+  }
+  else 
+     if ( window.attachEvent ) { 
+        window.attachEvent( "onload", availableUsers );
+  } else 
+        if ( window.onLoad ) {
+           window.onload = availableUsers;
+  }
+ 
+</script>
+
+</apex:page>

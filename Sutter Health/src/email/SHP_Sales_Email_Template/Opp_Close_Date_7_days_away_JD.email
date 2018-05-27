@@ -1,0 +1,9 @@
+Account Employer Group Name: {!Account.Name}
+
+Broker Rep Name: {!Account.Broker_Rep__c}
+
+Broker Rep Contact Number: {!Opportunity.Broker_Rep_Phone_Number__c}
+
+Opportunity Name: {!Opportunity.Name}
+
+Opportunity Close Date: {!Opportunity.CloseDate}

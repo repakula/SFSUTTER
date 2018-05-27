@@ -1,0 +1,9 @@
+<html>
+<body>
+Hi,<br/><br/>
+
+RFP/RFR Form:  <a href="'{!$Label.HR200_RFPListViewURL}'">{!Incumbent_Carrier__c.Name}</a> for {!Incumbent_Carrier__c.Account_Name__c}/DBA: {!Incumbent_Carrier__c.DBA_if_any_n__c}, {!Incumbent_Carrier__c.Email_Employer_Type__c} has been submitted for Approval.
+<br/><br/>
+Thank you.<br/>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>KnowledgeArticle$ArticleType</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle$Title</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle.ViewStats$NormalizedScore</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle.ViewStats$Channel</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle.ViewStats$ViewCount</field>
+    </columns>
+    <description>KM Article Views Grouped by Article</description>
+    <filter>
+        <criteriaItems>
+            <column>KnowledgeArticle$ArticleType</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>ka0,ka1,ka2,ka3,ka4,ka5,ka6,ka7,ka8,ka9,kaH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>KnowledgeArticle.ViewStats$Channel</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>-1,0,2</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>KnowledgeArticle$ArticleNumber</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>KM Views Grouped by Article</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Knowledge_Articles_with_View_Statistics__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>KnowledgeArticle$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

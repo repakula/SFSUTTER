@@ -1,0 +1,11 @@
+Hi,
+
+The following escalated case is closed. 
+Case No : {!Case.CaseNumber} 
+Provider name: {!Case.Provider_Name__c} 
+Provider ID : {!Case.Provider_Id_EAF_ID__c} 
+MU Escalation Closed Reason: {!Case.MU_Escalation_Status__c} 
+
+MU Remarks:  {!Case.MU_Comments__c} 
+
+Thank you.

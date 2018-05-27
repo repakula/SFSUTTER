@@ -1,0 +1,373 @@
+<!-- **********************************************************************
+   *     Page Name   : HighRoads_SelectBenefitPlan 
+   *     Author      : IDC - Offshore
+   *     Date        : 6/22/2016
+   *     Project Name: SHP Wave 2 Changes
+   *     Description : Req-3980 - Page is used to select the benefit plans
+   *    Version            Author        Date             Description
+   *     1.0              Deloitte     21-4-2017      @SHP15 Removed standard and Custom table
+   *                                                         Added new condition Standard only to display in Not actively marketed  
+   *                                                         Added new Table for Custom Only
+   ***********************************************************************-->
+<apex:page controller="HighRoads_SelectBenefitPlan" showHeader="false" sidebar="true" id="thePage"> 
+    <apex:includeScript value="https://code.jquery.com/jquery-1.11.1.min.js"/>
+    <apex:includeScript value="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.js"/>
+    <apex:stylesheet value="https://cdn.datatables.net/1.10.7/css/jquery.dataTables.css"/>
+    <head>
+        <apex:includeScript value="{!$Resource.Jquery}"/>
+        <apex:includeScript value="{!$Resource.jqueryBlockUI}"/>
+        <style type="text/css">
+            table.planTable {
+            font-family: verdana,arial,sans-serif;
+            font-size:11px;
+            border: 1px solid #4682B4;
+            border-collapse: collapse;
+            border-radius : 10px;
+            background-color : #BDC3C7;
+            
+            }
+            table.planTable th {
+            <!-- Initial back ground -->
+            color:white;
+            background:#4682B4;
+            <!--background:#b5cfd2;-->
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            <!-- Initial Color -->
+            <!--border-color: #999999;-->
+            border-color:#4682B4;
+            }
+            table.planTable td {
+            background:#EAEDED;
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            }
+            
+            .textBox {
+            font-size: 15px;
+            padding: 4px 3px 4px 6px;
+            border-radius: 6px;
+            } 
+            
+            #overlay {
+            background-color: grey;
+            opacity: 0.5;
+            filter: Alpha(opacity=50); /* IE8 and earlier */
+            color: black;
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            z-index: 5000;
+            top: 0;
+            left: 0;
+            float: left;
+            text-align: center;
+            padding-top: 25%;
+            }
+            
+            .search_categories{
+            font-size: 15px;
+            padding: 7px 5px 7px 10px;
+            border-radius: 6px;
+            }
+            
+            
+        </style>
+        <script>
+        jQuery(window).load(function(){
+            jQuery('#overlay').fadeOut();
+        });
+        function associateRecord(){
+            actionFunName();
+        }
+        function closeAndRefreshParent(){
+            window.opener.location.href="/{!recordId}";
+            self.close();
+        }
+        function createCustomPlan(){
+            //window.open("/a2g/e");
+            window.open('/apex/HighRoads_CreateCustomPlan?accountId='+'{!accountId}');
+        }
+        </script>
+        
+    </head>
+    <div id="overlay">
+        <img src="{!URLFOR($Resource.Processing_Image)}" alt="Loading" /><br/>
+        Please wait...
+    </div>
+    <div id = "page" width="90%">
+        
+        
+        <apex:form id="theForm">
+                   
+               
+            <apex:actionFunction name="actionFunName" action="{!checkSelectedValues}" reRender="thePage" />
+            <apex:pageBlock title="Medical Plans">
+                <apex:commandButton value="Search" action="{!sortPlans}" style="float:right;" />
+                &nbsp;&nbsp;<apex:inputText value="{!searchPlanName}" styleClass="textBox"  style="float:right;" html-placeholder="Enter the plan name.." />
+                
+                        <apex:selectList value="{!searchElement}" multiselect="false" size="1" styleClass="search_categories">
+                            <apex:selectOptions value="{!SearchPlans}"/>
+                            <apex:actionSupport event="onchange"  action="{!retrievePlansforSearch}" />
+                        </apex:selectList>
+
+                <br/><br/>
+                <apex:commandButton style="float:right;" value="Initiate Custom Plan" onclick="createCustomPlan();" rendered="{!IF(employerType != NULL && employerType != '' && employerType != 'Small Mid-Market Group (51 - 100)' && employerType != 'Small Group (1 - 50)',true,false)}" />
+                <apex:commandButton style="float:right;" value="Associate Plans" action="{!associatePlans}" oncomplete="closeAndRefreshParent();" />
+                <apex:commandButton style="float:right;" value="Cancel" action="{!backFromMedical}" /><br/><br/>
+                <apex:pageMessages ></apex:pageMessages>
+                <apex:outputPanel id="outerPanel">
+                    <apex:outputPanel rendered="{!IF(retrievePlanList != NULL && retrievePlanList.size>0,true,false)}">
+                        <table border="0" id="planTable" class="planTable" style="width:90%" align="center">
+                            <thead>
+                                <tr>
+                                    <th style="width:15%">Plan ID/Plan Name</th>
+                                    <th style="width:3%"><center>Selected</center></th>
+                                    <th style="width:10%"><center>Annual Deductible</center><br/>Indv/Indv+Mem/Family</th>
+                                    <th style="width:10%"><center>Annual OOPM</center><br/>Indv/Indv+Mem/Family</th>
+                                    <th style="width:10%"><center>OV/SOV</center></th>
+                                    <th style="width:5%"><center>InPatient</center></th>
+                                    <th style="width:5%"><center>OutPatient<br/>Surgery</center></th>
+                                    <th style="width:10%"><center>Rx</center><br/>Tier 1/2/3/4</th>
+                                    <th style="width:5%"><center>Rx Deductible</center><br/>Indv/Indv+Mem/Family</th>
+                                    <th style="width:5%"><center>Product</center></th>
+                                    <th style="width:5%"><center>Custom<br/>Plan?</center></th>
+                                    <th style="width:7%"><center>Associate Riders</center></th>
+                                   <!--  <apex:outputPanel rendered="{!IF(searchElement != 'Custom',true,false)}">
+                                        <th style="width:10%">Custom Plan Details</th>               
+                                    </apex:outputPanel> -->
+                                    
+                                </tr><br/>
+                            </thead>
+                            <apex:repeat value="{!retrievePlanList}" var="plan">
+                                <apex:outputPanel rendered="{!IF(searchElement == 'Custom' &&  plan.planType =='Custom' && plan.isCustom == true,true,false)}" id="Custom">
+                                    <tr>
+                                        <td><apex:outputLink value="/{!plan.plan}" title="Detail Plan" target="_blank" style="height:5px;">{!plan.planId}</apex:outputLink>/<br/>
+                                            <apex:outputLink value="/{!plan.benefitGridId}" title="Detail Plan" target="_blank" style="height:5px;color:blue;" rendered="{!IF(plan.benefitGridId != NULL,true,false)}">{!plan.planName}</apex:outputLink>
+                                        </td>
+                                        <td><apex:inputCheckbox label="Selected" value="{!plan.isSelected}" onclick="associateRecord();" /></td>
+                                        
+                                        <td><apex:outputLabel rendered="{!IF(plan.deductible != NULL || plan.familydeductible != NULL || plan.indfamilydeductible != NULL,true,false)}">{!plan.deductible}/{!plan.indfamilydeductible}/{!plan.familydeductible}</apex:outputLabel></td>
+                                        <td><apex:outputLabel rendered="{!IF(plan.outOfPocketMaximum != NULL || plan.familyoopm != NULL || plan.indfamilyoopm != NULL,true,false)}">{!plan.outOfPocketMaximum}/{!plan.indfamilyoopm}/{!plan.familyoopm}</apex:outputLabel></td>
+                                        <td>{!plan.officeVisit}/{!plan.specialistOfficeVisit}</td>
+                                        <td>{!plan.inpatient}</td>
+                                        <td>{!plan.outPatient}</td>
+                                        <td><apex:outputLabel rendered="{!IF(plan.rxTier1 != NULL || plan.rxTier2 != NULL || plan.rxTier3 != NULL,true,false)}">{!plan.rxTier1}/{!plan.rxTier2}/<br/>{!plan.rxTier3}/{!plan.rxTier4}</apex:outputLabel> </td>
+                                        <td>{!plan.rxInddeductible}/{!plan.indfamilyrxdeductible}/{!plan.familyrxdeductible}</td>
+                                        <td>{!plan.productType}<apex:outputText value="{!IF(plan.isHdhp == true,'-HDHP','')}"/></td>
+                                        <td><apex:outputText value="yes"/></td>
+                                        <td>
+                                            <apex:commandLink value="{!IF(plan.planWithRiderList != NULL && plan.planWithRiderList.size>0,'Change Riders','Associate Riders')}" styleClass="btn" style="text-decoration:none;"  action="{!redirectToRiders}" id="associateRidersCustom">
+                                                <apex:param name="selectedPlanName"
+                                                            value="{!plan.planId}"
+                                                            assignTo="{!selectedPlanName}"/>
+                                                <apex:param name="selectedPlanId"
+                                                            value="{!plan.plan}"
+                                                            assignTo="{!selectedPlanId}"/>
+                                                
+                                            </apex:commandLink>
+                                        </td>
+                                       <!-- <apex:outputPanel rendered="{!IF(searchElement != 'Custom',true,false)}">
+                                            <td>{!plan.customPlanDetails}</td>
+                                        </apex:outputPanel> -->
+                                    </tr>
+                                   
+                                    <apex:outputPanel rendered="{!IF(plan.planWithRiderList != NULL && plan.planWithRiderList.size>0,true,false)}" > 
+                                        
+                                        <tr>
+                                            <th style="width:5%;background-color:white;border:none;"></th>
+                                            <th style="width:5%"><center>Plan ID</center></th>
+                                            <th style="width:5%"><center>Plan Name</center></th>
+                                            <th style="width:5%"><center>Cost Share</center></th>
+                                            <th style="width:5%"><center>Visit Limit</center></th>
+                                            <th colspan="8" style="background-color:white;border:none;"></th>
+                                        </tr>
+                                        
+                                        <apex:repeat value="{!plan.planWithRiderList}" var="rider">
+                                            <tr>
+                                                <td style="background-color:white;border:none;"> </td>
+                                                <td>{!rider.planId}</td>
+                                                <td>{!rider.planName}</td>
+                                                <td>{!rider.costShare}</td>
+                                                <td>{!rider.visitLimit}</td>
+                                                <td colspan="8" style="background-color:white;border:none;"></td>
+                                            </tr>
+                                        </apex:repeat>
+                                    </apex:outputPanel>
+                                 </apex:outputPanel>
+                                 <apex:outputPanel rendered="{!IF(searchElement == 'NotActivelyMarketed' && plan.planType ==  'Standard' && plan.isActivelyMarketed == false,true,false)}" id="NotActivelyMarketed">
+                                    <tr>
+                                        <td><apex:outputLink value="/{!plan.plan}" title="Detail Plan" target="_blank" style="height:5px;">{!plan.planId}</apex:outputLink>/<br/>
+                                            <apex:outputLink value="/{!plan.benefitGridId}" title="Detail Plan" target="_blank" style="height:5px;color:blue;" rendered="{!IF(plan.benefitGridId != NULL,true,false)}">{!plan.planName}</apex:outputLink>
+                                        </td>
+                                        <td><apex:inputCheckbox label="Selected" value="{!plan.isSelected}" onclick="associateRecord();" /></td>
+                                        
+                                        <td><apex:outputLabel rendered="{!IF(plan.deductible != NULL || plan.familydeductible != NULL || plan.indfamilydeductible != NULL,true,false)}">{!plan.deductible}/{!plan.indfamilydeductible}/{!plan.familydeductible}</apex:outputLabel></td>
+                                        <td><apex:outputLabel rendered="{!IF(plan.outOfPocketMaximum != NULL || plan.familyoopm != NULL || plan.indfamilyoopm != NULL,true,false)}">{!plan.outOfPocketMaximum}/{!plan.indfamilyoopm}/{!plan.familyoopm}</apex:outputLabel></td>
+                                        <td>{!plan.officeVisit}/{!plan.specialistOfficeVisit}</td>
+                                        <td>{!plan.inpatient}</td>
+                                        <td>{!plan.outPatient}</td>
+                                        <td><apex:outputLabel rendered="{!IF(plan.rxTier1 != NULL || plan.rxTier2 != NULL || plan.rxTier3 != NULL,true,false)}">{!plan.rxTier1}/{!plan.rxTier2}/<br/>{!plan.rxTier3}/{!plan.rxTier4}</apex:outputLabel> </td>
+                                        <td>{!plan.rxInddeductible}/{!plan.indfamilyrxdeductible}/{!plan.familyrxdeductible}</td>
+                                        <td>{!plan.productType}<apex:outputText value="{!IF(plan.isHdhp == true,'-HDHP','')}"/></td>
+                                        <td><apex:outputText value="{!IF(plan.planType == 'Custom','Yes','No')}"/></td>
+                                        <td>
+                                            <apex:commandLink value="{!IF(plan.planWithRiderList != NULL && plan.planWithRiderList.size>0,'Change Riders','Associate Riders')}" styleClass="btn" style="text-decoration:none;"  action="{!redirectToRiders}" id="associateRidersNotactivelyMarkted">
+                                                <apex:param name="selectedPlanName"
+                                                            value="{!plan.planId}"
+                                                            assignTo="{!selectedPlanName}"/>
+                                                <apex:param name="selectedPlanId"
+                                                            value="{!plan.plan}"
+                                                            assignTo="{!selectedPlanId}"/>
+                                                
+                                            </apex:commandLink>
+                                        </td>
+                                        <!--<apex:outputPanel rendered="{!IF(searchElement != 'Custom',true,false)}">
+                                            <td>{!plan.customPlanDetails}</td>
+                                        </apex:outputPanel>-->
+                                    </tr>
+                                   
+                                    <apex:outputPanel rendered="{!IF(plan.planWithRiderList != NULL && plan.planWithRiderList.size>0,true,false)}" > 
+                                        
+                                        <tr>
+                                            <th style="width:5%;background-color:white;border:none;"></th>
+                                            <th style="width:5%"><center>Plan ID</center></th>
+                                            <th style="width:5%"><center>Plan Name</center></th>
+                                            <th style="width:5%"><center>Cost Share</center></th>
+                                            <th style="width:5%"><center>Visit Limit</center></th>
+                                            <th colspan="8" style="background-color:white;border:none;"></th>
+                                        </tr>
+                                        
+                                        <apex:repeat value="{!plan.planWithRiderList}" var="rider">
+                                            <tr>
+                                                <td style="background-color:white;border:none;"> </td>
+                                                <td>{!rider.planId}</td>
+                                                <td>{!rider.planName}</td>
+                                                <td>{!rider.costShare}</td>
+                                                <td>{!rider.visitLimit}</td>
+                                                <td colspan="8" style="background-color:white;border:none;"></td>
+                                            </tr>
+                                        </apex:repeat>
+                                    </apex:outputPanel>
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!IF(searchElement == 'SelectedPlans' && plan.isSelected==true,true,false)}" id="SelectedPlans">
+                                    <tr>
+                                        <td><apex:outputLink value="/{!plan.plan}" title="Detail Plan" target="_blank" style="height:5px;">{!plan.planId}</apex:outputLink>/<br/>
+                                            <apex:outputLink value="/{!plan.benefitGridId}" title="Detail Plan" target="_blank" style="height:5px;color:blue;" rendered="{!IF(plan.benefitGridId != NULL,true,false)}">{!plan.planName}</apex:outputLink>
+                                        </td>
+                                        <td><apex:inputCheckbox label="Selected" value="{!plan.isSelected}" onclick="associateRecord();"/></td>
+                                        <td><apex:outputLabel rendered="{!IF(plan.deductible != NULL || plan.familydeductible != NULL || plan.indfamilydeductible != NULL,true,false)}">{!plan.deductible}/{!plan.indfamilydeductible}/{!plan.familydeductible}</apex:outputLabel></td>
+                                        <td><apex:outputLabel rendered="{!IF(plan.outOfPocketMaximum != NULL || plan.familyoopm != NULL || plan.indfamilyoopm != NULL,true,false)}">{!plan.outOfPocketMaximum}/{!plan.indfamilyoopm}/{!plan.familyoopm}</apex:outputLabel></td>
+                                        <td>{!plan.officeVisit}/{!plan.specialistOfficeVisit}</td>
+                                        <td>{!plan.inpatient}</td>
+                                        <td>{!plan.outPatient}</td>
+                                        <td><apex:outputLabel rendered="{!IF(plan.rxTier1 != NULL || plan.rxTier2 != NULL || plan.rxTier3 != NULL,true,false)}">{!plan.rxTier1}/{!plan.rxTier2}/<br/>{!plan.rxTier3}/{!plan.rxTier4}</apex:outputLabel> </td>
+                                        <td>{!plan.rxInddeductible}/{!plan.indfamilyrxdeductible}/{!plan.familyrxdeductible}</td>
+                                        <td>{!plan.productType}<apex:outputText value="{!IF(plan.isHdhp == true,'-HDHP','')}"/></td>
+                                        <td><apex:outputText value="{!IF(plan.planType == 'Custom','Yes','No')}"/></td>
+                                        <td>
+                                            <apex:commandLink value="{!IF(plan.planWithRiderList != NULL && plan.planWithRiderList.size>0,'Change Riders','Associate Riders')}" styleClass="btn" style="text-decoration:none;"  action="{!redirectToRiders}" >
+                                                <apex:param name="selectedPlanName"
+                                                            value="{!plan.planId}"
+                                                            assignTo="{!selectedPlanName}"/>
+                                                <apex:param name="selectedPlanId"
+                                                            value="{!plan.plan}"
+                                                            assignTo="{!selectedPlanId}"/>
+                                                
+                                            </apex:commandLink>
+                                        </td>
+                                        <!--<apex:outputPanel rendered="{!IF(searchElement != 'Custom',true,false)}">
+                                            <td>{!plan.customPlanDetails}</td>
+                                        </apex:outputPanel>-->
+                                    </tr>
+                                    
+                                    <apex:outputPanel rendered="{!IF(plan.planWithRiderList != NULL && plan.planWithRiderList.size>0,true,false)}" > 
+                                        
+                                       <tr>
+                                            <th style="width:5%;background-color:white;border:none;"></th>
+                                            <th style="width:5%"><center>Plan ID</center></th>
+                                            <th style="width:5%"><center>Plan Name</center></th>
+                                            <th style="width:5%"><center>Cost Share</center></th>
+                                            <th style="width:5%"><center>Visit Limit</center></th>
+                                            <th colspan="8" style="background-color:white;border:none;"></th>
+                                        </tr>
+                                        
+                                        <apex:repeat value="{!plan.planWithRiderList}" var="rider">
+                                            <tr>
+                                                <td style="background-color:white;border:none;"> </td>
+                                                <td>{!rider.planId}</td>
+                                                <td>{!rider.planName}</td>
+                                                <td>{!rider.costShare}</td>
+                                                <td>{!rider.visitLimit}</td>
+                                                <td colspan="8" style="background-color:white;border:none;"></td>
+                                            </tr>
+                                        </apex:repeat>
+                                    </apex:outputPanel>
+                                </apex:outputPanel>
+                                <!-- <apex:outputPanel rendered="{!IF($Label.HR48_Standard+$Label.HR49_Custom == searchElement || searchElement == 'Standard' && plan.isActivelyMarketed == true,true,false)}" id="searchElement"> -->
+                                <apex:outputPanel rendered="{!IF(($Label.HR48_Standard+$Label.HR49_Custom == searchElement && plan.isActivelyMarketed == true) || (searchElement == 'Standard' && plan.isActivelyMarketed == true && !plan.isCustom),true,false)}" id="searchElement">
+                                    <tr>
+                                        <td><apex:outputLink value="/{!plan.plan}" title="Detail Plan" target="_blank" style="height:5px;">{!plan.planId}</apex:outputLink>/<br/>
+                                           <apex:outputLink value="/{!plan.benefitGridId}" title="Detail Plan" target="_blank" style="height:5px;color:blue;" rendered="{!IF(plan.benefitGridId != NULL,true,false)}">{!plan.planName}</apex:outputLink>
+                                        </td>
+                                        <td><apex:inputCheckbox label="Selected" value="{!plan.isSelected}" onclick="associateRecord();" /></td>
+                                        <td><apex:outputLabel rendered="{!IF(plan.deductible != NULL || plan.familydeductible != NULL || plan.indfamilydeductible != NULL,true,false)}">{!plan.deductible}/{!plan.indfamilydeductible}/{!plan.familydeductible}</apex:outputLabel></td>
+                                        <td><apex:outputLabel rendered="{!IF(plan.outOfPocketMaximum != NULL || plan.familyoopm != NULL || plan.indfamilyoopm != NULL,true,false)}">{!plan.outOfPocketMaximum}/{!plan.indfamilyoopm}/{!plan.familyoopm}</apex:outputLabel></td>
+                                        <td>{!plan.officeVisit}/{!plan.specialistOfficeVisit}</td>
+                                        <td>{!plan.inpatient}</td>
+                                        <td>{!plan.outPatient}</td>
+                                        <td><apex:outputLabel rendered="{!IF(plan.rxTier1 != NULL || plan.rxTier2 != NULL || plan.rxTier3 != NULL,true,false)}">{!plan.rxTier1}/{!plan.rxTier2}/<br/>{!plan.rxTier3}/{!plan.rxTier4}</apex:outputLabel> </td>
+                                        <td>{!plan.rxInddeductible}/{!plan.indfamilyrxdeductible}/{!plan.familyrxdeductible}</td>
+                                        <td>{!plan.productType}<apex:outputText value="{!IF(plan.isHdhp == true,'-HDHP','')}"/></td>
+                                        <td><apex:outputText value="{!IF(plan.planType == 'Custom','Yes','No')}"/></td>
+                                        <td>
+                                            <apex:commandLink value="{!IF(plan.planWithRiderList != NULL && plan.planWithRiderList.size>0,'Change Riders','Associate Riders')}" styleClass="btn" style="text-decoration:none;"  action="{!redirectToRiders}" >
+                                                <apex:param name="selectedPlanName"
+                                                            value="{!plan.planId}"
+                                                            assignTo="{!selectedPlanName}"/>
+                                                <apex:param name="selectedPlanId"
+                                                            value="{!plan.plan}"
+                                                            assignTo="{!selectedPlanId}"/>
+                                                
+                                            </apex:commandLink>
+                                        </td>
+                                        <!-- <apex:outputPanel rendered="{!IF(searchElement != 'Custom',true,false)}">
+                                            <td>{!plan.customPlanDetails}</td>
+                                        </apex:outputPanel>-->
+                                    </tr>
+                                    
+                                    <apex:outputPanel rendered="{!IF(plan.planWithRiderList != NULL && plan.planWithRiderList.size>0,true,false)}" > 
+                                        
+                                        <tr>
+                                            <th style="width:5%;background-color:white;border:none;"></th>
+                                            <th style="width:5%"><center>Plan ID</center></th>
+                                            <th style="width:5%"><center>Plan Name</center></th>
+                                            <th style="width:5%"><center>Cost Share</center></th>
+                                            <th style="width:5%"><center>Visit Limit</center></th>
+                                            <th colspan="8" style="background-color:white;border:none;"></th>
+                                        </tr>
+                                        
+                                        <apex:repeat value="{!plan.planWithRiderList}" var="rider">
+                                            <tr>
+                                                <td style="background-color:white;border:none;"> </td>
+                                                <td>{!rider.planId}</td>
+                                                <td>{!rider.planName}</td>
+                                                <td>{!rider.costShare}</td>
+                                                <td>{!rider.visitLimit}</td>
+                                                <td colspan="8" style="background-color:white;border:none;"></td>
+                                            </tr>
+                                        </apex:repeat>
+                                    </apex:outputPanel>
+                                </apex:outputPanel>  
+                                
+                            </apex:repeat>
+                            
+                        </table>
+                    </apex:outputPanel>
+                </apex:outputPanel>
+            </apex:pageBlock>
+        </apex:form>
+    </div>  
+</apex:page>

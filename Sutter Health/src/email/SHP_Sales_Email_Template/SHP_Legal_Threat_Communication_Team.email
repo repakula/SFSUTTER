@@ -1,0 +1,9 @@
+Please respond to the following public action threat.  
+
+Reason: Public Action   
+Secondary Reason: {!Case.Secondary_Reason__c}   
+
+Case Number: {!Case.CaseNumber}   
+Member/Requestor Name: {!BlankValue(Contact.Name,Case.Requestor_Name__c)}   
+Member ID: {!Contact.Member_ID__c}   
+Call Time: {!Case.CreatedDate + 0}

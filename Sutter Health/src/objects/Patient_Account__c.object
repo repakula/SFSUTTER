@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Patient Account allows a many-to-many relationship between Patient and Guarantor records.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Guarantor_ID_Lookup__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to the associated guarantor record for a specific patient account.</description>
+        <externalId>false</externalId>
+        <label>Guarantor</label>
+        <referenceTo>Guarantor__c</referenceTo>
+        <relationshipLabel>Patient Accounts</relationshipLabel>
+        <relationshipName>Patient_Accounts</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Guarantor_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Guarantor ID</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Patient_Account_Admission_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Patient Account Admission Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Patient_Account_Number__c</fullName>
+        <description>External ID used to match patient account record to its equivalent in the source system when updating and/or inserting.</description>
+        <externalId>true</externalId>
+        <label>Patient Account Number</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Patient_Account_Service_Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Patient Account Service Location</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Patient_DotOne_Lookup__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to the associated patient record for a specific patient account.</description>
+        <externalId>false</externalId>
+        <label>Patient</label>
+        <referenceTo>Patient__c</referenceTo>
+        <relationshipLabel>Patient Accounts</relationshipLabel>
+        <relationshipName>Patient_Accounts</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Patient_DotOne__c</fullName>
+        <externalId>false</externalId>
+        <label>Patient DotOne</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Patient Account</label>
+    <nameField>
+        <label>Patient Account Number</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Patient Accounts</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Guarantor_ID_Lookup__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Patient_Account_Service_Location__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Patient_Account_Admission_Date__c</customTabListAdditionalFields>
+        <excludedStandardButtons>New</excludedStandardButtons>
+        <lookupDialogsAdditionalFields>Guarantor_ID_Lookup__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Patient_Account_Service_Location__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Patient_Account_Admission_Date__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Guarantor_ID_Lookup__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Patient_Account_Service_Location__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Patient_Account_Admission_Date__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Guarantor_ID_Lookup__c</searchFilterFields>
+        <searchFilterFields>Patient_Account_Service_Location__c</searchFilterFields>
+        <searchFilterFields>Patient_Account_Admission_Date__c</searchFilterFields>
+        <searchResultsAdditionalFields>Guarantor_ID_Lookup__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Patient_Account_Service_Location__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Patient_Account_Admission_Date__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+</CustomObject>

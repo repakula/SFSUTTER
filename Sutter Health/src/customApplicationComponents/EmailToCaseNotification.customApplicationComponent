@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplicationComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buttonStyle>&lt;strong style=&quot;color: white;&quot; &gt;&lt;/strong&gt;
+background-image: url(&quot;https://suttercrm.my.salesforce.com/resource/1449025518000/EmailPopup&quot;)</buttonStyle>
+    <buttonText>Email Alerts</buttonText>
+    <buttonWidth>180</buttonWidth>
+    <height>400</height>
+    <isHeightFixed>true</isHeightFixed>
+    <isHidden>false</isHidden>
+    <isWidthFixed>true</isWidthFixed>
+    <visualforcePage>EmailToCaseNotification</visualforcePage>
+    <width>300</width>
+</CustomApplicationComponent>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>FAQ__ka.FAQ__kav$Title</field>
+    </columns>
+    <columns>
+        <field>FAQ__ka$ArticleNumber</field>
+    </columns>
+    <columns>
+        <field>FAQ__ka.FAQ__kav$Functional_Area__c</field>
+    </columns>
+    <columns>
+        <field>FAQ__ka.FAQ__kav$Sub_Function__c</field>
+    </columns>
+    <columns>
+        <field>FAQ__ka.FAQ__kav$Summary</field>
+    </columns>
+    <columns>
+        <field>FAQ__ka.FAQ__kav$LastModifiedDate</field>
+    </columns>
+    <columns>
+        <field>FAQ__ka.FAQ__kav$IsVisibleInApp</field>
+    </columns>
+    <columns>
+        <field>FAQ__ka.FAQ__kav$IsVisibleInCsp</field>
+    </columns>
+    <description>S3 FAQ Articles Custom Fields &amp; Versions</description>
+    <filter>
+        <criteriaItems>
+            <column>FAQ__ka.FAQ__kav$IsLatestVersion</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FAQ__ka$ArchivedDate</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value></value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>S3 FAQ Articles Custom Fields &amp; Versions</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>FAQ_Articles_and_Custom_Fields_with_Versions__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>FAQ__ka$ArchivedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

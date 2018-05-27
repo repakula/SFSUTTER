@@ -1,0 +1,441 @@
+<!-- *********************************************************************************************
+*     Page Name   : HighRoads_RateSelection 
+*     Author      : IDC Offshore
+*     Date        : 17-Oct-2016  
+*     Project Name: SHP Project
+*     Description : Req 3980 - Page for rate selection at each stage Opportunity/RFP/Quote/SSO/SCN
+**************************************************************************************************-->
+<apex:page controller="HighRoads_RateSelection" showHeader="false" sidebar="false" id="thePage" applyBodyTag="false" >
+    <apex:includeScript value="https://code.jquery.com/jquery-1.11.1.min.js"/>
+    <apex:includeScript value="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.js"/>
+    <apex:stylesheet value="https://cdn.datatables.net/1.10.7/css/jquery.dataTables.css"/> 
+    <head>
+        <style>
+            .headercolor{
+            background-color:#4682B4;
+            color:white;
+            }
+            .textbox{
+            text-align:left;
+            height:30px; 
+            width: 70px;
+            }
+            .rateSelection{
+            background-color : #BDC3C7;
+            }
+            table#planTierGroupRateTable {
+            table-layout:auto;
+            }
+            .odd{background-color: #F0F8FF;} 
+            .even{background-color: #F5F5DC;}            
+			
+            .grayout {
+            opacity: 0.4; /* Real browsers */
+            filter: alpha(opacity = 40); /* MSIE */
+            color:#ccc;
+            }
+            
+            #overlay {
+            background-color: grey;
+            opacity: 0.5;
+            filter: Alpha(opacity=50); /* IE8 and earlier */
+            color: black;
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            z-index: 5000;
+            top: 0;
+            left: 0;
+            float: left;
+            text-align: center;
+            padding-top: 25%;
+            }
+        </style>
+        <script type="text/javascript">
+        jQuery(window).load(function(){
+            jQuery('#overlay').fadeOut();
+        });
+        function closeAndRefreshParent(ratecardval){
+	
+            if(ratecardval != 'true'){
+                window.opener.location.href="/{!recordId}";
+                self.close();
+            }
+        }
+        </script>
+    </head>
+    <div id="overlay">
+        <img src="{!URLFOR($Resource.Processing_Image)}" alt="Loading" /><br/>
+        Please wait...
+    </div>
+    <apex:form >
+        <apex:outputPanel id="NoPlansFound" rendered="{!IF(isPlansFound == false,true,false)}">
+            <apex:pageMessages ></apex:pageMessages><br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <apex:commandButton value="Cancel" onclick="window.close();" style="align:center;"/>
+        </apex:outputPanel>
+        <apex:outputPanel id="panel1" styleClass="rateSelection" >
+            
+            <apex:pageBlock rendered="{!IF(panel1next == true && isPlansExists == true,true,false)}">
+                <h1 style="font-size: 30px;"><center>
+                    <u>Medical Plan Tier Selection</u>
+                    </center>
+                </h1><br/>
+                <apex:pageMessages id="panelErrorMessage"  ></apex:pageMessages>
+                <apex:pageBlockButtons location="bottom">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <apex:commandButton value="Next" action="{!panel1Next}" style="border-radius: 6px;width: 80px;font-size: 10px;padding: 5px;align:center" reRender="panel1,panel2,panelErrorMessage" />
+                    <!--<apex:commandButton value="Cancel" action="{!cancel}" style="border-radius: 12px;width: 80px;font-size: 10px;padding: 5px;align:center" reRender="panel1,panel2,panelErrorMessage" />-->
+                </apex:pageBlockButtons>
+                
+                <table border="1" id="planTierTable" cellpadding="0" cellspacing="0" width="45%" align="center">
+                    
+                    <thead>
+                        
+                        <tr>
+                            <th style="width:20%;height:30px;" colspan="2" ></th>
+                            <th style="text-align:center;height:30px;background: #cecece;width:25%" colspan="5">Applicable Parties</th>
+                        </tr>
+                        <tr>
+                            <th style="text-align:center;height:20px;width:10%" class="headercolor">Selected Plan</th>
+                            <th style="text-align:center;height:20px;width:10%" class="headercolor">Type</th>
+                            <th style="text-align:center;height:20px;width:5%" class="headercolor">Tier 1</th>
+                            <th style="text-align:center;height:20px;width:5%" class="headercolor">Tier 2</th>
+                            <th style="text-align:center;height:20px;width:5%" class="headercolor">Tier 3</th>
+                            <th style="text-align:center;height:20px;width:5%" class="headercolor">Tier 4</th>
+                            <th style="text-align:center;height:20px;width:5%" class="headercolor">Tier 5</th>
+                        </tr>
+                    </thead>
+                    <apex:repeat value="{!planRateTierList}" var="planTier">
+                        <tr class="rowColor">
+                            <td style="text-align:center;height:30px;width:10%" rowspan="+{!planTier.sizeOfTierList}+">{!planTier.medicalPlanName}</td>
+                            <apex:repeat value="{!planTier.tierList}" var="rateTier">
+                                <tr>
+                                    <td style="text-align:center;height:20px;width:10%">{!rateTier.planName}</td>
+                                    <td style="text-align:center;height:20px;width:5%">
+                                        <apex:inputCheckbox value="{!rateTier.tier1}" />
+                                    </td>
+                                    <td style="text-align:center;height:20px;width:5%">
+                                        <apex:inputCheckbox value="{!rateTier.tier2}" />
+                                    </td>
+                                    <td style="text-align:center;height:20px;width:5%">
+                                        <apex:inputCheckbox value="{!rateTier.tier3}" />
+                                    </td>
+                                    <td style="text-align:center;height:20px;width:5%">
+                                        <apex:inputCheckbox value="{!rateTier.tier4}" />
+                                    </td>
+                                    <td style="text-align:center;height:20px;width:5%">
+                                        <apex:inputCheckbox value="{!rateTier.tier5}" />
+                                    </td>
+                                </tr>
+                            </apex:repeat>
+                        </tr>
+                        <tr style="height:10px;border:none;"></tr>
+                        
+                    </apex:repeat>
+                </table>
+            </apex:pageBlock>
+        </apex:outputPanel>
+        <apex:outputPanel id="panel2" >
+            <apex:pageBlock rendered="{!IF(panel2next == true,true,false)}">
+                <h1 style="font-size: 30px;"><center>
+                    <u>Groups Selection</u>
+                    </center>
+                </h1><br/>
+                <apex:pageBlockButtons location="bottom">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <apex:commandButton value="Previous" action="{!panel2Previous}" style="border-radius: 6px;width: 80px;font-size: 10px;padding: 5px;" reRender="panel1,panel2,panel3,pane2ErrorMessage" />
+                    <apex:commandButton value="Next" action="{!panel2Next}" style="border-radius: 6px;width: 80px;font-size: 10px;padding: 5px;" reRender="panel1,panel2,panel3,pane2ErrorMessage"/>
+                    <!--<apex:commandButton value="Cancel" action="{!cancel}" style="border-radius: 12px;width: 80px;font-size: 10px;padding: 5px;align:center" reRender="panel1,panel2,panel3"/>-->
+                </apex:pageBlockButtons>
+                <apex:pageMessages id="pane2ErrorMessage" ></apex:pageMessages>
+               
+                <apex:commandButton value="Add Group" action="{!addGroup}" style="float:right" reRender="panel2" />
+                <table border="1" id="planTierGroupTable" cellpadding="0" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th style="width:19.98%;height:30px;" colspan="3"></th>
+                            <th style="text-align:center;height:30px;background: #cecece;" colspan="+{!groupColspan}+">Applicable Groups</th>
+                            
+                        </tr>
+                        <tr>
+                            <th style="text-align:center;height:20px;width:6.66%" class="headercolor">Selected Plan</th>
+                            <th style="text-align:center;height:20px;width:6.66%" class="headercolor">Type</th>
+                            <th style="text-align:center;height:20px;width:6.66%" class="headercolor">Tier Name</th>
+                            <th style="text-align:center;height:20px;width:6.66%" class="headercolor">Active</th>
+                            <th style="text-align:center;height:20px;width:6.66%" class="headercolor">Early Retiree</th>
+                            
+                            <apex:outputLabel rendered="{!isOther1Selected}">
+                                <th style="text-align:center;height:20px;width:6.66%" class="headercolor"><apex:inputText value="{!other1}" rendered="{!IF(other1 == NULL || other1 == '',true,false)}" html-placeholder="Please enter the group name.."   />
+                                    <apex:outputText value="{!other1}" rendered="{!IF(other1 != NULL && other1 != '',true,false)}"/></th>
+                            </apex:outputLabel>
+                            <apex:outputLabel rendered="{!isOther2Selected}">
+                                <th style="text-align:center;height:20px;width:6.66%" class="headercolor"><apex:inputText value="{!other2}" rendered="{!IF(other2 == NULL || other2 == '',true,false)}" html-placeholder="Please enter the group name.."  />
+                                    <apex:outputText value="{!other2}" rendered="{!IF(other2 != NULL && other2 != '',true,false)}"/></th>
+                            </apex:outputLabel>
+                            <apex:outputLabel rendered="{!isOther3Selected}">
+                                <th style="text-align:center;height:20px;width:6.66%" class="headercolor"><apex:inputText value="{!other3}" rendered="{!IF(other3 == NULL || other3 == '',true,false)}" html-placeholder="Please enter the group name.."  />
+                                    <apex:outputText value="{!other3}" rendered="{!IF(other3 != NULL && other3 != '',true,false)}"/></th>
+                            </apex:outputLabel>
+                            <apex:outputLabel rendered="{!isOther4Selected}">
+                                <th style="text-align:center;height:20px;width:6.66%" class="headercolor"><apex:inputText value="{!other4}" rendered="{!IF(other4 == NULL || other4 == '',true,false)}" html-placeholder="Please enter the group name.."  />
+                                    <apex:outputText value="{!other4}" rendered="{!IF(other4 != NULL && other4 != '',true,false)}"/></th>
+                            </apex:outputLabel>
+                            <apex:outputLabel rendered="{!isOther5Selected}">
+                                <th style="text-align:center;height:20px;width:6.66%" class="headercolor"><apex:inputText value="{!other5}" rendered="{!IF(other5 == NULL || other5 == '',true,false)}" html-placeholder="Please enter the group name.."  />
+                                    <apex:outputText value="{!other5}" rendered="{!IF(other5 != NULL && other5 != '',true,false)}"/></th>
+                            </apex:outputLabel>
+                            <apex:outputLabel rendered="{!isOther6Selected}">
+                                <th style="text-align:center;height:20px;width:6.66%" class="headercolor"><apex:inputText value="{!other6}" rendered="{!IF(other6 == NULL || other6 == '',true,false)}" html-placeholder="Please enter the group name.."  />
+                                    <apex:outputText value="{!other6}" rendered="{!IF(other6 != NULL && other6 != '',true,false)}"/></th>
+                            </apex:outputLabel>
+                            <apex:outputLabel rendered="{!isOther7Selected}">
+                                <th style="text-align:center;height:20px;width:6.66%" class="headercolor"><apex:inputText value="{!other7}" rendered="{!IF(other7 == NULL || other7 == '',true,false)}" html-placeholder="Please enter the group name.."  />
+                                    <apex:outputText value="{!other7}" rendered="{!IF(other7 != NULL && other7 != '',true,false)}"/></th>
+                            </apex:outputLabel>
+                            <apex:outputLabel rendered="{!isOther8Selected}">
+                                <th style="text-align:center;height:20px;width:6.66%" class="headercolor"><apex:inputText value="{!other8}" rendered="{!IF(other8 == NULL || other8 == '',true,false)}" html-placeholder="Please enter the group name.."  />
+                                    <apex:outputText value="{!other8}" rendered="{!IF(other8 != NULL && other8 != '',true,false)}"/></th>
+                            </apex:outputLabel>
+                            <apex:outputLabel rendered="{!isOther9Selected}">
+                                <th style="text-align:center;height:20px;width:6.66%" class="headercolor"><apex:inputText value="{!other9}" rendered="{!IF(other9 == NULL || other9 == '',true,false)}" html-placeholder="Please enter the group name.."  />
+                                    <apex:outputText value="{!other9}" rendered="{!IF(other9 != NULL && other9 != '',true,false)}"/></th>
+                            </apex:outputLabel>
+                            <apex:outputLabel rendered="{!isOther10Selected}">
+                                <th style="text-align:center;height:20px;width:6.66%" class="headercolor"><apex:inputText value="{!other10}" rendered="{!IF(other10 == NULL || other10 == '',true,false)}" html-placeholder="Please enter the group name.."  />
+                                    <apex:outputText value="{!other10}" rendered="{!IF(other10 != NULL && other10 != '',true,false)}"/></th>
+                            </apex:outputLabel>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <apex:repeat value="{!planRateTierGroupList}" var="planRateTierGroup">
+                            
+                            <tr>
+                                <td rowspan="+{!planRateTierGroup.sizeOfTotalTiers}+">{!planRateTierGroup.medicalPlanName}</td>
+                                <apex:repeat value="{!planRateTierGroup.plangroupList}" var="planGroup">
+                                    <td rowspan="+{!planGroup.sizeOfTiers}+">{!planGroup.planName}</td>
+                                    <apex:repeat value="{!planGroup.rateGrpList}" var="rateGroup">
+                                        <tr>
+                                            <td style="text-align:center;height:20px;width:6.66%">{!rateGroup.tierName}</td>	
+                                            <td style="text-align:center;height:20px;width:6.66%">
+                                                <apex:inputCheckbox value="{!rateGroup.active}" />
+                                            </td>
+                                            <td style="text-align:center;height:20px;width:6.66%">
+                                                <apex:inputCheckbox value="{!rateGroup.earlyRetiree}" />
+                                            </td>
+                                            <apex:outputLabel rendered="{!isOther1Selected}">
+                                                <td style="text-align:center;height:20px;width:6.66%">
+                                                    <apex:inputCheckbox value="{!rateGroup.other1}" />
+                                                </td>
+                                            </apex:outputLabel>
+                                            <apex:outputLabel rendered="{!isOther2Selected}">
+                                                <td style="text-align:center;height:20px;width:6.66%">
+                                                    <apex:inputCheckbox value="{!rateGroup.other2}" />
+                                                </td>
+                                            </apex:outputLabel>
+                                            <apex:outputLabel rendered="{!isOther3Selected}">
+                                                <td style="text-align:center;height:20px;width:6.66%">
+                                                    <apex:inputCheckbox value="{!rateGroup.other3}" />
+                                                </td>
+                                            </apex:outputLabel>
+                                            <apex:outputLabel rendered="{!isOther4Selected}">
+                                                <td style="text-align:center;height:20px;width:6.66%">
+                                                    <apex:inputCheckbox value="{!rateGroup.other4}" />
+                                                </td>
+                                            </apex:outputLabel>
+                                            <apex:outputLabel rendered="{!isOther5Selected}">
+                                                <td style="text-align:center;height:20px;width:6.66%">
+                                                    <apex:inputCheckbox value="{!rateGroup.other5}" />
+                                                </td>
+                                            </apex:outputLabel>
+                                            <apex:outputLabel rendered="{!isOther6Selected}">
+                                                <td style="text-align:center;height:20px;width:6.66%">
+                                                    <apex:inputCheckbox value="{!rateGroup.other6}" />
+                                                </td>
+                                            </apex:outputLabel>
+                                            <apex:outputLabel rendered="{!isOther7Selected}">
+                                                <td style="text-align:center;height:20px;width:6.66%">
+                                                    <apex:inputCheckbox value="{!rateGroup.other7}" />
+                                                </td>
+                                            </apex:outputLabel>
+                                            <apex:outputLabel rendered="{!isOther8Selected}">
+                                                <td style="text-align:center;height:20px;width:6.66%">
+                                                    <apex:inputCheckbox value="{!rateGroup.other8}" />
+                                                </td>
+                                            </apex:outputLabel>
+                                            <apex:outputLabel rendered="{!isOther9Selected}">
+                                                <td style="text-align:center;height:20px;width:6.66%">
+                                                    <apex:inputCheckbox value="{!rateGroup.other9}" />
+                                                </td>
+                                            </apex:outputLabel>
+                                            <apex:outputLabel rendered="{!isOther10Selected}">
+                                                <td style="text-align:center;height:20px;width:6.66%">
+                                                    <apex:inputCheckbox value="{!rateGroup.other10}" />
+                                                </td>
+                                            </apex:outputLabel>
+                                        </tr>    
+                                    </apex:repeat>
+                                </apex:repeat>
+                            </tr><br/>
+                            <tr style="height:10px;border:none;"></tr>
+                            
+                        </apex:repeat>
+                    </tbody>   
+                </table>
+            </apex:pageBlock>
+        </apex:outputPanel>
+        <apex:outputPanel id="panel3" >
+            <apex:pageBlock rendered="{!IF(panel3previous == true,true,false)}">
+                <h1 style="font-size: 30px;"><center>
+                    <u>Rate Entry</u>
+                    </center>
+                </h1><br/>
+                <apex:outputLabel style="font-size: 20px;color:green;" value="Note: No need to enter rates for Dental plans which are already grayed out" rendered="{!IF(isDentalExists == true,true,false)}"></apex:outputLabel><br/>
+                <apex:pageMessages id="panelErrorMessage1"  ></apex:pageMessages>
+                <apex:pageBlockButtons location="bottom">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <apex:commandButton value="Previous" action="{!panel3Previous}" style="border-radius: 6px;width: 80px;font-size: 10px;padding: 5px;" reRender="panel1,panel2,panel3" />
+                    <apex:commandButton value="Save" action="{!saveRates}" style="border-radius: 6px;width: 80px;font-size: 10px;padding: 5px;" reRender="panel1,panel2,panel3,panelErrorMessage1" oncomplete="closeAndRefreshParent('{!isRateErrorFound}');" /> 
+                </apex:pageBlockButtons>
+                <table border="1" id="planTierGroupRateTable" cellpadding="0" cellspacing="0" width="{!rateEntryTableWidth}%" align="center">
+                    <thead>
+                        <tr>
+                            <th style="height:30px;width:5.26%;" colspan="4"></th>
+                            <apex:outputLabel rendered="{!IF(isTier1Selected == true,true,false)}">
+                                <th style="text-align:center;height:30px;width:5.26%;" class="headercolor">Tier 1</th>
+                            </apex:outputLabel>
+                            <apex:outputLabel rendered="{!IF(isTier2Selected == true,true,false)}">
+                                <th style="text-align:center;height:30px;width:5.26%;" colspan="2" class="headercolor">Tier 2</th>
+                            </apex:outputLabel>
+                            <apex:outputLabel rendered="{!IF(isTier3Selected == true,true,false)}">
+                                <th style="text-align:center;height:30px;width:5.26%;" colspan="3" class="headercolor">Tier 3</th>
+                            </apex:outputLabel>
+                            <apex:outputLabel rendered="{!IF(isTier4Selected == true,true,false)}">
+                                <th style="text-align:center;height:30px;width:5.26%;" colspan="4" class="headercolor">Tier 4</th>
+                            </apex:outputLabel>
+                            <apex:outputLabel rendered="{!IF(isTier5Selected == true,true,false)}">
+                                <th style="text-align:center;height:30px;width:5.26%;" colspan="5" class="headercolor">Tier 5</th>
+                            </apex:outputLabel>
+                        </tr>
+                        <tr>
+                            <th style="text-align:center;height:20px;width:5.26%;" class="headercolor">Selected Plan</th>
+                            <th style="text-align:center;height:20px;width:5.26%;" class="headercolor">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                            <th style="text-align:center;height:20px;width:5.26%;" class="headercolor">&nbsp;&nbsp;&nbsp;&nbsp;Tier Name
+                            &nbsp;&nbsp;&nbsp;&nbsp;</th>
+                            <th style="text-align:center;height:20px;width:5.26%;" class="headercolor">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Group&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                            <apex:outputLabel rendered="{!IF(isTier1Selected == true,true,false)}">
+                                <th style="text-align:center;height:20px;width:5.26%;" class="headercolor">Composite</th>
+                            </apex:outputLabel>
+                            <apex:outputLabel rendered="{!IF(isTier2Selected == true,true,false)}">
+                                <th style="text-align:center;height:20px;width:5.26%;" class="headercolor">EE</th>
+                                <th style="text-align:center;height:20px;width:5.26%;" class="headercolor">EF</th>
+                            </apex:outputLabel>
+                            <apex:outputLabel rendered="{!IF(isTier3Selected == true,true,false)}">
+                                <th style="text-align:center;height:20px;width:5.26%;" class="headercolor">EE</th>
+                                <th style="text-align:center;height:20px;width:5.26%;" class="headercolor">E1</th>
+                                <th style="text-align:center;height:20px;width:5.26%;" class="headercolor">E2</th>
+                            </apex:outputLabel>
+                            <apex:outputLabel rendered="{!IF(isTier4Selected == true,true,false)}">
+                                <th style="text-align:center;height:20px;width:5.26%;" class="headercolor">EE</th>
+                                <th style="text-align:center;height:20px;width:5.26%;" class="headercolor">ES</th>
+                                <th style="text-align:center;height:20px;width:5.26%;" class="headercolor">EC</th>
+                                <th style="text-align:center;height:20px;width:5.26%;" class="headercolor">EF</th>
+                            </apex:outputLabel>
+                            <apex:outputLabel rendered="{!IF(isTier5Selected == true,true,false)}">
+                                <th style="text-align:center;height:20px;width:5.26%;" class="headercolor">EE</th>
+                                <th style="text-align:center;height:20px;width:5.26%;" class="headercolor">ES</th>
+                                <th style="text-align:center;height:20px;width:5.26%;" class="headercolor">EC</th>
+                                <th style="text-align:center;height:20px;width:5.26%;" class="headercolor">ECH</th>
+                                <th style="text-align:center;height:20px;width:5.26%;" class="headercolor">EF</th>
+                            </apex:outputLabel>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <apex:variable var="i" value="{!1}"/> 
+                        <apex:repeat value="{!PlanRateTierGroupandRateEntryList}" var="planTierGroupRate">
+                            <tr style="border:1px solid;width:5.26%;" class="{! IF((mod(i,2)) == 0, 'even', 'odd')}">
+                                <td style="height:30px;width:5.26%;" class="{! IF((mod(i,2)) == 0, 'even', 'odd')}" rowspan="+{!planTierGroupRate.sizeOfTotalTiersGroups}+">{!planTierGroupRate.medicalPlanName}</td>
+                                <apex:repeat value="{!planTierGroupRate.planTierandRateEntryList}" var="planTierRateEntry">
+                                    <td style="height:30px;width:5.26%;" class="{! IF((mod(i,2)) == 0, 'even', 'odd')}" rowspan="+{!planTierRateEntry.sizeOfTierandGroups}+">{!planTierRateEntry.planName}</td>
+                                    <apex:repeat value="{!planTierRateEntry.tierRateEntryList}" var="tierRateEntry">
+                                        <td style="height:20px;width:5.26%;" class="{! IF((mod(i,2)) == 0, 'even', 'odd')}" rowspan="+{!tierRateEntry.sizeOfGroups}+">{!tierRateEntry.tierName}</td>
+                                        <apex:repeat value="{!tierRateEntry.rateEntryList}" var="rateEntry">
+                                            <tr class="{! IF((mod(i,2)) == 0, 'even', 'odd')}" >
+                                                
+                                                <td style="text-align:center;height:30px;width:5.26%;" class="{!IF(planTierRateEntry.isDental == true,'grayout','')}">{!rateEntry.groupName}</td>	
+                                                <apex:outputLabel rendered="{!IF(isTier1Selected == true,true,false)}">
+                                                    <td style="height:20px;border:none;width:5.26%;" class="{!IF(planTierRateEntry.isDental == true,'grayout','')}">
+                                                        <apex:inputText value="{!rateEntry.tier1Composite}" style="text-align:left;height:20px;width: 60px;" rendered="{!IF(tierRateEntry.tierName == 'Tier 1' && isTier1Selected == true,true,false)}"/>
+                                                    </td>	
+                                                </apex:outputLabel>
+                                                <apex:outputLabel rendered="{!IF(isTier2Selected == true,true,false)}">
+                                                    <td style="height:20px;border:none;width:5.26%;" class="{!IF(planTierRateEntry.isDental == true,'grayout','')}">
+                                                        <apex:inputText value="{!rateEntry.tier2EE}" style="text-align:left;height:20px; width: 60px;" rendered="{!IF(tierRateEntry.tierName == 'Tier 2' && isTier2Selected == true,true,false)}"/>
+                                                    </td>
+                                                    <td style="height:20px;border:none;width:5.26%;" class="{!IF(planTierRateEntry.isDental == true,'grayout','')}">
+                                                        <apex:inputText value="{!rateEntry.tier2EF}" style="text-align:left;height:20px;width: 60px;" rendered="{!IF(tierRateEntry.tierName == 'Tier 2' && isTier2Selected == true,true,false)}"/>
+                                                    </td>
+                                                </apex:outputLabel>
+                                                <apex:outputLabel rendered="{!IF(isTier3Selected == true,true,false)}">
+                                                    <td style="height:20px;border:none;width:5.26%;" class="{!IF(planTierRateEntry.isDental == true,'grayout','')}">
+                                                        <apex:inputText value="{!rateEntry.tier3EE}" style="text-align:left;height:20px;width: 60px;" rendered="{!IF(tierRateEntry.tierName == 'Tier 3'  && isTier3Selected == true, true,false)}"/>
+                                                    </td>
+                                                    <td style="height:20px;border:none;width:5.26%;" class="{!IF(planTierRateEntry.isDental == true,'grayout','')}">
+                                                        <apex:inputText value="{!rateEntry.tier3E1}" style="text-align:left;height:20px;width: 60px;" rendered="{!IF(tierRateEntry.tierName == 'Tier 3'  && isTier3Selected == true,true,false)}"/>
+                                                    </td>
+                                                    <td style="height:20px;border:none;width:5.26%;" class="{!IF(planTierRateEntry.isDental == true,'grayout','')}">
+                                                        <apex:inputText value="{!rateEntry.tier3E2}" style="text-align:left;height:20px;width: 60px;" rendered="{!IF(tierRateEntry.tierName == 'Tier 3' && isTier3Selected == true,true,false)}"/>
+                                                    </td>
+                                                </apex:outputLabel>
+                                                <apex:outputLabel rendered="{!IF(isTier4Selected == true,true,false)}">
+                                                    <td style="height:20px;border:none;width:5.26%;" class="{!IF(planTierRateEntry.isDental == true,'grayout','')}">
+                                                        <apex:inputText value="{!rateEntry.tier4EE}" style="text-align:left;height:20px;width: 60px;" rendered="{!IF(tierRateEntry.tierName == 'Tier 4' && isTier4Selected == true,true,false)}"/>
+                                                    </td>
+                                                    <td style="height:20px;border:none;width:5.26%;" class="{!IF(planTierRateEntry.isDental == true,'grayout','')}">
+                                                        <apex:inputText value="{!rateEntry.tier4ES}" style="text-align:left;height:20px;width: 60px;" rendered="{!IF(tierRateEntry.tierName == 'Tier 4' && isTier4Selected == true,true,false)}"/>
+                                                    </td>
+                                                    <td style="height:20px;border:none;width:5.26%;" class="{!IF(planTierRateEntry.isDental == true,'grayout','')}">
+                                                        <apex:inputText value="{!rateEntry.tier4EC}" style="text-align:left;height:20px;width: 60px;" rendered="{!IF(tierRateEntry.tierName == 'Tier 4' && isTier4Selected == true,true,false)}"/>
+                                                    </td>
+                                                    <td style="height:20px;border:none;width:5.26%;" class="{!IF(planTierRateEntry.isDental == true,'grayout','')}">
+                                                        <apex:inputText value="{!rateEntry.tier4EF}" style="text-align:left;height:20px;width: 60px;" rendered="{!IF(tierRateEntry.tierName == 'Tier 4' && isTier4Selected == true,true,false)}"/>
+                                                    </td>
+                                                </apex:outputLabel>
+                                                <apex:outputLabel rendered="{!IF(isTier5Selected == true,true,false)}">
+                                                    <td style="height:20px;border:none;width:5.26%;" class="{!IF(planTierRateEntry.isDental == true,'grayout','')}">
+                                                        <apex:inputText value="{!rateEntry.tier5EE}" style="text-align:left;height:20px;width: 60px;" rendered="{!IF(tierRateEntry.tierName == 'Tier 5' && isTier5Selected == true,true,false)}"/>
+                                                    </td>
+                                                    <td style="height:20px;border:none;width:5.26%;" class="{!IF(planTierRateEntry.isDental == true,'grayout','')}">
+                                                        <apex:inputText value="{!rateEntry.tier5ES}" style="text-align:left;height:20px;width: 60px;" rendered="{!IF(tierRateEntry.tierName == 'Tier 5' && isTier5Selected == true,true,false)}"/>
+                                                    </td>
+                                                    <td style="height:20px;border:none;width:5.26%;" class="{!IF(planTierRateEntry.isDental == true,'grayout','')}">
+                                                        <apex:inputText value="{!rateEntry.tier5EC}" style="text-align:left;height:20px;width: 60px;" rendered="{!IF(tierRateEntry.tierName == 'Tier 5' && isTier5Selected == true,true,false)}"/>
+                                                    </td>
+                                                     <td style="height:20px;border:none;width:5.26%;" class="{!IF(planTierRateEntry.isDental == true,'grayout','')}">
+                                                        <apex:inputText value="{!rateEntry.tier5ECH}" style="text-align:left;height:20px;width: 60px;" rendered="{!IF(tierRateEntry.tierName == 'Tier 5' && isTier5Selected == true,true,false)}"/>
+                                                    </td>
+                                                    <td style="height:20px;border:none;width:5.26%;" class="{!IF(planTierRateEntry.isDental == true,'grayout','')}">
+                                                        <apex:inputText value="{!rateEntry.tier5EF}" style="text-align:left;height:20px;width: 60px;" rendered="{!IF(tierRateEntry.tierName == 'Tier 5' && isTier5Selected == true,true,false)}"/>
+                                                    </td>
+                                                   
+                                                </apex:outputLabel>
+                                                
+                                            </tr>    
+                                        </apex:repeat>
+                                    </apex:repeat>
+                                </apex:repeat>
+                            </tr>
+                            <tr><td style="height:10px;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;" width="{!rateEntryTableWidth}%"></td></tr>
+                         <apex:variable var="i" value="{!i+1}"/>
+                        </apex:repeat>
+                    </tbody>   
+                </table>
+            </apex:pageBlock>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,9 @@
+Dear {!Employer_Group_Data__c.CreatedBy}
+
+Your Sold Case Notification for {!Employer_Group_Data__c.Company_Name__c}, Federal Employer ID Number {!Employer_Group_Data__c.Federal_Employer_ID_Number__c}  has been Rejected by Enrollment Team. 
+
+Reason for Rejection: {!ApprovalRequest.Comments} 
+
+Please Review the SCN.
+
+Thank you.

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Date_Information_Received__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Information Received</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Date_Information_Requested__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Information Requested</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Service_Request__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Request</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Request for Information</relationshipLabel>
+        <relationshipName>Request_for_Information</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <label>Request for Information</label>
+    <nameField>
+        <displayFormat>RFI-{00000000}</displayFormat>
+        <label>Request for Information Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Request for Information</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Date_Information_Received</fullName>
+        <active>true</active>
+        <description>The “Date Information Received” field can’t be set to a future date, it has to be before the current time</description>
+        <errorConditionFormula>Date_Information_Received__c &gt;= NOW()</errorConditionFormula>
+        <errorDisplayField>Date_Information_Received__c</errorDisplayField>
+        <errorMessage>The Date Information Received can’t be set to a future date.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Date_Information_Requested</fullName>
+        <active>true</active>
+        <description>The “Date Information Requested” field can’t be set to a future date, it has to be before the current time</description>
+        <errorConditionFormula>Date_Information_Requested__c &gt;= NOW()</errorConditionFormula>
+        <errorDisplayField>Date_Information_Requested__c</errorDisplayField>
+        <errorMessage>The Date Information Requested can’t be set to a future date.</errorMessage>
+    </validationRules>
+</CustomObject>

@@ -1,0 +1,315 @@
+<apex:page controller="CRMWebClient.CICCallCenterSettingsController" action="{!initPage}" >
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" />
+    <style type="text/css">
+        input{
+            margin-left: 50px;
+        }
+        .attrInput{
+            margin-left:0px;
+            width:95%;
+        }
+        .new-highlight{
+            border-right:4px solid blue;
+            color:blue;
+            font-weight:bold;
+            height:17px;
+            line-height:1.35em;
+            padding-right:5px;
+            position: absolute;
+            text-align: right;
+            width:38px;
+        }
+        .required-highlight{
+            border-right:4px solid red;
+            color:red;
+            font-weight:bold;
+            height:17px;
+            line-height:1.35em;
+            padding-right:5px;
+            position: absolute;
+            text-align: right;
+            width:38px;
+        }
+        .helpOrb{
+            right:-25px !important
+        }
+        .staticInput{
+            left: 8px;
+            position: relative;
+        }
+        .noUnderline{
+            display:inline-block;
+            text-align:center;
+            text-decoration: none;
+            margin:0 8px !important;            
+        }
+        .noUnderline:hover{
+            text-decoration:none;
+        }
+        .errorMsg{
+            color: red;
+            display:block;
+            font-style: italic;
+            font-weight: bold;
+            margin-top:4px;
+        }
+        .attrTable{
+            border-collapse: collapse !important;
+        }
+        .attrTable tr td{
+            vertical-align: top !important;
+        }
+        .attrTable .attrActions{
+            vertical-align: middle !important;
+        }
+        .attrTable .dataRow td{
+            border-width: 0 1px 1px 0px !important;
+        }
+        .attrTable .dataRow td:last-child{
+            border-width: 0 0 1px 0px !important;
+        }
+        .pickListBtn{
+            display:block;
+            height:16px;
+            margin:0 !important;
+            padding:3px !important;
+            width:16px;    
+        }
+        .pickListBtn i{
+            font-size:16px;
+            position:relative;
+            top:2px;
+        }
+        .btnCenter{
+            display:inline-block;
+            height:24px;
+            width:24px;
+        }
+        .buttonCell{
+            width:25px;
+        }
+        .attrActions{
+            padding:4px !important;
+        }
+        div.hr{
+            height:0px;
+            font-size:1px;
+            margin-bottom:0;
+            margin-top:0;
+            width:95%;
+        }
+        div.hr.gray{
+            border-bottom:1px solid #dbdbdb;
+        }
+        div.hr.white{
+            border-top:1px solid #fff;
+        }
+    </style>
+    <apex:form >        
+        <apex:pageBlock title="Call Centers" helpTitle="Release Notes" helpUrl="http://help.mypurecloud.com/?p=26517">
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockSectionItem HelpText="Choose call center definition file">
+                    <apex:outputPanel >
+                        <apex:selectList id="SelectedCallCenterId" styleClass="selectList" value="{!SelectedCallCenterId}" size="1">
+                            <apex:actionSupport event="onchange" action="{!getCustomSettings}" reRender="out" status="status" />
+                            <apex:selectOptions value="{!CallCenters}"/>
+                        </apex:selectList>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:outputPanel id="out">
+            <apex:pageBlock title="Settings" >
+                <apex:pageMessages id="showmsg"></apex:pageMessages>
+                <apex:actionstatus id="status">
+                    <apex:facet name="start">
+                        <c:LoadingSpinner />
+                    </apex:facet>
+                    <apex:facet name="stop">
+                        <apex:pageBlockSection columns="1">
+                            <apex:pageBlockSectionItem helpText="{!$ObjectType.CRMWebClient__CallCenterCustomSettings__c.Fields.CRMWebClient__CaaS_Enabled__c.inlineHelpText}">
+                                <apex:outputLabel value="{!$ObjectType.CRMWebClient__CallCenterCustomSettings__c.Fields.CRMWebClient__CaaS_Enabled__c.label}" />
+                                <apex:outputPanel >
+                                    <apex:inputCheckBox disabled="{!IF(SelectedCallCenterId=='',true,false)}" value="{!CustomCallCenterSettings.CRMWebClient__CaaS_Enabled__c}" styleClass="chkSettings" id="caasEnabled" />
+                                    <apex:actionSupport event="onchange" reRender="settings" status="settingsStatus" />
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            <apex:outputPanel >
+                                <apex:outputPanel id="settings">
+                                    <apex:actionstatus id="settingsStatus">
+                                        <apex:facet name="start">
+                                            <c:LoadingSpinner />
+                                        </apex:facet>
+                                        <apex:facet name="stop">
+                                            <apex:pageBlockSection columns="1">
+                                                <apex:outputPanel id="premise" rendered="{!IF(CustomCallCenterSettings.CRMWebClient__CaaS_Enabled__c==false,true,false)}">
+                                                    <apex:pageBlockSection columns="1">
+                                                        <apex:pageBlockSectionItem helpText="{!$ObjectType.CRMWebClient__CallCenterCustomSettings__c.Fields.CRMWebClient__Proxy_Server__c.inlineHelpText}">
+                                                            <apex:outputLabel value="{!$ObjectType.CRMWebClient__CallCenterCustomSettings__c.Fields.CRMWebClient__Proxy_Server__c.label}" />
+                                                            <apex:outputPanel >
+                                                                <!--span class="new-highlight"><i>New!</i></span-->
+                                                                <span class="required-highlight"></span>
+                                                                <apex:inputText disabled="{!IF(SelectedCallCenterId=='',true,false)}" value="{!CustomCallCenterSettings.CRMWebClient__Proxy_Server__c}" required="false" size="40"/>
+                                                            </apex:outputPanel>
+                                                        </apex:pageBlockSectionItem>
+                                                        <apex:pageBlockSectionItem helpText="{!$ObjectType.CRMWebClient__CallCenterCustomSettings__c.Fields.CRMWebClient__Primary_Server__c.inlineHelpText}">
+                                                            <apex:outputLabel value="{!$ObjectType.CRMWebClient__CallCenterCustomSettings__c.Fields.CRMWebClient__Primary_Server__c.label}" />
+                                                            <apex:outputPanel >
+                                                                <span class="required-highlight"></span>
+                                                                <apex:inputText value="{!CustomCallCenterSettings.CRMWebClient__Primary_Server__c}" disabled="{!IF(SelectedCallCenterId=='',true,false)}" required="false" size="40"/>
+                                                            </apex:outputPanel>
+                                                        </apex:pageBlockSectionItem>
+                                                        <apex:pageBlockSectionItem helpText="{!$ObjectType.CRMWebClient__CallCenterCustomSettings__c.Fields.CRMWebClient__Secondary_Server__c.inlineHelpText}">
+                                                            <apex:outputLabel value="{!$ObjectType.CRMWebClient__CallCenterCustomSettings__c.Fields.CRMWebClient__Secondary_Server__c.label}" />
+                                                            <apex:outputPanel >
+                                                                <apex:inputText value="{!CustomCallCenterSettings.CRMWebClient__Secondary_Server__c}" disabled="{!IF(SelectedCallCenterId=='',true,false)}" required="false" size="40"/>
+                                                            </apex:outputPanel>
+                                                        </apex:pageBlockSectionItem>
+                                                    </apex:pageBlockSection>  
+                                                </apex:outputPanel>
+                                                <apex:outputPanel id="caas" rendered="{!IF(CustomCallCenterSettings.CRMWebClient__CaaS_Enabled__c==true,true,false)}">                                           
+                                                    <apex:pageBlockSection >    
+                                                        <apex:pageBlockSectionItem helpText="{!$ObjectType.CRMWebClient__CallCenterCustomSettings__c.Fields.CRMWebClient__CaaS_Url__c.inlineHelpText}">
+                                                            <apex:outputLabel value="{!$ObjectType.CRMWebClient__CallCenterCustomSettings__c.Fields.CRMWebClient__CaaS_Url__c.label}" />
+                                                            <apex:outputPanel >
+                                                                <span class="required-highlight"></span>
+                                                                <apex:inputText value="{!CustomCallCenterSettings.CRMWebClient__CaaS_Url__c}" size="40"/>
+                                                            </apex:outputPanel>
+                                                        </apex:pageBlockSectionItem>  
+                                                    </apex:pageBlockSection>
+                                                </apex:outputPanel>
+                                            </apex:pageBlockSection>
+                                        </apex:facet>
+                                    </apex:actionstatus>
+                                </apex:outputPanel>
+                                <apex:outputPanel styleClass="staticInput">
+                                    <apex:pageBlockSection columns="1">
+                                        <apex:pageBlockSectionItem helpText="{!$ObjectType.CRMWebClient__CallCenterCustomSettings__c.Fields.CRMWebClient__Enable_SSO__c.inlineHelpText}">
+                                            <apex:outputLabel value="{!$ObjectType.CRMWebClient__CallCenterCustomSettings__c.Fields.CRMWebClient__Enable_SSO__c.label}" />
+                                            <apex:inputCheckbox disabled="{!IF(SelectedCallCenterId=='',true,false)}" value="{!CustomCallCenterSettings.CRMWebClient__Enable_SSO__c}" id="enableSSO" required="false" /> 
+                                        </apex:pageBlockSectionItem>
+                                        <apex:pageBlockSectionItem helpText="{!$ObjectType.CRMWebClient__CallCenterCustomSettings__c.Fields.CRMWebClient__Enable_Server_Sent_Events__c.inlineHelpText}">
+                                            <apex:outputLabel value="{!$ObjectType.CRMWebClient__CallCenterCustomSettings__c.Fields.CRMWebClient__Enable_Server_Sent_Events__c.label}" />
+                                            <apex:inputCheckbox disabled="{!IF(SelectedCallCenterId=='',true,false)}" value="{!CustomCallCenterSettings.CRMWebClient__Enable_Server_Sent_Events__c}" id="enableSSE" required="false" /> 
+                                        </apex:pageBlockSectionItem>
+                                        <apex:outputPanel >
+                                            <div class="hr gray"></div>
+                                            <div class="hr white"></div>
+                                        </apex:outputPanel>
+                                        <apex:pageBlockSectionItem helpText="{!$ObjectType.CRMWebClient__CallCenterCustomSettings__c.Fields.CRMWebClient__Enable_Wrap_Ups__c.inlineHelpText}">
+                                            <apex:outputLabel value="{!$ObjectType.CRMWebClient__CallCenterCustomSettings__c.Fields.CRMWebClient__Enable_Wrap_Ups__c.label}" />
+                                            <apex:inputCheckbox disabled="{!IF(SelectedCallCenterId=='',true,false)}" value="{!CustomCallCenterSettings.CRMWebClient__Enable_Wrap_Ups__c}" id="enableWrapUps" required="false" /> 
+                                        </apex:pageBlockSectionItem>
+                                        <apex:pageBlockSectionItem helpText="{!$ObjectType.CRMWebClient__CallCenterCustomSettings__c.Fields.CRMWebClient__Enable_Auto_Association__c.inlineHelpText}">
+                                            <apex:outputLabel value="{!$ObjectType.CRMWebClient__CallCenterCustomSettings__c.Fields.CRMWebClient__Enable_Auto_Association__c.label}" />
+                                            <apex:inputCheckbox disabled="{!IF(SelectedCallCenterId=='',true,false)}" value="{!CustomCallCenterSettings.CRMWebClient__Enable_Auto_Association__c}" id="enableAutoAssociation" required="false" /> 
+                                        </apex:pageBlockSectionItem>
+                                        <apex:outputPanel >
+                                            <div class="hr gray"></div>
+                                            <div class="hr white"></div>
+                                        </apex:outputPanel>
+                                        <apex:pageBlockSectionItem helpText="{!$ObjectType.CRMWebClient__CallCenterCustomSettings__c.Fields.CRMWebClient__Enable_Call_Log_Functionality__c.inlineHelpText}">
+                                            <apex:outputLabel value="{!$ObjectType.CRMWebClient__CallCenterCustomSettings__c.Fields.CRMWebClient__Enable_Call_Log_Functionality__c.label}" />
+                                            <apex:inputCheckbox disabled="{!IF(SelectedCallCenterId=='',true,false)}" value="{!CustomCallCenterSettings.CRMWebClient__Enable_Call_Log_Functionality__c}" id="enableCallLogs" required="false" /> 
+                                        </apex:pageBlockSectionItem>
+                                        <apex:pageBlockSectionItem helpText="{!$ObjectType.CRMWebClient__CallCenterCustomSettings__c.Fields.CRMWebClient__Enable_Call_Logs__c.inlineHelpText}">
+                                            <apex:outputLabel value="{!$ObjectType.CRMWebClient__CallCenterCustomSettings__c.Fields.CRMWebClient__Enable_Call_Logs__c.label}" />
+                                            <apex:inputCheckbox disabled="{!IF(SelectedCallCenterId=='',true,false)}" value="{!CustomCallCenterSettings.CRMWebClient__Enable_Call_Logs__c}" id="enableCallLogEditing" required="false" /> 
+                                        </apex:pageBlockSectionItem> 
+                                    </apex:pageBlockSection>
+                                </apex:outputPanel>
+                            </apex:outputPanel>
+                        </apex:pageBlockSection>
+                    </apex:facet>
+                </apex:actionstatus>
+                <apex:pageBlockButtons location="bottom">                   
+                    <apex:commandButton value="Save" disabled="{!IF(SelectedCallCenterId=='',true,false)}" action="{!Save}" />    
+                </apex:pageBlockButtons>
+            </apex:pageBlock>
+            <apex:pageBlock title="Activity Field Mapping" helpTitle="Synchronize Attributes / Fields" helpUrl="http://help.mypurecloud.com/articles/synchronize-interaction-attributes-with-call-log/">
+                <apex:outputPanel id="mappingTable">
+                    <apex:variable var="rowNum" value="{!0}" />
+                    <apex:actionStatus id="mapAction">
+                        <apex:facet name="start">
+                            <c:LoadingSpinner />
+                        </apex:facet>
+                        <apex:facet name="stop">
+                            <apex:pageBlockTable styleClass="attrTable" value="{!attrWrappers}" var="key" columnsWidth="45%, 45%, 5%" style="width:50%;min-width:600px;">                                
+                                <apex:column headerValue="Interaction Attributes">
+                                    <apex:inputText disabled="{!IF(SelectedCallCenterId=='',true,false)}" value="{!key.activityAttribute.CRMWebClient__ININ_Attribute__c}" styleClass="attrInput" />
+                                    <apex:outputLabel styleClass="errorMsg" value="{!key.ininErrorMsg}"></apex:outputLabel>
+                                </apex:column>
+                                <apex:column headerValue="Salesforce Fields">
+                                    <apex:selectList disabled="{!IF(SelectedCallCenterId=='',true,false)}" style="width:95%" value="{!key.activityAttribute.CRMWebClient__SF_Attribute__c}" size="1">
+                                        <apex:selectOptions value="{!TaskFields}"/>
+                                    </apex:selectList>
+                                    <apex:outputLabel styleClass="errorMsg" value="{!key.sfErrorMsg}"></apex:outputLabel>
+                                </apex:column>
+                                <apex:column styleClass="attrActions">
+                                    <apex:facet name="header"><apex:commandButton disabled="{!IF(SelectedCallCenterId=='',true,false)}" reRender="mappingTable" status="mapAction" action="{!addRows}" value="Add"/></apex:facet>
+                                    <apex:commandLink reRender="mappingTable" status="mapAction" styleClass="btn noUnderline" action="{!delRow}" value="X">
+                                        <apex:param assignTo="{!rowToRemove}" name="rowToRemove" value="{!rowNum}" />
+                                    </apex:commandLink>
+                                    <apex:variable var="rowNum" value="{!rowNum + 1}" />
+                                </apex:column>
+                                <apex:pageMessages id="mappingMsg"></apex:pageMessages>
+                            </apex:pageBlockTable>
+                        </apex:facet>
+                    </apex:actionStatus>
+                </apex:outputPanel>
+                <apex:pageBlockButtons location="bottom">                                        
+                    <apex:commandButton disabled="{!IF(SelectedCallCenterId=='',true,false)}" action="{!Save}" value="Save"/>
+                </apex:pageBlockButtons>                
+            </apex:pageBlock>
+            <apex:pageBlock id="interactionDetails" title="Customize Interaction Details" helpTitle="Interaction Attributes" helpUrl="http://help.inin.com/cic/mergedProjects/wh_tr/desktop/pdfs/Attributes_TR.pdf">                                                         
+                                
+                <c:MultiselectPicklist parentController="{!this}" callCenter="{!SelectedCallCenterId}" title="Call Details" type="Call" />
+                
+                <c:MultiselectPicklist parentController="{!this}" callCenter="{!SelectedCallCenterId}" title="Callback Details" type="Callback" />
+                
+                <c:MultiselectPicklist parentController="{!this}" callCenter="{!SelectedCallCenterId}" title="Chat Details" type="Chat" />
+                
+                <c:MultiselectPicklist parentController="{!this}" callCenter="{!SelectedCallCenterId}" title="Email Details" type="Email" />
+                                                                                         
+                <c:MultiselectPicklist parentController="{!this}" callCenter="{!SelectedCallCenterId}" title="Generic Object Details" type="Generic" />
+                
+                <apex:pageBlockButtons location="bottom">
+                    <apex:commandButton value="Save" disabled="{!IF(SelectedCallCenterId=='',true,false)}" action="{!Save}" />
+                </apex:pageBlockButtons>
+            </apex:pageBlock>
+            <apex:pageBlock id="intergrationConsoleEvents" title="Integration Console Events" helpTitle="" helpUrl="">     
+            	<apex:pageBlockSection columns="1">                                                   
+	                <apex:pageBlockSectionItem helpText="{!$ObjectType.CRMWebClient__CallCenterCustomSettings__c.Fields.CRMWebClient__Enable_Integration_Console_Events_API__c.inlineHelpText}">
+		                <apex:outputLabel value="{!$ObjectType.CRMWebClient__CallCenterCustomSettings__c.Fields.CRMWebClient__Enable_Integration_Console_Events_API__c.label}" />
+		                <apex:outputPanel >
+		                    <apex:inputCheckBox disabled="{!IF(SelectedCallCenterId=='',true,false)}" value="{!CustomCallCenterSettings.CRMWebClient__Enable_Integration_Console_Events_API__c}" styleClass="chkSettings" id="enableIntegrationConsoleEvents" />
+		                    <apex:actionSupport event="onchange" reRender="integrationConsoleEventsSettings" status="integrationConsoleEventsSettingsStatus" />
+		                </apex:outputPanel>
+	                </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                
+                <apex:outputPanel id="integrationConsoleEventsSettings">
+                	<apex:actionstatus id="integrationConsoleEventsSettingsStatus">
+                        <apex:facet name="start">
+                            <c:LoadingSpinner />
+                        </apex:facet>
+                        <apex:facet name="stop">
+                        	<apex:outputPanel >
+	               				<c:MultiselectPicklist parentController="{!this}" callCenter="{!SelectedCallCenterId}" title="Watchable Interaction Attributes" type="Integration Events (Watchable)" disabled="{!IF(CustomCallCenterSettings.CRMWebClient__Enable_Integration_Console_Events_API__c, false, true)}" allowEmpty="true"/> 	
+								<c:MultiselectPicklist parentController="{!this}" callCenter="{!SelectedCallCenterId}" title="Settable Interaction Attributes" type="Integration Events (Settable)" disabled="{!IF(CustomCallCenterSettings.CRMWebClient__Enable_Integration_Console_Events_API__c, false, true)}" allowEmpty="true"/>
+								<c:MultiselectPicklist parentController="{!this}" callCenter="{!SelectedCallCenterId}" title="Watchable Handler Events" type="Integration Events (Watchable Handler Events)" disabled="{!IF(CustomCallCenterSettings.CRMWebClient__Enable_Integration_Console_Events_API__c, false, true)}" availableText="Available Events" selectedText="Enabled Events" allowEmpty="true"/>
+							</apex:outputPanel>
+						</apex:facet>
+					</apex:actionstatus>
+				</apex:outputPanel>
+				
+				
+                <apex:pageBlockButtons location="bottom">
+                    <apex:commandButton value="Save" disabled="{!IF(SelectedCallCenterId=='',true,false)}" action="{!Save}" />
+                </apex:pageBlockButtons>
+                
+            </apex:pageBlock>
+            
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

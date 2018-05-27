@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Quote</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Quotes</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account Name --></label>
+        <name>Account_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tech Account RecordType Name --></label>
+        <name>Account_RecordType_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- DBA --></label>
+        <name>DBA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Employer Type --></label>
+        <name>Email_Employer_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employer Type --></label>
+        <name>Employer_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Child Record Created? --></label>
+        <name>Is_Child_Record_Created__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Quotes Generated --></label>
+        <name>No_of_Quotes_Generated__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Quotes Requested --></label>
+        <name>No_of_Quotes_Requested__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity_ID__c</name>
+        <relationshipLabel><!-- Quotes --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Stage --></label>
+        <name>Opportunity_Stage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tech Plan Year --></label>
+        <name>Plan_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote Effective Date --></label>
+        <name>Quote_Effective_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- RFP Date Due --></label>
+        <name>RFP_Date_Due__c</name>
+    </fields>
+    <fields>
+        <label><!-- RFP Date Submitted --></label>
+        <name>RFP_Date_Submitted__c</name>
+    </fields>
+    <fields>
+        <label><!-- RFP Form --></label>
+        <name>RFP_Form__c</name>
+        <relationshipLabel><!-- Quotes --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Stage --></label>
+        <name>Stage__c</name>
+        <picklistValues>
+            <masterLabel>Approved by Sales</masterLabel>
+            <translation><!-- Approved by Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending Actuarial Review</masterLabel>
+            <translation><!-- Pending Actuarial Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected by Sales</masterLabel>
+            <translation><!-- Rejected by Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted to Sales</masterLabel>
+            <translation><!-- Submitted to Sales --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Tech Account Id --></label>
+        <name>Tech_Account_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tech Opportunity Name --></label>
+        <name>Tech_Opportunity_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tech RFP Status --></label>
+        <name>Tech_RFP_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Underwriting Comments --></label>
+        <name>Underwriting_Comments__c</name>
+    </fields>
+    <layouts>
+        <layout>Quote Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Opportunity Information --></label>
+            <section>Opportunity Information</section>
+        </sections>
+        <sections>
+            <label><!-- RFP Information --></label>
+            <section>RFP Information</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Email_All_Attachments_To_Me --></label>
+        <name>Email_All_Attachments_To_Me</name>
+    </webLinks>
+</CustomObjectTranslation>

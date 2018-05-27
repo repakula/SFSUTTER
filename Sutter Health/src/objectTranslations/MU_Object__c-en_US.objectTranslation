@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>MU Object</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>MU Objects</value>
+    </caseValues>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- MU Objects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Escalation Status --></label>
+        <name>Escalation_Status__c</name>
+        <picklistValues>
+            <masterLabel>Cannot send documents to Provider</masterLabel>
+            <translation><!-- Cannot send documents to Provider --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Send Documents To Provider</masterLabel>
+            <translation><!-- Send Documents To Provider --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Accepted</masterLabel>
+            <translation><!-- Accepted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cannot Reach</masterLabel>
+            <translation><!-- Cannot Reach --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed (Closed)</masterLabel>
+            <translation><!-- Closed (Closed) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Escalate to Meaningful Use</masterLabel>
+            <translation><!-- Escalate to Meaningful Use --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

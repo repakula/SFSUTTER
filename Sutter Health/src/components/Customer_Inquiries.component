@@ -1,0 +1,123 @@
+<apex:component >
+    <apex:attribute required="false" name="wrapCaseList" type="CaseRecordAccessWrapper[]" description="Wrapper Case list"/>
+    <apex:attribute required="false" name="prvCustomerInquiries" type="string" description="Pagination  state"/>
+    <apex:attribute required="false" name="nxtCustomerInquiries" type="string" description="Pagination  state"/>
+    <apex:attribute required="false" name="outputPanel" type="string" description="output panel"/>
+    <apex:attribute required="false" name="checkCustomerInquiries" type="string" description="Case boolean"/>
+    <apex:attribute required="false" name="checkCustomerInquiries1" type="string" description="Case boolean"/>    
+    <apex:attribute required="false" name="CustInqOther" type="Member_Enquiries__c[]" description="Customer Inquiry other"/>
+    <apex:attribute required="false" name="fstbtn" type="ApexPages.Action" description="first Button for Pagination"/>
+    <apex:attribute required="false" name="prvbtn" type="ApexPages.Action" description="Prev Button for Pagination"/>
+    <apex:attribute required="false" name="nextbtn" type="ApexPages.Action" description="Next button"/>
+    <apex:attribute required="false" name="endbtn" type="ApexPages.Action" description="Last Button"/>
+    <apex:attribute required="false" name="tabId" type="string" description="tab id "/>  
+    <apex:outputPanel rendered="{!checkCustomerInquiries }"  >
+        <table  border="1" class="tableheadings">
+                    <tr>
+                        <td  rowspan="2" style="width:5% !important;">{!$Label.CL119_Action}</td>
+                        <td >{!$Label.CL120_Customer_Inquiry}</td> 
+                        <td  rowspan="2">{!$Label.CL122_Customer_inquiry_Type}</td>         
+                        <td  rowspan="2">{!$Label.CL123_Request_Type}</td>          
+                        <td  rowspan="2">{!$Label.CL124_Subject}</td>         
+                        <td  rowspan="2">{!$Label.CL125_Status}</td>         
+                        <td  rowspan="2">{!$Label.CL126_Owner}</td>         
+                        <td  rowspan="2">{!$Label.CL127_Date_Time_Opened}</td>         
+                        <td>{!$Label.CL128_Reason}</td> 
+                     </tr>
+                    <tr>
+                        <td>{!$Label.CL121_Parent_Customer_inquiry_number}</td>
+                        <td>Secondary Reason</td>         
+                    </tr>
+        </table>
+        <apex:variable value="{!1}" var="counterCas" /> 
+            <apex:repeat value="{!wrapCaseList}" var="wrapObj"  >
+                <table style="table-layout: fixed; width:100% ; " border="1" class ="tabledata" >
+                    <tr style="background-color:{!if(MOD(counterCas,2)==0,'#cfeef8','White')}">
+                        <td rowspan="2" style="width:5% !important;"  >
+                            <apex:outputLink value="/{!wrapObj.CaseRecord.id}/e" target="_self" style="color: darkred;font-weight: bold;">Edit</apex:outputLink>
+                        </td>
+                        <td width="10%">
+                               <apex:outputpanel rendered="{!IF(wrapObj.CaseRecord.Description == null ,true,false)}" >
+                                    <apex:outputLink value="/{!wrapObj.CaseRecord.id}" style="font-weight: bold;" target="_self">{!wrapObj.CaseRecord.CaseNumber}
+                                    </apex:outputLink> 
+                                </apex:outputpanel>
+                            <apex:outputpanel rendered="{!IF(wrapObj.CaseRecord.Description != null ,true,false)}" >
+                                <div class="tooltip" style="display:inline">
+                                
+                                    <apex:outputLink value="/{!wrapObj.CaseRecord.id}" style="font-weight: bold;" target="_self">{!wrapObj.CaseRecord.CaseNumber}
+                                    </apex:outputLink> 
+                                    <apex:outputText rendered="{!IF(wrapObj.CaseRecord.Description != null && wrapObj.hasAccess ,true,false)}">
+                                        <span>{!wrapObj.CaseRecord.Description}</span>
+                                    </apex:outputText>
+                                 </div>
+                                </apex:outputpanel>
+                        </td>
+                        <td rowspan="2" >{!wrapObj.CaseRecord.Customer_Inquiry_Type__c}</td>         
+                        <td rowspan="2">{!wrapObj.CaseRecord.Request_Type__c}</td> 
+                        <td rowspan="2">{!IF(wrapObj.hasAccess,wrapObj.CaseRecord.Subject,null)}</td>  
+                    
+                               
+                        <td rowspan="2" style="vertical-align: middle;">{!wrapObj.CaseRecord.Status}</td>         
+                        <td rowspan="2" style="vertical-align: middle;">
+                            <apex:outputLink value="/{!wrapObj.CaseRecord.Owner.id}" style="font-weight: bold;" target="_self">{!wrapObj.CaseRecord.Owner.Name}</apex:outputLink>
+                        </td>   
+                        <td width="10%" rowspan="2" >
+                            <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                <apex:param value="{!wrapObj.CaseRecord.CreatedDate}" /> 
+                            </apex:outputText> 
+                        </td>  
+                        <td>{!wrapObj.CaseRecord.Reason__c}</td>  
+                    </tr>
+                    <tr style="background-color:{!if(MOD(counterCas,2)==0,'#cfeef8','White')}">   
+                        <td width="10%">
+                            <apex:outputLink value="/{!wrapObj.CaseRecord.ParentId}" style="font-weight: bold;" target="_self">{!wrapObj.CaseRecord.Parent.CaseNumber}
+                            </apex:outputLink>
+                        </td>     
+                        <td width="10%">{!wrapObj.CaseRecord.Secondary_Reason__c}</td>         
+                    </tr>
+                </table>
+                 <apex:variable value="{!counterCas + 1}" var="counterCas" />
+
+            </apex:repeat>
+            <apex:panelGrid columns="5" styleclass="panelgrid" >
+                 <apex:commandLink value="|<<"  action="{!fstbtn}"  reRender="{!outputPanel}" rendered="{!prvCustomerInquiries}"  styleclass="commandlink" status="loadStatus" >
+                 <apex:param name="CustInq" assignTo="{!tabID}" value="{!$Label.Cl133_custInq}"/>
+                  </apex:commandLink>
+                 <apex:commandLink value="<"  action="{!prvbtn}" reRender="{!outputPanel}" rendered="{!prvCustomerInquiries}" styleclass="commandlink" status="loadStatus" >
+                 <apex:param name="CustInq" assignTo="{!tabID}" value="{!$Label.Cl133_custInq}"/>
+                  </apex:commandLink>
+                <apex:commandLink value=">"  action="{!nextbtn}" reRender="{!outputPanel}" rendered="{!nxtCustomerInquiries}" styleclass="commandlink" status="loadStatus" >
+                <apex:param name="CustInq" assignTo="{!tabID}" value="{!$Label.Cl133_custInq}"/>
+                  </apex:commandLink>
+                <apex:commandLink value=">>|"  action="{!endbtn}" reRender="{!outputPanel}" rendered="{!nxtCustomerInquiries}" styleclass="commandlink" status="loadStatus" >
+                <apex:param name="CustInq" assignTo="{!tabID}" value="{!$Label.Cl133_custInq}"/>
+                  </apex:commandLink>
+                <apex:actionStatus id="loadStatus" >
+                    <apex:facet name="start" >
+                        <img src="/img/loading.gif" />                    
+                    </apex:facet>
+                </apex:actionStatus>
+            </apex:panelGrid> 
+            
+    </apex:outputPanel>   
+    <apex:outputpanel rendered="{!checkCustomerInquiries1}" >
+        <apex:outputText value="No Record Found" styleClass="noRecord" >
+        </apex:outputtext>
+    </apex:outputpanel>
+     <apex:pageBlock title="Customer Inquiries By Others">
+        <apex:pageblockTable value="{!CustInqOther}" var="a">
+            <apex:column >
+            <apex:facet name="header">Member/Provider Name</apex:facet>
+                       {!a.Member_Provider_Name_Formula__c}
+            </apex:column>
+            <apex:column >
+            <apex:facet name="header">Intent</apex:facet>
+                        {!a.Intent__c}  
+            </apex:column>
+            <apex:column >
+            <apex:facet name="header">Description</apex:facet>
+                        {!a.Description__c} 
+            </apex:column>                      
+        </apex:pageblockTable>
+    </apex:pageBlock>
+</apex:component>

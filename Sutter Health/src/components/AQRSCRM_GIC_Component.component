@@ -1,0 +1,79 @@
+<apex:component controller="AQRSCRMController" >
+    
+     <div style="clear:both;"></div>
+    <div class="tabledisplay planingtable" id="secondtable" style="display:none;">
+    <h5><b>Gaps In Care</b></h5>
+    <div>
+    <!-- <a onclick=" exportTableToCSVGapsinCare('PatientsinGapsinCare.csv')" style="text-decoration: none;cursor: pointer;position:absolute;right:39px;top:0px;">
+    Export  To CSV</a>-->
+    <apex:commandlink action="{!createCSV}" value="Export To CSV" style="text-decoration: none;cursor: pointer;position:absolute;right:39px;top:0px;"/>
+    <div style="clear:both"></div >
+    </div>
+    <table id="gapsincare" class="table-bordered table-striped table-condensed cf" cellspacing="0" width="100%">
+    <apex:commandlink onclick="fetchCustomSetting('GIC');"  value="Select Display Fields" styleClass="Show_morefields1"  rerender="availablePanel,selectedPanel"/>
+    <!-- <a class="Show_morefields1" data-toggle="modal" data-target="#Addmorefields-modal">Select Display Fields</a>-->
+    <!-- <a class="Show_morefields22" id="gichidefields" style="display:none;">Hide Fields</a> -->
+    <thead class="grdidhead cf">
+
+    </thead>
+    <tbody>
+    <apex:repeat value="{!recievedPatientGICList}" var="resGIC">
+    <tr width="100%" id="fields_data"  >
+    <td data-title="Outreached">{!resGIC.outReached}</td>
+    <td data-title="Patient Name">{!resGIC.patient_name}</td>
+    <td data-title="Patient MRN"><a href="/apex/tst_AQRS_Comm_Log?patinet_MRNID={!URLENCODE(resGIC.patient_mrn)}&tab_active=GIC" >{!resGIC.patient_mrn}</a></td>
+    <td data-title="Patient DOB">
+    <span>
+    <apex:outputText value="{0,date,YYYYMMDD}">
+    <apex:param value="{!resGIC.patient_dob}" />
+    </apex:outputText>
+    </span>
+    <apex:outputText value="{0,date,MM/dd/yyyy}">
+    <apex:param value="{!resGIC.patient_dob}" />
+    </apex:outputText>
+    </td>
+    <td data-title="Patient Gender" ><apex:outputText value="{!resGIC.patient_gender}" /></td>
+    <td data-title="Preferred Communication Method" ><apex:outputText value="{!resGIC.preferred_communication_method}" /></td>
+    <td data-title="Email address" ><apex:outputText value="{!resGIC.email_Address}" /></td>
+    <td data-title="patient Homephone" ><apex:outputText value="{!resGIC.patient_home_phone}" /></td>
+    <td data-title="Possible Actions Needed" ><apex:outputText value="{!resGIC.possible_actions_needed}" /></td>    
+    <td data-title="Provider Name"  ><apex:outputText value="{!resGIC.provider_ID}" /></td>
+    <td data-title="Measure Name"  ><apex:outputText value="{!resGIC.measure_Name}" /></td>
+    <td data-title="Next Appointment Type"  ><apex:outputText value="{!resGIC.next_appointment_type}" /></td> 
+    
+    <td data-title="Last Appointment Date" id="GICtdLastAppointmentDate" ><apex:outputText value="{!resGIC.date_of_last_appointment}" /></td>
+    <td data-title="Next Appointment Date" id="GICtdNextAppointmentDate" ><apex:outputText value="{!resGIC.date_of_next_appointment}" /></td>
+    <td data-title="HCC Gaps" id="GICtdHCCGaps" ><apex:outputText value="{!resGIC.hcc}" /></td>
+    <td data-title="Payor" id="GICtdPayor"><apex:outputText value="{!resGIC.payor_Name}" /></td>
+    <td data-title="Address" id="GICtdAddress"><apex:outputText value="{!resGIC.patient_home_address}" /></td>
+    <td data-title="Race" id="GICtdRace"><apex:outputText value="{!resGIC.patient_Race}" /></td> 
+
+    <td data-title="Total Gaps" id="GICtdTotalGaps" ><apex:outputText value="{!resGIC.total_Gaps}" /></td>
+    <td data-title="Last AWV Date" id="GICtdLastAWVDate" ><apex:outputText value="{!resGIC.last_awv_date }" /></td>
+    <td data-title="Next Appointment Provider" id="GICtdNextAppointmenttProvider" ><apex:outputText value="{!resGIC.next_appointment_provider }" /></td>
+    <td data-title="Next Appointment Time" id="GICtdNextAppointmenttTime" ><apex:outputText value="{!resGIC.next_Appointment_Time }" /></td>
+    <td data-title="Population" id="GICtdPopulation" ><apex:outputText value="{!resGIC.population }" /></td>
+    <td data-title="Speciality" id="GICtdSpeciality" ><apex:outputText value="{!resGIC.specialty }" /></td>
+    <td data-title="Division" id="GICtdDivision" ><apex:outputText value="{!resGIC.division_name }" /></td>
+    <td data-title="Department" id="GICtdDepartmentt" ><apex:outputText value="{!resGIC.department_Name }" /></td>
+    <td data-title="Facility" id="GICtdFacility" ><apex:outputText value="{!resGIC.facility_ID }" /></td>
+    <td data-title="Qualifying Measure" id="GICtdQualifyingMeasure" ><apex:outputText value="{!resGIC.qualifying_measure}" /></td>
+    <td data-title="Last Bill Date" id="GICtdLastBillDate" ><apex:outputText value="{!resGIC.date_of_last_billed}" /></td>
+    <td data-title="AWV Measurement" id="GICtdAWVMeasurement" ><apex:outputText value="{!resGIC.awv_measurement_this_year}" /></td>    
+    </tr>
+    </apex:repeat>
+    </tbody>
+    </table>
+    </div>
+  <scrript>
+       var table = $('#gapsincare').DataTable( {
+    scrollCollapse: true,
+    paging:         true,
+    fixedColumns: false,
+    fnDrawCallback: function() { 
+        //renderTable();
+        }
+    }); 
+
+    </scrript>
+</apex:component>

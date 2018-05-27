@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SHP Grievance Email Notification when SR is created</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>S3_Letterhead</letterhead>
+    <name>SHP Grievance Email Notification when SR is created</name>
+    <style>freeForm</style>
+    <subject>{!Case.Secondary_Reason__c} Grievance Ticket Number {!Case.CaseNumber} is created</subject>
+    <textOnly>{!Case.Secondary_Reason__c} Grievance service request number {!Case.CaseNumber} has been created.Please review immediately.
+
+Thank you!</textOnly>
+    <type>html</type>
+</EmailTemplate>

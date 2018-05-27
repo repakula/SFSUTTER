@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>RFP Approval Email Template</name>
+    <style>none</style>
+    <subject>RFP/RFR Submitted for Approval - Employer Name: {!Incumbent_Carrier__c.Account_Name__c}/DBA: {!Incumbent_Carrier__c.DBA_if_any_n__c} Employer Type: {!Incumbent_Carrier__c.Email_Employer_Type__c}</subject>
+    <textOnly>Hi,
+
+RFP/RFR Form: {!Incumbent_Carrier__c.Name} for {!Incumbent_Carrier__c.Account_Name__c}/DBA: {!Incumbent_Carrier__c.DBA_if_any_n__c},  {!Incumbent_Carrier__c.Email_Employer_Type__c} has been submitted for Approval.
+
+Thank you.</textOnly>
+    <type>custom</type>
+</EmailTemplate>

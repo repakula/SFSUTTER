@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Used to override the EAF detail page.</comment>
+        <content>PDIEAFFacilityDetail</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>ADDRESS__c</fullName>
+        <externalId>false</externalId>
+        <label>ADDRESS</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AD_Address_Element_Result_Status__c</fullName>
+        <description>used for suggested addresses.</description>
+        <externalId>false</externalId>
+        <label>AD Address Element Result Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>AD_Address_Mailability_Score__c</fullName>
+        <description>used for suggested addresses.</description>
+        <externalId>false</externalId>
+        <label>AD Address Mailability Score</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>AD_Address_Process_Status__c</fullName>
+        <description>used for suggested addresses.</description>
+        <externalId>false</externalId>
+        <label>AD Address Process Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>AD_Address_Result_Percentage__c</fullName>
+        <description>used for suggested addresses.</description>
+        <externalId>false</externalId>
+        <label>AD Address Result Percentage</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>AD_Address_Verification_Status__c</fullName>
+        <description>used for suggested addresses.</description>
+        <externalId>false</externalId>
+        <label>AD Address Verification Status</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AD_Element_Result_status__c</fullName>
+        <description>used for suggested addresses.</description>
+        <externalId>false</externalId>
+        <label>AD Element Result status</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Address_Line_1__c</fullName>
+        <description>used to store address line 1</description>
+        <externalId>false</externalId>
+        <label>Address Line 1</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Address_Line_2__c</fullName>
+        <description>used to store address line 2</description>
+        <externalId>false</externalId>
+        <label>Address Line 2</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Address_Modified__c</fullName>
+        <externalId>false</externalId>
+        <label>Address Modified</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Assigned_Date__c</fullName>
+        <description>used to store facility assigned date to the agent.</description>
+        <externalId>false</externalId>
+        <label>Assigned Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Attn_To__c</fullName>
+        <externalId>false</externalId>
+        <label>Attn To</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CITY__c</fullName>
+        <externalId>false</externalId>
+        <label>CITY</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>EAF Facilities</relationshipLabel>
+        <relationshipName>EAF_Facilities</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Closed_Date__c</fullName>
+        <description>used to store facility validated date.</description>
+        <externalId>false</externalId>
+        <label>Closed Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Decline_Fax__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>used to decline fax</description>
+        <externalId>false</externalId>
+        <label>Decline Fax</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Decline_Phone__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>used to decline phone</description>
+        <externalId>false</externalId>
+        <label>Decline Phone</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Emp_Id__c</fullName>
+        <description>Emp Id for EAF search</description>
+        <externalId>false</externalId>
+        <label>Emp Id</label>
+        <length>18</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>External__c</fullName>
+        <externalId>false</externalId>
+        <label>External</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>FAX_NUMBER__c</fullName>
+        <externalId>false</externalId>
+        <label>FAX NUMBER</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Facility_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Facility ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Floor__c</fullName>
+        <externalId>false</externalId>
+        <label>Floor</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Formatted_Address__c</fullName>
+        <description>used to store formatted suggested address.</description>
+        <externalId>false</externalId>
+        <label>Formatted Address</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Is_Address_Chagned__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>to capture address change</description>
+        <externalId>false</externalId>
+        <label>Is Address Chagned</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Address_Line_2_Changed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>used to capture if address line 2 changed.</description>
+        <externalId>false</externalId>
+        <label>Is Address Line 2 Changed</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_City_Changed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>used to capture if city changed.</description>
+        <externalId>false</externalId>
+        <label>Is City Changed</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Fax_Changed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>used to capture if fax changed.</description>
+        <externalId>false</externalId>
+        <label>Is Fax Changed</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Phone_Changed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>used to capture if phone changed.</description>
+        <externalId>false</externalId>
+        <label>Is Phone Changed</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Phone_Extension_Changed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>used to capture if phone extension changed.</description>
+        <externalId>false</externalId>
+        <label>Is Phone Extension Changed</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_State_Changed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>used to capture if state changed.</description>
+        <externalId>false</externalId>
+        <label>Is State Changed</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Zip_Code_Changed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>used to capture if zip code changed.</description>
+        <externalId>false</externalId>
+        <label>Is Zip Code Changed</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Last_Verified_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Verified date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Names_Changes_Suggested__c</fullName>
+        <externalId>false</externalId>
+        <label>Names Changes Suggested</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PDI_Campaign__c</fullName>
+        <description>used to capture current campaign.</description>
+        <externalId>false</externalId>
+        <label>PDI Campaign</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PHONE__c</fullName>
+        <externalId>false</externalId>
+        <label>PHONE</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Phone_Extension__c</fullName>
+        <externalId>false</externalId>
+        <label>Phone Extension</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Printed_Address__c</fullName>
+        <description>Field to store Facility Printed street Address</description>
+        <externalId>false</externalId>
+        <label>Printed Address</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Printed_City__c</fullName>
+        <description>Field to store Facility Printed City</description>
+        <externalId>false</externalId>
+        <label>Printed City</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Printed_Floor__c</fullName>
+        <description>Field to store Facility Printed Floor</description>
+        <externalId>false</externalId>
+        <label>Printed Floor</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Printed_Name__c</fullName>
+        <description>Field to store Facility Printed Name</description>
+        <externalId>false</externalId>
+        <label>Printed Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Printed_State__c</fullName>
+        <description>Field to store Facility Printed State</description>
+        <externalId>false</externalId>
+        <label>Printed State</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Printed_Suite__c</fullName>
+        <description>Field to store Facility Printed Suite</description>
+        <externalId>false</externalId>
+        <label>Printed Suite</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Printed_Zip_Code__c</fullName>
+        <description>Field to store Facility Printed Zip Code</description>
+        <externalId>false</externalId>
+        <label>Printed Zip Code</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>STATE__c</fullName>
+        <externalId>false</externalId>
+        <label>STATE</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Serial_Number__c</fullName>
+        <defaultValue>1</defaultValue>
+        <description>Serial Number for Facility address and need to be unique at provider level and should be incremented for new addressrecords</description>
+        <externalId>false</externalId>
+        <label>S#</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>Used to show the facility validation status.</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Non-Validated</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Accepted</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Validated</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Suite__c</fullName>
+        <externalId>false</externalId>
+        <label>Suite</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tech_ByPass_Address_Verification__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>used to By pass address verification in eaf validation</description>
+        <externalId>false</externalId>
+        <label>ByPass Address Verification</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Tech_Current_Campaign__c</fullName>
+        <description>used to filter EAF records based on current campaign.</description>
+        <externalId>false</externalId>
+        <formula>IF(AND(NOT( ISBLANK( PDI_Campaign__c ) ), TRIM( PDI_Campaign__c ) = TRIM( $Label.CL176_PDI_Current_Campaign_Name )) , &apos;Current Campaign&apos; , &apos;&apos;)</formula>
+        <label>Tech Current Campaign</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tech_is_Facility_Updated__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>used to control the is changed flags.</description>
+        <externalId>false</externalId>
+        <label>Tech is Facility Updated</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ZIP_CODE__c</fullName>
+        <externalId>false</externalId>
+        <label>ZIP CODE</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>EAF Facility</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>NAME</field>
+            <operation>contains</operation>
+            <value>NCMA</value>
+        </filters>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>My_Closed_Facilities</fullName>
+        <columns>NAME</columns>
+        <columns>PHONE__c</columns>
+        <columns>Address_Line_1__c</columns>
+        <columns>CITY__c</columns>
+        <columns>STATE__c</columns>
+        <columns>ZIP_CODE__c</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Validated</value>
+        </filters>
+        <filters>
+            <field>Tech_Current_Campaign__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>My Closed Facilities</label>
+        <sharedTo>
+            <group>Summary_of_Care_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>My_Open_Facilities</fullName>
+        <columns>NAME</columns>
+        <columns>PHONE__c</columns>
+        <columns>Address_Line_1__c</columns>
+        <columns>CITY__c</columns>
+        <columns>STATE__c</columns>
+        <columns>ZIP_CODE__c</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Accepted,Non-Validated</value>
+        </filters>
+        <filters>
+            <field>Tech_Current_Campaign__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>My Open Facilities</label>
+        <sharedTo>
+            <group>Summary_of_Care_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>My_Team_Closed_Facilities</fullName>
+        <columns>NAME</columns>
+        <columns>PHONE__c</columns>
+        <columns>Address_Line_1__c</columns>
+        <columns>CITY__c</columns>
+        <columns>STATE__c</columns>
+        <columns>ZIP_CODE__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Validated</value>
+        </filters>
+        <filters>
+            <field>Tech_Current_Campaign__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>My Team Closed Facilities</label>
+        <sharedTo>
+            <group>Summary_of_Care_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>My_Team_Open_Facilities</fullName>
+        <columns>NAME</columns>
+        <columns>PHONE__c</columns>
+        <columns>Address_Line_1__c</columns>
+        <columns>CITY__c</columns>
+        <columns>STATE__c</columns>
+        <columns>ZIP_CODE__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Accepted</value>
+        </filters>
+        <filters>
+            <field>Tech_Current_Campaign__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>My Team Open Facilities</label>
+        <sharedTo>
+            <group>Summary_of_Care_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Non_Validated_Facilities_PDV_EAF_Facility</fullName>
+        <columns>NAME</columns>
+        <columns>PHONE__c</columns>
+        <columns>Address_Line_1__c</columns>
+        <columns>CITY__c</columns>
+        <columns>STATE__c</columns>
+        <columns>ZIP_CODE__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <filterScope>Queue</filterScope>
+        <filters>
+            <field>Tech_Current_Campaign__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>Non Validated Facilities</label>
+        <queue>Non_Validated_Facilities</queue>
+        <sharedTo>
+            <group>Summary_of_Care_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Validated_Facilities</fullName>
+        <columns>NAME</columns>
+        <columns>PHONE__c</columns>
+        <columns>Address_Line_1__c</columns>
+        <columns>CITY__c</columns>
+        <columns>STATE__c</columns>
+        <columns>ZIP_CODE__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Validated</value>
+        </filters>
+        <filters>
+            <field>Tech_Current_Campaign__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>Validated Facilities</label>
+        <sharedTo>
+            <group>Summary_of_Care_Group</group>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <label>Facility Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>EAF Facilities</pluralLabel>
+    <searchLayouts>
+        <searchResultsAdditionalFields>Facility_ID__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Last_Verified_date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LAST_UPDATE</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

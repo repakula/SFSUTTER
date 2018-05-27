@@ -1,0 +1,9 @@
+<table height="400" width="550" cellpadding="5" border="0" cellspacing="5" >
+<tr height="400" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r1" locked="0" aEditID="c1r1" >
+<![CDATA[<DIV><FONT size=4><FONT style="FONT-FAMILY: arial; COLOR: rgb(0,0,0)" face="Times New Roman, Times, serif"><SPAN style="BACKGROUND-COLOR: rgb(255,255,255)">Dear&nbsp;</SPAN></FONT><FONT face="Times New Roman, Times, serif">{!Case.Requestor_Name_f__c},</FONT></FONT></DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0)"><FONT size=4 face="Times New Roman, Times, serif"><BR><SPAN style="BACKGROUND-COLOR: rgb(255,255,255)">Exceeding customer expectations is our goal at Sutter Shared Services. Based on your experiences with Service Request # {!Case.CaseNumber} (opened {!Case.CreatedDate} and resolved {!Case.ClosedDate}), please take a moment to help us evaluate our service by answering four survey questions. We will share your comments with our leadership and make recommendations for changes that will improve your experience with Sutter Health.&nbsp;</SPAN></FONT></DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0)"><FONT size=4 face="Times New Roman, Times, serif"><SPAN style="BACKGROUND-COLOR: rgb(255,255,255)"><BR></SPAN></FONT></DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0)"><FONT size=4 face="Times New Roman, Times, serif"><SPAN style="BACKGROUND-COLOR: rgb(255,255,255)">The survey can be accessed by clicking the below link.&nbsp;</SPAN><BR><BR><A style="COLOR: rgb(0,0,0)" href="http://sutterhealth.force.com/SurveyForce/TakeSurvey?id=a0AG000000EpKdtMAF&amp;cId={!Contact.Id}&amp;caId={!Case.Id}" target=_blank>http://sutterhealth.force.com/SurveyForce/TakeSurvey?id=a0AG000000EpKdtMAF&amp;cId={!Contact.Id}&amp;caId={!Case.Id}</A><BR><BR><SPAN style="BACKGROUND-COLOR: rgb(255,255,255)">Thank you for your time.</SPAN></FONT></DIV>]]></td>
+</tr>
+</table>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SamlSsoConfig xmlns="http://soap.sforce.com/2006/04/metadata">
+    <decryptionCertificate>0P1G0000000KzfU</decryptionCertificate>
+    <identityLocation>SubjectNameId</identityLocation>
+    <identityMapping>FederationId</identityMapping>
+    <issuer>sutterhealth.idp.sfdc.crm</issuer>
+    <loginUrl>https://auth.sutterhealth.org/affwebservices/public/saml2sso?SPID=https://suttercrm.my.salesforce.com</loginUrl>
+    <logoutUrl>https://auth.sutterhealth.org/logoff/logoff.html</logoutUrl>
+    <name>Production CRM</name>
+    <oauthTokenEndpoint>https://suttercrm--ITCDev.cs66.my.salesforce.com/services/oauth2/token?so=00D0v0000000S1c</oauthTokenEndpoint>
+    <redirectBinding>false</redirectBinding>
+    <requestSignatureMethod>0</requestSignatureMethod>
+    <salesforceLoginUrl>https://suttercrm--ITCDev.cs66.my.salesforce.com?so=00D0v0000000S1c</salesforceLoginUrl>
+    <samlEntityId>https://suttercrm.my.salesforce.com</samlEntityId>
+    <samlVersion>SAML2_0</samlVersion>
+    <userProvisioning>false</userProvisioning>
+    <validationCert>MIIDaDCCAlCgAwIBAgIEWK45YDANBgkqhkiG9w0BAQsFADB2MQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExDzANBgNVBAcTBk1hdGhlcjEWMBQGA1UEChMNU3V0dGVyIEhlYWx0aDENMAsGA1UECxMEU0hTUzEiMCAGA1UEAxMZc3V0dGVyaGVhbHRoLmlkcC5zZmRjLmNybTAeFw0xNzAyMjMwMTIyNDBaFw0xOTAyMjgwMTIyNDBaMHYxCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEPMA0GA1UEBxMGTWF0aGVyMRYwFAYDVQQKEw1TdXR0ZXIgSGVhbHRoMQ0wCwYDVQQLEwRTSFNTMSIwIAYDVQQDExlzdXR0ZXJoZWFsdGguaWRwLnNmZGMuY3JtMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnhu7BXkePAie3nMIiRvLpMTCWY/z6Xxs4fytuEesd+AYZ4VVcPIX4msEFBiq2LQtSD4bpbMVYMfyCtx417vwhFHniLWSdBNiGeXbTljGK3zQo0+Zhb3gOhkwpGAjREjuFCme8tSs5LwWH5VpEYfeDZIwpFSXTFWZeeQ5WPsKpVvtW3qUKtqFNYkeCM52Kf5Svva8EUU+1eXvkf9fh8j7Rfo+kL0xtYuX+AW4T1lf1cAvoQFiBMh8N88/+1QYqm+WMBIk22CpjsuROx756r+C+F+tgLMunS0+8uO+ypkiuGKfLDnN6T4abxsmfPM8uRmKpynK6YgF1KKa6Wp53nkocwIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBLCE+V42cS3/rB7JbtolWehho+4P7cUH9QGnRNdvu8q6iKqinQTa5dH+/Qcr/XHG3XAq8BhWc8pR1s+IEJV2xukDBHOptK0nuofx4ifAjQA+hU6P38wTG2qBMpKP85VMf4BvBGwknYSnyYRcZ1MH+dvVElpKMDQrlkSYnmfcg8QdvLLY9Nlfr2S+ci6o2FBBKW3DUo0XP+A3lSvM6TtI2oD86IuH8EfGtyx4YD+AO0+4PY+sVPs9gvdDYS0N9ZjA6esv5/xl6CR6ZsRt2qf9xStN49p/I8FHx8lTm2cAzdll4vCRjBa2LKFo6+Isis98JNZ303ABiI8xG2C8po5IXq</validationCert>
+</SamlSsoConfig>

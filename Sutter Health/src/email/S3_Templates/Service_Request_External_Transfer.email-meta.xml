@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This email is sent to the tier 3 agent when a service request has been assigned to them.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Sutter_Health_Letterhead</letterhead>
+    <name>Service Request External Transfer</name>
+    <style>freeForm</style>
+    <subject>Service Request resolution process has been delegated to a 3rd party</subject>
+    <textOnly>Service Request {!Case.CaseNumber} resolution process has been delegated to a third party. Priority Level {!Case.Priority}.</textOnly>
+    <type>html</type>
+</EmailTemplate>

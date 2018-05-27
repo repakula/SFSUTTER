@@ -1,0 +1,6 @@
+<apex:page standardController="Correspondence_Letter__c" extensions="CorrespondencePreview" showHeader="false"  > 
+
+  <img border="0" bEditID="r1sp1" bLabel="headerImage" id="r1sp1" src="{!objLetterContent }" /> 
+  <apex:outputText value="{!objCorrespLetter.Letterbody__c}"  escape="false"> </apex:outputText>
+
+</apex:page>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email To Case Finance Payroll</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>S3_Letterhead</letterhead>
+    <name>EmailToCaseTemplatePayroll</name>
+    <style>freeForm</style>
+    <subject>Finance Payroll SR created.</subject>
+    <textOnly>Thank you for submitting an inquiry on {!Case.CreatedDate}. For your reference, your service request number is: {!Case.CaseNumber}.
+
+Our goal at Sutter Health is to provide the highest level of customer service. To resolve your issue as quickly as possible please follow the guidelines below.
+
+Please note: This email box is for inquiries only. Invoices submitted to this email box will not be processed.
+
+Note: Please do not delete the reference number listed below as this is used internally and is needed to track your service request.
+
+{!Case.Thread_Id}</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>SHP Sales Email Template</name>
+    <publicFolderAccess>ReadWrite</publicFolderAccess>
+    <sharedTo>
+        <roleAndSubordinatesInternal>Account_Executive</roleAndSubordinatesInternal>
+        <roleAndSubordinatesInternal>Large_Account_Sales_Service_Rep</roleAndSubordinatesInternal>
+        <roleAndSubordinatesInternal>Sales_Coordinator</roleAndSubordinatesInternal>
+        <roleAndSubordinatesInternal>Sales_Service_Rep</roleAndSubordinatesInternal>
+        <roleAndSubordinatesInternal>Sutter_Health_Plan_Executives</roleAndSubordinatesInternal>
+        <roleAndSubordinatesInternal>VP_Sales_Marketing</roleAndSubordinatesInternal>
+    </sharedTo>
+</EmailFolder>

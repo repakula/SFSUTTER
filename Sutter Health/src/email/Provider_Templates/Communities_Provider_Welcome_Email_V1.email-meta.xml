@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>PCRM_Letter_Head</letterhead>
+    <name>Communities: Provider Welcome Email V1</name>
+    <style>freeForm</style>
+    <subject>Welcome to Secure Contact Information Validation for Sutter Health</subject>
+    <textOnly>Welcome to Sutter Provider Connect, where you can securely validate your Sutter Health contact information.
+
+Sutter Health is working to improve the accuracy of providers’ contact information to ensure our patients’ protected health information (PHI) is delivered to a single, secure location. Inaccurate contact information can lead to lapses in patient care, miscommunication among care providers, and/or harmful privacy incidents for our patients and organization.
+ 
+Follow the instructions below to access Sutter Provider Connect for validation of your primary contact information. This validated information will be shared with multiple clinical applications (ie: Sutter EHR) to ensure that protected health information (PHI) you need for your patients is delivered to the appropriate destination.
+ 
+Username: {!Receiving_User.Username}.  
+Password: Go to SutterProviderConnect.com to choose your own password.
+Once you have chosen a password, you will be able to securely validate your contact information. To access this site again copy and paste www.SutterProviderConnect.com into your web browser and use the Forgot Password link, if necessary. 
+ 
+For technical support, please contact the IS Service Desk at 888-888-6044 or servicedesk@sutterhealth.org and reference the CRM-Salesforce Team. 
+We appreciate your help with this important effort!
+ 
+Thank you,
+Sutter Provider Connect Team</textOnly>
+    <type>html</type>
+</EmailTemplate>

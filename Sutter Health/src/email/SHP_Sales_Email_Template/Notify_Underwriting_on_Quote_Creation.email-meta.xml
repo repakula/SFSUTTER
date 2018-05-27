@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Notify Underwriting on Quote Creation</name>
+    <style>none</style>
+    <subject>RFP/RFR has been Approved &amp; Quote Object Created - {!Proposal__c.Account_Name__c}/DBA: {!Proposal__c.DBA__c} {!Proposal__c.Email_Employer_Type__c}</subject>
+    <textOnly>Hi,
+
+U/W has approved the RFP/RFR Form: {!Proposal__c.RFP_Form__c} for {!Proposal__c.Account_Name__c}/DBA: {!Proposal__c.DBA__c}, {!Proposal__c.Email_Employer_Type__c} and Quote {!Proposal__c.Name} has been generated. Please review and attach quotes.
+
+Thank you.</textOnly>
+    <type>custom</type>
+</EmailTemplate>

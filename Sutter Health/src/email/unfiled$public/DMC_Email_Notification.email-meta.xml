@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>DMC Email Notification</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>S3_Letterhead</letterhead>
+    <name>DMC Email Notification</name>
+    <style>freeForm</style>
+    <subject>Ticket closure {!Case.CaseNumber}</subject>
+    <textOnly>Hi {!Case.CreatedBy},
+
+Service Request number {!Case.CaseNumber} has been closed and was resolved on {!Today} by the DMC Team.
+
+Thanks,
+DMC Team</textOnly>
+    <type>html</type>
+</EmailTemplate>

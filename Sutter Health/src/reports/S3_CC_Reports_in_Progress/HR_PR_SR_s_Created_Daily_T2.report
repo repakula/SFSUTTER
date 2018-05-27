@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_16865356</developerName>
+        <masterLabel>Tier 2 SR&apos;s</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>Case$Team__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>[Tier 2] Compensation</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 2] Defined Contribution</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 2] HR Benefits</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 2] HR Data</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 2] HRIS</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 2] HR Pension</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 2] HR Reporting</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 2] Learning</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 2] Recruitment</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 2] Workforce Relations</sourceValue>
+            </sourceValues>
+            <value>Tier 2 SR&apos;s</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>[Tier 3] Compensation</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 3] HR Benefits</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 3] HR Data</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 3] HRIS</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 3] HR Pension</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 3] HR Reporting</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 3] Learning</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 3] Pension</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 3] Recruitment</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 3] Workforce Relations</sourceValue>
+            </sourceValues>
+            <value>Tier 3 SR&apos;s</value>
+        </values>
+    </buckets>
+    <columns>
+        <field>Case$CaseNumber</field>
+    </columns>
+    <columns>
+        <field>Case$Owner</field>
+    </columns>
+    <columns>
+        <field>Case$Owner.UserRole</field>
+    </columns>
+    <columns>
+        <field>Case$Sub_Function__c</field>
+    </columns>
+    <columns>
+        <field>Case$Customer_Intent__c</field>
+    </columns>
+    <columns>
+        <field>Case$Customer_Sub_Intents__c</field>
+    </columns>
+    <columns>
+        <field>Case$CreatedBy</field>
+    </columns>
+    <columns>
+        <field>Case$Status</field>
+    </columns>
+    <columns>
+        <field>Case$ClosedDate</field>
+    </columns>
+    <description>Tier 1 Agents Daily Trend for SR&apos;s going to Tier 2</description>
+    <filter>
+        <criteriaItems>
+            <column>Case$RecordType</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Case.S3_Interaction_Log_Case_RT,Case.S3_Interaction_Log_RO</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$Function__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Human Resource,Finance</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$CreatedBy.UserRole</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>S3 Tier 1 HR Agent,S3 Tier 1 Payroll Agent</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$Team__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>[Tier 2] Compensation,[Tier 2] Defined Contribution,[Tier 2] Finance Payroll / T&amp;E,[Tier 2] HR Benefits,[Tier 2] HR Data,[Tier 2] HRIS,[Tier 2] HR Pension,[Tier 2] HR Reporting,[Tier 2] Learning,[Tier 2] Recruitment,[Tier 2] Workforce Relations</value>
+        </criteriaItems>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case$CreatedDate</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case$Team__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>HR/PR SR&apos;s Created Daily (T2)</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Customer_Inquiries__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Case$CreatedDate</dateColumn>
+        <interval>INTERVAL_LAST30</interval>
+    </timeFrameFilter>
+</Report>

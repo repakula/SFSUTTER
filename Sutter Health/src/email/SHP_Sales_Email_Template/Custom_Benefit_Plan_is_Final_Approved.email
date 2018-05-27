@@ -1,0 +1,10 @@
+<html>
+<body>
+Hi,<br/><br/>
+
+Custom Plan Request <a href="'{!$Label.HR201_CustomBenPlanListViewURL}'">{!Custom_Benefit_Plan__c.Name}</a> for {!Custom_Benefit_Plan__c.Plan_Related_to_Account__c}/DBA: {!Custom_Benefit_Plan__c.DBA__c}, {!Custom_Benefit_Plan__c.Employer_Type__c} has received final approval from the BPA Team and is now pending approval from the DMHC.
+<br/><br/>
+
+Thank you.<br/>
+</body>
+</html>

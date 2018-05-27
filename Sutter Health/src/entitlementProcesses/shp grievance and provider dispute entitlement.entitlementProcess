@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntitlementProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <SObjectType>Case</SObjectType>
+    <active>false</active>
+    <description>Entitlement used for Grievances and Service Requests</description>
+    <entryStartDateField>Case.CreatedDate</entryStartDateField>
+    <exitCriteriaFilterItems>
+        <field>Case.IsClosed</field>
+        <operation>equals</operation>
+        <value>true</value>
+    </exitCriteriaFilterItems>
+    <isVersionDefault>true</isVersionDefault>
+    <milestones>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Grievance RO, Grievance</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Letter of Acknowledgement</milestoneName>
+        <minutesToComplete>7200</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <milestoneName>Resolution</milestoneName>
+        <minutesToComplete>43200</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Grievance RO, Grievance</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Letter of Grievance Determination</milestoneName>
+        <minutesToComplete>43200</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Call_Back__c</field>
+            <operation>equals</operation>
+            <value>true</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Provider Dispute RO, Provider Dispute</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Call Back</milestoneName>
+        <minutesToComplete>4320</minutesToComplete>
+        <successActions>
+            <name>Call_Back_Completed</name>
+            <type>FieldUpdate</type>
+        </successActions>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <name>SHP Grievance and Provider Dispute Entitlement</name>
+    <versionMaster>552G0000000Tn9J</versionMaster>
+    <versionNumber>1</versionNumber>
+</EntitlementProcess>

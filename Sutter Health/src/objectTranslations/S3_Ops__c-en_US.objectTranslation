@@ -1,0 +1,2310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>S3 Operations</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>S3 Operations</value>
+    </caseValues>
+    <fields>
+        <help><!-- Comments from the initial metric setup and Accenture discovery process --></help>
+        <label><!-- Accenture Comments --></label>
+        <name>Accenture_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Is this metric active? (Can be active yet not reported) --></help>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <help><!-- Describe any alternatives --></help>
+        <label><!-- Alternative --></label>
+        <name>Alternative__c</name>
+    </fields>
+    <fields>
+        <label><!-- Anticipated Start Date --></label>
+        <name>Anticipated_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Business Release --></label>
+        <name>Business_Release__c</name>
+        <picklistValues>
+            <masterLabel>12</masterLabel>
+            <translation><!-- 12 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>13</masterLabel>
+            <translation><!-- 13 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>14</masterLabel>
+            <translation><!-- 14 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>15</masterLabel>
+            <translation><!-- 15 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- When was this request approved by CAG? --></help>
+        <label><!-- CAG Approval --></label>
+        <name>CAG_Approval__c</name>
+    </fields>
+    <fields>
+        <label><!-- Chargeback Type of Change --></label>
+        <name>Chargeback_Type_of_Change__c</name>
+        <picklistValues>
+            <masterLabel>Add</masterLabel>
+            <translation><!-- Add --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Change</masterLabel>
+            <translation><!-- Change --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delete</masterLabel>
+            <translation><!-- Delete --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Is this record being reported on an ongoing basis? --></help>
+        <label><!-- Currently Reporting --></label>
+        <name>Currently_Reporting__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date the position and/or cost will begin --></help>
+        <label><!-- Effective Date --></label>
+        <name>Effective_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- What is the total dollar impact for the current fiscal year?  Additional information can be entered in the comments section --></help>
+        <label><!-- Financial Impact --></label>
+        <name>Financial_Impact__c</name>
+    </fields>
+    <fields>
+        <help><!-- What date was this metric first reported out? --></help>
+        <label><!-- First Reported Date --></label>
+        <name>First_Reported_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- (you may select more than one) --></help>
+        <label><!-- Fiscal Year --></label>
+        <name>Fiscal_Year__c</name>
+        <picklistValues>
+            <masterLabel>2014</masterLabel>
+            <translation><!-- 2014 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2015</masterLabel>
+            <translation><!-- 2015 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2016</masterLabel>
+            <translation><!-- 2016 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2017</masterLabel>
+            <translation><!-- 2017 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2018</masterLabel>
+            <translation><!-- 2018 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- What is the functional area that relates to this record? --></help>
+        <label><!-- Function --></label>
+        <name>Function__c</name>
+        <picklistValues>
+            <masterLabel>Biomedical Technology</masterLabel>
+            <translation><!-- Biomedical Technology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contact Center</masterLabel>
+            <translation><!-- Contact Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credentialing Verification</masterLabel>
+            <translation><!-- Credentialing Verification --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cross-Functional</masterLabel>
+            <translation><!-- Cross-Functional --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Document Management Center</masterLabel>
+            <translation><!-- Document Management Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance</masterLabel>
+            <translation><!-- Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Human Resources</masterLabel>
+            <translation><!-- Human Resources --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operations</masterLabel>
+            <translation><!-- Operations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revenue Cycle</masterLabel>
+            <translation><!-- Revenue Cycle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Supply Chain</masterLabel>
+            <translation><!-- Supply Chain --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- What is the quantity you are requesting? --></help>
+        <label><!-- Headcount --></label>
+        <name>Headcount__c</name>
+    </fields>
+    <fields>
+        <help><!-- What is the initial cost of this request? --></help>
+        <label><!-- Initial Cost --></label>
+        <name>Initial_Cost__c</name>
+    </fields>
+    <fields>
+        <help><!-- What are we doing to report this if there is an issue? --></help>
+        <label><!-- Interim Solution --></label>
+        <name>Interim_Solution__c</name>
+        <picklistValues>
+            <masterLabel>Excel Spreadsheet</masterLabel>
+            <translation><!-- Excel Spreadsheet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manually Reported</masterLabel>
+            <translation><!-- Manually Reported --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Reported</masterLabel>
+            <translation><!-- Not Reported --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Keep the comments up to date when working toward solving this records issue (SPM team only) --></help>
+        <label><!-- Issue Comments --></label>
+        <name>Issue_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- For tracking when this issue was first identified --></help>
+        <label><!-- Issue Date --></label>
+        <name>Issue_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- When will this be resolved? --></help>
+        <label><!-- Issue Expected Resolution --></label>
+        <name>Issue_Expected_Resolution__c</name>
+    </fields>
+    <fields>
+        <label><!-- L1 --></label>
+        <name>L1__c</name>
+    </fields>
+    <fields>
+        <help><!-- Who is the L1 for this function responsible for this record? --></help>
+        <label><!-- Leader --></label>
+        <name>Leader__c</name>
+        <relationshipLabel><!-- S3 Operations (Leader) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Describe the formula to calculate the metric --></help>
+        <label><!-- Metric Calculation --></label>
+        <name>Metric_Calculation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Metric Output --></label>
+        <name>Metric_Output__c</name>
+    </fields>
+    <fields>
+        <help><!-- Metric Statement as approved by Steering --></help>
+        <label><!-- Metric Statement --></label>
+        <name>Metric_Statement__c</name>
+    </fields>
+    <fields>
+        <help><!-- What triggers the capturing of this information? (i.e.: every payroll process) --></help>
+        <label><!-- Metric Trigger --></label>
+        <name>Metric_Trigger__c</name>
+    </fields>
+    <fields>
+        <help><!-- SLA - Main metric reported to clients about S3 performance 
+OLA - Tracks Client responsiveness/performance to help S3 achieve its goals 
+IOM-periodic review of data that supports tracking SLA progress --></help>
+        <label><!-- Metric Type --></label>
+        <name>Metric_Type__c</name>
+        <picklistValues>
+            <masterLabel>IOM</masterLabel>
+            <translation><!-- IOM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OLA</masterLabel>
+            <translation><!-- OLA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SLA</masterLabel>
+            <translation><!-- SLA --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Net add or change --></label>
+        <name>Net_add_or_change__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Approver --></label>
+        <name>Next_Approver__c</name>
+    </fields>
+    <fields>
+        <help><!-- Description of the Change Request --></help>
+        <label><!-- Objective --></label>
+        <name>Objective__c</name>
+    </fields>
+    <fields>
+        <help><!-- This describes why this request may be stalled. --></help>
+        <label><!-- Ops Issue --></label>
+        <name>Ops_Issue__c</name>
+        <picklistValues>
+            <masterLabel>Change Request Process</masterLabel>
+            <translation><!-- Change Request Process --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Does Not Exist</masterLabel>
+            <translation><!-- Data Does Not Exist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Not Available</masterLabel>
+            <translation><!-- Data Not Available --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Large Manual Effort</masterLabel>
+            <translation><!-- Large Manual Effort --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Needs Additional Information</masterLabel>
+            <translation><!-- Needs Additional Information --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Report Does Not Exist</masterLabel>
+            <translation><!-- Report Does Not Exist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Verify with Business Owner</masterLabel>
+            <translation><!-- Verify with Business Owner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workflow Change</masterLabel>
+            <translation><!-- Workflow Change --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- PCD --></label>
+        <name>PCD__c</name>
+    </fields>
+    <fields>
+        <label><!-- Position Currently Filed --></label>
+        <name>Position_Currently_Filed__c</name>
+    </fields>
+    <fields>
+        <help><!-- Position Name from the PDC Master Headcount list --></help>
+        <label><!-- Position Name --></label>
+        <name>Position_Name__c</name>
+        <picklistValues>
+            <masterLabel>(Project/Growth) Recruiting Logistics Senior Team Member</masterLabel>
+            <translation><!-- (Project/Growth) Recruiting Logistics Senior Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>(Project/Growth) Recruiting Logistics Team Member</masterLabel>
+            <translation><!-- (Project/Growth) Recruiting Logistics Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>(Project/Growth) Recruiting Team Member - Remote</masterLabel>
+            <translation><!-- (Project/Growth) Recruiting Team Member - Remote --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>(Project/Growth) Sourcing Team Member</masterLabel>
+            <translation><!-- (Project/Growth) Sourcing Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ADA Equipment Officer</masterLabel>
+            <translation><!-- ADA Equipment Officer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AP Contract Specialist</masterLabel>
+            <translation><!-- AP Contract Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AP Exception Specialist</masterLabel>
+            <translation><!-- AP Exception Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AP Invoice and Payment Processing Lead</masterLabel>
+            <translation><!-- AP Invoice and Payment Processing Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AP Processor</masterLabel>
+            <translation><!-- AP Processor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AP Specialist (Sr. Processor)</masterLabel>
+            <translation><!-- AP Specialist (Sr. Processor) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AP Team Lead (Limited Term Temp)</masterLabel>
+            <translation><!-- AP Team Lead (Limited Term Temp) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accountant</masterLabel>
+            <translation><!-- Accountant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accounting Analyst (Reporting &amp; Audit)</masterLabel>
+            <translation><!-- Accounting Analyst (Reporting &amp; Audit) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accounting Intern (1 - .5FTE on Hold)</masterLabel>
+            <translation><!-- Accounting Intern (1 - .5FTE on Hold) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accounting Leader (General Ledger)</masterLabel>
+            <translation><!-- Accounting Leader (General Ledger) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accounting Team Member (Limited Term Temp)</masterLabel>
+            <translation><!-- Accounting Team Member (Limited Term Temp) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accounts Payable Leader</masterLabel>
+            <translation><!-- Accounts Payable Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accounts Receivable &amp; Managed Care Leader</masterLabel>
+            <translation><!-- Accounts Receivable &amp; Managed Care Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accounts Receivable Lead</masterLabel>
+            <translation><!-- Accounts Receivable Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Acute Outpatient Coding Lead</masterLabel>
+            <translation><!-- Acute Outpatient Coding Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Admin Director</masterLabel>
+            <translation><!-- Admin Director --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Administrative Assistant to Finance Lead</masterLabel>
+            <translation><!-- Administrative Assistant to Finance Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Administrative Assistant to Human Resources Lead</masterLabel>
+            <translation><!-- Administrative Assistant to Human Resources Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Administrative Assistant to Revenue Cycle Lead</masterLabel>
+            <translation><!-- Administrative Assistant to Revenue Cycle Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Administrative Assistant to Supply Chain Lead</masterLabel>
+            <translation><!-- Administrative Assistant to Supply Chain Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Analyst - Aspen</masterLabel>
+            <translation><!-- Analyst - Aspen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Analyst, Senior Imaging Systems</masterLabel>
+            <translation><!-- Analyst, Senior Imaging Systems --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Analytics and Data Support Lead</masterLabel>
+            <translation><!-- Analytics and Data Support Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Assistant Chief, Biomedical Engineer</masterLabel>
+            <translation><!-- Assistant Chief, Biomedical Engineer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bad Debt and Charity Team Member</masterLabel>
+            <translation><!-- Bad Debt and Charity Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bay Area HIM Operations/Regulatory/EHR Documentation Lead</masterLabel>
+            <translation><!-- Bay Area HIM Operations/Regulatory/EHR Documentation Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Benefits Lead</masterLabel>
+            <translation><!-- Benefits Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Benefits Team Member</masterLabel>
+            <translation><!-- Benefits Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Benefits/Pension/DC Analyst</masterLabel>
+            <translation><!-- Benefits/Pension/DC Analyst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business Analyst</masterLabel>
+            <translation><!-- Business Analyst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business Analyst II</masterLabel>
+            <translation><!-- Business Analyst II --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business Analyst III</masterLabel>
+            <translation><!-- Business Analyst III --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business Analyst Team Member</masterLabel>
+            <translation><!-- Business Analyst Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Buyer</masterLabel>
+            <translation><!-- Buyer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CBO Leader</masterLabel>
+            <translation><!-- CBO Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CBO Operations Support Lead</masterLabel>
+            <translation><!-- CBO Operations Support Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CRM Analytics Team Member</masterLabel>
+            <translation><!-- CRM Analytics Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cash Accounting Lead</masterLabel>
+            <translation><!-- Cash Accounting Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Charge Capture Analyst</masterLabel>
+            <translation><!-- Charge Capture Analyst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Charge Capture Support Lead</masterLabel>
+            <translation><!-- Charge Capture Support Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Charge Capture/CDM Leader</masterLabel>
+            <translation><!-- Charge Capture/CDM Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Charge Description Master Lead</masterLabel>
+            <translation><!-- Charge Description Master Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Charge Description Master Senior Analyst</masterLabel>
+            <translation><!-- Charge Description Master Senior Analyst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Charge Master Team Member</masterLabel>
+            <translation><!-- Charge Master Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chart Completion Team Lead</masterLabel>
+            <translation><!-- Chart Completion Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chart Completion Team Member</masterLabel>
+            <translation><!-- Chart Completion Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chart Completion Team Member - Remote</masterLabel>
+            <translation><!-- Chart Completion Team Member - Remote --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chief, Biomedical Engineer</masterLabel>
+            <translation><!-- Chief, Biomedical Engineer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Claims Lead</masterLabel>
+            <translation><!-- Claims Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Claims Team Lead</masterLabel>
+            <translation><!-- Claims Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Claims Team Member</masterLabel>
+            <translation><!-- Claims Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clerical Support Team Member</masterLabel>
+            <translation><!-- Clerical Support Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clinical Engineer</masterLabel>
+            <translation><!-- Clinical Engineer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clinical Liaison</masterLabel>
+            <translation><!-- Clinical Liaison --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coders (Senior Coder, Coding II, Coding Team)</masterLabel>
+            <translation><!-- Coders (Senior Coder, Coding II, Coding Team) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coders (Senior Coder, Coding II, Coding Team) - Remote</masterLabel>
+            <translation><!-- Coders (Senior Coder, Coding II, Coding Team) - Remote --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coding Associate Team Members</masterLabel>
+            <translation><!-- Coding Associate Team Members --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coding Education &amp; Quality Assurance Lead</masterLabel>
+            <translation><!-- Coding Education &amp; Quality Assurance Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coding Education Team Member</masterLabel>
+            <translation><!-- Coding Education Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coding Lead</masterLabel>
+            <translation><!-- Coding Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coding Quality Team Member</masterLabel>
+            <translation><!-- Coding Quality Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coding Quality Team Member - Remote</masterLabel>
+            <translation><!-- Coding Quality Team Member - Remote --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Communications and Workforce Relations Services Team Lead</masterLabel>
+            <translation><!-- Communications and Workforce Relations Services Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compensation &amp; Benefits Leader</masterLabel>
+            <translation><!-- Compensation &amp; Benefits Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compensation Analyst</masterLabel>
+            <translation><!-- Compensation Analyst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compensation Lead</masterLabel>
+            <translation><!-- Compensation Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compensation Team Member</masterLabel>
+            <translation><!-- Compensation Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contact Center Leader</masterLabel>
+            <translation><!-- Contact Center Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Content Management Analyst</masterLabel>
+            <translation><!-- Content Management Analyst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Content Management Lead</masterLabel>
+            <translation><!-- Content Management Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Content Specialist I</masterLabel>
+            <translation><!-- Content Specialist I --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Content Specialist II</masterLabel>
+            <translation><!-- Content Specialist II --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contract Lead</masterLabel>
+            <translation><!-- Contract Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contract Lead - Aspen</masterLabel>
+            <translation><!-- Contract Lead - Aspen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate Billing Team Member</masterLabel>
+            <translation><!-- Corporate Billing Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Correspondence Team Member</masterLabel>
+            <translation><!-- Correspondence Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credentialing Verification Leader</masterLabel>
+            <translation><!-- Credentialing Verification Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credentialing Verification Processor</masterLabel>
+            <translation><!-- Credentialing Verification Processor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credentialing Verification Specialist</masterLabel>
+            <translation><!-- Credentialing Verification Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Service Agent</masterLabel>
+            <translation><!-- Customer Service Agent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Service Senior Agent</masterLabel>
+            <translation><!-- Customer Service Senior Agent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Service Team Lead</masterLabel>
+            <translation><!-- Customer Service Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Administrator</masterLabel>
+            <translation><!-- Data Administrator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Quality Analyst (DQM)</masterLabel>
+            <translation><!-- Data Quality Analyst (DQM) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Defined Contribution Lead</masterLabel>
+            <translation><!-- Defined Contribution Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Defined Contribution Team Member</masterLabel>
+            <translation><!-- Defined Contribution Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Denial Management Team Lead</masterLabel>
+            <translation><!-- Denial Management Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Denial Management Team Member</masterLabel>
+            <translation><!-- Denial Management Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Department Secretary</masterLabel>
+            <translation><!-- Department Secretary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Desktop Support Team Member</masterLabel>
+            <translation><!-- Desktop Support Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Developer II</masterLabel>
+            <translation><!-- Developer II --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Director eQuip Tech</masterLabel>
+            <translation><!-- Director eQuip Tech --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Director, Medical Physics Center</masterLabel>
+            <translation><!-- Director, Medical Physics Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Distribution Lead</masterLabel>
+            <translation><!-- Distribution Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Distribution Team Lead</masterLabel>
+            <translation><!-- Distribution Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Document Imaging Team Lead</masterLabel>
+            <translation><!-- Document Imaging Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Document Imaging Team Member</masterLabel>
+            <translation><!-- Document Imaging Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Document Imaging Team Member - Remote</masterLabel>
+            <translation><!-- Document Imaging Team Member - Remote --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Document Management Center Team Lead</masterLabel>
+            <translation><!-- Document Management Center Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ED Coding &amp; Coding Pool Lead</masterLabel>
+            <translation><!-- ED Coding &amp; Coding Pool Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EHR Documentation Education Specialist</masterLabel>
+            <translation><!-- EHR Documentation Education Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EHR Documentation Team Lead</masterLabel>
+            <translation><!-- EHR Documentation Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMPI/Chart Correction Team Lead</masterLabel>
+            <translation><!-- EMPI/Chart Correction Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMPI/Chart Correction Team Member</masterLabel>
+            <translation><!-- EMPI/Chart Correction Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMPI/Chart Correction Team Member - Remote</masterLabel>
+            <translation><!-- EMPI/Chart Correction Team Member - Remote --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Engineer, Imaging Services</masterLabel>
+            <translation><!-- Engineer, Imaging Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Engineer, Senior Imaging Services</masterLabel>
+            <translation><!-- Engineer, Senior Imaging Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Engineer, Senior Imaging Services (Mammo)</masterLabel>
+            <translation><!-- Engineer, Senior Imaging Services (Mammo) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Engineer, Senior Imaging Services Equip</masterLabel>
+            <translation><!-- Engineer, Senior Imaging Services Equip --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Exceptions Lead</masterLabel>
+            <translation><!-- Exceptions Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Executive Assistant to SVP Shared Services</masterLabel>
+            <translation><!-- Executive Assistant to SVP Shared Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Executive, Aspen</masterLabel>
+            <translation><!-- Executive, Aspen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Facilities and Landlord Relationship Coordinator</masterLabel>
+            <translation><!-- Facilities and Landlord Relationship Coordinator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance Data and Applications Analyst</masterLabel>
+            <translation><!-- Finance Data and Applications Analyst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance Data and Applications Lead</masterLabel>
+            <translation><!-- Finance Data and Applications Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance Data and Applications Senior Analyst</masterLabel>
+            <translation><!-- Finance Data and Applications Senior Analyst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance Leader</masterLabel>
+            <translation><!-- Finance Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance Team Lead</masterLabel>
+            <translation><!-- Finance Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Financial Analyst</masterLabel>
+            <translation><!-- Financial Analyst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Financial Clearance Team Lead</masterLabel>
+            <translation><!-- Financial Clearance Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Financial Clearance Team Member</masterLabel>
+            <translation><!-- Financial Clearance Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Financial Clearance and Counseling Lead</masterLabel>
+            <translation><!-- Financial Clearance and Counseling Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Financial Counseling Team Lead</masterLabel>
+            <translation><!-- Financial Counseling Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Financial Manager</masterLabel>
+            <translation><!-- Financial Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Financial Standard Reporting, Audit and Systems Leader</masterLabel>
+            <translation><!-- Financial Standard Reporting, Audit and Systems Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fixed Assets Lead</masterLabel>
+            <translation><!-- Fixed Assets Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forms Management/Transcription Team Lead</masterLabel>
+            <translation><!-- Forms Management/Transcription Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HIM DI/Forms/Transcription Team Lead</masterLabel>
+            <translation><!-- HIM DI/Forms/Transcription Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HIM Release of Information/EMPI/Operations Team Lead</masterLabel>
+            <translation><!-- HIM Release of Information/EMPI/Operations Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR Business Partner</masterLabel>
+            <translation><!-- HR Business Partner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR Data Process Team Lead</masterLabel>
+            <translation><!-- HR Data Process Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR Data Process Team Member</masterLabel>
+            <translation><!-- HR Data Process Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR IS Lead</masterLabel>
+            <translation><!-- HR IS Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR IS Senior Team Member</masterLabel>
+            <translation><!-- HR IS Senior Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR IS Team Lead</masterLabel>
+            <translation><!-- HR IS Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR IS Team Member</masterLabel>
+            <translation><!-- HR IS Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR IS Technical Analyst</masterLabel>
+            <translation><!-- HR IS Technical Analyst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR IS Technician</masterLabel>
+            <translation><!-- HR IS Technician --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR Reporting Senior Team Member</masterLabel>
+            <translation><!-- HR Reporting Senior Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR Reporting Team Lead</masterLabel>
+            <translation><!-- HR Reporting Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR Reporting Team Member</masterLabel>
+            <translation><!-- HR Reporting Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HRIS and HR Data &amp; Reporting Leader</masterLabel>
+            <translation><!-- HRIS and HR Data &amp; Reporting Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Information Management Leader</masterLabel>
+            <translation><!-- Health Information Management Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Human Resources Director</masterLabel>
+            <translation><!-- Human Resources Director --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Human Resources Leader</masterLabel>
+            <translation><!-- Human Resources Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inpatient Coding Team Lead</masterLabel>
+            <translation><!-- Inpatient Coding Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Integration &amp; Purchasing Leader</masterLabel>
+            <translation><!-- Integration &amp; Purchasing Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Integration Leader</masterLabel>
+            <translation><!-- Integration Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Journal Entry &amp; Balance Sheet Reconciliation Lead</masterLabel>
+            <translation><!-- Journal Entry &amp; Balance Sheet Reconciliation Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Journeyman, Biomedical Engineer</masterLabel>
+            <translation><!-- Journeyman, Biomedical Engineer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lead, Field Service</masterLabel>
+            <translation><!-- Lead, Field Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lead, field Service Specialist eQuip</masterLabel>
+            <translation><!-- Lead, field Service Specialist eQuip --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Learning &amp; Workforce Relations Services Leader</masterLabel>
+            <translation><!-- Learning &amp; Workforce Relations Services Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Learning Delivery Administration Lead</masterLabel>
+            <translation><!-- Learning Delivery Administration Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Learning Delivery Administration Support Team Member</masterLabel>
+            <translation><!-- Learning Delivery Administration Support Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Learning Delivery Administration Team Member</masterLabel>
+            <translation><!-- Learning Delivery Administration Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Learning Delivery Lead</masterLabel>
+            <translation><!-- Learning Delivery Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Learning Delivery Team Member</masterLabel>
+            <translation><!-- Learning Delivery Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mailroom/Courier Team Lead</masterLabel>
+            <translation><!-- Mailroom/Courier Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Managed Care Lead</masterLabel>
+            <translation><!-- Managed Care Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manager, Asset Management Program</masterLabel>
+            <translation><!-- Manager, Asset Management Program --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manager, Clinical Engineering</masterLabel>
+            <translation><!-- Manager, Clinical Engineering --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manager, Specialty Services</masterLabel>
+            <translation><!-- Manager, Specialty Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nurse Auditor</masterLabel>
+            <translation><!-- Nurse Auditor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OR Material Lead</masterLabel>
+            <translation><!-- OR Material Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operational Performance Team Lead</masterLabel>
+            <translation><!-- Operational Performance Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operational Performance Team Member</masterLabel>
+            <translation><!-- Operational Performance Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operations &amp; Decision Support Lead</masterLabel>
+            <translation><!-- Operations &amp; Decision Support Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operations Lead - Aspen</masterLabel>
+            <translation><!-- Operations Lead - Aspen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operations Specialist</masterLabel>
+            <translation><!-- Operations Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patient Access Leader</masterLabel>
+            <translation><!-- Patient Access Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patient Advocate</masterLabel>
+            <translation><!-- Patient Advocate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payer Management Lead</masterLabel>
+            <translation><!-- Payer Management Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payer Relations Team Member</masterLabel>
+            <translation><!-- Payer Relations Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payment Processing Team Lead</masterLabel>
+            <translation><!-- Payment Processing Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payment Processing Team Member</masterLabel>
+            <translation><!-- Payment Processing Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payment Reconciliation Team Member</masterLabel>
+            <translation><!-- Payment Reconciliation Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payment Variance Team Lead</masterLabel>
+            <translation><!-- Payment Variance Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payment Variance Team Member</masterLabel>
+            <translation><!-- Payment Variance Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payroll Coordination Lead (LTT)</masterLabel>
+            <translation><!-- Payroll Coordination Lead (LTT) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payroll Coordinator</masterLabel>
+            <translation><!-- Payroll Coordinator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payroll Leader</masterLabel>
+            <translation><!-- Payroll Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payroll Review Lead</masterLabel>
+            <translation><!-- Payroll Review Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payroll Senior Technician</masterLabel>
+            <translation><!-- Payroll Senior Technician --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payroll Technician</masterLabel>
+            <translation><!-- Payroll Technician --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pension Lead</masterLabel>
+            <translation><!-- Pension Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pension Senior Team Member</masterLabel>
+            <translation><!-- Pension Senior Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pension Team Member</masterLabel>
+            <translation><!-- Pension Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Process Exception Lead</masterLabel>
+            <translation><!-- Process Exception Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Process Improvement Specialist</masterLabel>
+            <translation><!-- Process Improvement Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Project Coordinator</masterLabel>
+            <translation><!-- Project Coordinator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Project Manager - Aspen</masterLabel>
+            <translation><!-- Project Manager - Aspen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Project Manager FF&amp;E</masterLabel>
+            <translation><!-- Project Manager FF&amp;E --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Project Support Specialist</masterLabel>
+            <translation><!-- Project Support Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purchasing Agent</masterLabel>
+            <translation><!-- Purchasing Agent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purchasing Assistant</masterLabel>
+            <translation><!-- Purchasing Assistant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purchasing Lead</masterLabel>
+            <translation><!-- Purchasing Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purchasing Ops Lead</masterLabel>
+            <translation><!-- Purchasing Ops Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purchasing Team Lead</masterLabel>
+            <translation><!-- Purchasing Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purchasing/Distribution Lead</masterLabel>
+            <translation><!-- Purchasing/Distribution Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>QA/Training</masterLabel>
+            <translation><!-- QA/Training --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RVMPA (Reg Value Mgmt Project Analyst)</masterLabel>
+            <translation><!-- RVMPA (Reg Value Mgmt Project Analyst) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RVMPL (Regional Value Management Project Lead)</masterLabel>
+            <translation><!-- RVMPL (Regional Value Management Project Lead) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Receptionist</masterLabel>
+            <translation><!-- Receptionist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recruiting Lead - Remote</masterLabel>
+            <translation><!-- Recruiting Lead - Remote --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recruiting Logistics Senior Team Member</masterLabel>
+            <translation><!-- Recruiting Logistics Senior Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recruiting Logistics Team Lead</masterLabel>
+            <translation><!-- Recruiting Logistics Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recruiting Logistics Team Member</masterLabel>
+            <translation><!-- Recruiting Logistics Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recruiting Team Member - Remote</masterLabel>
+            <translation><!-- Recruiting Team Member - Remote --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recruitment Leader</masterLabel>
+            <translation><!-- Recruitment Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regional Accounting Lead</masterLabel>
+            <translation><!-- Regional Accounting Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regional Director</masterLabel>
+            <translation><!-- Regional Director --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regional Service Manager</masterLabel>
+            <translation><!-- Regional Service Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registration Lead</masterLabel>
+            <translation><!-- Registration Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regulatory &amp; Compliance Specialist</masterLabel>
+            <translation><!-- Regulatory &amp; Compliance Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Release of Information Team Lead</masterLabel>
+            <translation><!-- Release of Information Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Release of Information Team Member</masterLabel>
+            <translation><!-- Release of Information Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reporting and Audit Lead</masterLabel>
+            <translation><!-- Reporting and Audit Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rev Cycle Education &amp; Training Team Lead</masterLabel>
+            <translation><!-- Rev Cycle Education &amp; Training Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rev Cycle Education &amp; Training Team Member</masterLabel>
+            <translation><!-- Rev Cycle Education &amp; Training Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revenue Cycle Leader</masterLabel>
+            <translation><!-- Revenue Cycle Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S3 Purchasing Lead</masterLabel>
+            <translation><!-- S3 Purchasing Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SLA Program Lead - Aspen</masterLabel>
+            <translation><!-- SLA Program Lead - Aspen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SME - Aspen</masterLabel>
+            <translation><!-- SME - Aspen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SSR/CVR HIM Operations/Regulatory/Chart Completion Lead</masterLabel>
+            <translation><!-- SSR/CVR HIM Operations/Regulatory/Chart Completion Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Self-Pay Follow-Up Team Member</masterLabel>
+            <translation><!-- Self-Pay Follow-Up Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Senior Accountant</masterLabel>
+            <translation><!-- Senior Accountant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Senior Accounting Analyst (Reporting &amp; Audit)</masterLabel>
+            <translation><!-- Senior Accounting Analyst (Reporting &amp; Audit) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Senior Accounting Analyst - A/R</masterLabel>
+            <translation><!-- Senior Accounting Analyst - A/R --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Senior Accounting Analyst - Managed Care</masterLabel>
+            <translation><!-- Senior Accounting Analyst - Managed Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Senior Charge Description Manager Data Analyst</masterLabel>
+            <translation><!-- Senior Charge Description Manager Data Analyst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Senior Claims Team Member</masterLabel>
+            <translation><!-- Senior Claims Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Senior Correspondence Team Member</masterLabel>
+            <translation><!-- Senior Correspondence Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Senior Denial Management Team Member</masterLabel>
+            <translation><!-- Senior Denial Management Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Senior Digital Imaging Analyst</masterLabel>
+            <translation><!-- Senior Digital Imaging Analyst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Senior Payment Processing Team Member</masterLabel>
+            <translation><!-- Senior Payment Processing Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Senior Payment Variance Team Member</masterLabel>
+            <translation><!-- Senior Payment Variance Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Senior Radiation Physicist</masterLabel>
+            <translation><!-- Senior Radiation Physicist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Senior Self-Pay Follow-Up Team Member</masterLabel>
+            <translation><!-- Senior Self-Pay Follow-Up Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service &amp; Performance Management Speciliast</masterLabel>
+            <translation><!-- Service &amp; Performance Management Speciliast --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Line Lead - Aspen</masterLabel>
+            <translation><!-- Service Line Lead - Aspen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Line Specialist</masterLabel>
+            <translation><!-- Service Line Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Supervisor - Aramark</masterLabel>
+            <translation><!-- Service Supervisor - Aramark --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service and Performance Management Leader</masterLabel>
+            <translation><!-- Service and Performance Management Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service and Performance Management Specialist</masterLabel>
+            <translation><!-- Service and Performance Management Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Site Leader</masterLabel>
+            <translation><!-- Site Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sourcing Analytics Lead - Aspen</masterLabel>
+            <translation><!-- Sourcing Analytics Lead - Aspen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sourcing Operations Leader - Aspen</masterLabel>
+            <translation><!-- Sourcing Operations Leader - Aspen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sourcing Programs, Value Mgmt Leader - Aspen</masterLabel>
+            <translation><!-- Sourcing Programs, Value Mgmt Leader - Aspen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Specialist, Anes/Resp Field Service</masterLabel>
+            <translation><!-- Specialist, Anes/Resp Field Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Specialist, Asset Mngmt</masterLabel>
+            <translation><!-- Specialist, Asset Mngmt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Specialist, Customer Support SHMMP</masterLabel>
+            <translation><!-- Specialist, Customer Support SHMMP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Specialist, Customer Supprt, eQuip</masterLabel>
+            <translation><!-- Specialist, Customer Supprt, eQuip --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Specialist, Database</masterLabel>
+            <translation><!-- Specialist, Database --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Specialist, Field Service eQuip</masterLabel>
+            <translation><!-- Specialist, Field Service eQuip --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Specialist, Field Svc</masterLabel>
+            <translation><!-- Specialist, Field Svc --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Specialist, Field Svc  - Aramark</masterLabel>
+            <translation><!-- Specialist, Field Svc  - Aramark --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Specialist, Inventory Control, eQuip</masterLabel>
+            <translation><!-- Specialist, Inventory Control, eQuip --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Specialist, Operations Medical Physics Center</masterLabel>
+            <translation><!-- Specialist, Operations Medical Physics Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Specialist, Senior Field Service Steralizer</masterLabel>
+            <translation><!-- Specialist, Senior Field Service Steralizer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Specialist, Senior Field Service eQuip</masterLabel>
+            <translation><!-- Specialist, Senior Field Service eQuip --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Specialist, Technical Support eQuip</masterLabel>
+            <translation><!-- Specialist, Technical Support eQuip --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sr. Financial Clearance Team Member</masterLabel>
+            <translation><!-- Sr. Financial Clearance Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sr. Patient Advocate</masterLabel>
+            <translation><!-- Sr. Patient Advocate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Supply Chain Leader</masterLabel>
+            <translation><!-- Supply Chain Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sys Ctrct &amp; Strat Sourcing Leader</masterLabel>
+            <translation><!-- Sys Ctrct &amp; Strat Sourcing Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Systems Analyst Team Member</masterLabel>
+            <translation><!-- Systems Analyst Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technician, Depot Special Projects</masterLabel>
+            <translation><!-- Technician, Depot Special Projects --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technician, Equipment eQuip</masterLabel>
+            <translation><!-- Technician, Equipment eQuip --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technician, Preventative Maintenance eQuip</masterLabel>
+            <translation><!-- Technician, Preventative Maintenance eQuip --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technician, Senior Depot/Computer</masterLabel>
+            <translation><!-- Technician, Senior Depot/Computer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Training Lead</masterLabel>
+            <translation><!-- Training Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transcriptionist - Remote</masterLabel>
+            <translation><!-- Transcriptionist - Remote --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transcriptionist Clerical Support</masterLabel>
+            <translation><!-- Transcriptionist Clerical Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transcriptionist Clerical Support - Remote</masterLabel>
+            <translation><!-- Transcriptionist Clerical Support - Remote --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vendor Management Specialist</masterLabel>
+            <translation><!-- Vendor Management Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workforce Relations Services Sr. Team Member</masterLabel>
+            <translation><!-- Workforce Relations Services Sr. Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workforce Relations Services Team Member</masterLabel>
+            <translation><!-- Workforce Relations Services Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eQuip Assistant Radiation Physicist</masterLabel>
+            <translation><!-- eQuip Assistant Radiation Physicist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eQuip Project Coordinator</masterLabel>
+            <translation><!-- eQuip Project Coordinator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eQuip Service Coordinator</masterLabel>
+            <translation><!-- eQuip Service Coordinator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eQuip Services Program Manager</masterLabel>
+            <translation><!-- eQuip Services Program Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eQuip Site Manager</masterLabel>
+            <translation><!-- eQuip Site Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eQuip Support Services and Finance Manager</masterLabel>
+            <translation><!-- eQuip Support Services and Finance Manager --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Critical - broken process
+High - business impact
+Medium - 
+Low - would like to have, can live without --></help>
+        <label><!-- Priority --></label>
+        <name>Priority__c</name>
+        <picklistValues>
+            <masterLabel>Critical</masterLabel>
+            <translation><!-- Critical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Used in the automated approval process --></help>
+        <label><!-- Process Step --></label>
+        <name>Process_Step__c</name>
+        <picklistValues>
+            <masterLabel>-None-</masterLabel>
+            <translation><!-- -None- --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CAG Approval Pending</masterLabel>
+            <translation><!-- CAG Approval Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operational Team Review</masterLabel>
+            <translation><!-- Operational Team Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SSLT Approval Pending</masterLabel>
+            <translation><!-- SSLT Approval Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Steering Committee Approval Pending</masterLabel>
+            <translation><!-- Steering Committee Approval Pending --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Record Count --></label>
+        <name>Record_Count__c</name>
+    </fields>
+    <fields>
+        <help><!-- How often will this cost occur? --></help>
+        <label><!-- Recurrence --></label>
+        <name>Recurrence__c</name>
+        <picklistValues>
+            <masterLabel>Annual</masterLabel>
+            <translation><!-- Annual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monthly</masterLabel>
+            <translation><!-- Monthly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekly</masterLabel>
+            <translation><!-- Weekly --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Recurring Costs --></label>
+        <name>Recurring_Costs__c</name>
+    </fields>
+    <fields>
+        <help><!-- Who do we go to with report questions? --></help>
+        <label><!-- Report Builder --></label>
+        <name>Report_Builder__c</name>
+    </fields>
+    <fields>
+        <help><!-- Report Owner may be different from builder and L1/L2 --></help>
+        <label><!-- Report Owner --></label>
+        <name>Report_Owner__c</name>
+    </fields>
+    <fields>
+        <help><!-- Request title should summarize the request for easy identification in a list of requests --></help>
+        <label><!-- Request Title --></label>
+        <name>Request_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- SPMSpecialist --></label>
+        <name>SPMSpecialist__c</name>
+    </fields>
+    <fields>
+        <help><!-- Which SPM Specialist serves as a backup to the record owner? --></help>
+        <label><!-- SPM Backup --></label>
+        <name>SPM_Backup__c</name>
+        <relationshipLabel><!-- S3 Operations (SPM Backup) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- SPM Comments --></label>
+        <name>SPM_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter time spent (in minutes) to complete the calculation on a weekly basis --></help>
+        <label><!-- SPM Effort --></label>
+        <name>SPM_Effort__c</name>
+    </fields>
+    <fields>
+        <help><!-- When was this approved by SSLT --></help>
+        <label><!-- SSLT Approval --></label>
+        <name>SSLT_Approval__c</name>
+    </fields>
+    <fields>
+        <help><!-- What is the name of the Service Catalog that the Metric statement resides or will appear on --></help>
+        <label><!-- Service Catalog --></label>
+        <name>Service_Catalog__c</name>
+        <picklistValues>
+            <masterLabel>3rd Party Service Management (eQuip 3rd Party)</masterLabel>
+            <translation><!-- 3rd Party Service Management (eQuip 3rd Party) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Administer Job Evaluation Process</masterLabel>
+            <translation><!-- Administer Job Evaluation Process --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Answer Inquiries - Self Service</masterLabel>
+            <translation><!-- Answer Inquiries - Self Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Asset Disposition Management</masterLabel>
+            <translation><!-- Asset Disposition Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Benefits Administration</masterLabel>
+            <translation><!-- Benefits Administration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cash Collections for Hospital Accounts Receivables</masterLabel>
+            <translation><!-- Cash Collections for Hospital Accounts Receivables --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Close Month End</masterLabel>
+            <translation><!-- Close Month End --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contingent Staffing &amp; Strike Replacement Support</masterLabel>
+            <translation><!-- Contingent Staffing &amp; Strike Replacement Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contract Data Support</masterLabel>
+            <translation><!-- Contract Data Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Service- Hospital Patient Billing Inquiries</masterLabel>
+            <translation><!-- Customer Service- Hospital Patient Billing Inquiries --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Support and Reporting Services &amp; Exit Management Support</masterLabel>
+            <translation><!-- Data Support and Reporting Services &amp; Exit Management Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Develop and Deliver Reports</masterLabel>
+            <translation><!-- Develop and Deliver Reports --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Document Management</masterLabel>
+            <translation><!-- Document Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enterprise Master Patient Index (EMPI)</masterLabel>
+            <translation><!-- Enterprise Master Patient Index (EMPI) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fixed Asset &amp; Capital Budget Reporting</masterLabel>
+            <translation><!-- Fixed Asset &amp; Capital Budget Reporting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hospital Accounts Receivables Management</masterLabel>
+            <translation><!-- Hospital Accounts Receivables Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hospital Billing</masterLabel>
+            <translation><!-- Hospital Billing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hospital Charge Description Master Maintenance – Add, Change and/or Inactivate Charge Code</masterLabel>
+            <translation><!-- Hospital Charge Description Master Maintenance – Add, Change and/or Inactivate Charge Code --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hospital Charge Reconciliation</masterLabel>
+            <translation><!-- Hospital Charge Reconciliation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hospital Check-in / Registration</masterLabel>
+            <translation><!-- Hospital Check-in / Registration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hospital Coding</masterLabel>
+            <translation><!-- Hospital Coding --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hospital Financial Counseling</masterLabel>
+            <translation><!-- Hospital Financial Counseling --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hospital HIM Document Imaging</masterLabel>
+            <translation><!-- Hospital HIM Document Imaging --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hospital Patient Price Estimates for Prospective Patients</masterLabel>
+            <translation><!-- Hospital Patient Price Estimates for Prospective Patients --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hospital Pre-service Financial Clearance</masterLabel>
+            <translation><!-- Hospital Pre-service Financial Clearance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hospital Release of Information (ROI)</masterLabel>
+            <translation><!-- Hospital Release of Information (ROI) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hospital Transcription</masterLabel>
+            <translation><!-- Hospital Transcription --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hospital Unscheduled Financial Clearance</masterLabel>
+            <translation><!-- Hospital Unscheduled Financial Clearance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Item Master Data Support</masterLabel>
+            <translation><!-- Item Master Data Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Learning Delivery &amp; Administration</masterLabel>
+            <translation><!-- Learning Delivery &amp; Administration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manage Financial Audits</masterLabel>
+            <translation><!-- Manage Financial Audits --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manage and Administer Defined Benefit &amp; Defined Contribution Programs</masterLabel>
+            <translation><!-- Manage and Administer Defined Benefit &amp; Defined Contribution Programs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order Support for Svcs/Goods (Not supported through PO Process</masterLabel>
+            <translation><!-- Order Support for Svcs/Goods (Not supported through PO Process --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Overall</masterLabel>
+            <translation><!-- Overall --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PAR &amp; Inventory Management/End User Supply Utilization &amp; Education</masterLabel>
+            <translation><!-- PAR &amp; Inventory Management/End User Supply Utilization &amp; Education --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pay Department for goods/services received upon submission of a Check Request</masterLabel>
+            <translation><!-- Pay Department for goods/services received upon submission of a Check Request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pay Vendor for goods/services received upon submission of an Invoice</masterLabel>
+            <translation><!-- Pay Vendor for goods/services received upon submission of an Invoice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pay and Audit Approved Travel and Expense Reimbursements</masterLabel>
+            <translation><!-- Pay and Audit Approved Travel and Expense Reimbursements --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Perform Periodic Payroll Activities</masterLabel>
+            <translation><!-- Perform Periodic Payroll Activities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Process Employee Data Changes</masterLabel>
+            <translation><!-- Process Employee Data Changes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Process Payroll</masterLabel>
+            <translation><!-- Process Payroll --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Process Tax Payments</masterLabel>
+            <translation><!-- Process Tax Payments --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Process off-cycle and other wage payments</masterLabel>
+            <translation><!-- Process off-cycle and other wage payments --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Provide Information and Analyses to Support Labor Strategy</masterLabel>
+            <translation><!-- Provide Information and Analyses to Support Labor Strategy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Provide Support to HR Application Users</masterLabel>
+            <translation><!-- Provide Support to HR Application Users --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Provider Application Processing</masterLabel>
+            <translation><!-- Provider Application Processing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Provider Data Change Request Processing</masterLabel>
+            <translation><!-- Provider Data Change Request Processing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Provider Expirable Verification Processing</masterLabel>
+            <translation><!-- Provider Expirable Verification Processing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Provider Re-Application Processing</masterLabel>
+            <translation><!-- Provider Re-Application Processing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Radiation Safety Testing and Compliance Consulting</masterLabel>
+            <translation><!-- Radiation Safety Testing and Compliance Consulting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reconcile Accounts</masterLabel>
+            <translation><!-- Reconcile Accounts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Record Completion</masterLabel>
+            <translation><!-- Record Completion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recruitment</masterLabel>
+            <translation><!-- Recruitment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Report Financial Results</masterLabel>
+            <translation><!-- Report Financial Results --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Report Request Processing</masterLabel>
+            <translation><!-- Report Request Processing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Requisition &amp; PO Management</masterLabel>
+            <translation><!-- Requisition &amp; PO Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Resolve Inquiries, Issues, and Requests</masterLabel>
+            <translation><!-- Resolve Inquiries, Issues, and Requests --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Resolve Inquiries, Issues, and Requests (Complex)</masterLabel>
+            <translation><!-- Resolve Inquiries, Issues, and Requests (Complex) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Resolve Inquiries, Issues, and Requests (Simple)</masterLabel>
+            <translation><!-- Resolve Inquiries, Issues, and Requests (Simple) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retiree Healthcare Account (RHCA) and Retiree Medical Plan</masterLabel>
+            <translation><!-- Retiree Healthcare Account (RHCA) and Retiree Medical Plan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Contract Management (eQuip Contract)</masterLabel>
+            <translation><!-- Service Contract Management (eQuip Contract) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Strategic Sourcing &amp; Value Management</masterLabel>
+            <translation><!-- Strategic Sourcing &amp; Value Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Supplier Management</masterLabel>
+            <translation><!-- Supplier Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tuition Reimbursement/Education Assistance Program</masterLabel>
+            <translation><!-- Tuition Reimbursement/Education Assistance Program --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vendor Master Data Support</masterLabel>
+            <translation><!-- Vendor Master Data Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eQuip Tech: Repair</masterLabel>
+            <translation><!-- eQuip Tech: Repair --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eQuip Tech: Scheduled Maintenance</masterLabel>
+            <translation><!-- eQuip Tech: Scheduled Maintenance --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Has this metric been flagged to report during the stabilization period? --></help>
+        <label><!-- Stabilization metric --></label>
+        <name>Stabilization_metric__c</name>
+    </fields>
+    <fields>
+        <help><!-- What point in the approval process is this request? --></help>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CAG Approval Pending</masterLabel>
+            <translation><!-- CAG Approval Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cross-Functional Approval Pending</masterLabel>
+            <translation><!-- Cross-Functional Approval Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Discountinued</masterLabel>
+            <translation><!-- Discountinued --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending Approval Process</masterLabel>
+            <translation><!-- Pending Approval Process --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected: Additional Information Needed</masterLabel>
+            <translation><!-- Rejected: Additional Information Needed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retracted</masterLabel>
+            <translation><!-- Retracted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SSLT Approval Pending</masterLabel>
+            <translation><!-- SSLT Approval Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Steering Committee Approval Pending</masterLabel>
+            <translation><!-- Steering Committee Approval Pending --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- When was this approved by Steering Committee --></help>
+        <label><!-- Steering Committee aproval --></label>
+        <name>Steering_Co_Approval__c</name>
+    </fields>
+    <fields>
+        <help><!-- What is the sub-function for this record? --></help>
+        <label><!-- Sub-Function --></label>
+        <name>Sub_Function__c</name>
+        <picklistValues>
+            <masterLabel>Accounting</masterLabel>
+            <translation><!-- Accounting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accounts Payable</masterLabel>
+            <translation><!-- Accounts Payable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Administrative Assistant</masterLabel>
+            <translation><!-- Administrative Assistant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Asset Management</masterLabel>
+            <translation><!-- Asset Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CBO</masterLabel>
+            <translation><!-- CBO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Charge Capture</masterLabel>
+            <translation><!-- Charge Capture --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compensation &amp; Benefits</masterLabel>
+            <translation><!-- Compensation &amp; Benefits --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contact Center</masterLabel>
+            <translation><!-- Contact Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credentialing Verification</masterLabel>
+            <translation><!-- Credentialing Verification --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DMC</masterLabel>
+            <translation><!-- DMC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Executive Assistant</masterLabel>
+            <translation><!-- Executive Assistant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HIM</masterLabel>
+            <translation><!-- HIM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR Data &amp; Reporting</masterLabel>
+            <translation><!-- HR Data &amp; Reporting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HRIS</masterLabel>
+            <translation><!-- HRIS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal HR</masterLabel>
+            <translation><!-- Internal HR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Learning &amp; Workforce Relations</masterLabel>
+            <translation><!-- Learning &amp; Workforce Relations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Physics</masterLabel>
+            <translation><!-- Medical Physics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patient Access</masterLabel>
+            <translation><!-- Patient Access --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payroll</masterLabel>
+            <translation><!-- Payroll --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Performance Mgmt</masterLabel>
+            <translation><!-- Performance Mgmt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recruiting</masterLabel>
+            <translation><!-- Recruiting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Supply Chain</masterLabel>
+            <translation><!-- Supply Chain --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Travel and Expense</masterLabel>
+            <translation><!-- Travel and Expense --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eQuip Services</masterLabel>
+            <translation><!-- eQuip Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eQuip Tech</masterLabel>
+            <translation><!-- eQuip Tech --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- What SLA does this IOM support --></help>
+        <label><!-- Supports SLA --></label>
+        <name>Supports_SLA__c</name>
+        <relationshipLabel><!-- SLA Link --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- What is the turn-around time that this metric is being calculated against? For example, 3 business days = 3 --></help>
+        <label><!-- TAT --></label>
+        <name>TAT__c</name>
+    </fields>
+    <fields>
+        <help><!-- What is the target for this metric? --></help>
+        <label><!-- Target (Metric) --></label>
+        <name>Target_Metric__c</name>
+    </fields>
+    <fields>
+        <help><!-- If this is a stabilization metric, what is the target for stabilization? (usually lower than SLA target) --></help>
+        <label><!-- Target (Stab) --></label>
+        <name>Target_Stab__c</name>
+    </fields>
+    <fields>
+        <help><!-- What system will the information come from or what system will be impacted by this change request --></help>
+        <label><!-- Technology --></label>
+        <name>Technology__c</name>
+        <picklistValues>
+            <masterLabel>(blank)</masterLabel>
+            <translation><!-- (blank) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ascend</masterLabel>
+            <translation><!-- Ascend --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BenefitConnect I/F to Lawson</masterLabel>
+            <translation><!-- BenefitConnect I/F to Lawson --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Blackline</masterLabel>
+            <translation><!-- Blackline --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Brainware</masterLabel>
+            <translation><!-- Brainware --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CMMS</masterLabel>
+            <translation><!-- CMMS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CashPro (Bank of America)</masterLabel>
+            <translation><!-- CashPro (Bank of America) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ceridian</masterLabel>
+            <translation><!-- Ceridian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cirius</masterLabel>
+            <translation><!-- Cirius --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Crystal</masterLabel>
+            <translation><!-- Crystal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Echo</masterLabel>
+            <translation><!-- Echo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Epic</masterLabel>
+            <translation><!-- Epic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Stream</masterLabel>
+            <translation><!-- Health Stream --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hyland</masterLabel>
+            <translation><!-- Hyland --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>I3</masterLabel>
+            <translation><!-- I3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiate System</masterLabel>
+            <translation><!-- Initiate System --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal Audit</masterLabel>
+            <translation><!-- Internal Audit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kronos</masterLabel>
+            <translation><!-- Kronos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lawson</masterLabel>
+            <translation><!-- Lawson --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lawson (JE Workflow)</masterLabel>
+            <translation><!-- Lawson (JE Workflow) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manually Reported</masterLabel>
+            <translation><!-- Manually Reported --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Network Ops TBD</masterLabel>
+            <translation><!-- Network Ops TBD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OPEX</masterLabel>
+            <translation><!-- OPEX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Optum</masterLabel>
+            <translation><!-- Optum --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Passport (RQA)</masterLabel>
+            <translation><!-- Passport (RQA) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Press Ganey Survey</masterLabel>
+            <translation><!-- Press Ganey Survey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Remedy</masterLabel>
+            <translation><!-- Remedy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SFDC</masterLabel>
+            <translation><!-- SFDC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TBD</masterLabel>
+            <translation><!-- TBD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Taleo</masterLabel>
+            <translation><!-- Taleo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VMS</masterLabel>
+            <translation><!-- VMS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>dbConnect</masterLabel>
+            <translation><!-- dbConnect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>e-Scription</masterLabel>
+            <translation><!-- e-Scription --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Budget Change Request</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Internal Operations Team Comments --></label>
+            <section>Internal Operations Team Comments</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>HR Change Request</layout>
+        <sections>
+            <label><!-- Change Management Process --></label>
+            <section>Change Management Process</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Financial Information --></label>
+            <section>Financial Information</section>
+        </sections>
+        <sections>
+            <label><!-- HR Information --></label>
+            <section>HR Information</section>
+        </sections>
+        <sections>
+            <label><!-- Ops Issue --></label>
+            <section>Ops Issue</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>LEAN Project</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Metric Layout</layout>
+        <sections>
+            <label><!-- Comment Section --></label>
+            <section>Comment Section</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Issue --></label>
+            <section>Issue</section>
+        </sections>
+        <sections>
+            <label><!-- Metric Definition --></label>
+            <section>Metric Definition</section>
+        </sections>
+        <sections>
+            <label><!-- Process Steps --></label>
+            <section>Process Steps</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>S3 Change Request</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Budget Change Request --></label>
+        <name>Budget_Change_Request</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- HR Change Request --></label>
+        <name>HR_Change_Request</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- LEAN Project --></label>
+        <name>LEAN_Project</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Metric Record --></label>
+        <name>Metric_Record</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- S3 Change Request --></label>
+        <name>S3_Change_Request</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- CAG Approval Date required for Steering Committee Status Update --></errorMessage>
+        <name>CAG_Verify</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- CAG Approval Date required for Steering Committee Status Update --></errorMessage>
+        <name>CAG_Verify_v2</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You have prermission to set this field at &quot;New&quot;.  Please contact Mike Brokloff&apos;s team for further clarification. --></errorMessage>
+        <name>Status_Field_Update</name>
+    </validationRules>
+    <workflowTasks>
+        <name>Approve_Change_Request</name>
+        <subject><!-- Approve Change Request --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Change_Request_Approval</name>
+        <subject><!-- Change Request Approval --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Change_Request_Approval_HR</name>
+        <subject><!-- Change Request Approval --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Update_CAG_Date_AB</name>
+        <subject><!-- Update CAG Date --></subject>
+    </workflowTasks>
+</CustomObjectTranslation>

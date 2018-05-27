@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>RowCount/PARENTGROUPVAL(RowCount, GRAND_SUMMARY)</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA1</developerName>
+        <downGroupingContext>BucketField_53967195</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>% of Change</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_53967195</developerName>
+        <masterLabel>Resolution Group</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>Managers_Feedback__c$Resolution__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Change Identified</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Change Implemented</sourceValue>
+            </sourceValues>
+            <value>Change</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Send a Thank You</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>No Change</sourceValue>
+            </sourceValues>
+            <value>No Change</value>
+        </values>
+    </buckets>
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>FORMULA1</column>
+        </chartSummaries>
+        <chartType>Pie</chartType>
+        <enableHoverLabels>true</enableHoverLabels>
+        <expandOthers>false</expandOthers>
+        <groupingColumn>BucketField_53967195</groupingColumn>
+        <legendPosition>OnChart</legendPosition>
+        <location>CHART_TOP</location>
+        <showAxisLabels>true</showAxisLabels>
+        <showPercentage>true</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>false</showValues>
+        <size>Medium</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <columns>
+        <field>Managers_Feedback__c$Name</field>
+    </columns>
+    <columns>
+        <field>Managers_Feedback__c$Service_Area__c</field>
+    </columns>
+    <columns>
+        <field>Managers_Feedback__c$L1_Owner__c</field>
+    </columns>
+    <columns>
+        <field>Managers_Feedback__c$L2_Owner__c</field>
+    </columns>
+    <columns>
+        <field>Managers_Feedback__c$Resolution__c</field>
+    </columns>
+    <columns>
+        <field>Managers_Feedback__c$Subject__c</field>
+    </columns>
+    <columns>
+        <field>Managers_Feedback__c$Status__c</field>
+    </columns>
+    <columns>
+        <field>Managers_Feedback__c$Affiliate__c</field>
+    </columns>
+    <columns>
+        <field>Managers_Feedback__c$Contact__c</field>
+    </columns>
+    <columns>
+        <field>Managers_Feedback__c$CreatedDate</field>
+    </columns>
+    <columns>
+        <field>Managers_Feedback__c$Closed_Date__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Managers_Feedback__c$Subject__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notContain</operator>
+            <value>For train</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Managers_Feedback__c$Subject__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notContain</operator>
+            <value>test</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Managers_Feedback__c$Status__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Closed</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_53967195</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Manager Feedback Resolution Change %</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Managers_Feedback_Infos__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Managers_Feedback__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

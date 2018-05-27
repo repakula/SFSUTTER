@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Sales Inquiry</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Sales Inquiries</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>AccountName__c</name>
+        <relationshipLabel><!-- Sales Inquiries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Caller Name --></label>
+        <name>Caller_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Close Date --></label>
+        <name>Close_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>ContactName__c</name>
+        <relationshipLabel><!-- Sales Inquiries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Inquiry Details --></label>
+        <name>Inquiry_Details__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone Extension --></label>
+        <name>Phone_Extension__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone --></label>
+        <name>Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Sales Inquiry Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Inquiry Details --></label>
+            <section>Inquiry Details</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- SHP Sales Inquiry --></label>
+        <name>SHP_Sales_Inquiry</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please enter all ten digits of phone number --></errorMessage>
+        <name>Validate_Phone</name>
+    </validationRules>
+</CustomObjectTranslation>

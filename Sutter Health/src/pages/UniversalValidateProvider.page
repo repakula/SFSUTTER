@@ -1,0 +1,2050 @@
+<apex:page id="pageId" controller="UniversalProviderController" showHeader="false" standardStylesheets="false" sidebar="false" action="{!ifUserAuthenticated}">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        <meta name="description" content="Accenture"/>
+        <c:PDI_Portalbootstrap_resources ></c:PDI_Portalbootstrap_resources>
+        <c:PDI_portalMenuCSS ></c:PDI_portalMenuCSS>
+        <apex:stylesheet value="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" id="jqueryCss"/>
+        <apex:includeScript value="https://code.jquery.com/ui/1.11.4/jquery-ui.js" id="js"/>
+        <apex:includeScript value="{!URLFOR($Resource.PDI_bootstrap_checkbox, 'dist/js/bootstrap-checkbox.min.js')}" id="checkboxJS"/>
+        
+        <apex:includeScript value="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js" />
+        <apex:stylesheet value="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" />
+        
+        <apex:includeScript value="https://cdn.datatables.net/rowreorder/1.1.2/js/dataTables.rowReorder.min.js"/>
+        <apex:includeScript value="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"/>
+        <apex:stylesheet value="https://cdn.datatables.net/rowreorder/1.1.2/css/rowReorder.dataTables.min.css"/>
+        <apex:stylesheet value="https://cdn.datatables.net/responsive/2.1.0/css/responsive.dataTables.min.css"/>
+    </head>
+    
+    <body>
+        <div id="container"><!--Body-Container-->
+            <div class="hidden-header"></div>
+            <header class="clearfix">
+                <c:PDI_PortalHeader ></c:PDI_PortalHeader>    
+                
+                <div class="navbar navbar-inverse" role="navigation" id="slide-nav">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>                        
+                            </button>
+                            <a class="navbar-brand" href="#">
+                                <apex:image url="{!URLFOR($Resource.logo)}" width="162" height="54" id="logo"/>
+                            </a>
+                        </div><!--navbar--header-->
+                        <div id="slidemenu">
+                            <ul class="nav navbar-nav">
+                                <li><a href="javascript:redirectToHome();">Home</a></li>
+                                <apex:outputText rendered="{!if($Api.Session_ID != null && $User.LastName != 'Site Guest User',true,false)}" id="profiletxt">
+                                    <li><a href="UniversalValidateProvider" class="active">Profile</a></li>
+                                </apex:outputText>
+                                <li><a href="javascript:redirectToFAQ();">FAQ</a></li>
+                            </ul>
+                        </div><!--slidemenu-->
+                    </div><!-- Nav Container-->
+                </div><!--Nav bar-->
+            </header>
+            
+            <apex:outputpanel id="providerPanel">
+                
+                <apex:form id="theForm" styleclass="form-horizontal" style="padding:3%;">
+                    <apex:inputHidden value="{!contactId}" id="myHiddenField"/>
+                    
+                    <apex:actionFunction action="{!redirectoHome}" name="redirectoHomePage" id="homeAction"/>
+                    <apex:actionFunction action="{!redirectoFAQ}" name="redirectToFAQPage" id="faqAction"/>
+                    <apex:actionFunction action="{!redirectoChangePassword}" name="redirectoChangePass" id="changePasswdAction"/>
+                    <apex:actionFunction action="{!redirectoProviderList}" name="redirecttoProviderList" id="redirecttoProviderList"/>
+                    <apex:actionFunction id="retrieveProviderProfile" action="{!retrieveProviderProfile}" name="redirectoProfile"/>
+                <apex:outputText rendered="{!if(providerFlag == true, true, false)}">
+                    <div class="container" id="home"><!--Profile Container-->
+                        
+                        <div style="display: none;">
+                            <apex:inputCheckbox id="practicing" value="{!summaryObj.Practicing_Physician__c}" />
+                            <apex:inputCheckbox id="resigned" value="{!summaryObj.Resigned_From_Sutter__c}" />
+                            <apex:inputCheckbox id="retired" value="{!summaryObj.Retired_Departed__c}" />
+                            <apex:inputCheckbox id="resignedProvider_refer" value="{!summaryObj.Is_Resigned_Provider_refer__c}" />
+                            <apex:inputCheckbox id="providerAccessType" value="{!summaryObj.Provider_Access_Type__c}"/>
+                            <apex:inputCheckbox id="providerFlag" value="{!providerFlag}"/>
+                        </div>
+                        
+                        <apex:outputText rendered="{!if(providerInfo.lastModifiedDate != null && $Profile.Name == 'PDV Community Provider', true, false)}" id="modifyDate">
+                            <font color="blue" size="2">Last Validated On : {!providerInfo.lastModifiedDate}</font>
+                        </apex:outputText><!--last validate text-->
+                        <apex:outputPanel id="formPanel">
+                            <apex:outputText rendered="{!if(section == 'form' && summaryObj != null, true, false)}" id="profileFrm">    
+                                <div><apex:outputText id="headerTxt">{!$Label.CL597_PDI_PortalHeaderTxt}</apex:outputText></div>
+                                <span><div class="requiredInput"><div class="requiredBlock"></div></div>
+                                    <font color="red"> | = Fields highlighted in red are required.</font></span>
+                                
+                                <div class="row">
+                                    <div class="col-sm-6 ">
+                                        <apex:outputPanel id="errorPanel">
+                                            <apex:outputText >
+                                                <font color="red" size="5"><apex:pageMessages /></font>
+                                            </apex:outputText>
+                                        </apex:outputPanel>
+                                    </div>
+                                </div>              
+                                <div class="panel-group">
+                                    <script>
+                                    /* Active class is added to clicked Tab */
+                                    $('ul.nav-tabs li a').click(function (e) {
+                                        $('ul.nav-tabs li.active').removeClass('active')
+                                        $(this).parent('li').addClass('active')
+                                        
+                                        $(this).parent('tab-pane fade').addClass('in active')
+                                    })
+                                    
+                                    /* Div change on click of Tab */
+                                    $("#ul-menu-list li").click(function () {
+                                        $('.tab-pane').hide().eq($(this).index()).show();
+                                    });
+                                    /* Div change on click of Tab mobile */
+                                    $("#ul-menu-mobile li").click(function () {
+                                        $('.tab-pane').hide().eq($(this).index()).show();
+                                    });
+                                    
+                                    /* button click next tab */
+                                    $('.btnNext').click(function(){
+                                        $('.nav-tabs > .active').next('li').trigger('click');
+                                        $('.nav-tabs > .active').next('li').find('a').trigger('click');
+                                        
+                                    });
+                                    
+                                    /* button click previous tab */
+                                    $('.btnPrevious').click(function(){
+                                        $('.nav-tabs > .active').prev('li').trigger('click');
+                                        $('.nav-tabs > .active').prev('li').find('a').trigger('click');
+                                        
+                                    });
+                                    
+                                    /*Prevent Scroll jump on tab change */
+                                    $('.nav-tabs li a').click(function (e) {
+                                        e.preventDefault();
+                                        $(this).tab('show');
+                                        $('.tab-content > .tab-pane.active').jScrollPane();
+                                    });
+                                    
+                                    if(document.getElementById('{!$Component.theForm.practicing}').checked){
+                                        $("#btnradio1").prop('checked', true);
+                                        //document.getElementById("btnradio1").checked = true;
+                                    }
+                                    if(document.getElementById('{!$Component.theForm.resigned}').checked){
+                                        document.getElementById("btnradio2").checked = true;
+                                        document.getElementById("resignedReferDiv").style.display = 'block';
+                                        if(document.getElementById('{!$Component.theForm.resignedProvider_refer}').checked){
+                                            $("#btnCheckbox4").prop('checked', true);
+                                            resignreferreddisableText(true);
+                                        }
+                                    }
+                                    if(document.getElementById('{!$Component.theForm.retired}').checked){
+                                        $("#btnradio3").prop('checked', true);
+                                        //document.getElementById("btnradio3").checked = true;
+                                    }
+                                    $('#btnCheckbox4').checkboxpicker({
+                                    });
+                                    </script>
+                                    <div class="panel panel-primary"><!--Provider Status section starts-->
+                                        <div class="panel-heading" style="font-weight:bold;">{!summaryObj.Provider_Title__c} &nbsp;{!summaryObj.Provider_FullName__c}</div>
+                                        <ul class="nav nav-tabs" id="ul-menu-list">
+                                            <li class="active" id="li1"><a href="#tab1">Provider Details</a></li>
+                                            <apex:outputText rendered="{!if(providerSearchFlag == true, true, false)}">
+                                                <li id="li2"><a href="#tab2">General Info</a></li>
+                                                <li id="li3"><a href="#tab3">Other Details</a></li>
+                                            </apex:outputText>
+                                            <li id="li4"><a href="#tab4">Clinical Address Information</a></li>
+                                            <apex:outputText rendered="{!if(providerSearchFlag == true, true, false)}">
+                                                <li id="li5"><a href="#tab5">Patient Facing Address Information</a></li>
+                                            </apex:outputText>
+                                            
+                                        </ul>
+                                        <ul class="nav nav-tabs" id="ul-menu-mobile">
+                                            <li class="active" id="li1"><a href="#tab1"><i class="fa fa-tasks"></i></a></li>
+                                            <apex:outputText rendered="{!if(providerSearchFlag == true, true, false)}">
+                                                <li id="li2"><a href="#tab2"><i class="fa fa-user"></i></a></li>
+                                                <li id="li3"><a href="#tab3"><i class="fa fa-users"></i></a></li>
+                                            </apex:outputText>
+                                            <li id="li4"><a href="#tab4"><i class="fa fa-location-arrow"></i></a></li>
+                                            <apex:outputText rendered="{!if(providerSearchFlag == true, true, false)}">
+                                                <li id="li5"><a href="#tab5"><i class="fa fa-globe"></i></a></li>
+                                            </apex:outputText>
+                                            
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div id="tab1" class="tab-pane">
+                                                
+                                                <div class="panel-body">
+                                                    <div class="panel panel-primary"><!--<!-- Provider Status Panel starts-->
+                                                        <div class="panel-heading" style="font-weight:bold;"> Provider Status </div>
+                                                        <div class="panel-body">
+                                                            <div class="row" style="background-color:whitesmoke;"><!--Practicing Starts -->                             
+                                                                <div class="form-group" style="margin-top:10px;margin-bottom:10px;">
+                                                                    <div class="col-md-2 ">
+                                                                        <div id= "practicingCheckboxDiv" >
+                                                                            <label ><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span>{!$Label.CL243_PDI_Practicing}</span>
+                                                                                <span style="margin-left:20px;"><input type="radio" id="btnradio1" name="optradio" onclick="practicingFuncText(this.checked)"/></span>
+                                                                            </label>
+                                                                        </div>                       
+                                                                    </div>
+                                                                    <div class="col-md-10 " id="practiceHelp">
+                                                                        <label class="btnlabel">
+                                                                            <apex:outputText value="{!$Label.CL239_PDIPracticingTooltip}" escape="false"/>    
+                                                                        </label>
+                                                                    </div>                              
+                                                                </div>   
+                                                            </div> <!--Practicing Ends --> 
+                                                            <div class="row" style="background-color:white;"><!--Resign Div Starts -->                             
+                                                                <div class="form-group" style="margin-top:10px;margin-bottom:10px;">
+                                                                    <div class="col-md-2 ">
+                                                                        <div id="InactiveCheckboxDiv" style="margin-bottom: 3px;">
+                                                                            <!--  <input type="checkbox" data-reverse="true" id="btnCheckbox2" onchange="resignedFuncText(this.checked)" /> -->
+                                                                            <label ><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span>{!$Label.CL245_PDI_Resign}</span>
+                                                                                <span style="margin-left:9px;"><input type="radio" id="btnradio2" name="optradio" onclick="resignedFuncText(this.checked)"/></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>            
+                                                                    <div class="col-md-10 " id="resignHelp">
+                                                                        <label class="btnlabel">
+                                                                            <apex:outputText value="{!$Label.CL238_PDIResignedTooltip}" escape="false" /> 
+                                                                        </label>
+                                                                    </div>                              
+                                                                </div>   
+                                                            </div> <!--Resign Div Ends -->
+                                                            <div id="resignedReferDiv" style="display:none;"><!--Resign Refer Div Starts -->   
+                                                                <div class="row" style="background-color:white;">                             
+                                                                    <div class="form-group" style="margin-top:10px;margin-bottom:10px;">
+                                                                        <div class="col-md-1 control-label">
+                                                                            <label ><span></span></label>  
+                                                                        </div> 
+                                                                        <div class="col-md-11 ">
+                                                                            <div id="referDiv" style="margin-bottom: 3px;">
+                                                                                <label class="btnlabel">
+                                                                                    <span>{!$Label.CL246_PDI_ResignProviderRefer}</span>
+                                                                                </label>
+                                                                                <input type="checkbox" data-group-cls="btn-group-sm" data-reverse="true" id="btnCheckbox4" onchange="resignreferreddisableText(this.checked)"/>
+                                                                            </div>
+                                                                        </div>                                    
+                                                                    </div>   
+                                                                </div> 
+                                                            </div> <!--Resign Refer Div Ends -->        
+                                                            <div class="row" style="background-color:whitesmoke;"><!--Retired Div Starts -->                             
+                                                                <div class="form-group" style="margin-top:10px;margin-bottom:10px;">
+                                                                    <div class="col-md-2 ">
+                                                                        <div id="retiredCheckboxDiv" style="margin-bottom: 3px;">
+                                                                            <!--  <input type="checkbox" data-reverse="true" id="btnCheckbox3" onchange="retiredFuncText(this.checked)" /> -->
+                                                                            <label ><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span>{!$Label.CL244_PDI_Retired}</span>
+                                                                                <span style="margin-left:14px;"><input type="radio" id="btnradio3" name="optradio" onclick="retiredFuncText(this.checked)"/></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>            
+                                                                    <div class="col-md-10 " id="retiredHelp">
+                                                                        <label class="btnlabel">
+                                                                            <apex:outputText value="{!$Label.CL237_PDIRetiredTooltip}" escape="false" /> 
+                                                                        </label>
+                                                                    </div>                              
+                                                                </div>   
+                                                            </div><!--Retired Div Ends -->
+                                                        </div>
+                                                    </div><!-- Provider Status Panel Ends -->
+                                                    <apex:outputText rendered="{!if(providerSearchFlag == false, true, false)}">
+                                                        <div>&nbsp;</div>
+                                                        <div class="panel panel-primary"><!-- Provider Email/Mobile Details starts -->
+                                                            <div class="panel-heading" style="font-weight:bold;"> Provider Email/Mobile Details </div>
+                                                            <div class="panel-body">
+                                                                <div class="row">
+                                                                    <div class="col-sm-6 ">
+                                                                        <div class="form-group">
+                                                                            <label for="providerEmail" class="col-md-4 control-label">Email</label>
+                                                                            <div class="col-md-7">
+                                                                                <div class="requiredInput"><div id="ReqEmail" class="requiredBlock"></div>
+                                                                                    <apex:inputText value="{!summaryObj.Email__c}" styleclass="form-control" style="display:inline;width:93%; "/>
+                                                                                    <a><span id="providerEmailHelp" class="fa fa-question-circle " style="font-size:20px;text-align:center;float: right;padding-top: 7px;" data-toggle="tooltip" data-placement="down" title="{!$Label.CL55_Help_Text_Email}"></span></a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-6 ">
+                                                                        <div class="form-group">
+                                                                            <label for="providerMobile" class="col-md-4 control-label">Mobile Phone</label>
+                                                                            <div class="col-md-7">
+                                                                                <div>
+                                                                                    <apex:inputField styleclass="form-control" style="display:inline;width:93%;" id="providerMobiletxt" value="{!summaryObj.Mobile_Phone__c}" />
+                                                                                    <a><span id="mobilehelp" class="fa fa-question-circle " style="font-size:20px;text-align:center;float: right;padding-top: 7px;" data-toggle="tooltip" data-placement="down" title="{!$Label.CL56_Help_Text_MobilePhone}"></span></a>
+                                                                                </div>
+                                                                                <span><apex:inputcheckbox value="{!summaryObj.Ok_to_Text__c}" style="margin-top: -10px;" />&nbsp;OK to Text?</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- Email and Mobile row Ends -->
+                                                            </div>
+                                                        </div><!-- Provider Email/Mobile Details Ends -->
+                                                        <div>&nbsp;</div>
+                                                        <!-- Admin Assistant Section Starts -->
+                                                        <apex:outputpanel rendered="{!if($Profile.Name == 'PDV Community Provider', true, false)}">
+                                                            <div class="panel panel-primary"><!-- Delegate Information starts -->
+                                                                <div class="panel-heading" style="font-weight:bold;"> Delegate Information </div>
+                                                                <div class="panel-body">
+                                                                    <apex:outputText rendered="{!(providerInfo.lastModifiedDate != null)}" id="DelegateValidateDate">
+                                                                        <font color="blue" size="2">Last Validated On : {!providerInfo.lastModifiedDate}</font>
+                                                                    </apex:outputText><!--last validate text--><br />
+                                                                    <apex:outputText rendered="{!(providerInfo.lastModifiedDate != null)}" id="DelegateLoginDate">
+                                                                        <font color="blue" size="2">Last Login Date  : {!providerInfo.lastModifiedDate}</font><br />
+                                                                    </apex:outputText><!--last validate text-->
+                                                                    <div class="row">
+                                                                        <div class="col-sm-6 ">
+                                                                            <div class="form-group">
+                                                                                <label for="assistant" class="col-md-4 control-label"   data-toggle="tooltip" >Delegate Name</label>
+                                                                                <div class="col-md-7">
+                                                                                    <apex:inputField id="delgateName" value="{!summaryObj.Admin_Assistant__c}" styleclass="form-control" style="display:inline;width:96%;"/>
+                                                                                    <a><span id="adminNamehelp" class="fa fa-question-circle fa-2x"  style="font-size:20px;text-align:center;" data-toggle="tooltip" data-placement="down" title="{!$Label.CL182_Help_Text_adminAssistant}"></span></a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-sm-6 ">
+                                                                            <div class="form-group">
+                                                                                <label for="assistantEmail" class="col-md-4 control-label">Delegate Email</label>
+                                                                                <div class="col-md-7">
+                                                                                        <apex:inputText id="delegateEmail" value="{!summaryObj.Admin_Assistant_Email__c}" styleclass="form-control" style="display:inline;width:96%;"/>
+                                                                                        <a><span id="adminemailHelp" class="fa fa-question-circle fa-2x"  style="font-size:20px;text-align:center;" data-toggle="tooltip" data-placement="down" title="{!$Label.CL183_Help_Text_assistantEmail}"></span></a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-6 ">
+                                                                            <div class="form-group">
+                                                                                <label for="assistantPhone" class="col-md-4 control-label" data-toggle="tooltip" >Delegate Phone</label>
+                                                                                <div class="col-md-7">
+                                                                                    <apex:inputField id="delgatephone" value="{!summaryObj.Admin_Assistant_Phone__c}" styleclass="form-control" style="display:inline;width:96%;"/>
+                                                                                    <a><span id="adminPhone" class="fa fa-question-circle fa-2x" style="font-size:20px;text-align:center;" data-toggle="tooltip" data-placement="down" title="{!$Label.CL200_Help_Text_assistantPhone}"></span></a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-sm-6 ">
+                                                                            <div class="form-group">
+                                                                                <label for="assistantPhone" class="col-md-4 control-label" data-toggle="tooltip" >Delegate Title</label>
+                                                                                <div class="col-md-7">
+                                                                                    <apex:inputField id="delegatetitle" value="{!summaryObj.Admin_Assistant_Title__c}" styleclass="form-control" style="display:inline;width:96%;"/>
+                                                                                    <a><span id="adminTitle" class="fa fa-question-circle fa-2x" style="font-size:20px;text-align:center;" data-toggle="tooltip" data-placement="down" title="{!$Label.CL242_Help_Text_assistantTitle}"></span></a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!-- Delegate Information Ends -->
+                                                        </apex:outputpanel>
+                                                        <!--Admin Assistant Section Ends -->
+                                                    </apex:outputText>
+                                                    <div>&nbsp;</div>
+                                                    <center> <a class="btn btn-info btnNext ">Next</a> </center>
+                                                </div><!--panel-body-->
+                                            </div> <!-- tab1 -->
+                                            <apex:outputText rendered="{!if(providerSearchFlag == true, true, false)}">
+                                            <div id="tab2" class="tab-pane">
+                                                <div class="panel-body">
+                                                    <h4 id="MobileTabHeading" style="color:#0069c3">General info</h4>
+                                                    <div class="row">
+                                                        <div class="col-sm-2 ">
+                                                            
+                                                            <div class="col-md-7">
+                                                                <div>
+                                                                    <apex:outputField styleclass="form-control" style="display:inline;width:96%;" id="ProviderPic" value="{!summaryObj.Profile_Pic__c}" />
+                                                                    
+                                                                </div>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-5">
+                                                            <div class="form-group">
+                                                                <label for="inputMobile" class="col-md-4 control-label">Provider Title</label>
+                                                                <div class="col-md-7">
+                                                                    <div>
+                                                                        <apex:outputField styleclass="form-control" style="display:inline;width:50%;" id="ProviderTitle" value="{!summaryObj.Provider_Title__c}" />
+                                                                        
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="inputEmail" class="col-md-4 control-label" style="padding-left: 0px;">Email</label>
+                                                                <div class="col-md-7">
+                                                                    <div class="requiredInput">
+                                                                        <apex:inputText value="{!summaryObj.Email__c}" styleclass="form-control" style="display:inline;width:93%; "/>
+                                                                        <a><span id="email" class="fa fa-question-circle " style="font-size:20px;text-align:center;" data-toggle="tooltip" data-placement="down" title="{!$Label.CL55_Help_Text_Email}"></span></a>
+                                                                    </div>
+                                                                </div><!--Email-->
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="inputEmail" class="col-md-4 control-label" style="padding-left: 0px;">Speciality</label>
+                                                                <div class="col-md-7">
+                                                                    <div class="requiredInput">
+                                                                        <apex:inputText value="{!summaryObj.Speciality__c}" styleclass="form-control" style="display:inline;width:93%; "/>
+                                                                        <a><span id="email" class="fa fa-question-circle " style="font-size:20px;text-align:center;" data-toggle="tooltip" data-placement="down" title=""></span></a>
+                                                                    </div>
+                                                                </div><!--Email-->
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="inputEmail" class="col-md-4 control-label" style="padding-left: 0px;">Department</label>
+                                                                <div class="col-md-7">
+                                                                    <div class="requiredInput">
+                                                                        <apex:inputText value="{!summaryObj.Department__c}" styleclass="form-control" style="display:inline;width:93%; "/>
+                                                                        <a><span id="email" class="fa fa-question-circle " style="font-size:20px;text-align:center;" data-toggle="tooltip" data-placement="down" title=""></span></a>
+                                                                    </div>
+                                                                </div><!--Department-->
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="inputEmail" class="col-md-4 control-label" style="padding-left: 0px;">Hospital Affiliations</label>
+                                                                <div class="col-md-7">
+                                                                    <div class="requiredInput">
+                                                                        <apex:inputText value="{!summaryObj.Hospital_Affiliations__c}" styleclass="form-control" style="display:inline;width:93%; "/>
+                                                                        <a><span id="email" class="fa fa-question-circle " style="font-size:20px;text-align:center;" data-toggle="tooltip" data-placement="down" title=""></span></a>
+                                                                    </div>
+                                                                </div><!--Hospital Affilitiations-->
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="inputEmail" class="col-md-4 control-label" style="padding-left: 0px;">Medical Affiliations</label>
+                                                                <div class="col-md-7">
+                                                                    <div class="requiredInput">
+                                                                        
+                                                                        <apex:inputText value="{!summaryObj.Medical_Affiliations__c}" styleclass="form-control" style="display:inline;width:93%; "/>
+                                                                        <a><span id="email" class="fa fa-question-circle " style="font-size:20px;text-align:center;" data-toggle="tooltip" data-placement="down" title=""></span></a>
+                                                                    </div>
+                                                                </div><!--Email-->
+                                                            </div>
+                                                        </div><!--col-sm-6 end-->
+                                                        <div class="col-sm-5 "><!--Provider service status col-->
+                                                            <div class="form-group">
+                                                                <label for="inputMobile" class="col-md-4 control-label">Mobile Phone</label>
+                                                                <div class="col-md-7">
+                                                                    <div>
+                                                                        <apex:inputField styleclass="form-control" style="display:inline;width:96%;" id="MobilePhonetxt" value="{!summaryObj.Mobile_Phone__c}" />
+                                                                        <a><span id="mobile" class="fa fa-question-circle " style="font-size:20px;text-align:center;" data-toggle="tooltip" data-placement="down" title="{!$Label.CL56_Help_Text_MobilePhone}"></span></a>
+                                                                    </div>
+                                                                    <span><apex:inputcheckbox value="{!summaryObj.Ok_to_Text__c}" style="margin-top: -10px;" />&nbsp;OK to Text?</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="inputMobile" class="col-md-4 control-label">Medical Education</label>
+                                                                <div class="col-md-7">
+                                                                    <div>
+                                                                        <apex:inputField styleclass="form-control" style="display:inline;width:96%;" id="MedEd" value="{!summaryObj.Medical_Education__c}" />
+                                                                        <a><span id="mobile" class="fa fa-question-circle " style="font-size:20px;text-align:center;" data-toggle="tooltip" data-placement="down" title=""></span></a>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="inputMobile" class="col-md-4 control-label">Website Address</label>
+                                                                <div class="col-md-7">
+                                                                    <div>
+                                                                        <apex:inputField styleclass="form-control" style="display:inline;width:96%;" id="WebAddr" value="{!summaryObj.Website_Address__c}" />
+                                                                        <a><span id="mobile" class="fa fa-question-circle " style="font-size:20px;text-align:center;" data-toggle="tooltip" data-placement="down" title=""></span></a>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div><!--Provider service status col End-->
+                                                    </div><!--row End-->
+                                                    <center>
+                                                        <a class="btn btn-info btnPrevious ">Previous</a>
+                                                        <a class="btn btn-info btnNext ">Next</a>
+                                                    </center>
+                                                    
+                                                </div><!--panel-body-->
+                                            </div> <!-- tab2 -->
+                                            <div id="tab3" class="tab-pane">
+                                                
+                                                <div class="panel-body">
+                                                    <h4 id="MobileTabHeading" style="color:#0069c3">Other Details</h4>
+                                                    
+                                                    <div class="row">
+                                                        <div class="col-sm-6 ">
+                                                            <div class="form-group">
+                                                                <label for="assistant" class="col-md-4 control-label"   data-toggle="tooltip" >Internship</label>
+                                                                <div class="col-md-7">
+                                                                    <apex:inputField id="internship" value="{!summaryObj.Internship__c}" styleclass="form-control" style="display:inline;width:96%;"/>
+                                                                    <a><span id="adminNamehelp" class="fa fa-question-circle fa-2x"  style="font-size:20px;text-align:center;" data-toggle="tooltip" data-placement="down" title=""></span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6 ">
+                                                            <div class="form-group">
+                                                                <label for="ProfessionalIneterest" class="col-md-4 control-label">Professional Ineterest</label>
+                                                                <div class="col-md-7">
+                                                                    <apex:inputText id="ProfessionalIneterest" value="{!summaryObj.Professional_Ineterests__c}" styleclass="form-control" style="display:inline;width:96%;"/>
+                                                                    <a><span id="adminemailHelp" class="fa fa-question-circle fa-2x"  style="font-size:20px;text-align:center;" data-toggle="tooltip" data-placement="down" title=""></span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-6 ">
+                                                            <div class="form-group">
+                                                                <label for="Residency" class="col-md-4 control-label"   data-toggle="tooltip" >Residency</label>
+                                                                <div class="col-md-7">
+                                                                    <apex:inputField id="Residency" value="{!summaryObj.Residency__c}" styleclass="form-control" style="display:inline;width:96%;"/>
+                                                                    <a><span id="adminNamehelp" class="fa fa-question-circle fa-2x"  style="font-size:20px;text-align:center;" data-toggle="tooltip" data-placement="down" title=""></span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6 ">
+                                                            <div class="form-group">
+                                                                <label for="OnlineServices" class="col-md-4 control-label">Online Services</label>
+                                                                <div class="col-md-7">
+                                                                    <apex:inputText id="OnlineServices" value="{!summaryObj.Online_Services__c}" styleclass="form-control" style="display:inline;width:96%;"/>
+                                                                    <a><span id="adminemailHelp" class="fa fa-question-circle fa-2x"  style="font-size:20px;text-align:center;" data-toggle="tooltip" data-placement="down" title=""></span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-6 ">
+                                                            <div class="form-group">
+                                                                <label for="SpokenLanguages" class="col-md-4 control-label"   data-toggle="tooltip" >Spoken Languages</label>
+                                                                <div class="col-md-7">
+                                                                    <apex:inputField id="SpokenLanguages" value="{!summaryObj.Spoken_Languages__c}" styleclass="form-control" style="display:inline;width:96%;"/>
+                                                                    <a><span id="adminNamehelp" class="fa fa-question-circle fa-2x"  style="font-size:20px;text-align:center;" data-toggle="tooltip" data-placement="down" title=""></span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6 ">
+                                                            <div class="form-group">
+                                                                <label for="BoardCertifications" class="col-md-4 control-label">Board Certifications</label>
+                                                                <div class="col-md-7">
+                                                                    <apex:inputText id="BoardCertifications" value="{!summaryObj.Board_Certifications__c}" styleclass="form-control" style="display:inline;width:96%;"/>
+                                                                    <a><span id="adminemailHelp" class="fa fa-question-circle fa-2x"  style="font-size:20px;text-align:center;" data-toggle="tooltip" data-placement="down" title=""></span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-6 ">
+                                                            <div class="form-group">
+                                                                <label for="CommunityActivities" class="col-md-4 control-label"   data-toggle="tooltip" >Community Activities</label>
+                                                                <div class="col-md-7">
+                                                                    <apex:inputField id="CommunityActivities" value="{!summaryObj.Community_Activities__c}" styleclass="form-control" style="display:inline;width:96%;"/>
+                                                                    <a><span id="adminNamehelp" class="fa fa-question-circle fa-2x"  style="font-size:20px;text-align:center;" data-toggle="tooltip" data-placement="down" title=""></span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6 ">
+                                                            <div class="form-group">
+                                                                <label for="Publications" class="col-md-4 control-label">Publications</label>
+                                                                <div class="col-md-7">
+                                                                    <apex:inputText id="Publications" value="{!summaryObj.Publications__c}" styleclass="form-control" style="display:inline;width:96%;"/>
+                                                                    <a><span id="adminemailHelp" class="fa fa-question-circle fa-2x"  style="font-size:20px;text-align:center;" data-toggle="tooltip" data-placement="down" title=""></span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-6 ">
+                                                            <div class="form-group">
+                                                                <label for="PersonalInterests" class="col-md-4 control-label"   data-toggle="tooltip" >Personal Interests</label>
+                                                                <div class="col-md-7">
+                                                                    <apex:inputField id="PersonalInterests" value="{!summaryObj.Personal_Interests__c}" styleclass="form-control" style="display:inline;width:96%;"/>
+                                                                    <a><span id="adminNamehelp" class="fa fa-question-circle fa-2x"  style="font-size:20px;text-align:center;" data-toggle="tooltip" data-placement="down" title=""></span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6 ">
+                                                            <div class="form-group">
+                                                                <label for="AdditionalInformation" class="col-md-4 control-label">Additional Information</label>
+                                                                <div class="col-md-7">
+                                                                    <apex:inputText id="AdditionalInformation" value="{!summaryObj.Additional_Information__c}" styleclass="form-control" style="display:inline;width:96%;"/>
+                                                                    <a><span id="adminemailHelp" class="fa fa-question-circle fa-2x"  style="font-size:20px;text-align:center;" data-toggle="tooltip" data-placement="down" title=""></span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-6 ">
+                                                            
+                                                        </div>
+                                                        <div class="col-sm-6 ">
+                                                            <div class="form-group">
+                                                                <label for="PhilosophyofCare" class="col-md-4 control-label">Philosophy of Care</label>
+                                                                <div class="col-md-7">
+                                                                    <apex:inputText id="PhilosophyofCare" value="{!summaryObj.Philosophy_of_Care__c}" styleclass="form-control" style="display:inline;width:96%;"/>
+                                                                    <a><span id="adminemailHelp" class="fa fa-question-circle fa-2x"  style="font-size:20px;text-align:center;" data-toggle="tooltip" data-placement="down" title=""></span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <apex:outputpanel rendered="{!if($Profile.Name == 'PDV Community Provider', true, false)}">
+                                                    <div class="row" style="border-bottom: 1px solid #337ab7; padding-top:50px;">
+                                                        
+                                                    </div>
+                                                    
+                                                    <h3 style="color:#0069c3;">Delegate Information</h3>
+                                                    <apex:outputText rendered="{!(providerInfo.lastModifiedDate != null)}" id="modifyDateDelegate">
+                                                        <font color="blue" size="2">Last Validated On : {!providerInfo.lastModifiedDate}</font>
+                                                    </apex:outputText><!--last validate text--><br />
+                                                    <apex:outputText rendered="{!(providerInfo.lastModifiedDate != null)}" id="modifyloginDelegate">
+                                                        <font color="blue" size="2">Last Login Date  : {!providerInfo.lastModifiedDate}</font><br />
+                                                    </apex:outputText><!--last validate text-->
+                                                    <div class="row">
+                                                        <div class="col-sm-6 ">
+                                                            <div class="form-group">
+                                                                <label for="assistant" class="col-md-4 control-label"   data-toggle="tooltip" >Delegate Name</label>
+                                                                <div class="col-md-7">
+                                                                    
+                                                                    
+                                                                    
+                                                                    <apex:inputField id="adminAssistant" value="{!summaryObj.Admin_Assistant__c}" styleclass="form-control" style="display:inline;width:96%;"/>
+                                                                    
+                                                                    <a><span id="adminNamehelp" class="fa fa-question-circle fa-2x"  style="font-size:20px;text-align:center;" data-toggle="tooltip" data-placement="down" title="{!$Label.CL182_Help_Text_adminAssistant}"></span></a>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6 ">
+                                                            <div class="form-group">
+                                                                <label for="assistantEmail" class="col-md-4 control-label">Delegate Email</label>
+                                                                <div class="col-md-7">
+                                                                    
+                                                                    
+                                                                    <apex:inputText id="assistantEmail" value="{!summaryObj.Admin_Assistant_Email__c}" styleclass="form-control" style="display:inline;width:96%;"/>
+                                                                    
+                                                                    <a><span id="adminemailHelp" class="fa fa-question-circle fa-2x"  style="font-size:20px;text-align:center;" data-toggle="tooltip" data-placement="down" title="{!$Label.CL183_Help_Text_assistantEmail}"></span></a>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-6 ">
+                                                            <div class="form-group">
+                                                                <label for="assistantPhone" class="col-md-4 control-label" data-toggle="tooltip" >Delegate Phone</label>
+                                                                <div class="col-md-7">
+                                                                    
+                                                                    
+                                                                    <apex:inputField id="adminAssistantphone" value="{!summaryObj.Admin_Assistant_Phone__c}" styleclass="form-control" style="display:inline;width:96%;"/>
+                                                                    
+                                                                    <a><span id="adminPhone" class="fa fa-question-circle fa-2x" style="font-size:20px;text-align:center;" data-toggle="tooltip" data-placement="down" title="{!$Label.CL200_Help_Text_assistantPhone}"></span></a>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6 ">
+                                                            <div class="form-group">
+                                                                <label for="assistantPhone" class="col-md-4 control-label" data-toggle="tooltip" >Delegate Title</label>
+                                                                <div class="col-md-7">
+                                                                    
+                                                                    
+                                                                    <apex:inputField id="adminAssistanttitle" value="{!summaryObj.Admin_Assistant_Title__c}" styleclass="form-control" style="display:inline;width:96%;"/>
+                                                                    
+                                                                    <a><span id="adminTitle" class="fa fa-question-circle fa-2x" style="font-size:20px;text-align:center;" data-toggle="tooltip" data-placement="down" title="{!$Label.CL242_Help_Text_assistantTitle}"></span></a>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        
+                                                    </div>
+                                                    </apex:outputpanel>
+                                                    <center>
+                                                        <a class="btn btn-info btnPrevious">Previous</a>
+                                                        <a class="btn btn-info btnNext">Next</a>
+                                                    </center>
+                                                    
+                                                </div><!--Admin Assistant Panel Body-->
+                                                
+                                            </div> <!-- tab 3 -->
+                                            </apex:outputText>
+                                             <div id="tab4" class="tab-pane">
+                                                <div class="panel-body">
+                                                    <h4 id="MobileTabHeading" style="color:#0069c3">Clinical Address Information</h4>
+                                                    <apex:outputPanel id="addressReadview">
+                                                        <apex:outputText rendered="{!if(editAddrmode == false, true, false)}">
+                                                            <div class="row" style="border-bottom: 1px solid #337ab7; padding-top:0px;">
+                                                                <div class="col-md-12" id="addrheader">
+                                                                    <div class="row">
+                                                                        <div class="col-md-1">
+                                                                            
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <h5 style="color:#0069c3"><b>Primary Address</b></h5>
+                                                                            <a><span id="adminTitle" class="fa fa-question-circle fa-2x" 
+                                                                                     style="font-size:20px;text-align:center;position: absolute; margin: -29px 13px 4px 142px;" 
+                                                                                     data-toggle="tooltip" data-placement="down" title="{!$Label.CL58_Help_Text_PrimaryContactInformation}"></span></a>
+                                                                        </div>
+                                                                        <div class="col-md-1">
+                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="bootstrap-sf1" id="wrapper1">
+                                                                <div class="panel-body">
+                                                                    <div class="col-md-12" id="addrList">
+                                                                        <apex:outputPanel rendered="{!if(primaryAddrObj.Address_Line1__c != null, true, false)}">
+                                                                            <div class="row">
+                                                                                <div class="col-md-1">
+                                                                                    <!--<apex:outputField styleclass="form-control" style="display:inline;width:50%;" id="serialNumber" value="{!primaryAddrObj.Serial_Number__c}" />-->
+                                                                                </div>
+                                                                                <div class="col-md-3">
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-10">
+                                                                                            <div class="form-group">
+                                                                                                <apex:outputField styleclass="form-control" style="display:inline;width:50%;" id="primaryaddrline" value="{!primaryAddrObj.Address_Line1__c}" />
+                                                                                                <div style="float:right;">
+                                                                                                    <apex:outputText rendered="{!IF(primaryAddrObj.AD_Address_Verification_Status__c == '' || primaryAddrObj.AD_Address_Verification_Status__c == null, true, false)}">
+                                                                                                        <a><span id="adminemailHelp" class="fa fa-question-circle fa-2x"
+                                                                                                                 style="font-size:20px;text-align:center;color:#75a3a3;"></span></a>
+                                                                                                    </apex:outputText>
+                                                                                                    <apex:outputText rendered="{!IF(primaryAddrObj.AD_Address_Verification_Status__c == 'Verified', true, false)}">
+                                                                                                        <a><span id="adminemailHelp" class="fa fa-check-square fa-2x"
+                                                                                                                 style="font-size:20px;text-align:center;color:#29a329;"></span></a>
+                                                                                                    </apex:outputText>
+                                                                                                    <apex:outputText rendered="{!IF(primaryAddrObj.AD_Address_Verification_Status__c == 'Corrected', true, false)}">
+                                                                                                        <a><span id="adminemailHelp" class="fa fa-check-square fa-2x"
+                                                                                                                 style="font-size:20px;text-align:center;color:#29a329;"></span></a>
+                                                                                                    </apex:outputText>
+                                                                                                    <apex:outputText rendered="{!IF(primaryAddrObj.AD_Address_Verification_Status__c == 'InCorrect', true, false)}">
+                                                                                                        <a><span id="adminemailHelp" class="fa fa-times-circle fa-2x"
+                                                                                                                 style="font-size:20px;text-align:center;color:#ff4000;"></span></a>
+                                                                                                    </apex:outputText>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-10">
+                                                                                            <div class="form-group">
+                                                                                                <apex:outputField styleclass="form-control"
+                                                                                                                  style="display:inline;width:50%;" id="primaryLine2" value="{!primaryAddrObj.Address_Line_2__c}" />
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-10">
+                                                                                            <div class="form-group">
+                                                                                                <apex:outputField styleclass="form-control"
+                                                                                                                  style="display:inline;width:50%;" id="city1" value="{!primaryAddrObj.City__c}" />
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-10">
+                                                                                            <div class="form-group">
+                                                                                                <apex:outputField styleclass="form-control" style="display:inline;width:50%;" id="statea" value="{!primaryAddrObj.State__c}" /> -
+                                                                                                <apex:outputField styleclass="form-control" style="display:inline;width:50%;" id="zipCodea" value="{!primaryAddrObj.Zip_Code__c}" />
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                    <div class="col-md-10">
+                                                                                            <div class="form-group">
+                                                                                                <apex:outputField styleclass="form-control"
+                                                                                                                  style="display:inline;width:50%;" id="Primarycounty" value="{!primaryAddrObj.County__c}" />
+                                                                                            </div>
+                                                                                    </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-10">
+                                                                                            <div class="form-group">
+                                                                                                Phone - <apex:outputField styleclass="form-control" style="display:inline;width:50%;" id="phonea" value="{!primaryAddrObj.Secure_Phone__c}" />
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-10">
+                                                                                            <div class="form-group">
+                                                                                                Phone Ext - <apex:outputField styleclass="form-control" style="display:inline;width:50%;" id="priphoneExt" value="{!primaryAddrObj.Secure_Phone_Ext__c}" />
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-10">
+                                                                                            <div class="form-group">
+                                                                                                Fax - <apex:outputField styleclass="form-control" style="display:inline;width:50%;" id="faxa" value="{!primaryAddrObj.Secure_Fax__c}" />
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <input type="button" class="btn btn-primary btn-sm" id="primaryEditBtn" onclick="editAddress('{!primaryAddrObj.Id}', '{!primaryAddrObj.Serial_Number__c}');return false;" value="Edit" />
+                                                                                    </div>
+                                                                                    <div>
+                                                                                        &nbsp;
+                                                                                    </div>
+                                                                                    
+                                                                                </div>
+                                                                                <div class="col-md-8">
+                                                                                    
+                                                                                </div>
+                                                                                
+                                                                            </div><!--primary row Ends -->
+                                                                        </apex:outputPanel>
+                                                                    </div><!--primary AddreList div ends -->
+                                                                </div><!--Primary Panel body Ends -->
+                                                            </div><!--Primary wrapper Ends -->
+                                                            
+                                                            <!--Secondary Address Section Starts -->
+                                                            <div class="row" style="border-bottom: 1px solid #337ab7; padding-top:0px;">
+                                                                <div class="col-sm-12" id="addrheader">
+                                                                    <div class="row">
+                                                                        <div class="col-md-1">
+                                                                            
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <h5 style="color:#0069c3"><b>Secondary Address</b></h5>
+                                                                            <a><span id="adminTitle" class="fa fa-question-circle fa-2x" 
+                                                                                     style="font-size:20px;text-align:center;position: absolute; margin: -29px 13px 4px 142px;" 
+                                                                                     data-toggle="tooltip" data-placement="down" title="{!$Label.CL58_Help_Text_SecondaryContactInformation}"></span></a>
+                                                                        </div>
+                                                                        <div class="col-md-1">
+                                                                            
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="bootstrap-sf1" id="wrapper1">
+                                                                <div class="panel-body">
+                                                                    <div class="col-sm-12" id="addrList1">
+                                                                        <apex:repeat value="{!SecondaryAddrList}" var="secondaryAddr">
+                                                                            <apex:outputText rendered="{!IF(secondaryAddr.Serial_Number__c != null, true, false)}">
+                                                                                <div class="row">
+                                                                                    <div class="col-md-1" style="font-weight: 800;">
+                                                                                        <apex:outputText rendered="{!IF(reordermode == true, true, false)}">
+                                                                                            <div class="form-group">
+                                                                                                <apex:inputText value="{!secondaryAddr.Serial_Number__c}" style="display:inline;width:25%;"/>
+                                                                                            </div>
+                                                                                        </apex:outputText>
+                                                                                        <apex:outputText rendered="{!IF(reordermode == false, true, false)}">
+                                                                                            <apex:outputField styleclass="form-control" style="display:inline;width:50%; font-weight: 800;"
+                                                                                                              id="secondaryserialNumber" value="{!secondaryAddr.Serial_Number__c}" />
+                                                                                        </apex:outputText>
+                                                                                        
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-10">
+                                                                                                <div class="form-group">
+                                                                                                    <apex:outputField styleclass="form-control"
+                                                                                                                      style="display:inline;width:50%;" id="addressline" value="{!secondaryAddr.Address_Line1__c}" />
+                                                                                                    <div style="float:right;">
+                                                                                                        <apex:outputText rendered="{!IF(secondaryAddr.AD_Address_Verification_Status__c == '' || secondaryAddr.AD_Address_Verification_Status__c == null, true, false)}">
+                                                                                                            <a><span id="adminemailHelp" class="fa fa-question-circle fa-2x"
+                                                                                                                     style="font-size:20px;text-align:center;color:#75a3a3;"></span></a>
+                                                                                                        </apex:outputText>
+                                                                                                        <apex:outputText rendered="{!IF(secondaryAddr.AD_Address_Verification_Status__c == 'Verified', true, false)}">
+                                                                                                            <a><span id="adminemailHelp" class="fa fa-check-square fa-2x"
+                                                                                                                     style="font-size:20px;text-align:center;color:#29a329;"></span></a>
+                                                                                                        </apex:outputText>
+                                                                                                        <apex:outputText rendered="{!IF(secondaryAddr.AD_Address_Verification_Status__c == 'Corrected', true, false)}">
+                                                                                                            <a><span id="adminemailHelp" class="fa fa-check-square fa-2x"
+                                                                                                                     style="font-size:20px;text-align:center;color:#29a329;"></span></a>
+                                                                                                        </apex:outputText>
+                                                                                                        <apex:outputText rendered="{!IF(secondaryAddr.AD_Address_Verification_Status__c == 'InCorrect', true, false)}">
+                                                                                                            <a><span id="adminemailHelp" class="fa fa-times-circle fa-2x"
+                                                                                                                     style="font-size:20px;text-align:center;color:#ff4000;"></span></a>
+                                                                                                        </apex:outputText>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-7">
+                                                                                                <div class="form-group">
+                                                                                                    <apex:outputField styleclass="form-control"
+                                                                                                                      style="display:inline;width:50%;" id="Secondaryline2" value="{!secondaryAddr.Address_Line_2__c}" />
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-7">
+                                                                                                <div class="form-group">
+                                                                                                    <apex:outputField styleclass="form-control"
+                                                                                                                      style="display:inline;width:50%;" id="city1" value="{!secondaryAddr.City__c}" />
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-7">
+                                                                                                <div class="form-group">
+                                                                                                    <apex:outputField styleclass="form-control" style="display:inline;width:50%;" id="statea" value="{!secondaryAddr.State__c}" /> -
+                                                                                                    <apex:outputField styleclass="form-control" style="display:inline;width:50%;" id="zipCodea" value="{!secondaryAddr.Zip_Code__c}" />
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-7">
+                                                                                                <div class="form-group">
+                                                                                                    <apex:outputField styleclass="form-control"
+                                                                                                                      style="display:inline;width:50%;" id="SecondaryCounty" value="{!secondaryAddr.County__c}" />
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-7">
+                                                                                                <div class="form-group">
+                                                                                                    Phone - <apex:outputField styleclass="form-control" style="display:inline;width:50%;" id="phonea" value="{!secondaryAddr.Secure_Phone__c}" />
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-7">
+                                                                                                <div class="form-group">
+                                                                                                    Phone Ext - <apex:outputField styleclass="form-control" style="display:inline;width:50%;" id="phoneExt" value="{!secondaryAddr.Secure_Phone_Ext__c}" />
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-7">
+                                                                                                <div class="form-group">
+                                                                                                    Fax - <apex:outputField styleclass="form-control" style="display:inline;width:50%;" id="faxa" value="{!secondaryAddr.Secure_Fax__c}" />
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <input type="button" class="btn btn-primary btn-sm" id="secondaryEditBtn" onclick="editAddress('{!secondaryAddr.Id}', '{!secondaryAddr.Serial_Number__c}');return false;" value="Edit" />
+                                                                                            <apex:outputText rendered="{!IF(reordermode == false, true, false)}">
+                                                                                                <input type="button" class="btn btn-primary btn-sm" id="secondaryDeleteBtn" onclick="deleteAddress('{!secondaryAddr.Serial_Number__c}');return false;" value="Delete" />
+                                                                                            </apex:outputText>
+                                                                                        </div>
+                                                                                        
+                                                                                        <div class="row" id="showComputer">
+                                                                                            <input type="button" class="btn btn-link" id="convertBtn" 
+                                                                                                   onclick="convertAddress('{!secondaryAddr.Serial_Number__c}');return false;" value="Click here to make as primary address." />
+                                                                                        </div>
+                                                                                        
+                                                                                    </div>
+                                                                                    
+                                                                                    <div class="row" id="showMobile">
+                                                                                        <input type="button" class="btn btn-link" id="convertBtn1" 
+                                                                                               onclick="convertAddress('{!secondaryAddr.Serial_Number__c}');return false;" value="Click here to make as primary address." />
+                                                                                    </div>
+                                                                                    
+                                                                                </div>
+                                                                                <div class="row" style="border-bottom: 1px solid #337ab7; padding-top:0px; margin-bottom: 15px;">
+                                                                                </div>
+                                                                            </apex:outputText>
+                                                                        </apex:repeat>
+                                                                    </div><!--addrList1-->
+                                                                </div>
+                                                            </div><!--Secondary Address Read view Ends -->
+                                                            <!--Secondary Address Section Ends -->
+                                                        </apex:outputText>
+                                                    </apex:outputPanel><!--Address Read View panel Ends -->
+                                                    <apex:outputPanel id="addressEditview"> <!-- Address Edit View Panel Starts -->
+                                                        <apex:outputText rendered="{!if(editAddrmode == true, true, false)}">
+                                                            <script>
+                                                            if('{!address.Address_Type__c}' == '{!$Label.CL303_PDIPrimary}'){
+                                                                $('[id$=ReqPhone]').addClass('requiredBlock');
+                                                                $('[id$=ReqFax]').addClass('requiredBlock');
+                                                            }else{
+                                                                $('[id$=ReqPhone]').removeClass('requiredBlock');
+                                                                $('[id$=ReqFax]').removeClass('requiredBlock');
+                                                            }
+                                                            </script>
+                                                            <div class="bootstrap-sf1" id="wrapper3">
+                                                                <div class="panel-body">
+                                                                    <div class="col-sm-12" id="addrList2">
+                                                                        <div class="row">
+                                                                            <div class = "col-md-4">
+                                                                                <div class="form-group">
+                                                                                    <label for="Address line 1" class="col-md-4 control-label">Address Line 1</label>
+                                                                                    <div class="col-md-7">
+                                                                                        <div class="requiredInput"><div id="ReqEmail" class="requiredBlock"></div>
+                                                                                            <apex:inputField id="editAddressLine1" value="{!address.Address_Line1__c}" styleclass="form-control" style="display:inline;width:96%;"/>
+                                                                                        </div>
+                                                                                    </div> 
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="Address line 2" class="col-md-4 control-label">Address Line 2</label>
+                                                                                    <div class="col-md-7">
+                                                                                        <apex:inputField id="editAddressLine2" value="{!address.Address_Line_2__c}" styleclass="form-control" style="display:inline;width:96%;"/>
+                                                                                    </div> 
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="City" class="col-md-4 control-label">City</label>
+                                                                                    <div class="col-md-7">
+                                                                                        <div class="requiredInput"><div id="ReqEmail" class="requiredBlock"></div>
+                                                                                            <apex:inputField id="editCity" value="{!address.City__c}" styleclass="form-control" style="display:inline;width:96%;"/>
+                                                                                        </div>
+                                                                                    </div> 
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="State" class="col-md-4 control-label">State</label>
+                                                                                    <div class="col-md-7">
+                                                                                        <div class="requiredInput"><div id="ReqEmail" class="requiredBlock"></div>
+                                                                                            <apex:inputField id="editState" value="{!address.State__c}" styleclass="form-control" style="display:inline;width:96%;"/>
+                                                                                        </div>
+                                                                                    </div> 
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="Zip Code" class="col-md-4 control-label">Zip Code</label>
+                                                                                    <div class="col-md-7">
+                                                                                        <div class="requiredInput"><div id="ReqEmail" class="requiredBlock"></div>
+                                                                                            <apex:inputField id="editZipCode" value="{!address.Zip_Code__c}" styleclass="form-control" style="display:inline;width:96%;"/>
+                                                                                        </div>
+                                                                                    </div> 
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class = "col-md-7">
+                                                                                <div class="form-group">
+                                                                                    <label for="assistantEmail" class="col-md-4 control-label">Phone</label>
+                                                                                    <div class="col-md-3">
+                                                                                        <div class="requiredInput"><div id="ReqPhone" class="requiredBlock"></div>
+                                                                                            <apex:inputField value="{!address.Secure_Phone__c}" styleclass="form-control" style="display:inline;width:96%;"/>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <label for="phoneExt" class="col-md-1 control-label" style="text-align:left;margin-right:-10px;">Ext.</label>
+                                                                                    <div class="col-md-2">
+                                                                                        <apex:inputField id="securephoneExt" value="{!address.Secure_Phone_Ext__c}" styleclass="form-control" style="display:inline;width:96%;"/>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="assistantEmail" class="col-md-4 control-label">Fax</label>
+                                                                                    <div class="col-md-3">
+                                                                                        <div class="requiredInput"><div id="ReqFax" class="requiredBlock"></div>
+                                                                                            <apex:inputField value="{!address.Secure_Fax__c}" styleclass="form-control" style="display:inline;width:96%;"/>
+                                                                                            
+                                                                                            <a><span id="adminemailHelp" class="fa fa-question-circle fa-2x"  style="font-size:20px;text-align:center;" data-toggle="tooltip" data-placement="down" title="{!$Label.CL248_Help_Text_Fax}"></span></a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div><!-- Row Ends -->
+                                                                        <apex:outputPanel id="addressline2Error">
+                                                                            <apex:outputText rendered="{!if(addressline2ErrorFlag == true, true, false)}">
+                                                                                <script>
+                                                                                $('#btnCheckbox5').checkboxpicker({
+                                                                                });
+                                                                                if('{!addressline2ErrorFlag}' == 'true'){
+                                                                                    $("[id$=btnCheckbox5]").prop('checked', true);
+                                                                                    disableAddressFields(true);
+                                                                                }
+                                                                                </script>
+                                                                                <font color="blue" size="2">
+                                                                                    <span id = "addressWarningMessage">We were not able to identify the information given in Address line2. Are you sure this is a valid information?
+                                                                                        &nbsp;
+                                                                                        <apex:commandbutton id="yesBtn" value="Yes" styleclass="btn btn-info btn-xs" action="{!saveAddress}" status="addrStatus" rerender="addressReadview, addressEditview, addressDoctor, errorPanel, prevBtn, validateBtn" />
+                                                                                        &nbsp;
+                                                                                        <input type="button" id="noBtn" value="No" class="btn btn-info btn-xs" onclick="disableAddressFields(false);return false;"/>
+                                                                                    </span>
+                                                                                </font>
+                                                                            </apex:outputText>
+                                                                        </apex:outputPanel>
+                                                                        <!-- Address Verification Logic Starts -->
+                                                                        <div>&nbsp;</div>
+                                                                        <apex:inputHidden value="{!selectedRecord}" id="RadioButtonValue" />
+                                                                        <apex:outputPanel id="addressDoctor" >
+                                                                            <apex:outputText rendered="{!suggestedAddressFlag}">
+                                                                                <script>
+                                                                                $('#suggestedAddrTb').DataTable( {
+                                                                                    "bPaginate": false,
+                                                                                    "bFilter": false,
+                                                                                    "bInfo": false,
+                                                                                    rowReorder: {
+                                                                                        selector: 'td:nth-child(2)'
+                                                                                    },
+                                                                                    responsive: true
+                                                                                });
+                                                                                if('{!suggestedAddressFlag}' == 'true'){
+                                                                                    disableAddresses(true);
+                                                                                }
+                                                                                </script>
+                                                                                <div class="panel panel-primary"><!--Provider Status section starts-->
+                                                                                    <div class="panel-heading" style="font-weight:bold;"> Suggested Addresses </div>
+                                                                                    <div class="panel-body">
+                                                                                        <div><span style="font-size:14px;font-weight:bold;color:green;line-height:15px;">{!$Label.CL465_PDI_SuggestedAddressMessage}</span></div><div style="height: 10px;">&nbsp;</div>
+                                                                                        <table id="suggestedAddrTb" class="display responsive nowrap" width= "100%">
+                                                                                            <thead>
+                                                                                                <tr>
+                                                                                                    <th></th>
+                                                                                                    <th>Address Line 1</th>
+                                                                                                    <th>Address Line 2</th>
+                                                                                                    <th>City</th>
+                                                                                                    <th>State</th>
+                                                                                                    <th>ZipCode</th>
+                                                                                                </tr>
+                                                                                            </thead>
+                                                                                            <tbody>
+                                                                                                <apex:repeat value="{!suggestedAddressList}" var="ad">
+                                                                                                    <tr>
+                                                                                                        <td><input type="radio" id="selectedRecord" name="selectedRecord" value="{!ad.Formatted_Address__c}" 
+                                                                                                                   onclick="mapSuggestedAddress(this,'{!$Component.RadioButtonValue}');" /><span class="addrRadioValue" style="display:none;">{!ad.Formatted_Address__c}</span></td>
+                                                                                                        <td>{!ad.Address_Line1__c}</td>
+                                                                                                        <td>{!ad.Address_Line_2__c}</td>
+                                                                                                        <td>{!ad.City__c}</td>
+                                                                                                        <td>{!ad.State__c}</td>
+                                                                                                        <td>{!ad.Zip_Code__c}</td>
+                                                                                                    </tr>
+                                                                                                </apex:repeat>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </apex:outputText>
+                                                                        </apex:outputPanel>
+                                                                        <!-- Address Verification Logic Ends -->
+                                                                        <div>&nbsp;</div>
+                                                                        <!-- Added on 21/12/2016 to Override the Address Verification Starts-->
+                                                                        <div class="row">
+                                                                            <apex:outputPanel rendered="{!if(manualByPassFlag == 'true', true, false)}">
+                                                                                <apex:outputText rendered="{!if(suggestedAddressFlag == false && byPassAddressVerificationFlag == false, true, false)}">
+                                                                                    <span style="text-align:left; font-weight: bold; padding-left:10px;"><apex:inputField id="byPassAddr" value="{!address.Tech_Bypass_Address_Verification__c}"/>&nbsp;{!$Label.CL618_PDI_ByPassAddressLabel}</span>
+                                                                                </apex:outputText>
+                                                                            </apex:outputPanel>
+                                                                        </div>
+                                                                        <!-- Added on 21/12/2016 to Override the Address Verification Ends-->
+                                                                        <center>
+                                                                            <apex:outputText rendered="{!if(suggestedAddressFlag == false, true, false)}">
+                                                                                <input type="button" class="btn btn-primary btn-sm" id="suggestedSaveAddressBtn" onclick="findAddressSuggestions();return false;" value="Save" />
+                                                                            </apex:outputText>
+                                                                            &nbsp;
+                                                                            <apex:commandbutton value="Cancel" styleclass="btn btn-primary btn-sm" action="{!cancelAddress}" status="addrStatus" reRender="addressReadview, addressEditview, addressDoctor, errorPanel, prevBtn, validateBtn" />
+                                                                        </center>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </apex:outputText>
+                                                    </apex:outputPanel><!--Address Edit View Ends -->
+                                                    
+                                                    <apex:actionstatus id="addrStatus">
+                                                        <apex:facet name="start">
+                                                            <div class="waitingSearchDiv" id="el_loading">
+                                                                <div id="loading-image">
+                                                                    <img src="/img/loading.gif" title="Please Wait..." height="20px" width="20px"/>
+                                                                    <span>Loading...</span>
+                                                                </div>
+                                                            </div>
+                                                        </apex:facet>
+                                                    </apex:actionstatus>
+                                                    <apex:outputPanel id="prevBtn">
+                                                        <apex:outputText rendered="{!if(editAddrmode == false, true, false)}">
+                                                            <script>
+                                                            /* button click previous tab */
+                                                            $('.btnPrevious').click(function(){
+                                                            $('.nav-tabs > .active').prev('li').trigger('click');
+                                                            $('.nav-tabs > .active').prev('li').find('a').trigger('click');
+                                                            
+                                                            });
+                                                            </script>
+                                                            <div>
+                                                                <apex:outputText rendered="{!if(showNewButtonFlag == true, true, false)}">
+                                                                    <input type="button" class="btn btn-primary btn-sm" id="newAddressBtn" onclick="newAddress();return false;" value="+ New Address" />
+                                                                </apex:outputText>
+                                                                &nbsp;
+                                                                <br class="break1"/>
+                                                                <br class="break1"/>
+                                                                <apex:commandbutton value="Reorder Secondary Address" styleclass="btn btn-primary btn-sm" action="{!reorderAddress}" id="reorderBtn"
+                                                                                        disabled="{!If(showReorderBtnFlag == false, true, false)}" status="addrStatus" reRender="addressReadview, addressEditview, errorPanel, prevBtn, validateBtn" />
+                                                                &nbsp;
+                                                                <br class="break1"/>
+                                                                <br class="break1"/>
+                                                                <apex:outputText rendered="{!if(reordermode == true, true, false)}">
+                                                                    <apex:commandbutton id="cancelReorderBtn" styleclass="btn btn-primary btn-sm" action="{!cancelReorder}" value="Cancel Reorder" status="addrStatus" reRender="addressReadview, addressEditview, errorPanel, prevBtn, validateBtn" />
+                                                                </apex:outputText>
+                                                            </div>
+                                                            <br class="break2"/>
+                                                            <apex:outputPanel id="validateBtn">
+                                                                <apex:outputText rendered="{!if(editAddrmode == false, true, false)}">
+                                                                    <center>
+                                                                        <a class="btn btn-info btnPrevious btn-md">Previous</a>
+                                                                        <apex:outputText rendered="{!if(providerSearchFlag == true, true, false)}">
+                                                                            <a class="btn btn-info btnPrevious btn-md">Next</a>
+                                                                        </apex:outputText>
+                                                                        <apex:outputText rendered="{!if($Profile.Name == 'PDV Community Provider', true, false)}">
+                                                                            <input type="button" onclick="validateProvider();" value="Validate" id="theButton" class="btn btn-primary active btn-md" />
+                                                                        </apex:outputText>
+                                                                        <apex:outputText rendered="{!if($Profile.Name != 'PDV Community Provider', true, false)}">
+                                                                            <input type="button" onclick="validateProvider();" value="Validate" id="theButton" class="btn btn-primary active btn-md" /> &nbsp;
+                                                                            <apex:commandButton action="{!cancelProvider}" value="Cancel" id="theButton" styleClass="btn btn-primary active btn-md" />
+                                                                        </apex:outputText>
+                                                                        
+                                                                        <apex:actionFunction action="{!save}" name="saveProviderData" status="status" reRender="errorPanel,successPanel, formPanel,errorPagePanel"/>
+                                                                        <div id="cover1">
+                                                                            <apex:actionStatus id="status" >
+                                                                                <apex:facet name="start">
+                                                                                    
+                                                                                    <apex:outputPanel id="processing" >
+                                                                                        <apex:image id="loadingImage" value="{!URLFOR($Resource.AjaxLoaderImage)}" height="20px" width="20px"/> Processing...
+                                                                                    </apex:outputPanel>
+                                                                                    
+                                                                                </apex:facet>
+                                                                            </apex:actionStatus>
+                                                                        </div>
+                                                                    </center>
+                                                                </apex:outputText>
+                                                            </apex:outputPanel>
+                                                        </apex:outputText>
+                                                    </apex:outputPanel>
+                                                    
+                                                </div><!--Clinical Panel Body-->
+                                            </div> <!-- tab4 -->
+                                            <!-- Patinet Facing Starts-->
+                                            <apex:outputText rendered="{!if(providerSearchFlag == true, true, false)}">
+                                            <div id="tab5" class="tab-pane"><!-- tab5-->
+                                                
+                                                <div class="panel-body">
+                                                    <h4 id="MobileTabHeading" style="color:#0069c3">Patient Facing Address Information</h4>
+                                                    <apex:outputPanel id="patientaddressReadview">
+                                                        <apex:outputText rendered="{!if(editAddrmode == false, true, false)}">
+                                                            <div class="row" style="border-bottom: 1px solid #337ab7; padding-top:0px;">
+                                                                <div class="col-md-12" id="addrheader">
+                                                                    <div class="row">
+                                                                        <div class="col-md-1">
+                                                                            
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <h5 style="color:#0069c3"><b>Primary Address</b></h5>
+                                                                            <a><span id="primaryAddrTitle" class="fa fa-question-circle fa-2x" 
+                                                                                     style="font-size:20px;text-align:center;position: absolute; margin: -29px 13px 4px 142px;" 
+                                                                                     data-toggle="tooltip" data-placement="down" title="{!$Label.CL58_Help_Text_PrimaryContactInformation}"></span></a>
+                                                                        </div>
+                                                                        <div class="col-md-1">
+                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="bootstrap-sf1" id="wrapper1">
+                                                                <div class="panel-body">
+                                                                    <div class="col-md-12" id="addrList">
+                                                                        <apex:outputPanel rendered="{!if(primaryAddrObj.Address_Line1__c != null, true, false)}">
+                                                                            <div class="row">
+                                                                                <div class="col-md-1">
+                                                                                    <!--<apex:outputField styleclass="form-control" style="display:inline;width:50%;" id="PatientserialNumber" value="{!primaryAddrObj.Serial_Number__c}" />-->
+                                                                                </div>
+                                                                                <div class="col-md-3">
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-10">
+                                                                                            <div class="form-group">
+                                                                                                <apex:outputField styleclass="form-control" style="display:inline;width:50%;" id="Patientprimaryaddrline" value="{!primaryAddrObj.Address_Line1__c}" />
+                                                                                                
+                                                                                                <div style="float:right;">
+                                                                                                    <apex:outputText rendered="{!IF(primaryAddrObj.AD_Address_Verification_Status__c == '' || primaryAddrObj.AD_Address_Verification_Status__c == null, true, false)}">
+                                                                                                        <a><span id="adminemailHelp" class="fa fa-question-circle fa-2x"
+                                                                                                                 style="font-size:20px;text-align:center;color:#75a3a3;"></span></a>
+                                                                                                    </apex:outputText>
+                                                                                                    <apex:outputText rendered="{!IF(primaryAddrObj.AD_Address_Verification_Status__c == 'Verified', true, false)}">
+                                                                                                        <a><span id="adminemailHelp" class="fa fa-check-square fa-2x"
+                                                                                                                 style="font-size:20px;text-align:center;color:#29a329;"></span></a>
+                                                                                                    </apex:outputText>
+                                                                                                    <apex:outputText rendered="{!IF(primaryAddrObj.AD_Address_Verification_Status__c == 'Corrected', true, false)}">
+                                                                                                        <a><span id="adminemailHelp" class="fa fa-check-square fa-2x"
+                                                                                                                 style="font-size:20px;text-align:center;color:#ff4000;"></span></a>
+                                                                                                    </apex:outputText>
+                                                                                                    <apex:outputText rendered="{!IF(primaryAddrObj.AD_Address_Verification_Status__c == 'InCorrect', true, false)}">
+                                                                                                        <a><span id="adminemailHelp" class="fa fa-times-circle fa-2x"
+                                                                                                                 style="font-size:20px;text-align:center;color:#ffdb4d;"></span></a>
+                                                                                                    </apex:outputText>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-10">
+                                                                                            <div class="form-group">
+                                                                                                <apex:outputField styleclass="form-control"
+                                                                                                                  style="display:inline;width:50%;" value="{!primaryAddrObj.Address_Line_2__c}" />
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-10">
+                                                                                            <div class="form-group">
+                                                                                                <apex:outputField styleclass="form-control"
+                                                                                                                  style="display:inline;width:50%;" value="{!primaryAddrObj.City__c}" />
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-10">
+                                                                                            <div class="form-group">
+                                                                                                <apex:outputField styleclass="form-control" style="display:inline;width:50%;"  value="{!primaryAddrObj.State__c}" /> -
+                                                                                                <apex:outputField styleclass="form-control" style="display:inline;width:50%;"  value="{!primaryAddrObj.Zip_Code__c}" />
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-10">
+                                                                                            <div class="form-group">
+                                                                                                <apex:outputField styleclass="form-control"
+                                                                                                                  style="display:inline;width:50%;" value="{!primaryAddrObj.County__c}" />
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-10">
+                                                                                            <div class="form-group">
+                                                                                                Phone - <apex:outputField styleclass="form-control" style="display:inline;width:50%;"  value="{!primaryAddrObj.Secure_Phone__c}" />
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-10">
+                                                                                            <div class="form-group">
+                                                                                                Phone Ext - <apex:outputField styleclass="form-control" style="display:inline;width:50%;"  value="{!primaryAddrObj.Secure_Phone_Ext__c}" />
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-10">
+                                                                                            <div class="form-group">
+                                                                                                Fax - <apex:outputField styleclass="form-control" style="display:inline;width:50%;"  value="{!primaryAddrObj.Secure_Fax__c}" />
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    
+                                                                                    
+                                                                                    <div>
+                                                                                        &nbsp;
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-1">
+                                                                                    &nbsp;
+                                                                                </div>
+                                                                            </div><!--primary row Ends -->
+                                                                        </apex:outputPanel>
+                                                                    </div><!--primary AddreList div ends -->
+                                                                </div><!--Primary Panel body Ends -->
+                                                            </div><!--Primary wrapper Ends -->
+                                                            
+                                                            <!--Secondary Address Section Starts -->
+                                                            <div class="row" style="border-bottom: 1px solid #337ab7; padding-top:0px;">
+                                                                <div class="col-sm-12" id="addrheader">
+                                                                    <div class="row">
+                                                                        <div class="col-md-1">
+                                                                            
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <h5 style="color:#0069c3"><b>Secondary Address</b></h5>
+                                                                            <a><span id="secAddrTitle" class="fa fa-question-circle fa-2x" 
+                                                                                     style="font-size:20px;text-align:center;position: absolute; margin: -29px 13px 4px 142px;" 
+                                                                                     data-toggle="tooltip" data-placement="down" title="{!$Label.CL58_Help_Text_SecondaryContactInformation}"></span></a>
+                                                                        </div>
+                                                                        <div class="col-md-1">
+                                                                            
+                                                                        </div>
+                                                                        <div class="col-md-7" id="mobileVanish">
+                                                                            <h5 style="color:#0069c3"><b>Address Types</b></h5>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="bootstrap-sf1" id="wrapper1">
+                                                                <div class="panel-body">
+                                                                    <div class="col-sm-12" id="addrList1">
+                                                                        <apex:repeat value="{!SecondaryAddrList}" var="secondaryAddr">
+                                                                            <apex:outputText rendered="{!IF(secondaryAddr.Serial_Number__c != null, true, false)}">
+                                                                                <div class="row">
+                                                                                    <div class="col-md-1" style="font-weight: 800;">
+                                                                                        <apex:outputText rendered="{!IF(reordermode == true, true, false)}">
+                                                                                            <div class="form-group">
+                                                                                                <apex:inputText value="{!secondaryAddr.Serial_Number__c}" style="display:inline;width:25%;"/>
+                                                                                            </div>
+                                                                                        </apex:outputText>
+                                                                                        <apex:outputText rendered="{!IF(reordermode == false, true, false)}">
+                                                                                            <apex:outputField styleclass="form-control" style="display:inline;width:50%;"
+                                                                                                              id="PatientsecondaryPatientserialNumber" value="{!secondaryAddr.Serial_Number__c}" />
+                                                                                        </apex:outputText>
+                                                                                        
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-10">
+                                                                                                <div class="form-group">
+                                                                                                    <apex:outputField styleclass="form-control"
+                                                                                                                      style="display:inline;width:50%;"  value="{!secondaryAddr.Address_Line1__c}" />
+                                                                                                    <div style="float:right;">
+                                                                                                        <apex:outputText rendered="{!IF(secondaryAddr.AD_Address_Verification_Status__c == '' || secondaryAddr.AD_Address_Verification_Status__c == null, true, false)}">
+                                                                                                            <a><span id="adminemailHelp" class="fa fa-question-circle fa-2x"
+                                                                                                                     style="font-size:20px;text-align:center;color:#75a3a3;"></span></a>
+                                                                                                        </apex:outputText>
+                                                                                                        <apex:outputText rendered="{!IF(secondaryAddr.AD_Address_Verification_Status__c == 'Verified', true, false)}">
+                                                                                                            <a><span id="adminemailHelp" class="fa fa-check-square fa-2x"
+                                                                                                                     style="font-size:20px;text-align:center;color:#29a329;"></span></a>
+                                                                                                        </apex:outputText>
+                                                                                                        <apex:outputText rendered="{!IF(secondaryAddr.AD_Address_Verification_Status__c == 'Corrected', true, false)}">
+                                                                                                            <a><span id="adminemailHelp" class="fa fa-check-square fa-2x"
+                                                                                                                     style="font-size:20px;text-align:center;color:#29a329;"></span></a>
+                                                                                                        </apex:outputText>
+                                                                                                        <apex:outputText rendered="{!IF(secondaryAddr.AD_Address_Verification_Status__c == 'InCorrect', true, false)}">
+                                                                                                            <a><span id="adminemailHelp" class="fa fa-times-circle fa-2x"
+                                                                                                                     style="font-size:20px;text-align:center;color:#ff4000;"></span></a>
+                                                                                                        </apex:outputText>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                         <div class="row">
+                                                                                            <div class="col-md-7">
+                                                                                                <div class="form-group">
+                                                                                                    <apex:outputField styleclass="form-control"
+                                                                                                                      style="display:inline;width:50%;"  value="{!secondaryAddr.Address_Line_2__c}" />
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-7">
+                                                                                                <div class="form-group">
+                                                                                                    <apex:outputField styleclass="form-control"
+                                                                                                                      style="display:inline;width:50%;"  value="{!secondaryAddr.City__c}" />
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-7">
+                                                                                                <div class="form-group">
+                                                                                                    <apex:outputField styleclass="form-control" style="display:inline;width:50%;"  value="{!secondaryAddr.State__c}" /> -
+                                                                                                    <apex:outputField styleclass="form-control" style="display:inline;width:50%;"  value="{!secondaryAddr.Zip_Code__c}" />
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                         <div class="row">
+                                                                                            <div class="col-md-7">
+                                                                                                <div class="form-group">
+                                                                                                    <apex:outputField styleclass="form-control"
+                                                                                                                      style="display:inline;width:50%;"  value="{!secondaryAddr.County__c}" />
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-7">
+                                                                                                <div class="form-group">
+                                                                                                    Phone - <apex:outputField styleclass="form-control" style="display:inline;width:50%;"  value="{!secondaryAddr.Secure_Phone__c}" />
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-7">
+                                                                                                <div class="form-group">
+                                                                                                    Phone Ext - <apex:outputField styleclass="form-control" style="display:inline;width:50%;"  value="{!secondaryAddr.Secure_Phone_Ext__c}" />
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-7">
+                                                                                                <div class="form-group">
+                                                                                                    Fax - <apex:outputField styleclass="form-control" style="display:inline;width:50%;"  value="{!secondaryAddr.Secure_Fax__c}" />
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        
+                                                                                        
+                                                                                        <div>
+                                                                                            &nbsp;
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-1">
+                                                                                        &nbsp;
+                                                                                    </div>
+                                                                                    <div class="col-md-7" id="AddressTypeDiv">
+                                                                                        <div class="row">
+                                                                                            <apex:inputField value="{!secondaryAddr.Patient_Facing__c}" />
+                                                                                            <span><b>Patient Facing</b></span><br/>
+                                                                                            <span><font color="blue" size="2">This address will be visible to public over Internet.</font></span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="row" style="border-bottom: 1px solid #337ab7; padding-top:0px; margin-bottom: 15px;">
+                                                                                </div>
+                                                                            </apex:outputText>
+                                                                        </apex:repeat>
+                                                                    </div><!--addrList1-->
+                                                                    <div class="row">
+                                                                        <div class="col-md-3">
+                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!--Secondary Address Read view Ends -->
+                                                            <!--Secondary Address Section Ends -->
+                                                        </apex:outputText>
+                                                    </apex:outputPanel><!--Address Read View panel Ends -->
+                                                    
+                                                    
+                                                    <apex:outputPanel id="PatientprevBtn">
+                                                        <apex:outputText rendered="{!if(editAddrmode == false, true, false)}">
+                                                            
+                                                            <center>
+                                                                <a class="btn btn-info btnPrevious">Previous</a>
+                                                            </center>
+                                                        </apex:outputText>
+                                                    </apex:outputPanel>
+                                                </div><!--Clinical Panel Body-->
+                                            </div> <!-- tab5 -->
+                                            </apex:outputText><!-- Patinet Facing Ends-->
+                                        </div> <!-- tab-content -->
+                                    </div><!--Provider status section Ends-->
+                                    
+                                </div><!--panel-group-->
+                            </apex:outputText>
+                        </apex:outputPanel><!--Form Section-->
+                        <!-- START - SUCCESS PAGE - RENDERED if section = success -->
+                        <!-- Address Related Action Function Starts -->
+                        
+                        <apex:actionFunction name="newAddress" action="{!newAddress}" status="addrStatus" rerender="addressReadview, addressEditview, prevBtn, validateBtn"/>
+                        <apex:actionFunction name="editAddress" action="{!getselectedAddress}"  status="addrStatus" rerender="addressReadview, addressEditview, errorPanel, prevBtn, validateBtn">
+                            <apex:param name="addressId" id="addressId" value=""/>
+                            <apex:param name="serialnumber" id="serialnumber" value=""/>
+                        </apex:actionFunction>
+                        <apex:actionFunction name="deleteAddress" action="{!deleteAddress}"  status="addrStatus" rerender="addressReadview, patientaddressReadview, addressEditview, errorPanel, prevBtn, validateBtn">
+                            <apex:param name="serialNumber" id="addressNumber" value=""/>
+                        </apex:actionFunction>
+                        <apex:actionFunction name="saveSuggestedAddress" action="{!saveAddress}" status="addrStatus" reRender="addressReadview, patientaddressReadview, addressEditview, errorPanel, prevBtn, validateBtn" />
+                        <apex:actionFunction name="convertAddress" action="{!convertAddress}" status="addrStatus" rerender="addressReadview, addressEditview, patientaddressReadview, prevBtn, validateBtn">
+                            <apex:param name="serNumber" id="serNumber" value=""/>
+                        </apex:actionFunction>
+                        <apex:actionFunction name="findAddressSuggestions" action="{!findSuggestedAddress}" status="addrStatus" reRender="addressReadview, addressEditview, addressDoctor, errorPanel, prevBtn, validateBtn" />
+                        <!-- Address Related Action Function Ends -->
+                        <apex:outputPanel id="successPanel">
+                            <apex:outputText rendered="{!(section == 'success')}">
+                                <div class="row" id="successDiv">
+                                    <div class="col-md-3" >
+                                        <img src="{!$Resource.rightIcon}" onload="loadImage()" width="204" height="204"/>
+                                        <!--<apex:image value="{!$Resource.rightIcon}" /> -->
+                                    </div>
+                                    <div class="col-md-9">
+                                        <span style="font-size:17px;font-weight:bold;color:green;line-height:25px;">
+                                            {!$Label.CL249_PDI_Portal_Success_Message} </span><br/>
+                                        <apex:outputText style="font-size:16px;font-weight:600;color:blue;">
+                                            <span>Note: Fields you have changed are highlighted in </span>
+                                            <font color ="blue"><b>blue.</b></font></apex:outputText>
+                                        <apex:outputText id="tableDetails" value="{!sumObjComparetable}" escape="false" />
+                                        
+                                        <apex:outputText rendered="{!if($Profile.Name == 'PDV Community Provider', true, false)}" style="font-size:16px;font-weight:600;color:blue;">
+                                            <span><a href="UniversalValidateProvider"><b>Click here</b></a> <b>to edit your information.</b></span>
+                                        </apex:outputText>
+                                        <apex:outputText rendered="{!if($Profile.Name != 'PDV Community Provider', true, false)}" style="font-size:16px;font-weight:600;color:blue;">
+                                            <span><a href="javascript:redirecttoProviderList();"><b>Click here</b></a> <b>to return providers list page.</b></span>
+                                        </apex:outputText>
+                                        
+                                    </div>
+                                </div>
+                                <div style="height:230px;">&nbsp;</div>   
+                            </apex:outputText>
+                        </apex:outputPanel>
+                        <!-- END - SUCCESS PAGE -->
+                        <!-- START - ERROR PAGE - RENDERED if section = error -->
+                        <apex:outputPanel id="errorPagePanel">
+                            <apex:outputText rendered="{!(section == 'error')}">
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%" class="main">   
+                                    <tr><td colspan="2" class="spacer-30"></td></tr> 
+                                    <tr>
+                                        <td width="20%" align="center"></td>
+                                        <td align="center" style="font-size:18px;font-weight:bold;color:red;line-height:50px;">
+                                            Unauthorized Access.
+                                            <br/><br/>
+                                            <a class="x-button" onClick="javascript:doLogout('{!JSENCODE(logoutURL)}','{!JSENCODE(logoutRetURL)}')">Logout</a>
+                                        </td>
+                                    </tr>
+                                    <tr><td colspan="2" class="spacer-30"></td></tr> 
+                                </table>
+                            </apex:outputText>
+                        </apex:outputPanel>
+                        <!-- END - ERROR PAGE -->
+                        
+                    </div><!-- Profile Container Ends-->
+                </apex:outputText>
+                <!-- Admin Assistant Section Starts-->
+                <apex:outputText rendered="{!if(providerFlag == false, true, false)}">
+                    <div class="container" id="home1">
+                        <div id="content">  
+                            <div class="panel-group">
+                                <apex:outputText >
+                                    <font color="blue" size="3">Welcome {!$User.FirstName} {!$User.LastName}</font>
+                                </apex:outputText><!--last validate text-->
+                                <div class="panel panel-primary"><!--Provider Status section starts-->
+                                    <div class="panel-heading" style="font-weight:bold;"> Providers List </div>
+                                    <div class="panel-body">
+                                        <table id="providerTb" class="display responsive nowrap" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Provider Name</th>
+                                                    <th>Title</th>
+                                                    <th>Provider ID</th>
+                                                    <th>Provider NPI</th>
+                                                    <th>License Number</th>
+                                                    <th>Status</th>
+                                                    <th>Last Verified</th>
+                                                    <th>Verified Date</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <apex:repeat value="{!summaryObjList}" var="sumrec">
+                                                <tr>
+                                                    <td>{!sumrec.Provider_Name__c}</td>
+                                                    <td>{!sumrec.Provider_Title__c}</td>
+                                                    <td>{!sumrec.Provider_ID__c}</td>
+                                                    <td>{!sumrec.Provider_NPI_F__c}</td>
+                                                    <td>{!sumrec.Provider_License_Number__c}</td>
+                                                    <td>{!sumrec.Status__c}</td>
+                                                    <td>
+                                                        <apex:outputText rendered="{!if(sumrec.owner.name != 'Non Validated Providers', true, false)}">
+                                                            {!sumrec.owner.name}
+                                                        </apex:outputText>
+                                                    </td>
+                                                    <td>
+                                                        <apex:outputText value="{0, date, MMMM d','  yyyy}">
+                                                            <apex:param value="{!sumrec.Last_Verified_Date__c}" /> 
+                                                        </apex:outputText>                                                        
+                                                    </td>
+                                                    <td><input type="button"  value="Details" id="theButton" 
+                                                               class="btn btn-primary active btn-xs" onclick="redirectToProfile('{!sumrec.Contact_Id__c}');"/></td>
+                                                </tr>
+                                            </apex:repeat>
+                                        </table> 
+                                    </div><!--End of Panel-Body -->
+                                </div><!-- End of panel-primary -->
+                            </div>
+                        </div><!--End Content -->
+                    </div><!-- End container-->
+                </apex:outputText>
+            </apex:form>
+            </apex:outputpanel>
+            <!-- Admin Assistant Section Ends-->
+        </div><!--Body-Container-->
+        <c:PDI_PortalFooter ></c:PDI_PortalFooter>
+        <div id="resignorRetireddialog" style="display:none;">
+            <p style="text-align: left; text-justify: inter-word;">
+                You have indicated a Provider Status that will result in your removal from Sutter Health clinical applications directories.  Please confirm that this designation is correct.
+            </p>
+        </div> 
+        <!--If provider selects Inactive Provider and yes then display below popup-->
+        <div id="resignProviderreferdialog" style="display:none;">
+            <p style="text-align: left; text-justify: inter-word;">
+                Based on your answer to this question, you do not meet criteria for ‘Inactive’ status.  Please complete review and validation of your contact information.
+            </p>
+        </div>
+        
+        <script>
+        /* Active class is added to clicked Tab */
+        $('ul.nav-tabs li a').click(function (e) {
+            $('ul.nav-tabs li.active').removeClass('active')
+            $(this).parent('li').addClass('active')
+            
+            $(this).parent('tab-pane fade').addClass('in active')
+        })
+        
+        /* Div change on click of Tab */
+        $("#ul-menu-list li").click(function () {
+            $('.tab-pane').hide().eq($(this).index()).show();
+        });
+        /* Div change on click of Tab mobile */
+        $("#ul-menu-mobile li").click(function () {
+            $('.tab-pane').hide().eq($(this).index()).show();
+        });
+        
+        /* button click next tab */
+        $('.btnNext').click(function(){
+            $('.nav-tabs > .active').next('li').trigger('click');
+            $('.nav-tabs > .active').next('li').find('a').trigger('click');
+            
+        });
+        
+        /* button click previous tab */
+        $('.btnPrevious').click(function(){
+            $('.nav-tabs > .active').prev('li').trigger('click');
+            $('.nav-tabs > .active').prev('li').find('a').trigger('click');
+            
+        });
+        
+        /*Prevent Scroll jump on tab change */
+        $('.nav-tabs li a').click(function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+            $('.tab-content > .tab-pane.active').jScrollPane();
+        });
+        </script>
+    </body>
+    
+    <script src="/soap/ajax/28.0/connection.js" type="text/javascript"></script>    
+    <script type="text/javascript">
+        var format = function(type,e,input) { 
+            /* to prevent backspace, enter and other keys from interfering w mask code apply by attribute onkeydown=FormatPhone(control) */ 
+            
+            evt = e || window.event; /* firefox uses reserved object e for event */
+            
+            if(evt != null) {
+                var BlockedKeyCodes = new Array(8,27,13,9); //8 is backspace key 
+                var len = BlockedKeyCodes.length; 
+                var block = false; 
+                var str = ''; 
+                var pressedkey = evt.which || evt.keyCode; 
+                
+                for (i=0; i<len; i++){ 
+                    str=BlockedKeyCodes[i].toString(); 
+                    if (str.indexOf(pressedkey) >=0 ) block=true;  
+                } 
+                if (block) return true;
+            } 
+            
+            
+            s = input.value; 
+            if (s.charAt(0) =='+') return false; 
+            filteredValues = '"`!@#$%^&*()_+|~-=\QWERT YUIOP{}ASDFGHJKL:ZXCVBNM<>?qwertyuiop[]asdfghjkl;zxcvbnm,./\\\'';  
+            var i; 
+            var c;
+            var returnString = ''; 
+            
+            /* Search through string and append to unfiltered values to returnString. */ 
+            if(type=='phone') {
+                for (i = 0; i < s.length; i++) {  
+                    c = s.charAt(i); 
+                    
+                    //11-Digit number format if leading number is 1
+                    if (s.charAt(0) == 1){
+                        
+                        if ((filteredValues.indexOf(c) == -1) && (returnString.length <  15 )) { 
+                            if (returnString.length==1) returnString +='('; 
+                            if (returnString.length==5) returnString +=')'; 
+                            if (returnString.length==6) returnString +='-'; 
+                            if (returnString.length==10) returnString +='-'; 
+                            returnString += c; 
+                        } 
+                        
+                    } else {
+                        //10-Digit number format
+                        if ((filteredValues.indexOf(c) == -1) && (returnString.length <  14 )) { 
+                            if (returnString.length==0) returnString +='('; 
+                            if (returnString.length==4) returnString +=')'; 
+                            if (returnString.length==5) returnString +='-'; 
+                            if (returnString.length==9) returnString +='-'; 
+                            returnString += c; 
+                        }
+                    }
+                }
+            } else if(type=='zip') {
+                
+                for (i = 0; i < s.length; i++) {  
+                    c = s.charAt(i); 
+                    if ((filteredValues.indexOf(c) == -1) && (returnString.length < 10  )) { 
+                        if (returnString.length==5) returnString +='-'; 
+                        returnString += c; 
+                    }
+                }
+            }
+            
+            input.value = returnString; 
+            return false;
+        }
+        var doLogout = function() {   
+            var url = '{!JSENCODE(logoutURL)}';
+            var retURL = '{!JSENCODE(logoutRetURL)}';
+            
+            var hostname = window.location.hostname;
+            var protocol = window.location.protocol;
+            
+            var url = protocol + '//' + hostname + url + '?retUrl=' + protocol.replace(':','%3A') + '%2F%2F' + hostname + retURL;
+            
+            window.location.assign(url);
+        }
+        
+        //Below function to scroll top of the page.
+        function loadImage() {
+            $(document).scrollTop(0);
+        }
+    
+    $(document).ready(function() {
+        
+        $('#providerTb').DataTable( {
+            rowReorder: {
+                selector: 'td:nth-child(2)'
+            },
+            responsive: true
+        });
+        
+        $('[data-toggle="tooltip"]').tooltip(); 
+        
+        //stick in the fixed 100% height behind the navbar but don't wrap it
+        $('#slide-nav.navbar-inverse').after($('<div class="inverse" id="navbar-height-col"></div>'));
+        
+        $('#slide-nav.navbar-default').after($('<div id="navbar-height-col"></div>'));  
+        
+        // Enter your ids or classes
+        var toggler = '.navbar-toggle';
+        var menuneg = '-100%';
+        var slideneg = '-80%';
+        $("#slide-nav").on("click", toggler, function (e) {
+            
+            var selected = $(this).hasClass('slide-active');
+            $('#slidemenu').stop().animate({
+                left: selected ? menuneg : '0px'
+            });
+            $('#navbar-height-col').stop().animate({
+                left: selected ? slideneg : '0px'
+            });
+            $(this).toggleClass('slide-active', !selected);
+            $('.navbar-header').toggleClass('slide-active');
+        });
+        
+        var selected = '.navbar-header';
+        
+        $(window).on("resize", function () {
+            if ($(window).width() > 767 && $('.navbar-toggle').is(':hidden')) {
+                $(selected).removeClass('slide-active');
+            }
+        });
+        
+        if(document.getElementById('{!$Component.theForm.practicing}').checked){
+            $("#btnradio1").prop('checked', true);
+            //document.getElementById("btnradio1").checked = true;
+        }
+        if(document.getElementById('{!$Component.theForm.resigned}').checked){
+            $("#btnradio2").prop('checked', true);
+            //document.getElementById("btnradio2").checked = true;
+            document.getElementById("resignedReferDiv").style.display = 'block';
+            if(document.getElementById('{!$Component.theForm.resignedProvider_refer}').checked){
+                $("#btnCheckbox4").prop('checked', true);
+            }else{
+                resignreferreddisableText(false);
+            }
+        }
+        if(document.getElementById('{!$Component.theForm.retired}').checked){
+            //document.getElementById("btnradio3").checked = true;
+            $("#btnradio3").prop('checked', true);
+            disableText(true);
+        }
+        
+        if(document.documentElement.clientWidth < 600){
+            if(document.getElementById('{!$Component.theForm.practicing}').checked){
+                document.getElementById("practiceHelp").style.display = 'block';
+            }else if(document.getElementById('{!$Component.theForm.resigned}').checked){
+                document.getElementById("resignHelp").style.display = 'block';
+            }else if(document.getElementById('{!$Component.theForm.retired}').checked){
+                document.getElementById("retiredHelp").style.display = 'block';
+            }
+        }
+    
+    });
+    
+    $('#btnCheckbox4').checkboxpicker({
+    });
+    
+    function redirectToHome(){
+        redirectoHomePage();
+    }
+    function redirectToFAQ(){
+        redirectToFAQPage();
+    }
+    
+    function practicingFuncText(selectedValue) 
+    {
+        if(selectedValue == true){
+            document.getElementById('{!$Component.theForm.practicing}').checked = true;
+            document.getElementById("btnradio2").checked = false;
+            document.getElementById("btnradio3").checked = false;
+            //disableText(false);
+            resignedFuncText(false);
+            retiredFuncText(false);
+            if(document.documentElement.clientWidth < 600){
+                document.getElementById("practiceHelp").style.display = 'block';
+                document.getElementById("resignHelp").style.display = 'none';
+                document.getElementById("retiredHelp").style.display = 'none';
+            }
+        }else{
+            document.getElementById('{!$Component.theForm.practicing}').checked = false;
+        }
+    }
+    
+    function resignedFuncText(selectedValue) 
+    {
+        if(selectedValue == true){
+            document.getElementById('{!$Component.theForm.resigned}').checked = true;
+            document.getElementById('{!$Component.theForm.practicing}').checked = false;
+            document.getElementById('{!$Component.theForm.retired}').checked = false;
+            document.getElementById("btnradio1").checked = false;
+            document.getElementById("btnradio3").checked = false;
+            //Displaying Resigned Refer Div, if resigned is checked
+            document.getElementById("resignedReferDiv").style.display = 'block';
+            resignreferreddisableText(false);
+            //To display Help text in mobile view
+            if(document.documentElement.clientWidth < 600){
+                document.getElementById("resignHelp").style.display = 'block';
+                document.getElementById("practiceHelp").style.display = 'none';
+                document.getElementById("retiredHelp").style.display = 'none';
+            }
+        }else{
+            document.getElementById('{!$Component.theForm.resigned}').checked = false;
+            document.getElementById("resignedReferDiv").style.display = 'none';
+            document.getElementById('{!$Component.theForm.resignedProvider_refer}').checked = false;
+            disableText(false);
+        }
+    }
+    
+    function retiredFuncText(selectedValue) 
+    {
+        if(selectedValue == true){
+            document.getElementById('{!$Component.theForm.retired}').checked = true;
+            document.getElementById('{!$Component.theForm.practicing}').checked = false;
+            document.getElementById('{!$Component.theForm.resigned}').checked = false;
+            document.getElementById('{!$Component.theForm.resignedProvider_refer}').checked = false;
+            document.getElementById("btnradio1").checked = false;
+            document.getElementById("btnradio2").checked = false;
+            disableText(true);
+            document.getElementById("resignedReferDiv").style.display = 'none';
+            $("#btnCheckbox4").prop('checked', false);
+            //To display Help text in mobile view
+            if(document.documentElement.clientWidth < 600){
+                document.getElementById("retiredHelp").style.display = 'block';
+                document.getElementById("practiceHelp").style.display = 'none';
+                document.getElementById("resignHelp").style.display = 'none';
+            }
+        }else{
+            document.getElementById('{!$Component.theForm.retired}').checked = false;
+            disableText(false);
+        }
+    }
+    
+    function resignreferreddisableText(statusVal){
+        if(statusVal == true){
+            disableText(false);
+            document.getElementById('{!$Component.theForm.resignedProvider_refer}').checked = true;
+            $("#resignProviderreferdialog").dialog("open");
+        }else{
+            $("#btnCheckbox4").prop('checked', false);
+            disableText(true);
+        }
+    }
+    
+    function disableText(selectedValue) 
+    {   
+        if( selectedValue == true)
+        {
+            var profileId = '{!userObj.profileId}';
+            if(profileId != '{!$Label.CL578_PDI_AdminAsstProfileId}'){
+                if({!providerSearchFlag == false}){
+                    document.getElementById('{!$Component.theForm.delgateName}').disabled = true;
+                    document.getElementById('{!$Component.theForm.delegateEmail}').disabled = true;
+                    document.getElementById('{!$Component.theForm.delgatephone}').disabled = true;
+                    document.getElementById('{!$Component.theForm.delegatetitle}').disabled = true;
+                }else{
+                    document.getElementById('{!$Component.theForm.adminAssistant}').disabled = true;
+                    document.getElementById('{!$Component.theForm.assistantEmail}').disabled = true;
+                    document.getElementById('{!$Component.theForm.adminAssistantphone}').disabled = true;
+                    document.getElementById('{!$Component.theForm.adminAssistanttitle}').disabled = true;
+                }
+            }
+            $("#primaryEditBtn").attr("disabled", true);
+            $("[id*=secondaryEditBtn]").attr("disabled", true);
+            $("[id*=secondaryDeleteBtn]").attr("disabled", true);
+            $("[id*=convertBtn]").attr("disabled", true);
+            $("#newAddressBtn").attr("disabled", true);
+            $("[id$=reorderBtn]").hide();
+            
+        }else if(selectedValue == false)
+        {
+            var profileId = '{!userObj.profileId}';
+            if(profileId != '{!$Label.CL578_PDI_AdminAsstProfileId}'){
+                if({!providerSearchFlag == false}){
+                    document.getElementById('{!$Component.theForm.delgateName}').disabled = false;
+                    document.getElementById('{!$Component.theForm.delegateEmail}').disabled = false;
+                    document.getElementById('{!$Component.theForm.delgatephone}').disabled = false;
+                    document.getElementById('{!$Component.theForm.delegatetitle}').disabled = false;
+                }else{
+                    document.getElementById('{!$Component.theForm.adminAssistant}').disabled = false;
+                    document.getElementById('{!$Component.theForm.assistantEmail}').disabled = false;
+                    document.getElementById('{!$Component.theForm.adminAssistantphone}').disabled = false;
+                    document.getElementById('{!$Component.theForm.adminAssistanttitle}').disabled = false;
+                }
+            }
+            $("#primaryEditBtn").attr("disabled", false);
+            $("[id*=secondaryEditBtn]").attr("disabled", false);
+            $("[id*=secondaryDeleteBtn]").attr("disabled", false);
+            $("[id*=convertBtn]").attr("disabled", false);
+            $("#newAddressBtn").attr("disabled", false);
+            $("[id$=reorderBtn]").show();
+        }
+    }
+    function validateProvider(){
+        if(document.getElementById('{!$Component.theForm.retired}').checked == true){
+            $("#resignorRetireddialog").dialog("open");
+            return false;
+        }else if(document.getElementById('{!$Component.theForm.resigned}').checked
+                 && $("[id$=btnCheckbox4]").is(':checked') == false){
+            document.getElementById('{!$Component.theForm.resignedProvider_refer}').checked = false;
+            $("#resignorRetireddialog").dialog("open");
+            return false;
+        }else{
+            saveProviderData();
+        }
+    }
+    $( "#resignorRetireddialog" ).dialog({
+        autoOpen: false,
+        width: 420,
+        height: 230,
+        modal: true,
+        title: 'Please confirm your provider status!!',
+        buttons: {
+            Ok: function() {
+                saveProviderData();
+                $(this).dialog("close");
+            },
+            Cancel: function() {
+                $(this).dialog("close");
+            }
+        },
+        
+    });
+    
+    $( "#resignProviderreferdialog" ).dialog({
+        autoOpen: false,
+        width: 420,
+        height: 230,
+        modal: true,
+        title: 'Please Check!!!',
+        buttons: {
+            OK: function() {
+                $(this).dialog("close");
+            }
+        },
+    });
+    
+    function redirectToProfile(conId)
+    {
+        var contactId = conId;
+        document.getElementById('{!$Component.theForm.myHiddenField}').value = contactId;
+        redirectoProfile();
+    }
+    function mapSuggestedAddress(input, textid){
+        document.getElementById(textid).value = input.value;
+        saveSuggestedAddress();
+    }
+    function disableAddressFields(value){
+        if(value == true){
+            document.getElementById('{!$Component.theForm.editAddressLine1}').disabled = true;
+            document.getElementById('{!$Component.theForm.editAddressLine2}').disabled = true;
+            document.getElementById('{!$Component.theForm.editCity}').disabled = true;
+            document.getElementById('{!$Component.theForm.editState}').disabled = true;
+            document.getElementById('{!$Component.theForm.editZipCode}').disabled = true;
+            $("#suggestedSaveAddressBtn").attr("disabled", true);
+        }else{
+            document.getElementById('{!$Component.theForm.editAddressLine1}').disabled = false;
+            document.getElementById('{!$Component.theForm.editAddressLine2}').disabled = false;
+            document.getElementById('{!$Component.theForm.editCity}').disabled = false;
+            document.getElementById('{!$Component.theForm.editState}').disabled = false;
+            document.getElementById('{!$Component.theForm.editZipCode}').disabled = false;
+            $("[id$=addressWarningMessage]").hide();
+            $("#suggestedSaveAddressBtn").attr("disabled", false);
+        }
+    }
+    function disableAddresses(value){
+        if(value == true){
+            document.getElementById('{!$Component.theForm.editAddressLine1}').disabled = true;
+            document.getElementById('{!$Component.theForm.editAddressLine2}').disabled = true;
+            document.getElementById('{!$Component.theForm.editCity}').disabled = true;
+            document.getElementById('{!$Component.theForm.editState}').disabled = true;
+            document.getElementById('{!$Component.theForm.editZipCode}').disabled = true;
+        }else{
+            document.getElementById('{!$Component.theForm.editAddressLine1}').disabled = false;
+            document.getElementById('{!$Component.theForm.editAddressLine2}').disabled = false;
+            document.getElementById('{!$Component.theForm.editCity}').disabled = false;
+            document.getElementById('{!$Component.theForm.editState}').disabled = false;
+            document.getElementById('{!$Component.theForm.editZipCode}').disabled = false;
+        }
+    }
+    </script>
+</apex:page>

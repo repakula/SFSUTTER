@@ -1,0 +1,57 @@
+<apex:component layout="none">
+  <!-- Start Google analytics -->
+    <!--Added Portal_User_Info component on 15-Oct-2015 for Employee region/affiliate information for Google analytics on Sutter request-->
+    <c:Portal_User_Info /> 
+    <apex:outputLabel value="{!$Label.GTMCustomLabel}" rendered="false"></apex:outputLabel>
+    <apex:includeScript value="{!$Resource.GTMJavaScript}" />
+    <!-- End Google analytics -->
+  <!-- footer section -->
+    <div id="footer-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="left">
+                        <img width="269" height="41" class="left" src="{!URLFOR($Resource.SutterHealthCare, 'img/footer-logo@2x.png')}"/>
+                    </div>
+                    <p class="right">
+                        Copyright &#169; 2015 Sutter Health. All rights reserved. Sutter Health is a registered trademark of 
+                        Sutter Health ,<br/>Reg. U.S. Patent. &amp; Trademark office.
+                    </p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--[if (gte IE 9)|!(IE)]>
+    <!--><apex:includeScript value="{!URLFOR($Resource.SutterHealthCare, 'js/jquery-2.1.1.min.js')}"/>
+    <!--<![endif]-->
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <apex:includeScript value="{!URLFOR($Resource.SutterHealthCare, 'js/jquery-1.11.2.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.SutterHealthCare, 'js/html5shiv-3.7.2.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.SutterHealthCare, 'js/respond-1.4.2.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.SutterHealthCare, 'js/placeholders.js')}"/>
+    <![endif]-->
+    
+    <!--[if lte IE 8]>
+        <apex:includeScript value="{!URLFOR($Resource.SutterHealthCare, 'js/ie8-fix.js')}"/>
+    <![endif]-->
+    
+    <apex:includeScript value="{!URLFOR($Resource.SutterHealthCare, 'js/bowser.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.SutterHealthCare, 'js/easing-1.3.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.SutterHealthCare, 'js/resize-sensor.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.SutterHealthCare, 'js/perfect-scrollbar-0.5.8.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.SutterHealthCare, 'js/main.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.SutterHealthCare, 'js/hammer.js')}"/>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <apex:includeScript value="{!URLFOR($Resource.SutterHealthCare, 'js/bootstrap.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.SutterHealthCare, 'js/bootstrap-select.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.SutterHealthCare, 'js/moment.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.SutterHealthCare, 'js/bootstrap-datetimepicker.js')}"/>
+    
+    <!-- Added on 13-sep-2015 for Browser detection-->
+    <apex:includeScript value="{!URLFOR($Resource.SutterHealthCare, 'js/jquery-migrate-1.2.1.js')}"/>    
+</apex:component>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Custom Benefit Plan Email Template</name>
+    <style>none</style>
+    <subject>Custom Benefit Plan Submitted for Approval - Employer Name: {!Custom_Benefit_Plan__c.Plan_Related_to_Account__c}/DBA: {!Custom_Benefit_Plan__c.DBA__c} Employer Type: {!Custom_Benefit_Plan__c.Employer_Type__c}</subject>
+    <textOnly>Hi,
+
+Custom Plan Request {!Custom_Benefit_Plan__c.Name} for  {!Custom_Benefit_Plan__c.Plan_Related_to_Account__c}/DBA: {!Custom_Benefit_Plan__c.DBA__c}, {!Custom_Benefit_Plan__c.Employer_Type__c} has been submitted for approval and is now in {!Custom_Benefit_Plan__c.OwnerFullName}.
+
+Thank you.</textOnly>
+    <type>custom</type>
+</EmailTemplate>

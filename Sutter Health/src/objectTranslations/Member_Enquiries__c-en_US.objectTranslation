@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Customer Inquiries By Others</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Customer Inquiries By Others</value>
+    </caseValues>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Customer Inquiries By Others --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Date Created --></label>
+        <name>Date_Created__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Intent --></label>
+        <name>Intent__c</name>
+        <picklistValues>
+            <masterLabel>Accumulators</masterLabel>
+            <translation><!-- Accumulators --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Authorizations</masterLabel>
+            <translation><!-- Authorizations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Benefits</masterLabel>
+            <translation><!-- Benefits --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Claims</masterLabel>
+            <translation><!-- Claims --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clinical</masterLabel>
+            <translation><!-- Clinical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Complaint</masterLabel>
+            <translation><!-- Complaint --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eligibility</masterLabel>
+            <translation><!-- Eligibility --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enrollment</masterLabel>
+            <translation><!-- Enrollment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Escalation</masterLabel>
+            <translation><!-- Escalation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General</masterLabel>
+            <translation><!-- General --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legal</masterLabel>
+            <translation><!-- Legal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Opened in Error</masterLabel>
+            <translation><!-- Opened in Error --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outbound Call</masterLabel>
+            <translation><!-- Outbound Call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prescriptions</masterLabel>
+            <translation><!-- Prescriptions --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Member/Provider Id --></label>
+        <name>Member_Id__c</name>
+        <relationshipLabel><!-- Customer Inquiries By Others --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Member/Provider Name --></label>
+        <name>Member_Provider_Name_Formula__c</name>
+    </fields>
+    <fields>
+        <label><!-- Member/Provider --></label>
+        <name>Member_Provider_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Queried By Formula --></label>
+        <name>Queried_By_Formula__c</name>
+    </fields>
+    <fields>
+        <label><!-- Queried By --></label>
+        <name>Queried_By__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- New_Customer_Inquiries_By_Others --></label>
+        <name>New_Customer_Inquiries_By_Others</name>
+    </webLinks>
+</CustomObjectTranslation>

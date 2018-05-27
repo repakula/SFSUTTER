@@ -1,0 +1,860 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Track process improvement workshops at S3</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Actual_ROI__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual ROI</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Category</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>VSM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Kaizen</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RIE</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Champion_Hansei__c</fullName>
+        <externalId>false</externalId>
+        <label>Champion Hansei</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>7</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Completion_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>When is the workshop marked as closed/completed?</inlineHelpText>
+        <label>Completion Date</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Days_to_Completion__c</fullName>
+        <externalId>false</externalId>
+        <formula>If(IsNull(  Completion_Date__c  ), 
+
+CASE(MOD( ( Workshop_End_Date__c ) - DATE(1985,6,24),7), 0 , 
+CASE( MOD( Today() - (Workshop_End_Date__c ) ,7),1,2,2,3,3,4,4,5,5,5,6,5,1), 1 , 
+CASE( MOD( Today() - (Workshop_End_Date__c ) ,7),1,2,2,3,3,4,4,4,5,4,6,5,1), 2 , 
+CASE( MOD( Today() - (Workshop_End_Date__c ) ,7),1,2,2,3,3,3,4,3,5,4,6,5,1), 3 , 
+CASE( MOD( Today() - (Workshop_End_Date__c ) ,7),1,2,2,2,3,2,4,3,5,4,6,5,1), 4 , 
+CASE( MOD( Today() - (Workshop_End_Date__c ) ,7),1,1,2,1,3,2,4,3,5,4,6,5,1), 5 , 
+CASE( MOD( Today() - (Workshop_End_Date__c ) ,7),1,0,2,1,3,2,4,3,5,4,6,5,0), 6 , 
+CASE( MOD( Today() - (Workshop_End_Date__c ) ,7),1,1,2,2,3,3,4,4,5,5,6,5,0), 999) 
++ (FLOOR(( Today() - (Workshop_End_Date__c ) )/7)*5-1),
+
+CASE(MOD( (Workshop_End_Date__c ) - DATE(1985,6,24),7), 0 , 
+CASE( MOD( ( Completion_Date__c  ) - (Workshop_End_Date__c ) ,7),1,2,2,3,3,4,4,5,5,5,6,5,1), 1 , 
+CASE( MOD( (Completion_Date__c ) - (Workshop_End_Date__c ) ,7),1,2,2,3,3,4,4,4,5,4,6,5,1), 2 , 
+CASE( MOD( (Completion_Date__c ) - (Workshop_End_Date__c ) ,7),1,2,2,3,3,3,4,3,5,4,6,5,1), 3 , 
+CASE( MOD( (Completion_Date__c ) - (Workshop_End_Date__c ) ,7),1,2,2,2,3,2,4,3,5,4,6,5,1), 4 , 
+CASE( MOD( (Completion_Date__c ) - (Workshop_End_Date__c ) ,7),1,1,2,1,3,2,4,3,5,4,6,5,1), 5 , 
+CASE( MOD( (Completion_Date__c ) - (Workshop_End_Date__c ) ,7),1,0,2,1,3,2,4,3,5,4,6,5,0), 6 , 
+CASE( MOD( (Completion_Date__c ) - (Workshop_End_Date__c ) ,7),1,1,2,2,3,3,4,4,5,5,6,5,0), 999) 
++ (FLOOR(( (Completion_Date__c ) - (Workshop_End_Date__c ) )/7)*5-1))</formula>
+        <inlineHelpText>How long has the workshop been in-rpogress? (Today - workshop end date)</inlineHelpText>
+        <label>Days to Completion</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Forecasted_ROI__c</fullName>
+        <externalId>false</externalId>
+        <label>Forecasted ROI</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Function_PM__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Function PM</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>S3_Workshops_FPM</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Function__c</fullName>
+        <externalId>false</externalId>
+        <label>Function</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Contact Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Credentialing Verification</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Document Management Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>eQuip</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Finance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Human Resources</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Revenue Cycle</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Service and Performance Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Supply Chain</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Methodology__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Is there a specific methodology applied in this workshop?</inlineHelpText>
+        <label>Methodology</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>5S</fullName>
+                    <default>true</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Parent_VSM_Workshop__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Parent VSM Workshop</label>
+        <referenceTo>S3_Workshop__c</referenceTo>
+        <relationshipLabel>S3 Workshops</relationshipLabel>
+        <relationshipName>S3_Workshops</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Participants__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>1 line per participant</inlineHelpText>
+        <label>Participants</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Program_Feedback__c</fullName>
+        <externalId>false</externalId>
+        <label>Program Feedback</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>S3_Operations_Strategy__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Which strategy, operational metric or approved project does this workshop align with?</inlineHelpText>
+        <label>Operations/Strategy</label>
+        <referenceTo>S3_Ops__c</referenceTo>
+        <relationshipLabel>S3 Workshops</relationshipLabel>
+        <relationshipName>S3_Workshops</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>SPM_Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>SPM Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>8</visibleLines>
+    </fields>
+    <fields>
+        <fullName>SPM__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Who on the SPM team is monitoring this workshop</inlineHelpText>
+        <label>SPM</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>S3_Workshops_PM</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Sponsor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Who is sponsoring this workshop?</inlineHelpText>
+        <label>Sponsor</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>S3_Workshops_Sponsor</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What is the status of this workshop currently?</inlineHelpText>
+        <label>Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>In-Progress</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>On Hold</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Proposed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Subfunction__c</fullName>
+        <externalId>false</externalId>
+        <label>Subfunction</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Function__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Accounting - Accounts Receivable &amp; Managed Care</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Accounting - General Ledger</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Accounts Payable</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Benefits</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Central Business Office (CBO)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Charge Capture and CDM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Coding Optimization</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Compensation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Content Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Contract Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Data, Applications, Reporting &amp; Audit</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Data and Analytics Support</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Distribution and Fulfillment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>eLearning</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Health Information Management (HIM)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HR Data and Reporting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HRIS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Operations and Decision Support</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Patient Access Services (PAS)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Payroll</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Procure to Pay</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Recruitment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Strategic Sourcing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Workforce and Labor Relations</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Finance</controllingFieldValue>
+                <valueName>Accounting - Accounts Receivable &amp; Managed Care</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finance</controllingFieldValue>
+                <valueName>Accounting - General Ledger</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finance</controllingFieldValue>
+                <valueName>Accounts Payable</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finance</controllingFieldValue>
+                <valueName>Data, Applications, Reporting &amp; Audit</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finance</controllingFieldValue>
+                <valueName>Payroll</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Human Resources</controllingFieldValue>
+                <valueName>Benefits</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Human Resources</controllingFieldValue>
+                <valueName>Compensation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Human Resources</controllingFieldValue>
+                <valueName>eLearning</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Human Resources</controllingFieldValue>
+                <valueName>HR Data and Reporting</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Human Resources</controllingFieldValue>
+                <valueName>HRIS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Human Resources</controllingFieldValue>
+                <valueName>Recruitment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Human Resources</controllingFieldValue>
+                <valueName>Workforce and Labor Relations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Revenue Cycle</controllingFieldValue>
+                <valueName>Central Business Office (CBO)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Revenue Cycle</controllingFieldValue>
+                <valueName>Charge Capture and CDM</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Revenue Cycle</controllingFieldValue>
+                <valueName>Coding Optimization</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Revenue Cycle</controllingFieldValue>
+                <valueName>Data and Analytics Support</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Revenue Cycle</controllingFieldValue>
+                <valueName>Health Information Management (HIM)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Revenue Cycle</controllingFieldValue>
+                <valueName>Patient Access Services (PAS)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Supply Chain</controllingFieldValue>
+                <valueName>Content Management</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Supply Chain</controllingFieldValue>
+                <valueName>Contract Management</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Supply Chain</controllingFieldValue>
+                <valueName>Distribution and Fulfillment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Supply Chain</controllingFieldValue>
+                <valueName>Operations and Decision Support</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Supply Chain</controllingFieldValue>
+                <valueName>Procure to Pay</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Supply Chain</controllingFieldValue>
+                <valueName>Strategic Sourcing</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Team_Lead__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Team Lead</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>S3_Workshops_TL</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Lean</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Strategy</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Project</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Validated_ROI__c</fullName>
+        <externalId>false</externalId>
+        <label>Validated ROI</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Workshop_Days__c</fullName>
+        <externalId>false</externalId>
+        <formula>If(IsNull( Workshop_End_Date__c ), 
+
+CASE(MOD( ( Workshop_Start_Date__c ) - DATE(1985,6,24),7), 0 , 
+CASE( MOD( Today() - (Workshop_Start_Date__c ) ,7),1,2,2,3,3,4,4,5,5,5,6,5,1), 1 , 
+CASE( MOD( Today() - (Workshop_Start_Date__c ) ,7),1,2,2,3,3,4,4,4,5,4,6,5,1), 2 , 
+CASE( MOD( Today() - (Workshop_Start_Date__c ) ,7),1,2,2,3,3,3,4,3,5,4,6,5,1), 3 , 
+CASE( MOD( Today() - (Workshop_Start_Date__c ) ,7),1,2,2,2,3,2,4,3,5,4,6,5,1), 4 , 
+CASE( MOD( Today() - (Workshop_Start_Date__c ) ,7),1,1,2,1,3,2,4,3,5,4,6,5,1), 5 , 
+CASE( MOD( Today() - (Workshop_Start_Date__c ) ,7),1,0,2,1,3,2,4,3,5,4,6,5,0), 6 , 
+CASE( MOD( Today() - (Workshop_Start_Date__c ) ,7),1,1,2,2,3,3,4,4,5,5,6,5,0), 999) 
++ (FLOOR(( Today() - (Workshop_Start_Date__c ) )/7)*5-1), 
+
+CASE(MOD( (Workshop_Start_Date__c ) - DATE(1985,6,24),7), 0 , 
+CASE( MOD( ( Workshop_End_Date__c ) - (Workshop_Start_Date__c ) ,7),1,2,2,3,3,4,4,5,5,5,6,5,1), 1 , 
+CASE( MOD( (Workshop_End_Date__c) - (Workshop_Start_Date__c ) ,7),1,2,2,3,3,4,4,4,5,4,6,5,1), 2 , 
+CASE( MOD( (Workshop_End_Date__c) - (Workshop_Start_Date__c ) ,7),1,2,2,3,3,3,4,3,5,4,6,5,1), 3 , 
+CASE( MOD( (Workshop_End_Date__c) - (Workshop_Start_Date__c ) ,7),1,2,2,2,3,2,4,3,5,4,6,5,1), 4 , 
+CASE( MOD( (Workshop_End_Date__c) - (Workshop_Start_Date__c ) ,7),1,1,2,1,3,2,4,3,5,4,6,5,1), 5 , 
+CASE( MOD( (Workshop_End_Date__c) - (Workshop_Start_Date__c ) ,7),1,0,2,1,3,2,4,3,5,4,6,5,0), 6 , 
+CASE( MOD( (Workshop_End_Date__c) - (Workshop_Start_Date__c ) ,7),1,1,2,2,3,3,4,4,5,5,6,5,0), 999) 
++ (FLOOR(( (Workshop_End_Date__c) - (Workshop_Start_Date__c ) )/7)*5-1))</formula>
+        <inlineHelpText>How long was the workshop?</inlineHelpText>
+        <label>Workshop Days</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Workshop_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What is the date the workshop ended?</inlineHelpText>
+        <label>Workshop End Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Workshop_Lead__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Workshop Lead</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>S3_Workshops</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Workshop_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Workshop Name</label>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Workshop_Stage__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Where in the timeline are we with this workshop?</inlineHelpText>
+        <label>Workshop Stage</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Proposed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Planning</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>In-Progress</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Follow-up</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>On Hold</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Workshop_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What is the first date of the workshop?</inlineHelpText>
+        <label>Workshop Start Date</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Workshop_URL__c</fullName>
+        <externalId>false</externalId>
+        <label>Workshop URL</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <label>S3 Workshop</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>SPM__c</columns>
+        <columns>Category__c</columns>
+        <columns>Function__c</columns>
+        <columns>Parent_VSM_Workshop__c</columns>
+        <columns>Workshop_Name__c</columns>
+        <columns>Type__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>HR_Workshops</fullName>
+        <columns>NAME</columns>
+        <columns>Workshop_Name__c</columns>
+        <columns>Type__c</columns>
+        <columns>Function__c</columns>
+        <columns>Category__c</columns>
+        <columns>Parent_VSM_Workshop__c</columns>
+        <columns>Workshop_Lead__c</columns>
+        <columns>Team_Lead__c</columns>
+        <columns>Workshop_Start_Date__c</columns>
+        <columns>Function_PM__c</columns>
+        <columns>Subfunction__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Function__c</field>
+            <operation>equals</operation>
+            <value>Human Resources</value>
+        </filters>
+        <label>HR Workshops</label>
+    </listViews>
+    <listViews>
+        <fullName>This_Month</fullName>
+        <columns>NAME</columns>
+        <columns>Workshop_Start_Date__c</columns>
+        <columns>Workshop_Name__c</columns>
+        <columns>Type__c</columns>
+        <columns>Function__c</columns>
+        <columns>Parent_VSM_Workshop__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Workshop_Start_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>2/1/2016</value>
+        </filters>
+        <label>This Month</label>
+    </listViews>
+    <listViews>
+        <fullName>Without_Workshop_Leads</fullName>
+        <columns>NAME</columns>
+        <columns>Workshop_Start_Date__c</columns>
+        <columns>Category__c</columns>
+        <columns>Workshop_Name__c</columns>
+        <columns>Type__c</columns>
+        <columns>Parent_VSM_Workshop__c</columns>
+        <columns>Function__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>Without Workshop Leads</label>
+    </listViews>
+    <nameField>
+        <displayFormat>S3W{00000}</displayFormat>
+        <label>S3 Workshop Number</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>S3 Workshops</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Workshop_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Category__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Function__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Workshop_Start_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Sponsor__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <lookupPhoneDialogsAdditionalFields>Workshop_Start_Date__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Workshop_Name__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Category__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Function__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Subfunction__c</lookupPhoneDialogsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

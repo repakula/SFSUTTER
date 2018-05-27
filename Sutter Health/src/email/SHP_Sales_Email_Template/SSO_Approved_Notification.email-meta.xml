@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>SSO Approved Notification</name>
+    <style>none</style>
+    <subject>Request for Sold Sign Off submitted is Approved, SCN &amp; DGR triggered for {!Employer_Group_Data__c.Opportunity_Account_Name__c}/DBA: {!Employer_Group_Data__c.DBA_Name__c};  {!Employer_Group_Data__c.Email_Employer_Type__c}</subject>
+    <textOnly>Hi,
+
+The Sold Sign Off: {!Employer_Group_Data__c.Sold_Sign_Off__c} has been approved by Underwriting, the Sold Case Notification {!Employer_Group_Data__c.Name} for this group has been created and the Document Generation Request has been sent to the BPA Team for  {!Employer_Group_Data__c.Opportunity_Account_Name__c}/DBA: {!Employer_Group_Data__c.DBA_Name__c},  {!Employer_Group_Data__c.Email_Employer_Type__c}.
+
+You can navigate to the Document Generation request from the Opportunity page to access or expedite.
+
+Please Update the SCN and Submit for Approval.
+
+Please find the link for detail page : {!Employer_Group_Data__c.Link}
+
+Thank you.</textOnly>
+    <type>custom</type>
+</EmailTemplate>

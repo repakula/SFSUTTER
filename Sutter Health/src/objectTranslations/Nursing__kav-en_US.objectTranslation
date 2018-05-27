@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Nursing</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Nursing</value>
+    </caseValues>
+    <fields>
+        <label><!-- Article Body --></label>
+        <name>Article_Body__c</name>
+    </fields>
+    <fields>
+        <help><!-- Add a header image if you want to show it on the header part --></help>
+        <label><!-- Article Header --></label>
+        <name>Article_Header__c</name>
+    </fields>
+    <fields>
+        <help><!-- Add video in iframe if you want to show it in pages --></help>
+        <label><!-- Article Video --></label>
+        <name>Article_Video__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is for showing special content for articles --></help>
+        <label><!-- Article Image --></label>
+        <name>CustomImage__c</name>
+    </fields>
+    <fields>
+        <help><!-- Add image to show on Menu --></help>
+        <label><!-- Article Short Text --></label>
+        <name>customShorttext__c</name>
+    </fields>
+    <fields>
+        <label><!-- weight --></label>
+        <name>weight__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCategoryGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <dataCategory>
+        <dataCategory>
+            <label>Manager</label>
+            <name>Manager</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Manager02</label>
+            <name>Manager02</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Manager04</label>
+            <name>Manager04</name>
+        </dataCategory>
+        <label>All</label>
+        <name>All</name>
+    </dataCategory>
+    <description>Group for Manager portal users permission set</description>
+    <label>Manager Profile</label>
+    <objectUsage>
+        <object>KnowledgeArticleVersion</object>
+    </objectUsage>
+</DataCategoryGroup>

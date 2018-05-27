@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>S3_Letterhead</letterhead>
+    <name>KM Feedback Ownership</name>
+    <style>freeForm</style>
+    <subject>KM Feedback Item - {!KM_Feedback_Item__c.Name}</subject>
+    <textOnly>Hello {!KM_Feedback_Item__c.OwnerFullName},
+
+
+You have been assigned a new KM Feedback item.
+
+To view the item click here : {!KM_Feedback_Item__c.Link}
+
+Thank you,
+
+S3 Leadership Team</textOnly>
+    <type>html</type>
+</EmailTemplate>

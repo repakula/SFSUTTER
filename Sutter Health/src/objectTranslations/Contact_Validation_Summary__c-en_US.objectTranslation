@@ -1,0 +1,1021 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Provider Information Summary</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Provider Information Summaries</value>
+    </caseValues>
+    <fields>
+        <label><!-- Additional Information --></label>
+        <name>Additional_Information__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address Line 2 --></label>
+        <name>Address_Line_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address Modified --></label>
+        <name>Address_Modified__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address Only Modified --></label>
+        <name>Address_Only_Modified__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address Summary --></label>
+        <name>Address_Summary__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address Type --></label>
+        <name>Address_Type__c</name>
+        <picklistValues>
+            <masterLabel>Primary</masterLabel>
+            <translation><!-- Primary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Secondary</masterLabel>
+            <translation><!-- Secondary --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Admin Approval Status Email Sent On --></label>
+        <name>Admin_Approval_Status_Email_Sent_On__c</name>
+    </fields>
+    <fields>
+        <label><!-- Admin Approval Status Received On --></label>
+        <name>Admin_Approval_Status_Received_On__c</name>
+    </fields>
+    <fields>
+        <label><!-- Admin Assistant Approval Status --></label>
+        <name>Admin_Assistant_Approval_Status__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Delegate Email --></label>
+        <name>Admin_Assistant_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Delegate Phone --></label>
+        <name>Admin_Assistant_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Delegate Title --></label>
+        <name>Admin_Assistant_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Delegate Name --></label>
+        <name>Admin_Assistant__c</name>
+    </fields>
+    <fields>
+        <label><!-- Age --></label>
+        <name>Age__c</name>
+    </fields>
+    <fields>
+        <label><!-- Assigned Date --></label>
+        <name>Assigned_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Associated Case Closed --></label>
+        <name>Associated_Case_Closed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Associated Case Id --></label>
+        <name>Associated_Case_Id__c</name>
+        <relationshipLabel><!-- Provider Information Summaries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Attn To --></label>
+        <name>Attn_To__c</name>
+    </fields>
+    <fields>
+        <label><!-- Board Certifications --></label>
+        <name>Board_Certifications__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Status --></label>
+        <name>Case_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Closed Date --></label>
+        <name>Closed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Communication Preferences – HIM --></label>
+        <name>Communication_Preferences_HIM__c</name>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fax</masterLabel>
+            <translation><!-- Fax --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Basket Letter</masterLabel>
+            <translation><!-- In Basket Letter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Basket Message</masterLabel>
+            <translation><!-- In Basket Message --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Printed Letter (USPS)</masterLabel>
+            <translation><!-- Printed Letter (USPS) --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Community Activities --></label>
+        <name>Community_Activities__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Id --></label>
+        <name>Contact_Id__c</name>
+        <relationshipLabel><!-- Provider Information Summaries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Contact User --></label>
+        <name>Contact_User__c</name>
+        <relationshipLabel><!-- Provider Information Summaries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Decline Fax --></label>
+        <name>Decline_Fax__c</name>
+    </fields>
+    <fields>
+        <label><!-- Decline Phone --></label>
+        <name>Decline_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deficiency Provider? --></label>
+        <name>Deficiency_Provider__c</name>
+    </fields>
+    <fields>
+        <label><!-- Delegate Phone Ext --></label>
+        <name>Delegate_Phone_Ext__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deliverability Email Sent --></label>
+        <name>Deliverability_Email_Sent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Department --></label>
+        <name>Department__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Hygiene Result --></label>
+        <name>Email_Hygiene_Result__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Status Description --></label>
+        <name>Email_Status_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Status Number --></label>
+        <name>Email_Status_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email --></label>
+        <name>Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fellowship Programs --></label>
+        <name>Fellowship_Programs__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gender --></label>
+        <name>Gender__c</name>
+        <picklistValues>
+            <masterLabel>Female</masterLabel>
+            <translation><!-- Female --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Male</masterLabel>
+            <translation><!-- Male --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Hospital Affiliations --></label>
+        <name>Hospital_Affiliations__c</name>
+    </fields>
+    <fields>
+        <label><!-- Internship --></label>
+        <name>Internship__c</name>
+    </fields>
+    <fields>
+        <label><!-- IsAddressDeactivated --></label>
+        <name>IsAddressDeactivated__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Additional Information Changed --></label>
+        <name>Is_Additional_Information_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Admin Assistant Changed --></label>
+        <name>Is_Admin_Assistant_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Admin Assistant Email Changed --></label>
+        <name>Is_Admin_Assistant_Email_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Admin Assistant Phone Changed --></label>
+        <name>Is_Admin_Assistant_Phone_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Admin Assistant Phone Ext Changed --></label>
+        <name>Is_Admin_Assistant_Phone_Ext_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Admin Assistant Title Changed --></label>
+        <name>Is_Admin_Assistant_Title_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Board Certifications Changed --></label>
+        <name>Is_Board_Certifications_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Comm. Pref. EHR Changed --></label>
+        <name>Is_Comm_Pref_EHR_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Comm. Pref. HIM Changed --></label>
+        <name>Is_Comm_Pref_HIM_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Community Activities Changed --></label>
+        <name>Is_Community_Activities_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Department Changed --></label>
+        <name>Is_Department_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is_Email_Changed --></label>
+        <name>Is_Email_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Fax Changed --></label>
+        <name>Is_Fax_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Hospital Affiliations Changed --></label>
+        <name>Is_Hospital_Affiliations_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Internship Changed --></label>
+        <name>Is_Internship_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Medical Affiliations Changed --></label>
+        <name>Is_Medical_Affiliations_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Medical Education Changed --></label>
+        <name>Is_Medical_Education_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Mobile Phone Changed --></label>
+        <name>Is_Mobile_Phone_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Online Services Changed --></label>
+        <name>Is_Online_Services_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Personal Interests Changed --></label>
+        <name>Is_Personal_Interests_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Philosophy of care Changed --></label>
+        <name>Is_Philosophy_of_care_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Phone Changed --></label>
+        <name>Is_Phone_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Phone Mobile Fax Changed Field --></label>
+        <name>Is_Phone_Mobile_Fax_Changed_Field__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Practicing Physician Changed --></label>
+        <name>Is_Practicing_Physician_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Professional Interests Changed --></label>
+        <name>Is_Professional_Interests_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Publications Changed --></label>
+        <name>Is_Publications_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Residency Changed --></label>
+        <name>Is_Residency_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Resigned From Sutter Changed --></label>
+        <name>Is_Resigned_From_Sutter_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Do you Refer Patients? --></label>
+        <name>Is_Resigned_Provider_refer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Retired / Departed Changed --></label>
+        <name>Is_Retired_Departed_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Secure Address Line 2 Changed --></label>
+        <name>Is_Secure_Address_Line_2_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Secure City Changed --></label>
+        <name>Is_Secure_City_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Secure Floor Changed --></label>
+        <name>Is_Secure_Floor_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Secure Phone Ext Changed --></label>
+        <name>Is_Secure_Phone_Ext_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Secure State Changed --></label>
+        <name>Is_Secure_State_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Secure Street Address Changed --></label>
+        <name>Is_Secure_Street_Address_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Secure Suite Changed --></label>
+        <name>Is_Secure_Suite_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Secure Zip Code Changed --></label>
+        <name>Is_Secure_Zip_Code_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Speciality Changed --></label>
+        <name>Is_Speciality_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Spoken Languages Changed --></label>
+        <name>Is_Spoken_Languages_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Website Address Changed --></label>
+        <name>Is_Website_Address_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Verified Date --></label>
+        <name>Last_Verified_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Medical Affiliations --></label>
+        <name>Medical_Affiliations__c</name>
+    </fields>
+    <fields>
+        <label><!-- Medical Education --></label>
+        <name>Medical_Education__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mobile Phone --></label>
+        <name>Mobile_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Name --></label>
+        <name>Name_formula__c</name>
+    </fields>
+    <fields>
+        <label><!-- Names Changes Suggested --></label>
+        <name>Names_Changes_Suggested__c</name>
+    </fields>
+    <fields>
+        <label><!-- New Street Address --></label>
+        <name>New_Street_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- No of Reminders --></label>
+        <name>No_of_Reminders__c</name>
+    </fields>
+    <fields>
+        <label><!-- No of days left --></label>
+        <name>No_of_days_left__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ok to Text --></label>
+        <name>Ok_to_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Online Services --></label>
+        <name>Online_Services__c</name>
+    </fields>
+    <fields>
+        <label><!-- PDI Campaign --></label>
+        <name>PDI_Campaign__c</name>
+    </fields>
+    <fields>
+        <label><!-- Personal Interests --></label>
+        <name>Personal_Interests__c</name>
+    </fields>
+    <fields>
+        <label><!-- Philosophy of Care --></label>
+        <name>Philosophy_of_Care__c</name>
+    </fields>
+    <fields>
+        <label><!-- Practicing Physician --></label>
+        <name>Practicing_Physician__c</name>
+    </fields>
+    <fields>
+        <label><!-- Communication Preferences – EHR --></label>
+        <name>Preferred_Communication_Method__c</name>
+        <picklistValues>
+            <masterLabel>Fax</masterLabel>
+            <translation><!-- Fax --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Basket</masterLabel>
+            <translation><!-- In Basket --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mail</masterLabel>
+            <translation><!-- Mail --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Printed City --></label>
+        <name>Printed_City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Printed Contact Name --></label>
+        <name>Printed_Contact_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Printed Floor --></label>
+        <name>Printed_Floor__c</name>
+    </fields>
+    <fields>
+        <label><!-- Printed State --></label>
+        <name>Printed_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Printed Street Address --></label>
+        <name>Printed_Street_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Printed Suite --></label>
+        <name>Printed_Suite__c</name>
+    </fields>
+    <fields>
+        <label><!-- Printed Zip Code --></label>
+        <name>Printed_Zip_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Professional Ineterests --></label>
+        <name>Professional_Ineterests__c</name>
+    </fields>
+    <fields>
+        <label><!-- Profile Pic --></label>
+        <name>Profile_Pic__c</name>
+    </fields>
+    <fields>
+        <label><!-- Old Provider Summary --></label>
+        <name>ProviderInfoHistory__c</name>
+        <relationshipLabel><!-- Provider Information Summaries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Provider Access Type --></label>
+        <name>Provider_Access_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Provider Active Status --></label>
+        <name>Provider_Active_Status__c</name>
+    </fields>
+    <fields>
+        <help><!-- True if Provider Email is the same as Delegate Email. --></help>
+        <label><!-- Provider Admin Emails Are Same --></label>
+        <name>Provider_Admin_Emails_Are_Same__c</name>
+    </fields>
+    <fields>
+        <label><!-- Provider FirstName --></label>
+        <name>Provider_FirstName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Provider FullName --></label>
+        <name>Provider_FullName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Provider ID --></label>
+        <name>Provider_ID_F__c</name>
+    </fields>
+    <fields>
+        <label><!-- Provider ID --></label>
+        <name>Provider_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Provider LastName --></label>
+        <name>Provider_LastName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Provider Last Login Date --></label>
+        <name>Provider_Last_Login_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Provider License Number --></label>
+        <name>Provider_License_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Provider MiddleName --></label>
+        <name>Provider_MiddleName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Provider NPI --></label>
+        <name>Provider_NPI_F__c</name>
+    </fields>
+    <fields>
+        <label><!-- Provider Name Suffix --></label>
+        <name>Provider_Name_Suffix__c</name>
+    </fields>
+    <fields>
+        <label><!-- Provider Name --></label>
+        <name>Provider_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Provider Service Status --></label>
+        <name>Provider_Service_Status__c</name>
+        <picklistValues>
+            <masterLabel>Resigned</masterLabel>
+            <translation><!-- Resigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retired</masterLabel>
+            <translation><!-- Retired --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Provider Title --></label>
+        <name>Provider_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Provider Type --></label>
+        <name>Provider_Type__c</name>
+        <picklistValues>
+            <masterLabel>External</masterLabel>
+            <translation><!-- External --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal</masterLabel>
+            <translation><!-- Internal --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Providers By Phone Number --></label>
+        <name>Providers_By_Phone_Number__c</name>
+        <relationshipLabel><!-- Provider Information Summaries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Publications --></label>
+        <name>Publications__c</name>
+    </fields>
+    <fields>
+        <label><!-- Residency --></label>
+        <name>Residency__c</name>
+    </fields>
+    <fields>
+        <label><!-- Inactive Provider --></label>
+        <name>Resigned_From_Sutter__c</name>
+    </fields>
+    <fields>
+        <label><!-- Resolution Time in Min --></label>
+        <name>Resolution_Time_in_Sec__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retired / Departed --></label>
+        <name>Retired_Departed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secure City --></label>
+        <name>Secure_City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secure Fax --></label>
+        <name>Secure_Fax__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secure Floor --></label>
+        <name>Secure_Floor__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secure Phone Ext --></label>
+        <name>Secure_Phone_Ext__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Phone Number --></label>
+        <name>Secure_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secure State --></label>
+        <name>Secure_State__c</name>
+        <picklistValues>
+            <masterLabel>AK</masterLabel>
+            <translation><!-- AK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AL</masterLabel>
+            <translation><!-- AL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AR</masterLabel>
+            <translation><!-- AR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AS</masterLabel>
+            <translation><!-- AS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AZ</masterLabel>
+            <translation><!-- AZ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA</masterLabel>
+            <translation><!-- CA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CO</masterLabel>
+            <translation><!-- CO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CT</masterLabel>
+            <translation><!-- CT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DC</masterLabel>
+            <translation><!-- DC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DE</masterLabel>
+            <translation><!-- DE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FL</masterLabel>
+            <translation><!-- FL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GA</masterLabel>
+            <translation><!-- GA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GU</masterLabel>
+            <translation><!-- GU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HI</masterLabel>
+            <translation><!-- HI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IA</masterLabel>
+            <translation><!-- IA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ID</masterLabel>
+            <translation><!-- ID --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IL</masterLabel>
+            <translation><!-- IL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IN</masterLabel>
+            <translation><!-- IN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KS</masterLabel>
+            <translation><!-- KS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KY</masterLabel>
+            <translation><!-- KY --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LA</masterLabel>
+            <translation><!-- LA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MA</masterLabel>
+            <translation><!-- MA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MD</masterLabel>
+            <translation><!-- MD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ME</masterLabel>
+            <translation><!-- ME --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MI</masterLabel>
+            <translation><!-- MI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MN</masterLabel>
+            <translation><!-- MN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MO</masterLabel>
+            <translation><!-- MO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MP</masterLabel>
+            <translation><!-- MP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS</masterLabel>
+            <translation><!-- MS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MT</masterLabel>
+            <translation><!-- MT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NC</masterLabel>
+            <translation><!-- NC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ND</masterLabel>
+            <translation><!-- ND --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NE</masterLabel>
+            <translation><!-- NE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NH</masterLabel>
+            <translation><!-- NH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NJ</masterLabel>
+            <translation><!-- NJ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NM</masterLabel>
+            <translation><!-- NM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NV</masterLabel>
+            <translation><!-- NV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NY</masterLabel>
+            <translation><!-- NY --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OH</masterLabel>
+            <translation><!-- OH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OK</masterLabel>
+            <translation><!-- OK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OR</masterLabel>
+            <translation><!-- OR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PA</masterLabel>
+            <translation><!-- PA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PR</masterLabel>
+            <translation><!-- PR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RI</masterLabel>
+            <translation><!-- RI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SC</masterLabel>
+            <translation><!-- SC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SD</masterLabel>
+            <translation><!-- SD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TN</masterLabel>
+            <translation><!-- TN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TX</masterLabel>
+            <translation><!-- TX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UT</masterLabel>
+            <translation><!-- UT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VA</masterLabel>
+            <translation><!-- VA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VI</masterLabel>
+            <translation><!-- VI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VT</masterLabel>
+            <translation><!-- VT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WA</masterLabel>
+            <translation><!-- WA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WI</masterLabel>
+            <translation><!-- WI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WV</masterLabel>
+            <translation><!-- WV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WY</masterLabel>
+            <translation><!-- WY --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Secure Street Address --></label>
+        <name>Secure_Street_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secure Suite --></label>
+        <name>Secure_Suite__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secure Zip Code --></label>
+        <name>Secure_Zip_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Serial Number --></label>
+        <name>Serial_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Speciality --></label>
+        <name>Speciality__c</name>
+    </fields>
+    <fields>
+        <label><!-- Spoken Languages --></label>
+        <name>Spoken_Languages__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Accepted</masterLabel>
+            <translation><!-- Accepted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-Validated</masterLabel>
+            <translation><!-- Non-Validated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Validated</masterLabel>
+            <translation><!-- Validated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Validation-Aborted</masterLabel>
+            <translation><!-- Validation-Aborted --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Tech Case Contact Name --></label>
+        <name>Tech_Case_Contact_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tech Current Campaign --></label>
+        <name>Tech_Current_Campaign__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Campaign Done --></label>
+        <name>Tech_Is_Campaign_Done__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Verified Date --></label>
+        <name>Tech_Last_Verified_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tech Ok to Text --></label>
+        <name>Tech_Ok_to_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tech Phone Number --></label>
+        <name>Tech_Phone_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tech Primary Phone Number --></label>
+        <name>Tech_Primary_Phone_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tech_Provider Service Status --></label>
+        <name>Tech_Provider_Service_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tech Success Email --></label>
+        <name>Tech_Success_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tech Validation Status --></label>
+        <name>Tech_Validation_Status1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tech Validation Status --></label>
+        <name>Tech_Validation_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- is Contact Updated --></label>
+        <name>Tech_is_Contact_Updated__c</name>
+    </fields>
+    <fields>
+        <label><!-- TempCampaign --></label>
+        <name>TempCampaign__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unvalidated Since (Days) --></label>
+        <name>Unvalidated_Since_Days__c</name>
+    </fields>
+    <fields>
+        <label><!-- Username --></label>
+        <name>Username__c</name>
+    </fields>
+    <fields>
+        <label><!-- Validated Source Channel For Report --></label>
+        <name>Validated_Source_Channel_For_Report__c</name>
+    </fields>
+    <fields>
+        <label><!-- Validated Source --></label>
+        <name>Validated_Source__c</name>
+    </fields>
+    <fields>
+        <label><!-- Validation Channel --></label>
+        <name>Validation_Channel__c</name>
+    </fields>
+    <fields>
+        <label><!-- Validation Source Channel --></label>
+        <name>Validation_Source_Channel__c</name>
+    </fields>
+    <fields>
+        <label><!-- Website Address --></label>
+        <name>Website_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Welcome Email Sent History --></label>
+        <name>Welcome_Email_Sent_History__c</name>
+    </fields>
+    <fields>
+        <label><!-- phone test --></label>
+        <name>phone_test__c</name>
+    </fields>
+    <layouts>
+        <layout>Summary Layout</layout>
+        <sections>
+            <label><!-- Associated Case Details --></label>
+            <section>Associated Case Details</section>
+        </sections>
+        <sections>
+            <label><!-- Change Flags For Reporting (Starting from Campaign) --></label>
+            <section>Change Flags For Reporting (Starting from Campaign)</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Dr. For You (Provider Search) Information --></label>
+            <section>Dr. For You (Provider Search) Information</section>
+        </sections>
+        <sections>
+            <label><!-- Email Process Fields --></label>
+            <section>Email Process Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Primary Address Information --></label>
+            <section>Primary Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Validation Delegate Information --></label>
+            <section>Validation Delegate Information</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

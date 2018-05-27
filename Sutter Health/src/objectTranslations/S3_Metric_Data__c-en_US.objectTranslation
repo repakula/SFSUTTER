@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>S3 Metric Data</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>S3 Metric Data</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account Class --></label>
+        <name>Account_Class__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Create Date --></label>
+        <name>Account_Create_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Number --></label>
+        <name>Account_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Admission Type --></label>
+        <name>Admission_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Auth Code --></label>
+        <name>Auth_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Company Code --></label>
+        <name>Company_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Completion by Pt Advocate --></label>
+        <name>Completion_by_Pt_Advocate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Distrib Date --></label>
+        <name>Distrib_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- EDI Error Message --></label>
+        <name>EDI_Error_Message__c</name>
+    </fields>
+    <fields>
+        <label><!-- EDI Number --></label>
+        <name>EDI_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Entity --></label>
+        <name>Entity__c</name>
+        <relationshipLabel><!-- S3 Metric Data --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Guarantor Verification Time --></label>
+        <name>Guarantor_Verification_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor verification User --></label>
+        <name>Guarantor_verification_User__c</name>
+    </fields>
+    <fields>
+        <label><!-- Handling Code --></label>
+        <name>Handling_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hospital Account Verification Time --></label>
+        <name>Hospital_Account_Verification_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hospital Account Verification User --></label>
+        <name>Hospital_Account_Verification_User__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice Amount --></label>
+        <name>Invoice_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice Date --></label>
+        <name>Invoice_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice Number --></label>
+        <name>Invoice_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Location --></label>
+        <name>Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- Member Verification Time --></label>
+        <name>Member_Verification_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Member verification User --></label>
+        <name>Member_verification_User__c</name>
+    </fields>
+    <fields>
+        <label><!-- S3 Operations --></label>
+        <name>Metric_Link__c</name>
+        <relationshipLabel><!-- S3 Metric Data --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Operator --></label>
+        <name>Operator__c</name>
+    </fields>
+    <fields>
+        <label><!-- PO Number --></label>
+        <name>PO_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Patient Advocate --></label>
+        <name>Patient_Advocate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Patient Verification Time --></label>
+        <name>Patient_Verification_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Patient Verification User --></label>
+        <name>Patient_Verification_User__c</name>
+    </fields>
+    <fields>
+        <label><!-- Processing Level --></label>
+        <name>Processing_Level__c</name>
+    </fields>
+    <fields>
+        <label><!-- Received Date --></label>
+        <name>Received_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Remit to Code --></label>
+        <name>Remit_to_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Run Group --></label>
+        <name>Run_Group__c</name>
+    </fields>
+    <fields>
+        <label><!-- S3_GA_Sessions --></label>
+        <name>S3_GA_Sessions__c</name>
+    </fields>
+    <fields>
+        <label><!-- S3_GA_Users --></label>
+        <name>S3_GA_Users__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service End --></label>
+        <name>Service_End__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Expected --></label>
+        <name>Service_Expected__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Start --></label>
+        <name>Service_Start__c</name>
+    </fields>
+    <fields>
+        <label><!-- Term Code --></label>
+        <name>Term_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Uninsured --></label>
+        <name>Uninsured__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vendor ID --></label>
+        <name>Vendor_ID__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

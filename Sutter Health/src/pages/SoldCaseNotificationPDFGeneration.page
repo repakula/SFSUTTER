@@ -1,0 +1,498 @@
+<!-- ****************************************************************************************************
+*     Page Name   : VFP36_Sold_Case_Notification 
+*     Author      : Manish Singh
+*     Date        :  27 April 2015
+*     Project Name: SHP Project
+*     Description : generating the PDF for SCN detail Page 
+
+VERSION    AUTHOR              DATE         DETAIL 
+1.0        Manish Singh      27 April 2015  PDF Will contain SCN detail page details
+2.0 	   Bhaskar Bellapu   10-26-2016     Req - 3980 PDF will contain SCN detail page details
+along with Benefit Plans
+********************************************************************************************************-->
+<apex:page standardController="Employer_Group_Data__c"
+           extensions="VFC36_Sold_Case_Notification" showHeader="true"
+           sidebar="false"  renderAs="PDF" >
+    <head>
+        
+        <style>
+            .headercolor{
+            background-color:#4682B4;
+            color:white;
+            }
+            
+            table#planTierGroupRateTable {
+            table-layout:auto;
+            }
+            
+            table.planTable {
+            background:#eeeff0;
+            padding: 8px;
+            font-family: verdana,arial,sans-serif;
+            font-size:11px;
+            border: 1px solid #4682B4;
+            border-collapse: collapse;
+            border-radius : 10px;
+            }
+            table.planTable th { 
+            color:white;           
+            background:#4682b4;
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #4682b4;            
+            }
+            
+            table.planTable td {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #999999;
+            }
+            
+            .odd{background-color: #F0F8FF;} 
+            .even{background-color: #F5F5DC;}  
+        </style>
+    </head>
+    <apex:stylesheet value="{!URLFOR($Resource.PDFCss, 'PDFCss/Theme3.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.PDFCss, 'PDFCss/Theme3_dStandard.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.PDFCss, 'PDFCss/Theme3_elements.css')}"/>
+    <apex:stylesheet value="{!$Resource.RFP_FormattingStyles}"/> 
+    <!--<head>
+<link class="user" href="/sCSS/33.0/sprites/1428958786000/Theme3/default/gc/elements.css" rel="stylesheet" type="text/css" />
+<link class="user" href="/sCSS/33.0/sprites/1428958786000/Theme3/default/gc/common.css" rel="stylesheet" type="text/css" />
+<link class="user" href="/sCSS/33.0/sprites/1426180668000/Theme3/gc/dStandard.css" rel="stylesheet" type="text/css" />
+</head>-->
+    
+    <apex:form >
+        <!-- Sold Case Notification Detail --> 
+        <div style="page-break-after: always">
+            <apex:pageBlock Title="{!$Label.SHP_SCN_119}">
+                <apex:pageBlockSection title="Employer Group Data" columns="2">
+                    <apex:outputText value="{!Employer_Group_Data__c.Name}" label="{!$Label.SHP_SCN_39}" />
+                    <!-- HighRoads Wave1-3880 Change Start -->
+                    <apex:outputText value="{!Employer_Group_Data__c.Account_SFDC_ID__c}" label="{!$Label.SHP_SCN_124}" />
+                    <!-- HighRoads Wave1-3880 Change End -->                
+                    <apex:outputText value="{!Employer_Group_Data__c.Company_Name__c}"  label="{!$Label.SHP_SCN_03}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.Stage__c}"  label="{!$Label.SHP_SCN_02}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.DBA_Name__c}"  label="{!$Label.SHP_SCN_04}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.Rejection_Reason__c}"  label="{!$Label.HR192_RejectionReason}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.Phone_Number__c}" label="{!$Label.SHP_SCN_05}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.Fax_Number__c}" label="{!$Label.SHP_SCN_06}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.Street_Address__c}" label="{!$Label.SHP_SCN_07}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.Billing_Street_Address__c}" label="{!$Label.SHP_SCN_08}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.city_SA__c}" label="{!$Label.SHP_SCN_09}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.City_BA__c}" label="{!$Label.SHP_SCN_09}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.State_SA__c}" label="{!$Label.SHP_SCN_10}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.State_BA__c}" label="{!$Label.SHP_SCN_10}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.Zip_SA__c}" label="{!$Label.SHP_SCN_11}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.Zip_BA__c}" label="{!$Label.SHP_SCN_11}"/>
+                    <!-- HighRoads Wave1-3880 Change Start -->
+                    <apex:outputText value="{!Employer_Group_Data__c.Shipping_County__c }" label="{!$Label.SHP_SCN_12}"/>
+                    <!-- HighRoads Wave1-3880 Change End -->
+                    <apex:outputText value="{!Employer_Group_Data__c.County__c}" label="{!$Label.SHP_SCN_12}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.Group_Type__c}" label="{!$Label.SHP_SCN_14}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.Federal_Employer_ID_Number__c}" label="{!$Label.SHP_SCN_13}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.of_Employees__c}" label="{!$Label.SHP_SCN_16}" />
+                    <apex:outputText value="{!Employer_Group_Data__c.Type_of_Organization__c}" label="{!$Label.SHP_SCN_15}" />
+                    <apex:outputText value="{!Employer_Group_Data__c.of_Eligible_Employees__c}" label="{!$Label.SHP_SCN_18}" />
+                    <apex:outputText value="{!Employer_Group_Data__c.Type_of_Organization_Other__c}" label="{!$Label.SHP_SCN_17}"/>
+                    <!--Start:Req-3612-->
+                    <apex:outputField value="{!Employer_Group_Data__c.Cobra_Members_with_this_Group__c}" />
+                    <!--End:Req-3612-->
+                    <!-- HighRoads Wave1-3880 Change Start -->
+                    <apex:outputField value="{!Employer_Group_Data__c.COBRA_Members_with_this_Group1__c}" />
+                    <apex:outputField value="{!Employer_Group_Data__c.COBRA__c}" />
+                    <!-- HighRoads Wave1-3880 Change End -->
+                    <apex:outputField value="{!Employer_Group_Data__c.Cal_Cobra__c}" />
+                    <apex:outputField value="{!Employer_Group_Data__c.Open_Enrollment_Date_From__c}" label="{!$Label.SHP_SCN_20}" />
+                    <!-- HighRoads Wave1-3880 Change Start -->
+                    <apex:outputField value="{!Employer_Group_Data__c.Open_Enrollment_Date_To__c}" label="{!$Label.SHP_SCN_19}" />
+                    <apex:outputText value="{!Employer_Group_Data__c.Account_Executive__c}" label="{!$Label.SHP_RFP_01}" /> 
+                    <!-- HighRoads Wave1-3880 Change End -->
+                    <apex:outputText value="{!Employer_Group_Data__c.SHP_Sales_Representative__c}" label="{!$Label.SHP_SCN_21}" />
+                    <apex:outputField value="{!Employer_Group_Data__c.Slice_Account__c }" label="{!$Label.SHP_SCN_22}"/>
+                    <apex:outputField value="{!Employer_Group_Data__c.Effective_Date__c}" label="{!$Label.SHP_SCN_24}" />
+                    <apex:outputField value="{!Employer_Group_Data__c.Slicing_with_Carrier_Name__c }" label="Slicing with Carrier Name"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.Third_Party_Administrator__c}" label="{!$Label.SHP_SCN_26}" />
+                    <apex:outputText value="{!Employer_Group_Data__c.Plan_vs_Calendar_Year__c}" label="{!$Label.SHP_SCN_23}" />
+                    <apex:outputField value="{!Employer_Group_Data__c.Previous_Group_Insurance_through_SHP__c}" label="{!$Label.SHP_SCN_28}"/>
+                    <apex:outputField value="{!Employer_Group_Data__c.Date_Sold__c}" label="{!$Label.SHP_SCN_25}" />
+                    <apex:outputField value="{!Employer_Group_Data__c.Member_accumulators_previous_Carrier__c}" label="{!$Label.SHP_SCN_30}" />
+                    <apex:outputText value="{!Employer_Group_Data__c.Enrollment_Method__c}" label="{!$Label.SHP_SCN_27}" />
+                    <apex:outputField value="{!Employer_Group_Data__c.HR_Account_Number__c}" label="{!$Label.SHP_SCN_32}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.Projected_Enrollment__c}" label="{!$Label.SHP_SCN_29}" />
+                    <apex:outputField value="{!Employer_Group_Data__c.Other_Language_Considerations__c}" label="{!$Label.SHP_SCN_34}"/>
+                    <apex:outputField value="{!Employer_Group_Data__c.Benefits_Subject_to_ERISA_Regulations__c}" label="{!$Label.SHP_SCN_31}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.Employer_Defined_Eligibility_for_Benefit__c}" label="{!$Label.SHP_SCN_36}" />
+                    <apex:outputField value="{!Employer_Group_Data__c.Other_ERISA__c}" label="{!$Label.SHP_SCN_33}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.Employer_Contribution_Employees_Premium__c}" label="{!$Label.SHP_SCN_38}" />
+                    <apex:outputText value="{!Employer_Group_Data__c.Employee_Waiting_Period__c}" label="{!$Label.SHP_SCN_35}" />
+                    <apex:outputText value="{!Employer_Group_Data__c.Employer_Contribution_Dependents_Premium__c}" label="{!$Label.SHP_SCN_40}" />
+                    <apex:outputText value="{!Employer_Group_Data__c.Employee_Waiting_Period_Other__c}" label="{!$Label.SHP_SCN_37}" />
+                    
+                    <apex:outputText value="{!Employer_Group_Data__c.Opportunity__r.Name}"  label="{!$Label.SHP_SCN_01}"/>
+                    <apex:outputText value="{!IF(Employer_Group_Data__c.Sold_Sign_Off__c != NULL,Employer_Group_Data__c.Sold_Sign_Off__r.Name,'')}"  label="Sold Sign Off" rendered="{!IF(Employer_Group_Data__c.Sold_Sign_Off__c != NULL,true,false)}"/>
+                    <!-- Start : Req - 3385-->
+                    <apex:outputField value="{!Employer_Group_Data__c.Religious_Exemption_Applied__c}" label="{!$Label.SHP_SCN_123}" />
+                    <!--End:Req-3385-->
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.SHP_SCN_41}">
+                    <apex:outputText Value="{!Employer_Group_Data__c.HREnrollment_Name__r.Name}" label="{!$Label.SHP_SCN_42}"/>
+                    <apex:outputText Value="{!Employer_Group_Data__c.BillingContact_Name__r.Name}" label="{!$Label.SHP_SCN_43}"/>
+                    <apex:outputText Value="{!Employer_Group_Data__c.HR_Enrollment_Phone__c}" label="{!$Label.SHP_SCN_44}"/>
+                    <apex:outputText Value="{!Employer_Group_Data__c.Billing_Contact_Phone__c}" label="{!$Label.SHP_SCN_45}"/>
+                    <apex:outputText Value="{!Employer_Group_Data__c.HR_Enrollment_E_mail__c}" label="{!$Label.SHP_SCN_46}"/>
+                    <apex:outputText Value="{!Employer_Group_Data__c.Billing_Contact_E_mail__c}" label="{!$Label.SHP_SCN_47}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.Title__c}" label="{!$Label.SHP_SCN_48}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.Title1__c}" label="{!$Label.SHP_SCN_48}"/>
+                    <apex:outputText Value="{!Employer_Group_Data__c.HREmployer_Portal_Name__r.Name}" label="{!$Label.SHP_SCN_49}"/>
+                    <apex:outputText Value="{!Employer_Group_Data__c.HREmployer_Portal_Name1__r.Name}" label="{!$Label.SHP_SCN_49}"/>
+                    <apex:outputText Value="{!Employer_Group_Data__c.HR_Employer_Portal_Phone__c}" label="{!$Label.SHP_SCN_50}"/>
+                    <apex:outputText Value="{!Employer_Group_Data__c.HR_Employer_Portal_Phone1__c}" label="{!$Label.SHP_SCN_50}"/>
+                    <apex:outputText Value="{!Employer_Group_Data__c.HR_Employer_Portal_E_mail__c}" label="{!$Label.SHP_SCN_51}"/>
+                    <apex:outputText Value="{!Employer_Group_Data__c.HR_Employer_Portal_E_mail1__c}" label="{!$Label.SHP_SCN_51}"/>             
+                    <apex:outputText value="{!Employer_Group_Data__c.Performance_or_Implementation__c}" label="{!$Label.SHP_SCN_52}"/>
+                    <apex:outputText Value="{!Employer_Group_Data__c.Distribution_List__c}" label="{!$Label.SHP_SCN_53}"/>
+                    <apex:outputText Value="{!Employer_Group_Data__c.Opportunity_Account_Name__r.Name}" label="{!$Label.SHP_SCN_54}"/>                
+                    
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection title="{!$Label.VFP36CL93}">
+                    <!-- HighRoads Wave1-3880 Change Start -->
+                    <apex:pageBlockSection columns="1" id="HREnrollVenNam">
+                        <apex:outputPanel >
+                            <apex:outputLabel value="Vendor Name " for="HREnrollVenNameId" styleClass="labelCol margincls"  />  
+                            <apex:outputText id="HREnrollVenNameId" value="{!Employer_Group_Data__c.Vendor_Name__c}"  /> 
+                            <br/><br/>
+                            <apex:outputLabel value="Vendor Contact Name " for="HREnrollVenNam1" styleClass="labelCol margincls"  />  
+                            <apex:outputText id="HREnrollVenNam1" value="{!Employer_Group_Data__c.Vendor_Contact_Name__r.Name}"  /> 
+                            <br/><br/>
+                            <apex:outputLabel value="Vendor Contact Phone" for="HREnrollVenPhoneId" styleClass="labelCol marginOnecls"  />   
+                            <apex:outputText id="HREnrollVenPhoneId" value="{!employerGroupDataObj.Vendor_Contact_Phone__c}" />
+                            <br/><br/>
+                            <apex:outputLabel value="Vendor Contact Email" for="HREnrollVenEmailId" styleClass="labelCol margincls"   />   
+                            <apex:outputText id="HREnrollVenEmailId" value="{!employerGroupDataObj.Vendor_Contact_Email__c}" />                               
+                        </apex:outputPanel>
+                    </apex:pageBlockSection>
+                    <!-- HighRoads Wave1-3880 Change End -->
+                    <apex:pageBlockSection columns="1" id="HREnrollEDIVenNam">
+                        <apex:outputPanel >
+                            <br /><br />
+                            <apex:outputLabel value="EDI Vendor Name " for="HREnrollEDIVenNam1" styleClass="labelCol margincls"  />  
+                            <apex:outputText id="HREnrollEDIVenNam1" value="{!Employer_Group_Data__c.EDI_Vendor_Name__r.Name}"  />                                                            
+                            <br /><br />
+                            <apex:outputLabel value="EDI Vendor Phone" for="HREnrollEDIVenPhoneId" styleClass="labelCol marginOnecls"  />   
+                            <apex:outputText id="HREnrollEDIVenPhoneId" value="{!employerGroupDataObj.EDI_Vendor_Phone__c}" />
+                            <br /><br />
+                            <apex:outputLabel value="EDI Vendor E-Mail" for="HREnrollEDIVenEmailId" styleClass="labelCol margincls"   />   
+                            <apex:outputText id="HREnrollEDIVenEmailId" value="{!employerGroupDataObj.EDI_Vendor_E_Mail__c}" />
+                        </apex:outputPanel>
+                    </apex:pageBlockSection>
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection title="{!$Label.SHP_SCN_55}">
+                    <apex:outputField Value="{!Employer_Group_Data__c.Renewal_SCN__c}" label="{!$Label.SHP_SCN_55}"/>
+                    <apex:outputText />
+                    <apex:outputField Value="{!Employer_Group_Data__c.Have_the_plan_numbers_changed__c}" label="{!$Label.SHP_SCN_56}"/>
+                    <apex:outputField Value="{!Employer_Group_Data__c.Will_there_be_additional_plans_offered__c}" label="{!$Label.SHP_SCN_57}"/>
+                    <apex:outputField Value="{!Employer_Group_Data__c.New_TPA_Vendor__c}" label="{!$Label.SHP_SCN_58}"/>
+                    <apex:outputField value="{!Employer_Group_Data__c.New_EDI_Vendor__c}" label="{!$Label.SHP_SCN_59}"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.SHP_SCN_60}">
+                    <apex:outputText Value="{!Employer_Group_Data__c.Sub_Account_Data__c}" label="{!$Label.SHP_SCN_60}"/>
+                    <apex:outputText />
+                    <apex:outputText value="{!Employer_Group_Data__c.CompletedBy__r.Name}" label="{!$Label.SHP_SCN_61}"/>
+                    <!-- HighRoads Wave1-3880 Change Start -->
+                    <apex:outputText value="{!Employer_Group_Data__c.Sales_Auditor__r.Name}" label="{!$Label.VFP36CL84}"/>
+                    <!-- HighRoads Wave1-3880 Change End -->
+                    <apex:outputText value="{!Employer_Group_Data__c.AuditorName__r.Name}" label="{!$Label.SHP_SCN_62}"/>
+                    <!-- HighRoads Wave1-3880 Change Start -->
+                    <apex:outputText value="{!Employer_Group_Data__c.Medical_Region__c}" label="{!$Label.VFP36CL88}"/>
+                    <!-- HighRoads Wave1-3880 Change End -->
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Broker Information">
+                    <apex:outputText value="{!Employer_Group_Data__c.Broker_Name__c }" label="{!$Label.SHP_SCN_63}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.Broker_Agency__c}" label="{!$Label.SHP_SCN_64}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.SFDC_Broker_ID__c}" label="{!$Label.SHP_SCN_65}"/>
+                    <apex:outputText />
+                    <apex:outputText Value="{!Employer_Group_Data__c.ACal_L_D_Licence__c}" label="{!$Label.SHP_SCN_66}"/>
+                    <apex:outputField value="{!Employer_Group_Data__c.ACal_L_D_Expiration_Date__c}" label="{!$Label.SHP_SCN_67}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.Commissions_Medical__c}" label="{!$Label.SHP_SCN_68}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.Commissions_Optional_Dental_Delta__c}" label="{!$Label.SHP_SCN_69}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.Commissions_Optional_Vision_VSP__c}" label="{!$Label.SHP_SCN_70}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.Other_Optional_Dental__c}" label="{!$Label.SHP_SCN_33}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.Other_Optional_Vision__c}" label="{!$Label.SHP_SCN_33}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.Commissions_Optional_Acu_Chiro_ACN__c}" label="{!$Label.SHP_SCN_71}"/>
+                    <apex:outputText />
+                    <apex:outputText value="{!Employer_Group_Data__c.Other_Optional_Acu_Chiro__c}" label="{!$Label.SHP_SCN_33}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.LastModifiedBy.Name}" label="{!$Label.SHP_SCN_72}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.Owner.Name}" label="{!$Label.SHP_SCN_73}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.CreatedBy.Name}" label="{!$Label.SHP_SCN_74}"/>
+                    <apex:outputField value="{!Employer_Group_Data__c.Cloned_Record__c}" label="Cloned Record?"/>
+                </apex:pageBlockSection>
+                <!-- HighRoads Wave1-3880 Change Start -->
+                <apex:pageBlockSection title="General Agent Details">
+                    <apex:outputField value="{!Employer_Group_Data__c.General_Agent_Applicable__c}" label="{!$Label.SHP_RFP_104}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.General_Agent__c}" label="{!$Label.SHP_RFP_101}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.GA_Contact__c}" label="{!$Label.SHP_RFP_102}"/>
+                    <apex:outputText value="{!Employer_Group_Data__c.GA_Commission__c}" label="{!$Label.SHP_RFP_103}"/>
+                </apex:pageBlockSection>  
+                <!-- HighRoads Wave1-3880 Change End -->
+            </apex:pageBlock>
+            <!--Medical Plans (Standard) detail --> 
+            <apex:outputPanel rendered="{!IF(isOldSCN == true,true,false)}">
+                <apex:repeat value="{!lstMedicalPlan}" var="MedPlanObj">
+                    <apex:pageBlock id="pgBlockMedicalPlan1" title="{!$Label.SHP_SCN_76}">
+                        <apex:pageBlockSection title="{!$Label.SHP_SCN_77}" columns="2">
+                            <apex:outputtext value="{!MedPlanObj.Sold_Case_Notification__r.name}" label="{!$Label.SHP_SCN_78}"/>
+                            <apex:outputtext value="{!MedPlanObj.RecordType.name}" label="{!$Label.SHP_SCN_79}"/>
+                            <apex:outputtext value="{!MedPlanObj.Medical_type__c}" label="{!$Label.SHP_SCN_112}"/>
+                            <apex:outputtext value="{!MedPlanObj.Medical__c}" label="{!$Label.SHP_SCN_80}"/>
+                            <apex:outPutText />
+                            <apex:outputtext value="{!MedPlanObj.Other_Plan_Id__c}" label="{!$Label.SHP_SCN_111}"/>
+                            <apex:outputtext value="{!MedPlanObj.Custom_Medical__c}" label="{!$Label.SHP_SCN_81}"/>
+                            <apex:outputtext value="{!MedPlanObj.Dental__c}" label="{!$Label.SHP_SCN_82}"/>
+                            <apex:outputtext value="{!MedPlanObj.CustomMedical_Other__c}" label="{!$Label.SHP_SCN_83}"/>
+                            <apex:outputtext value="{!MedPlanObj.Dental_Other__c}" label="{!$Label.SHP_SCN_84}"/>
+                            <apex:outputtext value="{!MedPlanObj.Vision__c}" label="{!$Label.SHP_SCN_85}"/>
+                            <apex:outputtext value="{!MedPlanObj.Chiropractic__c}" label="{!$Label.SHP_SCN_86}"/>
+                            <apex:outputtext value="{!MedPlanObj.Vision_Other__c}" label="{!$Label.SHP_SCN_87}"/>
+                            <apex:outputtext value="{!MedPlanObj.Chiropractic_Other__c}" label="{!$Label.SHP_SCN_88}"/>
+                            <apex:outputtext value="{!MedPlanObj.Acupuncture__c}" label="{!$Label.SHP_SCN_89}"/>
+                            <apex:outputtext value="{!MedPlanObj.Acupuncture_Chiropractic__c}" label="{!$Label.SHP_SCN_90}"/>
+                            <apex:outputtext value="{!MedPlanObj.Acupuncture_Other__c}" label="{!$Label.SHP_SCN_91}"/>
+                            <apex:outputtext value="{!MedPlanObj.AcupunctureChiropractic_Other__c}" label="{!$Label.SHP_SCN_92}"/>
+                            <apex:outputtext value="{!MedPlanObj.Prosthetic_Orthotic__c}" label="{!$Label.SHP_SCN_93}"/>
+                            <apex:outputtext value="{!MedPlanObj.Infertility__c}" label="{!$Label.SHP_SCN_113}"/>
+                            <apex:outputfield value="{!MedPlanObj.HDHP__c}" label="{!$Label.SHP_SCN_114}"/>
+                            <apex:outputtext />
+                            
+                            <apex:outputfield value="{!MedPlanObj.Plan_Name_Active_2__c}" label="{!$Label.SHP_SCN_94}"   />
+                            <apex:outputfield value="{!MedPlanObj.Plan_Name_Early_Retiree_2__c}" label="{!$Label.SHP_SCN_95}" />
+                            <apex:outputfield value="{!MedPlanObj.EE2__c}" label="{!$Label.SHP_SCN_97}" />
+                            <apex:outputfield value="{!MedPlanObj.EE_Early_Retiree2__c}" label="{!$Label.SHP_SCN_98}" />
+                            <apex:outputfield Value="{!MedPlanObj.EF_Sec1__c}" label="{!$Label.SHP_SCN_106}" />
+                            <apex:outputfield Value="{!MedPlanObj.EF_Early_Retiree_Sec1__c}" label="{!$Label.SHP_SCN_107}" />
+                            
+                            <apex:outputfield value="{!MedPlanObj.Plan_Name_Active__c}" label="{!$Label.SHP_SCN_103}"/>
+                            <apex:outputtext value="{!MedPlanObj.Plan_Name_Early_Retiree_1__c}" label="{!$Label.SHP_SCN_95}"/>
+                            <apex:outputtext value="{!MedPlanObj.EE__c}" label="{!$Label.SHP_SCN_97}"/>
+                            <apex:outputtext value="{!MedPlanObj.EE_Early_Retiree1__c}" label="{!$Label.SHP_SCN_98}"/>
+                            <apex:outputtext value="{!MedPlanObj.EE_1__c}" label="{!$Label.SHP_SCN_99}"/>
+                            <apex:outputtext value="{!MedPlanObj.EE_1_Early_Retiree__c}" label="{!$Label.SHP_SCN_100}"/>
+                            <apex:outputtext value="{!MedPlanObj.EE_2__c}" label="{!$Label.SHP_SCN_101}"/>
+                            <apex:outputtext value="{!MedPlanObj.EE_2_Early_Retiree__c}" label="{!$Label.SHP_SCN_102}"/>
+                            <apex:outputtext value="{!MedPlanObj.Plan_Name_Active_1__c}" label="{!$Label.SHP_SCN_103}"/>
+                            <apex:outputtext value="{!MedPlanObj.Plan_Name_Early_Retiree__c}" label="{!$Label.SHP_SCN_95}"/>
+                            <apex:outputtext value="{!MedPlanObj.EE1__c}" label="{!$Label.SHP_SCN_97}"/>
+                            <apex:outputtext value="{!MedPlanObj.EE_Early_Retiree__c}" label="{!$Label.SHP_SCN_98}"/>
+                            <apex:outputtext value="{!MedPlanObj.ES__c}" label="{!$Label.SHP_SCN_104}"/>
+                            <apex:outputtext value="{!MedPlanObj.ES_Early_Retiree__c}" label="{!$Label.SHP_SCN_116}"/>
+                            <apex:outputtext value="{!MedPlanObj.EC__c}" label="{!$Label.SHP_SCN_105}"/>
+                            <apex:outputtext value="{!MedPlanObj.EC_Early_Retiree__c}" label="{!$Label.SHP_SCN_118}"/>
+                            <apex:outputtext value="{!MedPlanObj.EF__c}" label="{!$Label.SHP_SCN_106}"/>
+                            <apex:outputtext value="{!MedPlanObj.EF_Early_Retiree__c}" label="{!$Label.SHP_SCN_107}"/>
+                            <apex:outputfield value="{!MedPlanObj.Medical_Plan_Notes__c}" label="{!$Label.SHP_SCN_108}"/>
+                            <apex:outputtext /> 
+                            <apex:outputText value="{!MedPlanObj.CreatedBy.Name}" label="{!$Label.SHP_SCN_74}"/>
+                            <apex:outputText value="{!MedPlanObj.LastModifiedBy.Name}" label="{!$Label.SHP_SCN_72}"/>
+                        </apex:pageBlockSection>
+                    </apex:pageBlock>
+                    <!--Medical Plans (Non-Standard) detail --> 
+                </apex:repeat>
+                <apex:repeat value="{!lstMedicalPlanOther}" var="MedPlanObj">
+                    <apex:pageBlock id="pgBlockMedicalPlan1" title="{!$Label.SHP_SCN_76}">
+                        <apex:pageBlockSection title="{!$Label.SHP_SCN_77}" columns="2">
+                            <apex:outputtext value="{!MedPlanObj.Sold_Case_Notification__r.name}" label="{!$Label.SHP_SCN_78}"/>
+                            <apex:outputtext />
+                            <apex:outputtext value="{!MedPlanObj.Dental__c}" label="{!$Label.SHP_SCN_82}"/>
+                            <apex:outputtext value="{!MedPlanObj.Vision__c}" label="{!$Label.SHP_SCN_85}"/>
+                            <apex:outputtext value="{!MedPlanObj.Dental_Other__c}" label="{!$Label.SHP_SCN_84}"/>
+                            <apex:outputtext value="{!MedPlanObj.Vision_Other__c}" label="{!$Label.SHP_SCN_87}"/>
+                            <apex:outputtext value="{!MedPlanObj.Chiropractic__c}" label="{!$Label.SHP_SCN_86}"/>
+                            <apex:outputtext value="{!MedPlanObj.Acupuncture__c}" label="{!$Label.SHP_SCN_89}"/>    
+                            <apex:outputtext value="{!MedPlanObj.Chiropractic_Other__c}" label="{!$Label.SHP_SCN_88}"/>
+                            <apex:outputtext value="{!MedPlanObj.Acupuncture_Other__c}" label="{!$Label.SHP_SCN_91}"/>
+                            <apex:outputtext value="{!MedPlanObj.Acupuncture_Chiropractic__c}" label="{!$Label.SHP_SCN_90}"/>
+                            <apex:outputtext value="{!MedPlanObj.Prosthetic_Orthotic__c}" label="{!$Label.SHP_SCN_93}"/>
+                            <apex:outputtext value="{!MedPlanObj.AcupunctureChiropractic_Other__c}" label="{!$Label.SHP_SCN_92}"/>
+                            <apex:outputtext value="{!MedPlanObj.Infertility__c}" label="{!$Label.SHP_SCN_113}"/>
+                            <apex:outputfield value="{!MedPlanObj.HDHP__c}" label="{!$Label.SHP_SCN_114}"/>
+                            <apex:outputtext />
+                            
+                            <apex:outputfield value="{!MedPlanObj.Plan_Name_Active_2__c}" label="{!$Label.SHP_SCN_94}"   />
+                            <apex:outputfield value="{!MedPlanObj.Plan_Name_Early_Retiree_2__c}" label="{!$Label.SHP_SCN_95}" />
+                            <apex:outputfield value="{!MedPlanObj.EE2__c}" label="{!$Label.SHP_SCN_97}" />
+                            <apex:outputfield value="{!MedPlanObj.EE_Early_Retiree2__c}" label="{!$Label.SHP_SCN_98}" />
+                            <apex:outputfield Value="{!MedPlanObj.EF_Sec1__c}" label="{!$Label.SHP_SCN_106}" />
+                            <apex:outputfield Value="{!MedPlanObj.EF_Early_Retiree_Sec1__c}" label="{!$Label.SHP_SCN_107}" />
+                            
+                            <apex:outputfield value="{!MedPlanObj.Plan_Name_Active__c}" label="{!$Label.SHP_SCN_94}"/>
+                            <apex:outputtext value="{!MedPlanObj.Plan_Name_Early_Retiree_1__c}" label="{!$Label.SHP_SCN_95}"/>
+                            <apex:outputtext value="{!MedPlanObj.EE__c}" label="{!$Label.SHP_SCN_97}"/>
+                            <apex:outputtext value="{!MedPlanObj.EE_Early_Retiree1__c}" label="{!$Label.SHP_SCN_98}"/>
+                            <apex:outputtext value="{!MedPlanObj.EE_1__c}" label="{!$Label.SHP_SCN_115}"/>
+                            <apex:outputtext value="{!MedPlanObj.EE_1_Early_Retiree__c}" label="{!$Label.SHP_SCN_100}"/>
+                            <apex:outputtext value="{!MedPlanObj.EE_2__c}" label="{!$Label.SHP_SCN_101}"/>
+                            <apex:outputtext value="{!MedPlanObj.EE_2_Early_Retiree__c}" label="{!$Label.SHP_SCN_102}"/>
+                            <apex:outputtext value="{!MedPlanObj.Plan_Name_Active_1__c}" label="{!$Label.SHP_SCN_103}"/>
+                            <apex:outputtext value="{!MedPlanObj.Plan_Name_Early_Retiree__c}" label="{!$Label.SHP_SCN_95}"/>
+                            <apex:outputtext value="{!MedPlanObj.EE1__c}" label="{!$Label.SHP_SCN_97}"/>
+                            <apex:outputtext value="{!MedPlanObj.EE_Early_Retiree__c}" label="{!$Label.SHP_SCN_98}"/>
+                            <apex:outputtext value="{!MedPlanObj.ES__c}" label="{!$Label.SHP_SCN_104}"/>
+                            <apex:outputtext value="{!MedPlanObj.ES_Early_Retiree__c}" label="{!$Label.SHP_SCN_116}"/>
+                            <apex:outputtext value="{!MedPlanObj.EC__c}" label="{!$Label.SHP_SCN_105}"/>
+                            <apex:outputtext value="{!MedPlanObj.EC_Early_Retiree__c}" label="{!$Label.SHP_SCN_118}"/>
+                            <apex:outputtext value="{!MedPlanObj.EF__c}" label="{!$Label.SHP_SCN_106}"/>
+                            <apex:outputtext value="{!MedPlanObj.EF_Early_Retiree__c}" label="{!$Label.SHP_SCN_107}"/>
+                            <apex:outputfield value="{!MedPlanObj.Medical_Plan_Notes__c}" label="{!$Label.SHP_SCN_108}"/>
+                            <apex:outputtext />
+                            <apex:outputText value="{!MedPlanObj.CreatedBy.Name}" label="{!$Label.SHP_SCN_109}"/>
+                            <apex:outputText value="{!MedPlanObj.LastModifiedBy.Name}" label="{!$Label.SHP_SCN_72}"/>
+                        </apex:pageBlockSection>
+                    </apex:pageBlock>
+                </apex:repeat>
+            </apex:outputPanel>
+        </div>
+        <!-- Req 3182 SHP Wave 2 Changes STARTS -->
+        <apex:outputPanel rendered="{!IF(isNewSCN == true,true,false)}">
+            <apex:pageBlock id="BenefitPlanNote">
+                <apex:pageBlockSection title="Notes" columns="1">
+                    <apex:outputtext value="{!Employer_Group_Data__c.Medical_Plan_Notes__c}" label="Medical Plan Notes"/>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+            <apex:pageBlock rendered="{!IF(planRiderWrapperList != NULL && planRiderWrapperList.size >0 ,true,false)}"><apex:pageBlockSection title="Plans without Rates" ></apex:pageBlockSection> </apex:pageBlock>
+            <apex:outputPanel rendered="{!IF(planRiderWrapperList != NULL && planRiderWrapperList.size >0 ,true,false)}">
+                <table border="0" id="planTable" class="planTable" align="center" width="75%">
+                    <thead>
+                        <tr >                               
+                            <th>Plan Name</th>
+                            <th>HDHP?</th>
+                            <th>Type</th>
+                            <th>Benefit Plan Id</th>
+                            <apex:repeat value="{!planRiderWrapperList}" var="planName">                        
+                                <tr>
+                                    <td rowspan="{!planName.sizeOfPlanWrappers}" width="25%">{!planName.Name}</td>
+                                    <apex:repeat value="{!planName.planWrapperList}" var="plan">
+                                        <tr>
+                                            <td width="25%"><apex:outputText value="{!IF(plan.isHdhp == true,'Yes','No')}"></apex:outputText></td>
+                                            <td width="25%"><apex:outputText value="{!plan.plantype}"></apex:outputText></td>
+                                            <td width="25%"><apex:outputText value="{!plan.BenefitId}"></apex:outputText></td>
+                                        </tr>
+                                    </apex:repeat>
+                                </tr>
+                            </apex:repeat>
+                        </tr>
+                    </thead>
+                </table>
+            </apex:outputPanel>
+            <br/>
+            
+            <apex:pageBlock rendered="{!IF(PlanRateTierGroupandRateEntryList != NULL && PlanRateTierGroupandRateEntryList.size > 0, true,false)}">
+                <apex:pageBlockSection title="Sold Plans & Rates" rendered="{!IF(PlanRateTierGroupandRateEntryList != NULL && PlanRateTierGroupandRateEntryList.size > 0, true,false)}"></apex:pageBlockSection> </apex:pageBlock>
+            <table border="0" class="planTable" id="planTable" cellpadding="0" cellspacing="0" width="{!rateEntryTableWidth}%" align="center">
+                
+                <apex:outputPanel rendered="{!IF(PlanRateTierGroupandRateEntryList != NULL && PlanRateTierGroupandRateEntryList.size > 0, true,false)}">
+                    <tr style="border-top: thin solid;border-bottom: thin solid;border-left:thin solid;">
+                        <th style="width:5.26%;height:40px;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" colspan="5"></th>
+                        <th style="display:{!IF(NOT(isTier1Selected), 'None', '')};text-align:center;height:40px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;" class="headercolor">Tier 1</th>
+                        <th style="display:{!IF(NOT(isTier2Selected), 'None', '')};text-align:center;height:40px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;" colspan="2" class="headercolor">Tier 2</th>
+                        <th style="display:{!IF(NOT(isTier3Selected), 'None', '')};text-align:center;height:40px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;" colspan="3" class="headercolor">Tier 3</th>
+                        <th style="display:{!IF(NOT(isTier4Selected), 'None', '')};text-align:center;height:40px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;" colspan="4" class="headercolor">Tier 4</th>
+                        <th style="display:{!IF(NOT(isTier5Selected), 'None', '')};text-align:center;height:40px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;" colspan="5" class="headercolor">Tier 5</th>
+                    </tr>
+                    <tr style="border-top: thin solid;border-bottom: thin solid;border-left:thin solid;">
+                        <th style="text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">Plan</th>
+                        <th style="text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">HDHP?</th>
+                        <th style="text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">Type</th>
+                        <th style="text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">Tier</th>
+                        <th style="text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">Group</th>
+                        <th style="display:{!IF(NOT(isTier1Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;" class="headercolor">Compo<br/>site</th>
+                        <th style="display:{!IF(NOT(isTier2Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">EE</th>
+                        <th style="display:{!IF(NOT(isTier2Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;" class="headercolor">EF</th>
+                        <th style="display:{!IF(NOT(isTier3Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">EE</th>
+                        <th style="display:{!IF(NOT(isTier3Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">E1</th>
+                        <th style="display:{!IF(NOT(isTier3Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;" class="headercolor">E2</th>
+                        <th style="display:{!IF(NOT(isTier4Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">EE</th>
+                        <th style="display:{!IF(NOT(isTier4Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">ES</th>
+                        <th style="display:{!IF(NOT(isTier4Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">EC</th>
+                        <th style="display:{!IF(NOT(isTier4Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;" class="headercolor">EF</th>
+                        <th style="display:{!IF(NOT(isTier5Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">EE</th>
+                        <th style="display:{!IF(NOT(isTier5Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">ES</th>
+                        <th style="display:{!IF(NOT(isTier5Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">EC</th>
+                        <th style="display:{!IF(NOT(isTier5Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">ECH</th>
+                        <th style="display:{!IF(NOT(isTier5Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;" class="headercolor">EF</th>
+                    </tr>
+                    <apex:variable var="i" value="{!1}"/> 
+                    <apex:repeat value="{!PlanRateTierGroupandRateEntryList}" var="planTierGroupRate">
+                        <tr style="border-top:thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid" class="{! IF((mod(i,2)) == 0, 'even', 'odd')}">
+                            <td style="height:30px;width:5.26%;text-align:center;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="{! IF((mod(i,2)) == 0, 'even', 'odd')}" rowspan="{!planTierGroupRate.sizeOfTotalTiersGroups}"><center>{!planTierGroupRate.medicalPlanName}</center></td>
+                            <apex:repeat value="{!planTierGroupRate.planTypeList}" var="planTierRateEntry">
+                                <td style="height:30px;width:5.26%;text-align:center;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="{! IF((mod(i,2)) == 0, 'even', 'odd')}" rowspan="{!planTierRateEntry.sizeOfTierandGroups}"><center><apex:outputText value="{!IF(planTierRateEntry.isHDHP == true,'Yes','No')}"></apex:outputText></center></td>
+                                <td style="height:30px;width:5.26%;text-align:center;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="{! IF((mod(i,2)) == 0, 'even', 'odd')}" rowspan="{!planTierRateEntry.sizeOfTierandGroups}"><center>{!planTierRateEntry.planName}</center></td>
+                                <apex:repeat value="{!planTierRateEntry.rateTierList}" var="tierRateEntry">
+                                    <td style="height:30px;width:5.26%;text-align:center;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="{! IF((mod(i,2)) == 0, 'even', 'odd')}" rowspan="{!tierRateEntry.sizeOfGroups}"><center>{!tierRateEntry.tierName}</center></td>
+                                    <apex:repeat value="{!tierRateEntry.groupList}" var="rateEntry">
+                                        <tr class="{! IF((mod(i,2)) == 0, 'even', 'odd')}">
+                                            <td style="text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;">{!rateEntry.groupName}</td>
+                                            <td  style="display:{!IF(NOT(isTier1Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;">
+                                                {!rateEntry.tier1Composite}
+                                            </td>   
+                                            <td  style="display:{!IF(NOT(isTier2Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;">
+                                                {!rateEntry.tier2EE}
+                                            </td>
+                                            <td  style="display:{!IF(NOT(isTier2Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;">
+                                                {!rateEntry.tier2EF}
+                                            </td>
+                                            <td  style="display:{!IF(NOT(isTier3Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;">
+                                                {!rateEntry.tier3EE}
+                                            </td>
+                                            <td  style="display:{!IF(NOT(isTier3Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;">
+                                                {!rateEntry.tier3E1}
+                                            </td>
+                                            <td  style="display:{!IF(NOT(isTier3Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;">
+                                                {!rateEntry.tier3E2}
+                                            </td>
+                                            <td  style="display:{!IF(NOT(isTier4Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;">
+                                                {!rateEntry.tier4EE}
+                                            </td>
+                                            <td  style="display:{!IF(NOT(isTier4Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;">
+                                                {!rateEntry.tier4ES}
+                                            </td>
+                                            <td  style="display:{!IF(NOT(isTier4Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;">
+                                                {!rateEntry.tier4EC}
+                                            </td>
+                                            <td  style="display:{!IF(NOT(isTier4Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;">
+                                                {!rateEntry.tier4EF}
+                                            </td>
+                                            <td  style="display:{!IF(NOT(isTier5Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;">
+                                                {!rateEntry.tier5EE}
+                                            </td>
+                                            
+                                            <td  style="display:{!IF(NOT(isTier5Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;">
+                                                {!rateEntry.tier5ES}
+                                            </td>
+                                            <td  style="display:{!IF(NOT(isTier5Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;">
+                                                {!rateEntry.tier5EC}
+                                            </td>
+                                            <td  style="display:{!IF(NOT(isTier5Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;">
+                                                {!rateEntry.tier5ECH}
+                                            </td>
+                                            <td  style="display:{!IF(NOT(isTier5Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;">
+                                                {!rateEntry.tier5EF}
+                                            </td>
+                                            
+                                        </tr>
+                                    </apex:repeat>
+                                </apex:repeat>
+                            </apex:repeat>
+                        </tr>
+                        <apex:variable var="i" value="{!i+1}"/>
+                    </apex:repeat>
+                </apex:outputPanel>
+            </table>
+        </apex:outputPanel>
+        <!-- Req 3182 SHP Wave 2 Changes ENDS -->
+    </apex:form>  
+</apex:page>

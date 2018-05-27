@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Document Generation Request</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Document Generation Requests</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account Executive --></label>
+        <name>Account_Executive__c</name>
+        <relationshipLabel><!-- Document Generation Requests (Account Executive) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Account_ID_HCC --></label>
+        <name>Account_ID_HCC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account_IsRenewal --></label>
+        <name>Account_IsRenewal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Manager --></label>
+        <name>Account_Manager__c</name>
+        <relationshipLabel><!-- Document Generation Requests (Account Manager) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Account Stage --></label>
+        <name>Account_Stage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account TIN Type --></label>
+        <name>Account_TIN_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account TIN --></label>
+        <name>Account_TIN__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Type --></label>
+        <name>Account_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Document Generation Requests --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Active Members --></label>
+        <name>Active_Members__c</name>
+    </fields>
+    <fields>
+        <label><!-- BPA Team Comments --></label>
+        <name>BPA_Team_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Broker --></label>
+        <name>Broker__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calendar Year/Plan Year --></label>
+        <name>Calendar_Year_Plan_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- DBA --></label>
+        <name>DBA__c</name>
+    </fields>
+    <fields>
+        <help><!-- Link to the folder in Share point where Documents that are generated are stored --></help>
+        <label><!-- Documents Folder --></label>
+        <name>Documents_Folder_New__c</name>
+    </fields>
+    <fields>
+        <help><!-- Link to the folder in Share point where Documents that are generated are stored --></help>
+        <label><!-- Documents Folder --></label>
+        <name>Documents_Folder__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employer First Renewal Date --></label>
+        <name>Employer_First_Renewal_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employer Type Email --></label>
+        <name>Employer_Type_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employer Type --></label>
+        <name>Employer_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expedite Approved --></label>
+        <name>Expedite__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mailing Address --></label>
+        <name>Mailing_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Document Generation Requests --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Opportunity stage --></label>
+        <name>Opportunity_stage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Physical Address --></label>
+        <name>Physical_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan Duration --></label>
+        <name>Plan_Duration__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan Effective Date --></label>
+        <name>Plan_Effective_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan End Date --></label>
+        <name>Plan_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plans --></label>
+        <name>Plans__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reason --></label>
+        <name>Reason__c</name>
+        <picklistValues>
+            <masterLabel>Compliance reason</masterLabel>
+            <translation><!-- Compliance reason --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Plan no longer available</masterLabel>
+            <translation><!-- Plan no longer available --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regulatory reason</masterLabel>
+            <translation><!-- Regulatory reason --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Template is not available</masterLabel>
+            <translation><!-- Template is not available --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Related Object Id --></label>
+        <name>Related_Object_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Renewal/Existing --></label>
+        <name>Renewal_Existing__c</name>
+    </fields>
+    <fields>
+        <label><!-- Request Approved Date --></label>
+        <name>Request_Approved_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Request Created Date --></label>
+        <name>Request_Created_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Request Due Date --></label>
+        <name>Request_Due_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Request_IsFinal --></label>
+        <name>Request_IsFinal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Request Status --></label>
+        <name>Request_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expedite Request --></label>
+        <name>Requested_Expedition__c</name>
+    </fields>
+    <fields>
+        <label><!-- Requestor --></label>
+        <name>Requestor__c</name>
+        <relationshipLabel><!-- Document Generation Requests (Requestor) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Account Number --></label>
+        <name>SFDC_Account_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- SLA met/not met --></label>
+        <name>SLA_met_not_met__c</name>
+    </fields>
+    <fields>
+        <label><!-- SLA met or not met --></label>
+        <name>SLA_met_or_not_met__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sales Comments --></label>
+        <name>Sales_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold Sign Off --></label>
+        <name>Sold_Sign_Off__c</name>
+        <relationshipLabel><!-- Document Generation Requests --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Status Before Cancellation --></label>
+        <name>Status_Before_Cancellation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Documents Generated</masterLabel>
+            <translation><!-- Documents Generated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Hold</masterLabel>
+            <translation><!-- On Hold --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Tech Account RecordType Name --></label>
+        <name>Tech_Account_RecordType_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Translation services --></label>
+        <name>Translation_services__c</name>
+        <picklistValues>
+            <masterLabel>Chinese</masterLabel>
+            <translation><!-- Chinese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spanish</masterLabel>
+            <translation><!-- Spanish --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Type of Business --></label>
+        <name>Type_of_Business__c</name>
+    </fields>
+    <fields>
+        <label><!-- has Custom Plans? --></label>
+        <name>has_Custom_Plans__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Documents Requested --></label>
+        <name>of_Documents_Requested__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Documents generated --></label>
+        <name>of_Documents_generated__c</name>
+    </fields>
+    <layouts>
+        <layout>Document Generation Request Layout</layout>
+        <sections>
+            <label><!-- Account Details --></label>
+            <section>Account Details</section>
+        </sections>
+        <sections>
+            <label><!-- BPA Team Comments --></label>
+            <section>BPA Team Comments</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Document Types --></label>
+            <section>Document Types</section>
+        </sections>
+        <sections>
+            <label><!-- Expedite Details --></label>
+            <section>Expedite Details</section>
+        </sections>
+        <sections>
+            <label><!-- Opportunity Details --></label>
+            <section>Opportunity Details</section>
+        </sections>
+        <sections>
+            <label><!-- Request Details --></label>
+            <section>Request Details</section>
+        </sections>
+        <sections>
+            <label><!-- Response Details --></label>
+            <section>Response Details</section>
+        </sections>
+        <sections>
+            <label><!-- Sales Team Comments --></label>
+            <section>Sales Team Comments</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Only owner of the record can modify document generation request. If owner of the record is a queue, then please accept record from queue and try again --></errorMessage>
+        <name>Owner_Not_in_Queue</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Documents_Folder --></label>
+        <name>Documents_Folder</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Request_for_Cancellation --></label>
+        <name>Request_for_Cancellation</name>
+    </webLinks>
+</CustomObjectTranslation>

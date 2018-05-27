@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email sent to new Sutter Provider Hub users.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>PCRM_Letter_Head</letterhead>
+    <name>Provider Community: Provider Welcome Email</name>
+    <style>freeForm</style>
+    <subject>ACTION REQUESTED: Validate Your Contact Information Through Sutter Provider Hub</subject>
+    <textOnly>The accuracy and integrity of your business information is a priority at Sutter Health. Accurate data ensures that your patients’ protected health information (PHI), as well as other important business related documents, are delivered to your preferred location. In the future, Sutter Health providers will be asked to validate contact information every 6 months.
+
+
+
+If a patient of yours may ever be seen at a Sutter Health affiliate for future care or outpatient services (e.g. radiology &amp; lab tests), and/or Sutter patients may be referred to you for follow-up care, it is important that you review--and if necessary update--your contact information.
+
+
+
+
+
+To validate your contact information, visit the Sutter Provider Hub, a self-service application that allows you to easily and securely manage your Sutter Health information. Clicking the link will take you to a page where you can set your password, then log in with the Username supplied below.
+
+
+
+Username: {!Receiving_User.Username}
+
+If the link above does not work, copy and paste www.sutterproviderhub.com into your web browser. If you need to reset your password, click on the Forgot Password link.
+
+For support, please contact the Contact Call Center Physician Data Integrity Team at 916-297-9950 or CCPDIT@sutterhealth.org. Additional details are available on the FAQ guide.
+
+We appreciate your help with this important effort!
+
+Thank you,
+
+Arieh Rosenbaum, M.D.
+
+
+c/o Sutter Provider Hub Team
+
+
+
+To confirm the authenticity of this message, please feel free to contact the IS Service Desk by phone, or Arieh Rosenbaum, M.D. Chief Medical Information Officer, West Bay Region (Rosenba@Sutterhealth.org)</textOnly>
+    <type>html</type>
+</EmailTemplate>

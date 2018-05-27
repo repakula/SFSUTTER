@@ -1,0 +1,5 @@
+<apex:component controller="VFC_GA_Controller">
+       <input type="hidden" value="{!currentUserName}" id="userName"/>
+       <input type="hidden" value="{!empRegion}" id="regionvalue"/>
+       <input type="hidden" value="{!empAffiliate}" id="affiliatevalue"/>
+</apex:component>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email sent to providers after successful validation.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>PCRM_Letter_Head</letterhead>
+    <name>Provider Community: Validation Confirmation Email</name>
+    <style>freeForm</style>
+    <subject>Sutter Health Contact Information Validated</subject>
+    <textOnly>Dear {!Contact_Validation_Summary__c.Provider_FirstName__c},
+
+
+Thank you for validating your Sutter Health contact information.Your current information is documented as follows:
+
+
+
+Information validated by: {!Contact_Validation_Summary__c.OwnerFullName}
+
+
+Provider Status: {!Contact_Validation_Summary__c.Tech_Provider_Service_Status__c}
+
+
+Provider Details:
+
+
+
+
+Email: {!Contact_Validation_Summary__c.Email__c}
+Mobile Phone: {!Contact_Validation_Summary__c.Mobile_Phone__c}
+Ok to Text: {!Contact_Validation_Summary__c.Tech_Ok_to_Text__c}
+
+Clinical Contact Information:
+
+
+
+{!Contact_Validation_Summary__c.Address_Summary__c}
+
+Validation Delegate Information:
+
+
+
+Delegate Name: {!Contact_Validation_Summary__c.Admin_Assistant__c}
+Delegate Email: {!Contact_Validation_Summary__c.Admin_Assistant_Email__c}
+Delegate Phone: {!Contact_Validation_Summary__c.Admin_Assistant_Phone__c}
+Delegate Title: {!Contact_Validation_Summary__c.Admin_Assistant_Title__c}
+
+For future reference, any updates to your contact information should be made through the Sutter Provider Hub online portal. The Sutter Provider Hub serves as the central location for capturing and sharing contact information within the Sutter network.
+
+If you don&apos;t currently have a Sutter Provider Hub portal account, please contact for setup. For those who do have an active account, we recommend bookmarking www.sutterproviderhub.com in your web browser and using the Forgot Password link if needed.
+
+We appreciate you taking the time to ensure our patients&apos; protected health information (PHI) is delivered to a single, secure location.
+
+Thank You,
+Sutter Provider Hub Team</textOnly>
+    <type>html</type>
+</EmailTemplate>

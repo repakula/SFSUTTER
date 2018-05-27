@@ -1,0 +1,4225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ForecastingSettings xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableForecasts>false</enableForecasts>
+    <forecastingCategoryMappings>
+        <forecastingItemCategoryApiName>commitonly</forecastingItemCategoryApiName>
+        <weightedSourceCategories>
+            <sourceCategoryApiName>commit</sourceCategoryApiName>
+            <weight>1.0</weight>
+        </weightedSourceCategories>
+    </forecastingCategoryMappings>
+    <forecastingCategoryMappings>
+        <forecastingItemCategoryApiName>closedonly</forecastingItemCategoryApiName>
+        <weightedSourceCategories>
+            <sourceCategoryApiName>closed</sourceCategoryApiName>
+            <weight>1.0</weight>
+        </weightedSourceCategories>
+    </forecastingCategoryMappings>
+    <forecastingCategoryMappings>
+        <forecastingItemCategoryApiName>openpipeline</forecastingItemCategoryApiName>
+        <weightedSourceCategories>
+            <sourceCategoryApiName>pipeline</sourceCategoryApiName>
+            <weight>1.0</weight>
+        </weightedSourceCategories>
+        <weightedSourceCategories>
+            <sourceCategoryApiName>commit</sourceCategoryApiName>
+            <weight>1.0</weight>
+        </weightedSourceCategories>
+        <weightedSourceCategories>
+            <sourceCategoryApiName>best case</sourceCategoryApiName>
+            <weight>1.0</weight>
+        </weightedSourceCategories>
+    </forecastingCategoryMappings>
+    <forecastingCategoryMappings>
+        <forecastingItemCategoryApiName>omittedonly</forecastingItemCategoryApiName>
+        <weightedSourceCategories>
+            <sourceCategoryApiName>omitted</sourceCategoryApiName>
+            <weight>1.0</weight>
+        </weightedSourceCategories>
+    </forecastingCategoryMappings>
+    <forecastingCategoryMappings>
+        <forecastingItemCategoryApiName>bestcaseforecast</forecastingItemCategoryApiName>
+        <weightedSourceCategories>
+            <sourceCategoryApiName>closed</sourceCategoryApiName>
+            <weight>1.0</weight>
+        </weightedSourceCategories>
+        <weightedSourceCategories>
+            <sourceCategoryApiName>commit</sourceCategoryApiName>
+            <weight>1.0</weight>
+        </weightedSourceCategories>
+        <weightedSourceCategories>
+            <sourceCategoryApiName>best case</sourceCategoryApiName>
+            <weight>1.0</weight>
+        </weightedSourceCategories>
+    </forecastingCategoryMappings>
+    <forecastingCategoryMappings>
+        <forecastingItemCategoryApiName>pipelineonly</forecastingItemCategoryApiName>
+        <weightedSourceCategories>
+            <sourceCategoryApiName>pipeline</sourceCategoryApiName>
+            <weight>1.0</weight>
+        </weightedSourceCategories>
+    </forecastingCategoryMappings>
+    <forecastingCategoryMappings>
+        <forecastingItemCategoryApiName>commitforecast</forecastingItemCategoryApiName>
+        <weightedSourceCategories>
+            <sourceCategoryApiName>closed</sourceCategoryApiName>
+            <weight>1.0</weight>
+        </weightedSourceCategories>
+        <weightedSourceCategories>
+            <sourceCategoryApiName>commit</sourceCategoryApiName>
+            <weight>1.0</weight>
+        </weightedSourceCategories>
+    </forecastingCategoryMappings>
+    <forecastingCategoryMappings>
+        <forecastingItemCategoryApiName>bestcaseonly</forecastingItemCategoryApiName>
+        <weightedSourceCategories>
+            <sourceCategoryApiName>best case</sourceCategoryApiName>
+            <weight>1.0</weight>
+        </weightedSourceCategories>
+    </forecastingCategoryMappings>
+    <forecastingTypeSettings>
+        <active>false</active>
+        <adjustmentsSettings>
+            <enableAdjustments>false</enableAdjustments>
+            <enableOwnerAdjustments>false</enableOwnerAdjustments>
+        </adjustmentsSettings>
+        <displayedCategoryApiNames>closedonly</displayedCategoryApiNames>
+        <displayedCategoryApiNames>commitonly</displayedCategoryApiNames>
+        <displayedCategoryApiNames>bestcaseonly</displayedCategoryApiNames>
+        <displayedCategoryApiNames>pipelineonly</displayedCategoryApiNames>
+        <forecastRangeSettings>
+            <beginning>0</beginning>
+            <displaying>6</displaying>
+            <periodType>Month</periodType>
+        </forecastRangeSettings>
+        <forecastedCategoryApiNames>commitonly</forecastedCategoryApiNames>
+        <forecastedCategoryApiNames>closedonly</forecastedCategoryApiNames>
+        <forecastedCategoryApiNames>pipelineonly</forecastedCategoryApiNames>
+        <forecastedCategoryApiNames>bestcaseonly</forecastedCategoryApiNames>
+        <isAmount>false</isAmount>
+        <isAvailable>true</isAvailable>
+        <isQuantity>true</isQuantity>
+        <masterLabel>Product Families</masterLabel>
+        <name>OpportunityLineItemQuantity</name>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.NAME</field>
+            <label>Opportunity Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>ACCOUNT.NAME</field>
+            <label>Account Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.AMOUNT</field>
+            <label>Amount</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CLOSE_DATE</field>
+            <label>Expected Close Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.STAGE_NAME</field>
+            <label>Stage</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.PROBABILITY</field>
+            <label>Probability (%)</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>FORECAST_CATEGORY</field>
+            <label>Forecast Category</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>FULL_NAME</field>
+            <label>Owner Full Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CONTRACT.CONTRACT_NUMBER</field>
+            <label>Contract Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CONTRACT.NAME</field>
+            <label>Contract Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CORE.USERS.ALIAS</field>
+            <label>Opportunity Owner Alias</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CORE.USERS.FIRST_NAME</field>
+            <label>Owner First Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CORE.USERS.LAST_NAME</field>
+            <label>Owner Last Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>DESCRIPTION</field>
+            <label>Comment</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.EXP_AMOUNT</field>
+            <label>Expected Revenue</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.LEAD_SOURCE</field>
+            <label>Lead Source</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.NEXT_STEP</field>
+            <label>Next Step</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.PRIVATE</field>
+            <label>Private</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.QUANTITY</field>
+            <label>Quantity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.TYPE</field>
+            <label>Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>UPDATEDBY_USER.ALIAS</field>
+            <label>Last Modified By Alias</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CREATEDBY_USER.ALIAS</field>
+            <label>Created By Alias</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CLOSED</field>
+            <label>Closed</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.WON</field>
+            <label>Won</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>ACCOUNT.SITE</field>
+            <label>Account Site</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.FISCAL_YEAR</field>
+            <label>Fiscal Year</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.FISCAL_QUARTER</field>
+            <label>Fiscal Quarter</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.FISCAL_PERIOD</field>
+            <label>Fiscal Period</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.RECORDTYPE</field>
+            <label>Opportunity Record Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.LAST_ACTIVITY</field>
+            <label>Last Activity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CREATED_DATE</field>
+            <label>Created Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.LAST_UPDATE</field>
+            <label>Last Modified Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah04</field>
+            <label># of Enrolled</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah05</field>
+            <label># of Enrolled</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah06</field>
+            <label># of Enrolled</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eb2Tg</field>
+            <label># of Subscribers</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mM</field>
+            <label>Accepted</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVq</field>
+            <label>Account RecordType Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVr</field>
+            <label>Account Status</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mq</field>
+            <label>Account Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eau54</field>
+            <label>Active Members</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzs</field>
+            <label>Actual # of Members</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP35</field>
+            <label>Acupuncture</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Dvyy1</field>
+            <label>Adjusted Membership</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mr</field>
+            <label>Affiliates</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EmeBz</field>
+            <label>Aging hours</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mN</field>
+            <label>Annual Revenue</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mv</field>
+            <label>Broker</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP37</field>
+            <label>Broker</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaas</field>
+            <label>Broker</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EaS6C</field>
+            <label>Broker HR HCC ID</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP39</field>
+            <label>Broker of Record</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mu</field>
+            <label>Broker Rep</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP38</field>
+            <label>Broker Rep</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EaS6H</field>
+            <label>Broker Rep HR HCC ID</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mt</field>
+            <label>Broker Rep Phone Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FITYy</field>
+            <label>By Pass Archive Contact Validation</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FQx26</field>
+            <label>Bypass Validation Rule</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh3</field>
+            <label>Calendar or Plan Year</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaaw</field>
+            <label>Carrier Partners</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EaOHp</field>
+            <label>Case Submitted By</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3B</field>
+            <label>Chiropractic</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mO</field>
+            <label>Classification</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaat</field>
+            <label>Close Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3n0</field>
+            <label>Closed Details</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3A</field>
+            <label>COBRA</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mw</field>
+            <label>Competitor</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkJ</field>
+            <label>Contribution(s) - EE</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3D</field>
+            <label>Created Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mP</field>
+            <label>Date Opportunity Shared</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EmeC0</field>
+            <label>Days taken to close</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3my</field>
+            <label>Days until Exp Close</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009kiJt</field>
+            <label>DB Competitor</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3E</field>
+            <label>Dental</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkK</field>
+            <label>Dependent Contribution</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mQ</field>
+            <label>Digital Campaigns</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIabB</field>
+            <label>Digital Campaigns</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mR</field>
+            <label>Director of Opportunity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3F</field>
+            <label>Early Retirees</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh4</field>
+            <label>Effective Date Exception</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaav</field>
+            <label>Employer</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVs</field>
+            <label>Employer Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mS</field>
+            <label>Error Reason</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh5</field>
+            <label>First time sale</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh6</field>
+            <label>GA Commission</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh7</field>
+            <label>GA Contact</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh9</field>
+            <label>General Agent</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh8</field>
+            <label>General Agent Applicable</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkL</field>
+            <label>Group Renewal Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzt</field>
+            <label>Incumbent Carrier #1</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzu</field>
+            <label>Incumbent Carrier #2</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzv</field>
+            <label>Incumbent Carrier #3</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3H</field>
+            <label>Incumbent Renewal Increase</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVt</field>
+            <label>Is Child Record Created?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3I</field>
+            <label>Last Modified Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eau55</field>
+            <label>Latest Opportunity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3n3</field>
+            <label>Lost Details</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mz</field>
+            <label>Marketing and Sales Primary Contact Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkI</field>
+            <label>Medical Commission</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVu</field>
+            <label>Medical Commission Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3U</field>
+            <label>Medicare/Retirees</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EmeC1</field>
+            <label>NewOrRenewal</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzw</field>
+            <label>NTE Offered %</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVv</field>
+            <label>Old Opportunity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3C</field>
+            <label>Open Enrollment</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mT</field>
+            <label>Opportunity Creator</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mU</field>
+            <label>Opportunity Shared By</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzx</field>
+            <label>Other Competitive Carrier</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzy</field>
+            <label>Other Competitive Carrier</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzz</field>
+            <label>Other Competitive Carrier</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3J</field>
+            <label>Out-of-Area</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX64W</field>
+            <label>Out of Area EEs</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3K</field>
+            <label>OverrideBrokerAndBrokerRep</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3n1</field>
+            <label>Plan Effective Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3L</field>
+            <label>Plan End Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVw</field>
+            <label>Plan Year</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaax</field>
+            <label>Please specify other</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mx</field>
+            <label>PPO Needed</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Dvyy6</field>
+            <label>Projected Membership</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3N</field>
+            <label>Projected Subscribers</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP36</field>
+            <label>Proposal Scenario</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3O</field>
+            <label>Purchased</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX64M</field>
+            <label>Quoted PMPM</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3P</field>
+            <label>Quote Owner</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3Q</field>
+            <label>Quote Presented Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkM</field>
+            <label>Rate Tier</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3n2</field>
+            <label>Reason Lost</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgW2</field>
+            <label>regenerate?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j5Gs</field>
+            <label>Region</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EabQd</field>
+            <label>Renewal Opportunity Created?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EabQe</field>
+            <label>Renewed Opportunity?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3R</field>
+            <label>RFP Due Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3S</field>
+            <label>RFP Received Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3T</field>
+            <label>RFP Sent to UW Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FQx27</field>
+            <label>Salesforce Id</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000ETUUi</field>
+            <label>Sales Team</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mW</field>
+            <label>Service Line/Product Promotion</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIc6j</field>
+            <label>Shared with SHMMN</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mX</field>
+            <label>Shared with SHP</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaay</field>
+            <label>SHMMN Assigned Rep</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaaz</field>
+            <label>SHMMN Go Live Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mV</field>
+            <label>SHMMN Opportunity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0f00000FIpUO</field>
+            <label>SHP SA Subs minus Valid Waiver</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah00</field>
+            <label>SHP vs Renewal</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah01</field>
+            <label>SHP vs Renewal</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah02</field>
+            <label>SHP vs Renewal</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVz</field>
+            <label>Slicing with Carrier Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX64N</field>
+            <label>Sold PMPM</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkN</field>
+            <label>Strategic Broker</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mY</field>
+            <label>Strategic Opportunities</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3G</field>
+            <label>Total Eligible Employees</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX64O</field>
+            <label>Total Enrolled</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3n5</field>
+            <label>Total FTE Employees</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgW0</field>
+            <label>Total SHP SA Subs with Valid Waivers</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgW1</field>
+            <label>Total Subs in SHP Service Areas (SA)</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah03</field>
+            <label>Underwriting Special Terms and Condition</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3V</field>
+            <label>Vision</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3W</field>
+            <label>Waived</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>PARTNER.NAME</field>
+            <label>Partner Account</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsSelectedSettings>
+            <field>OPPORTUNITY.NAME</field>
+            <field>ACCOUNT.NAME</field>
+            <field>OPPORTUNITY.AMOUNT</field>
+            <field>OPPORTUNITY.CLOSE_DATE</field>
+            <field>OPPORTUNITY.STAGE_NAME</field>
+            <field>OPPORTUNITY.PROBABILITY</field>
+            <field>FORECAST_CATEGORY</field>
+            <field>FULL_NAME</field>
+        </opportunityListFieldsSelectedSettings>
+        <opportunityListFieldsUnselectedSettings>
+            <field>CONTRACT.CONTRACT_NUMBER</field>
+            <field>CONTRACT.NAME</field>
+            <field>CORE.USERS.ALIAS</field>
+            <field>CORE.USERS.FIRST_NAME</field>
+            <field>CORE.USERS.LAST_NAME</field>
+            <field>DESCRIPTION</field>
+            <field>OPPORTUNITY.EXP_AMOUNT</field>
+            <field>OPPORTUNITY.LEAD_SOURCE</field>
+            <field>OPPORTUNITY.NEXT_STEP</field>
+            <field>OPPORTUNITY.PRIVATE</field>
+            <field>OPPORTUNITY.QUANTITY</field>
+            <field>OPPORTUNITY.TYPE</field>
+            <field>UPDATEDBY_USER.ALIAS</field>
+            <field>CREATEDBY_USER.ALIAS</field>
+            <field>OPPORTUNITY.CLOSED</field>
+            <field>OPPORTUNITY.WON</field>
+            <field>ACCOUNT.SITE</field>
+            <field>OPPORTUNITY.FISCAL_YEAR</field>
+            <field>OPPORTUNITY.FISCAL_QUARTER</field>
+            <field>OPPORTUNITY.FISCAL_PERIOD</field>
+            <field>OPPORTUNITY.RECORDTYPE</field>
+            <field>OPPORTUNITY.LAST_ACTIVITY</field>
+            <field>OPPORTUNITY.CREATED_DATE</field>
+            <field>OPPORTUNITY.LAST_UPDATE</field>
+            <field>00NG000000Eah04</field>
+            <field>00NG000000Eah05</field>
+            <field>00NG000000Eah06</field>
+            <field>00NG000000Eb2Tg</field>
+            <field>00NG000000FX9mM</field>
+            <field>00NG000000FIgVq</field>
+            <field>00NG000000FIgVr</field>
+            <field>00NG0000009j3mq</field>
+            <field>00NG000000Eau54</field>
+            <field>00NG000000Eagzs</field>
+            <field>00NG000000DvP35</field>
+            <field>00NG000000Dvyy1</field>
+            <field>00NG0000009j3mr</field>
+            <field>00NG000000EmeBz</field>
+            <field>00NG000000FX9mN</field>
+            <field>00NG0000009j3mv</field>
+            <field>00NG000000DvP37</field>
+            <field>00NG000000FIaas</field>
+            <field>00NG000000EaS6C</field>
+            <field>00NG000000DvP39</field>
+            <field>00NG0000009j3mu</field>
+            <field>00NG000000DvP38</field>
+            <field>00NG000000EaS6H</field>
+            <field>00NG0000009j3mt</field>
+            <field>00NG000000FITYy</field>
+            <field>00NG000000FQx26</field>
+            <field>00NG000000FIPh3</field>
+            <field>00NG000000FIaaw</field>
+            <field>00NG000000EaOHp</field>
+            <field>00NG000000DvP3B</field>
+            <field>00NG000000FX9mO</field>
+            <field>00NG000000FIaat</field>
+            <field>00NG0000009j3n0</field>
+            <field>00NG000000DvP3A</field>
+            <field>00NG0000009j3mw</field>
+            <field>00NG000000EbBkJ</field>
+            <field>00NG000000DvP3D</field>
+            <field>00NG000000FX9mP</field>
+            <field>00NG000000EmeC0</field>
+            <field>00NG0000009j3my</field>
+            <field>00NG0000009kiJt</field>
+            <field>00NG000000DvP3E</field>
+            <field>00NG000000EbBkK</field>
+            <field>00NG000000FX9mQ</field>
+            <field>00NG000000FIabB</field>
+            <field>00NG000000FX9mR</field>
+            <field>00NG000000DvP3F</field>
+            <field>00NG000000FIPh4</field>
+            <field>00NG000000FIaav</field>
+            <field>00NG000000FIgVs</field>
+            <field>00NG000000FX9mS</field>
+            <field>00NG000000FIPh5</field>
+            <field>00NG000000FIPh6</field>
+            <field>00NG000000FIPh7</field>
+            <field>00NG000000FIPh9</field>
+            <field>00NG000000FIPh8</field>
+            <field>00NG000000EbBkL</field>
+            <field>00NG000000Eagzt</field>
+            <field>00NG000000Eagzu</field>
+            <field>00NG000000Eagzv</field>
+            <field>00NG000000DvP3H</field>
+            <field>00NG000000FIgVt</field>
+            <field>00NG000000DvP3I</field>
+            <field>00NG000000Eau55</field>
+            <field>00NG0000009j3n3</field>
+            <field>00NG0000009j3mz</field>
+            <field>00NG000000EbBkI</field>
+            <field>00NG000000FIgVu</field>
+            <field>00NG000000DvP3U</field>
+            <field>00NG000000EmeC1</field>
+            <field>00NG000000Eagzw</field>
+            <field>00NG000000FIgVv</field>
+            <field>00NG000000DvP3C</field>
+            <field>00NG000000FX9mT</field>
+            <field>00NG000000FX9mU</field>
+            <field>00NG000000Eagzx</field>
+            <field>00NG000000Eagzy</field>
+            <field>00NG000000Eagzz</field>
+            <field>00NG000000DvP3J</field>
+            <field>00NG000000FX64W</field>
+            <field>00NG000000DvP3K</field>
+            <field>00NG0000009j3n1</field>
+            <field>00NG000000DvP3L</field>
+            <field>00NG000000FIgVw</field>
+            <field>00NG000000FIaax</field>
+            <field>00NG0000009j3mx</field>
+            <field>00NG000000Dvyy6</field>
+            <field>00NG000000DvP3N</field>
+            <field>00NG000000DvP36</field>
+            <field>00NG000000DvP3O</field>
+            <field>00NG000000FX64M</field>
+            <field>00NG000000DvP3P</field>
+            <field>00NG000000DvP3Q</field>
+            <field>00NG000000EbBkM</field>
+            <field>00NG0000009j3n2</field>
+            <field>00NG000000FIgW2</field>
+            <field>00NG0000009j5Gs</field>
+            <field>00NG000000EabQd</field>
+            <field>00NG000000EabQe</field>
+            <field>00NG000000DvP3R</field>
+            <field>00NG000000DvP3S</field>
+            <field>00NG000000DvP3T</field>
+            <field>00NG000000FQx27</field>
+            <field>00NG000000ETUUi</field>
+            <field>00NG000000FX9mW</field>
+            <field>00NG000000FIc6j</field>
+            <field>00NG000000FX9mX</field>
+            <field>00NG000000FIaay</field>
+            <field>00NG000000FIaaz</field>
+            <field>00NG000000FX9mV</field>
+            <field>00N0f00000FIpUO</field>
+            <field>00NG000000Eah00</field>
+            <field>00NG000000Eah01</field>
+            <field>00NG000000Eah02</field>
+            <field>00NG000000FIgVz</field>
+            <field>00NG000000FX64N</field>
+            <field>00NG000000EbBkN</field>
+            <field>00NG000000FX9mY</field>
+            <field>00NG000000DvP3G</field>
+            <field>00NG000000FX64O</field>
+            <field>00NG0000009j3n5</field>
+            <field>00NG000000FIgW0</field>
+            <field>00NG000000FIgW1</field>
+            <field>00NG000000Eah03</field>
+            <field>00NG000000DvP3V</field>
+            <field>00NG000000DvP3W</field>
+            <field>PARTNER.NAME</field>
+        </opportunityListFieldsUnselectedSettings>
+        <quotasSettings>
+            <showQuotas>false</showQuotas>
+        </quotasSettings>
+    </forecastingTypeSettings>
+    <forecastingTypeSettings>
+        <active>false</active>
+        <adjustmentsSettings>
+            <enableAdjustments>false</enableAdjustments>
+            <enableOwnerAdjustments>false</enableOwnerAdjustments>
+        </adjustmentsSettings>
+        <displayedCategoryApiNames>closedonly</displayedCategoryApiNames>
+        <displayedCategoryApiNames>commitonly</displayedCategoryApiNames>
+        <displayedCategoryApiNames>bestcaseonly</displayedCategoryApiNames>
+        <displayedCategoryApiNames>pipelineonly</displayedCategoryApiNames>
+        <forecastRangeSettings>
+            <beginning>0</beginning>
+            <displaying>6</displaying>
+            <periodType>Month</periodType>
+        </forecastRangeSettings>
+        <forecastedCategoryApiNames>commitonly</forecastedCategoryApiNames>
+        <forecastedCategoryApiNames>closedonly</forecastedCategoryApiNames>
+        <forecastedCategoryApiNames>pipelineonly</forecastedCategoryApiNames>
+        <forecastedCategoryApiNames>bestcaseonly</forecastedCategoryApiNames>
+        <isAmount>true</isAmount>
+        <isAvailable>true</isAvailable>
+        <isQuantity>false</isQuantity>
+        <masterLabel>Product Families</masterLabel>
+        <name>OpportunityLineItemRevenue</name>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.NAME</field>
+            <label>Opportunity Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>ACCOUNT.NAME</field>
+            <label>Account Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.AMOUNT</field>
+            <label>Amount</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CLOSE_DATE</field>
+            <label>Expected Close Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.STAGE_NAME</field>
+            <label>Stage</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.PROBABILITY</field>
+            <label>Probability (%)</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>FORECAST_CATEGORY</field>
+            <label>Forecast Category</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>FULL_NAME</field>
+            <label>Owner Full Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CONTRACT.CONTRACT_NUMBER</field>
+            <label>Contract Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CONTRACT.NAME</field>
+            <label>Contract Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CORE.USERS.ALIAS</field>
+            <label>Opportunity Owner Alias</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CORE.USERS.FIRST_NAME</field>
+            <label>Owner First Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CORE.USERS.LAST_NAME</field>
+            <label>Owner Last Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>DESCRIPTION</field>
+            <label>Comment</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.EXP_AMOUNT</field>
+            <label>Expected Revenue</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.LEAD_SOURCE</field>
+            <label>Lead Source</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.NEXT_STEP</field>
+            <label>Next Step</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.PRIVATE</field>
+            <label>Private</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.QUANTITY</field>
+            <label>Quantity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.TYPE</field>
+            <label>Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>UPDATEDBY_USER.ALIAS</field>
+            <label>Last Modified By Alias</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CREATEDBY_USER.ALIAS</field>
+            <label>Created By Alias</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CLOSED</field>
+            <label>Closed</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.WON</field>
+            <label>Won</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>ACCOUNT.SITE</field>
+            <label>Account Site</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.FISCAL_YEAR</field>
+            <label>Fiscal Year</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.FISCAL_QUARTER</field>
+            <label>Fiscal Quarter</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.FISCAL_PERIOD</field>
+            <label>Fiscal Period</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.RECORDTYPE</field>
+            <label>Opportunity Record Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.LAST_ACTIVITY</field>
+            <label>Last Activity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CREATED_DATE</field>
+            <label>Created Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.LAST_UPDATE</field>
+            <label>Last Modified Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah04</field>
+            <label># of Enrolled</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah05</field>
+            <label># of Enrolled</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah06</field>
+            <label># of Enrolled</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eb2Tg</field>
+            <label># of Subscribers</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mM</field>
+            <label>Accepted</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVq</field>
+            <label>Account RecordType Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVr</field>
+            <label>Account Status</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mq</field>
+            <label>Account Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eau54</field>
+            <label>Active Members</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzs</field>
+            <label>Actual # of Members</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP35</field>
+            <label>Acupuncture</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Dvyy1</field>
+            <label>Adjusted Membership</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mr</field>
+            <label>Affiliates</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EmeBz</field>
+            <label>Aging hours</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mN</field>
+            <label>Annual Revenue</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mv</field>
+            <label>Broker</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP37</field>
+            <label>Broker</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaas</field>
+            <label>Broker</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EaS6C</field>
+            <label>Broker HR HCC ID</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP39</field>
+            <label>Broker of Record</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mu</field>
+            <label>Broker Rep</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP38</field>
+            <label>Broker Rep</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EaS6H</field>
+            <label>Broker Rep HR HCC ID</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mt</field>
+            <label>Broker Rep Phone Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FITYy</field>
+            <label>By Pass Archive Contact Validation</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FQx26</field>
+            <label>Bypass Validation Rule</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh3</field>
+            <label>Calendar or Plan Year</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaaw</field>
+            <label>Carrier Partners</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EaOHp</field>
+            <label>Case Submitted By</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3B</field>
+            <label>Chiropractic</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mO</field>
+            <label>Classification</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaat</field>
+            <label>Close Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3n0</field>
+            <label>Closed Details</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3A</field>
+            <label>COBRA</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mw</field>
+            <label>Competitor</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkJ</field>
+            <label>Contribution(s) - EE</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3D</field>
+            <label>Created Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mP</field>
+            <label>Date Opportunity Shared</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EmeC0</field>
+            <label>Days taken to close</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3my</field>
+            <label>Days until Exp Close</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009kiJt</field>
+            <label>DB Competitor</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3E</field>
+            <label>Dental</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkK</field>
+            <label>Dependent Contribution</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mQ</field>
+            <label>Digital Campaigns</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIabB</field>
+            <label>Digital Campaigns</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mR</field>
+            <label>Director of Opportunity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3F</field>
+            <label>Early Retirees</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh4</field>
+            <label>Effective Date Exception</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaav</field>
+            <label>Employer</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVs</field>
+            <label>Employer Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mS</field>
+            <label>Error Reason</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh5</field>
+            <label>First time sale</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh6</field>
+            <label>GA Commission</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh7</field>
+            <label>GA Contact</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh9</field>
+            <label>General Agent</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh8</field>
+            <label>General Agent Applicable</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkL</field>
+            <label>Group Renewal Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzt</field>
+            <label>Incumbent Carrier #1</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzu</field>
+            <label>Incumbent Carrier #2</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzv</field>
+            <label>Incumbent Carrier #3</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3H</field>
+            <label>Incumbent Renewal Increase</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVt</field>
+            <label>Is Child Record Created?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3I</field>
+            <label>Last Modified Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eau55</field>
+            <label>Latest Opportunity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3n3</field>
+            <label>Lost Details</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mz</field>
+            <label>Marketing and Sales Primary Contact Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkI</field>
+            <label>Medical Commission</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVu</field>
+            <label>Medical Commission Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3U</field>
+            <label>Medicare/Retirees</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EmeC1</field>
+            <label>NewOrRenewal</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzw</field>
+            <label>NTE Offered %</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVv</field>
+            <label>Old Opportunity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3C</field>
+            <label>Open Enrollment</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mT</field>
+            <label>Opportunity Creator</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mU</field>
+            <label>Opportunity Shared By</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzx</field>
+            <label>Other Competitive Carrier</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzy</field>
+            <label>Other Competitive Carrier</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzz</field>
+            <label>Other Competitive Carrier</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3J</field>
+            <label>Out-of-Area</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX64W</field>
+            <label>Out of Area EEs</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3K</field>
+            <label>OverrideBrokerAndBrokerRep</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3n1</field>
+            <label>Plan Effective Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3L</field>
+            <label>Plan End Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVw</field>
+            <label>Plan Year</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaax</field>
+            <label>Please specify other</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mx</field>
+            <label>PPO Needed</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Dvyy6</field>
+            <label>Projected Membership</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3N</field>
+            <label>Projected Subscribers</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP36</field>
+            <label>Proposal Scenario</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3O</field>
+            <label>Purchased</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX64M</field>
+            <label>Quoted PMPM</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3P</field>
+            <label>Quote Owner</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3Q</field>
+            <label>Quote Presented Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkM</field>
+            <label>Rate Tier</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3n2</field>
+            <label>Reason Lost</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgW2</field>
+            <label>regenerate?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j5Gs</field>
+            <label>Region</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EabQd</field>
+            <label>Renewal Opportunity Created?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EabQe</field>
+            <label>Renewed Opportunity?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3R</field>
+            <label>RFP Due Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3S</field>
+            <label>RFP Received Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3T</field>
+            <label>RFP Sent to UW Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FQx27</field>
+            <label>Salesforce Id</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000ETUUi</field>
+            <label>Sales Team</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mW</field>
+            <label>Service Line/Product Promotion</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIc6j</field>
+            <label>Shared with SHMMN</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mX</field>
+            <label>Shared with SHP</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaay</field>
+            <label>SHMMN Assigned Rep</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaaz</field>
+            <label>SHMMN Go Live Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mV</field>
+            <label>SHMMN Opportunity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0f00000FIpUO</field>
+            <label>SHP SA Subs minus Valid Waiver</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah00</field>
+            <label>SHP vs Renewal</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah01</field>
+            <label>SHP vs Renewal</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah02</field>
+            <label>SHP vs Renewal</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVz</field>
+            <label>Slicing with Carrier Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX64N</field>
+            <label>Sold PMPM</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkN</field>
+            <label>Strategic Broker</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mY</field>
+            <label>Strategic Opportunities</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3G</field>
+            <label>Total Eligible Employees</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX64O</field>
+            <label>Total Enrolled</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3n5</field>
+            <label>Total FTE Employees</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgW0</field>
+            <label>Total SHP SA Subs with Valid Waivers</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgW1</field>
+            <label>Total Subs in SHP Service Areas (SA)</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah03</field>
+            <label>Underwriting Special Terms and Condition</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3V</field>
+            <label>Vision</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3W</field>
+            <label>Waived</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>PARTNER.NAME</field>
+            <label>Partner Account</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsSelectedSettings>
+            <field>OPPORTUNITY.NAME</field>
+            <field>ACCOUNT.NAME</field>
+            <field>OPPORTUNITY.AMOUNT</field>
+            <field>OPPORTUNITY.CLOSE_DATE</field>
+            <field>OPPORTUNITY.STAGE_NAME</field>
+            <field>OPPORTUNITY.PROBABILITY</field>
+            <field>FORECAST_CATEGORY</field>
+            <field>FULL_NAME</field>
+        </opportunityListFieldsSelectedSettings>
+        <opportunityListFieldsUnselectedSettings>
+            <field>CONTRACT.CONTRACT_NUMBER</field>
+            <field>CONTRACT.NAME</field>
+            <field>CORE.USERS.ALIAS</field>
+            <field>CORE.USERS.FIRST_NAME</field>
+            <field>CORE.USERS.LAST_NAME</field>
+            <field>DESCRIPTION</field>
+            <field>OPPORTUNITY.EXP_AMOUNT</field>
+            <field>OPPORTUNITY.LEAD_SOURCE</field>
+            <field>OPPORTUNITY.NEXT_STEP</field>
+            <field>OPPORTUNITY.PRIVATE</field>
+            <field>OPPORTUNITY.QUANTITY</field>
+            <field>OPPORTUNITY.TYPE</field>
+            <field>UPDATEDBY_USER.ALIAS</field>
+            <field>CREATEDBY_USER.ALIAS</field>
+            <field>OPPORTUNITY.CLOSED</field>
+            <field>OPPORTUNITY.WON</field>
+            <field>ACCOUNT.SITE</field>
+            <field>OPPORTUNITY.FISCAL_YEAR</field>
+            <field>OPPORTUNITY.FISCAL_QUARTER</field>
+            <field>OPPORTUNITY.FISCAL_PERIOD</field>
+            <field>OPPORTUNITY.RECORDTYPE</field>
+            <field>OPPORTUNITY.LAST_ACTIVITY</field>
+            <field>OPPORTUNITY.CREATED_DATE</field>
+            <field>OPPORTUNITY.LAST_UPDATE</field>
+            <field>00NG000000Eah04</field>
+            <field>00NG000000Eah05</field>
+            <field>00NG000000Eah06</field>
+            <field>00NG000000Eb2Tg</field>
+            <field>00NG000000FX9mM</field>
+            <field>00NG000000FIgVq</field>
+            <field>00NG000000FIgVr</field>
+            <field>00NG0000009j3mq</field>
+            <field>00NG000000Eau54</field>
+            <field>00NG000000Eagzs</field>
+            <field>00NG000000DvP35</field>
+            <field>00NG000000Dvyy1</field>
+            <field>00NG0000009j3mr</field>
+            <field>00NG000000EmeBz</field>
+            <field>00NG000000FX9mN</field>
+            <field>00NG0000009j3mv</field>
+            <field>00NG000000DvP37</field>
+            <field>00NG000000FIaas</field>
+            <field>00NG000000EaS6C</field>
+            <field>00NG000000DvP39</field>
+            <field>00NG0000009j3mu</field>
+            <field>00NG000000DvP38</field>
+            <field>00NG000000EaS6H</field>
+            <field>00NG0000009j3mt</field>
+            <field>00NG000000FITYy</field>
+            <field>00NG000000FQx26</field>
+            <field>00NG000000FIPh3</field>
+            <field>00NG000000FIaaw</field>
+            <field>00NG000000EaOHp</field>
+            <field>00NG000000DvP3B</field>
+            <field>00NG000000FX9mO</field>
+            <field>00NG000000FIaat</field>
+            <field>00NG0000009j3n0</field>
+            <field>00NG000000DvP3A</field>
+            <field>00NG0000009j3mw</field>
+            <field>00NG000000EbBkJ</field>
+            <field>00NG000000DvP3D</field>
+            <field>00NG000000FX9mP</field>
+            <field>00NG000000EmeC0</field>
+            <field>00NG0000009j3my</field>
+            <field>00NG0000009kiJt</field>
+            <field>00NG000000DvP3E</field>
+            <field>00NG000000EbBkK</field>
+            <field>00NG000000FX9mQ</field>
+            <field>00NG000000FIabB</field>
+            <field>00NG000000FX9mR</field>
+            <field>00NG000000DvP3F</field>
+            <field>00NG000000FIPh4</field>
+            <field>00NG000000FIaav</field>
+            <field>00NG000000FIgVs</field>
+            <field>00NG000000FX9mS</field>
+            <field>00NG000000FIPh5</field>
+            <field>00NG000000FIPh6</field>
+            <field>00NG000000FIPh7</field>
+            <field>00NG000000FIPh9</field>
+            <field>00NG000000FIPh8</field>
+            <field>00NG000000EbBkL</field>
+            <field>00NG000000Eagzt</field>
+            <field>00NG000000Eagzu</field>
+            <field>00NG000000Eagzv</field>
+            <field>00NG000000DvP3H</field>
+            <field>00NG000000FIgVt</field>
+            <field>00NG000000DvP3I</field>
+            <field>00NG000000Eau55</field>
+            <field>00NG0000009j3n3</field>
+            <field>00NG0000009j3mz</field>
+            <field>00NG000000EbBkI</field>
+            <field>00NG000000FIgVu</field>
+            <field>00NG000000DvP3U</field>
+            <field>00NG000000EmeC1</field>
+            <field>00NG000000Eagzw</field>
+            <field>00NG000000FIgVv</field>
+            <field>00NG000000DvP3C</field>
+            <field>00NG000000FX9mT</field>
+            <field>00NG000000FX9mU</field>
+            <field>00NG000000Eagzx</field>
+            <field>00NG000000Eagzy</field>
+            <field>00NG000000Eagzz</field>
+            <field>00NG000000DvP3J</field>
+            <field>00NG000000FX64W</field>
+            <field>00NG000000DvP3K</field>
+            <field>00NG0000009j3n1</field>
+            <field>00NG000000DvP3L</field>
+            <field>00NG000000FIgVw</field>
+            <field>00NG000000FIaax</field>
+            <field>00NG0000009j3mx</field>
+            <field>00NG000000Dvyy6</field>
+            <field>00NG000000DvP3N</field>
+            <field>00NG000000DvP36</field>
+            <field>00NG000000DvP3O</field>
+            <field>00NG000000FX64M</field>
+            <field>00NG000000DvP3P</field>
+            <field>00NG000000DvP3Q</field>
+            <field>00NG000000EbBkM</field>
+            <field>00NG0000009j3n2</field>
+            <field>00NG000000FIgW2</field>
+            <field>00NG0000009j5Gs</field>
+            <field>00NG000000EabQd</field>
+            <field>00NG000000EabQe</field>
+            <field>00NG000000DvP3R</field>
+            <field>00NG000000DvP3S</field>
+            <field>00NG000000DvP3T</field>
+            <field>00NG000000FQx27</field>
+            <field>00NG000000ETUUi</field>
+            <field>00NG000000FX9mW</field>
+            <field>00NG000000FIc6j</field>
+            <field>00NG000000FX9mX</field>
+            <field>00NG000000FIaay</field>
+            <field>00NG000000FIaaz</field>
+            <field>00NG000000FX9mV</field>
+            <field>00N0f00000FIpUO</field>
+            <field>00NG000000Eah00</field>
+            <field>00NG000000Eah01</field>
+            <field>00NG000000Eah02</field>
+            <field>00NG000000FIgVz</field>
+            <field>00NG000000FX64N</field>
+            <field>00NG000000EbBkN</field>
+            <field>00NG000000FX9mY</field>
+            <field>00NG000000DvP3G</field>
+            <field>00NG000000FX64O</field>
+            <field>00NG0000009j3n5</field>
+            <field>00NG000000FIgW0</field>
+            <field>00NG000000FIgW1</field>
+            <field>00NG000000Eah03</field>
+            <field>00NG000000DvP3V</field>
+            <field>00NG000000DvP3W</field>
+            <field>PARTNER.NAME</field>
+        </opportunityListFieldsUnselectedSettings>
+        <quotasSettings>
+            <showQuotas>false</showQuotas>
+        </quotasSettings>
+    </forecastingTypeSettings>
+    <forecastingTypeSettings>
+        <active>false</active>
+        <adjustmentsSettings>
+            <enableAdjustments>false</enableAdjustments>
+            <enableOwnerAdjustments>false</enableOwnerAdjustments>
+        </adjustmentsSettings>
+        <displayedCategoryApiNames>closedonly</displayedCategoryApiNames>
+        <displayedCategoryApiNames>commitonly</displayedCategoryApiNames>
+        <displayedCategoryApiNames>bestcaseonly</displayedCategoryApiNames>
+        <displayedCategoryApiNames>pipelineonly</displayedCategoryApiNames>
+        <forecastRangeSettings>
+            <beginning>0</beginning>
+            <displaying>6</displaying>
+            <periodType>Month</periodType>
+        </forecastRangeSettings>
+        <forecastedCategoryApiNames>commitonly</forecastedCategoryApiNames>
+        <forecastedCategoryApiNames>closedonly</forecastedCategoryApiNames>
+        <forecastedCategoryApiNames>pipelineonly</forecastedCategoryApiNames>
+        <forecastedCategoryApiNames>bestcaseonly</forecastedCategoryApiNames>
+        <isAmount>false</isAmount>
+        <isAvailable>true</isAvailable>
+        <isQuantity>true</isQuantity>
+        <masterLabel>Opportunities</masterLabel>
+        <name>OpportunityQuantity</name>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.NAME</field>
+            <label>Opportunity Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>ACCOUNT.NAME</field>
+            <label>Account Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.AMOUNT</field>
+            <label>Amount</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CLOSE_DATE</field>
+            <label>Expected Close Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.STAGE_NAME</field>
+            <label>Stage</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.PROBABILITY</field>
+            <label>Probability (%)</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>FORECAST_CATEGORY</field>
+            <label>Forecast Category</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>FULL_NAME</field>
+            <label>Owner Full Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CONTRACT.CONTRACT_NUMBER</field>
+            <label>Contract Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CONTRACT.NAME</field>
+            <label>Contract Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CORE.USERS.ALIAS</field>
+            <label>Opportunity Owner Alias</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CORE.USERS.FIRST_NAME</field>
+            <label>Owner First Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CORE.USERS.LAST_NAME</field>
+            <label>Owner Last Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>DESCRIPTION</field>
+            <label>Comment</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.EXP_AMOUNT</field>
+            <label>Expected Revenue</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.LEAD_SOURCE</field>
+            <label>Lead Source</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.NEXT_STEP</field>
+            <label>Next Step</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.PRIVATE</field>
+            <label>Private</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.QUANTITY</field>
+            <label>Quantity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.TYPE</field>
+            <label>Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>UPDATEDBY_USER.ALIAS</field>
+            <label>Last Modified By Alias</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CREATEDBY_USER.ALIAS</field>
+            <label>Created By Alias</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CLOSED</field>
+            <label>Closed</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.WON</field>
+            <label>Won</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>ACCOUNT.SITE</field>
+            <label>Account Site</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.FISCAL_YEAR</field>
+            <label>Fiscal Year</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.FISCAL_QUARTER</field>
+            <label>Fiscal Quarter</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.FISCAL_PERIOD</field>
+            <label>Fiscal Period</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.RECORDTYPE</field>
+            <label>Opportunity Record Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.LAST_ACTIVITY</field>
+            <label>Last Activity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CREATED_DATE</field>
+            <label>Created Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.LAST_UPDATE</field>
+            <label>Last Modified Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah04</field>
+            <label># of Enrolled</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah05</field>
+            <label># of Enrolled</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah06</field>
+            <label># of Enrolled</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eb2Tg</field>
+            <label># of Subscribers</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mM</field>
+            <label>Accepted</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVq</field>
+            <label>Account RecordType Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVr</field>
+            <label>Account Status</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mq</field>
+            <label>Account Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eau54</field>
+            <label>Active Members</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzs</field>
+            <label>Actual # of Members</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP35</field>
+            <label>Acupuncture</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Dvyy1</field>
+            <label>Adjusted Membership</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mr</field>
+            <label>Affiliates</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EmeBz</field>
+            <label>Aging hours</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mN</field>
+            <label>Annual Revenue</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mv</field>
+            <label>Broker</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP37</field>
+            <label>Broker</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaas</field>
+            <label>Broker</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EaS6C</field>
+            <label>Broker HR HCC ID</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP39</field>
+            <label>Broker of Record</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mu</field>
+            <label>Broker Rep</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP38</field>
+            <label>Broker Rep</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EaS6H</field>
+            <label>Broker Rep HR HCC ID</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mt</field>
+            <label>Broker Rep Phone Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FITYy</field>
+            <label>By Pass Archive Contact Validation</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FQx26</field>
+            <label>Bypass Validation Rule</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh3</field>
+            <label>Calendar or Plan Year</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaaw</field>
+            <label>Carrier Partners</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EaOHp</field>
+            <label>Case Submitted By</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3B</field>
+            <label>Chiropractic</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mO</field>
+            <label>Classification</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaat</field>
+            <label>Close Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3n0</field>
+            <label>Closed Details</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3A</field>
+            <label>COBRA</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mw</field>
+            <label>Competitor</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkJ</field>
+            <label>Contribution(s) - EE</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3D</field>
+            <label>Created Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mP</field>
+            <label>Date Opportunity Shared</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EmeC0</field>
+            <label>Days taken to close</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3my</field>
+            <label>Days until Exp Close</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009kiJt</field>
+            <label>DB Competitor</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3E</field>
+            <label>Dental</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkK</field>
+            <label>Dependent Contribution</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mQ</field>
+            <label>Digital Campaigns</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIabB</field>
+            <label>Digital Campaigns</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mR</field>
+            <label>Director of Opportunity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3F</field>
+            <label>Early Retirees</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh4</field>
+            <label>Effective Date Exception</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaav</field>
+            <label>Employer</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVs</field>
+            <label>Employer Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mS</field>
+            <label>Error Reason</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh5</field>
+            <label>First time sale</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh6</field>
+            <label>GA Commission</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh7</field>
+            <label>GA Contact</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh9</field>
+            <label>General Agent</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh8</field>
+            <label>General Agent Applicable</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkL</field>
+            <label>Group Renewal Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzt</field>
+            <label>Incumbent Carrier #1</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzu</field>
+            <label>Incumbent Carrier #2</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzv</field>
+            <label>Incumbent Carrier #3</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3H</field>
+            <label>Incumbent Renewal Increase</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVt</field>
+            <label>Is Child Record Created?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3I</field>
+            <label>Last Modified Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eau55</field>
+            <label>Latest Opportunity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3n3</field>
+            <label>Lost Details</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mz</field>
+            <label>Marketing and Sales Primary Contact Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkI</field>
+            <label>Medical Commission</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVu</field>
+            <label>Medical Commission Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3U</field>
+            <label>Medicare/Retirees</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EmeC1</field>
+            <label>NewOrRenewal</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzw</field>
+            <label>NTE Offered %</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVv</field>
+            <label>Old Opportunity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3C</field>
+            <label>Open Enrollment</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mT</field>
+            <label>Opportunity Creator</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mU</field>
+            <label>Opportunity Shared By</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzx</field>
+            <label>Other Competitive Carrier</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzy</field>
+            <label>Other Competitive Carrier</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzz</field>
+            <label>Other Competitive Carrier</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3J</field>
+            <label>Out-of-Area</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX64W</field>
+            <label>Out of Area EEs</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3K</field>
+            <label>OverrideBrokerAndBrokerRep</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3n1</field>
+            <label>Plan Effective Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3L</field>
+            <label>Plan End Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVw</field>
+            <label>Plan Year</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaax</field>
+            <label>Please specify other</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mx</field>
+            <label>PPO Needed</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Dvyy6</field>
+            <label>Projected Membership</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3N</field>
+            <label>Projected Subscribers</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP36</field>
+            <label>Proposal Scenario</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3O</field>
+            <label>Purchased</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX64M</field>
+            <label>Quoted PMPM</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3P</field>
+            <label>Quote Owner</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3Q</field>
+            <label>Quote Presented Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkM</field>
+            <label>Rate Tier</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3n2</field>
+            <label>Reason Lost</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgW2</field>
+            <label>regenerate?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j5Gs</field>
+            <label>Region</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EabQd</field>
+            <label>Renewal Opportunity Created?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EabQe</field>
+            <label>Renewed Opportunity?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3R</field>
+            <label>RFP Due Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3S</field>
+            <label>RFP Received Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3T</field>
+            <label>RFP Sent to UW Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FQx27</field>
+            <label>Salesforce Id</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000ETUUi</field>
+            <label>Sales Team</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mW</field>
+            <label>Service Line/Product Promotion</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIc6j</field>
+            <label>Shared with SHMMN</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mX</field>
+            <label>Shared with SHP</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaay</field>
+            <label>SHMMN Assigned Rep</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaaz</field>
+            <label>SHMMN Go Live Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mV</field>
+            <label>SHMMN Opportunity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0f00000FIpUO</field>
+            <label>SHP SA Subs minus Valid Waiver</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah00</field>
+            <label>SHP vs Renewal</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah01</field>
+            <label>SHP vs Renewal</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah02</field>
+            <label>SHP vs Renewal</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVz</field>
+            <label>Slicing with Carrier Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX64N</field>
+            <label>Sold PMPM</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkN</field>
+            <label>Strategic Broker</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mY</field>
+            <label>Strategic Opportunities</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3G</field>
+            <label>Total Eligible Employees</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX64O</field>
+            <label>Total Enrolled</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3n5</field>
+            <label>Total FTE Employees</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgW0</field>
+            <label>Total SHP SA Subs with Valid Waivers</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgW1</field>
+            <label>Total Subs in SHP Service Areas (SA)</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah03</field>
+            <label>Underwriting Special Terms and Condition</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3V</field>
+            <label>Vision</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3W</field>
+            <label>Waived</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>PARTNER.NAME</field>
+            <label>Partner Account</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsSelectedSettings>
+            <field>OPPORTUNITY.NAME</field>
+            <field>ACCOUNT.NAME</field>
+            <field>OPPORTUNITY.AMOUNT</field>
+            <field>OPPORTUNITY.CLOSE_DATE</field>
+            <field>OPPORTUNITY.STAGE_NAME</field>
+            <field>OPPORTUNITY.PROBABILITY</field>
+            <field>FORECAST_CATEGORY</field>
+            <field>FULL_NAME</field>
+        </opportunityListFieldsSelectedSettings>
+        <opportunityListFieldsUnselectedSettings>
+            <field>CONTRACT.CONTRACT_NUMBER</field>
+            <field>CONTRACT.NAME</field>
+            <field>CORE.USERS.ALIAS</field>
+            <field>CORE.USERS.FIRST_NAME</field>
+            <field>CORE.USERS.LAST_NAME</field>
+            <field>DESCRIPTION</field>
+            <field>OPPORTUNITY.EXP_AMOUNT</field>
+            <field>OPPORTUNITY.LEAD_SOURCE</field>
+            <field>OPPORTUNITY.NEXT_STEP</field>
+            <field>OPPORTUNITY.PRIVATE</field>
+            <field>OPPORTUNITY.QUANTITY</field>
+            <field>OPPORTUNITY.TYPE</field>
+            <field>UPDATEDBY_USER.ALIAS</field>
+            <field>CREATEDBY_USER.ALIAS</field>
+            <field>OPPORTUNITY.CLOSED</field>
+            <field>OPPORTUNITY.WON</field>
+            <field>ACCOUNT.SITE</field>
+            <field>OPPORTUNITY.FISCAL_YEAR</field>
+            <field>OPPORTUNITY.FISCAL_QUARTER</field>
+            <field>OPPORTUNITY.FISCAL_PERIOD</field>
+            <field>OPPORTUNITY.RECORDTYPE</field>
+            <field>OPPORTUNITY.LAST_ACTIVITY</field>
+            <field>OPPORTUNITY.CREATED_DATE</field>
+            <field>OPPORTUNITY.LAST_UPDATE</field>
+            <field>00NG000000Eah04</field>
+            <field>00NG000000Eah05</field>
+            <field>00NG000000Eah06</field>
+            <field>00NG000000Eb2Tg</field>
+            <field>00NG000000FX9mM</field>
+            <field>00NG000000FIgVq</field>
+            <field>00NG000000FIgVr</field>
+            <field>00NG0000009j3mq</field>
+            <field>00NG000000Eau54</field>
+            <field>00NG000000Eagzs</field>
+            <field>00NG000000DvP35</field>
+            <field>00NG000000Dvyy1</field>
+            <field>00NG0000009j3mr</field>
+            <field>00NG000000EmeBz</field>
+            <field>00NG000000FX9mN</field>
+            <field>00NG0000009j3mv</field>
+            <field>00NG000000DvP37</field>
+            <field>00NG000000FIaas</field>
+            <field>00NG000000EaS6C</field>
+            <field>00NG000000DvP39</field>
+            <field>00NG0000009j3mu</field>
+            <field>00NG000000DvP38</field>
+            <field>00NG000000EaS6H</field>
+            <field>00NG0000009j3mt</field>
+            <field>00NG000000FITYy</field>
+            <field>00NG000000FQx26</field>
+            <field>00NG000000FIPh3</field>
+            <field>00NG000000FIaaw</field>
+            <field>00NG000000EaOHp</field>
+            <field>00NG000000DvP3B</field>
+            <field>00NG000000FX9mO</field>
+            <field>00NG000000FIaat</field>
+            <field>00NG0000009j3n0</field>
+            <field>00NG000000DvP3A</field>
+            <field>00NG0000009j3mw</field>
+            <field>00NG000000EbBkJ</field>
+            <field>00NG000000DvP3D</field>
+            <field>00NG000000FX9mP</field>
+            <field>00NG000000EmeC0</field>
+            <field>00NG0000009j3my</field>
+            <field>00NG0000009kiJt</field>
+            <field>00NG000000DvP3E</field>
+            <field>00NG000000EbBkK</field>
+            <field>00NG000000FX9mQ</field>
+            <field>00NG000000FIabB</field>
+            <field>00NG000000FX9mR</field>
+            <field>00NG000000DvP3F</field>
+            <field>00NG000000FIPh4</field>
+            <field>00NG000000FIaav</field>
+            <field>00NG000000FIgVs</field>
+            <field>00NG000000FX9mS</field>
+            <field>00NG000000FIPh5</field>
+            <field>00NG000000FIPh6</field>
+            <field>00NG000000FIPh7</field>
+            <field>00NG000000FIPh9</field>
+            <field>00NG000000FIPh8</field>
+            <field>00NG000000EbBkL</field>
+            <field>00NG000000Eagzt</field>
+            <field>00NG000000Eagzu</field>
+            <field>00NG000000Eagzv</field>
+            <field>00NG000000DvP3H</field>
+            <field>00NG000000FIgVt</field>
+            <field>00NG000000DvP3I</field>
+            <field>00NG000000Eau55</field>
+            <field>00NG0000009j3n3</field>
+            <field>00NG0000009j3mz</field>
+            <field>00NG000000EbBkI</field>
+            <field>00NG000000FIgVu</field>
+            <field>00NG000000DvP3U</field>
+            <field>00NG000000EmeC1</field>
+            <field>00NG000000Eagzw</field>
+            <field>00NG000000FIgVv</field>
+            <field>00NG000000DvP3C</field>
+            <field>00NG000000FX9mT</field>
+            <field>00NG000000FX9mU</field>
+            <field>00NG000000Eagzx</field>
+            <field>00NG000000Eagzy</field>
+            <field>00NG000000Eagzz</field>
+            <field>00NG000000DvP3J</field>
+            <field>00NG000000FX64W</field>
+            <field>00NG000000DvP3K</field>
+            <field>00NG0000009j3n1</field>
+            <field>00NG000000DvP3L</field>
+            <field>00NG000000FIgVw</field>
+            <field>00NG000000FIaax</field>
+            <field>00NG0000009j3mx</field>
+            <field>00NG000000Dvyy6</field>
+            <field>00NG000000DvP3N</field>
+            <field>00NG000000DvP36</field>
+            <field>00NG000000DvP3O</field>
+            <field>00NG000000FX64M</field>
+            <field>00NG000000DvP3P</field>
+            <field>00NG000000DvP3Q</field>
+            <field>00NG000000EbBkM</field>
+            <field>00NG0000009j3n2</field>
+            <field>00NG000000FIgW2</field>
+            <field>00NG0000009j5Gs</field>
+            <field>00NG000000EabQd</field>
+            <field>00NG000000EabQe</field>
+            <field>00NG000000DvP3R</field>
+            <field>00NG000000DvP3S</field>
+            <field>00NG000000DvP3T</field>
+            <field>00NG000000FQx27</field>
+            <field>00NG000000ETUUi</field>
+            <field>00NG000000FX9mW</field>
+            <field>00NG000000FIc6j</field>
+            <field>00NG000000FX9mX</field>
+            <field>00NG000000FIaay</field>
+            <field>00NG000000FIaaz</field>
+            <field>00NG000000FX9mV</field>
+            <field>00N0f00000FIpUO</field>
+            <field>00NG000000Eah00</field>
+            <field>00NG000000Eah01</field>
+            <field>00NG000000Eah02</field>
+            <field>00NG000000FIgVz</field>
+            <field>00NG000000FX64N</field>
+            <field>00NG000000EbBkN</field>
+            <field>00NG000000FX9mY</field>
+            <field>00NG000000DvP3G</field>
+            <field>00NG000000FX64O</field>
+            <field>00NG0000009j3n5</field>
+            <field>00NG000000FIgW0</field>
+            <field>00NG000000FIgW1</field>
+            <field>00NG000000Eah03</field>
+            <field>00NG000000DvP3V</field>
+            <field>00NG000000DvP3W</field>
+            <field>PARTNER.NAME</field>
+        </opportunityListFieldsUnselectedSettings>
+        <quotasSettings>
+            <showQuotas>false</showQuotas>
+        </quotasSettings>
+    </forecastingTypeSettings>
+    <forecastingTypeSettings>
+        <active>true</active>
+        <adjustmentsSettings>
+            <enableAdjustments>false</enableAdjustments>
+            <enableOwnerAdjustments>false</enableOwnerAdjustments>
+        </adjustmentsSettings>
+        <displayedCategoryApiNames>closedonly</displayedCategoryApiNames>
+        <displayedCategoryApiNames>commitonly</displayedCategoryApiNames>
+        <displayedCategoryApiNames>bestcaseonly</displayedCategoryApiNames>
+        <displayedCategoryApiNames>pipelineonly</displayedCategoryApiNames>
+        <forecastRangeSettings>
+            <beginning>0</beginning>
+            <displaying>6</displaying>
+            <periodType>Month</periodType>
+        </forecastRangeSettings>
+        <forecastedCategoryApiNames>commitonly</forecastedCategoryApiNames>
+        <forecastedCategoryApiNames>closedonly</forecastedCategoryApiNames>
+        <forecastedCategoryApiNames>pipelineonly</forecastedCategoryApiNames>
+        <forecastedCategoryApiNames>bestcaseonly</forecastedCategoryApiNames>
+        <isAmount>true</isAmount>
+        <isAvailable>true</isAvailable>
+        <isQuantity>false</isQuantity>
+        <masterLabel>Opportunities</masterLabel>
+        <name>OpportunityRevenue</name>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.NAME</field>
+            <label>Opportunity Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>ACCOUNT.NAME</field>
+            <label>Account Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.AMOUNT</field>
+            <label>Amount</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CLOSE_DATE</field>
+            <label>Expected Close Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.STAGE_NAME</field>
+            <label>Stage</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.PROBABILITY</field>
+            <label>Probability (%)</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>FORECAST_CATEGORY</field>
+            <label>Forecast Category</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>FULL_NAME</field>
+            <label>Owner Full Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CONTRACT.CONTRACT_NUMBER</field>
+            <label>Contract Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CONTRACT.NAME</field>
+            <label>Contract Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CORE.USERS.ALIAS</field>
+            <label>Opportunity Owner Alias</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CORE.USERS.FIRST_NAME</field>
+            <label>Owner First Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CORE.USERS.LAST_NAME</field>
+            <label>Owner Last Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>DESCRIPTION</field>
+            <label>Comment</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.EXP_AMOUNT</field>
+            <label>Expected Revenue</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.LEAD_SOURCE</field>
+            <label>Lead Source</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.NEXT_STEP</field>
+            <label>Next Step</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.PRIVATE</field>
+            <label>Private</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.QUANTITY</field>
+            <label>Quantity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.TYPE</field>
+            <label>Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>UPDATEDBY_USER.ALIAS</field>
+            <label>Last Modified By Alias</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CREATEDBY_USER.ALIAS</field>
+            <label>Created By Alias</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CLOSED</field>
+            <label>Closed</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.WON</field>
+            <label>Won</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>ACCOUNT.SITE</field>
+            <label>Account Site</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.FISCAL_YEAR</field>
+            <label>Fiscal Year</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.FISCAL_QUARTER</field>
+            <label>Fiscal Quarter</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.FISCAL_PERIOD</field>
+            <label>Fiscal Period</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.RECORDTYPE</field>
+            <label>Opportunity Record Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.LAST_ACTIVITY</field>
+            <label>Last Activity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CREATED_DATE</field>
+            <label>Created Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.LAST_UPDATE</field>
+            <label>Last Modified Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah04</field>
+            <label># of Enrolled</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah05</field>
+            <label># of Enrolled</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah06</field>
+            <label># of Enrolled</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eb2Tg</field>
+            <label># of Subscribers</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mM</field>
+            <label>Accepted</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVq</field>
+            <label>Account RecordType Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVr</field>
+            <label>Account Status</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mq</field>
+            <label>Account Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eau54</field>
+            <label>Active Members</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzs</field>
+            <label>Actual # of Members</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP35</field>
+            <label>Acupuncture</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Dvyy1</field>
+            <label>Adjusted Membership</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mr</field>
+            <label>Affiliates</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EmeBz</field>
+            <label>Aging hours</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mN</field>
+            <label>Annual Revenue</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mv</field>
+            <label>Broker</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP37</field>
+            <label>Broker</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaas</field>
+            <label>Broker</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EaS6C</field>
+            <label>Broker HR HCC ID</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP39</field>
+            <label>Broker of Record</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mu</field>
+            <label>Broker Rep</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP38</field>
+            <label>Broker Rep</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EaS6H</field>
+            <label>Broker Rep HR HCC ID</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mt</field>
+            <label>Broker Rep Phone Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FITYy</field>
+            <label>By Pass Archive Contact Validation</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FQx26</field>
+            <label>Bypass Validation Rule</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh3</field>
+            <label>Calendar or Plan Year</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaaw</field>
+            <label>Carrier Partners</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EaOHp</field>
+            <label>Case Submitted By</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3B</field>
+            <label>Chiropractic</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mO</field>
+            <label>Classification</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaat</field>
+            <label>Close Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3n0</field>
+            <label>Closed Details</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3A</field>
+            <label>COBRA</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mw</field>
+            <label>Competitor</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkJ</field>
+            <label>Contribution(s) - EE</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3D</field>
+            <label>Created Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mP</field>
+            <label>Date Opportunity Shared</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EmeC0</field>
+            <label>Days taken to close</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3my</field>
+            <label>Days until Exp Close</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009kiJt</field>
+            <label>DB Competitor</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3E</field>
+            <label>Dental</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkK</field>
+            <label>Dependent Contribution</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mQ</field>
+            <label>Digital Campaigns</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIabB</field>
+            <label>Digital Campaigns</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mR</field>
+            <label>Director of Opportunity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3F</field>
+            <label>Early Retirees</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh4</field>
+            <label>Effective Date Exception</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaav</field>
+            <label>Employer</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVs</field>
+            <label>Employer Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mS</field>
+            <label>Error Reason</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh5</field>
+            <label>First time sale</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh6</field>
+            <label>GA Commission</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh7</field>
+            <label>GA Contact</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh9</field>
+            <label>General Agent</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh8</field>
+            <label>General Agent Applicable</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkL</field>
+            <label>Group Renewal Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzt</field>
+            <label>Incumbent Carrier #1</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzu</field>
+            <label>Incumbent Carrier #2</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzv</field>
+            <label>Incumbent Carrier #3</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3H</field>
+            <label>Incumbent Renewal Increase</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVt</field>
+            <label>Is Child Record Created?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3I</field>
+            <label>Last Modified Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eau55</field>
+            <label>Latest Opportunity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3n3</field>
+            <label>Lost Details</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mz</field>
+            <label>Marketing and Sales Primary Contact Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkI</field>
+            <label>Medical Commission</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVu</field>
+            <label>Medical Commission Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3U</field>
+            <label>Medicare/Retirees</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EmeC1</field>
+            <label>NewOrRenewal</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzw</field>
+            <label>NTE Offered %</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVv</field>
+            <label>Old Opportunity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3C</field>
+            <label>Open Enrollment</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mT</field>
+            <label>Opportunity Creator</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mU</field>
+            <label>Opportunity Shared By</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzx</field>
+            <label>Other Competitive Carrier</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzy</field>
+            <label>Other Competitive Carrier</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzz</field>
+            <label>Other Competitive Carrier</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3J</field>
+            <label>Out-of-Area</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX64W</field>
+            <label>Out of Area EEs</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3K</field>
+            <label>OverrideBrokerAndBrokerRep</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3n1</field>
+            <label>Plan Effective Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3L</field>
+            <label>Plan End Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVw</field>
+            <label>Plan Year</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaax</field>
+            <label>Please specify other</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mx</field>
+            <label>PPO Needed</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Dvyy6</field>
+            <label>Projected Membership</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3N</field>
+            <label>Projected Subscribers</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP36</field>
+            <label>Proposal Scenario</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3O</field>
+            <label>Purchased</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX64M</field>
+            <label>Quoted PMPM</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3P</field>
+            <label>Quote Owner</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3Q</field>
+            <label>Quote Presented Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkM</field>
+            <label>Rate Tier</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3n2</field>
+            <label>Reason Lost</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgW2</field>
+            <label>regenerate?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j5Gs</field>
+            <label>Region</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EabQd</field>
+            <label>Renewal Opportunity Created?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EabQe</field>
+            <label>Renewed Opportunity?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3R</field>
+            <label>RFP Due Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3S</field>
+            <label>RFP Received Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3T</field>
+            <label>RFP Sent to UW Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FQx27</field>
+            <label>Salesforce Id</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000ETUUi</field>
+            <label>Sales Team</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mW</field>
+            <label>Service Line/Product Promotion</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIc6j</field>
+            <label>Shared with SHMMN</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mX</field>
+            <label>Shared with SHP</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaay</field>
+            <label>SHMMN Assigned Rep</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaaz</field>
+            <label>SHMMN Go Live Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mV</field>
+            <label>SHMMN Opportunity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0f00000FIpUO</field>
+            <label>SHP SA Subs minus Valid Waiver</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah00</field>
+            <label>SHP vs Renewal</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah01</field>
+            <label>SHP vs Renewal</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah02</field>
+            <label>SHP vs Renewal</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVz</field>
+            <label>Slicing with Carrier Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX64N</field>
+            <label>Sold PMPM</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkN</field>
+            <label>Strategic Broker</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mY</field>
+            <label>Strategic Opportunities</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3G</field>
+            <label>Total Eligible Employees</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX64O</field>
+            <label>Total Enrolled</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3n5</field>
+            <label>Total FTE Employees</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgW0</field>
+            <label>Total SHP SA Subs with Valid Waivers</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgW1</field>
+            <label>Total Subs in SHP Service Areas (SA)</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah03</field>
+            <label>Underwriting Special Terms and Condition</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3V</field>
+            <label>Vision</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3W</field>
+            <label>Waived</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>PARTNER.NAME</field>
+            <label>Partner Account</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsSelectedSettings>
+            <field>OPPORTUNITY.NAME</field>
+            <field>ACCOUNT.NAME</field>
+            <field>OPPORTUNITY.AMOUNT</field>
+            <field>OPPORTUNITY.CLOSE_DATE</field>
+            <field>OPPORTUNITY.STAGE_NAME</field>
+            <field>OPPORTUNITY.PROBABILITY</field>
+            <field>FORECAST_CATEGORY</field>
+            <field>FULL_NAME</field>
+        </opportunityListFieldsSelectedSettings>
+        <opportunityListFieldsUnselectedSettings>
+            <field>CONTRACT.CONTRACT_NUMBER</field>
+            <field>CONTRACT.NAME</field>
+            <field>CORE.USERS.ALIAS</field>
+            <field>CORE.USERS.FIRST_NAME</field>
+            <field>CORE.USERS.LAST_NAME</field>
+            <field>DESCRIPTION</field>
+            <field>OPPORTUNITY.EXP_AMOUNT</field>
+            <field>OPPORTUNITY.LEAD_SOURCE</field>
+            <field>OPPORTUNITY.NEXT_STEP</field>
+            <field>OPPORTUNITY.PRIVATE</field>
+            <field>OPPORTUNITY.QUANTITY</field>
+            <field>OPPORTUNITY.TYPE</field>
+            <field>UPDATEDBY_USER.ALIAS</field>
+            <field>CREATEDBY_USER.ALIAS</field>
+            <field>OPPORTUNITY.CLOSED</field>
+            <field>OPPORTUNITY.WON</field>
+            <field>ACCOUNT.SITE</field>
+            <field>OPPORTUNITY.FISCAL_YEAR</field>
+            <field>OPPORTUNITY.FISCAL_QUARTER</field>
+            <field>OPPORTUNITY.FISCAL_PERIOD</field>
+            <field>OPPORTUNITY.RECORDTYPE</field>
+            <field>OPPORTUNITY.LAST_ACTIVITY</field>
+            <field>OPPORTUNITY.CREATED_DATE</field>
+            <field>OPPORTUNITY.LAST_UPDATE</field>
+            <field>00NG000000Eah04</field>
+            <field>00NG000000Eah05</field>
+            <field>00NG000000Eah06</field>
+            <field>00NG000000Eb2Tg</field>
+            <field>00NG000000FX9mM</field>
+            <field>00NG000000FIgVq</field>
+            <field>00NG000000FIgVr</field>
+            <field>00NG0000009j3mq</field>
+            <field>00NG000000Eau54</field>
+            <field>00NG000000Eagzs</field>
+            <field>00NG000000DvP35</field>
+            <field>00NG000000Dvyy1</field>
+            <field>00NG0000009j3mr</field>
+            <field>00NG000000EmeBz</field>
+            <field>00NG000000FX9mN</field>
+            <field>00NG0000009j3mv</field>
+            <field>00NG000000DvP37</field>
+            <field>00NG000000FIaas</field>
+            <field>00NG000000EaS6C</field>
+            <field>00NG000000DvP39</field>
+            <field>00NG0000009j3mu</field>
+            <field>00NG000000DvP38</field>
+            <field>00NG000000EaS6H</field>
+            <field>00NG0000009j3mt</field>
+            <field>00NG000000FITYy</field>
+            <field>00NG000000FQx26</field>
+            <field>00NG000000FIPh3</field>
+            <field>00NG000000FIaaw</field>
+            <field>00NG000000EaOHp</field>
+            <field>00NG000000DvP3B</field>
+            <field>00NG000000FX9mO</field>
+            <field>00NG000000FIaat</field>
+            <field>00NG0000009j3n0</field>
+            <field>00NG000000DvP3A</field>
+            <field>00NG0000009j3mw</field>
+            <field>00NG000000EbBkJ</field>
+            <field>00NG000000DvP3D</field>
+            <field>00NG000000FX9mP</field>
+            <field>00NG000000EmeC0</field>
+            <field>00NG0000009j3my</field>
+            <field>00NG0000009kiJt</field>
+            <field>00NG000000DvP3E</field>
+            <field>00NG000000EbBkK</field>
+            <field>00NG000000FX9mQ</field>
+            <field>00NG000000FIabB</field>
+            <field>00NG000000FX9mR</field>
+            <field>00NG000000DvP3F</field>
+            <field>00NG000000FIPh4</field>
+            <field>00NG000000FIaav</field>
+            <field>00NG000000FIgVs</field>
+            <field>00NG000000FX9mS</field>
+            <field>00NG000000FIPh5</field>
+            <field>00NG000000FIPh6</field>
+            <field>00NG000000FIPh7</field>
+            <field>00NG000000FIPh9</field>
+            <field>00NG000000FIPh8</field>
+            <field>00NG000000EbBkL</field>
+            <field>00NG000000Eagzt</field>
+            <field>00NG000000Eagzu</field>
+            <field>00NG000000Eagzv</field>
+            <field>00NG000000DvP3H</field>
+            <field>00NG000000FIgVt</field>
+            <field>00NG000000DvP3I</field>
+            <field>00NG000000Eau55</field>
+            <field>00NG0000009j3n3</field>
+            <field>00NG0000009j3mz</field>
+            <field>00NG000000EbBkI</field>
+            <field>00NG000000FIgVu</field>
+            <field>00NG000000DvP3U</field>
+            <field>00NG000000EmeC1</field>
+            <field>00NG000000Eagzw</field>
+            <field>00NG000000FIgVv</field>
+            <field>00NG000000DvP3C</field>
+            <field>00NG000000FX9mT</field>
+            <field>00NG000000FX9mU</field>
+            <field>00NG000000Eagzx</field>
+            <field>00NG000000Eagzy</field>
+            <field>00NG000000Eagzz</field>
+            <field>00NG000000DvP3J</field>
+            <field>00NG000000FX64W</field>
+            <field>00NG000000DvP3K</field>
+            <field>00NG0000009j3n1</field>
+            <field>00NG000000DvP3L</field>
+            <field>00NG000000FIgVw</field>
+            <field>00NG000000FIaax</field>
+            <field>00NG0000009j3mx</field>
+            <field>00NG000000Dvyy6</field>
+            <field>00NG000000DvP3N</field>
+            <field>00NG000000DvP36</field>
+            <field>00NG000000DvP3O</field>
+            <field>00NG000000FX64M</field>
+            <field>00NG000000DvP3P</field>
+            <field>00NG000000DvP3Q</field>
+            <field>00NG000000EbBkM</field>
+            <field>00NG0000009j3n2</field>
+            <field>00NG000000FIgW2</field>
+            <field>00NG0000009j5Gs</field>
+            <field>00NG000000EabQd</field>
+            <field>00NG000000EabQe</field>
+            <field>00NG000000DvP3R</field>
+            <field>00NG000000DvP3S</field>
+            <field>00NG000000DvP3T</field>
+            <field>00NG000000FQx27</field>
+            <field>00NG000000ETUUi</field>
+            <field>00NG000000FX9mW</field>
+            <field>00NG000000FIc6j</field>
+            <field>00NG000000FX9mX</field>
+            <field>00NG000000FIaay</field>
+            <field>00NG000000FIaaz</field>
+            <field>00NG000000FX9mV</field>
+            <field>00N0f00000FIpUO</field>
+            <field>00NG000000Eah00</field>
+            <field>00NG000000Eah01</field>
+            <field>00NG000000Eah02</field>
+            <field>00NG000000FIgVz</field>
+            <field>00NG000000FX64N</field>
+            <field>00NG000000EbBkN</field>
+            <field>00NG000000FX9mY</field>
+            <field>00NG000000DvP3G</field>
+            <field>00NG000000FX64O</field>
+            <field>00NG0000009j3n5</field>
+            <field>00NG000000FIgW0</field>
+            <field>00NG000000FIgW1</field>
+            <field>00NG000000Eah03</field>
+            <field>00NG000000DvP3V</field>
+            <field>00NG000000DvP3W</field>
+            <field>PARTNER.NAME</field>
+        </opportunityListFieldsUnselectedSettings>
+        <quotasSettings>
+            <showQuotas>false</showQuotas>
+        </quotasSettings>
+    </forecastingTypeSettings>
+    <forecastingTypeSettings>
+        <active>false</active>
+        <adjustmentsSettings>
+            <enableAdjustments>false</enableAdjustments>
+            <enableOwnerAdjustments>false</enableOwnerAdjustments>
+        </adjustmentsSettings>
+        <displayedCategoryApiNames>closedonly</displayedCategoryApiNames>
+        <displayedCategoryApiNames>commitonly</displayedCategoryApiNames>
+        <displayedCategoryApiNames>bestcaseonly</displayedCategoryApiNames>
+        <displayedCategoryApiNames>pipelineonly</displayedCategoryApiNames>
+        <forecastRangeSettings>
+            <beginning>0</beginning>
+            <displaying>6</displaying>
+            <periodType>Month</periodType>
+        </forecastRangeSettings>
+        <forecastedCategoryApiNames>commitonly</forecastedCategoryApiNames>
+        <forecastedCategoryApiNames>closedonly</forecastedCategoryApiNames>
+        <forecastedCategoryApiNames>pipelineonly</forecastedCategoryApiNames>
+        <forecastedCategoryApiNames>bestcaseonly</forecastedCategoryApiNames>
+        <isAmount>true</isAmount>
+        <isAvailable>false</isAvailable>
+        <isQuantity>false</isQuantity>
+        <masterLabel>Opportunity Revenue Splits</masterLabel>
+        <name>OpportunitySplitRevenue</name>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.NAME</field>
+            <label>Opportunity Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>ACCOUNT.NAME</field>
+            <label>Account Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>SPLITAMOUNT</field>
+            <label>Forecasted Amount</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>SPLITPERCENTAGE</field>
+            <label>Split</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CLOSE_DATE</field>
+            <label>Expected Close Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.STAGE_NAME</field>
+            <label>Stage</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.PROBABILITY</field>
+            <label>Probability (%)</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>FORECAST_CATEGORY</field>
+            <label>Forecast Category</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>FULL_NAME</field>
+            <label>Owner Full Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CONTRACT.CONTRACT_NUMBER</field>
+            <label>Contract Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CONTRACT.NAME</field>
+            <label>Contract Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.AMOUNT</field>
+            <label>Amount</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CORE.USERS.ALIAS</field>
+            <label>Opportunity Owner Alias</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CORE.USERS.FIRST_NAME</field>
+            <label>Owner First Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CORE.USERS.LAST_NAME</field>
+            <label>Owner Last Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>DESCRIPTION</field>
+            <label>Comment</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.EXP_AMOUNT</field>
+            <label>Expected Revenue</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.LEAD_SOURCE</field>
+            <label>Lead Source</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.NEXT_STEP</field>
+            <label>Next Step</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.PRIVATE</field>
+            <label>Private</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.QUANTITY</field>
+            <label>Quantity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.TYPE</field>
+            <label>Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>UPDATEDBY_USER.ALIAS</field>
+            <label>Last Modified By Alias</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CREATEDBY_USER.ALIAS</field>
+            <label>Created By Alias</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CLOSED</field>
+            <label>Closed</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.WON</field>
+            <label>Won</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>ACCOUNT.SITE</field>
+            <label>Account Site</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.FISCAL_YEAR</field>
+            <label>Fiscal Year</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.FISCAL_QUARTER</field>
+            <label>Fiscal Quarter</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.FISCAL_PERIOD</field>
+            <label>Fiscal Period</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.RECORDTYPE</field>
+            <label>Opportunity Record Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.LAST_ACTIVITY</field>
+            <label>Last Activity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CREATED_DATE</field>
+            <label>Created Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.LAST_UPDATE</field>
+            <label>Last Modified Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah04</field>
+            <label># of Enrolled</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah05</field>
+            <label># of Enrolled</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah06</field>
+            <label># of Enrolled</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eb2Tg</field>
+            <label># of Subscribers</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mM</field>
+            <label>Accepted</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVq</field>
+            <label>Account RecordType Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVr</field>
+            <label>Account Status</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mq</field>
+            <label>Account Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eau54</field>
+            <label>Active Members</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzs</field>
+            <label>Actual # of Members</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP35</field>
+            <label>Acupuncture</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Dvyy1</field>
+            <label>Adjusted Membership</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mr</field>
+            <label>Affiliates</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EmeBz</field>
+            <label>Aging hours</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mN</field>
+            <label>Annual Revenue</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mv</field>
+            <label>Broker</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP37</field>
+            <label>Broker</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaas</field>
+            <label>Broker</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EaS6C</field>
+            <label>Broker HR HCC ID</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP39</field>
+            <label>Broker of Record</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mu</field>
+            <label>Broker Rep</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP38</field>
+            <label>Broker Rep</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EaS6H</field>
+            <label>Broker Rep HR HCC ID</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mt</field>
+            <label>Broker Rep Phone Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FITYy</field>
+            <label>By Pass Archive Contact Validation</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FQx26</field>
+            <label>Bypass Validation Rule</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh3</field>
+            <label>Calendar or Plan Year</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaaw</field>
+            <label>Carrier Partners</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EaOHp</field>
+            <label>Case Submitted By</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3B</field>
+            <label>Chiropractic</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mO</field>
+            <label>Classification</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaat</field>
+            <label>Close Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3n0</field>
+            <label>Closed Details</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3A</field>
+            <label>COBRA</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mw</field>
+            <label>Competitor</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkJ</field>
+            <label>Contribution(s) - EE</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3D</field>
+            <label>Created Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mP</field>
+            <label>Date Opportunity Shared</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EmeC0</field>
+            <label>Days taken to close</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3my</field>
+            <label>Days until Exp Close</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009kiJt</field>
+            <label>DB Competitor</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3E</field>
+            <label>Dental</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkK</field>
+            <label>Dependent Contribution</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mQ</field>
+            <label>Digital Campaigns</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIabB</field>
+            <label>Digital Campaigns</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mR</field>
+            <label>Director of Opportunity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3F</field>
+            <label>Early Retirees</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh4</field>
+            <label>Effective Date Exception</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaav</field>
+            <label>Employer</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVs</field>
+            <label>Employer Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mS</field>
+            <label>Error Reason</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh5</field>
+            <label>First time sale</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh6</field>
+            <label>GA Commission</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh7</field>
+            <label>GA Contact</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh9</field>
+            <label>General Agent</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIPh8</field>
+            <label>General Agent Applicable</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkL</field>
+            <label>Group Renewal Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzt</field>
+            <label>Incumbent Carrier #1</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzu</field>
+            <label>Incumbent Carrier #2</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzv</field>
+            <label>Incumbent Carrier #3</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3H</field>
+            <label>Incumbent Renewal Increase</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVt</field>
+            <label>Is Child Record Created?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3I</field>
+            <label>Last Modified Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eau55</field>
+            <label>Latest Opportunity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3n3</field>
+            <label>Lost Details</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mz</field>
+            <label>Marketing and Sales Primary Contact Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkI</field>
+            <label>Medical Commission</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVu</field>
+            <label>Medical Commission Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3U</field>
+            <label>Medicare/Retirees</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EmeC1</field>
+            <label>NewOrRenewal</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzw</field>
+            <label>NTE Offered %</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVv</field>
+            <label>Old Opportunity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3C</field>
+            <label>Open Enrollment</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mT</field>
+            <label>Opportunity Creator</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mU</field>
+            <label>Opportunity Shared By</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzx</field>
+            <label>Other Competitive Carrier</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzy</field>
+            <label>Other Competitive Carrier</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eagzz</field>
+            <label>Other Competitive Carrier</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3J</field>
+            <label>Out-of-Area</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX64W</field>
+            <label>Out of Area EEs</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3K</field>
+            <label>OverrideBrokerAndBrokerRep</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3n1</field>
+            <label>Plan Effective Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3L</field>
+            <label>Plan End Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVw</field>
+            <label>Plan Year</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaax</field>
+            <label>Please specify other</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3mx</field>
+            <label>PPO Needed</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Dvyy6</field>
+            <label>Projected Membership</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3N</field>
+            <label>Projected Subscribers</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP36</field>
+            <label>Proposal Scenario</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3O</field>
+            <label>Purchased</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX64M</field>
+            <label>Quoted PMPM</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3P</field>
+            <label>Quote Owner</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3Q</field>
+            <label>Quote Presented Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkM</field>
+            <label>Rate Tier</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3n2</field>
+            <label>Reason Lost</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgW2</field>
+            <label>regenerate?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j5Gs</field>
+            <label>Region</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EabQd</field>
+            <label>Renewal Opportunity Created?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EabQe</field>
+            <label>Renewed Opportunity?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3R</field>
+            <label>RFP Due Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3S</field>
+            <label>RFP Received Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3T</field>
+            <label>RFP Sent to UW Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FQx27</field>
+            <label>Salesforce Id</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000ETUUi</field>
+            <label>Sales Team</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mW</field>
+            <label>Service Line/Product Promotion</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIc6j</field>
+            <label>Shared with SHMMN</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mX</field>
+            <label>Shared with SHP</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaay</field>
+            <label>SHMMN Assigned Rep</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIaaz</field>
+            <label>SHMMN Go Live Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mV</field>
+            <label>SHMMN Opportunity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0f00000FIpUO</field>
+            <label>SHP SA Subs minus Valid Waiver</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah00</field>
+            <label>SHP vs Renewal</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah01</field>
+            <label>SHP vs Renewal</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah02</field>
+            <label>SHP vs Renewal</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgVz</field>
+            <label>Slicing with Carrier Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX64N</field>
+            <label>Sold PMPM</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000EbBkN</field>
+            <label>Strategic Broker</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX9mY</field>
+            <label>Strategic Opportunities</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3G</field>
+            <label>Total Eligible Employees</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FX64O</field>
+            <label>Total Enrolled</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG0000009j3n5</field>
+            <label>Total FTE Employees</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgW0</field>
+            <label>Total SHP SA Subs with Valid Waivers</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000FIgW1</field>
+            <label>Total Subs in SHP Service Areas (SA)</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000Eah03</field>
+            <label>Underwriting Special Terms and Condition</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3V</field>
+            <label>Vision</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00NG000000DvP3W</field>
+            <label>Waived</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>PARTNER.NAME</field>
+            <label>Partner Account</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsSelectedSettings>
+            <field>OPPORTUNITY.NAME</field>
+            <field>ACCOUNT.NAME</field>
+            <field>SPLITAMOUNT</field>
+            <field>SPLITPERCENTAGE</field>
+            <field>OPPORTUNITY.CLOSE_DATE</field>
+            <field>OPPORTUNITY.STAGE_NAME</field>
+            <field>OPPORTUNITY.PROBABILITY</field>
+            <field>FORECAST_CATEGORY</field>
+            <field>FULL_NAME</field>
+        </opportunityListFieldsSelectedSettings>
+        <opportunityListFieldsUnselectedSettings>
+            <field>CONTRACT.CONTRACT_NUMBER</field>
+            <field>CONTRACT.NAME</field>
+            <field>OPPORTUNITY.AMOUNT</field>
+            <field>CORE.USERS.ALIAS</field>
+            <field>CORE.USERS.FIRST_NAME</field>
+            <field>CORE.USERS.LAST_NAME</field>
+            <field>DESCRIPTION</field>
+            <field>OPPORTUNITY.EXP_AMOUNT</field>
+            <field>OPPORTUNITY.LEAD_SOURCE</field>
+            <field>OPPORTUNITY.NEXT_STEP</field>
+            <field>OPPORTUNITY.PRIVATE</field>
+            <field>OPPORTUNITY.QUANTITY</field>
+            <field>OPPORTUNITY.TYPE</field>
+            <field>UPDATEDBY_USER.ALIAS</field>
+            <field>CREATEDBY_USER.ALIAS</field>
+            <field>OPPORTUNITY.CLOSED</field>
+            <field>OPPORTUNITY.WON</field>
+            <field>ACCOUNT.SITE</field>
+            <field>OPPORTUNITY.FISCAL_YEAR</field>
+            <field>OPPORTUNITY.FISCAL_QUARTER</field>
+            <field>OPPORTUNITY.FISCAL_PERIOD</field>
+            <field>OPPORTUNITY.RECORDTYPE</field>
+            <field>OPPORTUNITY.LAST_ACTIVITY</field>
+            <field>OPPORTUNITY.CREATED_DATE</field>
+            <field>OPPORTUNITY.LAST_UPDATE</field>
+            <field>00NG000000Eah04</field>
+            <field>00NG000000Eah05</field>
+            <field>00NG000000Eah06</field>
+            <field>00NG000000Eb2Tg</field>
+            <field>00NG000000FX9mM</field>
+            <field>00NG000000FIgVq</field>
+            <field>00NG000000FIgVr</field>
+            <field>00NG0000009j3mq</field>
+            <field>00NG000000Eau54</field>
+            <field>00NG000000Eagzs</field>
+            <field>00NG000000DvP35</field>
+            <field>00NG000000Dvyy1</field>
+            <field>00NG0000009j3mr</field>
+            <field>00NG000000EmeBz</field>
+            <field>00NG000000FX9mN</field>
+            <field>00NG0000009j3mv</field>
+            <field>00NG000000DvP37</field>
+            <field>00NG000000FIaas</field>
+            <field>00NG000000EaS6C</field>
+            <field>00NG000000DvP39</field>
+            <field>00NG0000009j3mu</field>
+            <field>00NG000000DvP38</field>
+            <field>00NG000000EaS6H</field>
+            <field>00NG0000009j3mt</field>
+            <field>00NG000000FITYy</field>
+            <field>00NG000000FQx26</field>
+            <field>00NG000000FIPh3</field>
+            <field>00NG000000FIaaw</field>
+            <field>00NG000000EaOHp</field>
+            <field>00NG000000DvP3B</field>
+            <field>00NG000000FX9mO</field>
+            <field>00NG000000FIaat</field>
+            <field>00NG0000009j3n0</field>
+            <field>00NG000000DvP3A</field>
+            <field>00NG0000009j3mw</field>
+            <field>00NG000000EbBkJ</field>
+            <field>00NG000000DvP3D</field>
+            <field>00NG000000FX9mP</field>
+            <field>00NG000000EmeC0</field>
+            <field>00NG0000009j3my</field>
+            <field>00NG0000009kiJt</field>
+            <field>00NG000000DvP3E</field>
+            <field>00NG000000EbBkK</field>
+            <field>00NG000000FX9mQ</field>
+            <field>00NG000000FIabB</field>
+            <field>00NG000000FX9mR</field>
+            <field>00NG000000DvP3F</field>
+            <field>00NG000000FIPh4</field>
+            <field>00NG000000FIaav</field>
+            <field>00NG000000FIgVs</field>
+            <field>00NG000000FX9mS</field>
+            <field>00NG000000FIPh5</field>
+            <field>00NG000000FIPh6</field>
+            <field>00NG000000FIPh7</field>
+            <field>00NG000000FIPh9</field>
+            <field>00NG000000FIPh8</field>
+            <field>00NG000000EbBkL</field>
+            <field>00NG000000Eagzt</field>
+            <field>00NG000000Eagzu</field>
+            <field>00NG000000Eagzv</field>
+            <field>00NG000000DvP3H</field>
+            <field>00NG000000FIgVt</field>
+            <field>00NG000000DvP3I</field>
+            <field>00NG000000Eau55</field>
+            <field>00NG0000009j3n3</field>
+            <field>00NG0000009j3mz</field>
+            <field>00NG000000EbBkI</field>
+            <field>00NG000000FIgVu</field>
+            <field>00NG000000DvP3U</field>
+            <field>00NG000000EmeC1</field>
+            <field>00NG000000Eagzw</field>
+            <field>00NG000000FIgVv</field>
+            <field>00NG000000DvP3C</field>
+            <field>00NG000000FX9mT</field>
+            <field>00NG000000FX9mU</field>
+            <field>00NG000000Eagzx</field>
+            <field>00NG000000Eagzy</field>
+            <field>00NG000000Eagzz</field>
+            <field>00NG000000DvP3J</field>
+            <field>00NG000000FX64W</field>
+            <field>00NG000000DvP3K</field>
+            <field>00NG0000009j3n1</field>
+            <field>00NG000000DvP3L</field>
+            <field>00NG000000FIgVw</field>
+            <field>00NG000000FIaax</field>
+            <field>00NG0000009j3mx</field>
+            <field>00NG000000Dvyy6</field>
+            <field>00NG000000DvP3N</field>
+            <field>00NG000000DvP36</field>
+            <field>00NG000000DvP3O</field>
+            <field>00NG000000FX64M</field>
+            <field>00NG000000DvP3P</field>
+            <field>00NG000000DvP3Q</field>
+            <field>00NG000000EbBkM</field>
+            <field>00NG0000009j3n2</field>
+            <field>00NG000000FIgW2</field>
+            <field>00NG0000009j5Gs</field>
+            <field>00NG000000EabQd</field>
+            <field>00NG000000EabQe</field>
+            <field>00NG000000DvP3R</field>
+            <field>00NG000000DvP3S</field>
+            <field>00NG000000DvP3T</field>
+            <field>00NG000000FQx27</field>
+            <field>00NG000000ETUUi</field>
+            <field>00NG000000FX9mW</field>
+            <field>00NG000000FIc6j</field>
+            <field>00NG000000FX9mX</field>
+            <field>00NG000000FIaay</field>
+            <field>00NG000000FIaaz</field>
+            <field>00NG000000FX9mV</field>
+            <field>00N0f00000FIpUO</field>
+            <field>00NG000000Eah00</field>
+            <field>00NG000000Eah01</field>
+            <field>00NG000000Eah02</field>
+            <field>00NG000000FIgVz</field>
+            <field>00NG000000FX64N</field>
+            <field>00NG000000EbBkN</field>
+            <field>00NG000000FX9mY</field>
+            <field>00NG000000DvP3G</field>
+            <field>00NG000000FX64O</field>
+            <field>00NG0000009j3n5</field>
+            <field>00NG000000FIgW0</field>
+            <field>00NG000000FIgW1</field>
+            <field>00NG000000Eah03</field>
+            <field>00NG000000DvP3V</field>
+            <field>00NG000000DvP3W</field>
+            <field>PARTNER.NAME</field>
+        </opportunityListFieldsUnselectedSettings>
+        <quotasSettings>
+            <showQuotas>false</showQuotas>
+        </quotasSettings>
+    </forecastingTypeSettings>
+</ForecastingSettings>

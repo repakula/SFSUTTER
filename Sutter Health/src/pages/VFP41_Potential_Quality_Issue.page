@@ -1,0 +1,405 @@
+<!--
+*     Page Name   : VFP41_Potential_Quality_Issue
+*     Author      : IDC Offshore
+*     Date        : 15-Aug-2013
+*     Project Name: CRM - SHP - Sutter Health
+*     Description : Visual Force Page for Service console which opens for the SHP Agents,SHP Management based on user access he can 
+*     create PQI at various stages
+*
+*     HISTORY
+*     --------------
+*     
+*     VERSION           AUTHOR            DATE          DETAIL 
+*       1.0            IDC offshore     28/11/2014       Create PQI Page 
+*
+-->
+<apex:page standardController="Potential_Quality_Issue__c" extensions="VFC41_Potential_Quality_Issue" docType="html-5.0" sidebar="false">
+    <apex:stylesheet value="{!$Resource.PQI}"/>
+    <style>
+       .pbSubheader {
+            background-image: url('/img/alohaSkin/opacity75.png') !important;
+            color: black !important;
+        }
+        
+       .rightCornerHelpLink { 
+            float: right; 
+        }
+    </style> 
+
+    <script>
+        function setFocusOnLoad() {}
+    </script>
+
+    <div class="bPageTitle">
+        <div class="ptBody">
+            <div class="content">
+                <img src="/s.gif" alt="Potential Quality Issue" class="pageTitleIcon" title="Potential Quality Issue" />
+                <h1 class="pageType">Potential Quality Issue Edit<span class="titleSeparatingColon">:</span></h1>
+                <h2 class="pageDescription"> New Potential Quality Issue</h2>
+                <div class="blank">&nbsp;</div>
+            </div>
+            <div class="links">
+                <a href="javascript:openPopupFocusEscapePounds(%27https://help.salesforce.com/apex/htdoor?loc=help&amp;
+                        target=co_edit.htm&amp;section=CustomObjects&amp;language=en_US&amp;release=196.7&amp;
+                        instance=CS9&amp;showSplash=true%27, %27Help%27, 1024, 768, %27width=1024,height=768,
+                        resizable=yes,toolbar=yes,status=yes,scrollbars=yes,menubar=yes,directories=no,location=yes,dependant=no%27, false, false);" title="Help for this Page (New Window)">
+                    <span class="helpLink">Help for this Page</span>
+                    <img src="/s.gif" alt="" class="helpIcon" />
+                </a>
+            </div>
+        </div>
+        <div class="ptBreadcrumb"></div>
+    </div>
+    <apex:pageMessages id="pgmsg"></apex:pageMessages>
+    <!-- This Form  will render if owner is queue  -->
+    <apex:form id="frmShowError1" rendered="{!showErroronLoad}">
+
+        <apex:pageBlock id="pgButton1">
+            <apex:pageBlockButtons location="bottom">
+
+                <apex:commandButton value="OK" action="{!Cancel}" />
+            </apex:pageBlockButtons>
+            <apex:pageMessage severity="Error" summary="You can not change the PQI without assigning it to yourself from the queue.PQI is assigned to some other queue or user " strength="3" rendered="true" />
+        </apex:pageBlock>
+    </apex:form>
+    <!-- This Form  will render if owner is not a queue  -->
+    <apex:form Id="Frm1" rendered="{!!showErroronLoad}">
+        <apex:pageBlock id="pgButton">
+            <div class="pbHeader">
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                        <tr>
+                            <td class="pbTitle">
+                                <img src="/s.gif" alt="" width="1" height="1" class="minWidth" title="" />
+                                <h2 class="mainTitle">Potential Quality Issue: {!Potential_Quality_Issue__c.Name}</h2>
+                            </td>
+                            <td>
+                                <!-- Save button invokes to Save  PQI   -->
+                                <apex:commandButton action="{!Save}" value="Save" id="idButtonSaveTop" />
+                                <!-- Submit For Approval  button invokes to complete PQI in action Completed   -->
+                                <apex:commandButton action="{!Completed}" value="Submit For Approval" id="idButtonSubmitApprovalTop" rendered="{!if(objPotentialQualityIssue.PQI_Status__c == 'New' || objPotentialQualityIssue.PQI_Status__c  == 'Rejected' || objPotentialQualityIssue.PQI_Status__c == '' || objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false)}" />
+                                <!-- Send PRC button invokes to complete PQI in action SendPRC   -->
+                                <apex:commandButton action="{!SendPRC }" value="Send PRC" id="idButtonSendPrcTop" rendered="{!if(objPotentialQualityIssue.PQI_Status__c == 'MD Approved'||objPotentialQualityIssue.PQI_Status__c == 'UM Approved' ||objPotentialQualityIssue.PQI_Status__c == 'PRC Rejected',true,false)}" />
+                                <!-- PRC Approve  button invokes to complete PQI in action ApproveRecord   -->
+                                <apex:commandButton action="{!ApproveRecord}" value="PRC Approve" id="idButtonPrcApprovedTop" rendered="{!if(objPotentialQualityIssue.PQI_Status__c == 'PRC',true,false)}" />
+                                <!-- PRC Reject  button invokes to complete PQI in action RejectRecord   -->
+                                <apex:commandButton action="{!RejectRecord }" value="PRC Reject" id="idButtonRejectRecordTop" rendered="{!if(objPotentialQualityIssue.PQI_Status__c == 'PRC',true,false)}" />
+                                <!--  Approve  button invokes to complete PQI in action Completed   -->
+                                <apex:commandButton action="{!ApproveRecord}" value="Approve" rendered="{!if(objPotentialQualityIssue.PQI_Status__c == 'UM Review'||objPotentialQualityIssue.PQI_Status__c == 'MD Review',true,false)}" id="idApprovetop" />
+                                <!-- Reject  button invokes to complete PQI in action Completed   -->
+                                <apex:commandButton action="{!RejectRecord}" value="Reject" rendered="{!if(objPotentialQualityIssue.PQI_Status__c == 'UM Review'||objPotentialQualityIssue.PQI_Status__c == 'MD Review',true,false)}" id="idRejecttop" />
+                                <!-- Close  button invokes to complete PQI in action Completed   -->
+                                <apex:commandButton action="{!CloseRecord}" value="Close" rendered="{!if(objPotentialQualityIssue.PQI_Status__c == 'UM Approved'||objPotentialQualityIssue.PQI_Status__c == 'MD Approved' ||objPotentialQualityIssue.PQI_Status__c == 'PRC Approved' || objPotentialQualityIssue.PQI_Status__c == 'PRC Rejected',true,false)}" id="idCloseTop" />
+                                <!-- Cancel  button invokes to complete PQI in action cancel   -->
+                                <apex:commandButton action="{!Cancel}" value="Cancel" id="idButtonCancelTop" />
+
+                            </td>
+                            <td>
+                            <!--- Req 3377 Training Document Link Change Start --->
+                            <apex:outputLink value="/{!PQITrainingDocument.Id}" id="trainingDocLink" target="_blank" styleClass="rightCornerHelpLink">{!$Label.SHP_KM_Training_Document_Help}
+                            </apex:outputLink>
+                            <!--- Req 3377 Training Document Link Change End  --->
+                            </td>   
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="commonsection">
+                <apex:pageBlockSection >
+                    <apex:outputfield value="{!objPotentialQualityIssue.Member_Name__c}" />
+                    <apex:outputfield value="{!objPotentialQualityIssue.Member_ID__c}" />
+                    <apex:outputfield value="{!objPotentialQualityIssue.PCP_Practioner_Name__c}" />
+                    <apex:outputfield value="{!objPotentialQualityIssue.Member_DOB__c}" />
+                    <apex:outputfield value="{!objPotentialQualityIssue.PQI_Referral_Date__c}" />
+                    <apex:outputfield value="{!objPotentialQualityIssue.PQI_Referred_By__c}" />
+                    <apex:outputfield value="{!objPotentialQualityIssue.Selected_PQI_Indicators__c }" label="PQI Indicators" />
+                    <apex:outputfield value="{!objPotentialQualityIssue.Description_of_Events1__c}" />
+                </apex:pageBlockSection>
+            </div>
+            <!-- Tab panel section that contains all the tab tags -->
+            <apex:tabPanel switchType="client" selectedTab="PQI" id="idPQI" tabClass="activeTab" inactiveTabClass="inactiveTab">
+                <!-- Tab for Quality for PQI start here -->
+                <apex:tab label="Quality" name="Quality" id="tabOne">
+                    <apex:pageBlockSection title="Customer Inquiry Information" collapsible="false" id="cii">
+
+                        <apex:outputField id="Frm1field123" value="{!objPotentialQualityIssue.PQI_Status__c}" />
+                        <apex:outputField id="Frm1field2" value="{!objPotentialQualityIssue.Customer_Inquiry_Type__c}" rendered="{!(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}" />
+                        <apex:outputField value="{!objPotentialQualityIssue.Customer_Inquiry_Type__c}" rendered="{!Not(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}" />
+                        <apex:pageBlockSectionItem rendered="{!(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' || objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}">Member ID
+                            <apex:outputPanel >
+                                <div class="requiredInput">
+                                    <div class="requiredBlock"></div>
+                                    <apex:inputText id="Frm1field31" value="{!objPotentialQualityIssue.Member_Name__c}" disabled="{!isPQINamePopulated}"/>
+                                </div>
+                                <apex:outputText value="{!errorMessage}" styleClass="errorMsg" rendered="{!LEN(errorMessage)>0}" />
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        <apex:outputField value="{!objPotentialQualityIssue.Member_Name__c}" rendered="{!Not(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}" />
+                        <apex:pageBlockSectionItem rendered="{!(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}">Member Name
+                            <apex:outputPanel >
+                                <div class="requiredInput">
+                                    <div class="requiredBlock"></div>
+                                    <apex:inputField id="Frm1field6" value="{!objPotentialQualityIssue.Member_ID__c}">
+                                        <apex:actionSupport event="onselect" action="{!autoPopulateMember}" reRender="Frm1field31,Frm1field314,Frm1field35,DOBFields,Frm1field3,Frm1field8,Frm1field7" status="counterStatus" />
+                                    </apex:inputField>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        <apex:outputField value="{!objPotentialQualityIssue.Member_ID__c}" rendered="{!Not(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}" />
+                        <apex:inputText id="Frm1field314" value="{!objPotentialQualityIssue.PCP_Practioner_Name__c}" disabled="{!isPOIPractionerNamePopulated}" rendered="{!(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}" />
+                        <apex:outputField value="{!objPotentialQualityIssue.PCP_Practioner_Name__c}" rendered="{!Not(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}" />
+                        <apex:inputText id="Frm1field35" value="{!objPotentialQualityIssue.Member_Medical_Group_Affiliation__c}" disabled="{!isPQIMemberMedicalGroupAffiliation}" rendered="{!(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}" />
+                        <apex:outputField value="{!objPotentialQualityIssue.Member_Medical_Group_Affiliation__c}" rendered="{!Not(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}" />
+                        <apex:pageBlockSectionItem rendered="{!(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' || objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}"> Member DOB
+                            <apex:outputPanel id="DOBFields">
+                                <apex:inputField id="Frm1field61" value="{!objPotentialQualityIssue.Member_DOB__c}" rendered="{!Not(isMemberDOB) }" />
+                                <apex:outputField id="Frm1field64" value="{!objPotentialQualityIssue.Member_DOB__c}" rendered="{!isMemberDOB }" />
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        <apex:outputField value="{!objPotentialQualityIssue.Member_DOB__c}" rendered="{!Not(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}" />
+                        <apex:inputField id="Frm1field62" value="{!objPotentialQualityIssue.Member_Age__c}" />
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection title="PQI Referral Information" collapsible="false">
+                        <apex:pageBlockSectionItem rendered="{!(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}">PQI Referral Date
+                            <apex:outputPanel >
+                                <div class="requiredInput">
+                                    <div class="requiredBlock"></div>
+                                    <apex:inputField id="Frm1field1" value="{!objPotentialQualityIssue.PQI_Referral_Date__c}" />
+                                </div>
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        <apex:outputField value="{!objPotentialQualityIssue.PQI_Referral_Date__c}" rendered="{!Not(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}" />
+                        <apex:pageBlockSectionItem rendered="{!(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}">PQI Referred By
+                            <apex:outputPanel >
+                                <div class="requiredInput">
+                                    <div class="requiredBlock"></div>
+                                    <apex:inputField id="Frm1field2" value="{!objPotentialQualityIssue.PQI_Referred_By__c}" />
+                                </div>
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        <apex:outputField value="{!objPotentialQualityIssue.PQI_Referred_By__c}" rendered="{!Not(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}" />
+                        <apex:pageBlockSectionItem rendered="{!(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}">Assigned RN
+                            <apex:outputPanel >
+                                <div class="requiredInput">
+                                    <div class="requiredBlock"></div>
+                                    <apex:inputField id="Frm1field4" value="{!objPotentialQualityIssue.Assigned_RN__c}" />
+                                </div>
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        <apex:outputField value="{!objPotentialQualityIssue.Assigned_RN__c}" rendered="{!Not(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}" />
+                        <apex:pageBlockSectionItem rendered="{!(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}">Reason For Referral
+                            <apex:outputPanel >
+                                <div class="requiredInput">
+                                    <div class="requiredBlock"></div>
+                                    <apex:inputField id="Frm1field11" value="{!objPotentialQualityIssue.Reason_for_Referral__c}" />
+                                </div>
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        <apex:outputField value="{!objPotentialQualityIssue.Reason_for_Referral__c}" rendered="{!Not(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}" />
+                        <apex:inputField id="Frm1field6" value="{!objPotentialQualityIssue.Related_Provider_applicable__c}" rendered="{!(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}" />
+                        <apex:outputField value="{!objPotentialQualityIssue.Related_Provider_applicable__c}" rendered="{!Not(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}" />
+                        <apex:inputField id="Frm1field13" value="{!objPotentialQualityIssue.Date_of_Occurrence__c}" rendered="{!(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}" />
+                        <apex:outputField value="{!objPotentialQualityIssue.Date_of_Occurrence__c}" rendered="{!Not(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}" />
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection title="PQI Indicators" columns="2" collapsible="false">
+                        <apex:repeat value="{!$ObjectType.Potential_Quality_Issue__c.FieldSets.PQI_Indicators_Fields}" var="f" rendered="{!(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' || objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}">
+                            <apex:inputField value="{!Potential_Quality_Issue__c[f]}" rendered="{!(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' || objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}" />
+                            <apex:outputField value="{!Potential_Quality_Issue__c[f]}" rendered="{!Not(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}" />
+                        </apex:repeat>
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection columns="2">
+                        <apex:inputField value="{!objPotentialQualityIssue.Other_CheckBox__c}" Label="Other" rendered="{!(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}">
+                            <apex:actionSupport event="onchange" action="{!OtherValuePqiIndicator}" reRender="idSettingPqiIndicator" />
+                        </apex:inputField>
+                        <apex:outputField value="{!objPotentialQualityIssue.Other_CheckBox__c}" Label="Other PQI Indicators" rendered="{!Not(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}" />
+                        <apex:pageBlockSectionItem rendered="{!(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}">Other PQI Indicators
+                            <apex:outputPanel id="idSettingPqiIndicator">
+                                <apex:inputText value="{!showBlankVlaue }" id="pqiother" disabled="true" style="background:rgb(242, 241, 241); width:90% " rendered="{!if(isotherMedicalPqiIndicator == false,true,false)}" />
+                                <apex:inputField id="pqiother1" value="{!objPotentialQualityIssue.PQI_indicator_Other__c}" rendered="{!if(isotherMedicalPqiIndicator == true,true,false)}" style="width:90%" />
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        <apex:outputField value="{!objPotentialQualityIssue.PQI_indicator_Other__c}" rendered="{!Not(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}" />
+                        <apex:inputField value="{!objPotentialQualityIssue.Settings__c}" rendered="{!(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}">
+                            <apex:actionSupport event="onchange" reRender="idSetting" status="counterStatus" />
+                        </apex:inputField>
+                        <apex:outputField value="{!objPotentialQualityIssue.Settings__c}" rendered="{!Not(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}" />
+                        <apex:pageBlockSectionItem rendered="{!(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}">Other Setting
+                            <apex:outputPanel id="idSetting">
+                                <apex:inputText value="{!showBlankVlaue }" disabled="true" style="background:rgb(242, 241, 241); width:90%" rendered="{!if(objPotentialQualityIssue.Settings__c == 'Other',false,true)}" />
+                                <apex:inputField value="{!objPotentialQualityIssue.Setting_other__c}" rendered="{!if(objPotentialQualityIssue.Settings__c == 'Other',true,false)}" style="width:90%" />
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        <apex:outputField value="{!objPotentialQualityIssue.Setting_other__c}" label="Other" rendered="{!Not(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}" />
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection columns="1" title="Description Events" collapsible="false">
+                        <apex:inputField id="Frm1field2" value="{!objPotentialQualityIssue.Description_of_Events1__c}" rendered="{!(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}" />
+                        <apex:outputField value="{!objPotentialQualityIssue.Description_of_Events1__c}" rendered="{!Not(if(objPotentialQualityIssue.PQI_Status__c == 'New'|| objPotentialQualityIssue.PQI_Status__c == '' ||objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false))}" />
+                    </apex:pageBlockSection>
+                </apex:tab>
+                <!-- Tab for Quality for PQI End here  -->
+                <!-- Tab for UM Review for Start   here  -->
+                <apex:tab label="UM Review" name="UM Review" id="TabUmReview" rendered="{!if(objPotentialQualityIssue.PQI_Status__c == 'UM Review',true,false)}">
+                    <apex:pageBlockSection columns="2" title="RN Review (1ST Level Review)" collapsible="false" id="id1">
+                        <apex:inputField id="idByPassCmo" value="{!objPotentialQualityIssue.ByPass_CMO__c}" />
+                        <br/>
+                        <apex:inputField id="Frm1field12" value="{!objPotentialQualityIssue.RN_Reviewer_user__c}" />
+                        <apex:inputField id="Frm1field2" value="{!objPotentialQualityIssue.RN_Date_of_Review__c}" />
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection columns="1" id="idpg">
+                        <apex:inputField id="Frm1field312" value="{!objPotentialQualityIssue.RN_Timeline_of_Key_Events__c}" />
+                        <apex:inputField id="Frm1field1" value="{!objPotentialQualityIssue.RN_Pertinent_criteria_guidelines_standa__c}" />
+                        <apex:inputField id="Frm1field2" value="{!objPotentialQualityIssue.RN_Case_Review_Summary1__c}" label="RN Clinical Summary:(Including explanation of the incident)" />
+                        <apex:inputField id="Frm1field6" value="{!objPotentialQualityIssue.RN_Recommendations__c}" />
+                        <apex:inputField id="Frm1field4" value="{!objPotentialQualityIssue.RN_Justification_of_Recommendation__c}" />
+                        <apex:inputField id="Frm1field5" value="{!objPotentialQualityIssue.RN_Leveling__c}" />
+                        <apex:inputField id="Frm1field7" value="{!objPotentialQualityIssue.RN_Severity_Level__c}" />
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection columns="2" title="Approve /Reject Comment" collapsible="false" id="id1CommentUm">
+                        <apex:inputField id="idComment" value="{!objPotentialQualityIssue.Comment_UM__c}" style="width:90%" />
+                    </apex:pageBlockSection>
+                </apex:tab>
+                <!-- Tab for UM Review for End here  -->
+                <!-- Tab for UM Review in read only mode Start   here  -->
+                <apex:tab label="UM Review" name="UM Review" id="TabUmReview2" rendered="{!if(objPotentialQualityIssue.PQI_Status__c != 'UM Review',true,false)}">
+                    <apex:pageBlockSection columns="2" title="RN Review (1ST Level Review)" collapsible="false" id="id12">
+                        <apex:outputField id="idByPassCmo" value="{!objPotentialQualityIssue.ByPass_CMO__c}" />
+                        <br/>
+                        <apex:outputField id="Frm1field12" value="{!objPotentialQualityIssue.RN_Reviewer_user__c}" />
+                        <apex:outputField id="Frm1field2" value="{!objPotentialQualityIssue.RN_Date_of_Review__c}" />
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection columns="1" id="idpg2">
+                        <apex:outputField id="Frm1field312" value="{!objPotentialQualityIssue.RN_Timeline_of_Key_Events__c}" />
+                        <apex:outputField id="Frm1field1" value="{!objPotentialQualityIssue.RN_Pertinent_criteria_guidelines_standa__c}" />
+                        <apex:outputField id="Frm1field2" value="{!objPotentialQualityIssue.RN_Case_Review_Summary1__c}" label="RN Clinical Summary:(Including explanation of the incident)" />
+                        <apex:outputField id="Frm1field6" value="{!objPotentialQualityIssue.RN_Recommendations__c}" />
+                        <apex:outputField id="Frm1field4" value="{!objPotentialQualityIssue.RN_Justification_of_Recommendation__c}" />
+                        <apex:outputField id="Frm1field5" value="{!objPotentialQualityIssue.RN_Leveling__c}" />
+                        <apex:outputField id="Frm1field7" value="{!objPotentialQualityIssue.RN_Severity_Level__c}" />
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection columns="1" title="Approve /Reject Comment" collapsible="false" id="idApproveUm">
+                        <apex:outputField id="idCommentRead" value="{!objPotentialQualityIssue.Comment_UM__c}" />
+                    </apex:pageBlockSection>
+                </apex:tab>
+                <!-- Tab for UM Review in read only mode End   here  -->
+                <!-- Tab for MD Review  Start   here  -->
+                <apex:tab label="MD Review" name="MD Review" id="TabMdReviewReadonly" rendered="{!if(objPotentialQualityIssue.PQI_Status__c == 'MD Review',true,false)}">
+                    <apex:pageBlockSection title="Medical Director Review (2nd Level Review)" collapsible="false" columns="2">
+                        <apex:inputField id="Frm1field1" value="{!objPotentialQualityIssue.Assigned_Medical_Director__c}" />
+                        <apex:inputField id="Frm1field2" value="{!objPotentialQualityIssue.MD_Date_of_Review__c}" />
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection columns="1">
+                        <apex:inputField id="Frm1field310" value="{!objPotentialQualityIssue.Medical_Director_Review_Summary1__c}" />
+                        <apex:inputField id="Frm1field309" value="{!objPotentialQualityIssue.Medical_Director_Recommendations__c}">
+                            <apex:actionSupport event="onchange" reRender="idMedicalDirectorRecommendations" action="{!isOtherMedical}" status="counterStatus" />
+                        </apex:inputField>
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection columns="2">
+                        <apex:pageBlockSectionItem >Other
+                            <apex:outputPanel id="idMedicalDirectorRecommendations">
+                                <apex:inputText value="{!showBlankVlaue }" disabled="true" style="background:rgb(242, 241, 241); width:90%" rendered="{!if(isotherMedical == false,true,false)}" />
+                                <apex:inputField value="{!objPotentialQualityIssue.Medical_Director_Recommendations_Other__c}" rendered="{!if(isotherMedical == true,true,false)}" style="width:90%" />
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection columns="1">
+                        <apex:inputField id="Frm1field4" value="{!objPotentialQualityIssue.Severity_Level__c}" />
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection columns="2" title="Approve /Reject Comment" collapsible="false" id="id1ApproveCmo">
+                        <apex:inputField id="idCommentCmo" value="{!objPotentialQualityIssue.Comment_CMO__c}" style="width:90%" />
+                    </apex:pageBlockSection>
+                </apex:tab>
+                <!-- Tab for MD Review  End   here  -->
+                <!-- Tab for MD Review in read only mode End   here  -->
+                <apex:tab label="MD Review" name="MD Review" id="TabMdReview" rendered="{!if(objPotentialQualityIssue.PQI_Status__c != 'MD Review',true,false)}">
+                    <apex:pageBlockSection title="Medical Director Review (2nd Level Review)" collapsible="false" columns="2">
+                        <apex:outputField id="Frm1field1" value="{!objPotentialQualityIssue.Assigned_Medical_Director__c}" />
+                        <apex:outputField id="Frm1field2" value="{!objPotentialQualityIssue.MD_Date_of_Review__c}" />
+                    </apex:pageBlockSection>
+
+                    <apex:pageBlockSection columns="1">
+                        <apex:outputField id="Frm1field310" value="{!objPotentialQualityIssue.Medical_Director_Review_Summary1__c}" />
+                        <apex:outputField id="Frm1field309" value="{!objPotentialQualityIssue.Medical_Director_Recommendations__c}" />
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection columns="1">
+                        <apex:outputField id="idMedicalDirectorRecommendationsReadOnly" value="{!objPotentialQualityIssue.Medical_Director_Recommendations_Other__c}" />
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection columns="1">
+                        <apex:OutputField id="Frm1field4" value="{!objPotentialQualityIssue.Severity_Level__c}" />
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection columns="2" title="Approve /Reject Comment" collapsible="false" id="id1ApproveCmoRead">
+                        <apex:outputField id="idCommentCmoRead" value="{!objPotentialQualityIssue.Comment_CMO__c}" />
+                    </apex:pageBlockSection>
+                </apex:tab>
+                <!-- Tab for MD Review in read only mode End   here  -->
+
+                <!-- Tab for PRC Start    here  -->
+                <apex:tab label="PRC " name="PRC" id="TabPRC" rendered="{!Not(if(objPotentialQualityIssue.PQI_Status__c == 'Closed' ,true,false))}">
+                    <apex:pageBlockSection title="Peer  Review / Credentialing Outcome (If applicable)" collapsible="false" columns="1">
+                        <apex:inputField id="Frm1field1" value="{!objPotentialQualityIssue.Peer_Review_Credentialing_Outcome__c}">
+                            <apex:actionSupport event="onchange" action="{!OtherValue}" reRender="idPeerReview" status="counterStatus" />
+                        </apex:inputField>
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection columns="2">
+                        <apex:pageBlockSectionItem >Other
+                            <apex:outputPanel id="idPeerReview">
+
+                                <apex:inputText value="{!showBlankVlaue }" disabled="true" style="background:rgb(242, 241, 241); width:90%" rendered="{!if(isother == false,true,false)}" />
+                                <apex:inputField value="{!objPotentialQualityIssue.Peer_Review_Other__c}" rendered="{!if(isother == true,true,false)}" style="width:90%" />
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection columns="2" title="Approve /Reject Comment" collapsible="false" id="idApprovePrc">
+                        <apex:inputField id="idCommentPrc" value="{!objPotentialQualityIssue.Comment_PRC__c}" rendered="{!if(objPotentialQualityIssue.PQI_Status__c == 'PRC' ,true,false)}" style="width:90%" />
+                        <apex:outputField id="idCommentPrcOutput" value="{!objPotentialQualityIssue.Comment_PRC__c}" rendered="{!Not(if(objPotentialQualityIssue.PQI_Status__c == 'PRC' ,true,false))}" />
+                    </apex:pageBlockSection>
+                </apex:tab>
+                <!-- Tab for PRC End here  -->
+
+                <!-- Tab for PRC in read only mode End   here  -->
+                <apex:tab label="PRC " name="PRC" id="TabPrcReadOnly" rendered="{!if(objPotentialQualityIssue.PQI_Status__c == 'Closed',true,false)}">
+                    <apex:pageBlockSection title="Peer  Review / Credentialing Outcome (If applicable)" collapsible="false" columns="1">
+                        <apex:outputField id="Frm1field1" value="{!objPotentialQualityIssue.Peer_Review_Credentialing_Outcome__c}" />
+                        <apex:outputField id="idPeerReiewRead" value="{!objPotentialQualityIssue.Peer_Review_Other__c}" label="Other" />
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection columns="2" title="Approve /Reject Comment" collapsible="false" id="idApprovePrcRead">
+                        <apex:outputField id="idCommentPrc" value="{!objPotentialQualityIssue.Comment_PRC__c}" />
+                    </apex:pageBlockSection>
+                </apex:tab>
+                <!-- Tab for PRC in read only mode End   here  -->
+
+            </apex:tabPanel>
+            <div class="pbBottomButtons">
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                        <tr>
+                            <td class="pbTitle"><img src="/s.gif" alt="" width="1" height="1" class="minWidth" title="" />&nbsp;
+                            </td>
+                            <td class="pbButtonb" id="bottomButtonRow">
+                                <!-- Save button invokes to Save  PQI   -->
+                                <apex:commandButton action="{!Save}" value="Save" id="idButtonSaveBottom" />
+                                <!-- Submit For Approval  button invokes to complete PQI in action Completed   -->
+                                <apex:commandButton action="{!Completed}" value="Submit For Approval" id="idButtonSubmitApprovalBottom" rendered="{!if(objPotentialQualityIssue.PQI_Status__c == 'New' || objPotentialQualityIssue.PQI_Status__c  == 'Rejected' || objPotentialQualityIssue.PQI_Status__c == '' || objPotentialQualityIssue.PQI_Status__c == 'UM Rejected'|| objPotentialQualityIssue.PQI_Status__c == 'MD Rejected',true,false)}" />
+                                <!-- Send PRC button invokes to complete PQI in action SendPRC   -->
+                                <apex:commandButton action="{!SendPRC }" value="Send PRC" id="idButtonSendPrcBottom" rendered="{!if(objPotentialQualityIssue.PQI_Status__c == 'MD Approved'||objPotentialQualityIssue.PQI_Status__c == 'UM Approved' ||objPotentialQualityIssue.PQI_Status__c == 'PRC Rejected',true,false)}" />
+                                <!-- PRC Approve  button invokes to complete PQI in action ApproveRecord   -->
+                                <apex:commandButton action="{!ApproveRecord}" value="PRC Approve" id="idButtonPrcApprovedBottom" rendered="{!if(objPotentialQualityIssue.PQI_Status__c == 'PRC',true,false)}" />
+                                <!-- PRC Reject  button invokes to complete PQI in action RejectRecord   -->
+                                <apex:commandButton action="{!RejectRecord }" value="PRC Reject" id="idButtonRejectRecordBottom" rendered="{!if(objPotentialQualityIssue.PQI_Status__c == 'PRC',true,false)}" />
+                                <!--  Approve  button invokes to complete PQI in action Completed   -->
+                                <apex:commandButton action="{!ApproveRecord}" value="Approve" rendered="{!if(objPotentialQualityIssue.PQI_Status__c == 'UM Review'||objPotentialQualityIssue.PQI_Status__c == 'MD Review',true,false)}" id="idApproveBottom" />
+                                <!-- Reject  button invokes to complete PQI in action Completed   -->
+                                <apex:commandButton action="{!RejectRecord}" value="Reject" rendered="{!if(objPotentialQualityIssue.PQI_Status__c == 'UM Review'||objPotentialQualityIssue.PQI_Status__c == 'MD Review',true,false)}" id="idRejectBottom" />
+                                <!-- Close  button invokes to complete PQI in action Completed   -->
+                                <apex:commandButton action="{!CloseRecord}" value="Close" rendered="{!if(objPotentialQualityIssue.PQI_Status__c == 'UM Approved'||objPotentialQualityIssue.PQI_Status__c == 'MD Approved' ||objPotentialQualityIssue.PQI_Status__c == 'PRC Approved' || objPotentialQualityIssue.PQI_Status__c == 'PRC Rejected',true,false)}" id="idCloseBottom" />
+                                <!-- Cancel  button invokes to complete PQI in action cancel   -->
+                                <apex:commandButton action="{!Cancel}" value="Cancel" id="idButtonCancelBottom" />
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

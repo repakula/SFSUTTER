@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>SCN Submitted</name>
+    <style>none</style>
+    <subject>Sold Case Notification submitted for Approval - {!Employer_Group_Data__c.Opportunity_Account_Name__c}/DBA: {!Employer_Group_Data__c.DBA_Name__c} {!Employer_Group_Data__c.Email_Employer_Type__c}</subject>
+    <textOnly>Hi,
+
+The Sold Case Notification {!Employer_Group_Data__c.Name} for {!Employer_Group_Data__c.Opportunity_Account_Name__c}/DBA: {!Employer_Group_Data__c.DBA_Name__c}, {!Employer_Group_Data__c.Email_Employer_Type__c} has been submitted for review and is now available in the {!Employer_Group_Data__c.OwnerFullName}.
+
+Thank you.</textOnly>
+    <type>custom</type>
+</EmailTemplate>

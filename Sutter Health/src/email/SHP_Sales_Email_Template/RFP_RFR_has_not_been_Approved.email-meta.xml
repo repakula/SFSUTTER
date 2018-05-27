@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>RFP/RFR has not been Approved</name>
+    <style>none</style>
+    <subject>RFP/RFR has not been Approved - Employer Name: {!Incumbent_Carrier__c.Account_Name__c}/DBA: {!Incumbent_Carrier__c.DBA_if_any_n__c} Employer Type: {!Incumbent_Carrier__c.Email_Employer_Type__c}</subject>
+    <textOnly>Hi,
+
+Your RFP/RFR {!Incumbent_Carrier__c.Name} for {!Incumbent_Carrier__c.Account_Name__c}/DBA: {!Incumbent_Carrier__c.DBA_if_any_n__c}, {!Incumbent_Carrier__c.Email_Employer_Type__c} has been returned for review and re-submission by the Underwriting Team for the following:
+
+Reason: {!ApprovalRequest.Comments}
+
+Thank you.</textOnly>
+    <type>custom</type>
+</EmailTemplate>

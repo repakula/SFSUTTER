@@ -1,0 +1,106 @@
+<apex:page showHeader="false" controller="SiteLoginController"
+standardStylesheets="false" sidebar="false">
+
+<head>
+    <title>MySutterConnection</title>
+
+    <script type='text/javascript'>
+    function noenter(ev)  {
+        if (window.event && window.event.keyCode == 13 || ev.which == 13) {
+            javascriptLogin();
+            return false;
+         } else {
+              return true;
+         }
+     }
+    </script>
+    <style type="text/css">
+         fieldset.login {
+            background-color: #F5F5F5;
+            min-width: 280px;
+            min-height: 417px;
+            margin-left: auto;
+            margin-right: auto;
+
+
+
+           
+         
+        }
+
+        fieldset.login label {
+            clear: both;
+            color: #333333;
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            padding-top: 10px;
+            position:relative;
+            left:20px;
+        }
+        fieldset.login input {
+            margin-left: 0px;
+            position:relative;
+            left:20px;
+            margin-top: 3px;
+            border: 0px solid #f3f5f6;
+            -webkit-appearance: none;
+            font-size: 13px;
+            color: #586064;
+            width: 230px;
+            background-color: #f3f5f6;
+        }
+        fieldset.login input.text {
+            border: 1px solid #AAAAAA;
+            color: #5E5E5E;
+            padding: 12px;
+            width: 320px;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .content {
+            margin: 0 auto;
+            width: 419px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="login">
+               <apex:form id="loginForm" forceSSL="true">
+                <apex:actionFunction name="javascriptLogin" action="{!login}" />
+                <fieldset class="login">
+                    <!-- <img src="https://mysutterconnection.force.com/servlet/servlet.ImageServer?id=015G0000001Xgpm&oid=00DG0000000C4SY"/> -->
+     
+                    <img src="https://mysutterconnection.force.com/resource/1414014036000/LoginSutterImage"/>
+     
+                    <apex:pageMessages id="error" />
+
+                    <apex:outputLabel styleClass="label"
+                        value="{!$Label.site.username} (Username must be in Sutter email format)" for="username" />
+                    <apex:inputText styleClass="text" id="username"
+                        value="{!username}"/>
+                    <apex:outputLabel styleClass="label"
+                        value="{!$Label.site.password}" for="password" />
+                    <apex:inputSecret styleClass="text" id="password"
+                        value="{!password}" onkeypress="return noenter(event);" />
+
+                    <div class="clear"></div>
+                    <span class="form-link"> </span>
+                    <div class="clear"></div>
+                    <p>
+                        <apex:commandButton value="Log in" style="min-width: 345px; height:45px;background-color:#00A9A0;color:#fff; border:none; font-size: 13pt;font-weight: 300;"
+                            action="{!login}" id="submitbutton" />
+                    </p>
+                    <a href="/secur/forgotpassword.jsp" style="font-size:12px;position:relative;left:20px;">Forgot your password?</a>
+                </fieldset>
+                <p style="font-size:12px;position:relative;top:-10;left:55px;">Copyright &copy; 2013 MySutter Connection. All rights reserved.</p>
+            </apex:form>
+        </div>
+         
+    </div>
+</body>
+</apex:page>

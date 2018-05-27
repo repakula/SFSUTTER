@@ -1,0 +1,404 @@
+<apex:page id="faqPage" controller="UniversalProviderController" showHeader="false" sidebar="false" standardStylesheets="false">
+<head>
+    <c:PDI_Portalbootstrap_resources ></c:PDI_Portalbootstrap_resources>
+    <c:PDI_portalMenuCSS ></c:PDI_portalMenuCSS>
+    <apex:stylesheet value="{!URLFOR($Resource.treegridFAQ, 'jquery.treegrid.css')}" id="treeGridCSS"/>
+    <apex:includeScript value="{!URLFOR($Resource.treegridFAQ, 'jquery.treegrid.js')}" id="treeGridJS"/>
+    <script src="/soap/ajax/28.0/connection.js" type="text/javascript"></script>
+    
+    <script>
+            $(document).ready(function(){
+                $('.tree').treegrid();
+                $('.tree-2').treegrid({
+                    expanderExpandedClass: 'fa fa-minus',
+                    expanderCollapsedClass: 'fa fa-plus'
+                });
+                
+                function close_accordion_section() {
+                    $('.accordion .accordion-section-title').removeClass('active');
+                    $('.accordion .accordion-section-content').slideUp(300).removeClass('open');
+                }
+                
+                $('.accordion-section-title').click(function(e) {
+                    // Grab current anchor value
+                    var currentAttrValue = $(this).attr('href');
+                    
+                    if($(e.target).is('.active')) {
+                        close_accordion_section();
+                    }else {
+                        close_accordion_section();
+                        
+                        // Add active class to section title
+                        $(this).addClass('active');
+                        // Open up the hidden content panel
+                        $('.accordion ' + currentAttrValue).slideDown(300).addClass('open'); 
+                    }
+                    
+                    e.preventDefault();
+                });
+        /*--------------Slide Menu Script Starts---------------*/
+                //stick in the fixed 100% height behind the navbar but don't wrap it
+                $('#slide-nav.navbar-inverse').after($('<div class="inverse" id="navbar-height-col"></div>'));
+                
+                $('#slide-nav.navbar-default').after($('<div id="navbar-height-col"></div>'));  
+                
+                // Enter your ids or classes
+                var toggler = '.navbar-toggle';
+                var menuneg = '-100%';
+                var slideneg = '-80%';
+                $("#slide-nav").on("click", toggler, function (e) {
+                    
+                    var selected = $(this).hasClass('slide-active');
+                    $('#slidemenu').stop().animate({
+                        left: selected ? menuneg : '0px'
+                    });
+                    $('#navbar-height-col').stop().animate({
+                        left: selected ? slideneg : '0px'
+                    });
+                    $(this).toggleClass('slide-active', !selected);
+                    $('.navbar-header').toggleClass('slide-active');
+                });
+                var selected = '.navbar-header';
+                $(window).on("resize", function () {
+                    if ($(window).width() > 767 && $('.navbar-toggle').is(':hidden')) {
+                        $(selected).removeClass('slide-active');
+                    }
+                });
+                /*--------------Slide Menu Script Ends---------------*/
+            });
+        function redirectToVP()
+        {
+            redirectoValidate();
+        }
+               
+        function redirectToHome(){
+            redirectoHomePage();
+        }
+            
+    </script>
+
+  <!-- Basic -->
+  <title>Sutterhealth | FAQ</title>
+  <!-- Define Charset -->
+  <meta charset="utf-8"/>
+  <!-- Responsive Metatag -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <!-- Page Description and Author -->
+  <meta name="description" content="Accenture"/>
+  <meta name="author" content="kishore"/>
+</head>
+
+<body>
+  <!-- Full Body Container -->
+  <div id="container">
+      <!-- Start Header Section -->
+      <div class="hidden-header"></div>
+      <header class="clearfix">
+          <c:PDI_PortalHeader ></c:PDI_PortalHeader>
+          <div class="navbar navbar-inverse" role="navigation" id="slide-nav">
+              <div class="container">
+                  <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>                        
+                      </button>
+                      <a class="navbar-brand" href="#">
+                          <apex:image url="{!URLFOR($Resource.logo)}" width="162" height="54" id="logo"/>
+                      </a>
+                  </div><!--navbar--header-->
+                  <div id="slidemenu">
+                      <ul class="nav navbar-nav">
+                          <li ><a href="javascript:redirectToHome();">Home</a></li>
+                          <apex:outputText rendered="{!if($Api.Session_ID != null 
+                                                     && $User.LastName != 'Site Guest User'
+                                                     && summaryObj != null,true,false)}">
+                              <li><a href="javascript:redirectToVP();">Profile</a></li>
+                          </apex:outputText>
+                          <apex:outputText rendered="{!if($Api.Session_ID != null 
+                                                     && $User.LastName != 'Site Guest User'
+                                                     && summaryObj == null,true,false)}">
+                              <li><a href="javascript:redirecttoProvidersListPage();">Profile</a></li>
+                          </apex:outputText>
+                          <li class="active"><a href="UFAQ">FAQ</a></li>
+                      </ul>
+                  </div><!--slidemenu-->
+              </div><!-- Nav Container-->
+          </div><!--Nav bar-->
+      </header>
+    <!-- Start Content -->
+    <div class="container" id="home1">
+        <div id="content">  
+           <table class="table tree-2 table-bordered table-striped table-condensed">
+               <!--Data Collection Rational Section -->
+               
+                <tr class="treegrid-1" style="background-color:#808080"><td style="font-weight:bold; font-size:16px;color:white;">{!faqObj.section1}</td></tr> 
+                <tr class="treegrid-2 treegrid-parent-1" >
+                    <td>
+                        <div class="accordion" >
+                            <div class="accordion-section" >
+                                <a class="accordion-section-title" href="#accordion-1" style="background-color:white;color:black;">{!faqObj.s1Q1}</a>
+                                <div id="accordion-1" class="accordion-section-content">
+                                    <p style="font-size:14px;color:#000000;">{!faqObj.s1Q1A1}</p>
+                                </div><!--end .accordion-section-content-->
+                            </div><!--end .accordion-section-->
+                        </div><!--end .accordion-->
+                        <div>&nbsp;</div>
+                        <div class="accordion">
+                            <div class="accordion-section">
+                                <a class="accordion-section-title" href="#accordion-2" style="background-color:white;color:black;">{!faqObj.s1Q2}</a>
+                                <div id="accordion-2" class="accordion-section-content">
+                                    <p style="font-size:14px;">{!faqObj.s1Q2A2}</p>
+                                </div><!--end .accordion-section-content-->
+                            </div><!--end .accordion-section-->
+                        </div><!--end .accordion-->
+                        <div>&nbsp;</div>
+                        <div class="accordion">
+                            <div class="accordion-section">
+                                <a class="accordion-section-title" href="#accordion-3" style="background-color:white;color:black;">{!faqObj.s1Q3}</a>
+                                <div id="accordion-3" class="accordion-section-content">
+                                    <p style="font-size:14px;">{!faqObj.s1Q3A3}</p>
+                                </div><!--end .accordion-section-content-->
+                            </div><!--end .accordion-section-->
+                        </div><!--end .accordion-->
+                        <div>&nbsp;</div>
+                        
+                        <div class="accordion">
+                            <div class="accordion-section">
+                                <a class="accordion-section-title" href="#accordion-15" style="background-color:white;color:black;">{!faqObj.s1Q4}</a>
+                                <div id="accordion-15" class="accordion-section-content">
+                                    <p style="font-size:14px;">{!faqObj.s1Q4A4}</p>
+                                </div><!--end .accordion-section-content-->
+                            </div><!--end .accordion-section-->
+                        </div><!--end .accordion-->
+                        <apex:outputPanel rendered="{!IF(faqObj.s1Q5 != '', true, false)}">
+                        <div>&nbsp;</div>
+                        <div class="accordion" id="emptyDiv1">
+                            <div class="accordion-section">
+                                <a class="accordion-section-title" href="#accordion-16" style="background-color:white;color:black;">{!faqObj.s1Q5}</a>
+                                <div id="accordion-16" class="accordion-section-content">
+                                    <p style="font-size:14px;">{!faqObj.s1Q5A5}</p>
+                                </div><!--end .accordion-section-content-->
+                            </div><!--end .accordion-section-->
+                        </div><!--end .accordion-->
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!IF(faqObj.s1Q6 != '', true, false)}">
+                        <div>&nbsp;</div>
+                        <div class="accordion">
+                            <div class="accordion-section">
+                                <a class="accordion-section-title" href="#accordion-17" style="background-color:white;color:black;">{!faqObj.s1Q6}</a>
+                                <div id="accordion-17" class="accordion-section-content">
+                                    <p style="font-size:14px;">{!faqObj.s1Q6A6}</p>
+                                </div><!--end .accordion-section-content-->
+                            </div><!--end .accordion-section-->
+                        </div><!--end .accordion-->
+                        </apex:outputPanel>
+                    </td>
+               </tr>
+               <!--Data Collection Rational Section End-->
+               <!-- Access Section -->
+               <tr class="treegrid-3" style="background-color:#808080"><td style="font-weight:bold; font-size:16px;color:white;">{!faqObj.section2}</td></tr>
+               <tr class="treegrid-4 treegrid-parent-3">
+                   <td>
+                        <div class="accordion">
+                            <div class="accordion-section">
+                                <a class="accordion-section-title" href="#accordion-4" style="background-color:white;color:black;">{!faqObj.s2Q1}</a>
+                                <div id="accordion-4" class="accordion-section-content">
+                                    <p style="font-size:14px;">{!faqObj.s2Q1A1}</p>
+                                </div><!--end .accordion-section-content-->
+                            </div><!--end .accordion-section-->
+                        </div><!--end .accordion-->
+                       <div>&nbsp;</div>
+                       <div class="accordion">
+                           <div class="accordion-section">
+                               <a class="accordion-section-title" href="#accordion-5" style="background-color:white;color:black;">{!faqObj.s2Q2}</a>
+                               <div id="accordion-5" class="accordion-section-content">
+                                   <p style="font-size:14px;">{!faqObj.s2Q2A2}</p>
+                               </div><!--end .accordion-section-content-->
+                           </div><!--end .accordion-section-->
+                       </div><!--end .accordion-->
+                       <div>&nbsp;</div>
+                       <div class="accordion">
+                           <div class="accordion-section">
+                               <a class="accordion-section-title" href="#accordion-6" style="background-color:white;color:black;">{!faqObj.s2Q3}</a>
+                               <div id="accordion-6" class="accordion-section-content">
+                                   <p style="font-size:14px;">{!faqObj.s2Q3A3}</p>
+                               </div><!--end .accordion-section-content-->
+                           </div><!--end .accordion-section-->
+                       </div><!--end .accordion-->
+                       <apex:outputPanel rendered="{!IF(faqObj.s2Q4 != '', true, false)}">
+                       <div>&nbsp;</div>
+                       <div class="accordion">
+                           <div class="accordion-section">
+                               <a class="accordion-section-title" href="#accordion-18" style="background-color:white;color:black;">{!faqObj.s2Q4}</a>
+                               <div id="accordion-18" class="accordion-section-content">
+                                   <p style="font-size:14px;">{!faqObj.s2Q4A4}</p>
+                               </div><!--end .accordion-section-content-->
+                           </div><!--end .accordion-section-->
+                       </div><!--end .accordion-->
+                       </apex:outputPanel>
+                       <apex:outputPanel rendered="{!IF(faqObj.s2Q5 != '', true, false)}">
+                       <div>&nbsp;</div>
+                       <div class="accordion">
+                           <div class="accordion-section">
+                               <a class="accordion-section-title" href="#accordion-19" style="background-color:white;color:black;">{!faqObj.s2Q5}</a>
+                               <div id="accordion-19" class="accordion-section-content">
+                                   <p style="font-size:14px;">{!faqObj.s2Q5A5}</p>
+                               </div><!--end .accordion-section-content-->
+                           </div><!--end .accordion-section-->
+                       </div><!--end .accordion-->
+                       </apex:outputPanel>
+                   </td>
+               </tr>
+               <!-- Access Section Ends -->
+               <!-- Technical Section -->
+               <tr class="treegrid-5" style="background-color:#808080"><td style="font-weight:bold; font-size:16px;color:white;">{!faqObj.section3}</td></tr>
+               <tr class="treegrid-6 treegrid-parent-5">
+                   <td>
+                       <div class="accordion">
+                           <div class="accordion-section">
+                               <a class="accordion-section-title" href="#accordion-7" style="background-color:white;color:black;">{!faqObj.s3Q1}</a>
+                               <div id="accordion-7" class="accordion-section-content">
+                                   <p style="font-size:14px;">{!faqObj.s3Q1A1}</p>
+                               </div><!--end .accordion-section-content-->
+                           </div><!--end .accordion-section-->
+                       </div><!--end .accordion-->
+                       <div>&nbsp;</div>
+                       <div class="accordion">
+                           <div class="accordion-section">
+                               <a class="accordion-section-title" href="#accordion-8" style="background-color:white;color:black;">{!faqObj.s3Q2}</a>
+                               <div id="accordion-8" class="accordion-section-content">
+                                   <p style="font-size:14px;">{!faqObj.s3Q2A2}</p>
+                               </div><!--end .accordion-section-content-->
+                           </div><!--end .accordion-section-->
+                       </div><!--end .accordion-->
+                       <div>&nbsp;</div>
+                       <div class="accordion">
+                           <div class="accordion-section">
+                               <a class="accordion-section-title" href="#accordion-9" style="background-color:white;color:black;">{!faqObj.s3Q3}</a>
+                               <div id="accordion-9" class="accordion-section-content">
+                                   <p style="font-size:14px;">{!faqObj.s3Q3A3}</p>
+                               </div><!--end .accordion-section-content-->
+                           </div><!--end .accordion-section-->
+                       </div><!--end .accordion-->
+                       <div>&nbsp;</div>
+                       <div class="accordion">
+                           <div class="accordion-section">
+                               <a class="accordion-section-title" href="#accordion-10" style="background-color:white;color:black;">{!faqObj.s3Q4}</a>
+                               <div id="accordion-10" class="accordion-section-content">
+                                   <p style="font-size:14px;">{!faqObj.s3Q4A4}</p>
+                               </div><!--end .accordion-section-content-->
+                           </div><!--end .accordion-section-->
+                       </div><!--end .accordion-->
+                       <div>&nbsp;</div>
+                       <div class="accordion">
+                           <div class="accordion-section">
+                               <a class="accordion-section-title" href="#accordion-11" style="background-color:white;color:black;">{!faqObj.s3Q5}</a>
+                               <div id="accordion-11" class="accordion-section-content">
+                                   <p style="font-size:14px;">{!faqObj.s3Q5A5}</p>
+                               </div><!--end .accordion-section-content-->
+                           </div><!--end .accordion-section-->
+                       </div><!--end .accordion-->
+                       <apex:outputPanel rendered="{!IF(faqObj.s3Q6 != '', true, false)}">
+                       <div>&nbsp;</div>
+                       <div class="accordion">
+                           <div class="accordion-section">
+                               <a class="accordion-section-title" href="#accordion-20" style="background-color:white;color:black;">{!faqObj.s3Q6}</a>
+                               <div id="accordion-20" class="accordion-section-content">
+                                   <p style="font-size:14px;">{!faqObj.s3Q6A6}</p>
+                               </div><!--end .accordion-section-content-->
+                           </div><!--end .accordion-section-->
+                       </div><!--end .accordion-->
+                       </apex:outputPanel>
+                       <apex:outputPanel rendered="{!IF(faqObj.s3Q7 != '', true, false)}">
+                           <div>&nbsp;</div>
+                           <div class="accordion">
+                               <div class="accordion-section">
+                                   <a class="accordion-section-title" href="#accordion-21" style="background-color:white;color:black;">{!faqObj.s3Q7}</a>
+                                   <div id="accordion-21" class="accordion-section-content">
+                                       <p style="font-size:14px;">{!faqObj.s3Q7A7}</p>
+                                   </div><!--end .accordion-section-content-->
+                               </div><!--end .accordion-section-->
+                           </div><!--end .accordion-->
+                       </apex:outputPanel>
+                   </td>
+               </tr>
+               <!-- Technical Section Ends -->
+               <!-- Special Circumstances Section -->
+               <tr class="treegrid-7" style="background-color:#808080"><td style="font-weight:bold; font-size:16px;color:white;">{!faqObj.section4}</td></tr>
+               <tr class="treegrid-8 treegrid-parent-7">
+                   <td>
+                       <div class="accordion">
+                           <div class="accordion-section">
+                               <a class="accordion-section-title" href="#accordion-12" style="background-color:white;color:black;">{!faqObj.s4Q1}</a>
+                               <div id="accordion-12" class="accordion-section-content">
+                                  
+                                   <p style="font-size:14px;">{!faqObj.s4Q1A1}</p>
+                               </div><!--end .accordion-section-content-->
+                           </div><!--end .accordion-section-->
+                       </div><!--end .accordion-->
+                       <div>&nbsp;</div>
+                       <div class="accordion">
+                           <div class="accordion-section">
+                               <a class="accordion-section-title" href="#accordion-13" style="background-color:white;color:black;">{!faqObj.s4Q2}</a>
+                               <div id="accordion-13" class="accordion-section-content">
+                                   <p style="font-size:14px;">{!faqObj.s4Q2A2}</p>
+                               </div><!--end .accordion-section-content-->
+                           </div><!--end .accordion-section-->
+                       </div><!--end .accordion-->
+                       <div>&nbsp;</div>
+                       <div class="accordion">
+                           <div class="accordion-section">
+                               <a class="accordion-section-title" href="#accordion-14" style="background-color:white;color:black;">{!faqObj.s4Q3}</a>
+                               <div id="accordion-14" class="accordion-section-content">
+                                   <p style="font-size:14px;">{!faqObj.s4Q3A3}</p>
+                               </div><!--end .accordion-section-content-->
+                           </div><!--end .accordion-section-->
+                       </div><!--end .accordion-->
+                       <apex:outputPanel rendered="{!IF(faqObj.s4Q4 != '', true, false)}">
+                           <div>&nbsp;</div>
+                           <div class="accordion">
+                               <div class="accordion-section">
+                                   <a class="accordion-section-title" href="#accordion-22" style="background-color:white;color:black;">{!faqObj.s4Q4}</a>
+                                   <div id="accordion-22" class="accordion-section-content">
+                                       <p style="font-size:14px;">{!faqObj.s4Q4A4}</p>
+                                   </div><!--end .accordion-section-content-->
+                               </div><!--end .accordion-section-->
+                           </div><!--end .accordion-->
+                       </apex:outputPanel>
+                       <apex:outputPanel rendered="{!IF(faqObj.s4Q5 != '', true, false)}">
+                           <div>&nbsp;</div>
+                           <div class="accordion">
+                               <div class="accordion-section">
+                                   <a class="accordion-section-title" href="#accordion-23" style="background-color:white;color:black;">{!faqObj.s4Q5}</a>
+                                   <div id="accordion-23" class="accordion-section-content">
+                                       <p style="font-size:14px;">{!faqObj.s4Q5A5}</p>
+                                   </div><!--end .accordion-section-content-->
+                               </div><!--end .accordion-section-->
+                           </div><!--end .accordion-->
+                       </apex:outputPanel>
+                   </td>
+               </tr>
+               <!-- Special Circumstances Section Ends-->
+              
+           </table>
+            
+        </div>
+
+    </div><!-- End Content -->
+    
+    <!-- Start Footer -->
+    <c:PDI_PortalFooter ></c:PDI_PortalFooter>
+    <!-- End Footer -->
+  </div><!-- End Body Container -->
+  
+          <apex:form > 
+              <apex:actionFunction action="{!redirectoValidateProvider}" name="redirectoValidate" id="profilePage"/>
+              <apex:actionFunction action="{!redirectoHome}" name="redirectoHomePage" id="homePage"/>
+              <apex:actionFunction action="{!redirectoChangePassword}" name="redirectoChangePass" id="changePwdPage"/>
+              <apex:actionFunction action="{!redirectoProviderList}" name="redirecttoProvidersListPage" id="redirecttoProvidersListPage"/>
+        </apex:form>
+  
+</body>
+
+</apex:page>

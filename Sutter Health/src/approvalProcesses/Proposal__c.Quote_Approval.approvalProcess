@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApprovalProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <allowRecall>false</allowRecall>
+    <allowedSubmitters>
+        <submitter>Underwriter</submitter>
+        <type>group</type>
+    </allowedSubmitters>
+    <approvalPageFields>
+        <field>Name</field>
+        <field>Owner</field>
+        <field>Opportunity_ID__c</field>
+        <field>Employer_Type__c</field>
+        <field>RFP_Form__c</field>
+        <field>RFP_Date_Due__c</field>
+        <field>RFP_Date_Submitted__c</field>
+        <field>Quote_Effective_Date__c</field>
+        <field>No_of_Quotes_Requested__c</field>
+        <field>No_of_Quotes_Generated__c</field>
+    </approvalPageFields>
+    <approvalStep>
+        <allowDelegate>false</allowDelegate>
+        <approvalActions>
+            <action>
+                <name>Owner_set_to_Underwriter_Queue</name>
+                <type>FieldUpdate</type>
+            </action>
+            <action>
+                <name>Quote_approved_Notification</name>
+                <type>Alert</type>
+            </action>
+            <action>
+                <name>Update_Quote_stage_to_Approved</name>
+                <type>FieldUpdate</type>
+            </action>
+        </approvalActions>
+        <assignedApprover>
+            <approver>
+                <name>SHP_Sales_Queue</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <label>Quote Approval from SHP Sales</label>
+        <name>Quote_Approval_from_SHP_Sales</name>
+        <rejectionActions>
+            <action>
+                <name>Owner_set_to_Underwriter_Queue</name>
+                <type>FieldUpdate</type>
+            </action>
+            <action>
+                <name>Quote_s_is_not_Approved</name>
+                <type>Alert</type>
+            </action>
+            <action>
+                <name>Update_Quote_stage_to_Rejected</name>
+                <type>FieldUpdate</type>
+            </action>
+        </rejectionActions>
+    </approvalStep>
+    <description>Approval process to exchange Quote between Sales &amp; Underwriting</description>
+    <emailTemplate>SHP_Sales_Email_Template/Quote_Approval_Email_Notification</emailTemplate>
+    <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
+    <entryCriteria>
+        <booleanFilter>1 AND (2  OR 3)</booleanFilter>
+        <criteriaItems>
+            <field>Proposal__c.Tech_RFP_Status__c</field>
+            <operation>equals</operation>
+            <value>Approved by Underwriting</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Proposal__c.Stage__c</field>
+            <operation>equals</operation>
+            <value>Draft</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Proposal__c.Stage__c</field>
+            <operation>equals</operation>
+            <value>Rejected by Sales</value>
+        </criteriaItems>
+    </entryCriteria>
+    <finalApprovalRecordLock>true</finalApprovalRecordLock>
+    <finalRejectionRecordLock>false</finalRejectionRecordLock>
+    <initialSubmissionActions>
+        <action>
+            <name>Owner_is_set_to_Sales_Queue</name>
+            <type>FieldUpdate</type>
+        </action>
+        <action>
+            <name>Update_stage_of_Quote_on_Submission</name>
+            <type>FieldUpdate</type>
+        </action>
+    </initialSubmissionActions>
+    <label>Quote Approval</label>
+    <recordEditability>AdminOrCurrentApprover</recordEditability>
+    <showApprovalHistory>true</showApprovalHistory>
+</ApprovalProcess>

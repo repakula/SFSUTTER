@@ -1,0 +1,76 @@
+<apex:page >
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script>  
+    jQuery.noConflict();    
+    jQuery(document).ready(function () {
+        console.log('@@start');
+        var contactNameTd = parent.document.querySelectorAll('.labelCol');
+        console.log('@@contactNameTd : ' + contactNameTd.length);
+        for(var i=0;i<contactNameTd.length;i++) {
+            console.log('@@contactNameTd[i].innerText :'+ contactNameTd[i].innerText);
+            if(contactNameTd[i].innerText != 'undefined' && contactNameTd[i].innerText == 'Contact Name') 
+            {
+             contactNameTd[i].innerText = 'Requested By';
+            console.log('@@requested by');
+            }   
+        }   
+        
+        jQuery('.labelCol label').each(function()   
+        {   
+            if(jQuery(this).text()=='*Internal Comments' || jQuery(this).text()=='Internal Comments')   
+            {   
+                jQuery(this).text('Comments');;
+                console.log('@@internal components');               
+            }   
+        }); 
+        
+        jQuery('.dataCol.col02.last').prev().each(function()    { 
+            if(jQuery(this).text()=='Reports Link')   
+            {   
+                jQuery(this).next().html('<a href="http://mysutter/Resources/SystemDepartments/HRIS/CrystalLawson/Pages/CrystalReports.aspx" target="_blank">HR Standard Reports Library</a>'); 
+                console.log('@@reports link');
+            }   
+        });  
+        
+        jQuery('.brandTertiaryBgr.pbSubheader.tertiaryPalette h3').each(function() {
+            if(jQuery(this).text()=='Optional:')    {
+                jQuery(this).parent().hide();   
+                console.log('@@optional');
+            }   
+        });  
+        
+        jQuery('.detailRow.last').each(function()   {
+            jQuery(this).hide();    
+        });      
+        
+        jQuery('.pbSubheader.brandTertiaryBrd.brandTertiaryBgr.tertiaryPalette').each(function() {
+            if(jQuery(this).find(':first-child').text() == 'Contact Information::')     
+            {           
+                jQuery(this).hide();            
+                jQuery(this).next().hide();
+                console.log('@@contact info');
+            }   
+        });    
+        
+        jQuery('.pbButton .btn').each(function() {
+            if(jQuery('.pbButton .btn').val() == ' Edit ' )  
+            {
+                jQuery('input[name="edit"]').hide();
+                console.log('@@edit button');
+            } 
+        });      
+    });
+</script>
+    
+  <apex:form >
+  
+  <!-- Component for GTM-->
+                     <c:Portal_User_Info />
+           <!-- Component for GTM-->
+           
+    <!-- Start Google Tag Manager -->
+        <apex:outputLabel value="{!$Label.GTMCustomLabel}" rendered="false"></apex:outputLabel> 
+        <apex:includeScript value="{!$Resource.GTMJavaScript}" />
+        <!-- End Google Tag Manager -->
+ </apex:form>       
+</apex:page>

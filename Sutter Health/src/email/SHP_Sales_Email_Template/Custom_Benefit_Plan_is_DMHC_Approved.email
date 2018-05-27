@@ -1,0 +1,12 @@
+<html>
+<body>
+Hi,<br/><br/>
+
+Custom Plan Request <a href="'{!$Label.HR201_CustomBenPlanListViewURL}'">{!Custom_Benefit_Plan__c.Name}</a> has been approved by the DMHC.
+
+Final documents are now available in the {!Custom_Benefit_Plan__c.Plan_Related_to_Account__c}/DBA: {!Custom_Benefit_Plan__c.DBA__c}, {!Custom_Benefit_Plan__c.Employer_Type__c} documents folder. Please notify the Broker/Employer Group and send the updated documents.
+<br/><br/>
+
+Thank you.<br/>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Contact Script</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Contact Scripts</value>
+    </caseValues>
+    <fields>
+        <label><!-- Attachment --></label>
+        <name>Attachment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Body 1 --></label>
+        <name>Body_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Body 2 --></label>
+        <name>Body_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Body 3 --></label>
+        <name>Body_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Types / Intentions --></label>
+        <name>Contact_Types_Intentions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comments/Suggestions --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Article Feedback --></label>
+        <name>Feedback_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Flags &amp; Warnings --></label>
+        <name>Flags_Warnings__c</name>
+    </fields>
+    <fields>
+        <label><!-- Functional Area --></label>
+        <name>Functional_Area__c</name>
+    </fields>
+    <fields>
+        <label><!-- Keywords --></label>
+        <name>Keywords__c</name>
+    </fields>
+    <fields>
+        <label><!-- Production Article ID --></label>
+        <name>Production_Article_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Related Scripts --></label>
+        <name>Related_Scripts__c</name>
+    </fields>
+    <fields>
+        <label><!-- Required Response --></label>
+        <name>Required_Response__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Priority --></label>
+        <name>SH_Is_Priority__c</name>
+    </fields>
+    <fields>
+        <label><!-- Menu --></label>
+        <name>SH_Menu__c</name>
+    </fields>
+    <fields>
+        <label><!-- SubMenu --></label>
+        <name>SH_SubMenu__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sub-Function --></label>
+        <name>Sub_Function__c</name>
+    </fields>
+    <fields>
+        <label><!-- Workgroup --></label>
+        <name>Workgroup__c</name>
+    </fields>
+    <layouts>
+        <layout>Contact Script Layout</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Article Body --></label>
+            <section>Article Body</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Types/Intentions --></label>
+            <section>Contact Types/Intentions</section>
+        </sections>
+        <sections>
+            <label><!-- Feedback --></label>
+            <section>Feedback</section>
+        </sections>
+        <sections>
+            <label><!-- Flags &amp; Warnings --></label>
+            <section>Flags &amp; Warnings</section>
+        </sections>
+        <sections>
+            <label><!-- Required Response --></label>
+            <section>Required Response</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

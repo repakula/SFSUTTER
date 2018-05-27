@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Network xmlns="http://soap.sforce.com/2006/04/metadata">
+    <allowMembersToFlag>false</allowMembersToFlag>
+    <branding>
+        <loginFooterText>MySutter Connection</loginFooterText>
+        <primaryColor>#00A9A0</primaryColor>
+        <primaryComplementColor>#222222</primaryComplementColor>
+        <quaternaryColor>#FFFFFF</quaternaryColor>
+        <quaternaryComplementColor>#222222</quaternaryComplementColor>
+        <secondaryColor>#00A9A0</secondaryColor>
+        <tertiaryColor>#717271</tertiaryColor>
+        <tertiaryComplementColor>#FFFFFF</tertiaryComplementColor>
+        <zeronaryColor>#FFFFFF</zeronaryColor>
+        <zeronaryComplementColor>#222222</zeronaryComplementColor>
+    </branding>
+    <changePasswordTemplate>unfiled$public/Community_Portal_Forgot_Password_Admin_Reset_Email_1_0</changePasswordTemplate>
+    <emailSenderAddress>salesforce@sutterhealth.org</emailSenderAddress>
+    <emailSenderName>MySutter Connection</emailSenderName>
+    <enableGuestChatter>false</enableGuestChatter>
+    <enableInvitation>false</enableInvitation>
+    <enableKnowledgeable>false</enableKnowledgeable>
+    <enableNicknameDisplay>false</enableNicknameDisplay>
+    <enablePrivateMessages>false</enablePrivateMessages>
+    <enableReputation>false</enableReputation>
+    <enableSiteAsContainer>false</enableSiteAsContainer>
+    <forgotPasswordTemplate>unfiled$public/Community_Portal_Forgot_Password_Admin_Reset_Email_1_0</forgotPasswordTemplate>
+    <networkMemberGroups>
+        <profile>Admin</profile>
+        <profile>Community Portal</profile>
+        <profile>Community Portal Manager</profile>
+    </networkMemberGroups>
+    <picassoSite>Sutter_Health_Employee_Community1</picassoSite>
+    <selfRegistration>false</selfRegistration>
+    <sendWelcomeEmail>true</sendWelcomeEmail>
+    <site>Sutter_Health_Employee_Community</site>
+    <status>Live</status>
+    <tabs>
+        <defaultTab>home</defaultTab>
+        <standardTab>home</standardTab>
+    </tabs>
+    <welcomeTemplate>unfiled$public/Community_Portal_Welcome_Email_SSO</welcomeTemplate>
+</Network>

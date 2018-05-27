@@ -1,0 +1,8 @@
+<apex:component >
+    <apex:stylesheet value="{!URLFOR($Resource.PDI, 'CSSJavaScriptImages/style.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.PDI, 'CSSJavaScriptImages/externalcss.css')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.PDI, 'CSSJavaScriptImages/engine1/jquery.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.PDI, 'CSSJavaScriptImages/cloudflare.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.PDI, 'CSSJavaScriptImages/googleapi.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.PDI, 'CSSJavaScriptImages/engine1/style.css')}"/>
+</apex:component>

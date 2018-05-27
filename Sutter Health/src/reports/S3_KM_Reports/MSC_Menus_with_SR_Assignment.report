@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>SH_Menu_Item__c.SH_Order_of_Display__c</field>
+    </columns>
+    <columns>
+        <field>SH_Menu_Item__c.SH_Is_Preview__c</field>
+    </columns>
+    <columns>
+        <field>SH_Menu_Item__c.SH_Is_Publish__c</field>
+    </columns>
+    <columns>
+        <field>SH_Menu_Item__c.SH_Function__c</field>
+    </columns>
+    <columns>
+        <field>SH_Menu_Item__c.SH_Sub_Function__c</field>
+    </columns>
+    <columns>
+        <field>SH_Menu_Item__c.SH_Team__c</field>
+    </columns>
+    <columns>
+        <field>SH_Menu_Item__c.SH_Customer_Intent__c</field>
+    </columns>
+    <format>Tabular</format>
+    <name>MSC Menus with SR Assignment</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$SH_Menu_Item__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>SH_Menu_Item__c.SH_Order_of_Display__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Employer Activity Email Template</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Sutter_Shared_Services</letterhead>
+    <name>Employer Activity Email Template</name>
+    <style>freeForm</style>
+    <subject>New Employer Activity Assigned</subject>
+    <textOnly>Hi {!Employer_Activity__c.Assigned_To__c}
+
+A new Employer Activity {!Employer_Activity__c.Name} is assigned to you on account {!Employer_Activity__c.Account_Name__c}.
+
+Please work and complete the activity.
+
+Regards</textOnly>
+    <type>html</type>
+</EmailTemplate>

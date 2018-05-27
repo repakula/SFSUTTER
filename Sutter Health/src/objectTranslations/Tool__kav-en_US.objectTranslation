@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Tool</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Tools</value>
+    </caseValues>
+    <fields>
+        <label><!-- Browser Notification Description --></label>
+        <name>SH_Browser_Notification_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Browser Notification Info Link --></label>
+        <name>SH_Browser_Notification_Info_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Browser Notification Title --></label>
+        <name>SH_Browser_Notification_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Show Browser Notification --></label>
+        <name>SH_Is_Show_Browser_Notification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Show Notification --></label>
+        <name>SH_Is_Show_Notification__c</name>
+    </fields>
+    <fields>
+        <label><!-- More Information Link --></label>
+        <name>SH_More_Information_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Not Supported Browser --></label>
+        <name>SH_Not_Supported_Browser__c</name>
+        <picklistValues>
+            <masterLabel>Chrome</masterLabel>
+            <translation><!-- Chrome --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Firefox</masterLabel>
+            <translation><!-- Firefox --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MSIE</masterLabel>
+            <translation><!-- MSIE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Opera</masterLabel>
+            <translation><!-- Opera --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Safari</masterLabel>
+            <translation><!-- Safari --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Notification Description --></label>
+        <name>SH_Notification_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notification Title --></label>
+        <name>SH_Notification_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tool Link --></label>
+        <name>SH_Tool_Link__c</name>
+    </fields>
+    <layouts>
+        <layout>Tool Layout</layout>
+        <sections>
+            <label><!-- Browser Notification --></label>
+            <section>Browser Notification</section>
+        </sections>
+        <sections>
+            <label><!-- Other Notification --></label>
+            <section>Other Notification</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

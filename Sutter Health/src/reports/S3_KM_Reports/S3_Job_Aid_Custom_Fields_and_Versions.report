@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Job_Aid__ka.Job_Aid__kav$Title</field>
+    </columns>
+    <columns>
+        <field>Job_Aid__ka$ArticleNumber</field>
+    </columns>
+    <columns>
+        <field>Job_Aid__ka.Job_Aid__kav$Functional_Area__c</field>
+    </columns>
+    <columns>
+        <field>Job_Aid__ka.Job_Aid__kav$Sub_Function__c</field>
+    </columns>
+    <columns>
+        <field>Job_Aid__ka.Job_Aid__kav$Summary</field>
+    </columns>
+    <columns>
+        <field>Job_Aid__ka.Job_Aid__kav$LastModifiedDate</field>
+    </columns>
+    <columns>
+        <field>Job_Aid__ka.Job_Aid__kav$IsVisibleInCsp</field>
+    </columns>
+    <columns>
+        <field>Job_Aid__ka.Job_Aid__kav$IsVisibleInApp</field>
+    </columns>
+    <description>S3 Job Aid Custom Fields and Versions</description>
+    <filter>
+        <criteriaItems>
+            <column>Job_Aid__ka$ArchivedDate</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Job_Aid__ka.Job_Aid__kav$IsLatestVersion</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>S3 Job Aid Custom Fields and Versions</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>S3_Job_Aid_Custom_Fields_and_Versions__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Job_Aid__ka$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

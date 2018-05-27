@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>SH_Sub_Menu_Item__c$SH_Menu_Item__c</field>
+    </columns>
+    <columns>
+        <field>SH_Sub_Menu_Item__c$Name</field>
+    </columns>
+    <columns>
+        <field>SH_Sub_Menu_Item__c$SH_Is_Publish__c</field>
+    </columns>
+    <columns>
+        <field>SH_Sub_Menu_Item__c$SH_Function__c</field>
+    </columns>
+    <columns>
+        <field>SH_Sub_Menu_Item__c$SH_Sub_Function__c</field>
+    </columns>
+    <columns>
+        <field>SH_Sub_Menu_Item__c$SH_Team__c</field>
+    </columns>
+    <columns>
+        <field>SH_Sub_Menu_Item__c$SH_Customer_Intent__c</field>
+    </columns>
+    <format>Tabular</format>
+    <name>MSC Sub Menu Items with SR Assignment</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Sub_Menu_Items__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>SH_Sub_Menu_Item__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

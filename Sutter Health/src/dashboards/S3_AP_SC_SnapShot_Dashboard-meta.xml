@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DashboardFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <folderShares>
+        <accessLevel>Manage</accessLevel>
+        <sharedTo>torrese5@sutterhealth.org</sharedTo>
+        <sharedToType>User</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>View</accessLevel>
+        <sharedTo>S3_Call_Center_AP_Supervisor</sharedTo>
+        <sharedToType>Role</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>View</accessLevel>
+        <sharedTo>S3_Tier_1_AP_SC_Agent</sharedTo>
+        <sharedToType>Role</sharedToType>
+    </folderShares>
+    <name>S3 AP/SC SnapShot Dashboard</name>
+</DashboardFolder>

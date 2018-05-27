@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Potential Quality Issue</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Potential Quality Issue</value>
+    </caseValues>
+    <fields>
+        <label><!-- Access / Availability --></label>
+        <name>Access_Availability__c</name>
+    </fields>
+    <fields>
+        <label><!-- Admit within 3 days of ER --></label>
+        <name>Admit_within_3_days_of_ER__c</name>
+    </fields>
+    <fields>
+        <label><!-- Assessment/Treatment/Diagnosis --></label>
+        <name>Assessment_Treatment_Diagnosis__c</name>
+    </fields>
+    <fields>
+        <label><!-- Assigned Medical Director --></label>
+        <name>Assigned_Medical_Director__c</name>
+        <picklistValues>
+            <masterLabel>Jennifer Nuovo, MD</masterLabel>
+            <translation><!-- Jennifer Nuovo, MD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Malika Stoll, MD</masterLabel>
+            <translation><!-- Malika Stoll, MD --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Assigned RN --></label>
+        <name>Assigned_RN__c</name>
+        <relationshipLabel><!-- Potential Quality Issue (Assigned RN) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Bypass CMO --></label>
+        <name>ByPass_CMO__c</name>
+    </fields>
+    <fields>
+        <label><!-- Coding --></label>
+        <name>Coding__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comment --></label>
+        <name>Comment_CMO__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comment --></label>
+        <name>Comment_PRC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comment --></label>
+        <name>Comment_UM__c</name>
+    </fields>
+    <fields>
+        <label><!-- Communications / Conduct --></label>
+        <name>Communications_Conduct__c</name>
+    </fields>
+    <fields>
+        <label><!-- Continuity of Care --></label>
+        <name>Continuity_of_Care__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Inquiry Type --></label>
+        <name>Customer_Inquiry_Type__c</name>
+        <picklistValues>
+            <masterLabel>Potential Quality Issue (PQI)</masterLabel>
+            <translation><!-- Potential Quality Issue (PQI) --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Date of Occurrence --></label>
+        <name>Date_of_Occurrence__c</name>
+    </fields>
+    <fields>
+        <label><!-- Delay (Care or Referral) --></label>
+        <name>Delay_Care_or_Referral__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description of Events --></label>
+        <name>Description_of_Events1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Facility / Office - BH --></label>
+        <name>Facility_Office_BH__c</name>
+    </fields>
+    <fields>
+        <label><!-- Facility / Office Environment --></label>
+        <name>Facility_Office_Environment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of Review --></label>
+        <name>MD_Date_of_Review__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other --></label>
+        <name>Medical_Director_Recommendations_Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Medical Director Recommendations --></label>
+        <name>Medical_Director_Recommendations__c</name>
+        <picklistValues>
+            <masterLabel>Close – No issues identified</masterLabel>
+            <translation><!-- Close – No issues identified --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Close – Track and Trend</masterLabel>
+            <translation><!-- Close – Track and Trend --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credentialing Review Requested</masterLabel>
+            <translation><!-- Credentialing Review Requested --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Education Letter</masterLabel>
+            <translation><!-- Education Letter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Peer Review Requested</masterLabel>
+            <translation><!-- Peer Review Requested --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reff to Foundation&apos;s Quality Committee</masterLabel>
+            <translation><!-- Reff to Foundation&apos;s Quality Committee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Site Visit</masterLabel>
+            <translation><!-- Site Visit --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Medical Director Review Summary --></label>
+        <name>Medical_Director_Review_Summary1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Member Age: --></label>
+        <name>Member_Age__c</name>
+    </fields>
+    <fields>
+        <label><!-- Member DOB --></label>
+        <name>Member_DOB__c</name>
+    </fields>
+    <fields>
+        <label><!-- Member Name --></label>
+        <name>Member_ID__c</name>
+        <relationshipLabel><!-- Potential Quality Issue (Member ID) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Member Medical Group Affiliation --></label>
+        <name>Member_Medical_Group_Affiliation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Member ID --></label>
+        <name>Member_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Never Events --></label>
+        <name>Never_Events__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other --></label>
+        <name>Other_CheckBox__c</name>
+    </fields>
+    <fields>
+        <label><!-- Overutilization --></label>
+        <name>Overutilization__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCP Practioner Name --></label>
+        <name>PCP_Practioner_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- PQI Referral Date --></label>
+        <name>PQI_Referral_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- PQI Referred By --></label>
+        <name>PQI_Referred_By__c</name>
+    </fields>
+    <fields>
+        <label><!-- PQI Required Field --></label>
+        <name>PQI_Required_Field__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>PQI_Status__c</name>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MD Approved</masterLabel>
+            <translation><!-- MD Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MD Rejected</masterLabel>
+            <translation><!-- MD Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MD Review</masterLabel>
+            <translation><!-- MD Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PRC</masterLabel>
+            <translation><!-- PRC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PRC Approved</masterLabel>
+            <translation><!-- PRC Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PRC Rejected</masterLabel>
+            <translation><!-- PRC Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UM Approved</masterLabel>
+            <translation><!-- UM Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UM Rejected</masterLabel>
+            <translation><!-- UM Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UM Review</masterLabel>
+            <translation><!-- UM Review --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Other --></label>
+        <name>PQI_indicator_Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Peer  Review / Credentialing Outcome --></label>
+        <name>Peer_Review_Credentialing_Outcome__c</name>
+        <picklistValues>
+            <masterLabel>805</masterLabel>
+            <translation><!-- 805 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Close – No Issues Identified</masterLabel>
+            <translation><!-- Close – No Issues Identified --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Close – Track and Trend</masterLabel>
+            <translation><!-- Close – Track and Trend --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credentialing Review Requested</masterLabel>
+            <translation><!-- Credentialing Review Requested --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Education Letter</masterLabel>
+            <translation><!-- Education Letter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Board Referral</masterLabel>
+            <translation><!-- Medical Board Referral --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Peer Review Requested</masterLabel>
+            <translation><!-- Peer Review Requested --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reff to Foundation&apos;s Quality Committee</masterLabel>
+            <translation><!-- Reff to Foundation&apos;s Quality Committee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Site Visit</masterLabel>
+            <translation><!-- Site Visit --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Other --></label>
+        <name>Peer_Review_Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pharmacy --></label>
+        <name>Pharmacy__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quality of Care --></label>
+        <name>Quality_of_Care__c</name>
+    </fields>
+    <fields>
+        <label><!-- RN Clinical Summary --></label>
+        <name>RN_Case_Review_Summary1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of Review --></label>
+        <name>RN_Date_of_Review__c</name>
+    </fields>
+    <fields>
+        <label><!-- Justification of Recommendation --></label>
+        <name>RN_Justification_of_Recommendation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Leveling --></label>
+        <name>RN_Leveling__c</name>
+        <picklistValues>
+            <masterLabel>L0-Administrative problem such as referral auth and wait time for non-urgent care.</masterLabel>
+            <translation><!-- L0-Administrative problem such as referral auth and wait time for non-urgent care. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L0-Emotional concern</masterLabel>
+            <translation><!-- L0-Emotional concern --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L0-Issue cannot be determined from available records</masterLabel>
+            <translation><!-- L0-Issue cannot be determined from available records --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L0-Member centered/interpersonal undetermined issue</masterLabel>
+            <translation><!-- L0-Member centered/interpersonal undetermined issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L0-No quality of care issue</masterLabel>
+            <translation><!-- L0-No quality of care issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L0-Upset, frightened member</masterLabel>
+            <translation><!-- L0-Upset, frightened member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L1-Interpersonal provider issue</masterLabel>
+            <translation><!-- L1-Interpersonal provider issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L1-Known complication (scar, rash, etc.), surgical or medical, not due to negligence or technique</masterLabel>
+            <translation><!-- L1-Known complication (scar, rash, etc.), surgical or medical, not due to negligence or technique --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L1-Lack of medical records documentation, omission, or non-compliance</masterLabel>
+            <translation><!-- L1-Lack of medical records documentation, omission, or non-compliance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L1-Lack of timely discharge planning</masterLabel>
+            <translation><!-- L1-Lack of timely discharge planning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L1-Near miss-error or mistake caught before there was a significant problem</masterLabel>
+            <translation><!-- L1-Near miss-error or mistake caught before there was a significant problem --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L2-Complications that result in a long tereatment regimen, but no residual injury</masterLabel>
+            <translation><!-- L2-Complications that result in a long tereatment regimen, but no residual injury --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L2-Lack of timely intervention</masterLabel>
+            <translation><!-- L2-Lack of timely intervention --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L2-Patient suicide attempt or serious injury to self while in treatment</masterLabel>
+            <translation><!-- L2-Patient suicide attempt or serious injury to self while in treatment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L2-Temporary injury or outcome</masterLabel>
+            <translation><!-- L2-Temporary injury or outcome --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L2-Treatment resulted in recovery</masterLabel>
+            <translation><!-- L2-Treatment resulted in recovery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L2-Violation of patient confidentiality or ethics violation</masterLabel>
+            <translation><!-- L2-Violation of patient confidentiality or ethics violation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L3-Clinical judgment impacting member&apos;s care with mild to moderate adverse</masterLabel>
+            <translation><!-- L3-Clinical judgment impacting member&apos;s care with mild to moderate adverse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L3-Communication issue that has an adverse outcome</masterLabel>
+            <translation><!-- L3-Communication issue that has an adverse outcome --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L3-Mild/Moderate permanent injury or outcome</masterLabel>
+            <translation><!-- L3-Mild/Moderate permanent injury or outcome --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L3-Permanent injury, which has long-term effects on activities of daily living</masterLabel>
+            <translation><!-- L3-Permanent injury, which has long-term effects on activities of daily living --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L4-Death</masterLabel>
+            <translation><!-- L4-Death --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L4-Injury is severe or is an amplification of a significant permanent injury</masterLabel>
+            <translation><!-- L4-Injury is severe or is an amplification of a significant permanent injury --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L4-Major permament injury/grave permanent injury</masterLabel>
+            <translation><!-- L4-Major permament injury/grave permanent injury --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L4-Most serious injury where all aspects of life are significantly compromised</masterLabel>
+            <translation><!-- L4-Most serious injury where all aspects of life are significantly compromised --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Pertinent criteria/guidelines/standards --></label>
+        <name>RN_Pertinent_criteria_guidelines_standa__c</name>
+    </fields>
+    <fields>
+        <label><!-- RN Recommendations --></label>
+        <name>RN_Recommendations__c</name>
+        <picklistValues>
+            <masterLabel>Close – No Issues Identified</masterLabel>
+            <translation><!-- Close – No Issues Identified --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Close – Track and Trend</masterLabel>
+            <translation><!-- Close – Track and Trend --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Close –Unfounded, unable to substantiate</masterLabel>
+            <translation><!-- Close –Unfounded, unable to substantiate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Minor Deficiencies Noted</masterLabel>
+            <translation><!-- Minor Deficiencies Noted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Significant Deficiencies Noted</masterLabel>
+            <translation><!-- Significant Deficiencies Noted --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- RN Reviewer --></label>
+        <name>RN_Reviewer_user__c</name>
+        <relationshipLabel><!-- Potential Quality Issue (RN Reviewer) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Level O or Level S : Does not require review by a physician prior to being placed on the compendium --></help>
+        <label><!-- Severity Level --></label>
+        <name>RN_Severity_Level__c</name>
+        <picklistValues>
+            <masterLabel>Level 0: No quality of care issue identified after investigation. Care appears to be appropriate and has not been compromised.</masterLabel>
+            <translation><!-- Level 0: No quality of care issue identified after investigation. Care appears to be appropriate and has not been compromised. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Level 1: A confirmed quality problem with minimal potential for significant adverse effect on the member</masterLabel>
+            <translation><!-- Level 1: A confirmed quality problem with minimal potential for significant adverse effect on the member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Level 2: A confirmed quality problem with moderate harm or potential for moderate level of harm to the member</masterLabel>
+            <translation><!-- Level 2: A confirmed quality problem with moderate harm or potential for moderate level of harm to the member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Level 3: A confirmed substantial quality of care problem or gross and flagrant violation of obligation, which had a direct effect on health and welfare of the member</masterLabel>
+            <translation><!-- Level 3: A confirmed substantial quality of care problem or gross and flagrant violation of obligation, which had a direct effect on health and welfare of the member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Level S: A quality of communication or art of caring issue has been identified which did not result in any harm to the member</masterLabel>
+            <translation><!-- Level S: A quality of communication or art of caring issue has been identified which did not result in any harm to the member --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Timeline of Key Events --></label>
+        <name>RN_Timeline_of_Key_Events__c</name>
+    </fields>
+    <fields>
+        <label><!-- Readmission --></label>
+        <name>Readmission__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reason for Referral --></label>
+        <name>Reason_for_Referral__c</name>
+    </fields>
+    <fields>
+        <label><!-- Related Provider (If applicable) --></label>
+        <name>Related_Provider_applicable__c</name>
+    </fields>
+    <fields>
+        <label><!-- Safety --></label>
+        <name>Safety__c</name>
+    </fields>
+    <fields>
+        <label><!-- Selected PQI Indicators --></label>
+        <name>Selected_PQI_Indicators__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sentinel Event --></label>
+        <name>Sentinel_Event__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other --></label>
+        <name>Setting_other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Settings --></label>
+        <name>Settings__c</name>
+        <picklistValues>
+            <masterLabel>Inpatient</masterLabel>
+            <translation><!-- Inpatient --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Laboratory</masterLabel>
+            <translation><!-- Laboratory --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Office</masterLabel>
+            <translation><!-- Office --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outpatient</masterLabel>
+            <translation><!-- Outpatient --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Level O or Level S : Does not require review by a physician prior to being placed on the compendium --></help>
+        <label><!-- Severity Level --></label>
+        <name>Severity_Level__c</name>
+        <picklistValues>
+            <masterLabel>Level 0: No quality of care issue identified after investigation. Care appears to be appropriate and has not been compromised.</masterLabel>
+            <translation><!-- Level 0: No quality of care issue identified after investigation. Care appears to be appropriate and has not been compromised. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Level 1: A confirmed quality problem with minimal potential for significant adverse effect on the member</masterLabel>
+            <translation><!-- Level 1: A confirmed quality problem with minimal potential for significant adverse effect on the member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Level 2: A confirmed quality problem with moderate harm or potential for moderate level of harm to the member</masterLabel>
+            <translation><!-- Level 2: A confirmed quality problem with moderate harm or potential for moderate level of harm to the member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Level 3: A confirmed substantial quality of care problem or gross and flagrant violation of obligation, which had a direct effect on health and welfare of the member</masterLabel>
+            <translation><!-- Level 3: A confirmed substantial quality of care problem or gross and flagrant violation of obligation, which had a direct effect on health and welfare of the member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Level S: A quality of communication or art of caring issue has been identified which did not result in any harm to the member</masterLabel>
+            <translation><!-- Level S: A quality of communication or art of caring issue has been identified which did not result in any harm to the member --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Surgical Services --></label>
+        <name>Surgical_Services__c</name>
+    </fields>
+    <fields>
+        <label><!-- Technical Competence --></label>
+        <name>Technical_Competence__c</name>
+    </fields>
+    <fields>
+        <label><!-- UM Referrals or Auths --></label>
+        <name>UM_Referrals_or_Auths__c</name>
+    </fields>
+    <fields>
+        <label><!-- Underutilization --></label>
+        <name>Underutilization__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unexpected Death --></label>
+        <name>Unexpected_Death__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unsure --></label>
+        <name>Unsure__c</name>
+    </fields>
+    <fields>
+        <label><!-- Owner --></label>
+        <name>owner__c</name>
+    </fields>
+    <layouts>
+        <layout>Potential Quality Issue Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Inquiry Information --></label>
+            <section>Customer Inquiry Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description Events --></label>
+            <section>Description Events</section>
+        </sections>
+        <sections>
+            <label><!-- Medical Director Review --></label>
+            <section>Medical Director Review</section>
+        </sections>
+        <sections>
+            <label><!-- PQI Indicators --></label>
+            <section>PQI Indicators</section>
+        </sections>
+        <sections>
+            <label><!-- PQI Referral Information --></label>
+            <section>PQI Referral Information</section>
+        </sections>
+        <sections>
+            <label><!-- PRC --></label>
+            <section>PRC</section>
+        </sections>
+        <sections>
+            <label><!-- RN Review --></label>
+            <section>RN Review</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Potential Quality Issue (PQI) --></label>
+        <name>Potential_Quality_Issue</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Generate_PDF --></label>
+        <name>Generate_PDF</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Make_Avilable --></label>
+        <name>Make_Avilable</name>
+    </webLinks>
+</CustomObjectTranslation>

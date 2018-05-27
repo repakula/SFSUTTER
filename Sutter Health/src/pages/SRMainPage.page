@@ -1,0 +1,45 @@
+<apex:page Controller="ServiceRequestController">
+
+<style type="text/css">
+        .italicText { font-style: italic; }
+        
+</style>
+
+<style>
+h2
+{
+font-style: italic;;
+font-weight: normal;;
+color:gray;
+}
+h2
+{
+font-weight: bold;;
+}
+</style>
+
+<apex:form >
+
+<apex:repeat value="{!srWrapperMap}" var="wrap">
+    <apex:pageBlock >
+    <h2><apex:outputLabel >{!wrap.Section_Name}</apex:outputLabel></h2><BR/><BR/>
+        <apex:repeat value="{!wrap.LabelLinksMap}" var="rec">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <h2><apex:outputLink value="{!wrap.LabelLinksMap[rec]}">{!rec}</apex:outputLink></h2><BR/>
+        </apex:repeat>
+    </apex:pageBlock>
+</apex:repeat>
+
+<!-- Component for GTM-->
+          <c:Portal_User_Info />
+ <!-- Component for GTM-->
+</apex:form>
+
+    <!-- Start Google Tag Manager -->
+    <apex:outputLabel value="{!$Label.GTMCustomLabel}" rendered="false"></apex:outputLabel> 
+    <apex:includeScript value="{!$Resource.GTMJavaScript}" />
+    <!-- End Google Tag Manager -->
+    
+
+</apex:page>

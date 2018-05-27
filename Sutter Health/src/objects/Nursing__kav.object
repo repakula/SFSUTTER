@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <articleTypeChannelDisplay>
+        <articleTypeTemplates>
+            <channel>App</channel>
+            <template>Tab</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Prm</channel>
+            <template>Tab</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Csp</channel>
+            <template>Tab</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Pkb</channel>
+            <template>Tab</template>
+        </articleTypeTemplates>
+    </articleTypeChannelDisplay>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Public to all nurses</description>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <fields>
+        <fullName>Article_Body__c</fullName>
+        <description>Content</description>
+        <externalId>false</externalId>
+        <label>Article Body</label>
+        <length>32768</length>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Article_Header__c</fullName>
+        <description>This is for adding a article header image</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Add a header image if you want to show it on the header part</inlineHelpText>
+        <label>Article Header</label>
+        <length>32768</length>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Article_Video__c</fullName>
+        <description>Adds video to the article</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Add video in iframe if you want to show it in pages</inlineHelpText>
+        <label>Article Video</label>
+        <length>32768</length>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>CustomImage__c</fullName>
+        <description>This is for showing special content for articles</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is for showing special content for articles</inlineHelpText>
+        <label>Article Image</label>
+        <length>32768</length>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>customShorttext__c</fullName>
+        <description>This is for adding a custom image</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Add image to show on Menu</inlineHelpText>
+        <label>Article Short Text</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>weight__c</fullName>
+        <externalId>false</externalId>
+        <label>weight</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Nursing</label>
+    <pluralLabel>Nursing</pluralLabel>
+</CustomObject>

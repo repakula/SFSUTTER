@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Sutter_Shared_Services</letterhead>
+    <name>Qualified Lead</name>
+    <style>freeForm</style>
+    <subject>New Qualified Lead</subject>
+    <textOnly>Hi
+
+A new lead {!Lead.Name} is marked as Qualified and assigned to Sales Managers Queue.
+
+Please accept Lead from the queue and Approve/Reject the lead for next step.
+
+Regards</textOnly>
+    <type>html</type>
+</EmailTemplate>

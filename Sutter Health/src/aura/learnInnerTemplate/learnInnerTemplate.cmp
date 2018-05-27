@@ -1,0 +1,144 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,forceCommunity:themeLayout,force:lightningQuickAction" access="global" description="Learn Inner Page template" controller="cc_debug_search" >
+<ltng:require styles="{!$Resource.learn_styles}"
+
+                   scripts="{!$Resource.learn_js + '/jquery-2.1.1.min.js'}"   
+         />  
+        
+       <ltng:require scripts="{!$Resource.project_js + '/custom_scripts.js'}"  ></ltng:require>
+                        
+    
+      <ltng:require styles="{!$Resource.learn_foundation}"  ></ltng:require>
+
+    <aura:attribute name="search" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="profileMenu" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="navBar" type="Aura.Component[]" required="false"/>
+    
+ 
+     
+
+   <body id="body" >
+    <div class="layoutWrapper">
+        
+        <div id="container">
+                  
+            
+            <header class="pageHeader row">
+                <a class="pageLogo" href="javascript:void(0)">
+                    <img src="{!$Resource.learn_images+'/logoLearn1.png'}" /></a>
+                  <a class="pageLogo" href="javascript:void(0)">
+                    <img src="{!$Resource.learn_images+'/logoLearn2.png'}" /></a>
+                <div class="headerRight">
+                    <ul>
+                        <li>  {!v.profileMenu}</li>
+                        <li ><a href="javascript:void(0)">  {!v.search}   </a></li>
+                    </ul>
+                </div>
+            </header>
+            <div class="pageNav">
+                    <div class="row"> 
+                       
+                          {!v.navBar}
+                	</div>      
+            </div>  
+        <div id="learn_topicImg" style="background-size:cover;border-bottom: 15px solid #005695!important;"></div> 
+     
+               <div class="contentSection"> 
+                  
+                    
+                    <div class="row">
+                       
+                      {!v.body}   
+                   
+                   </div>  
+            </div>
+                
+ <div class="pageFooter">
+    
+                    <div class="row">
+                        <p>Copyright &copy; 2017 sutter Health. All rights reserved. Sutter Health is a registred trademark of sutter Health, Reg. U.S Patent. &amp; Trademark office</p>
+                         <figure>   <img src="{!$Resource.learn_images+'/footerSutter.png'}"  />  </figure>
+                        <figure> <img src="{!$Resource.learn_images+'/footerLearn.png'}"  />  </figure>
+                     </div>
+                </div>
+        </div>
+    </div>
+
+<div id="dynamicMenu" style="display:none;" >
+        <div class="subMenu">
+							<div class="leftSubNav">
+							<ul>
+								<li rel="tab1"><a href="javascript:void(0)">A medical assistant (MA)</a></li>
+								<li rel="tab2"><a href="javascript:void(0)">A Sutter health new grad</a></li>
+								<li rel="tab3"><a href="javascript:void(0)">A staff nurse (RN)</a></li>
+								<li rel="tab4"><a href="javascript:void(0)">A RN Educator</a></li>
+								<li rel="tab5"><a href="javascript:void(0)">In management</a></li>
+								<li rel="tab6"><a href="javascript:void(0)">Nurse Practitioner</a></li>
+								<li rel="tab7"><a href="javascript:void(0)">A soon to be retired RN</a></li>
+								
+							</ul>
+							</div>
+							<div class="leftNavContent">
+								<div id="tab1" class="menuRightContent">
+								<figure><img src="{!$Resource.mega_ma}"/></figure>
+								<div class="titleSubnav"><span>I AM</span> A medical assistant (MA)</div>
+								<p>
+									Lorem ipsum pro ex inani omittam, ius ad wisi abhorreant, ex vel suas oratio constituam. Usu ne quidam molestiae quaerendum. 
+									Id veri impetus per, sed <a href="#">more<em></em></a>
+								</p>
+								</div>
+								<div id="tab2" class="menuRightContent">
+                                    <figure><img src="{!$Resource.mega_new_grad}"/></figure>
+								<div class="titleSubnav"><span>I AM</span> A Sutter health new grad</div>
+								<p>
+									Lorem ipsum pro ex inani omittam, ius ad wisi abhorreant, ex vel suas oratio constituam. Usu ne quidam molestiae quaerendum. 
+									Id veri impetus per, sed <a href="#">more<em></em></a>
+								</p>
+								</div>
+								<div id="tab3" class="menuRightContent">
+                                    <figure><img src="{!$Resource.mega_staff_nurse}"/></figure>
+								<div class="titleSubnav"><span>I AM</span> A staff nurse (RN)</div>
+								<p>
+									Lorem ipsum pro ex inani omittam, ius ad wisi
+									Id veri impetus per, sed <a href="#">more<em></em></a>
+								</p>
+								</div>
+								<div id="tab4" class="menuRightContent">
+								<figure><img src="{!$Resource.mega_rn_educator}"/></figure>
+								<div class="titleSubnav"><span>I AM</span> A RN Educator</div>
+								<p>
+									Lorem ipsum pro ex inani omittam, ius ad wisi
+									Id veri impetus per, sed <a href="#">more<em></em></a>
+								</p>
+								</div>
+								<div id="tab5" class="menuRightContent">
+                                    <figure><img src="{!$Resource.mega_in_management}"/></figure>
+								<div class="titleSubnav"><span>I AM</span> In management</div>
+								<p>
+									Lorem ipsum pro ex inani omittam, ius ad wisi abhorreant, ex vel suas oratio constituam. Usu ne quidam molestiae quaerendum. 
+									Id veri impetus per, sed <a href="#">more<em></em></a>
+								</p>
+								</div>
+								<div id="tab6" class="menuRightContent">
+                                    <figure><img src="{!$Resource.mega_nurse_practitioner}"/></figure>
+								<div class="titleSubnav"><span>I AM</span> Nurse Practitioner</div>
+								<p>
+									Lorem ipsum pro ex inani omittam, ius ad wisi abhorreant, ex vel suas oratio constituam. Usu ne quidam molestiae quaerendum. 
+									Id veri impetus per, sed <a href="#">more<em></em></a>
+								</p>
+								</div>
+								<div id="tab7" class="menuRightContent">
+								<figure><img src="{!$Resource.mega_soon_retired}"/></figure>
+								<div class="titleSubnav"><span>I AM</span> A soon to be retired RN</div>
+								<p>
+									Lorem ipsum pro ex inani omittam, ius ad wisi abhorreant, ex vel suas oratio constituam. Usu ne quidam molestiae quaerendum. 
+									Id veri impetus per, sed <a href="#">more<em></em></a>
+								</p>
+								</div>
+							</div>	
+							<div class="clearSection"></div>
+						</div>
+    </div>    
+              <ltng:require scripts="{!$Resource.learn_script}"  ></ltng:require>
+      
+  </body>
+</aura:component>

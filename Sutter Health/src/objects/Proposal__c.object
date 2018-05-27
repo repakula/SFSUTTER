@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Account_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity_ID__r.Account.Name</formula>
+        <label>Account Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_RecordType_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>RFP_Form__r.Account_RecordType_Name__c</formula>
+        <label>Tech Account RecordType Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DBA__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Opportunity_ID__r.Account.DBA__c != NULL &amp;&amp; Opportunity_ID__r.Account.DBA__c != &apos;&apos;,Opportunity_ID__r.Account.DBA__c,&apos;N/A&apos;)</formula>
+        <label>DBA</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Email_Employer_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(TEXT(Opportunity_ID__r.Account.Employer_Type__c) != NULL &amp;&amp; TEXT(Opportunity_ID__r.Account.Employer_Type__c) != &apos;&apos;,TEXT(Opportunity_ID__r.Account.Employer_Type__c),&apos;N/A&apos;)</formula>
+        <label>Email Employer Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Employer_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>RFP_Form__r.Employer_Type__c</formula>
+        <label>Employer Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Is_Child_Record_Created__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Child Record Created?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>No_of_Quotes_Generated__c</fullName>
+        <externalId>false</externalId>
+        <label># of Quotes Generated</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>No_of_Quotes_Requested__c</fullName>
+        <externalId>false</externalId>
+        <formula>RFP_Form__r.No_of_Quotes_Requested__c</formula>
+        <label># of Quotes Requested</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity_ID__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Quotes</relationshipLabel>
+        <relationshipName>Quotes1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Stage__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(RFP_Form__r.Opportunity__r.StageName)</formula>
+        <label>Opportunity Stage</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Plan_Year__c</fullName>
+        <externalId>false</externalId>
+        <formula>RFP_Form__r.Plan_Year__c</formula>
+        <label>Tech Plan Year</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quote_Effective_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>RFP_Form__r.Quote_Effective_Date_n__c</formula>
+        <label>Quote Effective Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>RFP_Date_Due__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity_ID__r.RFP_Due_Date__c</formula>
+        <label>RFP Date Due</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>RFP_Date_Submitted__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity_ID__r.RFP_Received_Date__c</formula>
+        <label>RFP Date Submitted</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>RFP_Form__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>RFP Form</label>
+        <referenceTo>Incumbent_Carrier__c</referenceTo>
+        <relationshipLabel>Quotes</relationshipLabel>
+        <relationshipName>Quotes</relationshipName>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Stage__c</fullName>
+        <externalId>false</externalId>
+        <label>Stage</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Draft</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Submitted to Sales</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Approved by Sales</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rejected by Sales</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pending Actuarial Review</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Tech_Account_Id__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(RFP_Form__c &lt;&gt; NULL ,RFP_Form__r.Tech_Account_Id__c, Opportunity_ID__r.AccountId)</formula>
+        <label>Tech Account Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tech_Opportunity_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity_ID__r.Name</formula>
+        <label>Tech Opportunity Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tech_RFP_Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(RFP_Form__r.Stage__c)</formula>
+        <label>Tech RFP Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Underwriting_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Underwriting Comments</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <label>Quote</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Stage__c</columns>
+        <columns>Opportunity_ID__c</columns>
+        <columns>Opportunity_Stage__c</columns>
+        <columns>Employer_Type__c</columns>
+        <columns>RFP_Form__c</columns>
+        <columns>No_of_Quotes_Requested__c</columns>
+        <columns>No_of_Quotes_Generated__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>My_Queue</fullName>
+        <columns>NAME</columns>
+        <columns>Stage__c</columns>
+        <columns>Opportunity_ID__c</columns>
+        <columns>Opportunity_Stage__c</columns>
+        <columns>Employer_Type__c</columns>
+        <columns>RFP_Form__c</columns>
+        <columns>No_of_Quotes_Requested__c</columns>
+        <columns>No_of_Quotes_Generated__c</columns>
+        <filterScope>Mine</filterScope>
+        <label>My Queue</label>
+    </listViews>
+    <listViews>
+        <fullName>SHP_Sales_Queue_Proposal</fullName>
+        <columns>NAME</columns>
+        <columns>Stage__c</columns>
+        <columns>Opportunity_ID__c</columns>
+        <columns>Opportunity_Stage__c</columns>
+        <columns>Employer_Type__c</columns>
+        <columns>RFP_Form__c</columns>
+        <columns>No_of_Quotes_Requested__c</columns>
+        <columns>No_of_Quotes_Generated__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>SHP Sales Queue</label>
+        <queue>SHP_Sales_Queue</queue>
+        <sharedTo>
+            <group>SHP_Sales</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>SHP_Underwriter_Queue_Proposal</fullName>
+        <columns>NAME</columns>
+        <columns>Stage__c</columns>
+        <columns>Opportunity_ID__c</columns>
+        <columns>Opportunity_Stage__c</columns>
+        <columns>Employer_Type__c</columns>
+        <columns>RFP_Form__c</columns>
+        <columns>No_of_Quotes_Requested__c</columns>
+        <columns>No_of_Quotes_Generated__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>SHP Underwriter Queue</label>
+        <queue>SHP_Underwriter_Queue</queue>
+        <sharedTo>
+            <group>Underwriter</group>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <displayFormat>Q-{000000}</displayFormat>
+        <label>Quote Name</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Quotes</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Opportunity_ID__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>RFP_Form__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Stage__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Quote_Effective_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>No_of_Quotes_Requested__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>No_of_Quotes_Generated__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Stage__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Opportunity_ID__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RFP_Form__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Quote_Effective_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>No_of_Quotes_Requested__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>No_of_Quotes_Generated__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Stage__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Opportunity_ID__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>RFP_Form__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Quote_Effective_Date__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>No_of_Quotes_Requested__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>No_of_Quotes_Generated__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>No_of_Quotes_Generated__c</searchFilterFields>
+        <searchFilterFields>No_of_Quotes_Requested__c</searchFilterFields>
+        <searchFilterFields>Opportunity_ID__c</searchFilterFields>
+        <searchFilterFields>Quote_Effective_Date__c</searchFilterFields>
+        <searchFilterFields>RFP_Date_Due__c</searchFilterFields>
+        <searchFilterFields>RFP_Form__c</searchFilterFields>
+        <searchFilterFields>Stage__c</searchFilterFields>
+        <searchResultsAdditionalFields>Stage__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>RFP_Form__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Opportunity_ID__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Opportunity_Stage__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Quote_Effective_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>No_of_Quotes_Requested__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>No_of_Quotes_Generated__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <webLinks>
+        <fullName>Email_All_Attachments_To_Me</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Email All Attachments To Me</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/apex.js&quot;)} 
+try{ 
+	var proposalObj = new sforce.SObject(&quot;Proposal__c&quot;); 
+	var userInfo = sforce.connection.getUserInfo(); 
+	var relatedAttachments = sforce.connection.query(&quot;SELECT ID from Attachment where ParentId =&apos;{!Proposal__c.Id }&apos;&quot;); 
+	records = relatedAttachments.getArray(&quot;records&quot;); 
+	if(records.length == 0)
+	{ 
+		alert(&apos;There is no attachment to send, please attach and try&apos;);
+	}  
+	else
+	{	
+		var proposalId = &apos;{!Proposal__c.Id}&apos;;
+		var uEmail =  &apos;{!$User.Email}&apos;;
+                var accName = &apos;{!JSENCODE(Proposal__c.Account_Name__c)}&apos;;
+                var accdbaName = &apos;{!JSENCODE(Proposal__c.DBA__c)}&apos;;
+               var mailSubject = &apos;Employer Name : &apos;+accName+&apos;/DBA:&apos;+accdbaName+&apos; Quote Attachments Requested&apos;;
+		var messageDesc =sforce.apex.execute(&quot;HighRoads_SendAttachmentsInEmail&quot;,&quot;sendAttachments&quot;,{recordId:proposalId,userEmail:uEmail,objName:&quot;Quote&quot;,accountName:accName,DBAName:accdbaName,mailSubject:mailSubject}); 
+alert(messageDesc);
+	}
+}catch(e){ 
+	alert(&apos;An Error has Occured. Error: &apos; + e); 
+}</url>
+    </webLinks>
+</CustomObject>

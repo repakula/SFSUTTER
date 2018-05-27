@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>planning for go-lives and implementation of sub parts of each Operational goal</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Business_Release__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Release</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Date_Deployed__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Deployed</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_First_Reported__c</fullName>
+        <externalId>false</externalId>
+        <label>Date First Reported</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_Reporting_Expected__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Reporting Expected</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Deployment_Issue_Comments__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Provide detail information on the deployment issue</inlineHelpText>
+        <label>Deployment Issue Comments</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Deployment_Issue__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Why is this region/entity not reporting on time?</inlineHelpText>
+        <label>Deployment Issue</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Data Not Available</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Data Does Not Exist</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Delayed Deployment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Technology Unavailabe</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Removed from Scope</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Entity__c</fullName>
+        <externalId>false</externalId>
+        <label>Entity</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>SCAH</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SHCVR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SHEBR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SHP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SHPCR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SHSSR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SHWBR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SPS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>S3</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SHSO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SOPS</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Function__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT (Metric_ID__r.Function__c) &amp; &quot;-&quot; &amp; Text( Metric_ID__r.Sub_Function__c )</formula>
+        <label>Function</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Metric_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Metric ID</label>
+        <referenceTo>S3_Ops__c</referenceTo>
+        <relationshipLabel>S3 Deployments</relationshipLabel>
+        <relationshipName>S3t_Metric_Relationship</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>true</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Out_of_Scope__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Removed from Scope</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Partial_Deployment__c</fullName>
+        <externalId>false</externalId>
+        <label>Partial Deployment</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>S3 Deployment</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>D{yy}{mm}{00}</displayFormat>
+        <label>Deployment ID</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>S3 Deployments</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>BR_Assignment</fullName>
+        <active>true</active>
+        <description>Business Release Number must be between 1 and 13</description>
+        <errorConditionFormula>OR( 
+Business_Release__c &lt; 0, 
+Business_Release__c &gt; 13.1)</errorConditionFormula>
+        <errorMessage>Business Release Number must be between 1 and 13</errorMessage>
+    </validationRules>
+</CustomObject>

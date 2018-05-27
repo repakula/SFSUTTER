@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CASE_NUMBER</field>
+    </columns>
+    <columns>
+        <field>CREATED</field>
+    </columns>
+    <columns>
+        <field>CREATED_DATE</field>
+    </columns>
+    <columns>
+        <field>field_key</field>
+    </columns>
+    <columns>
+        <field>OLDVAL</field>
+    </columns>
+    <columns>
+        <field>NEWVAL</field>
+    </columns>
+    <columns>
+        <field>CASE_OWNER</field>
+    </columns>
+    <description>Testing report for Alex&apos;s team</description>
+    <filter>
+        <criteriaItems>
+            <column>Case.Team__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>[Tier 1] HR Data,[Tier 1] HRIS,[Tier 1] HR Recruitment,[Tier 1] HR Reporting,[Tier 1] Learning,[Tier 1] Workforce Relations,[Tier 2] HR Data,[Tier 2] HRIS,[Tier 2] HR Reporting,[Tier 2] Learning,[Tier 2] Recruitment,[Tier 2] Workforce Relations</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>field_key</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>owner</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>HRIS Ticket Transfer History</name>
+    <params>
+        <name>units</name>
+        <value>m</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CaseAuditHistory</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>OLDVAL</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CURFY</interval>
+    </timeFrameFilter>
+</Report>

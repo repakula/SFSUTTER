@@ -1,0 +1,3 @@
+<apex:page standardController="Case" extensions="CaseInternalServiceRequestCtrl" action="{!redirectPage}">
+    <apex:pagemessages id="pageMessage"></apex:pagemessages>
+</apex:page>

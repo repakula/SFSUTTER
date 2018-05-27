@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CorrespondenceContactAssociation__c$Name</field>
+    </columns>
+    <columns>
+        <field>CorrespondenceContactAssociation__c$Correspondence_Letter__c</field>
+    </columns>
+    <columns>
+        <field>CorrespondenceContactAssociation__c$Contact__c</field>
+    </columns>
+    <columns>
+        <field>CorrespondenceContactAssociation__c$CreatedBy</field>
+    </columns>
+    <columns>
+        <field>CorrespondenceContactAssociation__c$CreatedDate</field>
+    </columns>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>CorrespondenceContactAssociation__c$Status__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Broker Correspondence Status</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CorrespondenceContact__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CorrespondenceContactAssociation__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

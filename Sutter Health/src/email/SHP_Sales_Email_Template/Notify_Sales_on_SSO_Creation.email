@@ -1,0 +1,13 @@
+<html>
+<body>
+Hi,<br/><br/>
+The Sold Sign Off: <a href="'{!$Label.HR192_SSOListViewURL}'">{!Sold_Sign_Off__c.Name}</a> has been created for {!Sold_Sign_Off__c.Account__c}/DBA: {!Sold_Sign_Off__c.DBA__c}, {!Sold_Sign_Off__c.Email_employer_Type__c}. <br/><br/>
+
+Before submitting for approval - Please update: <br/>
+
+• Additional fields<br/>
+• Plan selections (if necessary)<br/>
+• Add Plan Rates with the necessary Tiers & Groupings <br/><br/>
+Thank you.<br/>
+</body>
+</html>

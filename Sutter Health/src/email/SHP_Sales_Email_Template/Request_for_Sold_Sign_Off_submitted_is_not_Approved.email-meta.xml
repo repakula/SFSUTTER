@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Request for Sold Sign Off submitted is not Approved</name>
+    <style>none</style>
+    <subject>Request for Sold Sign Off submitted is not Approved - Employer Name: {!Sold_Sign_Off__c.Account__c}/DBA: {!Sold_Sign_Off__c.DBA__c} Employer Type: {!Sold_Sign_Off__c.Email_employer_Type__c}</subject>
+    <textOnly>Hi,
+
+Your Sold Sign Off: {!Sold_Sign_Off__c.Name} for {!Sold_Sign_Off__c.Account__c}/DBA: {!Sold_Sign_Off__c.DBA__c}, {!Sold_Sign_Off__c.Email_employer_Type__c} has been returned for review and re-submission by the Underwriting Team for the following:
+
+Reason:  {!ApprovalRequest.Comments}
+
+Thank you.</textOnly>
+    <type>custom</type>
+</EmailTemplate>

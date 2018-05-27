@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>KnowledgeArticle$Title</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle$ArticleType</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle$IsVisibleInCsp</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle$UrlName</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle$ArticleNumber</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle$Id</field>
+    </columns>
+    <description>KM Articles in MySC-HRIS</description>
+    <filter>
+        <criteriaItems>
+            <column>KnowledgeArticle$ArticleType</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>ka0,ka1,ka2,ka3,ka4,ka5,ka6,ka7,ka8,ka9,kaH</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <name>KM Articles in MySC</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Knowledge_Articles_with_View_Statistics__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>KnowledgeArticle$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

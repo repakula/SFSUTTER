@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>RFP Form/Incumbent Carrier</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>RFP Form/Incumbent Carriers</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account Executive --></label>
+        <name>Account_Executive_n__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Name --></label>
+        <name>Account_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account RecordType Name --></label>
+        <name>Account_RecordType_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Status --></label>
+        <name>Account_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- BOR --></label>
+        <name>BOR__c</name>
+    </fields>
+    <fields>
+        <label><!-- Broker --></label>
+        <name>Broker__c</name>
+    </fields>
+    <fields>
+        <label><!-- Brokerage Firm --></label>
+        <name>BrokerageFirm_n__c</name>
+    </fields>
+    <fields>
+        <label><!-- Brokerage Firm --></label>
+        <name>Brokerage_Firm__c</name>
+    </fields>
+    <fields>
+        <label><!-- % Change --></label>
+        <name>Change__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commission --></label>
+        <name>Commission__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contribution(s) - EE --></label>
+        <name>Contribution_s_EE__c</name>
+    </fields>
+    <fields>
+        <label><!-- Custom Plan --></label>
+        <name>Custom_Plan__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- DBA (if any) --></label>
+        <name>DBA_if_any_n__c</name>
+    </fields>
+    <fields>
+        <label><!-- DOV --></label>
+        <name>DOV__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deductible --></label>
+        <name>Deductible__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dependent --></label>
+        <name>Dependent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Renewal Tier 5 --></label>
+        <name>ECH_Renewal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Tier 5 --></label>
+        <name>ECH__c</name>
+    </fields>
+    <fields>
+        <label><!-- Renewal Tier 1 --></label>
+        <name>EC_Renewal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Tier 1 --></label>
+        <name>EC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Renewal Tier 2 --></label>
+        <name>EE_Renewal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Tier 2 --></label>
+        <name>EE__c</name>
+    </fields>
+    <fields>
+        <label><!-- Renewal Tier 3 --></label>
+        <name>EF_Renewal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Tier 3 --></label>
+        <name>EF__c</name>
+    </fields>
+    <fields>
+        <label><!-- ER City --></label>
+        <name>ER_City_n__c</name>
+    </fields>
+    <fields>
+        <label><!-- ER Zip Code --></label>
+        <name>ER_Zip_Code_n__c</name>
+    </fields>
+    <fields>
+        <label><!-- ER --></label>
+        <name>ER__c</name>
+    </fields>
+    <fields>
+        <label><!-- Renewal Tier 4 --></label>
+        <name>ES_Renewal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Tier 4 --></label>
+        <name>ES__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Employer Type --></label>
+        <name>Email_Employer_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employer Name --></label>
+        <name>Employer_Name_n__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employer Type --></label>
+        <name>Employer_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- GA Commission --></label>
+        <name>GA_Commission__c</name>
+    </fields>
+    <fields>
+        <label><!-- GA Contact --></label>
+        <name>GA_Contact__c</name>
+    </fields>
+    <fields>
+        <label><!-- General Agent Applicable --></label>
+        <name>General_Agent_Applicable__c</name>
+    </fields>
+    <fields>
+        <label><!-- General Agent --></label>
+        <name>General_Agent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group Rnwl Date --></label>
+        <name>Group_Rnwl_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- IP --></label>
+        <name>IP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Incumbent Carrier --></label>
+        <name>Incumbent_Carrier__c</name>
+        <picklistValues>
+            <masterLabel>AETNA</masterLabel>
+            <translation><!-- AETNA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ANTHEM</masterLabel>
+            <translation><!-- ANTHEM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BLUE SHIELD</masterLabel>
+            <translation><!-- BLUE SHIELD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CAL CHOICE</masterLabel>
+            <translation><!-- CAL CHOICE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CALPERS</masterLabel>
+            <translation><!-- CALPERS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CHINESE COMMUNITY HEALTH PLAN</masterLabel>
+            <translation><!-- CHINESE COMMUNITY HEALTH PLAN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CIGNA</masterLabel>
+            <translation><!-- CIGNA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HEALTH NET</masterLabel>
+            <translation><!-- HEALTH NET --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KAISER</masterLabel>
+            <translation><!-- KAISER --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OTHER</masterLabel>
+            <translation><!-- OTHER --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SELF FUNDED</masterLabel>
+            <translation><!-- SELF FUNDED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UNITED</masterLabel>
+            <translation><!-- UNITED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WHA</masterLabel>
+            <translation><!-- WHA --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Is Child Record Created? --></label>
+        <name>Is_Child_Record_Created__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Quotes Requested --></label>
+        <name>No_of_Quotes_Requested__c</name>
+    </fields>
+    <fields>
+        <label><!-- OOPM --></label>
+        <name>OOPM__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- RFP Form/Incumbent Carriers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Other Competitive Carrier --></label>
+        <name>Other_Competitive_Carrier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Out of Area EE s --></label>
+        <name>Out_of_Area_EE_s_n__c</name>
+    </fields>
+    <fields>
+        <label><!-- Participation --></label>
+        <name>Participation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan Year --></label>
+        <name>Plan_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote Due Date --></label>
+        <name>Quote_Due_Date_n__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote Effective Date --></label>
+        <name>Quote_Effective_Date_n__c</name>
+    </fields>
+    <fields>
+        <label><!-- Request Type --></label>
+        <name>RFP_Type__c</name>
+        <picklistValues>
+            <masterLabel>New Business</masterLabel>
+            <translation><!-- New Business --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RFR - Change Renewal</masterLabel>
+            <translation><!-- RFR - Change Renewal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RFR - Status Quo</masterLabel>
+            <translation><!-- RFR - Status Quo --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- RX --></label>
+        <name>RX__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rate Tier --></label>
+        <name>Rate_Tier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ratioes To Quote --></label>
+        <name>Ratioes_To_Quote__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reason for Market Check --></label>
+        <name>Reason_for_Market_Check__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rejection Reason --></label>
+        <name>Reject_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Current Carrier Claims Data Missing</masterLabel>
+            <translation><!-- Current Carrier Claims Data Missing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Current Carrier Rates in Question</masterLabel>
+            <translation><!-- Current Carrier Rates in Question --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Current Rates/Plans Do Not Match Census</masterLabel>
+            <translation><!-- Current Rates/Plans Do Not Match Census --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Incomplete Census</masterLabel>
+            <translation><!-- Incomplete Census --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quote Strategy Needed</masterLabel>
+            <translation><!-- Quote Strategy Needed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Requires Group Attestation Form to Quote</masterLabel>
+            <translation><!-- Requires Group Attestation Form to Quote --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Requires Management and/or Compliance Approval to Quote</masterLabel>
+            <translation><!-- Requires Management and/or Compliance Approval to Quote --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Void</masterLabel>
+            <translation><!-- Void --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Renewed RFP Form --></label>
+        <name>Renewed_RFP_Form__c</name>
+    </fields>
+    <fields>
+        <label><!-- SHP Participation --></label>
+        <name>SHP_Participation__c</name>
+    </fields>
+    <fields>
+        <label><!-- SHP Plan to Quote --></label>
+        <name>SHP_Plan_to_Quote__c</name>
+    </fields>
+    <fields>
+        <label><!-- SHP Plans to Quote --></label>
+        <name>SHP_Plans_to_Quote__c</name>
+        <relationshipLabel><!-- RFP Form/Incumbent Carriers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- SHP SA Subs minus Valid Waiver --></label>
+        <name>SHP_SA_Subs_minus_Valid_Waiver__c</name>
+    </fields>
+    <fields>
+        <label><!-- SHP vs Renewal --></label>
+        <name>SHP_vs_Renewal__c</name>
+    </fields>
+    <fields>
+        <label><!-- SIC Code --></label>
+        <name>SIC_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Slicing with Carrier Name --></label>
+        <name>Slicing_with_Carrier_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Special Instuctions --></label>
+        <name>Special_Instuctions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Specialist OV --></label>
+        <name>Specialist_OV__c</name>
+    </fields>
+    <fields>
+        <label><!-- Stage --></label>
+        <name>Stage__c</name>
+        <picklistValues>
+            <masterLabel>Approved by Underwriting</masterLabel>
+            <translation><!-- Approved by Underwriting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected by Underwriting</masterLabel>
+            <translation><!-- Rejected by Underwriting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted to Underwriting</masterLabel>
+            <translation><!-- Submitted to Underwriting --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Strategic Broker --></label>
+        <name>Strategic_Broker__c</name>
+    </fields>
+    <fields>
+        <label><!-- Strategy Statement --></label>
+        <name>Strategy_Statement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Proposal Scenario --></label>
+        <name>TR_Dual_Triple_Slice__c</name>
+        <picklistValues>
+            <masterLabel>Slice</masterLabel>
+            <translation><!-- Slice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TR</masterLabel>
+            <translation><!-- TR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Triple Option</masterLabel>
+            <translation><!-- Triple Option --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Proposal Scenario --></label>
+        <name>T_R_or_Slice_n__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tech Account Id --></label>
+        <name>Tech_Account_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tiered Rates --></label>
+        <name>Tiered_Rates__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total EE&apos;s --></label>
+        <name>Total_EE_s_n__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Enrolled --></label>
+        <name>Total_Enrolled_n__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total SHP SA Subs with Valid Waivers --></label>
+        <name>Total_SHP_SA_Subs_with_Valid_Waivers__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Subs in SHP Service Areas (SA) --></label>
+        <name>Total_Subs_in_SHP_Service_Areas_SA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Valid Waivers --></label>
+        <name>Valid_Waivers_n__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Enrolled --></label>
+        <name>of_Enrolled__c</name>
+    </fields>
+    <layouts>
+        <layout>Incumbent Carrier Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Rates --></label>
+            <section>Rates</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>RFP Form Page Layout</layout>
+        <sections>
+            <label><!-- Broker Information --></label>
+            <section>Broker Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Employer Information --></label>
+            <section>Employer Information</section>
+        </sections>
+        <sections>
+            <label><!-- General Agent Details --></label>
+            <section>General Agent Details</section>
+        </sections>
+        <sections>
+            <label><!-- Sales Information --></label>
+            <section>Sales Information</section>
+        </sections>
+        <sections>
+            <label><!-- Underwriting Data --></label>
+            <section>Underwriting Data</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Incumbent Carrier --></label>
+        <name>Incumbent_Carrier</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- RFP Form --></label>
+        <name>RFP_Form</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Cannot set the value on the this field as 0 --></errorMessage>
+        <name>Current_Tier_Validation</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Generate_PDF --></label>
+        <name>Generate_PDF</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- RFP_Summary_Report --></label>
+        <name>RFP_Summary_Report</name>
+    </webLinks>
+</CustomObjectTranslation>

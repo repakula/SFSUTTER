@@ -1,0 +1,59 @@
+<!--
+*     Page Name   : Search Articles Portal
+*     Author      : ACN Onshore
+*     Date        : 15-OCT-2013
+*     Project Name: CRM - SFT - Sutter Health
+*     Description : Visual Force Page for the Search Content commandButton to Portal Flow.
+-->
+
+    <apex:page controller="ACN_SearchContent_Controller" >
+
+      <!--<apex:includeScript value="{!$Resource.Jquery1}"/>   -->    
+      <apex:includeScript value="{!URLFOR($Resource.SurveyForce, '/jquery.js')}"  />
+         
+      <script>
+        var $j = jQuery.noConflict();
+        $j(document).ready(function() {
+            $j('#iframeKM').load(function(){
+                //alert('Inside Ready')
+                $j(this).contents().find('.globalHeaderBar').css('display','none');
+                $j(this).contents().find('.zen').css('display','none');
+                $j(this).contents().find('.globalHeaderBar').css('display','none');
+                $j(this).contents().find('.bodyDiv').css('border','none'); 
+                $j(this).contents().find('.body').css('sfdcBody','none'); 
+               
+                $j('#iframeKM').contents().find('img').each(function(){
+                    var href= this.src;
+                    if (href.indexOf('ImageServer') > 0){
+                        $j(this).hide();
+                    } 
+                });   
+            });
+       });
+  </script>
+  <style>
+     #iframeKM{
+       //display:none;
+     }
+   </style>
+   <!-- Button that sends the user into the flow by calling the Search Content Controller --> 
+    <apex:form >
+    
+    <!-- Component for GTM-->
+                     <c:Portal_User_Info />
+     <!-- Component for GTM-->
+           
+        <apex:commandButton style="position:relative; left:10px;" value="Create Inquiry" action="{!getNewFlow}" id="createInquiry"/>
+    &nbsp;&nbsp;
+    </apex:form>
+
+  <apex:iframe src="/knowledge/knowledgeHome.apexp?search=FAQ" id="iframeKM"  />
+  
+  
+    
+    <!-- Start Google Tag Manager -->
+    <apex:outputLabel value="{!$Label.GTMCustomLabel}" rendered="false"></apex:outputLabel> 
+    <apex:includeScript value="{!$Resource.GTMJavaScript}" />
+    <!-- End Google Tag Manager --> 
+           
+</apex:page>

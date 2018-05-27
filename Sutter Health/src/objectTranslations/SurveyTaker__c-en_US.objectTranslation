@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Survey Taken</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Surveys Taken</value>
+    </caseValues>
+    <fields>
+        <label><!-- Additional Comments --></label>
+        <name>Additional_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Surveys Taken --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Survey Taken By Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Surveys Taken --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Detractors --></label>
+        <name>Detractors__c</name>
+    </fields>
+    <fields>
+        <label><!-- Issue Resolved and Called 1 time --></label>
+        <name>Issue_Resolved_and_Called_1_time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Issue Not Resolved and Called 2x&apos;s --></label>
+        <name>Issue_not_resolved_and_called_2x_s__c</name>
+    </fields>
+    <fields>
+        <label><!-- Issue Not Resolved and Called &gt;2x&apos;s --></label>
+        <name>Issue_not_resolved_and_called_more_2x_s__c</name>
+    </fields>
+    <fields>
+        <label><!-- Issue Resolved and Called 2x&apos;s --></label>
+        <name>Issue_resolved_and_called_2x_s__c</name>
+    </fields>
+    <fields>
+        <label><!-- Issue Resolved and Called &gt; 2x&apos;s --></label>
+        <name>Issue_resolved_and_called_morethan_2x__c</name>
+    </fields>
+    <fields>
+        <label><!-- Satisfaction Score --></label>
+        <name>Overall_Satisfaction_Score__c</name>
+    </fields>
+    <fields>
+        <label><!-- Promoters --></label>
+        <name>Promoters__c</name>
+    </fields>
+    <fields>
+        <help><!-- Response &apos;Yes&apos;- Score 1, Response &apos;No&apos;- Score 0 --></help>
+        <label><!-- Q1 Score --></label>
+        <name>Q1_Score__c</name>
+    </fields>
+    <fields>
+        <help><!-- Response 1- Score 1, Response 2- Score 2, Response &gt;2- Score 3 --></help>
+        <label><!-- Q2 Score --></label>
+        <name>Q2_Score__c</name>
+    </fields>
+    <fields>
+        <label><!-- Q3 Score --></label>
+        <name>Q3_Score__c</name>
+    </fields>
+    <fields>
+        <label><!-- Q4 Score --></label>
+        <name>Q4_Score__c</name>
+    </fields>
+    <fields>
+        <label><!-- Satisfaction Score --></label>
+        <name>Satisfaction_Score_Old__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold Case Notification --></label>
+        <name>Sold_Case_Notification__c</name>
+        <relationshipLabel><!-- Surveys Taken --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Survey --></label>
+        <name>Survey__c</name>
+        <relationshipLabel><!-- Surveys Taken --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Taken --></label>
+        <name>Taken__c</name>
+    </fields>
+    <fields>
+        <label><!-- Survey Taken By User --></label>
+        <name>User__c</name>
+        <relationshipLabel><!-- Surveys Taken --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>SurveyTaker Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

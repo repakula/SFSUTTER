@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Communication_Log__c.Contact_Name__c</field>
+    </columns>
+    <columns>
+        <field>Communication_Log__c.Outreach_Call__c</field>
+    </columns>
+    <columns>
+        <field>Communication_Log__c.Call_result__c</field>
+    </columns>
+    <columns>
+        <field>Communication_Log__c.Status__c</field>
+    </columns>
+    <columns>
+        <field>Communication_Log__c.Upcoming_Visit_Provider__c</field>
+    </columns>
+    <columns>
+        <field>Communication_Log__c.Upcoming_visit_apt_time__c</field>
+    </columns>
+    <columns>
+        <field>Communication_Log__c.Facility__c</field>
+    </columns>
+    <columns>
+        <field>Communication_Log__c.Comments_Spoke_with_Patient__c</field>
+    </columns>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Communication_Log__c.Foundation__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Outreach Communication-Foundation</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Communication_Log__c</reportType>
+    <scope>user</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Communication_Log__c.Outreach_Call__c</sortColumn>
+    <sortOrder>Desc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_LAST7</interval>
+    </timeFrameFilter>
+</Report>

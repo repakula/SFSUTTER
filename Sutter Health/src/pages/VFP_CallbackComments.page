@@ -1,0 +1,196 @@
+<!--
+*     Page Name   : VFP_CallbackComments
+*     Author      : IDC Offshore
+*     Date        : 30-Sept-2014
+*     Project Name: CRM - SFT - Sutter Health
+*     Description : Visual Force Page for New Customer Inquiry Comments on SR
+*
+*     HISTORY
+*     --------------
+*     
+*     VERSION           AUTHOR            DATE          DETAIL 
+*
+-->
+<apex:page standardController="Call_Back__c" extensions="VFC_CallbackCommentsExtension" showHeader="false" sideBar="false" id="pg">
+<apex:includeScript value="/support/console/28.0/integration.js"/>
+      <script type="text/javascript">
+        
+        window.pgMsgVar = '';
+        function refPrimTab() {
+        
+        var errorBool = document.getElementById('pg:callbackcommentform:errorBool').value;
+            if(errorBool == 'false' && (pgMsgVar == '' || pgMsgVar == undefined)){
+            
+                if (sforce.console.isInConsole()) {        
+                    //First find the ID of the current primary tab to close it
+                    sforce.console.getEnclosingPrimaryTabId(refPrimarytab);
+                }
+            } 
+        }
+        
+        function refreshPrimaryTab() {
+                 
+              if (sforce.console.isInConsole()) {        
+                //First find the ID of the current primary tab to close it
+                sforce.console.getEnclosingPrimaryTabId(refPrimarytab);
+              }else{
+                location.href = '/{!caseId }';
+              }    
+        }
+        
+        var refPrimarytab = function refPrimarytab(result) {
+            //Now that we have the primary tab ID, we can close it
+            var primaryTabId = result.id;
+            sforce.console.refreshPrimaryTabById(primaryTabId, true, refreshSuccess);
+            closeCurrentTab();              
+        };
+        
+        var refreshSuccess = function refreshSuccess(result) {
+        
+        };
+        
+        function closeCurrentTab() {
+           if (sforce.console.isInConsole()) {        
+                //First find the ID of the current tab to close it
+                sforce.console.getEnclosingTabId(closeSubtab);
+           }else{
+                location.href = '/{!caseId }';
+           }      
+        }
+             
+        var closeSubtab = function closeSubtab(result) {
+                //Now that we have the tab ID, we can close it
+                var tabId = result.id;
+                sforce.console.closeTab(tabId);
+        };
+        
+        
+      </script>
+
+<apex:form id="callbackcommentform">
+  <!--This is your new VFP_CallbackComments Page : recid = {!recId} and caseId = {!caseId}
+    Create/Save Callabck record-->  
+    <apex:pageMessages id="errorMsgs"></apex:pageMessages>
+    <apex:inputHidden value="{!isError}" id="errorBool" />
+    
+    <apex:outputPanel id="rend">
+        <script>
+            if((document.getElementById('pg:callbackcommentform:errorMsgs') != null) || (document.getElementById('pg:callbackcommentform:errorMsgs') != 'undefined'))
+            {
+                pgMsgVar = document.getElementById('pg:callbackcommentform:errorMsgs').innerHTML;
+            }
+        </script>
+    </apex:outputPanel>
+    
+    <apex:outputPanel rendered="{!IF(rtType == 'Grievance', true, false)}">
+        <apex:sectionHeader title="Customer Inquiry Comment" subtitle="Customer Inquiry Comment" />
+            <apex:pageBlock title="Customer Inquiry Comment Edit" mode="Edit">
+               <apex:pageBlockButtons >
+                <apex:commandButton action="{!save}"  value="Save" oncomplete="{!if(isCommentSaved == true,'javascript:refreshPrimaryTab();', 'return false;')}" reRender="callbackcommentform, errorMsgs"/> 
+               <!-- 
+                <apex:commandButton action="{!save}"  value="Save" oncomplete="refreshPrimaryTab();" reRender="callbackcommentform, errorMsgs"/>-->
+                 <apex:commandButton action="{!cancel}" oncomplete="closeCurrentTab();" value="Cancel"/>
+               </apex:pageBlockButtons>
+               <br/>
+            
+            
+               <apex:pageBlockSection title="Information" columns="2" collapsible="false">
+                  
+                <apex:outputField value="{!callbackRec.Parent_Case__c}" />
+                <apex:outputField value="{!callbackRec.CreatedById}" label="Owner"/> 
+                
+                <apex:inputField value="{!callbackRec.Name}" style="width: 150px; height: 18px;" required="true"/>
+                <apex:inputField value="{!callbackRec.Call_Date__c}" />
+                
+                <apex:inputField value="{!callbackRec.Phone_Number__c}" />
+                <apex:inputField value="{!callbackRec.Call_Duration__c}" style="width: 250px; height: 18px;" />
+                <apex:inputField value="{!callbackRec.Notes__c}" required="true" style="width: 300px; height: 80px;"/>
+                <apex:inputField value="{!callbackRec.Action__c}" /> 
+                    
+               </apex:pageBlockSection>
+            </apex:pageBlock>
+    
+        <!-- To show CaseComment records in related list -->
+        <apex:outputPanel rendered="{!caseCommentHistory.size != 0}">
+            <apex:pageBlock title="Customer Inquiry Comments">
+                <apex:pageBlockTable value="{!caseCommentHistory}" var="historyRec">
+                                <apex:column >
+                                   <apex:facet name="header" > Public
+                                   </apex:facet>                 
+                                   <apex:inputCheckbox disabled="true" value="{!historyRec.isPublic}"/>
+                                </apex:column>
+                                <apex:column >            
+                                    <apex:facet name="header" >Comment
+                                    </apex:facet>
+                                    <apex:outputText escape="false"  value="{!historyRec.caseCommentValue }"/>
+                                </apex:column>                                                
+                </apex:pageBlockTable>
+            </apex:pageBlock>
+        </apex:outputPanel>
+    </apex:outputPanel>
+    
+    <apex:outputPanel rendered="{!IF(rtType == 'OOA_OON', true, false)}">
+    
+        <apex:sectionHeader title="Customer Inquiry Comment" subtitle="Customer Inquiry Comment" />
+        <apex:pageBlock title="CARE MANAGEMENT INPUT (OOA)">
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!save_OOA}" value="Save" oncomplete="refPrimTab();" reRender="errorMsgs, errorBool, rend"/>
+                <apex:commandButton action="{!Cancel}" value="Cancel" oncomplete="closeCurrentTab();"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection title="Information" columns="2" collapsible="false" rendered="{!isMemberOfSHP_OOA_OON}">
+                        <apex:inputField value="{!callback.Contact_Name__c}" />
+                        <br/>
+                        <apex:inputField value="{!callback.Outbound_Call_Date_Time__c}" />
+                        <apex:inputField value="{!callback.Action__c}" />
+                        
+                         <apex:inputField value="{!callback.Concurrent_Review_Requested__c}" />
+                         <apex:inputField value="{!callback.Concurrent_Review_Received__c}" />
+                         
+                         <apex:inputField value="{!callback.Concurrent_Review_Requested_Date__c}" />
+                         <apex:inputField value="{!callback.Concurrent_Review_Received_Date__c}" />
+                         
+                          <apex:inputField value="{!callback.Retro_Already_Discharged__c}" />
+                           <apex:inputField value="{!callback.Requested_Facesheet__c}" />
+                            
+                            
+                             <apex:inputField style="width:100%;" value="{!callback.Concurrent_Retro_Comments__c}" required="{!isCoordinator}"/>
+                               <br/>
+                            <apex:inputField style="width:100%;" value="{!callback.Clinical_Review_Comments__c}" required="{!AND(isMemberOfSHP_OOA_OON, NOT(isCoordinator))}"/>
+                       </apex:pageBlockSection>
+                       
+            <apex:pageBlockSection title="Comments"  collapsible="false" rendered="{!isMemberOfSHP_OOA_OON_View_Only}"> 
+                <apex:inputField required="true"  style="width:100%;"  value="{!callback.Comments__c}" />  
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <apex:outputPanel rendered="{!casecallBackHistory.size != 0}">
+         <apex:pageBlock title="Customer Inquiry Comments">
+         <apex:pageBlockTable value="{!casecallBackHistory}" var="historyRec">
+                         <apex:column >
+                            <apex:facet name="header"> Public
+                            </apex:facet>                 
+                            <apex:inputCheckbox disabled="true" value="{!historyRec.isPublic}"/>
+                         </apex:column>
+                         <apex:column >            
+                             <apex:facet name="header" >Comment
+                             </apex:facet>
+                             <apex:outputText escape="false"  value="{!historyRec.strHistory1}"/>
+                             <apex:outputPanel >
+                             <table border="1" style="width:100%;">
+                                <tr>
+                                    <td width="33%">Concurrent/Retro Comments</td><td width="33%">Clinical Review Comments </td><td width="33%">Comments </td>
+                                </tr>
+                                <tr>
+                                    <td width="33%">{!historyRec.caseCommentValue1} </td><td width="33%">{!historyRec.caseCommentValue2} </td><td width="33%">{!historyRec.caseCommentValue3} </td>
+                                </tr>
+                            </table>
+                            </apex:outputPanel>
+                        </apex:column>
+        </apex:pageBlockTable>
+        </apex:pageBlock>
+        </apex:outputPanel>
+    </apex:outputPanel>
+
+</apex:form>
+</apex:page>

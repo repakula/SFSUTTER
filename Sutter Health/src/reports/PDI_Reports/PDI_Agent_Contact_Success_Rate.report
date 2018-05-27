@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <acrossGroupingContext>GRAND_SUMMARY</acrossGroupingContext>
+        <calculatedFormula>Case.PDI_Success__c:SUM / RowCount</calculatedFormula>
+        <datatype>percent</datatype>
+        <developerName>FORMULA1</developerName>
+        <downGroupingContext>OWNER</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Success Rate</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_15703013</developerName>
+        <masterLabel>No. of Call Records</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>Case.Common_Subject_Lines__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Number not found</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Old Facility SER Found</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Provider Agitated</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Provider Retired/ Resigned</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Validated all locations</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Validated Provider</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Validated Provider/ EAF</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Voice mail</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Wrong NPI Found</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Other</sourceValue>
+            </sourceValues>
+            <value>Total</value>
+        </values>
+    </buckets>
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_78987695</developerName>
+        <masterLabel>Validated Or Not</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>Case.Common_Subject_Lines__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Validated Provider</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Validated all locations</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Validated Provider/ EAF</sourceValue>
+            </sourceValues>
+            <value>Success</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Number not found</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Old Facility SER Found</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Provider Agitated</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Provider Retired/ Resigned</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Voice mail</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Wrong NPI Found</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Other</sourceValue>
+            </sourceValues>
+            <value>Not Successful</value>
+        </values>
+    </buckets>
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>RowCount</column>
+        </chartSummaries>
+        <chartType>VerticalColumnStacked</chartType>
+        <enableHoverLabels>false</enableHoverLabels>
+        <expandOthers>true</expandOthers>
+        <groupingColumn>OWNER</groupingColumn>
+        <legendPosition>Right</legendPosition>
+        <location>CHART_TOP</location>
+        <secondaryGroupingColumn>BucketField_78987695</secondaryGroupingColumn>
+        <showAxisLabels>true</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>false</showValues>
+        <size>Medium</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <columns>
+        <field>ORIGIN</field>
+    </columns>
+    <columns>
+        <field>Case.Provider_Id_EAF_ID__c</field>
+    </columns>
+    <columns>
+        <field>Case.Provider_Name__c</field>
+    </columns>
+    <columns>
+        <field>Case.Contact_Number__c</field>
+    </columns>
+    <columns>
+        <field>Case.PDV_Contact_Name__c</field>
+    </columns>
+    <columns>
+        <field>Case.Validated_or_not__c</field>
+    </columns>
+    <columns>
+        <field>Case.Direct_Talk_to_Provider__c</field>
+    </columns>
+    <columns>
+        <field>STATUS</field>
+    </columns>
+    <columns>
+        <field>Case.Common_Subject_Lines__c</field>
+    </columns>
+    <columns>
+        <field>DESCRIPTION</field>
+    </columns>
+    <columns>
+        <field>SUBJECT</field>
+    </columns>
+    <columns>
+        <field>CREATED_DATE</field>
+    </columns>
+    <columns>
+        <field>CLOSED_DATE</field>
+    </columns>
+    <columns>
+        <field>AGE</field>
+    </columns>
+    <columns>
+        <field>OPEN</field>
+    </columns>
+    <columns>
+        <field>CLOSED</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>RECORDTYPE</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Case.Provider_Validation_RT</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CREATED_DATE</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>greaterOrEqual</operator>
+            <value>6/3/2016 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>OWNER_ROLE</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>SOC Agents</value>
+        </criteriaItems>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_15703013</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_78987695</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>OWNER</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>PDI Agent: Contact Success Rate</name>
+    <params>
+        <name>units</name>
+        <value>h</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CaseList</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATEONLY</dateColumn>
+        <interval>INTERVAL_THISMONTH</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Community Settings</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Community Settings</value>
+    </caseValues>
+    <fields>
+        <label><!-- Case Record Type Id --></label>
+        <name>SH_Case_Record_Type_Id__c</name>
+    </fields>
+    <fields>
+        <help><!-- homeSliderInterval in ms (4000 ms for 4 s) --></help>
+        <label><!-- Home Page Slider Interval --></label>
+        <name>SH_Home_Page_Slider_Interval__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mashape Account Endpoint URL --></label>
+        <name>SH_Mashape_Account_Endpoint_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mashape Account Key --></label>
+        <name>SH_Mashape_Account_Key__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

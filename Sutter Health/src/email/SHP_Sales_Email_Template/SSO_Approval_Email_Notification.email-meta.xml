@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>SSO Approval Email Notification</name>
+    <style>none</style>
+    <subject>Request for Sold Sign Off submitted for Approval - {!Sold_Sign_Off__c.Account__c}/DBA: {!Sold_Sign_Off__c.DBA__c} {!Sold_Sign_Off__c.Email_employer_Type__c}</subject>
+    <textOnly>Hi,
+
+The Sold Sign Off : {!Sold_Sign_Off__c.Name} for {!Sold_Sign_Off__c.Account__c}/DBA: {!Sold_Sign_Off__c.DBA__c}, {!Sold_Sign_Off__c.Email_employer_Type__c} has been submitted for Approval. Please Review.
+
+Thank you.</textOnly>
+    <type>custom</type>
+</EmailTemplate>

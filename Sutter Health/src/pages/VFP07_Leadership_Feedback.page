@@ -1,0 +1,53 @@
+<!--
+*     Page Name   : VFP07_Leadership_Feedback
+*     Author      : Saket Mohan Jha
+*     Date        : 06-Jun-2013
+*     Project Name: CRM - SFT - Sutter Health
+*     Description : 
+-->
+<apex:page standardController="Managers_Feedback__c" title="Leadership Feedback" extensions="VFC07_Leadership_Feedback_Ext">
+    <apex:form id="pgform">   
+
+<apex:pageMessages id="errorMsg"/>
+        
+        <apex:outputPanel rendered="{!!showMsg}">
+            <p><font size="5">S3 Process Improvement Feedback Form</font></p>
+            <p>Do you have Comments or suggestions on ways to improve processes at Sutter Shared Services? Send us your thoughts by submitting feedback below.</p>
+           
+            <apex:pageBlock id="pgBlock" rendered="true">
+                <apex:pageblockSection id="pgBlockSection" columns="1">
+                    
+                        <apex:inputField id="service_area" value="{!Managers_Feedback__c.Service_Area__c}" required="true"/>
+                        <apex:inputField id="subject" value="{!Managers_Feedback__c.Subject__c}" required="true"  style="width: 30%"/>
+                        <apex:inputField id="comments" value="{!Managers_Feedback__c.Comments__c}" required="true" style="width: 50%"/>
+                        
+                </apex:pageblockSection>
+                
+                <apex:pageBlockButtons location="bottom" >
+                    <apex:commandButton value="Submit Feedback" action="{!saveAndSend}" rerender="pgform, errorMsg">
+                    </apex:commandButton>
+                </apex:pageBlockButtons>
+        
+            </apex:pageBlock>
+        </apex:outputPanel>
+        
+        <apex:outputpanel rendered="{!showMsg}">
+            <apex:pageBlock >
+                <apex:pageblockSection id="msgSection" columns="1">
+                    <p><b>Thank you for submitting your feedback.</b></p>
+                </apex:pageblockSection>
+            </apex:pageBlock>
+        </apex:outputpanel>
+        
+        <!-- Component for GTM-->
+                     <c:Portal_User_Info />
+           <!-- Component for GTM-->
+           
+    </apex:form>    
+    
+    <!-- Start Google Tag Manager -->
+    <apex:outputLabel value="{!$Label.GTMCustomLabel}" rendered="false"></apex:outputLabel> 
+    <apex:includeScript value="{!$Resource.GTMJavaScript}" />
+    <!-- End Google Tag Manager -->
+
+</apex:page>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>PCP Information</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>PCP Information</value>
+    </caseValues>
+    <fields>
+        <label><!-- Medical Group Affiliation --></label>
+        <name>Medical_Group_Affiliation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Member ID --></label>
+        <name>Member_ID__c</name>
+        <relationshipLabel><!-- PCP Informations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- PCP Effective date --></label>
+        <name>PCP_Effective_date__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCP External ID --></label>
+        <name>PCP_External_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCP Member HR ID --></label>
+        <name>PCP_Member_HR_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCP Practitioner First Name --></label>
+        <name>PCP_Practitioner_First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCP Practitioner HR ID --></label>
+        <name>PCP_Practitioner_HR_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCP Practitioner Last Name --></label>
+        <name>PCP_Practitioner_Last_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCP Practitioner Middle Name --></label>
+        <name>PCP_Practitioner_Middle_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCP Practitioner NPI --></label>
+        <name>PCP_Practitioner_NPI__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCP Practitioner Name --></label>
+        <name>PCP_Practitioner_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCP Speciality --></label>
+        <name>PCP_Speciality__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCP Specialty HCC ID --></label>
+        <name>PCP_Specialty_HCC_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCP Specialty HR ID --></label>
+        <name>PCP_Specialty_HR_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCP Specialty-Sub HCC ID --></label>
+        <name>PCP_Specialty_Sub_HCC_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCP Specialty-Sub HR ID --></label>
+        <name>PCP_Specialty_Sub_HR_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCP Supplier Location HR ID --></label>
+        <name>PCP_Supplier_Location_HR_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCP Supplier Location name --></label>
+        <name>PCP_Supplier_Location_name__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCP Supplier NPI --></label>
+        <name>PCP_Supplier_NPI__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCP Supplier Name --></label>
+        <name>PCP_Supplier_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCP Termination Date --></label>
+        <name>PCP_Termination_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCP sub-Specialty --></label>
+        <name>PCP_sub_Specialty__c</name>
+    </fields>
+    <fields>
+        <label><!-- Practitioner PCP Auto Assigned --></label>
+        <name>Practitioner_PCP_Auto_Assigned__c</name>
+    </fields>
+    <fields>
+        <label><!-- SPS Epic ID --></label>
+        <name>SPS_Epic_ID__c</name>
+    </fields>
+    <layouts>
+        <layout>PCP Information Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

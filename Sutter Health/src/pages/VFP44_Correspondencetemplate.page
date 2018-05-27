@@ -1,0 +1,171 @@
+<apex:page standardController="Correspondence_Letter__c" extensions="VFC44_Correspondencetemplate" >
+    <style>
+        .bcGround{background-color: #DCD6D6; height: 200%;opacity:0.65;width:100%;}
+        .bcMag{margin-left: -254px;}
+        .OverlayCss{top: 200px; width: 1091px;}
+        .styleErr{font-weight: bold; font-size: 12pt;}
+        .OverlayStyle{overflow: scroll; height: 150px;}
+        .rightCornerHelpLink { float: right; }
+    </style>
+    <apex:form id="frmShowError1" rendered="{!showSendEmailMessage}">
+        <apex:pageBlock id="pgButton1">
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="OK" action="{!Cancel}" />
+            </apex:pageBlockButtons>
+            <apex:pageMessage severity="CONFIRM"
+                summary="Email has been sent successfully"
+                strength="3" rendered="true" />
+        </apex:pageBlock>
+    </apex:form>
+    
+    <apex:form id="frmShowError" rendered="{!showErroronLoad1}">
+        <table cellspacing="10">
+            <tr>
+                <td>
+                    <span class="styleErr">Insufficient Privileges</span>
+                </td>
+            </tr>
+            <tr>
+                <td>You do not have the level of access necessary to perform
+                    the operation you requested.  <br />
+                    <br /> Click <a href="/{!objCorrLetter.id}">here</a> to return to the
+                    Correspondence Letter page.
+                </td>
+            </tr>
+        </table>
+    </apex:form>
+    <!-- Req no 3378 Member Employer Correspondence Start  -->
+     <!-- This Form  if record type is SHP Employer Member  -->
+    <apex:form id="frmShowError1Member" rendered="{!showErroronLoad}">
+
+        <apex:pageBlock id="pgButton1">
+            <apex:pageBlockButtons location="bottom">
+
+                <apex:commandButton value="OK" action="{!Cancel}" />
+            </apex:pageBlockButtons>
+            <apex:pageMessage severity="Error" summary="You can not edit Member and employer correspondence " strength="3" rendered="true" />
+        </apex:pageBlock>
+    </apex:form>
+   <!-- Req no 3378 Member Employer Correspondence End  -->
+    <apex:form rendered="{!if(showSendEmailMessage||showErroronLoad1 || showErroronLoad ,false,true)}" >
+        <apex:pageMessages id="showmsg"/>  
+        <apex:pageBlock id="EmailBody"> 
+        <!--- Req 3377 Training Document Link Change Start --->
+        <apex:outputLink value="/{!BrokerCorresponenceTrainingDocument.Id}" id="trainingDocLink" target="_blank" styleClass="rightCornerHelpLink">{!$Label.SHP_KM_Training_Document_Help}
+        </apex:outputLink>
+        <!--- Req 3377 Training Document Link Change End  --->
+        <br/>
+        
+            <apex:pageBlockSection title="Target Audience Selection" id="SearchSelection" collapsible="false" columns="5"> 
+                <apex:selectList id="fieldList" value="{!Fields}" size="1" label="Field Name">
+                    <apex:selectOptions value="{!Items}" />              
+                </apex:selectList>
+                <apex:selectList id="Oper" value="{!OpertaorsList}" size="1" label="Operator">
+                    <apex:selectOptions value="{!Operator}" />              
+                </apex:selectList>
+                <apex:inputText value="{!Value}"/>
+                <apex:commandLink value="Add" action="{!EnableshowContactFilter1}" Rendered="{!IF(showContactFilter1 || showContactFilter2 || showContactFilter3 || showContactFilter4 || showContactFilter5 || showContactFilter6 , false ,true)}" reRender="SearchSelection" />
+                <apex:outputText value="" Rendered="{!IF(showContactFilter1 || showContactFilter2 || showContactFilter3 || showContactFilter4 || showContactFilter5 || showContactFilter6 , true,false)}"  />
+                <br></br>
+                <apex:selectList id="fieldList1" value="{!Fields1}" rendered="{!showContactFilter1}" size="1" label="Field Name">
+                    <apex:selectOptions value="{!Items}" />              
+                </apex:selectList>
+                <apex:selectList id="Oper1" value="{!OpertaorsList1}" rendered="{!showContactFilter1}" size="1" label="Operator">
+                    <apex:selectOptions value="{!Operator}" />            
+                </apex:selectList>
+                <apex:inputText value="{!Value1}" rendered="{!showContactFilter1}" />
+                <apex:commandLink value="Add" action="{!EnableshowContactFilter2}" Rendered="{!IF(!showContactFilter1 || showContactFilter2 || showContactFilter3 || showContactFilter4 || showContactFilter5 || showContactFilter6 || initialBoolean, false ,true)}" reRender="SearchSelection" />
+                <apex:outputText value="" Rendered="{!IF(showContactFilter1 && (!showContactFilter1 || showContactFilter2 || showContactFilter3 || showContactFilter4 || showContactFilter5 || showContactFilter6 || initialBoolean), true,false)}"/>
+                    <apex:commandLink value="Remove" action="{!DisableshowContactFilter1}" Rendered="{!IF( !showContactFilter1 || showContactFilter2 || showContactFilter3 || showContactFilter4 || showContactFilter5 || showContactFilter6 || initialBoolean, false,true)}" reRender="SearchSelection" />
+                    <apex:outputText value="" Rendered="{!IF(showContactFilter1 && (!showContactFilter1 || showContactFilter2 || showContactFilter3 || showContactFilter4 || showContactFilter5 || showContactFilter6 || initialBoolean), true,false)}" />
+                <apex:selectList id="fieldList2" value="{!Fields2}" rendered="{!showContactFilter2}" size="1" label="Field Name">
+                    <apex:selectOptions value="{!Items}" />              
+                </apex:selectList>
+                <apex:selectList id="Oper2" value="{!OpertaorsList2}" rendered="{!showContactFilter2}" size="1" label="Operator">
+                    <apex:selectOptions value="{!Operator}" />           
+                </apex:selectList>
+                <apex:inputText value="{!Value2}" rendered="{!showContactFilter2}" />
+                <apex:commandLink value="Add"  action="{!EnableshowContactFilter3}" Rendered="{!IF(!showContactFilter1 || !showContactFilter2 || showContactFilter3 || showContactFilter4 || showContactFilter5 || showContactFilter6 || initialBoolean, false ,true)}" reRender="SearchSelection" />
+                <apex:outputText value="" Rendered="{!IF( showContactFilter2 && ( !showContactFilter1 || !showContactFilter2 || showContactFilter3 || showContactFilter4 || showContactFilter5 || showContactFilter6 || initialBoolean), true ,false)}"/>
+                <apex:commandLink value="Remove" action="{!DisableshowContactFilter2}" Rendered="{!IF(!showContactFilter1 || !showContactFilter2 || showContactFilter3 || showContactFilter4 || showContactFilter5 || showContactFilter6 || initialBoolean, false ,true)}" reRender="SearchSelection"/>
+                <apex:outputText value="" Rendered="{!IF(showContactFilter2 && (!showContactFilter1 || !showContactFilter2 || showContactFilter3 || showContactFilter4 || showContactFilter5 || showContactFilter6 || initialBoolean), true ,false)}"/>
+                <apex:selectList id="fieldList3" value="{!Fields3}" rendered="{!showContactFilter3}" size="1" label="Field Name">
+                    <apex:selectOptions value="{!Items}" />              
+                </apex:selectList>            
+                <apex:selectList id="Oper3" value="{!OpertaorsList3}" rendered="{!showContactFilter3}" size="1" label="Operator">
+                   <apex:selectOptions value="{!Operator}" />        
+                </apex:selectList>
+                <apex:inputText value="{!Value3}" rendered="{!showContactFilter3}" />
+                <apex:commandLink value="Add"  action="{!EnableshowContactFilter4}" Rendered="{!IF(!showContactFilter1 || !showContactFilter2 || !showContactFilter3 || showContactFilter4 || showContactFilter5 || showContactFilter6 || initialBoolean, false ,true)}" reRender="SearchSelection" />
+                <apex:outputText value="" Rendered="{!IF( showContactFilter3 && (!showContactFilter1 || !showContactFilter2 || !showContactFilter3 || showContactFilter4 || showContactFilter5 || showContactFilter6 || initialBoolean), true ,false)}"/>
+                <apex:commandLink value="Remove"  action="{!DisableshowContactFilter3}" Rendered="{!IF( !showContactFilter1 || !showContactFilter2 || !showContactFilter3 ||showContactFilter4 || showContactFilter5 || showContactFilter6 || initialBoolean, false ,true)}" reRender="SearchSelection"/>
+                <apex:outputText value="" Rendered="{!IF( showContactFilter3 && (!showContactFilter1 || !showContactFilter2 || !showContactFilter3 || showContactFilter4 || showContactFilter5 || showContactFilter6 || initialBoolean), true ,false)}"/>
+                <apex:selectList id="fieldList4" value="{!Fields4}" rendered="{!showContactFilter4}" size="1" label="Field Name">
+                   <apex:selectOptions value="{!Items}" />              
+                </apex:selectList>
+                <apex:selectList id="Oper4" value="{!OpertaorsList4}" rendered="{!showContactFilter4}" size="1" label="Operator">
+                   <apex:selectOptions value="{!Operator}" />          
+                </apex:selectList>
+                <apex:inputText value="{!Value4}" rendered="{!showContactFilter4}" />
+                <apex:commandLink value="Add"  action="{!EnableshowContactFilter5}" Rendered="{!IF( !showContactFilter1 || !showContactFilter2 || !showContactFilter3 || !showContactFilter4 || showContactFilter5 || showContactFilter6 || initialBoolean, false ,true)}" reRender="SearchSelection" />
+                <apex:outputText value="" Rendered="{!IF( showContactFilter4 && (!showContactFilter1 || !showContactFilter2 || !showContactFilter3 || !showContactFilter4 || showContactFilter5 || showContactFilter6 || initialBoolean), true ,false)}"/>
+                <apex:commandLink value="Remove"  action="{!DisableshowContactFilter4}" Rendered="{!IF( !showContactFilter1 || !showContactFilter2 || !showContactFilter3 || !showContactFilter4 || showContactFilter5 || showContactFilter6 || initialBoolean, false ,true)}" reRender="SearchSelection"/>
+                <apex:outputText value="" Rendered="{!IF(showContactFilter4 && (!showContactFilter1 || !showContactFilter2 || !showContactFilter3 || !showContactFilter4 || showContactFilter5 || showContactFilter6 || initialBoolean), true ,false)}"/>
+                <apex:selectList id="fieldList5" value="{!Fields5}" rendered="{!showContactFilter5}" size="1" label="Field Name">
+                   <apex:selectOptions value="{!Items}" />              
+                </apex:selectList>
+                <apex:selectList id="Oper5" value="{!OpertaorsList5}" rendered="{!showContactFilter5}" size="1" label="Operator">
+                  <apex:selectOptions value="{!Operator}" />             
+                </apex:selectList>
+                <apex:inputText value="{!Value5}" rendered="{!showContactFilter5}" />
+                <apex:commandLink value="Add"  action="{!EnableshowContactFilter6}" Rendered="{!IF( !showContactFilter1 || !showContactFilter2 || !showContactFilter3 || !showContactFilter4 || !showContactFilter5 || showContactFilter6 || initialBoolean, false ,true)}" reRender="SearchSelection" />
+                <apex:outputText value="" Rendered="{!IF( showContactFilter5 && (!showContactFilter1 || !showContactFilter2 || !showContactFilter3 || !showContactFilter4 || !showContactFilter5 || showContactFilter6 || initialBoolean), true ,false)}"/>
+                <apex:commandLink value="Remove"  action="{!DisableshowContactFilter5}" Rendered="{!IF( !showContactFilter1 || !showContactFilter2 || !showContactFilter3 || !showContactFilter4 || !showContactFilter5 || showContactFilter6 || initialBoolean, false ,true)}" reRender="SearchSelection"/>
+                <apex:outputText value="" Rendered="{!IF(showContactFilter5 && (!showContactFilter1 || !showContactFilter2 || !showContactFilter3 || !showContactFilter4 || !showContactFilter5 || showContactFilter6 || initialBoolean), true ,false)}"/>
+                <apex:selectList id="fieldList6" value="{!Fields6}" rendered="{!showContactFilter6}" size="1" label="Field Name">
+                   <apex:selectOptions value="{!Items}" />              
+                </apex:selectList>
+                <apex:selectList id="Oper6" value="{!OpertaorsList6}" rendered="{!showContactFilter6}" size="1" label="Operator">
+                   <apex:selectOptions value="{!Operator}" />               
+                </apex:selectList>
+                <apex:inputText value="{!Value6}" rendered="{!showContactFilter6}" />
+                <br></br>
+                <apex:commandLink value="Remove" action="{!DisableshowContactFilter6}" Rendered="{!IF(!showContactFilter1 || !showContactFilter2 || !showContactFilter3 || !showContactFilter4 || !showContactFilter5 || !showContactFilter6 || initialBoolean, false ,true )}" reRender="SearchSelection"/>
+                <apex:outputText value="" Rendered="{!IF( showContactFilter6 && (!showContactFilter1 || !showContactFilter2 || !showContactFilter3 || !showContactFilter4 || !showContactFilter5 || !showContactFilter6 || initialBoolean ), true ,false)}"/>      
+            </apex:pageBlockSection>
+            <apex:commandButton value="Search" action="{!getcontact}"  reRender="mem,abcd,showmsg,conListSection" status="counterStatus" />
+            <apex:actionStatus id="counterStatus" >
+              <apex:facet name="start">
+                <div class="waitingSearchDiv,bcGround " id="el_loading" > 
+                    <div class="waitingHolder,OverlayCss">
+                        <img class="waitingImage" src="/img/loading.gif" />
+                        <span class="waitingDescription">Loading...</span>
+                    </div>
+                </div>
+              </apex:facet>
+            </apex:actionStatus>
+            
+            <div class="OverlayStyle">
+                <apex:pageBlockSection title="To: Contact List" collapsible="false" columns="1" id="conListSection"  >
+                    <apex:outputPanel >                 
+                        <apex:outputfield value="{!objCorrLetter.To_Contact_List__c}"  />    
+                    </apex:outputPanel>
+                </apex:pageBlockSection>
+            </div>
+            <apex:outputPanel id="out1">   
+                <apex:pageBlockSection title="Create New Letter" collapsible="false" columns="3" id="psection1">
+                    <apex:commandLink value="Create New Email" action="{!createTemplate}" target="_blank"/> 
+                    <apex:selectList id="SelectEmailTemplate" value="{!SelectedEmailTemplate}"  size="1" label="Select Email Letter"  >   
+                        <apex:actionSupport event="onchange"  reRender="out1"/>
+                        <apex:selectOptions value="{!optionsEmailTemplate}" />     
+                    </apex:selectList> 
+                    <apex:commandLink action="{!previewTemplate}" value="Preview" target="_blank" styleClass="bcMag" rendered="{!if(SelectedEmailTemplate != 'None',true,false)}" id="previewlink" />
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!saveCorresspondenceLetter}" value="Save"/>
+                <apex:commandButton action="{!sendMail}" value="Send Mail" disabled="{!displaySendButton}"/>
+            </apex:pageBlockButtons>         
+        </apex:pageBlock>  
+    </apex:form>
+      </apex:page>

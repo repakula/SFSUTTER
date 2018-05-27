@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Document Generation Request QA Approval</name>
+    <style>none</style>
+    <subject>Document Generation Request QA Approval - Employer Name: {!Document_Generation_Request__c.Account__c}/DBA: {!Document_Generation_Request__c.DBA__c} Employer Type: {!Document_Generation_Request__c.Employer_Type_Email__c}</subject>
+    <textOnly>Hi,
+
+DGR {!Document_Generation_Request__c.Name} for {!Document_Generation_Request__c.Account__c}/DBA: {!Document_Generation_Request__c.DBA__c}, {!Document_Generation_Request__c.Employer_Type_Email__c} has been approved by the BPA QA team.
+
+Thank you.</textOnly>
+    <type>custom</type>
+</EmailTemplate>

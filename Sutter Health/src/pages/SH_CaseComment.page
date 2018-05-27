@@ -1,0 +1,257 @@
+<apex:page docType="html-5.0" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" action="{!forwardToLoginPage}" controller="SH_CaseComment" cache="false">
+    <head>
+        <title>{!activePgName}</title>
+        <c:SH_HeaderResource />
+    </head>
+    
+    <script>
+        function CheckFieldValidation()
+        {
+            var IsError = false;
+            
+            if(jQuery('textarea[Id$=strDescription]').val() == '')
+            {
+                jQuery('textarea[Id$=strDescription]').closest('.form-group').attr('class','form-group with-help error');
+                IsError = true;
+            }
+            else
+                jQuery('textarea[Id$=strDescription]').closest('.form-group').attr('class','form-group with-help');
+            
+            if(IsError == false)
+            {
+                jQuery('.error-notification').css('display','none');
+                jQuery('.error-notification').find('#errMsg').html('Please enter required fields.');
+                CreateCaseComment();
+                return true;
+            }
+            else
+            {
+                jQuery('.error-notification').css('display','block');
+                jQuery('.error-notification').find('#errMsg').html('Please enter required fields.');
+                return false;
+            }   
+        }       
+    </script>
+    <style>
+        .big-logo {margin-top:12px;}
+        
+        .form-group input[type=button].background-orange:hover {
+            background-color: #d97222;
+        }
+        
+        .form-group input[type=button] {
+            background-image: none !important;
+            color: #ffffff !important;
+            float: left;
+            font-size: 14px;
+            line-height: 40px !important;
+            padding-bottom: 0;
+            padding-left: 17px;
+            padding-right: 19px !important;
+            padding-top: 0;
+            text-decoration: none;
+            transition: all 0.2s linear 0s;
+            -webkit-transition: all 0.2s linear 0s;
+            -moz-transition: all 0.2s linear 0s;
+            -o-transition: all 0.2s linear 0s;
+            border-radius: 20px;
+            border: 0;
+            margin-left: 144px;
+        }
+        
+        .Processing {
+            position: fixed;
+            background: url('{!URLFOR($Resource.SutterHealthCare, 'img/loading7_orange.gif')}');
+            background-size: 100px 100px;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            z-index: 1004;
+            left: 0%;
+            top: 0%;
+        }
+                div.form-section {
+            margin-bottom: 60px;
+            display: block;
+        }
+        
+        #content div.form-section .form-group.radio-group label, #content div.form-section .form-group label {
+            vertical-align: top;
+            margin-top: 10px;
+            margin: 0px;
+            width: 140px;
+            font-size: 14px;
+            font-weight: normal;
+            color: #666;
+        }
+        #content div.text-section.title {
+            padding-bottom: 30px !important;
+            border-bottom: 1px solid #E6E6E6;
+            margin-bottom: 50px;
+            display: block;
+        }
+        
+        #content div.sectionDiv .success-notification h4 {
+            color: #00A4A2;
+            font-size: 21px;
+            font-weight: bold;
+            margin-top: -8px;
+        }
+        #content div.sectionDiv h1, #content div.sectionDiv h2, #content div.sectionDiv h3, #content div.sectionDiv h4, #content div.sectionDiv h5 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            line-height: 36px;
+            padding: 0px 0px 6px;
+            margin-bottom: 0px;
+            margin-top: 0px;
+        }
+        #content div.sectionDiv .success-notification p {
+            color: #666;
+        }
+        .orangebtn
+        {
+            background-image: none !important;
+            color: #ffffff !important;
+            float: left;
+            font-size: 14px;
+            line-height: 40px !important;
+            padding-bottom: 0;
+            padding-left: 17px;
+            padding-right: 19px !important;
+            padding-top: 0;
+            text-decoration: none;
+            transition: all 0.2s linear 0s;
+            -webkit-transition: all 0.2s linear 0s;
+            -moz-transition: all 0.2s linear 0s;
+            -o-transition: all 0.2s linear 0s;
+            border-radius: 20px;
+            border: 0;
+            margin-left: 144px;
+        }
+        
+        @media (max-width: 767px) {
+         form.contact-form .form-group button[type="button"] {
+          margin-left: 0px !important;
+         }
+        }
+    </style> 
+    
+    <body id="home" class="show-notification menu-open menu-visibility"> 
+        <c:SH_SearchBar isPreview="{!isPreview}"/>
+        <!-- notification popup -->
+        <c:SH_Notification isPreview="{!isPreview}" id="notifComponent" Title="{!strTitle}" Description="{!strDescription}" Info="{!strInfo}" BrowserTitle="{!strBrowserTitle}" BrowserDescription="{!strBrowserDescription}" BrowserInfo="{!strBrowserInfo}" BrowserNotify="{!IsBrowser}" Notify="{!IsNotify}"/>
+        <!-- Menu Item -->
+        <c:SH_MenuItem lstMenuItem="{!lstMenuItem }" isPreview="{!isPreview}" Category="{!strCategoryForHelp}" SubCategory="{!strSubCategoryForHelp}"  Team="{!strTeamForHelp}" CustomerIntent="{!strCustomerIntentForHelp}" L1="{!strL1}" L1Id="{!strL1Id}" L2="{!strL2}" L2Id="{!strL2Id}"/>
+        
+        <!-- content -->
+        <div id="content-wrapper">
+            <!-- Header-->
+            <c:SH_Header isPreview="{!isPreview}" actiVePg="{!activePgName}" breadCrumbs="{!BreadCrumbs}"/>
+            
+            <div id="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <section class="text-section title" style="margin-bottom:20px;">    
+                                <h1 style="margin-bottom:10px;">Help and Support</h1>
+                                <h3 style="margin-bottom: 5px;">{!objCase.subject}</h3> 
+                                <p style="margin-bottom: 20px;">{!objCase.Description}</p>
+                                <label class="meta">
+                                    <!-- added casenumber and status on Client FeedBack on 04-09-2015-->
+                                    <b>Case Number:</b> {!objCase.CaseNumber}, <b>Status:</b> {!objCase.status}
+                                    <br/><br/>
+                                    <b>Category:</b> {!objCase.Function__c}, <b>Sub Category:</b> {!objCase.Sub_Function__c}
+                                    <br/>
+                                    <br/>
+                                     <!-- <b>Status:</b> {!objCase.status},  -->
+                                     <b>Created On:</b>&nbsp;
+                                    <apex:outputText value="{0,date,MMMM d','  yyyy}">
+                                         <apex:param value="{!objCase.CreatedDate}" />
+                                    </apex:outputText>    
+                                </label>
+                            </section>
+                            <apex:outputPanel id="mainPnl" layout="none">
+                                <apex:form styleClass="contact-form">
+                                    <apex:outputPanel id="ErrorPnl" rendered="{!isShowCaseClosedMsg}" layout="none">
+                                        <div class="sectionDiv form-section last-section">
+                                            <h3 style="margin-bottom:20px;">Add Your Comment</h3>
+                                            <div class="success-notification">  
+                                                <h4>Information! Your message has not been sent</h4>
+                                                <p>As Case has already been closed.</p>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                    </apex:outputPanel>
+                                    <apex:outputPanel id="addCommentPnl" rendered="{!Not(objCase.IsClosed)}" layout="none">
+                                        <div class="sectionDiv form-section last-section">
+                                            <h3 style="margin-bottom:20px;">Add Your Comment</h3>
+                                            <div class="success-notification" style="display:{!strSuccess}">    
+                                                <h4>Success! Your message has been sent</h4>
+                                                <p>Thanks for getting in touch with us.</p>
+                                            </div>
+                                            
+                                            <div class="form-group checkbox-group">
+                                                <label>Description:</label>
+                                                <apex:inputTextArea id="strDescription" value="{!objCaseComment.CommentBody}" style="line-height: 20px;" styleClass="long" html-placeholder="Enter Comment"/>
+                                                <div style="clear:both"></div>
+                                            </div>
+                                            <div class="form-group last">
+                                                <button type="button" class="background-orange orangebtn" onclick="return CheckFieldValidation();"><i class="icon icon-arrow-right"></i>Submit</button>
+                                                <apex:actionFunction name="CreateCaseComment" action="{!CreateComment}" status="act_Type"  rerender="mainPnl"/>
+                                                <!--<apex:commandButton value="Save" action="" styleclass="background-orange" status="act_Type" rerender="mainPnl"/> -->
+                                                <a href="#" class="clear-fields" style="cursor:pointer;">Clear All Options</a>
+                                                <script>
+                                                jQuery(document).ready(function(){
+                                                    // clear fields link
+                                                    jQuery('.clear-fields').click(function(e){
+                                                        e.preventDefault();
+                                                        
+                                                        jQuery('form')[1].reset();
+                                                        jQuery('form').find('.datetimepicker .form-control').val('');
+                                                        jQuery('form').find('select').selectpicker('render');
+                                                        jQuery('form').find('.btn-group .btn').removeClass('active');
+                                                        jQuery('form').find('.radio-group .btn-group .btn:first-child').addClass('active');
+                                                    });
+                                                });
+                                            </script>
+                                            </div>
+                                            <apex:actionStatus id="act_Type" startStyleClass="Processing" />
+                                            <div style="clear:both"></div>
+                                        </div>
+                                        <hr/>
+                                    </apex:outputPanel>
+                                    <h1 style="margin-bottom:25px;">Comments</h1>
+                                    <apex:outputPanel id="CommentsPnl" rendered="{!IF(lstCaseComment.size <=0, true, false)}">
+                                        No comments
+                                    </apex:outputPanel>
+                                    <apex:repeat value="{!lstCaseComment}" var="Comment">
+                                        <div class="text-section title">
+                                            <p style="margin-bottom: 10px;">{!Comment.CommentBody}</p>
+                                            <label class="meta">
+                                                <b>Created By:</b> {!Comment.createdby.name}, <b>Created On:</b>&nbsp;
+                                                <apex:outputText value="{0,date,MMMM d','  yyyy}" style="font-weight:bold;color:#00A9A5;">
+                                                     <apex:param value="{!Comment.CreatedDate}" /> 
+                                                </apex:outputText>    
+                                            </label>
+                                        </div>
+                                    </apex:repeat>
+                                </apex:form>
+                            </apex:outputPanel>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <c:SH_Footer ></c:SH_Footer>
+     </body>
+     <apex:form >
+        <!-- added on 25-Aug-2015 for Notification -->
+        <apex:inputHidden id="hdnToolArticle" value="{!strToolArticeId}"/>
+        <apex:inputHidden id="hdnBrowserName" value="{!browserName}"/>
+        <apex:actionfunction name="showNotification" action="{!showNotification}"/>
+     </apex:form>
+</apex:page>

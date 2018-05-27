@@ -1,0 +1,7 @@
+<html>
+<body>
+Hi,<br/><br/>
+DGR  <a href="'{!$Label.HR194_DocGenListViewURL}'">{!Document_Generation_Request__c.Name}</a> for {!Document_Generation_Request__c.Account__c}/DBA: {!Document_Generation_Request__c.DBA__c}, {!Document_Generation_Request__c.Employer_Type_Email__c} has been approved by the BPA QA team.<br/><br/>
+Thank you.<br/>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CONTACT_RECORDTYPE</field>
+    </columns>
+    <columns>
+        <field>FIRST_NAME</field>
+    </columns>
+    <columns>
+        <field>LAST_NAME</field>
+    </columns>
+    <columns>
+        <field>EMAIL</field>
+    </columns>
+    <columns>
+        <field>Contact.Employee_Affiliate_Facility__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Employee_Employment_Status__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Employee_Union_Affiliate__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Employee_Job_Code__c</field>
+    </columns>
+    <columns>
+        <field>Contact.UserProv__c</field>
+    </columns>
+    <columns>
+        <field>LAST_UPDATE</field>
+    </columns>
+    <columns>
+        <field>CONTACT_LAST_UPDATE_BY</field>
+    </columns>
+    <columns>
+        <field>CREATED_DATE</field>
+    </columns>
+    <columns>
+        <field>CONTACT_CREATED</field>
+    </columns>
+    <filter>
+        <booleanFilter>((1 AND (2 OR 3 OR 4 OR 5 OR 6 OR 7 OR 8 OR 9 OR 10 OR 11 OR 12 OR 13 OR 14 OR 15)) AND 16) AND 17</booleanFilter>
+        <criteriaItems>
+            <column>CONTACT_RECORDTYPE</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Contact.Employee</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.Employee_Affiliate_Facility__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Sutter Amador Hospital</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.Employee_Affiliate_Facility__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Sutter Solano Medical Center</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.Employee_Affiliate_Facility__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Sutter Shared Services</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.Employee_Affiliate_Facility__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Sutter Senior Care</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.Employee_Affiliate_Facility__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Sutter Roseville Med Center</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.Employee_Affiliate_Facility__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Sutter Outpatient Services</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.Employee_Affiliate_Facility__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Sutter Med Foundation - West</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.Employee_Affiliate_Facility__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Sutter Med Foundation - North</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.Employee_Affiliate_Facility__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Sutter Med Foundation- Central</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.Employee_Affiliate_Facility__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Sutter Med Center - Sacramento</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.Employee_Affiliate_Facility__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Sutter Health System Office</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.Employee_Affiliate_Facility__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Sutter Davis Hospital</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.Employee_Affiliate_Facility__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Sutter Auburn Faith Hospital</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CONTACT_OWNER</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Sutter Health Plus</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.UserProv__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.Employee_Employment_Status__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>startsWith</operator>
+            <value>A</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Employees for Portal Account Verificaton</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>ContactList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>LAST_UPDATE</sortColumn>
+    <sortOrder>Desc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

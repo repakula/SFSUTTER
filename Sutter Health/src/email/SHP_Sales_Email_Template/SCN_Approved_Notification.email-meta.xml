@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>SCN Approved Notification</name>
+    <style>none</style>
+    <subject>Final Approval for Employer Name: {!Employer_Group_Data__c.Opportunity_Account_Name__c}/DBA: {!Employer_Group_Data__c.DBA_Name__c} Employer Type: {!Employer_Group_Data__c.Email_Employer_Type__c} SCN</subject>
+    <textOnly>Hi,
+
+The Enrollment Review of Sold Case Notification {!Employer_Group_Data__c.Name} for {!Employer_Group_Data__c.Opportunity_Account_Name__c}/DBA: {!Employer_Group_Data__c.DBA_Name__c}, {!Employer_Group_Data__c.Email_Employer_Type__c} has been completed and has been Officially Approved.
+
+Thank you.</textOnly>
+    <type>custom</type>
+</EmailTemplate>

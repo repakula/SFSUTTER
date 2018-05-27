@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>SHP Quote</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>SHP Quotes</value>
+    </caseValues>
+    <fields>
+        <label><!-- AccountName --></label>
+        <name>AccountName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Name --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- SHP Quotes --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Coinsurance --></label>
+        <name>Coinsurance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employer Contribution --></label>
+        <name>Employer_Contribution__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Name --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- SHP Quotes --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Purchased --></label>
+        <name>Purchased__c</name>
+    </fields>
+    <layouts>
+        <layout>Quote Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Coinsurance Cannot be more than 100% --></errorMessage>
+        <name>Coinsurance_Cannot_be_more_than_100</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- New_SHP_Quote_Custom --></label>
+        <name>New_SHP_Quote_Custom</name>
+    </webLinks>
+</CustomObjectTranslation>

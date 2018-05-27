@@ -1,0 +1,10 @@
+<html>
+<body>
+Hi,<br/><br/>
+
+Your Sold Sign Off: <a href="'{!$Label.HR192_SSOListViewURL}'">{!Sold_Sign_Off__c.Name}</a> for {!Sold_Sign_Off__c.Account__c}/DBA: {!Sold_Sign_Off__c.DBA__c}, {!Sold_Sign_Off__c.Email_employer_Type__c} has been returned for review and re-submission by the Underwriting Team for the following: <br/><br/>
+Reason:  {!ApprovalRequest.Comments} <br/><br/>
+
+Thank you.<br/>
+</body>
+</html>

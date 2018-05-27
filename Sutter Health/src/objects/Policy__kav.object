@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <articleTypeChannelDisplay>
+        <articleTypeTemplates>
+            <channel>App</channel>
+            <template>Toc</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Prm</channel>
+            <template>Toc</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Csp</channel>
+            <template>Toc</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Pkb</channel>
+            <template>Toc</template>
+        </articleTypeTemplates>
+    </articleTypeChannelDisplay>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Rule to guide decisions</description>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <fields>
+        <fullName>Additional_Information__c</fullName>
+        <externalId>false</externalId>
+        <label>Additional Information</label>
+        <length>32768</length>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Article_Body__c</fullName>
+        <description>The free text article content, which may contain URL links (URL of an article from one of the Content Management Systems (Sharepoint or PolicyStat)), and HTML rich text markup for formatting and readability.</description>
+        <externalId>false</externalId>
+        <label>Article Body</label>
+        <length>32768</length>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Associated_File__c</fullName>
+        <externalId>false</externalId>
+        <label>Associated File</label>
+        <required>false</required>
+        <type>File</type>
+    </fields>
+    <fields>
+        <fullName>Attachment__c</fullName>
+        <externalId>false</externalId>
+        <label>Attachment</label>
+        <required>false</required>
+        <type>File</type>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <formula>&quot;Was this information helpful? What can we do to improve this article?&quot;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Comments/Suggestions</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>External_Label__c</fullName>
+        <description>Testing visibility of custom field in Data Loader</description>
+        <externalId>false</externalId>
+        <label>External Label</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Feedback_Link__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( CONTAINS($Profile.Name,&apos;Community&apos;) , &quot;Tell us what you think about this article!&quot; + BR() + HYPERLINK(&quot;/KM_Feedback_Community?articleNumber=&quot; + ArticleNumber +&quot;&amp;articleType=&quot; + TEXT(ArticleType) , &quot;Send us your feedback.&quot;,&quot;_Blank&quot;)+BR() +BR() + &quot; If you have a question or issue specific to you or your unique situation, please utilize Help/Service Requests on the bottom left of the screen&quot;, &quot;Tell us what you think about this article!&quot; + BR() + HYPERLINK(&quot;/apex/VFP18_KM_Feedback?articleNumber=&quot; + ArticleNumber +&quot;&amp;articleType=&quot; + TEXT(ArticleType) , &quot;Send us your feedback.&quot;))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Article Feedback</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>File_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>File Type</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Functional_Area__c</fullName>
+        <externalId>false</externalId>
+        <label>Functional Area</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Keywords__c</fullName>
+        <description>Keywords of a Knowledge Article</description>
+        <externalId>false</externalId>
+        <label>Keywords</label>
+        <length>32768</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Original_Author__c</fullName>
+        <externalId>false</externalId>
+        <label>Original Author</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Production_Article_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Production Article ID</label>
+        <length>18</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SH_Is_Priority__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Priority</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SH_Menu__c</fullName>
+        <externalId>false</externalId>
+        <label>Menu</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SH_Priority_End_On__c</fullName>
+        <externalId>false</externalId>
+        <label>Priority End On</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SH_Priority_Start_On__c</fullName>
+        <externalId>false</externalId>
+        <label>Priority Start On</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SH_SubMenu__c</fullName>
+        <externalId>false</externalId>
+        <label>SubMenu</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sub_Function__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub-Function</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Version__c</fullName>
+        <externalId>false</externalId>
+        <label>Version</label>
+        <length>3</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Policy</label>
+    <pluralLabel>Policies</pluralLabel>
+</CustomObject>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <description>Email template for sending CSAT Survey to the Case Requester upon Case Closure</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>CSAT Survey Email to Requester</name>
+    <style>none</style>
+    <subject>Did we meet your expectations?</subject>
+    <type>text</type>
+</EmailTemplate>

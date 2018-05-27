@@ -1,0 +1,30 @@
+<!--
+ *  Page Name : VFP_Manager_Feedback_Comment 
+ * Author : Manish Kumar Sharma 
+ * Date : 21-Aug-2013 
+ * Project Name: CRM - SFT - Sutter Health 
+ * Description : Manager feedback comment page to save manager comments.
+-->
+
+<apex:page standardController="Manager_Feedback_Comment__c" extensions="VFC_Manager_Feedback_Comment_Ext">
+  <apex:form >
+    <apex:pageBlock >
+      <apex:pageBlockButtons >
+        <apex:commandButton action="{!save}" value="Save" status="stat"/>
+        <apex:actionStatus startText="Saving..." id="stat"/>
+        <apex:commandButton action="{!cancel}" value="Cancel"/> 
+      </apex:pageBlockButtons>
+
+      <apex:pageBlockSection title="Information">
+        <table> 
+          <tr><td> </td> 
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>  
+          <td>
+            <apex:inputField required="true" value="{!commentRecord.Comments__c}" style="width:400px"/>
+          </td>
+          </tr>
+        </table>
+      </apex:pageBlockSection>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

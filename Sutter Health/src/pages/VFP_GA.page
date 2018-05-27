@@ -1,0 +1,20 @@
+<!--
+*     Page Name   : VFP_GA
+*     Author      : Atul Gupta
+*     Date        : 17-April-2014
+*     Project Name: CRM - SFT - Sutter Health
+*     Description : Visual Force Page to show User Name, Contact Region, Contact Affiliate Fields in hidden fields on Community Home Page
+-->
+<apex:page showHeader="false" sidebar="false" controller="VFC_GA_Controller" id="page">
+    <apex:form id="theform">
+        <apex:inputHidden value="{!currentUserName}" id="userName"/>
+        <apex:inputHidden value="{!empRegion}" id="regionvalue"/>
+        <apex:inputHidden value="{!empAffiliate}" id="affiliatevalue"/>
+    </apex:form>
+    
+    <!-- Start Google Tag Manager -->
+    <!--<apex:outputLabel value="{!$Label.GTMCustomLabel}" rendered="false"></apex:outputLabel> -->
+   <!--  <apex:includeScript value="{!$Resource.GTMJavaScript}" />-->
+   <!-- End Google Tag Manager -->
+
+</apex:page>

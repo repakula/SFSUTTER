@@ -1,0 +1,735 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>S3 Staffing</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>S3 Staff</value>
+    </caseValues>
+    <fields>
+        <label><!-- Amended --></label>
+        <name>Amended__c</name>
+        <picklistValues>
+            <masterLabel>Extension</masterLabel>
+            <translation><!-- Extension --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Original</masterLabel>
+            <translation><!-- Original --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- CPC --></label>
+        <name>CPC__c</name>
+        <relationshipLabel><!-- S3 Staff (CPC) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Candidate ID --></label>
+        <name>Candidate_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Engagement ID --></label>
+        <name>Engagement_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Engagement Status --></label>
+        <name>Engagement_Status__c</name>
+        <picklistValues>
+            <masterLabel>Disengaged-False start</masterLabel>
+            <translation><!-- Disengaged-False start --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Disengaged-Good</masterLabel>
+            <translation><!-- Disengaged-Good --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Disengaged-Hired</masterLabel>
+            <translation><!-- Disengaged-Hired --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Disengaged-Poor</masterLabel>
+            <translation><!-- Disengaged-Poor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Disengaged-Terminated</masterLabel>
+            <translation><!-- Disengaged-Terminated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Engaged</masterLabel>
+            <translation><!-- Engaged --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Engaged-Pend Disengage</masterLabel>
+            <translation><!-- Engaged-Pend Disengage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Engagement Draft</masterLabel>
+            <translation><!-- Engagement Draft --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Engagement Through Date --></label>
+        <name>Engagement_Through_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- GL Code --></label>
+        <name>GL_Code__c</name>
+        <picklistValues>
+            <masterLabel>62600-0000</masterLabel>
+            <translation><!-- 62600-0000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0001 - Coding Manager</masterLabel>
+            <translation><!-- 62600-0001 - Coding Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - AP Exception Specialist</masterLabel>
+            <translation><!-- 62600-0100 - AP Exception Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - AP Processor</masterLabel>
+            <translation><!-- 62600-0100 - AP Processor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Account Administrator</masterLabel>
+            <translation><!-- 62600-0100 - Account Administrator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Accountant</masterLabel>
+            <translation><!-- 62600-0100 - Accountant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Accounting Analyst</masterLabel>
+            <translation><!-- 62600-0100 - Accounting Analyst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Admin Coordinator</masterLabel>
+            <translation><!-- 62600-0100 - Admin Coordinator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Auditor</masterLabel>
+            <translation><!-- 62600-0100 - Auditor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Business Analyst</masterLabel>
+            <translation><!-- 62600-0100 - Business Analyst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Buyer</masterLabel>
+            <translation><!-- 62600-0100 - Buyer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Call Center Rep</masterLabel>
+            <translation><!-- 62600-0100 - Call Center Rep --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Claim Team Member</masterLabel>
+            <translation><!-- 62600-0100 - Claim Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Coder</masterLabel>
+            <translation><!-- 62600-0100 - Coder --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Coder II</masterLabel>
+            <translation><!-- 62600-0100 - Coder II --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Coding Auditor</masterLabel>
+            <translation><!-- 62600-0100 - Coding Auditor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Coding Training &amp; Audit</masterLabel>
+            <translation><!-- 62600-0100 - Coding Training &amp; Audit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Content Management Specialist</masterLabel>
+            <translation><!-- 62600-0100 - Content Management Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Contractor</masterLabel>
+            <translation><!-- 62600-0100 - Contractor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Correspondence Team Member</masterLabel>
+            <translation><!-- 62600-0100 - Correspondence Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Credentialing Rep</masterLabel>
+            <translation><!-- 62600-0100 - Credentialing Rep --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Customer Service Agent</masterLabel>
+            <translation><!-- 62600-0100 - Customer Service Agent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Customer Service Rep</masterLabel>
+            <translation><!-- 62600-0100 - Customer Service Rep --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Data Analyst</masterLabel>
+            <translation><!-- 62600-0100 - Data Analyst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Denials Team Member</masterLabel>
+            <translation><!-- 62600-0100 - Denials Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Financial Clearance Rep</masterLabel>
+            <translation><!-- 62600-0100 - Financial Clearance Rep --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - HIM Specialist</masterLabel>
+            <translation><!-- 62600-0100 - HIM Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - HMO Claims Follow Up Team Member</masterLabel>
+            <translation><!-- 62600-0100 - HMO Claims Follow Up Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - HR Coordinator</masterLabel>
+            <translation><!-- 62600-0100 - HR Coordinator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - HR Customer Services Rep</masterLabel>
+            <translation><!-- 62600-0100 - HR Customer Services Rep --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - HR Logistics Team Member</masterLabel>
+            <translation><!-- 62600-0100 - HR Logistics Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - HRIS Support Analyst</masterLabel>
+            <translation><!-- 62600-0100 - HRIS Support Analyst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - HRIS Support Team Member</masterLabel>
+            <translation><!-- 62600-0100 - HRIS Support Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - ICD-10 Trainer/Auditor</masterLabel>
+            <translation><!-- 62600-0100 - ICD-10 Trainer/Auditor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - IS eLearning Specialist</masterLabel>
+            <translation><!-- 62600-0100 - IS eLearning Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - IT Purchasing</masterLabel>
+            <translation><!-- 62600-0100 - IT Purchasing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Medical Records Specialist</masterLabel>
+            <translation><!-- 62600-0100 - Medical Records Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Patient Access Representative</masterLabel>
+            <translation><!-- 62600-0100 - Patient Access Representative --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Payment Processor I</masterLabel>
+            <translation><!-- 62600-0100 - Payment Processor I --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Payment Variance Team Member</masterLabel>
+            <translation><!-- 62600-0100 - Payment Variance Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Payroll Specialist</masterLabel>
+            <translation><!-- 62600-0100 - Payroll Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Payroll Tech</masterLabel>
+            <translation><!-- 62600-0100 - Payroll Tech --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Payroll Technician</masterLabel>
+            <translation><!-- 62600-0100 - Payroll Technician --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Project Support</masterLabel>
+            <translation><!-- 62600-0100 - Project Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Purchasing Assistant</masterLabel>
+            <translation><!-- 62600-0100 - Purchasing Assistant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Recruiter</masterLabel>
+            <translation><!-- 62600-0100 - Recruiter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Recruitment Assistant</masterLabel>
+            <translation><!-- 62600-0100 - Recruitment Assistant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Recruitment Specialist</masterLabel>
+            <translation><!-- 62600-0100 - Recruitment Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Revenue Cycle Integrity Team Member</masterLabel>
+            <translation><!-- 62600-0100 - Revenue Cycle Integrity Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Senior Accounting Analyst</masterLabel>
+            <translation><!-- 62600-0100 - Senior Accounting Analyst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Sourcer</masterLabel>
+            <translation><!-- 62600-0100 - Sourcer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Supply Chain Exception Specialist</masterLabel>
+            <translation><!-- 62600-0100 - Supply Chain Exception Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Team Member, Compensation</masterLabel>
+            <translation><!-- 62600-0100 - Team Member, Compensation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0100 - Workforce Relations Team Member</masterLabel>
+            <translation><!-- 62600-0100 - Workforce Relations Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0500 - Accounts Payable Processor</masterLabel>
+            <translation><!-- 62600-0500 - Accounts Payable Processor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0500 - Administrative Assistant</masterLabel>
+            <translation><!-- 62600-0500 - Administrative Assistant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0500 - Clerical Support Team Member</masterLabel>
+            <translation><!-- 62600-0500 - Clerical Support Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0500 - Scanning Technician</masterLabel>
+            <translation><!-- 62600-0500 - Scanning Technician --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0500 - Schedgistration Rep</masterLabel>
+            <translation><!-- 62600-0500 - Schedgistration Rep --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0500 - Support Clerk</masterLabel>
+            <translation><!-- 62600-0500 - Support Clerk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62600-0900</masterLabel>
+            <translation><!-- 62600-0900 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Location --></label>
+        <name>Location__c</name>
+        <picklistValues>
+            <masterLabel>S3 - Sutter Shared Services</masterLabel>
+            <translation><!-- S3 - Sutter Shared Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SHSO - Alta Bates Med Center</masterLabel>
+            <translation><!-- SHSO - Alta Bates Med Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SHSO - PAD Ortega</masterLabel>
+            <translation><!-- SHSO - PAD Ortega --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SHSO - Remote</masterLabel>
+            <translation><!-- SHSO - Remote --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Original Start Date --></label>
+        <name>Original_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Accounting --></label>
+        <name>Project_Accounting__c</name>
+        <picklistValues>
+            <masterLabel>1000-Balance Sheet</masterLabel>
+            <translation><!-- 1000-Balance Sheet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>101501-ADMINISTRATION</masterLabel>
+            <translation><!-- 101501-ADMINISTRATION --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>101570-FACILITY &amp; PROPERTY SERVICES</masterLabel>
+            <translation><!-- 101570-FACILITY &amp; PROPERTY SERVICES --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>101604-SUTTER SURGERY CENTER DIVISION</masterLabel>
+            <translation><!-- 101604-SUTTER SURGERY CENTER DIVISION --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>103000-REIMBURSEMENT</masterLabel>
+            <translation><!-- 103000-REIMBURSEMENT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>104500-HUMAN RESOURCES</masterLabel>
+            <translation><!-- 104500-HUMAN RESOURCES --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>104588-EMPLOYEE BENEFITS</masterLabel>
+            <translation><!-- 104588-EMPLOYEE BENEFITS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>105910-INSURANCE</masterLabel>
+            <translation><!-- 105910-INSURANCE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>256383-IS EHR ACUTE IMPLEMENTATION</masterLabel>
+            <translation><!-- 256383-IS EHR ACUTE IMPLEMENTATION --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>301099-SHARED SERVICES UNASSIGNED</masterLabel>
+            <translation><!-- 301099-SHARED SERVICES UNASSIGNED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>600502-SHARED SERVICES CENTER</masterLabel>
+            <translation><!-- 600502-SHARED SERVICES CENTER --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>601401-HR-01B</masterLabel>
+            <translation><!-- 601401-HR-01B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618400-PURCHASING</masterLabel>
+            <translation><!-- 618400-PURCHASING --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618402-STRATEGIC SOURCING</masterLabel>
+            <translation><!-- 618402-STRATEGIC SOURCING --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618406-OPERATIONS &amp; PROCESSES</masterLabel>
+            <translation><!-- 618406-OPERATIONS &amp; PROCESSES --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618510-ACCOUNTING-GL</masterLabel>
+            <translation><!-- 618510-ACCOUNTING-GL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618511-ACCOUNTING-AR</masterLabel>
+            <translation><!-- 618511-ACCOUNTING-AR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618514-ACCOUNTS PAYABLE</masterLabel>
+            <translation><!-- 618514-ACCOUNTS PAYABLE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618515-PAYROLL</masterLabel>
+            <translation><!-- 618515-PAYROLL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618531-CDM</masterLabel>
+            <translation><!-- 618531-CDM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618532-CBO - GOVERNMENT CLAIMS</masterLabel>
+            <translation><!-- 618532-CBO - GOVERNMENT CLAIMS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618533-CBO - NON GOVT CLAIMS</masterLabel>
+            <translation><!-- 618533-CBO - NON GOVT CLAIMS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618534-CBO OPERATIONS</masterLabel>
+            <translation><!-- 618534-CBO OPERATIONS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618535-CBO PAYER MANAGEMENT</masterLabel>
+            <translation><!-- 618535-CBO PAYER MANAGEMENT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618538-REVENUE CYCLE ADMIN</masterLabel>
+            <translation><!-- 618538-REVENUE CYCLE ADMIN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618539-CBO ADMIN</masterLabel>
+            <translation><!-- 618539-CBO ADMIN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618540-CBO Patient Services</masterLabel>
+            <translation><!-- 618540-CBO Patient Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618541- CBO - MANAGED GOVERNMENT</masterLabel>
+            <translation><!-- 618541- CBO - MANAGED GOVERNMENT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618561-PATIENT ACCESS-PRE SERVICE</masterLabel>
+            <translation><!-- 618561-PATIENT ACCESS-PRE SERVICE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618562 - S3 - Claim Edits</masterLabel>
+            <translation><!-- 618562 - S3 - Claim Edits --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618568- RECRUITMENT</masterLabel>
+            <translation><!-- 618568- RECRUITMENT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618590-DOCUMENT MANAGEMENT CENTER</masterLabel>
+            <translation><!-- 618590-DOCUMENT MANAGEMENT CENTER --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618614-CONTACT CENTER-FINANCE</masterLabel>
+            <translation><!-- 618614-CONTACT CENTER-FINANCE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618616-CONTACT CENTER-REV CYCLE</masterLabel>
+            <translation><!-- 618616-CONTACT CENTER-REV CYCLE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618617-CONTACT CENTER-HUMAN RESOURCES</masterLabel>
+            <translation><!-- 618617-CONTACT CENTER-HUMAN RESOURCES --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618618-Contact Center-AP</masterLabel>
+            <translation><!-- 618618-Contact Center-AP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618619-CONTACT CENTER-ADMIN</masterLabel>
+            <translation><!-- 618619-CONTACT CENTER-ADMIN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618650-COMPENSATION</masterLabel>
+            <translation><!-- 618650-COMPENSATION --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618651-BENEFITS</masterLabel>
+            <translation><!-- 618651-BENEFITS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618653-LEARNING</masterLabel>
+            <translation><!-- 618653-LEARNING --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618654-WORKFORCE RELATIONS SERVICES</masterLabel>
+            <translation><!-- 618654-WORKFORCE RELATIONS SERVICES --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618656-HRIS, DATA &amp; REPORTING</masterLabel>
+            <translation><!-- 618656-HRIS, DATA &amp; REPORTING --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618658-RECRUITMENT</masterLabel>
+            <translation><!-- 618658-RECRUITMENT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618659-HR ADMIN</masterLabel>
+            <translation><!-- 618659-HR ADMIN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618697 - Coding Education</masterLabel>
+            <translation><!-- 618697 - Coding Education --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618698 - EDITS</masterLabel>
+            <translation><!-- 618698 - EDITS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618699-HIM-ICD-10</masterLabel>
+            <translation><!-- 618699-HIM-ICD-10 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618700-HIM - CODING ED &amp; CANCER CENTER</masterLabel>
+            <translation><!-- 618700-HIM - CODING ED &amp; CANCER CENTER --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618701-HIM - CODING IP</masterLabel>
+            <translation><!-- 618701-HIM - CODING IP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618702-HIM - CODING OP</masterLabel>
+            <translation><!-- 618702-HIM - CODING OP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618703-HIM - CODING TRAINING &amp; AUDITI</masterLabel>
+            <translation><!-- 618703-HIM - CODING TRAINING &amp; AUDITI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618704-HIM - CHART COMPLETION</masterLabel>
+            <translation><!-- 618704-HIM - CHART COMPLETION --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618705-HIM - EMPI</masterLabel>
+            <translation><!-- 618705-HIM - EMPI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618706-HIM - TRANSCRIPTION</masterLabel>
+            <translation><!-- 618706-HIM - TRANSCRIPTION --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618708-HIM - DOCUMENT IMAGING</masterLabel>
+            <translation><!-- 618708-HIM - DOCUMENT IMAGING --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618710-CREDENTIALING</masterLabel>
+            <translation><!-- 618710-CREDENTIALING --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>7510-PBS PPO/Comm Follow-Up II</masterLabel>
+            <translation><!-- 7510-PBS PPO/Comm Follow-Up II --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>88896 - EBR</masterLabel>
+            <translation><!-- 88896 - EBR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>938485- SSR</masterLabel>
+            <translation><!-- 938485- SSR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>999036-SHARED SERVICES ADMIN</masterLabel>
+            <translation><!-- 999036-SHARED SERVICES ADMIN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>999500-SHARED SERVICES FINANCE</masterLabel>
+            <translation><!-- 999500-SHARED SERVICES FINANCE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>999501-SHARED SERVICES HR ADMIN</masterLabel>
+            <translation><!-- 999501-SHARED SERVICES HR ADMIN --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Rate Structure --></label>
+        <name>Rate_Structure__c</name>
+        <picklistValues>
+            <masterLabel>Coders Rate Structure - Comforce &amp; On Assignment</masterLabel>
+            <translation><!-- Coders Rate Structure - Comforce &amp; On Assignment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coders Rate Structure - Himagine</masterLabel>
+            <translation><!-- Coders Rate Structure - Himagine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coders Rate Structure - Non Exempt - Per Chart and Hourly</masterLabel>
+            <translation><!-- Coders Rate Structure - Non Exempt - Per Chart and Hourly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coders Rate Structure - Non Exempt - Per Chart and Hourly*</masterLabel>
+            <translation><!-- Coders Rate Structure - Non Exempt - Per Chart and Hourly* --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RightSourcing Payroll Service - Non-Exempt</masterLabel>
+            <translation><!-- RightSourcing Payroll Service - Non-Exempt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standard Rate Structure - Non Exempt</masterLabel>
+            <translation><!-- Standard Rate Structure - Non Exempt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standard Rate Structure - Non Exempt - Himagine FTE 36-50 - 08.08.15</masterLabel>
+            <translation><!-- Standard Rate Structure - Non Exempt - Himagine FTE 36-50 - 08.08.15 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Reports To --></label>
+        <name>Reports_To__c</name>
+        <relationshipLabel><!-- S3 Staff --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Req Title --></label>
+        <name>Req_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Temp Position --></label>
+        <name>Temp_Position__c</name>
+        <relationshipLabel><!-- S3 Temp Staff --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Vendor Name --></label>
+        <name>Vendor_Name__c</name>
+        <picklistValues>
+            <masterLabel>Accounting Principals &amp; Ajilon</masterLabel>
+            <translation><!-- Accounting Principals &amp; Ajilon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Adecco USA</masterLabel>
+            <translation><!-- Adecco USA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aerotek</masterLabel>
+            <translation><!-- Aerotek --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AppleOne</masterLabel>
+            <translation><!-- AppleOne --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DirectApps Inc.</masterLabel>
+            <translation><!-- DirectApps Inc. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Excite Health Partners</masterLabel>
+            <translation><!-- Excite Health Partners --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HCTec (T1-apps)</masterLabel>
+            <translation><!-- HCTec (T1-apps) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Himagine Solutions</masterLabel>
+            <translation><!-- Himagine Solutions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kforce Inc</masterLabel>
+            <translation><!-- Kforce Inc --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MGA Healthcare Torrance, INC.</masterLabel>
+            <translation><!-- MGA Healthcare Torrance, INC. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manpower Group</masterLabel>
+            <translation><!-- Manpower Group --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maxim Healthcare Services</masterLabel>
+            <translation><!-- Maxim Healthcare Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medlinks Cost Containment, Inc.</masterLabel>
+            <translation><!-- Medlinks Cost Containment, Inc. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nelson Family of Companies</masterLabel>
+            <translation><!-- Nelson Family of Companies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pacific Temporary Services, Inc.-Pacific Staffing</masterLabel>
+            <translation><!-- Pacific Temporary Services, Inc.-Pacific Staffing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Randstad Technologies, LP</masterLabel>
+            <translation><!-- Randstad Technologies, LP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RightSourcing-Irvine, CA</masterLabel>
+            <translation><!-- RightSourcing-Irvine, CA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>River City Staffing, Inc.</masterLabel>
+            <translation><!-- River City Staffing, Inc. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Robert Half International</masterLabel>
+            <translation><!-- Robert Half International --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Verso Genics D.B.A. Comforce</masterLabel>
+            <translation><!-- Verso Genics D.B.A. Comforce --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Worker Name --></label>
+        <name>Worker_Name__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

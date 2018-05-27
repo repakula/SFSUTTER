@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Providers By Phone Number</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Providers By Phone Number</value>
+    </caseValues>
+    <fields>
+        <label><!-- NonValidatedCount --></label>
+        <name>NonValidatedCount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Campaign --></label>
+        <name>PDI_Campaign__c</name>
+    </fields>
+    <fields>
+        <label><!-- Accepted --></label>
+        <name>SER_Accepted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Non Validated --></label>
+        <name>SER_Non_Validated__c</name>
+    </fields>
+    <fields>
+        <label><!-- Validated --></label>
+        <name>SER_Validated__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tech Current Campaign --></label>
+        <name>Tech_Current_Campaign__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tech Phone Number --></label>
+        <name>Tech_Phone_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Phone Number --></label>
+        <name>Tech_Primary_Phone_Number__c</name>
+    </fields>
+    <layouts>
+        <layout>PDICommonPhoneNumber Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

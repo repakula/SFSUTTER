@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>SHP Underwriter Queue</name>
+    <queueSobject>
+        <sobjectType>Employer_Group_Data__c</sobjectType>
+    </queueSobject>
+    <queueSobject>
+        <sobjectType>Incumbent_Carrier__c</sobjectType>
+    </queueSobject>
+    <queueSobject>
+        <sobjectType>Proposal__c</sobjectType>
+    </queueSobject>
+    <queueSobject>
+        <sobjectType>Sold_Sign_Off__c</sobjectType>
+    </queueSobject>
+</Queue>

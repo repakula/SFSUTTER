@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntitlementProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <SObjectType>Case</SObjectType>
+    <active>false</active>
+    <businessHours>SHP Business Hours For Exempt Grievance</businessHours>
+    <description>Entitlement Process for SHP Grievance Service Requests - Exempt</description>
+    <entryStartDateField>Case.Date_Grievance_Requested__c</entryStartDateField>
+    <exitCriteriaBooleanFilter>1 OR 2</exitCriteriaBooleanFilter>
+    <exitCriteriaFilterItems>
+        <field>Case.IsClosed</field>
+        <operation>equals</operation>
+        <value>true</value>
+    </exitCriteriaFilterItems>
+    <exitCriteriaFilterItems>
+        <field>Case.Status</field>
+        <operation>equals</operation>
+        <value>Resolved</value>
+    </exitCriteriaFilterItems>
+    <isVersionDefault>true</isVersionDefault>
+    <milestones>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Grievance RO, Grievance</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Secondary_Reason__c</field>
+            <operation>equals</operation>
+            <value>Exempt</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Resolution</milestoneName>
+        <minutesToComplete>660</minutesToComplete>
+        <timeTriggers>
+            <actions>
+                <name>Exempt_Record_SLA_is_violated</name>
+                <type>Alert</type>
+            </actions>
+            <actions>
+                <name>Exempt_Violated</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <name>SHP Grievance Entitlement for Exempt</name>
+    <versionMaster>552G0000000V5ut</versionMaster>
+    <versionNumber>1</versionNumber>
+</EntitlementProcess>

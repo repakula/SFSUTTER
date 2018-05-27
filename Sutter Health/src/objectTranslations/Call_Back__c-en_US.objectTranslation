@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Call Backs</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Customer Inquiry Comments</value>
+    </caseValues>
+    <fields>
+        <label><!-- Action --></label>
+        <name>Action__c</name>
+        <picklistValues>
+            <masterLabel>Call answered</masterLabel>
+            <translation><!-- Call answered --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Call back required</masterLabel>
+            <translation><!-- Call back required --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Call not answered</masterLabel>
+            <translation><!-- Call not answered --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Left voice message</masterLabel>
+            <translation><!-- Left voice message --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Call Date --></label>
+        <name>Call_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Call Duration --></label>
+        <name>Call_Duration__c</name>
+    </fields>
+    <fields>
+        <label><!-- CaseCommentID --></label>
+        <name>CaseCommentID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Clinical Review Comments --></label>
+        <name>Clinical_Review_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Concurrent/Retro Comments --></label>
+        <name>Concurrent_Retro_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Concurrent Review Received Date --></label>
+        <name>Concurrent_Review_Received_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Concurrent Review Received --></label>
+        <name>Concurrent_Review_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Concurrent Review Requested Date --></label>
+        <name>Concurrent_Review_Requested_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Concurrent Review Requested --></label>
+        <name>Concurrent_Review_Requested__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Name --></label>
+        <name>Contact_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Time --></label>
+        <name>End_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Outbound Call Date/Time --></label>
+        <name>Outbound_Call_Date_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parent Case --></label>
+        <name>Parent_Case__c</name>
+        <relationshipLabel><!-- Customer Inquiry Comments --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Phone Number --></label>
+        <name>Phone_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Requested Facesheet --></label>
+        <name>Requested_Facesheet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retro: Already Discharged --></label>
+        <name>Retro_Already_Discharged__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Time --></label>
+        <name>Start_Time__c</name>
+    </fields>
+    <layouts>
+        <layout>Call Back Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Call Back OOA OON</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Comments Grievance --></label>
+        <name>Comments_Grievance</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Comments OOA OON --></label>
+        <name>Comments_OOA_OON</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Customer_Inquiry_Comment --></label>
+        <name>Customer_Inquiry_Comment</name>
+    </webLinks>
+</CustomObjectTranslation>

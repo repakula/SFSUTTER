@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Rates</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Rates</value>
+    </caseValues>
+    <fields>
+        <label><!-- Composite --></label>
+        <name>Composite__c</name>
+    </fields>
+    <fields>
+        <label><!-- EE / EE1 / EE2 --></label>
+        <name>EE_EE1_EE2__c</name>
+    </fields>
+    <fields>
+        <label><!-- EE / EF --></label>
+        <name>EE_EF__c</name>
+    </fields>
+    <fields>
+        <label><!-- EE / ES / EC / ECH / EF --></label>
+        <name>EE_ES_EC_ECH_EF__c</name>
+    </fields>
+    <fields>
+        <label><!-- EE / ES / EC / EF --></label>
+        <name>EE_ES_EC_EF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group Alias Name --></label>
+        <name>Group_Alias_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group Name --></label>
+        <name>Group_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group Type --></label>
+        <name>Group_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Medical Plan - Rider Plan --></label>
+        <name>Medical_Plan_Rider_Plan__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Rates --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Medical Plan Name --></label>
+        <name>Plan_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan-Type-Tier-Group --></label>
+        <name>Plan_Type_Tier_Group__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote --></label>
+        <name>Quote__c</name>
+        <relationshipLabel><!-- Quoted Rates --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RFP Form --></label>
+        <name>RFP_Form__c</name>
+        <relationshipLabel><!-- Rates --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Rate Card ID --></label>
+        <name>Rate_Card_ID__c</name>
+        <relationshipLabel><!-- Rates --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Rider Plan Name --></label>
+        <name>Rider_Plan_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold Case Notification --></label>
+        <name>Sold_Case_Notification__c</name>
+        <relationshipLabel><!-- Rates --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Sold Sign Off --></label>
+        <name>Sold_Sign_Off__c</name>
+        <relationshipLabel><!-- Rates --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Tier 1 Composite --></label>
+        <name>Tier_1_Composite__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tier 2 EE --></label>
+        <name>Tier_2_EE__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tier 2 EF --></label>
+        <name>Tier_2_EF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tier 3 EE1 --></label>
+        <name>Tier_3_EE1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tier 3 EE2 --></label>
+        <name>Tier_3_EE2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tier 3 EE --></label>
+        <name>Tier_3_EE__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tier 4 EC --></label>
+        <name>Tier_4_EC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tier 4 EE --></label>
+        <name>Tier_4_EE__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tier 4 EF --></label>
+        <name>Tier_4_EF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tier 4 ES --></label>
+        <name>Tier_4_ES__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tier 5 ECH --></label>
+        <name>Tier_5_ECH__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tier 5 EC --></label>
+        <name>Tier_5_EC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tier 5 EE --></label>
+        <name>Tier_5_EE__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tier 5 EF --></label>
+        <name>Tier_5_EF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tier 5 ES --></label>
+        <name>Tier_5_ES__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tier Type --></label>
+        <name>Tier_Type__c</name>
+    </fields>
+    <layouts>
+        <layout>Rates Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,15 @@
+This is to notify you that the following prospect has been sold.
+
+Employer: {!Account.Name}
+
+Opportunity: {!Opportunity.Name}
+
+Broker Rep: {!Opportunity.Broker_Rep__c}
+
+SHP Sales Contact:  {!Opportunity.Marketing_and_Sales_Primary_Contact_Name__c}
+
+Sold Date: {!Opportunity.CloseDate}
+
+Effective: {!Opportunity.Plan_Effective_Date__c}
+
+User ID: {!Opportunity.OwnerFullName}

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Patient Account</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Patient Accounts</value>
+    </caseValues>
+    <fields>
+        <label><!-- Guarantor --></label>
+        <name>Guarantor_ID_Lookup__c</name>
+        <relationshipLabel><!-- Patient Accounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Guarantor ID --></label>
+        <name>Guarantor_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Patient Account Admission Date --></label>
+        <name>Patient_Account_Admission_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Patient Account Number --></label>
+        <name>Patient_Account_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Patient Account Service Location --></label>
+        <name>Patient_Account_Service_Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- Patient --></label>
+        <name>Patient_DotOne_Lookup__c</name>
+        <relationshipLabel><!-- Patient Accounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Patient DotOne --></label>
+        <name>Patient_DotOne__c</name>
+    </fields>
+    <layouts>
+        <layout>Patient Account Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

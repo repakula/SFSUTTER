@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Safety Reporting</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Safety Reporting</value>
+    </caseValues>
+    <fields>
+        <label><!-- Affiliate --></label>
+        <name>Affiliate__c</name>
+        <picklistValues>
+            <masterLabel>ABSMC-Ashby</masterLabel>
+            <translation><!-- ABSMC-Ashby --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ABSMC-Herrick</masterLabel>
+            <translation><!-- ABSMC-Herrick --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ABSMC-Summit</masterLabel>
+            <translation><!-- ABSMC-Summit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CPMC-California</masterLabel>
+            <translation><!-- CPMC-California --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CPMC-Davies</masterLabel>
+            <translation><!-- CPMC-Davies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CPMC-Pacific</masterLabel>
+            <translation><!-- CPMC-Pacific --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CPMC-St. Luke&apos;s</masterLabel>
+            <translation><!-- CPMC-St. Luke&apos;s --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eden Medical Center</masterLabel>
+            <translation><!-- Eden Medical Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kahi Mohala, A Behavioral Healthcare System</masterLabel>
+            <translation><!-- Kahi Mohala, A Behavioral Healthcare System --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Memorial Hospital, Los Banos</masterLabel>
+            <translation><!-- Memorial Hospital, Los Banos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Memorial Medical Center, Modesto</masterLabel>
+            <translation><!-- Memorial Medical Center, Modesto --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Menlo Park Surgical Hospital</masterLabel>
+            <translation><!-- Menlo Park Surgical Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mills-Peninsula Health Servies</masterLabel>
+            <translation><!-- Mills-Peninsula Health Servies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Novato Community Hospital</masterLabel>
+            <translation><!-- Novato Community Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Palo Alto Medical Foundation</masterLabel>
+            <translation><!-- Palo Alto Medical Foundation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Amador Hospital</masterLabel>
+            <translation><!-- Sutter Amador Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Auburn Faith Hospital</masterLabel>
+            <translation><!-- Sutter Auburn Faith Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Care At Home</masterLabel>
+            <translation><!-- Sutter Care At Home --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Center for Psychiatry</masterLabel>
+            <translation><!-- Sutter Center for Psychiatry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Coast Hospital</masterLabel>
+            <translation><!-- Sutter Coast Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Davis</masterLabel>
+            <translation><!-- Sutter Davis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Delta Medical Center</masterLabel>
+            <translation><!-- Sutter Delta Medical Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter East Bay Medical Foundation</masterLabel>
+            <translation><!-- Sutter East Bay Medical Foundation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Gould Medical Foundation</masterLabel>
+            <translation><!-- Sutter Gould Medical Foundation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Lakeside Hospital &amp; Center for Health</masterLabel>
+            <translation><!-- Sutter Lakeside Hospital &amp; Center for Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Maternity &amp; Surgey Center of Santa Cruz</masterLabel>
+            <translation><!-- Sutter Maternity &amp; Surgey Center of Santa Cruz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Medical Center, Modesto</masterLabel>
+            <translation><!-- Sutter Medical Center, Modesto --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Medical Center, Sacramento</masterLabel>
+            <translation><!-- Sutter Medical Center, Sacramento --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Medical Foundation</masterLabel>
+            <translation><!-- Sutter Medical Foundation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Pacific Medical Foundation</masterLabel>
+            <translation><!-- Sutter Pacific Medical Foundation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Roseville Medical Center</masterLabel>
+            <translation><!-- Sutter Roseville Medical Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Santa Rosa Regional Hospital</masterLabel>
+            <translation><!-- Sutter Santa Rosa Regional Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Solano Medical Center</masterLabel>
+            <translation><!-- Sutter Solano Medical Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Tracy Community Hospital</masterLabel>
+            <translation><!-- Sutter Tracy Community Hospital --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Category of Event --></label>
+        <name>Category_of_Event__c</name>
+        <picklistValues>
+            <masterLabel>Care management</masterLabel>
+            <translation><!-- Care management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Criminal</masterLabel>
+            <translation><!-- Criminal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Environmental</masterLabel>
+            <translation><!-- Environmental --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patient Protection</masterLabel>
+            <translation><!-- Patient Protection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Procedural</masterLabel>
+            <translation><!-- Procedural --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product or Device</masterLabel>
+            <translation><!-- Product or Device --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Teamwork Failures</masterLabel>
+            <translation><!-- Teamwork Failures --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Causes --></label>
+        <name>Causes__c</name>
+        <picklistValues>
+            <masterLabel>Abduction</masterLabel>
+            <translation><!-- Abduction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Blood Product Administration Event</masterLabel>
+            <translation><!-- Blood Product Administration Event --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Burn</masterLabel>
+            <translation><!-- Burn --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Communications breakdown among team members</masterLabel>
+            <translation><!-- Communications breakdown among team members --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contaminated Drugs, Devices, or Biologics</masterLabel>
+            <translation><!-- Contaminated Drugs, Devices, or Biologics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delay in Diagnosis or Treatment</masterLabel>
+            <translation><!-- Delay in Diagnosis or Treatment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Device Malfunction or Use Not as Intended</masterLabel>
+            <translation><!-- Device Malfunction or Use Not as Intended --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Disrespectful behavior by team member</masterLabel>
+            <translation><!-- Disrespectful behavior by team member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electric Shock</masterLabel>
+            <translation><!-- Electric Shock --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fall</masterLabel>
+            <translation><!-- Fall --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gas Administration Event</masterLabel>
+            <translation><!-- Gas Administration Event --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hospital Acquired Infection (HAI)</masterLabel>
+            <translation><!-- Hospital Acquired Infection (HAI) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inappropriate Discharge</masterLabel>
+            <translation><!-- Inappropriate Discharge --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Infant Discharged to Wrong Person</masterLabel>
+            <translation><!-- Infant Discharged to Wrong Person --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Intravascular Air Embolism</masterLabel>
+            <translation><!-- Intravascular Air Embolism --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maternal/Perinatal Death or Disability</masterLabel>
+            <translation><!-- Maternal/Perinatal Death or Disability --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medication Error</masterLabel>
+            <translation><!-- Medication Error --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-Licensed Individual Orders Care</masterLabel>
+            <translation><!-- Non-Licensed Individual Orders Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Care</masterLabel>
+            <translation><!-- Other Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Environmental</masterLabel>
+            <translation><!-- Other Environmental --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Procedural</masterLabel>
+            <translation><!-- Other Procedural --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patient Elopement</masterLabel>
+            <translation><!-- Patient Elopement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Physical Assault</masterLabel>
+            <translation><!-- Physical Assault --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post Procedure Death of Healthy Patient</masterLabel>
+            <translation><!-- Post Procedure Death of Healthy Patient --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pressure Ulcer</masterLabel>
+            <translation><!-- Pressure Ulcer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Restraints/Bedrails</masterLabel>
+            <translation><!-- Restraints/Bedrails --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sexual Assault</masterLabel>
+            <translation><!-- Sexual Assault --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suicide or Attempted Suicide</masterLabel>
+            <translation><!-- Suicide or Attempted Suicide --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unintended Retention of a Foreign Object</masterLabel>
+            <translation><!-- Unintended Retention of a Foreign Object --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wrong Body Part</masterLabel>
+            <translation><!-- Wrong Body Part --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wrong Patient</masterLabel>
+            <translation><!-- Wrong Patient --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wrong Procedure</masterLabel>
+            <translation><!-- Wrong Procedure --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Department --></label>
+        <name>Department__c</name>
+    </fields>
+    <fields>
+        <label><!-- MRN --></label>
+        <name>MRN__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tip To Avoid --></label>
+        <name>Tip_To_Avoid__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type of Event --></label>
+        <name>Type_of_Event__c</name>
+        <picklistValues>
+            <masterLabel>Near Miss/Good Catch [Error occurred but didn’t reach patient]</masterLabel>
+            <translation><!-- Near Miss/Good Catch [Error occurred but didn’t reach patient] --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Precursor Event [Error reached patient, but no or minimal harm]</masterLabel>
+            <translation><!-- Precursor Event [Error reached patient, but no or minimal harm] --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Safety Improvement Opportunity [No error occurred--YET, but one could!]</masterLabel>
+            <translation><!-- Safety Improvement Opportunity [No error occurred- - YET, but one could!] --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Serious Event [Error reach patient and moderate to severe harm]</masterLabel>
+            <translation><!-- Serious Event [Error reach patient and moderate to severe harm] --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Teamwork Failures</masterLabel>
+            <translation><!-- Teamwork Failures --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Username --></label>
+        <name>Username__c</name>
+    </fields>
+    <layouts>
+        <layout>Safety Reporting Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

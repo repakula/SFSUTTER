@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Customer Inquiry-Claim Association</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Customer Inquiry-Claim Associations</value>
+    </caseValues>
+    <fields>
+        <label><!-- Claim --></label>
+        <name>Claim__c</name>
+        <relationshipLabel><!-- Customer Inquiry Associations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Customer Inquiry --></label>
+        <name>Customer_Inquiry__c</name>
+        <relationshipLabel><!-- Associated Claims --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

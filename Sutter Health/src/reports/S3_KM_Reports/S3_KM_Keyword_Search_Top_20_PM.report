@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>KnowledgeKeywordSearchHistory$Keyword</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>KnowledgeKeywordSearchHistory$Count</field>
+    </columns>
+    <columns>
+        <field>KnowledgeKeywordSearchHistory$Success</field>
+    </columns>
+    <description>Previous Month Top 20 Keywords for the Customer Portal</description>
+    <filter>
+        <criteriaItems>
+            <column>KnowledgeKeywordSearchHistory$Channel</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>1,2</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>S3 KM Keyword Search Top 20 - PM</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Knowledge_Keyword_Search__c</reportType>
+    <rowLimit>20</rowLimit>
+    <scope>durationMonth</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>KnowledgeKeywordSearchHistory$Count</sortColumn>
+    <sortOrder>Desc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>KnowledgeKeywordSearchHistory$AsOfDate</dateColumn>
+        <interval>INTERVAL_LASTMONTH</interval>
+    </timeFrameFilter>
+</Report>

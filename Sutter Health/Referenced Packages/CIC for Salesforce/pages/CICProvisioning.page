@@ -1,0 +1,82 @@
+<apex:page controller="CRMWebClient.CICProvisioningController"
+	action="{!initialize}">
+
+	<apex:outputPanel rendered="{!userHasAccess == false}">
+        User does not have access to update CTI field on users. User must have access to Access Profiles, Update Users, and update the CTI Definition field for a user. 
+    </apex:outputPanel>
+    
+    <apex:outputPanel rendered="{!userHasAccess == true}">
+   
+	<br />
+	<h1>CIC CTI Details</h1>
+	<br />
+	<table>
+		<tr>
+			<td><b>Name:</b></td>
+			<td><apex:outputLink value="/_ui/cti/callcenter/CallCenter/d?id={!CICCti.Id}"
+					id="ctiLink">{!CICCti.name}</apex:outputLink></td>
+
+		</tr>
+
+		<tr>
+			<td><b>Url:</b></td>
+			<td>{!CICCti.AdapterUrl}</td>
+
+		</tr>
+
+	</table>
+
+	<apex:form >
+		<br />
+
+		<h1>Current CIC CTI Users</h1>
+		<br />
+		<apex:outputLabel rendered="{!showNoUsers}">No users assigned</apex:outputLabel>
+		<apex:selectList size="10" rendered="{!showUserList}">
+			<apex:selectOptions value="{!CICUsers}"  />
+
+		</apex:selectList>
+	</apex:form>
+<apex:outputLink value="/_ui/cti/callcenter/ManageCallCenterUsers?ccId={!CICCti.Id}">Manage Users</apex:outputLink>
+				<br /> <br />
+
+	<table>
+		<tr>
+			<td> <apex:form style="margin:10px">
+					<apex:pageBlock title="Assign CIC CTI to the Following Profiles">
+						<apex:pageBlockButtons >
+							<apex:commandButton value="Assign to Profiles"
+								action="{!updateUsersWithSelectedProfiles}" />
+						</apex:pageBlockButtons>
+						<i>This will assign the CIC Call Center definition to
+							the users who have the selected profiles.</i>
+						<br />
+						<apex:selectList value="{!selectedAssignProfiles}"
+							multiselect="true" size="10">
+							<apex:selectOptions value="{!profileOptions}" />
+
+						</apex:selectList>
+					</apex:pageBlock>
+				</apex:form></td>
+			<td><apex:form style="margin:10px">
+					<apex:pageBlock title="Assign CIC CTI to the Following Roles">
+						<apex:pageBlockButtons >
+							<apex:commandButton value="Assign To Roles"
+								action="{!updateUsersInSelectedRoles}" />
+						</apex:pageBlockButtons>
+						<i>This will assign the CIC Call Center definition to
+							the users who have the selected roles.</i>
+						<br />
+						<apex:selectList value="{!selectedAssignRoles}" multiselect="true"
+							size="10">
+							<apex:selectOptions value="{!roleOptions}" />
+
+						</apex:selectList>
+					</apex:pageBlock>
+
+				</apex:form></td>
+		</tr>
+	</table>
+         </apex:outputPanel>
+
+</apex:page>

@@ -1,0 +1,82 @@
+<!-- 
+    Page Name: VFP48_SHP_UploadCensusData
+    Author: IDC Offshore
+    Date: 1-Mar-2016
+    Description: Page for displaying File uploader to upload census data.
+    History:
+    VERSION    AUTHOR              DATE         DETAIL  
+    1.0        Prerna Chandak      17-4-2016    To display processing image when census records are being uploaded.
+    -->
+    
+<apex:page standardController="Incumbent_Carrier__c" extensions="VFC45_SHP_RFPForm" showHeader="false" sidebar="true" id="page" >
+
+<script type="text/javascript">
+    function show_success() 
+    { 
+     if(document.getElementById('{!$Component.page:form:pageBlock:inputFile}').value == '')
+    {
+        alert('Please select a file and re-Upload!'); 
+        
+    }
+    else
+    {
+    document.getElementById("formsubmitbutton").style.display = "none"; // to undisplay
+    document.getElementById("buttonreplacement").style.display = ""; // to display
+    return true;
+
+    }
+    }
+
+
+    function close_window() 
+    {
+    if (confirm("Close Window?")) 
+    {
+    close();
+    }
+    }
+
+    var FirstLoading = true;
+    function RestoreSubmitButton()
+    {
+    if( FirstLoading )
+    {
+      FirstLoading = false;
+      return;
+    }
+    document.getElementById("formsubmitbutton").style.display = ""; // to display
+    document.getElementById("buttonreplacement").style.display = "none"; // to undisplay
+    }
+
+    document.onfocus = RestoreSubmitButton;
+
+</script>
+
+   <apex:form id="form">
+      
+      <apex:sectionHeader title="{!$Label.SHP_RFP_56}"/>
+      <apex:pageBlock id="pageBlock">
+      
+      <div id="formsubmitbutton" style="height: 200px;width:900px; margin-left:350px; border: 1px solid #aaa">
+      <center>
+              <b>Upload Census Data for Opportunity:{!RelatedOpportunity.Name}</b>
+              <br> </br>
+              
+              <apex:inputFile value="{!contentFile}" filename="{!nameFile}"  id="inputFile" /> 
+              <apex:commandButton title="Start" value="{!$Label.SHP_RFP_57}" action="{!ReadFile}" status="counterStatus" id="theButton" style="width:70px;"  onclick="show_success();"/>
+              <apex:commandButton Value="{!$Label.SHP_RFP_58}" id="CancelButton" style="width:70px;" onclick="close_window();" />
+              
+              <br/> <br/><font color="red"> <b>Note: Please use the standard template to upload Census data.<apex:commandLink action="{!getDocumentLogoUrl}" value="{!$Label.SHP_RFP_59}" target="_blank" /> to download the template. </b> </font>
+              <br/> <br/> <font color="red"> <b>Note: Please do not upload more than 10000 rows at once. </b> </font>
+             
+       </center>
+       </div>
+       <center>
+       <div id="buttonreplacement" style="margin-left:30px; display:none;">
+               <apex:image url="{!$Resource.Processing_Image}" width="50" height="50" >Please Wait while records are being inserted... </apex:image>
+       </div>
+      </center>
+      </apex:pageBlock> 
+     
+   </apex:form>   
+</apex:page>

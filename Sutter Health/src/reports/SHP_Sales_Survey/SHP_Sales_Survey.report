@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>RowCount</column>
+        </chartSummaries>
+        <chartType>Pie</chartType>
+        <enableHoverLabels>true</enableHoverLabels>
+        <expandOthers>false</expandOthers>
+        <groupingColumn>Survey__c.SurveyQuestions__r.Survey_Question_Answers__r$Response__c</groupingColumn>
+        <legendPosition>Right</legendPosition>
+        <location>CHART_TOP</location>
+        <showAxisLabels>true</showAxisLabels>
+        <showPercentage>true</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>true</showValues>
+        <size>Medium</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <columns>
+        <field>Survey__c.SurveyQuestions__r$Name</field>
+    </columns>
+    <columns>
+        <field>Survey__c.SurveyQuestions__r.Survey_Question_Answers__r$Name</field>
+    </columns>
+    <columns>
+        <field>Survey__c.SurveyQuestions__r.Survey_Question_Answers__r$SurveyTaker__c</field>
+    </columns>
+    <filter>
+        <booleanFilter>(1 or 2 )AND 3</booleanFilter>
+        <criteriaItems>
+            <column>Survey__c$Name</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>Employer Survey</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Survey__c$Name</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Broker Survey</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Survey__c.SurveyQuestions__r$Question__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notContain</operator>
+            <value>Comments:</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Survey__c$Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Survey__c.SurveyQuestions__r.Survey_Question_Answers__r$Response__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>SHP Sales Survey</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Survey_w_Questions_and_Answers__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+</Report>

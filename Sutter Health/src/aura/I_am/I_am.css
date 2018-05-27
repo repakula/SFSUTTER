@@ -1,0 +1,88 @@
+.THIS .articleBlock.column {
+    box-sizing: border-box;
+    padding: 0 10px;
+} 
+.THIS .articleBlock.column iframe {
+ 	height: 209px;
+    width: 100%;
+} 
+.THIS .articleBlock.column h3 {
+    color: #2574a9;
+    font-family: Helvetica;
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 46px;
+    text-transform: capitalize;
+}
+.THIS .articleList {
+    padding: 25px 0;
+}
+.THIS .articleBlock.column a {
+    color: #2574a9;
+    font-family: Helvetica;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: lighter;
+    line-height: 24px;
+    text-transform: uppercase;
+}
+.THIS h2{ 
+font-size:35px; 
+    color: rgb(109, 110, 113); 
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal; 
+    text-align: start;
+    white-space: normal; 
+    background-color: rgb(255, 255, 255);
+}
+.THIS .articleBox iframe {
+    height: 235px;
+    padding: 7px 29px 13px 0;
+    width: 335px;
+}
+.THIS p{ 
+font-size: 15px; 
+    color: rgb(109, 110, 113); 
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal; 
+    text-align: start;
+    white-space: normal; 
+    background-color: rgb(255, 255, 255);
+}
+
+.THIS .articleImage{
+    background-color:#ccc;
+}
+
+.THIS .articleBox {
+    border-bottom: 1px solid #000;
+    padding-bottom: 70px;
+    margin-bottom: 0;
+}
+
+.THIS .articleList {
+    padding-bottom: 60px!important;
+}
+
+.THIS .articleList h3 {
+    font-size:30px; 
+    color: rgb(109, 110, 113); 
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal; 
+    text-align: center;
+    white-space: normal; 
+    background-color: rgb(255, 255, 255);
+}
+
+.THIS .articleBlock h3 {
+    padding-top: 10px!important;
+    text-align: left !important;
+    line-height: 28px!important;
+}
+
+.THIS .articleBlock {
+    padding-bottom: 30px!important;
+}

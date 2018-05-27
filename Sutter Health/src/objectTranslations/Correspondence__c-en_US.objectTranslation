@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Correspondence</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Correspondences</value>
+    </caseValues>
+    <fields>
+        <label><!-- Address 2 --></label>
+        <name>Address_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address --></label>
+        <name>Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address same as Default --></label>
+        <name>Address_same_as_Default__c</name>
+    </fields>
+    <fields>
+        <label><!-- City --></label>
+        <name>City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Closed Date --></label>
+        <name>Closed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Subscriber Name --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Correspondences --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Correspondence Definition --></label>
+        <name>Correspondence_Type__c</name>
+        <picklistValues>
+            <masterLabel>Age 26 Dependent Termination Letter</masterLabel>
+            <translation><!-- Age 26 Dependent Termination Letter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Certificate of Creditable Coverage</masterLabel>
+            <translation><!-- Certificate of Creditable Coverage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coordination of Benefits Form</masterLabel>
+            <translation><!-- Coordination of Benefits Form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Disabled Dependent Certification Form</masterLabel>
+            <translation><!-- Disabled Dependent Certification Form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enrollment Forms</masterLabel>
+            <translation><!-- Enrollment Forms --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Evidence of Coverage - Acupuncture</masterLabel>
+            <translation><!-- Evidence of Coverage - Acupuncture --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Evidence of Coverage - Acupuncture and Chiropractic</masterLabel>
+            <translation><!-- Evidence of Coverage - Acupuncture and Chiropractic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Evidence of Coverage - All</masterLabel>
+            <translation><!-- Evidence of Coverage - All --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Evidence of Coverage - Chiropractic</masterLabel>
+            <translation><!-- Evidence of Coverage - Chiropractic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Evidence of Coverage - Dental</masterLabel>
+            <translation><!-- Evidence of Coverage - Dental --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Evidence of Coverage - Infertility</masterLabel>
+            <translation><!-- Evidence of Coverage - Infertility --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Evidence of Coverage - Medical</masterLabel>
+            <translation><!-- Evidence of Coverage - Medical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Evidence of Coverage - Orthotics and Prosthetics</masterLabel>
+            <translation><!-- Evidence of Coverage - Orthotics and Prosthetics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Evidence of Coverage - Vision</masterLabel>
+            <translation><!-- Evidence of Coverage - Vision --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Explanation of Benefits - Out of Area Only</masterLabel>
+            <translation><!-- Explanation of Benefits - Out of Area Only --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Group Subscriber Termination Letter</masterLabel>
+            <translation><!-- Group Subscriber Termination Letter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ID Cards – All Members</masterLabel>
+            <translation><!-- ID Cards – All Members --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Member ID Card</masterLabel>
+            <translation><!-- Member ID Card --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Member Renewal Letter with ID Cards</masterLabel>
+            <translation><!-- Member Renewal Letter with ID Cards --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Member Welcome Letter with ID Cards</masterLabel>
+            <translation><!-- New Member Welcome Letter with ID Cards --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other - Please Specify in Comments</masterLabel>
+            <translation><!-- Other - Please Specify in Comments --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Premium Bill</masterLabel>
+            <translation><!-- Premium Bill --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Provider Directory</masterLabel>
+            <translation><!-- Provider Directory --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Mailed --></label>
+        <name>Date_Mailed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Sent to Print Vendor --></label>
+        <name>Date_Sent_To_Vendor__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days Taken to Close --></label>
+        <name>Days_Taken_To_Close__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Id --></label>
+        <name>Email_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fax Number --></label>
+        <name>Fax_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Member/Provider Id --></label>
+        <name>Member_Provider_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Correspondence Recipient Type --></label>
+        <name>Member_Type__c</name>
+        <picklistValues>
+            <masterLabel>Broker</masterLabel>
+            <translation><!-- Broker --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Employer</masterLabel>
+            <translation><!-- Employer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Member</masterLabel>
+            <translation><!-- Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Provider</masterLabel>
+            <translation><!-- Provider --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Overnight --></label>
+        <name>Overnight__c</name>
+    </fields>
+    <fields>
+        <label><!-- Relationship to Subscriber --></label>
+        <name>Relationship_To_Sub__c</name>
+        <picklistValues>
+            <masterLabel>Broker</masterLabel>
+            <translation><!-- Broker --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Daughter</masterLabel>
+            <translation><!-- Daughter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dependent</masterLabel>
+            <translation><!-- Dependent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Doctor&apos;s Office Representative</masterLabel>
+            <translation><!-- Doctor&apos;s Office Representative --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Employer</masterLabel>
+            <translation><!-- Employer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lawyer</masterLabel>
+            <translation><!-- Lawyer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Member</masterLabel>
+            <translation><!-- Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Practitioner</masterLabel>
+            <translation><!-- Practitioner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Provider</masterLabel>
+            <translation><!-- Provider --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Self</masterLabel>
+            <translation><!-- Self --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Son</masterLabel>
+            <translation><!-- Son --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spouse</masterLabel>
+            <translation><!-- Spouse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Subscriber</masterLabel>
+            <translation><!-- Subscriber --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Supplier</masterLabel>
+            <translation><!-- Supplier --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Send To --></label>
+        <name>Send_To__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Request --></label>
+        <name>Service_Request__c</name>
+        <relationshipLabel><!-- Correspondences --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- State --></label>
+        <name>State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Address 1 --></label>
+        <name>Street__c</name>
+    </fields>
+    <fields>
+        <label><!-- Subject ID --></label>
+        <name>Subject_Id_f__c</name>
+    </fields>
+    <fields>
+        <label><!-- Subject Name --></label>
+        <name>Subject_Name__c</name>
+        <relationshipLabel><!-- Correspondences (Test Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Subscriber ID --></label>
+        <name>Subscriber_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Subscriber Id Prefix --></label>
+        <name>Subscriber_Id_Prefix__c</name>
+    </fields>
+    <fields>
+        <label><!-- Triggered in Health Rules --></label>
+        <name>Triggered_in_Health_Rules__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vehicle of Correspondence --></label>
+        <name>Vehicle_of_Correspondence__c</name>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fax</masterLabel>
+            <translation><!-- Fax --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mail</masterLabel>
+            <translation><!-- Mail --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Zip Code --></label>
+        <name>ZipCode__c</name>
+    </fields>
+    <layouts>
+        <layout>Correspondence Layout</layout>
+        <sections>
+            <label><!-- Correspondence --></label>
+            <section>Correspondence</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Information --></label>
+            <section>Information</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- New_Correspondence1 --></label>
+        <name>New_Correspondence1</name>
+    </webLinks>
+</CustomObjectTranslation>

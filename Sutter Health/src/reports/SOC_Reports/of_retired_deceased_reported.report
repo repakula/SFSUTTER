@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_3655177</developerName>
+        <masterLabel>Provider Status</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <otherBucketLabel>Other</otherBucketLabel>
+        <sourceColumnName>FK_$Case.PDV_Escalation_Reason__c</sourceColumnName>
+        <useOther>true</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Deceased</sourceValue>
+            </sourceValues>
+            <value>Deceased</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Retired</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>No longer works for Sutter</sourceValue>
+            </sourceValues>
+            <value>Retired/Resigned</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Frustration with process or service</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Not able to find a valid phone</sourceValue>
+            </sourceValues>
+            <value>In Service</value>
+        </values>
+    </buckets>
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>RowCount</column>
+        </chartSummaries>
+        <chartType>Donut</chartType>
+        <enableHoverLabels>false</enableHoverLabels>
+        <expandOthers>true</expandOthers>
+        <groupingColumn>BucketField_3655177</groupingColumn>
+        <legendPosition>Right</legendPosition>
+        <location>CHART_TOP</location>
+        <showAxisLabels>true</showAxisLabels>
+        <showPercentage>true</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>false</showValues>
+        <size>Medium</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <columns>
+        <field>FK_$Case.Escalation_Reason__c</field>
+    </columns>
+    <description>% of retired/deceased reported )for all providers reached).</description>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_3655177</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>% of Retired/Deceased reported</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$SOC_Queue__c@SOC_Queue__c.Associated_Case_Id__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>SOC_Queue__c.Date_Imported_Into_Salesforce__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Sutter_Shared_Services</letterhead>
+    <name>New converted opportunity</name>
+    <style>freeForm</style>
+    <subject>SHMMN opportunity shared</subject>
+    <textOnly>Hi {!Employer_Activity__c.Assigned_To__c}
+
+Opportunity {!Opportunity.Name} is shared by SHMMN team with SHP Sales Team.
+
+Please work on the Opportunity.
+
+Regards</textOnly>
+    <type>html</type>
+</EmailTemplate>

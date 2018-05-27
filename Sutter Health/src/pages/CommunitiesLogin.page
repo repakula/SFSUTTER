@@ -1,0 +1,16 @@
+<!--
+*     Page Name   : CommunitiesLogin
+*     Class Name  : CommunitiesLoginController 
+*
+*     History:
+*      
+*     VERSION         AUTHOR              DATE              DETAIL 
+*         1.0          IDC                                 Initial Creation
+          1.1          Umesh Vajpai         3/03/16        Modified page action to standard "forwardToAuthPage". This redirects user to start URL.
+
+-->
+
+
+<apex:page id="loginPage" action="{!forwardToAuthPage}"
+ controller="CommunitiesLoginController" title="{!$Label.site.site_login}">
+</apex:page>

@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Survey Feedback</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Survey Feedback</value>
+    </caseValues>
+    <fields>
+        <label><!-- Affiliate --></label>
+        <name>Affiliate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Agent Name --></label>
+        <name>Agent_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Agent Outcome --></label>
+        <name>Agent_Outcome__c</name>
+        <picklistValues>
+            <masterLabel>Coaching</masterLabel>
+            <translation><!-- Coaching --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Issue Not Applicable to Agent</masterLabel>
+            <translation><!-- Issue Not Applicable to Agent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KM Needed</masterLabel>
+            <translation><!-- KM Needed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Training</masterLabel>
+            <translation><!-- Training --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- How long has the feedback item been open? --></help>
+        <label><!-- Aging (Days) --></label>
+        <name>Aging_Days__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Number --></label>
+        <name>Case_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Owner --></label>
+        <name>Case_Owner__c</name>
+    </fields>
+    <fields>
+        <label><!-- Change Owner To --></label>
+        <name>Change_Owner__c</name>
+        <relationshipLabel><!-- Survey Feedback --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Closed Date --></label>
+        <name>Closed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Name --></label>
+        <name>Contact_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Inquiry Type --></label>
+        <name>Customer_Inquiry_Type_Txt__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Inquiry Type --></label>
+        <name>Customer_Inquiry_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Outcome --></label>
+        <name>Customer_Outcome__c</name>
+        <picklistValues>
+            <masterLabel>Customer Complaint</masterLabel>
+            <translation><!-- Customer Complaint --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Escalated to Tier 3</masterLabel>
+            <translation><!-- Escalated to Tier 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Customer Response</masterLabel>
+            <translation><!-- No Customer Response --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Process Issue</masterLabel>
+            <translation><!-- Process Issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>System Issue</masterLabel>
+            <translation><!-- System Issue --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Customer Sub-Intent --></label>
+        <name>Customer_Sub_Intent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Address To Send Mail1 --></label>
+        <name>Email_Address_To_Send_Mail1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Address To Send Mail2 --></label>
+        <name>Email_Address_To_Send_Mail2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Address To Send Mail3 --></label>
+        <name>Email_Address_To_Send_Mail3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Address --></label>
+        <name>Email_Address_Txt__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Address --></label>
+        <name>Email_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employee Id Number --></label>
+        <name>Employee_Id_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- InternalURL --></label>
+        <name>InternalURL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Email Need To Send --></label>
+        <name>Is_Email_Need_To_Send__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job Title --></label>
+        <name>Job_Title__c</name>
+    </fields>
+    <fields>
+        <help><!-- 0-6=Detractor 
+7-8= Passive
+9-10= Promoter --></help>
+        <label><!-- Net Promoter Category --></label>
+        <name>Net_Promoter_Category__c</name>
+        <picklistValues>
+            <masterLabel>Detractor</masterLabel>
+            <translation><!-- Detractor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Passive</masterLabel>
+            <translation><!-- Passive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Promoter</masterLabel>
+            <translation><!-- Promoter --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Outcome Comment --></label>
+        <name>Outcome_Comment__c</name>
+    </fields>
+    <fields>
+        <help><!-- What was the outcome of the survey feedback item? --></help>
+        <label><!-- Outcome --></label>
+        <name>Outcome__c</name>
+        <picklistValues>
+            <masterLabel>Coaching</masterLabel>
+            <translation><!-- Coaching --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Escalated to Tier 3</masterLabel>
+            <translation><!-- Escalated to Tier 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Process Issue</masterLabel>
+            <translation><!-- Process Issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>System Issue</masterLabel>
+            <translation><!-- System Issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Training</masterLabel>
+            <translation><!-- Training --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Outside of SLA --></label>
+        <name>Outside_of_SLA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Owner --></label>
+        <name>Owner__c</name>
+    </fields>
+    <fields>
+        <label><!-- Patient Account Number --></label>
+        <name>Patient_Account_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Poor NPS/Quality Score Reason --></label>
+        <name>Poor_NPS_Quality_Score_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Follow-up Did Not Occur in Time</masterLabel>
+            <translation><!-- Follow-up Did Not Occur in Time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lack of Agent Expertise in Subject Area</masterLabel>
+            <translation><!-- Lack of Agent Expertise in Subject Area --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Poor Customer Service Experience</masterLabel>
+            <translation><!-- Poor Customer Service Experience --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Received Inaccurate Information</masterLabel>
+            <translation><!-- Received Inaccurate Information --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S3 Is the Only Option</masterLabel>
+            <translation><!-- S3 Is the Only Option --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unhappy with Call Tree/Prompts</masterLabel>
+            <translation><!-- Unhappy with Call Tree/Prompts --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Preferred Call Back Number --></label>
+        <name>Preferred_Call_Back_Number_Txt__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preferred Call Back Number --></label>
+        <name>Preferred_Call_Back_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Priority --></label>
+        <name>Priority__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Q.1 Was your issue resolved?  --></label>
+        <name>Q_1_Was_your_issue_resolved__c</name>
+    </fields>
+    <fields>
+        <label><!-- Q.2 # Times you contacted S3 for issue --></label>
+        <name>Q_2_Times_you_contacted_S3_for_issue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Q.3 Agent quality score rating --></label>
+        <name>Q_3_Rating_on_QoS_you_got_from_initial_a__c</name>
+    </fields>
+    <fields>
+        <label><!-- Q.4 Likely to recommend S3 (NPS) --></label>
+        <name>Q_4_Recommend_S3_Center_to_a_colleague__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reason for Repeat Call --></label>
+        <name>Reason_for_Repeat_Call__c</name>
+        <picklistValues>
+            <masterLabel>Appeal Process</masterLabel>
+            <translation><!-- Appeal Process --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Did Not Receive Resolution</masterLabel>
+            <translation><!-- Customer Did Not Receive Resolution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR Business Partner Related</masterLabel>
+            <translation><!-- HR Business Partner Related --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manager Feedback</masterLabel>
+            <translation><!-- Manager Feedback --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No History of Previous Call</masterLabel>
+            <translation><!-- No History of Previous Call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Previous Call Unrelated to Current Issue</masterLabel>
+            <translation><!-- Previous Call Unrelated to Current Issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Resolution Prompted Adtl Questions</masterLabel>
+            <translation><!-- Resolution Prompted Adtl Questions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SR Closed Prior to Resolution</masterLabel>
+            <translation><!-- SR Closed Prior to Resolution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Status Update</masterLabel>
+            <translation><!-- Status Update --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Related Case Template --></label>
+        <name>Related_Case_Template__c</name>
+    </fields>
+    <fields>
+        <label><!-- Related Case URL --></label>
+        <name>Related_Case_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Related Case --></label>
+        <name>Related_Case__c</name>
+    </fields>
+    <fields>
+        <label><!-- Requester Email Address --></label>
+        <name>Requester_Email_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- SR Path --></label>
+        <name>SR_Path__c</name>
+        <picklistValues>
+            <masterLabel>Tier 2</masterLabel>
+            <translation><!-- Tier 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tier 3</masterLabel>
+            <translation><!-- Tier 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tier 3 Multi</masterLabel>
+            <translation><!-- Tier 3 Multi --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sub-Function --></label>
+        <name>Sub_Function__c</name>
+    </fields>
+    <fields>
+        <label><!-- Survey Date --></label>
+        <name>SurveyDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Survey Date(Text) --></label>
+        <name>Survey_Date_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Survey Date (Deprecated) --></label>
+        <name>Survey_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- &quot;Resolve=A caller has called more then two times and their issue is unresolved. 
+Review=A caller had either a) called more then two times and their issue is resolved or b) Has a survey score that is less than or equal to 6.&quot; --></help>
+        <label><!-- Survey Feedback Type --></label>
+        <name>Survey_Feedback_Type__c</name>
+        <picklistValues>
+            <masterLabel>Resolve</masterLabel>
+            <translation><!-- Resolve --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Review</masterLabel>
+            <translation><!-- Review --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Survey ID --></label>
+        <name>Survey_ID_F__c</name>
+    </fields>
+    <fields>
+        <label><!-- Survey ID --></label>
+        <name>Survey_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Survey Taken By Contact --></label>
+        <name>Survey_Taken_By_Contact_Txt__c</name>
+    </fields>
+    <fields>
+        <label><!-- Survey Taken By Contact --></label>
+        <name>Survey_Taken_By_Contact__c</name>
+    </fields>
+    <fields>
+        <label><!-- Survey Taken --></label>
+        <name>Survey_Taken__c</name>
+        <relationshipLabel><!-- Survey Feedbacks --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- What is the Target Completion Date? High Priority=1 Business day and Medium Priority=2 Business Days --></help>
+        <label><!-- Target Completion Date --></label>
+        <name>Target_Completion_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Who is the Tier 3 Point of Contact that is assisting you? --></help>
+        <label><!-- Tier 3 Point of Contact --></label>
+        <name>Tier_3_Point_of_Contact__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unresolved Reason --></label>
+        <name>Unresolved_Reason__c</name>
+        <picklistValues>
+            <masterLabel>3rd Party Reliant</masterLabel>
+            <translation><!-- 3rd Party Reliant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Approvals Pending</masterLabel>
+            <translation><!-- Approvals Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Awaiting Customer Requested Info</masterLabel>
+            <translation><!-- Awaiting Customer Requested Info --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Not Satisfied with Resolution</masterLabel>
+            <translation><!-- Customer Not Satisfied with Resolution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Previous Calls Unrelated to Current Issue</masterLabel>
+            <translation><!-- Previous Calls Unrelated to Current Issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Referred to HRBP</masterLabel>
+            <translation><!-- Referred to HRBP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SR in Process</masterLabel>
+            <translation><!-- SR in Process --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Timeframe Process Issue</masterLabel>
+            <translation><!-- Timeframe Process Issue --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Vendor ID --></label>
+        <name>Vendor_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Violation --></label>
+        <name>Violation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Who Closed Inquiry --></label>
+        <name>Who_Closed_Inquiry__c</name>
+        <picklistValues>
+            <masterLabel>Tier 1</masterLabel>
+            <translation><!-- Tier 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tier 2</masterLabel>
+            <translation><!-- Tier 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tier 3</masterLabel>
+            <translation><!-- Tier 3 --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Employee Survey Feedback</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Discovery Outcome --></label>
+            <section>Customer Discovery Outcome</section>
+        </sections>
+        <sections>
+            <label><!-- Survey Feedback Submitted --></label>
+            <section>Survey Feedback Submitted</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Employee Survey Feedback RO</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Discovery Outcome --></label>
+            <section>Customer Discovery Outcome</section>
+        </sections>
+        <sections>
+            <label><!-- Survey Feedback Submitted --></label>
+            <section>Survey Feedback Submitted</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Survey Feedback Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Vendor Survey Feedback</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Discovery Outcome --></label>
+            <section>Customer Discovery Outcome</section>
+        </sections>
+        <sections>
+            <label><!-- Survey Feedback Submitted --></label>
+            <section>Survey Feedback Submitted</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Vendor Survey feedback RO</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Discovery Outcome --></label>
+            <section>Customer Discovery Outcome</section>
+        </sections>
+        <sections>
+            <label><!-- Survey Feedback Submitted --></label>
+            <section>Survey Feedback Submitted</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Employee --></label>
+        <name>Employee</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Employee RO --></label>
+        <name>Employee_RO</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Vendor --></label>
+        <name>Vendor</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Vendor RO --></label>
+        <name>Vendor_RO</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Status cannot be changed back to &quot;New&quot;. --></errorMessage>
+        <name>Cannot_change_Feedback_Status_to_New</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You don&apos;t have permission to edit this survey Feedback record --></errorMessage>
+        <name>Change_Status_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You can not change the owner for closed request --></errorMessage>
+        <name>Closed_Survey_Feedback_Owner_Change</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Outcome comments cannot be blank while closing the feedback. --></errorMessage>
+        <name>Outcome_Comments_Mandatory_on_Closure</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Agent Outcome and Customer Outcome cannot be blank while closing the feedback. --></errorMessage>
+        <name>Outcome_Mandatory_on_Closure</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You Cannot change the Owner to a Queue. Please select a User. --></errorMessage>
+        <name>Prevent_User_to_Change_Owner_to_Queue</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot edit the Survey feedback without assigning it to yourself from the queue. --></errorMessage>
+        <name>Survey_Feedback_Owner_is_not_in_Queue</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &quot;Tier 3 Point of Contact&quot; cannot be blank if outcome is &quot;Escalated to Tier 3&quot;. --></errorMessage>
+        <name>Tier_3_Point_of_Contact_is_Required</name>
+    </validationRules>
+</CustomObjectTranslation>

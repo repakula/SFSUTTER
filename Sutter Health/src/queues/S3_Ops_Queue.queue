@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <email>s3spmteam@sutterhealth.org.sit</email>
+    <name>S3 Ops Queue</name>
+    <queueSobject>
+        <sobjectType>S3_Ops__c</sobjectType>
+    </queueSobject>
+</Queue>

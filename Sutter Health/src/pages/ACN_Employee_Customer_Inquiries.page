@@ -1,0 +1,80 @@
+<!--
+*     Page Name   : ACN_Employee_Customer_Inquiries
+*     Author      : ACN Onshore
+*     Date        : 15-OCT-2013
+*     Project Name: CRM - SFT - Sutter Health
+*     Description : Visual Force Page for displaying Previous Inquiries.
+-->
+
+
+<apex:page controller="ACN_PortalEmployeeInquiries" >
+    <apex:outputPanel rendered="{!flowflag}">
+     <apex:outputPanel id="recentIL" rendered="{!isILShowing}" >
+        
+        <!-- Displays error message if exception is thrown -->
+         <apex:messages />
+         
+        <!-- Displays message for recent IL submission --> 
+         <div style="border: 1px solid #000;">
+             <h1 style="font-size:12px;">Thank you {!$User.FirstName} {!$User.LastName}! Your request has been submitted. <br />
+             An Agent will be in touch with you soon.
+             </h1>
+            
+             
+         </div>  
+           <!-- Renders IL page if isILShowing is true --> 
+            <apex:detail subject="{!inquiryId}" rendered="{!isILShowing}"/>
+        
+        </apex:outputPanel>
+        
+        </apex:outputPanel>
+    <apex:pageBlock title="Previous Inquiries">  
+      
+     <!-- Displays the List of Inquiries in a table by Transaction, Created Date, Status, Customer Intent, and Comments -->   
+        <apex:pageBlockTable value="{!displayList}" var="case" id="displayListTable" rowClasses="odd,even" styleClass="tableClass" frame="box" align="center" columnsWidth="200px, 200px" rules="groups" >
+            <apex:facet name="caption" ></apex:facet>
+            <apex:facet name="header"></apex:facet>
+            
+            <apex:column >
+             <apex:facet name="header">Transaction</apex:facet>
+             <a href="/{!case.Id}" >{!case.CaseNumber}</a>
+            </apex:column>   
+            
+            <apex:column >
+             <apex:facet name="header">Created Date</apex:facet>
+             <apex:outputText value="{!case.CreatedDate}"/>
+            </apex:column>   
+            
+            <apex:column >
+             <apex:facet name="header">Requester Type</apex:facet>
+             <apex:outputText value="{!case.Requestor_Type__c}"/>
+            </apex:column>  
+                
+            <apex:column >
+             <apex:facet name="header">Status</apex:facet>
+             <apex:outputText value="{!case.Status}"/>
+            </apex:column>   
+            
+            <apex:column >
+             <apex:facet name="header">Customer Intent</apex:facet>
+             <apex:outputText value="{!case.Customer_Intent__c}"/>
+            </apex:column>   
+           
+            
+            <apex:column width="500px">
+             <apex:facet name="header">Comments</apex:facet>
+             <apex:outputText value="{!IF(case.Comments__c==null,case.Internal_Comments__c, case.Comments__c)}"/>
+            </apex:column>     
+             
+    </apex:pageBlockTable>
+    </apex:pageBlock>
+    
+    <!-- GTM START -->
+        <!-- Start Google Tag Manager -->
+        <apex:outputLabel value="{!$Label.GTMCustomLabel}" rendered="false"></apex:outputLabel> 
+        <apex:includeScript value="{!$Resource.GTMJavaScript}" />
+        <!-- End Google Tag Manager -->    
+    <!-- GTM END -->
+
+   
+</apex:page>

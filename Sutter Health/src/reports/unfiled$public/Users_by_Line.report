@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>text</bucketType>
+        <developerName>BucketField_33016808</developerName>
+        <masterLabel>LOB</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>User$Profile</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>S3 Call Center Lead</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>S3 Credentialing Verification Agent</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>S3 Document Management Center Agent</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>S3 Finance Accounting Agent</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>S3 Finance Accounts Payable Agent</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>S3 Finance Payroll Agent</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>S3 Flex Agent</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>S3 Human Resources Agent</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>S3 Revenue Cycle Agent</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>S3 Service Management</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>S3 Supply Chain Agent</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Knowledge Article Manager</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Executive Services Team</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Community Portal Manager</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Community Portal</sourceValue>
+            </sourceValues>
+            <value>S3</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>SHP Administrators</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>SHP Agent</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>SHP Correspondence</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>SHP Management</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>SHP Sales</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>SHP Sales Read Only</sourceValue>
+            </sourceValues>
+            <value>SHP</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>System Administrator</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Integration</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Standard User</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Manage User Profile</sourceValue>
+            </sourceValues>
+            <value>IS</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>SOC</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>PDV Community Provider</sourceValue>
+            </sourceValues>
+            <value>PDV</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Survey Force Profile</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Sutter Health Employee Community Profile</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>CRMSearch Profile</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Sutter Provider Hub Profile</sourceValue>
+            </sourceValues>
+            <value>Sites User (IS)</value>
+        </values>
+    </buckets>
+    <columns>
+        <field>User$Name</field>
+    </columns>
+    <columns>
+        <field>User$Profile</field>
+    </columns>
+    <columns>
+        <field>User$UserRole</field>
+    </columns>
+    <columns>
+        <field>User$Department</field>
+    </columns>
+    <columns>
+        <field>User$Division</field>
+    </columns>
+    <columns>
+        <field>User$CompanyName</field>
+    </columns>
+    <columns>
+        <field>User$CreatedDate</field>
+    </columns>
+    <columns>
+        <field>User$LastLoginDate</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>User$IsActive</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>User$IsActive</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_33016808</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>User$Profile.UserLicense.Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Users by Line</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Users_and_Licenses__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <sortColumn>User$IsActive</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>User$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,47 @@
+<apex:page standardController="Opportunity" extensions="SHMMN_AcceptOpportunity" recordSetVar="opp" action="{!updateOwner}" >
+    <apex:form >
+        <apex:outputPanel rendered="{!showpage}" >
+            <apex:pageMessages />
+            <apex:pageBlock >  
+                <apex:pageBlockSection title="{!$Label.CL_21_SM_ListAcceptedOpps}">
+                    <apex:outputPanel rendered="{!showAccept}">
+                        <apex:pageBlockTable value="{!oppSucessList}" var="M">
+                            <apex:column headerValue="Opportunity Name">
+                                <apex:outputLink title="{!$Label.CL_06_SM_OppName}" value="/{!M.id}" target="_Blank">{!M.Name}</apex:outputLink>
+                            </apex:column>
+                            <apex:column value="{!M.OwnerID}"/>
+                        </apex:pageBlockTable>
+                    </apex:outputPanel> 
+                    <apex:outputPanel rendered="{!!showAccept}">
+                        <apex:pageMessage severity="Info" summary="No opportunity found suitable for accepting currently." strength="3" rendered="true" />
+                    </apex:outputPanel>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.CL_22_SM_ListErrorOpps}">
+                    <apex:outputPanel rendered="{!showError}">
+                        <apex:pageBlockTable value="{!oppErrorList}" var="M">
+                            <apex:column headerValue="Opportunity Name">
+                                <apex:outputLink title="{!$Label.CL_06_SM_OppName}" value="/{!M.id}" target="_Blank">{!M.Name}</apex:outputLink>
+                            </apex:column>
+                            <apex:column value="{!M.OwnerID}"/>
+                            <apex:column value="{!M.Error_Reason__c}"/>
+                        </apex:pageBlockTable>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!!showError}">
+                        <apex:pageMessage severity="Info" summary="No error found while accepting opportunity." strength="3" rendered="true" />
+                    </apex:outputPanel>
+                </apex:pageBlockSection>
+                <apex:pageBlockButtons location="bottom">
+                    <apex:commandButton value="{!$Label.CL_20_SM_BacktoOpp}" action="{!Cancel}"/>
+                </apex:pageBlockButtons>
+            </apex:pageBlock>
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!!showpage}">
+            <apex:pageBlock >
+                <apex:pageBlockButtons location="bottom">
+                    <apex:commandButton value="{!$Label.CL_20_SM_BacktoOpp}" action="{!Cancel}"/>
+                </apex:pageBlockButtons>
+                <apex:pageMessage severity="Error" summary="Insufficient privileges to perform the action. Only SHP Sales can accept the Shared Opportunities." strength="3" rendered="true" />
+            </apex:pageBlock>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

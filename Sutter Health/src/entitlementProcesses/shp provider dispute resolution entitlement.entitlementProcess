@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntitlementProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <SObjectType>Case</SObjectType>
+    <active>true</active>
+    <description>Entitlement used for Provider Dispute Service Requests</description>
+    <entryStartDateField>Case.Date_Grievance_Requested__c</entryStartDateField>
+    <exitCriteriaFilterItems>
+        <field>Case.IsClosed</field>
+        <operation>equals</operation>
+        <value>true</value>
+    </exitCriteriaFilterItems>
+    <isVersionDefault>true</isVersionDefault>
+    <milestones>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Provider Dispute RO, Provider Dispute</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Origin</field>
+            <operation>equals</operation>
+            <value>Inbound Mail</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Acknowledgement Letter</milestoneName>
+        <minutesToComplete>21600</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Provider Dispute RO, Provider Dispute</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Origin</field>
+            <operation>equals</operation>
+            <value>Electronic Submission</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Acknowledgement Letter</milestoneName>
+        <minutesToComplete>2880</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Provider Dispute RO, Provider Dispute</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Origin</field>
+            <operation>equals</operation>
+            <value>Electronic Submission, Inbound Mail</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Number_of_RFIs__c</field>
+            <operation>equals</operation>
+            <value>0.0</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Determination Letter</milestoneName>
+        <minutesToComplete>64800</minutesToComplete>
+        <successActions>
+            <name>PDR_Set_Determination</name>
+            <type>FieldUpdate</type>
+        </successActions>
+        <timeTriggers>
+            <actions>
+                <name>PDR_Set_Determination</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Provider Dispute RO, Provider Dispute</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RFI_Request_Date__c</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Request for Additional Information</milestoneName>
+        <minutesToComplete>43200</minutesToComplete>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Provider Dispute RO, Provider Dispute</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Number_of_RFIs__c</field>
+            <operation>greaterThan</operation>
+            <value>0.0</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RFI_Request_Date__c</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RFI_Completion_Date__c</field>
+            <operation>equals</operation>
+            <value></value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Determination Letter</milestoneName>
+        <minutesToComplete>44640</minutesToComplete>
+        <successActions>
+            <name>PDR_Set_Determination</name>
+            <type>FieldUpdate</type>
+        </successActions>
+        <timeTriggers>
+            <actions>
+                <name>PDR_Set_Determination</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <milestoneCriteriaFormula>AND(Number_of_RFIs__c &gt; 0, OR(RecordType.Name = &apos;Provider Dispute&apos;, RecordType.Name = &apos;Provider Dispute RO&apos;), RFI_Completion_Date__c &gt; RFI_Request_Date__c)</milestoneCriteriaFormula>
+        <milestoneName>Determination Letter</milestoneName>
+        <minutesToComplete>64800</minutesToComplete>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Provider Dispute RO, Provider Dispute</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Determination__c</field>
+            <operation>equals</operation>
+            <value>Partial, Resolved in favor of Provider</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Past Due Payment</milestoneName>
+        <minutesToComplete>7200</minutesToComplete>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <name>SHP Provider Dispute Resolution Entitlement</name>
+    <versionMaster>552G0000000UK19</versionMaster>
+    <versionNumber>1</versionNumber>
+</EntitlementProcess>

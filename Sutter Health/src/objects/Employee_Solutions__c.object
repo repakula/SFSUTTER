@@ -1,0 +1,1474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Action_Comments__c</fullName>
+        <description>Comments related to disciplinary action</description>
+        <externalId>false</externalId>
+        <label>Action Comments</label>
+        <length>62768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Contact_Ann_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact__r.Employee_Anniversary_Date__c</formula>
+        <label>Contact Anniversary Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Contact_Department__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact__r.Employee_Department__c</formula>
+        <label>Contact Department</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact__r.Employee_ID__c</formula>
+        <label>Contact ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact_Job_Code_Desc__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact__r.Employee_Job_Code_Description__c</formula>
+        <label>Contact Job Code Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact_Job_Code__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact__r.Employee_Job_Code__c</formula>
+        <label>Contact Job Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact_Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact__r.Employee_Employment_Status__c</formula>
+        <label>Contact Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact_Supervisor__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact__r.Employee_Supervisor_Name__c</formula>
+        <label>Contact Supervisor</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Who is the person (other than the subject) that you are working on with this matter?</inlineHelpText>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Employee Solutions (Contact)</relationshipLabel>
+        <relationshipName>Employee_Solutions_Contact</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contacted_By__c</fullName>
+        <externalId>false</externalId>
+        <label>Contacted By</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Lead</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Employee</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Compliance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Disciplinary_Action__c</fullName>
+        <externalId>false</externalId>
+        <label>Disciplinary Action</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Written</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Final Warning</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Suspension</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Termination</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Verbal Coaching</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Disciplinary_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Disciplinary Comments</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Emp_Supervisor__c</fullName>
+        <externalId>false</externalId>
+        <formula>Employee__r.Employee_Supervisor_Name__c</formula>
+        <label>Emp Supervisor</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Employee_Anniversary_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Employee__r.Employee_Anniversary_Date__c</formula>
+        <label>Employee Anniversary Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Employee_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Employee__r.Employee_ID__c</formula>
+        <label>Employee ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Employee_Job_Code_Desc__c</fullName>
+        <externalId>false</externalId>
+        <formula>Employee__r.Employee_Job_Code_Description__c</formula>
+        <label>Employee Job Code Desc</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Employee_Job_Code__c</fullName>
+        <externalId>false</externalId>
+        <formula>Employee__r.Employee_Job_Code__c</formula>
+        <label>Employee Job Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Employee__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of employee</inlineHelpText>
+        <label>Employee</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Employee Solutions Interactions</relationshipLabel>
+        <relationshipName>Employee_Solutions1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Entered_in_Lawson__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Was this entered into Lawson?</inlineHelpText>
+        <label>Entered in Lawson</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Function__c</fullName>
+        <externalId>false</externalId>
+        <label>Function</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Rev Cycle</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Supply Chain</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Contact Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Svc and Perf Mgmt</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Finance</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Indexed_to_ePR__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Indexed to ePR?</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Initial_Contact__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What date was this issue brought up to Employee Relations?</inlineHelpText>
+        <label>Initial Contact</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Lead__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>What Lead are you working with for this request?</inlineHelpText>
+        <label>Lead</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Employee Solutions (Lead)</relationshipLabel>
+        <relationshipName>Employee_Solutions2</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Notes</label>
+        <length>62768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>20</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Origin__c</fullName>
+        <externalId>false</externalId>
+        <label>Origin</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Electronic (e-mail or IM)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Phone</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>In-Person</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Contact Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Outcome__c</fullName>
+        <externalId>false</externalId>
+        <label>Outcome</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Conversation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Referred to Lead</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Referred to Leader</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Referred to SSLT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Referred to Ed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PIP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DAN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Termination</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Job Description Review</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Change Control</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Primary_Topic__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What was the interaction regarding?</inlineHelpText>
+        <label>Primary Topic</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Attendance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Conduct_Behavior</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Performance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Harassment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Discrimination</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Job Change</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Re_Opened_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Re-Opened Date</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Related_Log__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related To</label>
+        <referenceTo>Employee_Solutions__c</referenceTo>
+        <relationshipLabel>Related Employee Solutions</relationshipLabel>
+        <relationshipName>Employee_Solutions</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Root_Cause__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What root cause can this problem be attributed too?</inlineHelpText>
+        <label>Root Cause</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No System Failsafe</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Poor Policy</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Skill Mismatch</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Open</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Closed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Re-Opened</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Sub_Function__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub Function</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Function__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CBO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PAC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HIM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CDM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Data &amp; Analytics</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Education</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Compensation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Benefits</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Recruitment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Learning and Delivery and Administration</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HRIS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Workforce Relations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Credentialing Verification</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Employee Solutions</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Supply Chain</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>eQuip</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Contact Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DMC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Svc and Perf Mgmt</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Accounts Payable</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Payroll</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Accounting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Accounts Receivable Account and Managed Care</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Standard Reporting, Audit, and Systems</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Rev Cycle</controllingFieldValue>
+                <valueName>CBO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rev Cycle</controllingFieldValue>
+                <valueName>PAC</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rev Cycle</controllingFieldValue>
+                <valueName>HIM</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rev Cycle</controllingFieldValue>
+                <valueName>CDM</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rev Cycle</controllingFieldValue>
+                <valueName>Data &amp; Analytics</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rev Cycle</controllingFieldValue>
+                <valueName>Education</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HR</controllingFieldValue>
+                <valueName>Compensation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HR</controllingFieldValue>
+                <valueName>Benefits</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HR</controllingFieldValue>
+                <valueName>Recruitment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HR</controllingFieldValue>
+                <valueName>Learning and Delivery and Administration</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HR</controllingFieldValue>
+                <valueName>HRIS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HR</controllingFieldValue>
+                <valueName>Workforce Relations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HR</controllingFieldValue>
+                <valueName>Credentialing Verification</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HR</controllingFieldValue>
+                <valueName>Employee Solutions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Supply Chain</controllingFieldValue>
+                <valueName>Supply Chain</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Supply Chain</controllingFieldValue>
+                <valueName>eQuip</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Contact Center</controllingFieldValue>
+                <valueName>Contact Center</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Contact Center</controllingFieldValue>
+                <valueName>DMC</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Svc and Perf Mgmt</controllingFieldValue>
+                <valueName>Svc and Perf Mgmt</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finance</controllingFieldValue>
+                <valueName>Accounts Payable</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finance</controllingFieldValue>
+                <valueName>Payroll</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finance</controllingFieldValue>
+                <valueName>Accounting</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finance</controllingFieldValue>
+                <valueName>Accounts Receivable Account and Managed Care</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finance</controllingFieldValue>
+                <valueName>Standard Reporting, Audit, and Systems</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Subject__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Granular detail of Primary Topic</inlineHelpText>
+        <label>Subject</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Primary_Topic__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Excessive Unscheduled Absences</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tardiness</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Leave Early</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Leave of absence/disability related</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HIPPAA/PHI</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Policy compliance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fitness for duty</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other Violation of Policies and Procedures</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Discrimination/Harassment in the workplace</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Work rules</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Workplace threats or violence</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dress code/appearance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Insubordination</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Disruptive behavior</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Legal issues</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Failure to follow instructions</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Quality of work</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Failure to meet Introductory</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Quantity of work</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Engagement/Job Satisfaction</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dissatisfied with Leader</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Attendance</controllingFieldValue>
+                <valueName>Excessive Unscheduled Absences</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Attendance</controllingFieldValue>
+                <valueName>Tardiness</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Attendance</controllingFieldValue>
+                <valueName>Leave Early</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Attendance</controllingFieldValue>
+                <valueName>Leave of absence/disability related</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Conduct_Behavior</controllingFieldValue>
+                <valueName>HIPPAA/PHI</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Conduct_Behavior</controllingFieldValue>
+                <valueName>Policy compliance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Conduct_Behavior</controllingFieldValue>
+                <valueName>Fitness for duty</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Conduct_Behavior</controllingFieldValue>
+                <valueName>Other Violation of Policies and Procedures</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Conduct_Behavior</controllingFieldValue>
+                <valueName>Discrimination/Harassment in the workplace</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Conduct_Behavior</controllingFieldValue>
+                <valueName>Work rules</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Conduct_Behavior</controllingFieldValue>
+                <valueName>Workplace threats or violence</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Conduct_Behavior</controllingFieldValue>
+                <valueName>Dress code/appearance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Conduct_Behavior</controllingFieldValue>
+                <valueName>Insubordination</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Conduct_Behavior</controllingFieldValue>
+                <valueName>Disruptive behavior</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Conduct_Behavior</controllingFieldValue>
+                <valueName>Legal issues</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Performance</controllingFieldValue>
+                <valueName>Failure to follow instructions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Performance</controllingFieldValue>
+                <valueName>Quality of work</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Performance</controllingFieldValue>
+                <valueName>Failure to meet Introductory</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Performance</controllingFieldValue>
+                <valueName>Quantity of work</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Performance</controllingFieldValue>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>Engagement/Job Satisfaction</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>Dissatisfied with Leader</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <label>Employee Solutions</label>
+    <listViews>
+        <fullName>All_Open_Logs</fullName>
+        <columns>NAME</columns>
+        <columns>Contact__c</columns>
+        <columns>Disciplinary_Action__c</columns>
+        <columns>Employee__c</columns>
+        <columns>Primary_Topic__c</columns>
+        <columns>Sub_Function__c</columns>
+        <columns>Subject__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Employee_Solutions__c.ER_Log</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </filters>
+        <label>All Open Logs</label>
+    </listViews>
+    <nameField>
+        <displayFormat>ER{00000}</displayFormat>
+        <label>Employee Solution Number</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Employee Solutions</pluralLabel>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>ER_Log</fullName>
+        <active>true</active>
+        <label>ER Log</label>
+        <picklistValues>
+            <picklist>Contacted_By__c</picklist>
+            <values>
+                <fullName>Compliance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lead</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Disciplinary_Action__c</picklist>
+            <values>
+                <fullName>Final Warning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suspension</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Verbal Coaching</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Written</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Function__c</picklist>
+            <values>
+                <fullName>Contact Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rev Cycle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Supply Chain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Svc and Perf Mgmt</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Origin__c</picklist>
+            <values>
+                <fullName>Contact Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronic %28e-mail or IM%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In-Person</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Outcome__c</picklist>
+            <values>
+                <fullName>Change Control</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Conversation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DAN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Job Description Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PIP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referred to Ed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referred to Lead</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referred to Leader</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referred to SSLT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Termination</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Primary_Topic__c</picklist>
+            <values>
+                <fullName>Attendance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Conduct_Behavior</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Discrimination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Harassment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Job Change</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Performance</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Root_Cause__c</picklist>
+            <values>
+                <fullName>No System Failsafe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Poor Policy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Skill Mismatch</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-Opened</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Function__c</picklist>
+            <values>
+                <fullName>Accounting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accounts Payable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accounts Receivable Account and Managed Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Benefits</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CBO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CDM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Compensation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credentialing Verification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DMC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Data %26 Analytics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee Solutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HIM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HRIS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Learning and Delivery and Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PAC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Payroll</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recruitment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Standard Reporting%2C Audit%2C and Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Supply Chain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Svc and Perf Mgmt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Workforce Relations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eQuip</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject__c</picklist>
+            <values>
+                <fullName>Discrimination%2FHarassment in the workplace</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Disruptive behavior</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dissatisfied with Leader</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dress code%2Fappearance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Engagement%2FJob Satisfaction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Excessive Unscheduled Absences</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Failure to follow instructions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Failure to meet Introductory</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fitness for duty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HIPPAA%2FPHI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insubordination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leave Early</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leave of absence%2Fdisability related</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal issues</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Violation of Policies and Procedures</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Policy compliance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quality of work</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quantity of work</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tardiness</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Work rules</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Workplace threats or violence</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Function__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Sub_Function__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Primary_Topic__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Employee__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OWNER.FIRST_NAME</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Function__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Sub_Function__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Primary_Topic__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Employee__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>OWNER.FIRST_NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CREATED_DATE</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>OWNER.FIRST_NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CREATEDBY_USER</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>LAST_UPDATE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Status__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Primary_Topic__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Contact__c</searchFilterFields>
+        <searchFilterFields>Employee__c</searchFilterFields>
+        <searchFilterFields>OWNER.FIRST_NAME</searchFilterFields>
+        <searchFilterFields>Status__c</searchFilterFields>
+        <searchFilterFields>Sub_Function__c</searchFilterFields>
+        <searchFilterFields>Primary_Topic__c</searchFilterFields>
+        <searchFilterFields>CREATED_DATE</searchFilterFields>
+        <searchResultsAdditionalFields>Function__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Sub_Function__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>OWNER.FIRST_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LAST_UPDATE</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <startsWith>Vowel</startsWith>
+</CustomObject>

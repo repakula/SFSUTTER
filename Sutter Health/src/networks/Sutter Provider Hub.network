@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Network xmlns="http://soap.sforce.com/2006/04/metadata">
+    <allowMembersToFlag>false</allowMembersToFlag>
+    <branding>
+        <loginFooterText>Sutter Provider Hub</loginFooterText>
+        <primaryColor>#00AAA6</primaryColor>
+        <primaryComplementColor>#222222</primaryComplementColor>
+        <quaternaryColor>#B1BAC1</quaternaryColor>
+        <quaternaryComplementColor>#222222</quaternaryComplementColor>
+        <secondaryColor>#51606E</secondaryColor>
+        <tertiaryColor>#DDE4E9</tertiaryColor>
+        <tertiaryComplementColor>#222222</tertiaryComplementColor>
+        <zeronaryColor>#00AAA6</zeronaryColor>
+        <zeronaryComplementColor>#222222</zeronaryComplementColor>
+    </branding>
+    <changePasswordTemplate>Provider_Templates/Provider_Community_Provider_Welcome_Email</changePasswordTemplate>
+    <emailSenderAddress>sutterproviderhub@sutterhealth.org</emailSenderAddress>
+    <emailSenderName>Sutter Provider Hub</emailSenderName>
+    <enableGuestChatter>false</enableGuestChatter>
+    <enableInvitation>false</enableInvitation>
+    <enableKnowledgeable>false</enableKnowledgeable>
+    <enableNicknameDisplay>false</enableNicknameDisplay>
+    <enablePrivateMessages>false</enablePrivateMessages>
+    <enableReputation>false</enableReputation>
+    <enableSiteAsContainer>true</enableSiteAsContainer>
+    <forgotPasswordTemplate>Provider_Templates/Provider_Community_Forgot_Password_Email</forgotPasswordTemplate>
+    <logoutUrl>https://mysutterconnection.force.com/providers/</logoutUrl>
+    <navigationLinkSet>
+        <navigationMenuItem>
+            <label>Topics</label>
+            <position>1</position>
+            <publiclyAvailable>true</publiclyAvailable>
+            <target>ShowMoreTopics</target>
+            <type>NavigationalTopic</type>
+        </navigationMenuItem>
+    </navigationLinkSet>
+    <networkMemberGroups>
+        <profile>Community Provider</profile>
+        <profile>PDV Community Provider</profile>
+        <profile>Admin</profile>
+        <profile>PDI Community Admin Assistant</profile>
+    </networkMemberGroups>
+    <picassoSite>Sutter_Provider_Hub_C</picassoSite>
+    <selfRegistration>false</selfRegistration>
+    <sendWelcomeEmail>true</sendWelcomeEmail>
+    <site>Sutter_Provider_Hub</site>
+    <status>Live</status>
+    <tabs>
+        <customTab>Validate_Contact_Information</customTab>
+        <defaultTab>01rG0000000p7hv</defaultTab>
+    </tabs>
+    <urlPathPrefix>providers</urlPathPrefix>
+    <welcomeTemplate>Provider_Templates/Provider_Community_Provider_Welcome_Email</welcomeTemplate>
+</Network>

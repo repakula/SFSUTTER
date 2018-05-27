@@ -1,0 +1,3 @@
+<apex:page standardController="Case" extensions="CaseS3RecordTypeSelectionCtrl" action="{!redirectPage}">
+    <apex:pagemessages id="pageMessage"></apex:pagemessages>
+</apex:page>

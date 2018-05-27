@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>Custom settings for the Call Center</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>CaaS_Enabled__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Check this box if you are a CaaS customer. Leave unchecked if a Premise customer.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this box if you are a CaaS customer. Leave unchecked if a Premise customer.</inlineHelpText>
+        <label>CaaS Enabled</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>CaaS_Url__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Specify the CaaS URL provided by your CaaS contact, including /crm/ at the end. For example, https://your_caas_url/crm/.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specify the CaaS URL provided by your CaaS contact, including /crm/ at the end. For example, https://your_caas_url/crm/.</inlineHelpText>
+        <label>CaaS Url</label>
+        <length>200</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Enable_Auto_Association__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Check this box to automatically associate the Contact and Related fields to the interaction&apos;s call log.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this box to automatically associate the Contact and Related fields to the interaction&apos;s call log.</inlineHelpText>
+        <label>Enable Auto Association on Navigation</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Enable_Call_Log_Functionality__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Enables the CIC for SalesForce call logs to be written to the SalesForce Activity.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Checking this box enables the call log in CIC for SalesForce and saves the call log to a SalesForce activity.</inlineHelpText>
+        <label>Enable Call Logs</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Enable_Call_Logs__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If using Internet Explorer, do not check this box. Internet Explorer has problems saving the call log when multiple browser tabs or windows are open, so this setting prevents edits to the call log altogether.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If using Internet Explorer, do not check this box. Internet Explorer has problems saving the call log when multiple browser tabs or windows are open, so this setting prevents edits to the call log altogether.</inlineHelpText>
+        <label>Enable Call Log Editing</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Enable_Integration_Console_Events_API__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Check this box to enable special Salesforce console events to integrate with CIC for Salesforce.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this box to enable special Salesforce console events to integrate with CIC for Salesforce.</inlineHelpText>
+        <label>Enable Integration Console Events API</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Enable_SSO__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Check this box to use Single Sign On. Internet Explorer does not currently support SSO without special configuration to the Web Proxy.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this box to use Single Sign On. Internet Explorer does not currently support SSO without special configuration to the Web Proxy.</inlineHelpText>
+        <label>Enable Single Sign On</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Enable_Server_Sent_Events__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Check this box to enable Server-sent Events with CIC 2016 R3 or later. Requires configuration changes to the Web Proxy.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this box to enable Server-sent Events with CIC 2016 R3 or later. Requires configuration changes to the Web Proxy.</inlineHelpText>
+        <label>Enable Server-sent Events</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Enable_Wrap_Ups__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Check this box if one or more of your CIC workgroups require wrap-up codes. Wrap-ups may not work as expected in Internet Explorer when multiple browser tabs or windows are open.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this box if one or more of your CIC workgroups require wrap-up codes. Wrap-ups may not work as expected in Internet Explorer when multiple browser tabs or windows are open.</inlineHelpText>
+        <label>Enable Wrap-ups</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Server__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Specify the CIC Server 1 Name.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specify the CIC Server 1 Name.</inlineHelpText>
+        <label>CIC Server 1 Name</label>
+        <length>200</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Proxy_Server__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The Web Proxy Address that forwards calls from CIC for Salesforce to the CIC server.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specify the Web Proxy Address that forwards calls from CIC for Salesforce to the CIC server. Include https:// and a final forward slash, that is https://web_proxy_address/</inlineHelpText>
+        <label>Web Proxy Address</label>
+        <length>200</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Secondary_Server__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Specify the CIC Server 2 Name used for switchovers.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specify the CIC Server 2 Name used for switchovers.</inlineHelpText>
+        <label>CIC Server 2 Name</label>
+        <length>200</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Custom Call Center Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

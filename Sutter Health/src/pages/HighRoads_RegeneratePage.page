@@ -1,0 +1,35 @@
+<!-- *********************************************************************************************
+*     Page Name   : HighRoads_RegeneratePage 
+*     Author      : IDC Offshore
+*     Date        : 17-Oct-2016  
+*     Project Name: SHP Project
+*     Description : Req 3980 - Page for regenerate the documents for SSO/Opportunity benefit plans
+* Version            Author          Date        Details
+* 1.0             Deloitte        21-3-2017    SHP12 Sales - Regenerate Documents Button
+**************************************************************************************************-->
+<apex:page controller="HighRoads_RegeneratePageController" action="{!checkDocGenExists}">
+    <apex:form >
+        <script>
+        function callContinue(){
+            callActionmethod();
+        }
+        function closeAndRefreshParent(){
+            window.opener.location.href="/{!recordId}";
+            self.close();
+        }
+        </script>
+        <apex:pageMessages rendered="{!IF(checkPoint == true,true,false)}"></apex:pageMessages>
+        <apex:actionFunction name="callActionmethod" action="{!createRecord}"/>
+        <apex:outputPanel rendered="{!checkPoint}" >
+            <div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="Continue" onclick="callContinue();" style="border-radius: 6px;width: 80px;font-size: 10px;padding: 5px;font-weight: bold;"/>
+                <input type="button" value="Cancel" onclick="window.close();" style="border-radius: 6px;width: 80px;font-size: 10px;padding: 5px;font-weight: bold;"/>
+                
+            </div>
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!isapproved}">
+            <apex:pageMessages rendered="{!IF(isapproved == true,true,false)}"></apex:pageMessages>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<apex:commandButton value="OK" onclick="closeAndRefreshParent();" style="border-radius: 6px;width: 80px;font-size: 10px;padding: 5px;font-weight: bold;float:center"/>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

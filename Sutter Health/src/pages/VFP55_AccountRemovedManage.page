@@ -1,0 +1,30 @@
+<apex:page standardController="Account" extensions="SHMMN_AccountRemovedManage"  action="{!CheckStatus}" >
+    <apex:form >
+        <apex:pageMessages id="msg"/> 
+        <apex:outputPanel rendered="{!showpage}">
+            <apex:pageBlock >
+                <apex:commandButton value="{!$Label.CL_82_SM_BackToAcc}"  action="{!Cancel}" />
+            </apex:pageBlock>
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!!showpage}">
+            <apex:pageBlock >
+                <apex:pageblockButtons >
+                    <apex:commandButton value="{!$Label.CL_01_SM_Save}"  action="{!updateStatus}"   />
+                    <apex:commandButton value="{!$Label.CL_02_SM_Cancel}"  action="{!Cancel}" /> 
+                </apex:pageblockButtons>
+                <apex:pageBlockSection title="{!$Label.CL_85_SM_AccountDetail}" >
+                    <apex:outputField value="{!acc.Name}"/>
+                    <apex:outputField value="{!acc.Phone}"/>
+                    <apex:outputField value="{!acc.Status__c}"/>
+                    <apex:outputField value="{!acc.NumberOfEmployees}"/>
+                    <apex:outputField value="{!acc.Employer_Type__c}"/>
+                    <apex:outputField value="{!acc.Employer_First_Active_Date__c}"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.CL_86_SM_StatusReason}"  >
+                    <apex:inputField value="{!acc.Status__c}"/>
+                    <apex:inputTextarea value="{!statusOverride }"  />
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

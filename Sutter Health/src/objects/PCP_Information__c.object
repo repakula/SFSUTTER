@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>PCP Information stored for Member (Contact)</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Medical_Group_Affiliation__c</fullName>
+        <externalId>false</externalId>
+        <label>Medical Group Affiliation</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Member_ID__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Member ID</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>PCP Informations</relationshipLabel>
+        <relationshipName>PCP_Informations</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PCP_Effective_date__c</fullName>
+        <externalId>false</externalId>
+        <label>PCP Effective date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>PCP_External_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>External ID used to match a PCP record to the original record in HealthEdge when updating and/or inserting.
+ Composite key created from the concatenation of PCP_Member_HR_ID__c  +  PCP_Practitioner_HR_ID__C</description>
+        <externalId>true</externalId>
+        <label>PCP External ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>PCP_Member_HR_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>PCP Member HR ID</label>
+        <length>19</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PCP_Practitioner_First_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>PCP Practitioner First Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PCP_Practitioner_HR_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>PCP Practitioner HR ID</label>
+        <length>19</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PCP_Practitioner_Last_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>PCP Practitioner Last Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PCP_Practitioner_Middle_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>PCP Practitioner Middle Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PCP_Practitioner_NPI__c</fullName>
+        <externalId>false</externalId>
+        <label>PCP Practitioner NPI</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PCP_Practitioner_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>PCP Practitioner Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PCP_Speciality__c</fullName>
+        <externalId>false</externalId>
+        <label>PCP Speciality</label>
+        <length>150</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PCP_Specialty_HCC_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>PCP Specialty HCC ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PCP_Specialty_HR_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>PCP Specialty HR ID</label>
+        <length>19</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PCP_Specialty_Sub_HCC_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>PCP Specialty-Sub HCC ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PCP_Specialty_Sub_HR_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>PCP Specialty-Sub HR ID</label>
+        <length>19</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PCP_Supplier_Location_HR_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>PCP Supplier Location HR ID</label>
+        <length>19</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PCP_Supplier_Location_name__c</fullName>
+        <externalId>false</externalId>
+        <label>PCP Supplier Location name</label>
+        <length>150</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PCP_Supplier_NPI__c</fullName>
+        <externalId>false</externalId>
+        <label>PCP Supplier NPI</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PCP_Supplier_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>PCP Supplier Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PCP_Termination_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>PCP Termination Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>PCP_sub_Specialty__c</fullName>
+        <externalId>false</externalId>
+        <label>PCP sub-Specialty</label>
+        <length>150</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Practitioner_PCP_Auto_Assigned__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Practitioner PCP Auto Assigned</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SPS_Epic_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>SPS Epic ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>PCP Information</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Medical_Group_Affiliation__c</columns>
+        <columns>Member_ID__c</columns>
+        <columns>PCP_Effective_date__c</columns>
+        <columns>PCP_External_ID__c</columns>
+        <columns>PCP_Member_HR_ID__c</columns>
+        <columns>PCP_Practitioner_First_Name__c</columns>
+        <columns>PCP_Practitioner_HR_ID__c</columns>
+        <columns>PCP_Practitioner_Last_Name__c</columns>
+        <columns>PCP_Practitioner_Middle_Name__c</columns>
+        <columns>PCP_Practitioner_Name__c</columns>
+        <columns>PCP_Practitioner_NPI__c</columns>
+        <columns>PCP_Specialty_HCC_ID__c</columns>
+        <columns>PCP_Specialty_HR_ID__c</columns>
+        <columns>PCP_Specialty_Sub_HCC_ID__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All1</fullName>
+        <columns>NAME</columns>
+        <columns>Practitioner_PCP_Auto_Assigned__c</columns>
+        <columns>OBJECT_ID</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>PCP Information Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>PCP Information</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

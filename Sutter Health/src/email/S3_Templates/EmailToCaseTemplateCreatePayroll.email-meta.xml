@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Payroll email-to-case auto response.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>S3_Letterhead</letterhead>
+    <name>EmailToCaseTemplateCreatePayroll</name>
+    <style>freeForm</style>
+    <subject>Thank you. Service Request Number {!Case.CaseNumber} has been created</subject>
+    <textOnly>Thank you for submitting an inquiry on {!Case.CreatedDate} regarding subject line: {!Case.Subject_ReadOnly__c}. Your reference number is Service Request: {!Case.CaseNumber}.
+
+Our goal at Sutter Health is to provide the highest level of customer service to our employees. In order to resolve your issue as quickly as possible please follow the guidelines below.
+
+DO NOT submit an inquiry for the following items using this process.
+
+
+Requests for Payroll Corrections
+Requests for Additional Pay
+Requests for Stop Payments
+Uploads for Payroll Processing.
+
+These items need to be submitted online through the Web Forms in MySutter Connection. You can find these forms using the left-hand menu under Payroll &gt; Forms.
+
+
+Please call the Sutter Health Employee Line at 916-297-8300 or toll free at 855-398-1631, if you have additional questions and provide your reference number to the agent assisting you. Hours of operation are Monday-Friday from 7am to 5pm.
+
+Messages sent to this email address will be addressed in the order they were received.
+
+Thank you for partnership with Sutter Health.
+
+
+Note: If you need to reply or check the status of your inquiry please use this email string and do not delete the reference number listed below as this is used internally and is needed to track your Service Request.
+
+{!Case.Thread_Id}</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This email template is using in  survey</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>SHP_Letterhead</letterhead>
+    <name>SHP CSAT Survey Email to SHP Contact Member</name>
+    <style>freeForm</style>
+    <subject>Did we meet your expectations?</subject>
+    <textOnly>Reference Number {!Case.CaseNumber} : 
+
+
+Dear {!Case.Contact}, 
+
+
+Thank you for contacting Sutter Health Services on {!Case.CreatedDate} 
+
+
+At Sutter Health Services we strive to improve our services through customer feedback. We invite you to provide feedback by taking our four question/short survey. Please click on the link below to access the survey. 
+
+
+http://sutterhealth.force.com/SurveyForce/TakeSurvey?id=a0AG000000VHmo0MAD&amp;cId={!Contact.Id}&amp;caId={!Case.Id}
+
+
+
+The survey will be available until {!Case.Survey_Expiry_Date__c} 
+
+
+Thank you for your time. 
+
+
+Sincerely, 
+
+
+SHP Leadership Team</textOnly>
+    <type>html</type>
+</EmailTemplate>

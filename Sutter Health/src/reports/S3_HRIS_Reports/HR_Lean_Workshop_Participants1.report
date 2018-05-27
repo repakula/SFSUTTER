@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>S3_Participant__c$S3Workshop__c.Function__c</field>
+    </columns>
+    <columns>
+        <field>S3_Participant__c$S3Workshop__c.Category__c</field>
+    </columns>
+    <columns>
+        <field>S3_Participant__c$S3Workshop__c.Status__c</field>
+    </columns>
+    <columns>
+        <field>S3_Participant__c$S3Workshop__c</field>
+    </columns>
+    <columns>
+        <field>S3_Participant__c$Workshop_Start_Date__c</field>
+    </columns>
+    <columns>
+        <field>S3_Participant__c$Name</field>
+    </columns>
+    <columns>
+        <field>S3_Participant__c$Workshop_Participant__c</field>
+    </columns>
+    <columns>
+        <field>S3_Participant__c$Department__c</field>
+    </columns>
+    <columns>
+        <field>S3_Participant__c$Participant_Type__c</field>
+    </columns>
+    <columns>
+        <field>S3_Participant__c$Affiliate__c</field>
+    </columns>
+    <description>Shows all participants within HR Lean workshops</description>
+    <filter>
+        <criteriaItems>
+            <column>S3_Participant__c$S3Workshop__c.Function__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Human Resources</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>S3_Participant__c$Workshop_Name__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>HR Lean Workshop Participants</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Lean_Workshop_Participants__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>S3_Participant__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

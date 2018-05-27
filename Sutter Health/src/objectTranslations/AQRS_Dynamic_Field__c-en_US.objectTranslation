@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>AQRS Dynamic Fields</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>AQRS Dynamic Fields</value>
+    </caseValues>
+    <fields>
+        <label><!-- GICSelectedFields --></label>
+        <name>GICSelectedFields__c</name>
+    </fields>
+    <fields>
+        <label><!-- GICUnSelectedFields --></label>
+        <name>GICUnSelectedFields__c</name>
+    </fields>
+    <fields>
+        <label><!-- PVPSelectedFields --></label>
+        <name>PVPSelectedFields__c</name>
+    </fields>
+    <fields>
+        <label><!-- PVPUnSelectedFields --></label>
+        <name>PVPUnSelectedFields__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

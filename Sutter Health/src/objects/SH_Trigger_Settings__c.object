@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>SH_Is_Active__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Active</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SH_Max_Publish_Count__c</fullName>
+        <description>This field is used to restrict the user to publish records more than the specified count</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field is used to restrict the user to publish records more than the specified count</inlineHelpText>
+        <label>Max Publish Count</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Trigger Settings</label>
+    <visibility>Protected</visibility>
+</CustomObject>

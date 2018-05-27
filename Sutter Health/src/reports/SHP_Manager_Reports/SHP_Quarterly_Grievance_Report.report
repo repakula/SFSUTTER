@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>number</bucketType>
+        <developerName>BucketField_68076189</developerName>
+        <masterLabel>Grievance Aging</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>Case.Grievance_Aging__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <to>-60</to>
+            </sourceValues>
+            <value>Open &gt;60 Days</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>-60</from>
+                <to>-30</to>
+            </sourceValues>
+            <value>Open &lt;60 Days</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>-30</from>
+                <to>-10</to>
+            </sourceValues>
+            <value>Open &lt;30 Days</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>-10</from>
+                <to>-1</to>
+            </sourceValues>
+            <value>Open &lt;10 Days</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>-1</from>
+                <to>0</to>
+            </sourceValues>
+            <value>Open &lt;1 Days</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>0</from>
+                <to>0.99</to>
+            </sourceValues>
+            <value>Closed - First Call (FCR)</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>0.99</from>
+                <to>10</to>
+            </sourceValues>
+            <value>Closed 1-10 Days</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>10</from>
+                <to>30</to>
+            </sourceValues>
+            <value>Closed 11-30 Days</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>30</from>
+                <to>60</to>
+            </sourceValues>
+            <value>Closed 31-60 Days</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>60</from>
+                <to>90</to>
+            </sourceValues>
+            <value>Closed 61-90 Days</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>90</from>
+            </sourceValues>
+            <value>Closed &gt; 90 Days</value>
+        </values>
+    </buckets>
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_17851561</developerName>
+        <masterLabel>Issue Description</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <otherBucketLabel>Other</otherBucketLabel>
+        <sourceColumnName>Case.Grievance_Issue_Description__c</sourceColumnName>
+        <useOther>true</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Access to Care - Distance</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Access to Care - Delayed Apt Schedule</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Access to Care - Wait Time</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Complaints about Access to Care</sourceValue>
+            </sourceValues>
+            <value>Access to Care, including Appointments</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Complaints about Quality of Care</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Quality of Care</sourceValue>
+            </sourceValues>
+            <value>Quality of Care</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Complaints about Quality of Service</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Quality of Service</sourceValue>
+            </sourceValues>
+            <value>Quality of Service</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Medical Necessity Dispute</sourceValue>
+            </sourceValues>
+            <value>Medical Necessity Dispute</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Coverage Dispute</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Coverage/Benefit Dispute</sourceValue>
+            </sourceValues>
+            <value>Coverage Disputes</value>
+        </values>
+    </buckets>
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_29879577</developerName>
+        <masterLabel>Issue_Descriptions</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <otherBucketLabel>Other</otherBucketLabel>
+        <sourceColumnName>Case.Grievance_Issue_Description__c</sourceColumnName>
+        <useOther>true</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Coverage/Benefit Dispute</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Coverage Dispute</sourceValue>
+            </sourceValues>
+            <value>Coverage Disputes</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Medical Necessity Dispute</sourceValue>
+            </sourceValues>
+            <value>Disputes Involving Medical Necessity</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Quality of Care</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Complaints about Quality of Care</sourceValue>
+            </sourceValues>
+            <value>Quality of Care</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Access to Care - Distance</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Access to Care - Delayed Apt Schedule</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Access to Care - Wait Time</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Complaints about Access to Care</sourceValue>
+            </sourceValues>
+            <value>Access to Care (including appointments)</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Quality of Service</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Complaints about Quality of Service</sourceValue>
+            </sourceValues>
+            <value>Quality of Service</value>
+        </values>
+    </buckets>
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_98033889</developerName>
+        <masterLabel>Pending_Reason</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>Case.Pending_Reason__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>SHP Internal Grievance System</sourceValue>
+            </sourceValues>
+            <value>Pending in Plan&apos;s Internal Grievance System</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>DMHC Consumer complaint process</sourceValue>
+            </sourceValues>
+            <value>Pending in Department&apos;s Consumer Complaint Process</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>DMHC’s IMR system</sourceValue>
+            </sourceValues>
+            <value>Pending in Department&apos;s Independent Medical Review System</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Pending in Arbitration</sourceValue>
+            </sourceValues>
+            <value>Submitted to Arbitration</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Pending in Court</sourceValue>
+            </sourceValues>
+            <value>Pending in Court</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Other Dispute Resolution Process</sourceValue>
+            </sourceValues>
+            <value>Pending, other dispute resolution</value>
+        </values>
+    </buckets>
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_7070498</developerName>
+        <masterLabel>Pending_Reasons</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <otherBucketLabel>Other</otherBucketLabel>
+        <sourceColumnName>Case.Pending_Reason__c</sourceColumnName>
+        <useOther>true</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>SHP Internal Grievance System</sourceValue>
+            </sourceValues>
+            <value>Pending in Plan&apos;s Internal Grievance System</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>DMHC Consumer complaint process</sourceValue>
+            </sourceValues>
+            <value>Pending in Department&apos;s consumer complaint process</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>DMHC’s IMR system</sourceValue>
+            </sourceValues>
+            <value>Pending in Department&apos;s Independent Medical Review system</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Pending in Arbitration</sourceValue>
+            </sourceValues>
+            <value>Submitted to Arbitration</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Pending in Court</sourceValue>
+            </sourceValues>
+            <value>Pending in Court</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Other Dispute Resolution Process</sourceValue>
+            </sourceValues>
+            <value>Pending, other dispute resolution</value>
+        </values>
+    </buckets>
+    <description>Quarterly summary of SHP Grievances by Type and Pending Reason</description>
+    <filter>
+        <criteriaItems>
+            <column>RECORDTYPE</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Case.SHP_Service_Grievance_Service_Request,Case.Grievance_RO</value>
+        </criteriaItems>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_17851561</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_7070498</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>SHP Quarterly Grievance Report</name>
+    <params>
+        <name>units</name>
+        <value>h</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CaseList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATEONLY</dateColumn>
+        <interval>INTERVAL_CURFY</interval>
+    </timeFrameFilter>
+</Report>

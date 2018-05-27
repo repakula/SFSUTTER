@@ -1,0 +1,209 @@
+<apex:page docType="html-5.0" standardController="Case" extensions="SH_PayrollStopPaymentsController" id="pg1" showHeader="false" sidebar="false" applyBodyTag="false"
+    applyHtmlTag="false" >
+    <head>
+        <title>{!activePgName}</title>
+        <c:SH_HeaderResource />
+    </head>
+    <style>
+        .bPageBlock  {
+            background-color :#FFFFFF !important;
+        }
+        .caseTab .tertiaryPalette, .individualPalette .caseBlock .tertiaryPalette, .layoutEdit .individualPalette .caseBlock .tertiaryPalette {
+            background-color:#00A9A5;
+            border-color:#00A9A5;
+        }
+        .tablecolumn {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            width: 50%;
+            text-align: left !important;
+            padding-left: 20% !important;
+            padding-right: 12px;
+            font-family: serif !important;
+            font-size: 17px !important;
+        }
+        .tablecolumn1 {
+            font-family: helvetica, arial, sans-serif;
+            color: #666666;
+            font-size: 16px;
+            line-height: 20px;
+        }
+        table tbody tr th.labelCol{
+            text-align: left !important;
+            padding-left: 10px !important;
+            font-weight: normal !important;
+            font-size: 17px !important;
+            color: black !important;
+            font-family: serif !important;
+        
+        }
+    </style>
+    <body id="home" class="show-notification menu-open menu-visibility">
+    
+        <c:SH_SearchBar isPreview="{!isPreview}" />
+        <!-- Menu Item -->
+        <c:SH_MenuItem lstMenuItem="{!lstMenuItem }" isPreview="{!isPreview}" Category="{!strCategoryForHelp}" SubCategory="{!strSubCategoryForHelp}"  Team="{!strTeamForHelp}" CustomerIntent="{!strCustomerIntentForHelp}" L1="{!strL1}" L1Id="{!strL1Id}" L2="{!strL2}" L2Id="{!strL2Id}"/>
+
+        <!-- content -->
+        <div id="content-wrapper">
+            <!-- Header-->
+            <c:SH_Header isPreview="{!isPreview}" actiVePg="{!activePgName}"
+                breadCrumbs="{!BreadCrumbs}" />
+    <apex:form >
+    
+    
+    <apex:pageMessages />
+    <apex:pageBlock title="Service Request" id="pb">
+    
+    <div style="width:100%;color: #666666;height:auto;margin: 0px auto;text-align: left;font-size: 17px;font-family: serif;">
+    <div style="width:100%;height:auto; margin: 0px auto;margin-top:5px;text-align: center;font-weight: bold;font-size: 18px;font-family: serif;">
+    Sutter Health Shared Services
+    </div>
+                    <div style="width:100%;height:auto;margin: 0px auto;margin-top:5px;text-align: center;font-weight: bold;font-size: 18px;font-family: serif;">
+                        <span>Authorization for Stop Payment</span>
+                    </div>
+     <br />               
+    <p>I am requesting a stop payment be issued on the payment shown below. I understand that by authorizing this Stop Payment, this check is no longer valid. If found, I will return this check to Sutter Health Shared Services Payroll Department immediately. I understand that if I do cash this check, it constitutes an unlawful act of fraud and that Sutter Health will take any necessary disciplinary or legal action to collect these funds." </p>
+    <br />
+    
+    <apex:pageBlockButtons location="bottom">
+            <!-- commented on 22-Sep-2015 by Sassfocus 
+            <apex:commandButton rendered="{!!isCaseCreated}" onclick="submitRequest();return false;" value="Submit Case"/>
+            <apex:commandButton rendered="{!!isCaseCreated}" immediate="true" action="{!cancel}" value="Cancel"/>
+            <apex:commandButton rendered="{!isCaseCreated}" immediate="true" action="{!newStopPayment}" value="New Case"/>
+            -->
+                    
+        <!--added on 21-Sep-2015 by Saasfocus to redirect on last visited link -->
+        <apex:commandLink styleClass="btn" rendered="{!!isCaseCreated}" onclick="submitRequest();return false;" value="Submit Case"/>       
+        <a id="aCancelLink" href="{!strCancelLink}" class="btn">Cancel</a>
+        <apex:commandLink styleClass="btn" rendered="{!isCaseCreated}" immediate="true" action="{!newStopPayment}" value="New Case"/>
+    </apex:pageBlockButtons>
+    <apex:outputpanel rendered="{!isCaseCreated}" layout="none">
+        <apex:pageBlockSection title="Case Details" columns="1" collapsible="false">
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Case Number" styleclass="tablecolumn1" />
+                <apex:outputtext value="{!caseObj.caseNumber}" />
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+    </apex:outputpanel>
+    <apex:pageBlockSection title="Employee Details" columns="1" collapsible="false">
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Employee Name" styleclass="tablecolumn1" />
+            <apex:inputText disabled="True"   value="{!wrEmployeeObj.employeeName}"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Employee Number" styleclass="tablecolumn1"/>
+            <apex:inputtext disabled="true"  value="{!wrEmployeeObj.employeeNumber}" />
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Payment Number" styleclass="tablecolumn1"/>
+            <apex:outputpanel layout="none">
+                <apex:inputfield required="true" rendered="{!!isCaseCreated}"  value="{!caseObj.Payment_Number__c}" label=""/>
+                <apex:inputText disabled="true" rendered="{!isCaseCreated}"  value="{!caseObj.Payment_Number__c}" label=""/>
+            </apex:outputpanel>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Payment Date" styleclass="tablecolumn1"/>
+            <apex:outputpanel layout="none">
+                <apex:inputfield required="true" rendered="{!!isCaseCreated}"  value="{!caseObj.Payment_Date__c}" label=""/>
+                <apex:inputtext disabled="true" rendered="{!isCaseCreated}"  value="{!wrEmployeeObj.paymentDate}" label=""/>
+            </apex:outputpanel>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Net Amount" styleclass="tablecolumn1"/>
+            <apex:outputPanel layout="none">
+                <apex:inputfield required="true" rendered="{!!isCaseCreated}" value="{!caseObj.Net_Amount__c}" label=""/>
+                <apex:inputtext disabled="true" rendered="{!isCaseCreated}"  value="{!caseObj.Net_Amount__c}" label=""/>
+            </apex:outputPanel>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Contact Phone Number" styleclass="tablecolumn1"/>
+            <apex:outputPanel layout="none">
+                <apex:inputfield required="true" rendered="{!!isCaseCreated}"  value="{!caseObj.Contact_Phone_Number__c}" label=""/>
+                <apex:inputtext disabled="true" rendered="{!isCaseCreated}"  value="{!caseObj.Contact_Phone_Number__c}" label=""/>
+            </apex:outputPanel>
+        </apex:pageBlockSectionItem>
+    
+    
+    </apex:pageBlockSection>
+    <apex:pageBlockSection columns="1" title="Address Details" collapsible="false">
+    <apex:outputLabel value="Mailing address as shown on record (if this is incorrect, please provide instructions in Comments box below)" styleclass="tablecolumn1"/>
+    </apex:pageBlockSection>
+    <apex:pageBlockSection columns="1">
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Address 1" styleclass="tablecolumn1"/>
+            <apex:inputtext disabled="true"  value="{!wrEmployeeObj.employeeAdd1}" label=""/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Address 2" styleclass="tablecolumn1"/>
+            <apex:inputText disabled="true"  value="{!wrEmployeeObj.employeeAdd2}" label=""/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel value="City" styleclass="tablecolumn1"/>
+            <apex:inputtext disabled="true" value="{!wrEmployeeObj.employeeCity}" />
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel value="State" styleclass="tablecolumn1"/>
+            <apex:inputtext disabled="true"  value="{!wrEmployeeObj.employeeState}" />
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Zip" styleclass="tablecolumn1"/>
+            <apex:inputtext disabled="true" value="{!wrEmployeeObj.employeeZipCode}" />
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Comment" styleclass="tablecolumn1"/>
+            <apex:inputtextarea disabled="{!isCaseCreated}" style="width:99%;resize:none;height:75px;" value="{!caseObj.Comments__c}" label="" />
+        </apex:pageBlockSectionItem>                                     
+    </apex:pageBlockSection>
+    <div style="width:100%;height:auto;margin: 50px auto;text-align: left;font-size: 14px;font-family: serif;color:red;">
+     <p>Sutter Health and it&#39;s affiliates strongly encourages all employees to utilize Direct Deposit to receive their pay. 
+      To establish a direct deposit account, please go to Employee Self Service at https://lawson.sutterhealth.org</p>
+    </div>
+    
+    </div>
+        
+    
+    </apex:pageblock>
+    <c:SH_Footer ></c:SH_Footer>
+    <apex:actionFunction action="{!submitCase}" name="saveRquest" />
+    </apex:form>
+    </div>
+     
+    <script>
+       function submitRequest() {
+        var confirmFlag = confirm('This action is not reversible and a stop payment will be processed if you proceed. Do you wish to continue?');
+        if(confirmFlag == true) {
+        saveRquest();
+        } 
+        else {
+            CancelReq();
+             }
+       }
+       function CancelReq() {
+            document.getElementById("aCancelLink").click();
+       }
+    </script>
+    <script>
+        jQuery(document).ready(function(){
+            
+            jQuery('div[Id$=pb]').css('background-color','#FFFFFF');
+            jQuery('div[Id$=pb]').css('padding-left','20px');
+            jQuery('.secondaryPalette').css('border-color','#FFFFFF');
+            jQuery('.pbSubheader').css('background-color','#00A9A5');
+            jQuery('.pbSubheader').css('margin-top','20px');
+            jQuery('.mainTitle').css('font-size','36px');
+            
+            jQuery('.mainTitle').css('font-weight','bold');
+            jQuery('.mainTitle').css('width','300px');
+            jQuery('.pbHeader').css('margin-top','20px');
+            jQuery('.pbHeader').css('margin-bottom','20px');
+        });
+    </script>
+        <apex:form >
+            <!-- added on 26-Aug-2015 for Notification -->
+            <apex:inputHidden id="hdnToolArticle" value="{!strToolArticeId}"/>
+            <apex:inputHidden id="hdnBrowserName" value="{!browserName}"/>
+            <apex:actionfunction name="showNotification" action="{!showNotification}" />
+        </apex:form>
+    </body>
+</apex:page>

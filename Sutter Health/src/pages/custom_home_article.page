@@ -1,0 +1,45 @@
+<apex:page showHeader="false" sidebar="false" controller="cc_debug_search">
+         <apex:includeScript value="{!URLFOR($Resource.learn_js,'jquery-2.1.1.min.js')}"/>
+
+        <apex:includeScript value="{!URLFOR($Resource.learn_js,'custom_scripts.js')}"/>
+
+
+        <apex:stylesheet value="{!$Resource.learn_foundation}"/>
+
+        <apex:stylesheet value="{!$Resource.learn_styles}"/>
+     
+                <section class="contentSection">
+                    <div class="homeContent row VFpage-custom" style="padding-bottom: 0px ! important;">
+                      <apex:repeat value="{!SearchResults}" var="article_cont">
+
+
+                      <div class="homeLeft column small-12 medium-6 large-6 "> 
+                
+      <apex:outputText value="{!article_cont.Article_Body__c}" escape="false" />
+ 
+           
+
+   </div> 
+
+        </apex:repeat>
+
+      <script type="text/javascript">
+        // Any js placed here will be fired when output panel is rerendered
+        (function(){
+      var clnam = document.getElementsByClassName("VFpage-custom");
+var clnam1=clnam[0].getElementsByTagName('h3');
+   for (var i = 0; i < clnam1.length; i++) {
+    var clnam2=clnam1[i].getElementsByTagName('a');
+    
+    var   clnam3=clnam2[0].getElementsByTagName('span');
+     clnam3[0].removeAttribute("style");
+     }
+             
+        })();
+    </script>
+                        
+                        <div class="customClear"></div>
+                    </div>
+                  
+    </section >
+    </apex:page>

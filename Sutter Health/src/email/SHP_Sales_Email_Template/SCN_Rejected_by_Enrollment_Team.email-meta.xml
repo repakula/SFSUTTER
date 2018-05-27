@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>SCN Rejected by Enrollment Team</name>
+    <style>none</style>
+    <subject>Sold Case Notification is not Approved - {!Employer_Group_Data__c.Opportunity_Account_Name__c}/DBA: {!Employer_Group_Data__c.DBA_Name__c} {!Employer_Group_Data__c.Email_Employer_Type__c}</subject>
+    <textOnly>Hi,
+
+Your Sold Case Notification {!Employer_Group_Data__c.Name} for {!Employer_Group_Data__c.Opportunity_Account_Name__c}/DBA: {!Employer_Group_Data__c.DBA_Name__c}, {!Employer_Group_Data__c.Email_Employer_Type__c} has been returned for review and re-submission by Enrollment Team for the following:
+
+Reason: {!ApprovalRequest.Comments}
+
+Thank you.</textOnly>
+    <type>custom</type>
+</EmailTemplate>

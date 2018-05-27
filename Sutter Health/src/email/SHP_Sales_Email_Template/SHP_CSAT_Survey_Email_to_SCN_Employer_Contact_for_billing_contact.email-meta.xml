@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This email is using in survey</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>SHP_Letterhead</letterhead>
+    <name>SHP CSAT Survey Email to SCN Employer Contact for billing contact</name>
+    <style>freeForm</style>
+    <subject>Did we meet your expectations?</subject>
+    <textOnly>Dear {!Employer_Group_Data__c.BillingContact_Name__c}, 
+
+
+Thank you for contacting Sutter Health Services on {!Employer_Group_Data__c.CreatedDate}. 
+
+
+At Sutter Health Services we strive to improve our services through customer feedback. We invite you to provide feedback by taking our four question/short survey. Please click on the link below to access the survey. 
+
+
+http://sutterhealth.force.com/SurveyForce/TakeSurvey?id=a0AG000000VHmo4MAD&amp;cId={!Employer_Group_Data__c.BillingContact_NameId__c}&amp;caId={!Case.Id}&amp;scnid={!Employer_Group_Data__c.Id}
+
+
+Your survey will expire on {!Employer_Group_Data__c.SCN_Survey_Sent_Date__c} . 
+
+
+Thank you for your time. 
+
+
+Sincerely, 
+
+
+SHP Leadership Team</textOnly>
+    <type>html</type>
+</EmailTemplate>

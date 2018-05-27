@@ -1,0 +1,1435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Expected Close Date</value>
+        </caseValues>
+        <name>close_date_opportunity</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Comment</value>
+        </caseValues>
+        <name>description_opportunity</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Status</value>
+        </caseValues>
+        <name>stage_name_opportunity</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <label><!-- Accepted --></label>
+        <name>Accepted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Submitted By --></label>
+        <name>Account_Manager__c</name>
+        <relationshipLabel><!-- Opportunities (Account Manager) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Account RecordType Name --></label>
+        <name>Account_RecordType_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Status --></label>
+        <name>Account_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Type --></label>
+        <name>Account_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Active Members --></label>
+        <name>Active_Members_Account__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual # of Members --></label>
+        <name>Actual_of_Members__c</name>
+    </fields>
+    <fields>
+        <label><!-- Acupuncture --></label>
+        <name>Acupuncture__c</name>
+    </fields>
+    <fields>
+        <label><!-- Proposal Scenario --></label>
+        <name>Additional_Buy_Ups__c</name>
+        <picklistValues>
+            <masterLabel>Slice</masterLabel>
+            <translation><!-- Slice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Slice &amp; Triple Option</masterLabel>
+            <translation><!-- Slice &amp; Triple Option --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TR</masterLabel>
+            <translation><!-- TR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TR &amp; Slice</masterLabel>
+            <translation><!-- TR &amp; Slice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Triple Option</masterLabel>
+            <translation><!-- Triple Option --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Adjusted Membership --></label>
+        <name>Adjusted_Membership__c</name>
+    </fields>
+    <fields>
+        <label><!-- Affiliates --></label>
+        <name>Affiliates__c</name>
+    </fields>
+    <fields>
+        <help><!-- In hours , Does not count Holidays other than saturday sundays --></help>
+        <label><!-- Aging hours --></label>
+        <name>Aging_hours__c</name>
+    </fields>
+    <fields>
+        <label><!-- Annual Revenue --></label>
+        <name>Annual_Revenue__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select a Broker --></help>
+        <label><!-- Broker --></label>
+        <lookupFilter>
+            <errorMessage><!-- Value does not exist or does not match filter criteria.Field- Broker --></errorMessage>
+        </lookupFilter>
+        <name>Broker1__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Broker HR HCC ID --></label>
+        <name>Broker_HR_HCC_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Broker --></label>
+        <name>Broker_RFP__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select a Broker Rep --></help>
+        <label><!-- Broker Rep --></label>
+        <lookupFilter>
+            <errorMessage><!-- Value does not exist or does not match filter criteria. Field- Broker Rep --></errorMessage>
+        </lookupFilter>
+        <name>Broker_Rep1__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Broker Rep HR HCC ID --></label>
+        <name>Broker_Rep_HR_HCC_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Broker Rep Phone Number --></label>
+        <name>Broker_Rep_Phone_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Broker Rep --></label>
+        <name>Broker_Rep__c</name>
+    </fields>
+    <fields>
+        <label><!-- Broker --></label>
+        <name>Broker__c</name>
+    </fields>
+    <fields>
+        <help><!-- If Broker And Broker Rep field is not present on associated Account Record ,check &quot;Broker Of Record&quot; check box field for applying these values. --></help>
+        <label><!-- Broker of Record --></label>
+        <name>Broker_of_Record__c</name>
+    </fields>
+    <fields>
+        <label><!-- By Pass Archive Contact Validation --></label>
+        <name>By_Pass_Archive_Contact_Validation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bypass Validation Rule --></label>
+        <name>Bypass_Validation_Rule__c</name>
+    </fields>
+    <fields>
+        <label><!-- COBRA --></label>
+        <name>COBRA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calendar or Plan Year --></label>
+        <name>Calendar_or_Plan_Year__c</name>
+        <picklistValues>
+            <masterLabel>Calendar Year</masterLabel>
+            <translation><!-- Calendar Year --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Plan Year</masterLabel>
+            <translation><!-- Plan Year --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Chiropractic --></label>
+        <name>Chiropractic__c</name>
+    </fields>
+    <fields>
+        <label><!-- Classification --></label>
+        <name>Classification__c</name>
+        <picklistValues>
+            <masterLabel>Health Plan Information Request</masterLabel>
+            <translation><!-- Health Plan Information Request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lead / Opportunity Out reach</masterLabel>
+            <translation><!-- Lead / Opportunity Out reach --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RFP Request</masterLabel>
+            <translation><!-- RFP Request --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Open Enrollment --></label>
+        <name>Clearinghouse__c</name>
+    </fields>
+    <fields>
+        <label><!-- Close Date --></label>
+        <name>Close_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Medical Commission --></label>
+        <name>Commission__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter Competitor Details --></help>
+        <label><!-- Competitor --></label>
+        <name>Competitor__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contribution(s) - EE --></label>
+        <name>Contribution_s_EE__c</name>
+    </fields>
+    <fields>
+        <label><!-- Created Date --></label>
+        <name>Created_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select an Opportunity Status --></help>
+        <label><!-- PPO Needed --></label>
+        <name>Current_Status__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quote Review</masterLabel>
+            <translation><!-- Quote Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RFI</masterLabel>
+            <translation><!-- RFI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Underwriting - Mid/Large Group</masterLabel>
+            <translation><!-- Underwriting - Mid/Large Group --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Underwriting Decision</masterLabel>
+            <translation><!-- Underwriting Decision --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- DB Competitor --></label>
+        <name>DB_Competitor__c</name>
+        <picklistValues>
+            <masterLabel>Competitor A</masterLabel>
+            <translation><!-- Competitor A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Competitor B</masterLabel>
+            <translation><!-- Competitor B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Competitor C</masterLabel>
+            <translation><!-- Competitor C --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Date Opportunity Shared --></label>
+        <name>Date_Opportunity_Shared__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days taken to close --></label>
+        <name>Days_taken_to_close__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days until Exp Close --></label>
+        <name>Days_until_Exp_Close__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dental --></label>
+        <name>Dental__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dependent Contribution --></label>
+        <name>Dependent_Contribution__c</name>
+    </fields>
+    <fields>
+        <label><!-- Digital Campaigns --></label>
+        <name>Digital_Campaigns_New__c</name>
+        <picklistValues>
+            <masterLabel>12-Week Stress Less</masterLabel>
+            <translation><!-- 12-Week Stress Less --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12-Week Weight Management</masterLabel>
+            <translation><!-- 12-Week Weight Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4-Week DeStress Your Work</masterLabel>
+            <translation><!-- 4-Week DeStress Your Work --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4-Week Hydration</masterLabel>
+            <translation><!-- 4-Week Hydration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6-Month Weight Management</masterLabel>
+            <translation><!-- 6-Month Weight Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Breast cancer</masterLabel>
+            <translation><!-- Breast cancer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Diabetes prevention</masterLabel>
+            <translation><!-- Diabetes prevention --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dine on Nine–fruits &amp; vegetable series</masterLabel>
+            <translation><!-- Dine on Nine–fruits &amp; vegetable series --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Headache management</masterLabel>
+            <translation><!-- Headache management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Healthy heart</masterLabel>
+            <translation><!-- Healthy heart --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Healthy pregnancy</masterLabel>
+            <translation><!-- Healthy pregnancy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Overcoming healthy lifestyle obstacles</masterLabel>
+            <translation><!-- Overcoming healthy lifestyle obstacles --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sleep</masterLabel>
+            <translation><!-- Sleep --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Smoking cessation</masterLabel>
+            <translation><!-- Smoking cessation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Digital Campaigns --></label>
+        <name>Digital_Campaigns__c</name>
+        <picklistValues>
+            <masterLabel>12-Week Stress Less</masterLabel>
+            <translation><!-- 12-Week Stress Less --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12-Week Weight Management</masterLabel>
+            <translation><!-- 12-Week Weight Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4-Week DeStress Your Work</masterLabel>
+            <translation><!-- 4-Week DeStress Your Work --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4-Week Hydration</masterLabel>
+            <translation><!-- 4-Week Hydration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6-Month Weight Management</masterLabel>
+            <translation><!-- 6-Month Weight Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Breast cancer</masterLabel>
+            <translation><!-- Breast cancer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Diabetes prevention</masterLabel>
+            <translation><!-- Diabetes prevention --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dine on Nine–fruits &amp; vegetable series</masterLabel>
+            <translation><!-- Dine on Nine–fruits &amp; vegetable series --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Headache management</masterLabel>
+            <translation><!-- Headache management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Healthy heart</masterLabel>
+            <translation><!-- Healthy heart --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Healthy pregnancy</masterLabel>
+            <translation><!-- Healthy pregnancy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Overcoming healthy lifestyle obstacles</masterLabel>
+            <translation><!-- Overcoming healthy lifestyle obstacles --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sleep</masterLabel>
+            <translation><!-- Sleep --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Smoking cessation</masterLabel>
+            <translation><!-- Smoking cessation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This field will capture name of employer director with whom sales team will chase opportunity. --></help>
+        <label><!-- Director of Opportunity --></label>
+        <name>Director_of_Opportunity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Early Retirees --></label>
+        <name>Early_Retirees__c</name>
+    </fields>
+    <fields>
+        <label><!-- Effective Date Exception --></label>
+        <name>Effective_Date_Exception__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employer --></label>
+        <name>Employer_RFP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employer Type --></label>
+        <name>Employer_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Error Reason --></label>
+        <name>Error_Reason__c</name>
+    </fields>
+    <fields>
+        <label><!-- First time sale --></label>
+        <name>First_time_sale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Eligible Employees --></label>
+        <name>Full_Time_Employees__c</name>
+    </fields>
+    <fields>
+        <label><!-- GA Commission --></label>
+        <name>GA_Commission__c</name>
+    </fields>
+    <fields>
+        <label><!-- GA Contact --></label>
+        <name>GA_Contact__c</name>
+        <relationshipLabel><!-- Opportunities (GA Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- General Agent Applicable --></label>
+        <name>General_Agent_Applicable__c</name>
+    </fields>
+    <fields>
+        <label><!-- General Agent --></label>
+        <name>General_Agent__c</name>
+        <relationshipLabel><!-- Opportunities (General Agent) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Group Renewal Date --></label>
+        <name>Group_Renewal_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Incumbent Carrier #1 --></label>
+        <name>Incumbent_Carrier_1__c</name>
+        <picklistValues>
+            <masterLabel>AETNA</masterLabel>
+            <translation><!-- AETNA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ANTHEM</masterLabel>
+            <translation><!-- ANTHEM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BLUE SHIELD</masterLabel>
+            <translation><!-- BLUE SHIELD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CAL CHOICE</masterLabel>
+            <translation><!-- CAL CHOICE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CALPERS</masterLabel>
+            <translation><!-- CALPERS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CHINESE COMMUNITY HEALTH PLAN</masterLabel>
+            <translation><!-- CHINESE COMMUNITY HEALTH PLAN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CIGNA</masterLabel>
+            <translation><!-- CIGNA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HEALTH NET</masterLabel>
+            <translation><!-- HEALTH NET --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KAISER</masterLabel>
+            <translation><!-- KAISER --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OTHER</masterLabel>
+            <translation><!-- OTHER --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SELF FUNDED</masterLabel>
+            <translation><!-- SELF FUNDED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UNITED</masterLabel>
+            <translation><!-- UNITED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WHA</masterLabel>
+            <translation><!-- WHA --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Incumbent Carrier #2 --></label>
+        <name>Incumbent_Carrier_2__c</name>
+        <picklistValues>
+            <masterLabel>AETNA</masterLabel>
+            <translation><!-- AETNA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ANTHEM</masterLabel>
+            <translation><!-- ANTHEM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BLUE SHIELD</masterLabel>
+            <translation><!-- BLUE SHIELD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CAL CHOICE</masterLabel>
+            <translation><!-- CAL CHOICE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CALPERS</masterLabel>
+            <translation><!-- CALPERS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CHINESE COMMUNITY HEALTH PLAN</masterLabel>
+            <translation><!-- CHINESE COMMUNITY HEALTH PLAN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CIGNA</masterLabel>
+            <translation><!-- CIGNA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HEALTH NET</masterLabel>
+            <translation><!-- HEALTH NET --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KAISER</masterLabel>
+            <translation><!-- KAISER --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OTHER</masterLabel>
+            <translation><!-- OTHER --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SELF FUNDED</masterLabel>
+            <translation><!-- SELF FUNDED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UNITED</masterLabel>
+            <translation><!-- UNITED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WHA</masterLabel>
+            <translation><!-- WHA --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Incumbent Carrier #3 --></label>
+        <name>Incumbent_Carrier_3__c</name>
+        <picklistValues>
+            <masterLabel>AETNA</masterLabel>
+            <translation><!-- AETNA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ANTHEM</masterLabel>
+            <translation><!-- ANTHEM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BLUE SHIELD</masterLabel>
+            <translation><!-- BLUE SHIELD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CAL CHOICE</masterLabel>
+            <translation><!-- CAL CHOICE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CALPERS</masterLabel>
+            <translation><!-- CALPERS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CHINESE COMMUNITY HEALTH PLAN</masterLabel>
+            <translation><!-- CHINESE COMMUNITY HEALTH PLAN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CIGNA</masterLabel>
+            <translation><!-- CIGNA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HEALTH NET</masterLabel>
+            <translation><!-- HEALTH NET --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KAISER</masterLabel>
+            <translation><!-- KAISER --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OTHER</masterLabel>
+            <translation><!-- OTHER --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SELF FUNDED</masterLabel>
+            <translation><!-- SELF FUNDED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UNITED</masterLabel>
+            <translation><!-- UNITED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WHA</masterLabel>
+            <translation><!-- WHA --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Carrier Partners --></label>
+        <name>Incumbent_Carriers__c</name>
+        <picklistValues>
+            <masterLabel>AETNA</masterLabel>
+            <translation><!-- AETNA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ANTHEM</masterLabel>
+            <translation><!-- ANTHEM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BLUE SHIELD</masterLabel>
+            <translation><!-- BLUE SHIELD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CAL CHOICE</masterLabel>
+            <translation><!-- CAL CHOICE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CALPERS</masterLabel>
+            <translation><!-- CALPERS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CHINESE COMMUNITY HEALTH PLAN</masterLabel>
+            <translation><!-- CHINESE COMMUNITY HEALTH PLAN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CIGNA</masterLabel>
+            <translation><!-- CIGNA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HEALTH NET</masterLabel>
+            <translation><!-- HEALTH NET --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KAISER</masterLabel>
+            <translation><!-- KAISER --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OTHER</masterLabel>
+            <translation><!-- OTHER --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SELF FUNDED</masterLabel>
+            <translation><!-- SELF FUNDED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SHP</masterLabel>
+            <translation><!-- SHP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UNITED Health Care</masterLabel>
+            <translation><!-- UNITED Health Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WHA</masterLabel>
+            <translation><!-- WHA --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Incumbent Renewal Increase --></label>
+        <name>Incumbent_Renewal_Increase__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Child Record Created? --></label>
+        <name>Is_Child_Record_Created__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Modified Date --></label>
+        <name>Last_Modified_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Latest Opportunity --></label>
+        <name>Latest_Opportunity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Marketing and Sales Primary Contact Name --></label>
+        <name>Marketing_and_Sales_Primary_Contact_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Medical Commission Type --></label>
+        <name>Medical_Commission_Type__c</name>
+        <picklistValues>
+            <masterLabel>%</masterLabel>
+            <translation><!-- % --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Flat Amount</masterLabel>
+            <translation><!-- Flat Amount --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PMPM</masterLabel>
+            <translation><!-- PMPM --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- NTE Offered % --></label>
+        <name>NTE_Offered__c</name>
+    </fields>
+    <fields>
+        <help><!-- Shows if an opportunity is new or renewal type --></help>
+        <label><!-- NewOrRenewal --></label>
+        <name>NewOrRenewal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Old Opportunity --></label>
+        <name>Old_Opportunity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Renewal Opportunity Created? --></label>
+        <name>Opp_Renewed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Creator --></label>
+        <name>Opportunity_Creator__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Shared By --></label>
+        <name>Opportunity_Shared_By__c</name>
+        <relationshipLabel><!-- Opportunities (Opportunity Shared By) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Other Competitive Carrier --></label>
+        <name>Other_Competitive_Carrier2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other Competitive Carrier --></label>
+        <name>Other_Competitive_Carrier3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other Competitive Carrier --></label>
+        <name>Other_Competitive_Carrier__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter Comment for Other - Reason Lost --></help>
+        <label><!-- Closed Details --></label>
+        <name>Other_Reason__c</name>
+    </fields>
+    <fields>
+        <label><!-- Out of Area EEs --></label>
+        <name>Out_of_Area_EEs__c</name>
+    </fields>
+    <fields>
+        <label><!-- Out-of-Area --></label>
+        <name>Out_of_Area__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check &quot;OverrideBrokerAndBrokerRep&quot; field , if &quot;Broker&quot; &amp; &quot;Broker Rep&quot; field is changed On Opportunity record and want to apply these changed values on Account record. --></help>
+        <label><!-- OverrideBrokerAndBrokerRep --></label>
+        <name>OverrideBrokerAndBrokerRep__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan Effective Date --></label>
+        <name>Plan_Effective_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan Year --></label>
+        <name>Plan_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan End Date --></label>
+        <name>Plan_end_date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Please specify other --></label>
+        <name>Please_specify_other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Projected Membership --></label>
+        <name>Projected_Membership__c</name>
+    </fields>
+    <fields>
+        <label><!-- Projected Subscribers --></label>
+        <name>Projected_Subscribers__c</name>
+    </fields>
+    <fields>
+        <label><!-- Purchased --></label>
+        <name>Purchased__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote Owner --></label>
+        <name>Quote_Owner__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote Presented Date --></label>
+        <name>Quote_Presented_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quoted PMPM --></label>
+        <name>Quoted_PMPM__c</name>
+    </fields>
+    <fields>
+        <label><!-- RFP Due Date --></label>
+        <name>RFP_Due_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- RFP Received Date --></label>
+        <name>RFP_Received_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- RFP Sent to UW Date --></label>
+        <name>RFP_Sent_to_UW_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rate Tier --></label>
+        <name>Rate_Tier__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select an option --></help>
+        <label><!-- Reason Lost --></label>
+        <name>Reason_Lost__c</name>
+        <picklistValues>
+            <masterLabel>BAD RISK</masterLabel>
+            <translation><!-- BAD RISK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BID CHECK</masterLabel>
+            <translation><!-- BID CHECK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>INCOMPLETE RFP</masterLabel>
+            <translation><!-- INCOMPLETE RFP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>INCUMBENT SECOND LOOK</masterLabel>
+            <translation><!-- INCUMBENT SECOND LOOK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NETWORK</masterLabel>
+            <translation><!-- NETWORK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NO PPO OPTION</masterLabel>
+            <translation><!-- NO PPO OPTION --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NON BOR / BOR LOST</masterLabel>
+            <translation><!-- NON BOR / BOR LOST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NOT COMPETITIVE</masterLabel>
+            <translation><!-- NOT COMPETITIVE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OTHER</masterLabel>
+            <translation><!-- OTHER --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PLAN/PRODUCT CHOICES</masterLabel>
+            <translation><!-- PLAN/PRODUCT CHOICES --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PLAN/PRODUCT CHOICES (NOT PPO)</masterLabel>
+            <translation><!-- PLAN/PRODUCT CHOICES (NOT PPO) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SERVICE</masterLabel>
+            <translation><!-- SERVICE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UW GUIDELINES</masterLabel>
+            <translation><!-- UW GUIDELINES --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UW GUIDELINES CLAIMS</masterLabel>
+            <translation><!-- UW GUIDELINES CLAIMS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UW GUIDELINES PARTICIPATION</masterLabel>
+            <translation><!-- UW GUIDELINES PARTICIPATION --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Select an option --></help>
+        <label><!-- Lost Details --></label>
+        <name>Reason_for_Requote__c</name>
+        <picklistValues>
+            <masterLabel>Accessibility</masterLabel>
+            <translation><!-- Accessibility --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Benefit Plan</masterLabel>
+            <translation><!-- Benefit Plan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Change Requested by Prospect</masterLabel>
+            <translation><!-- Change Requested by Prospect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Service</masterLabel>
+            <translation><!-- Customer Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>High Renewal %</masterLabel>
+            <translation><!-- High Renewal % --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>High Value Claims</masterLabel>
+            <translation><!-- High Value Claims --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kaiser Lowered Rates</masterLabel>
+            <translation><!-- Kaiser Lowered Rates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low Participation</masterLabel>
+            <translation><!-- Low Participation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Medicare</masterLabel>
+            <translation><!-- No Medicare --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No PPO</masterLabel>
+            <translation><!-- No PPO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Lowered Rates</masterLabel>
+            <translation><!-- Other Lowered Rates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Plan Design</masterLabel>
+            <translation><!-- Plan Design --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Price</masterLabel>
+            <translation><!-- Price --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Provider</masterLabel>
+            <translation><!-- Provider --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RFI</masterLabel>
+            <translation><!-- RFI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Too many out of area</masterLabel>
+            <translation><!-- Too many out of area --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WHA Lowered Rates</masterLabel>
+            <translation><!-- WHA Lowered Rates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wait Times</masterLabel>
+            <translation><!-- Wait Times --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Salesforce Id --></label>
+        <name>Record_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Region --></label>
+        <name>Region__c</name>
+    </fields>
+    <fields>
+        <label><!-- Renewed Opportunity? --></label>
+        <name>Renewed_Opportunity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Medicare/Retirees --></label>
+        <name>Retiree__c</name>
+    </fields>
+    <fields>
+        <label><!-- SHMMN Assigned Rep --></label>
+        <name>SHMMN_Assigned_Rep__c</name>
+        <relationshipLabel><!-- Opportunities (SHMMN Assigned Rep) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- SHMMN Go Live Date --></label>
+        <name>SHMMN_Go_Live_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- SHMMN Opportunity --></label>
+        <name>SHMMN_Opportunity__c</name>
+    </fields>
+    <fields>
+        <label><!-- SHP SA Subs minus Valid Waiver --></label>
+        <name>SHP_SA_Subs_minus_Valid_Waiver__c</name>
+    </fields>
+    <fields>
+        <label><!-- SHP vs Renewal --></label>
+        <name>SHP_vs_Renewal2__c</name>
+    </fields>
+    <fields>
+        <label><!-- SHP vs Renewal --></label>
+        <name>SHP_vs_Renewal3__c</name>
+    </fields>
+    <fields>
+        <label><!-- SHP vs Renewal --></label>
+        <name>SHP_vs_Renewal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sales Team --></label>
+        <name>Sales_Team__c</name>
+        <picklistValues>
+            <masterLabel>Amy Schenone</masterLabel>
+            <translation><!-- Amy Schenone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BAY</masterLabel>
+            <translation><!-- BAY --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gary Kaye</masterLabel>
+            <translation><!-- Gary Kaye --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kim McAndrew</masterLabel>
+            <translation><!-- Kim McAndrew --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>M2N</masterLabel>
+            <translation><!-- M2N --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PBJ</masterLabel>
+            <translation><!-- PBJ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RGA</masterLabel>
+            <translation><!-- RGA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SHMMN</masterLabel>
+            <translation><!-- SHMMN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SHP</masterLabel>
+            <translation><!-- SHP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sondra Maas</masterLabel>
+            <translation><!-- Sondra Maas --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TSS</masterLabel>
+            <translation><!-- TSS --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Service Line/Product Promotion --></label>
+        <name>Service_Line_Product_Promotion__c</name>
+        <picklistValues>
+            <masterLabel>Bariatric</masterLabel>
+            <translation><!-- Bariatric --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cardiology</masterLabel>
+            <translation><!-- Cardiology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EAP</masterLabel>
+            <translation><!-- EAP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Elder Care</masterLabel>
+            <translation><!-- Elder Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Executive Health</masterLabel>
+            <translation><!-- Executive Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IHH</masterLabel>
+            <translation><!-- IHH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lung Nodule Clinic</masterLabel>
+            <translation><!-- Lung Nodule Clinic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Men&apos;s Health</masterLabel>
+            <translation><!-- Men&apos;s Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mental Health</masterLabel>
+            <translation><!-- Mental Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Neuroscience</masterLabel>
+            <translation><!-- Neuroscience --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Occupational Medicine</masterLabel>
+            <translation><!-- Occupational Medicine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oncology</masterLabel>
+            <translation><!-- Oncology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Orthopedics</masterLabel>
+            <translation><!-- Orthopedics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SHP (Sutter Health Plus)</masterLabel>
+            <translation><!-- SHP (Sutter Health Plus) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Care at Home</masterLabel>
+            <translation><!-- Sutter Care at Home --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Womens and Children</masterLabel>
+            <translation><!-- Womens and Children --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Shared with SHMMN --></label>
+        <name>Shared_with_SHMMN__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shared with SHP --></label>
+        <name>Shared_with_SHP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Slicing with Carrier Name --></label>
+        <name>Slicing_with_Carrier_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold PMPM --></label>
+        <name>Sold_PMPM__c</name>
+    </fields>
+    <fields>
+        <label><!-- Strategic Broker --></label>
+        <name>Strategic_Broker__c</name>
+    </fields>
+    <fields>
+        <label><!-- Strategic Opportunities --></label>
+        <name>Strategic_Opportunities__c</name>
+        <picklistValues>
+            <masterLabel>Executive Engagement</masterLabel>
+            <translation><!-- Executive Engagement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Experiment A</masterLabel>
+            <translation><!-- Experiment A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Experiment B</masterLabel>
+            <translation><!-- Experiment B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Experiment C</masterLabel>
+            <translation><!-- Experiment C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Experiment D</masterLabel>
+            <translation><!-- Experiment D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mobile Clinic</masterLabel>
+            <translation><!-- Mobile Clinic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On-Site Clinic</masterLabel>
+            <translation><!-- On-Site Clinic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PEP Product</masterLabel>
+            <translation><!-- PEP Product --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PHM Collaboration</masterLabel>
+            <translation><!-- PHM Collaboration --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Total Enrolled --></label>
+        <name>Total_Enrolled__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total SHP SA Subs with Valid Waivers --></label>
+        <name>Total_SHP_SA_Subs_with_Valid_Waivers__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Subs in SHP Service Areas (SA) --></label>
+        <name>Total_Subs_in_SHP_Service_Areas_SA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Underwriting Special Terms and Condition --></label>
+        <name>Underwriting_Discretionary_Discount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vision --></label>
+        <name>Vision__c</name>
+    </fields>
+    <fields>
+        <label><!-- Waived --></label>
+        <name>Waived__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total FTE Employees --></label>
+        <name>of_Employees__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Enrolled --></label>
+        <name>of_Enrolled2__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Enrolled --></label>
+        <name>of_Enrolled3__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Enrolled --></label>
+        <name>of_Enrolled__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Subscribers --></label>
+        <name>of_Subscribers__c</name>
+    </fields>
+    <fields>
+        <label><!-- regenerate? --></label>
+        <name>regenerate__c</name>
+    </fields>
+    <layouts>
+        <layout>SHP Sales Opportunity</layout>
+        <sections>
+            <label><!-- General Agent Details --></label>
+            <section>General Agent Details</section>
+        </sections>
+        <sections>
+            <label><!-- RFP Information --></label>
+            <section>RFP Information</section>
+        </sections>
+        <sections>
+            <label><!-- Underwriting Data --></label>
+            <section>Underwriting Data</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>SHP Sales Opportunity (Strategic Marketing)</layout>
+        <sections>
+            <label><!-- RFP Information --></label>
+            <section>RFP Information</section>
+        </sections>
+        <sections>
+            <label><!-- SHMMN Opportunity --></label>
+            <section>SHMMN Opportunity</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>SHP Sales Opportunity Read Only</layout>
+        <sections>
+            <label><!-- RFP Information --></label>
+            <section>RFP Information</section>
+        </sections>
+        <sections>
+            <label><!-- Underwriting Data --></label>
+            <section>Underwriting Data</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Stategic Marketing Opportunity</layout>
+        <sections>
+            <label><!-- RFP Information --></label>
+            <section>RFP Information</section>
+        </sections>
+        <sections>
+            <label><!-- SHMMN Carrier Partners --></label>
+            <section>SHMMN Carrier Partners</section>
+        </sections>
+        <sections>
+            <label><!-- SHMMN Information --></label>
+            <section>SHMMN Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Strategic Marketing Opportunity Read Only</layout>
+        <sections>
+            <label><!-- RFP Information --></label>
+            <section>RFP Information</section>
+        </sections>
+        <sections>
+            <label><!-- SHMMN Carrier Partners --></label>
+            <section>SHMMN Carrier Partners</section>
+        </sections>
+        <sections>
+            <label><!-- SHMMN Information --></label>
+            <section>SHMMN Information</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- SHMMN Opportunity --></label>
+        <name>SHMMN_Marketing_Employer</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- SHMMN Opportunity Read Only --></label>
+        <name>SHMMN_Opportunity_Read_Only</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- SHP Sales Opportunity --></label>
+        <name>SHP_Sales_Opportunity</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- SHP Sales Opportunity Read Only --></label>
+        <name>SHP_Sales_Opportunity_RO</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- Broker of Record cannot be selected without having Broker and Broker Rep. --></errorMessage>
+        <name>Broker_Of_Record_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please select the Classification for SHP Service line --></errorMessage>
+        <name>Classification_as_Mandatory_for_Service</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Close Date is required when Opportunity Stage is Closed Won/Closed Lost. --></errorMessage>
+        <name>Close_Date_is_required_on_Oppty_Won_Lost</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- General agent details can&apos;t be blank if &quot;General Agent Applicable&quot; is checked --></errorMessage>
+        <name>Enable_General_Agent_Section</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please do not select Archived Contact --></errorMessage>
+        <name>Filter_to_not_select_Archived_Contacts</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Account Status is Removed. You cannot create opportunity on Removed Account. Select another account. --></errorMessage>
+        <name>No_opportunity_on_Removed_Account</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Other Competetive Carrier field should be populated. --></errorMessage>
+        <name>Other_Competitive_Carrier</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Other Competetive Carrier field should be Blank if Incumbent Field is not Other --></errorMessage>
+        <name>Other_Competitive_Carrier_blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Closed Details can not be blank if Other is selected in Reason Lost. --></errorMessage>
+        <name>Other_Reason_Lost_Opp</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Broker Account Cannot be same as Parent Account. --></errorMessage>
+        <name>ParentAccCannotbeSameofBroker</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please specify other. --></errorMessage>
+        <name>Please_Specify_Other</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Reason for Requote is required when the Current Status is set to Requote --></errorMessage>
+        <name>Reas_For_Requote_Req_If_Status_is_Requot</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Reason Lost must be populated when Stage is set to Closed Lost --></errorMessage>
+        <name>Reason_Lost_Req_If_Stage_is_Closed_Lost</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Must fill in &apos;Closed Details&apos; when Reason Lost is selected as &apos;Other&apos; or Stage is equals to Closed Duplicate or Closed Lost --></errorMessage>
+        <name>Require_Comments_for_Reason_Lost</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Closed Details field must be left blank if Reason Lost is not equal to Other --></errorMessage>
+        <name>Restrict_Other_Reason_unless_Other_selec</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You are not allowed to change Record Id field. --></errorMessage>
+        <name>Restrict_Record_Id_Update</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- SHMMN Management Team can only modify the SHMMN Assigned Rep Field. --></errorMessage>
+        <name>SHMMN_Manager_can_modify_Assigned_Rep</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot update shared opportunity without accepting it. --></errorMessage>
+        <name>SHMMN_shared_opportunity_cannot_be_edit</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot update SHP Sales Opportunity details. --></errorMessage>
+        <name>Strategic_Marketing_cannot_edit_SHP_Opp</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Accept --></label>
+        <name>Accept</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Edit --></label>
+        <name>Edit</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Opportunity --></label>
+        <name>New_Opportunity</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Regenerate_Documents --></label>
+        <name>Regenerate_Documents</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Share_with_SHMMN --></label>
+        <name>Share_with_SHMMN</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Share_with_SHP --></label>
+        <name>Share_with_SHP</name>
+    </webLinks>
+</CustomObjectTranslation>

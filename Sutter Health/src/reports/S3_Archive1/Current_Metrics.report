@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>S3_Ops__c.Active__c</field>
+    </columns>
+    <columns>
+        <field>S3_Ops__c.Ops_Issue__c</field>
+    </columns>
+    <columns>
+        <field>S3_Ops__c.Currently_Reporting__c</field>
+    </columns>
+    <columns>
+        <field>S3_Ops__c.Metric_Statement__c</field>
+    </columns>
+    <columns>
+        <field>S3_Deployment__c.Entity__c</field>
+    </columns>
+    <description>Count of Current Metrics</description>
+    <filter>
+        <criteriaItems>
+            <column>S3_Ops__c.Active__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>S3_Ops__c.Function__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Current Metrics</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntityCustomEntity$S3_Ops__c$S3_Deployment__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>S3_Ops__c.First_Reported_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

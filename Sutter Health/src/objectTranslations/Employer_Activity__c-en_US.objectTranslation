@@ -1,0 +1,1543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Employer Activity</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Employer Activities</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account Name --></label>
+        <name>Account_Name__c</name>
+        <relationshipLabel><!-- Historical Read-Only Employer Activities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Activities --></label>
+        <name>Activities__c</name>
+        <picklistValues>
+            <masterLabel>12-Week Stress Less</masterLabel>
+            <translation><!-- 12-Week Stress Less --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12-Week Weight Management</masterLabel>
+            <translation><!-- 12-Week Weight Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4-Week DeStress Your Work</masterLabel>
+            <translation><!-- 4-Week DeStress Your Work --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4-Week Hydration</masterLabel>
+            <translation><!-- 4-Week Hydration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6-Month Weight Management</masterLabel>
+            <translation><!-- 6-Month Weight Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Biometrics Full</masterLabel>
+            <translation><!-- Biometrics Full --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Biometrics Full + Flu Shots/Vaccinations</masterLabel>
+            <translation><!-- Biometrics Full + Flu Shots/Vaccinations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Biometrics Light</masterLabel>
+            <translation><!-- Biometrics Light --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Biometrics Light + Flu Shots/Vaccinations</masterLabel>
+            <translation><!-- Biometrics Light + Flu Shots/Vaccinations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Breast cancer</masterLabel>
+            <translation><!-- Breast cancer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Broker</masterLabel>
+            <translation><!-- Broker --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coaching</masterLabel>
+            <translation><!-- Coaching --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Diabetes prevention</masterLabel>
+            <translation><!-- Diabetes prevention --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dine on Nine – fruits and vegetable series</masterLabel>
+            <translation><!-- Dine on Nine – fruits and vegetable series --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Drawings</masterLabel>
+            <translation><!-- Drawings --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fitness Challenges</masterLabel>
+            <translation><!-- Fitness Challenges --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Flu Shots/Vaccinations</masterLabel>
+            <translation><!-- Flu Shots/Vaccinations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HRAs</masterLabel>
+            <translation><!-- HRAs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Headache management</masterLabel>
+            <translation><!-- Headache management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health &amp;Wellness Fairs</masterLabel>
+            <translation><!-- Health &amp;Wellness Fairs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Healthy heart</masterLabel>
+            <translation><!-- Healthy heart --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Healthy pregnancy</masterLabel>
+            <translation><!-- Healthy pregnancy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Livestream Webinar</masterLabel>
+            <translation><!-- Livestream Webinar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lunch &amp; Learns</masterLabel>
+            <translation><!-- Lunch &amp; Learns --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Overcoming healthy lifestyle obstacles</masterLabel>
+            <translation><!-- Overcoming healthy lifestyle obstacles --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sleep</masterLabel>
+            <translation><!-- Sleep --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Smoking cessation</masterLabel>
+            <translation><!-- Smoking cessation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tobacco cessation</masterLabel>
+            <translation><!-- Tobacco cessation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weight Loss Challenges</masterLabel>
+            <translation><!-- Weight Loss Challenges --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wellness Surveys</masterLabel>
+            <translation><!-- Wellness Surveys --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Activity Type --></label>
+        <name>Activity_Type__c</name>
+        <picklistValues>
+            <masterLabel>Activity</masterLabel>
+            <translation><!-- Activity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Digital Campaigns</masterLabel>
+            <translation><!-- Digital Campaigns --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open Enrollment</masterLabel>
+            <translation><!-- Open Enrollment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wellness Screenings</masterLabel>
+            <translation><!-- Wellness Screenings --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Agreement End Date --></label>
+        <name>Agreement_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Assigned To User --></label>
+        <name>Assigned_To_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Assigned To --></label>
+        <name>Assigned_To__c</name>
+        <relationshipLabel><!-- Employer Activities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- BMI --></label>
+        <name>BMI__c</name>
+    </fields>
+    <fields>
+        <label><!-- Blood Pressure --></label>
+        <name>Blood_Pressure__c</name>
+    </fields>
+    <fields>
+        <label><!-- Body Fat % --></label>
+        <name>Body_Fat__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cholesterol Sub Types --></label>
+        <name>Cholesterol_Sub_Types__c</name>
+        <picklistValues>
+            <masterLabel>HDL</masterLabel>
+            <translation><!-- HDL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LDL</masterLabel>
+            <translation><!-- LDL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lipid Panel</masterLabel>
+            <translation><!-- Lipid Panel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TC</masterLabel>
+            <translation><!-- TC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Triglycerides</masterLabel>
+            <translation><!-- Triglycerides --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Cholesterol --></label>
+        <name>Cholesterol__c</name>
+        <picklistValues>
+            <masterLabel>Fasting</masterLabel>
+            <translation><!-- Fasting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-Fasting</masterLabel>
+            <translation><!-- Non-Fasting --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- City --></label>
+        <name>City__c</name>
+        <picklistValues>
+            <masterLabel>Alameda</masterLabel>
+            <translation><!-- Alameda --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Albany</masterLabel>
+            <translation><!-- Albany --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amador</masterLabel>
+            <translation><!-- Amador --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>American Canyon</masterLabel>
+            <translation><!-- American Canyon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Antelope</masterLabel>
+            <translation><!-- Antelope --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Antioch</masterLabel>
+            <translation><!-- Antioch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Arbuckle</masterLabel>
+            <translation><!-- Arbuckle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Atherton</masterLabel>
+            <translation><!-- Atherton --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Atwater</masterLabel>
+            <translation><!-- Atwater --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Auburn</masterLabel>
+            <translation><!-- Auburn --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Belmont</masterLabel>
+            <translation><!-- Belmont --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Belvedere</masterLabel>
+            <translation><!-- Belvedere --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Benicia</masterLabel>
+            <translation><!-- Benicia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Berkeley</masterLabel>
+            <translation><!-- Berkeley --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Brentwood</masterLabel>
+            <translation><!-- Brentwood --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Brisbane</masterLabel>
+            <translation><!-- Brisbane --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Burlingame</masterLabel>
+            <translation><!-- Burlingame --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Calistoga</masterLabel>
+            <translation><!-- Calistoga --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cameron Park</masterLabel>
+            <translation><!-- Cameron Park --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Campbell</masterLabel>
+            <translation><!-- Campbell --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Capitola</masterLabel>
+            <translation><!-- Capitola --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Carmichael</masterLabel>
+            <translation><!-- Carmichael --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Castro Valley</masterLabel>
+            <translation><!-- Castro Valley --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ceres</masterLabel>
+            <translation><!-- Ceres --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Citrus Heights</masterLabel>
+            <translation><!-- Citrus Heights --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clayton</masterLabel>
+            <translation><!-- Clayton --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clearlake</masterLabel>
+            <translation><!-- Clearlake --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cloverdale</masterLabel>
+            <translation><!-- Cloverdale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Colfax</masterLabel>
+            <translation><!-- Colfax --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Colma</masterLabel>
+            <translation><!-- Colma --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Concord</masterLabel>
+            <translation><!-- Concord --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corte Madera</masterLabel>
+            <translation><!-- Corte Madera --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cotati</masterLabel>
+            <translation><!-- Cotati --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cupertino</masterLabel>
+            <translation><!-- Cupertino --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Daly City</masterLabel>
+            <translation><!-- Daly City --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Danville</masterLabel>
+            <translation><!-- Danville --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Davis</masterLabel>
+            <translation><!-- Davis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dixon</masterLabel>
+            <translation><!-- Dixon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dos Palos</masterLabel>
+            <translation><!-- Dos Palos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dublin</masterLabel>
+            <translation><!-- Dublin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>East Palo Alto</masterLabel>
+            <translation><!-- East Palo Alto --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>El Cerrito</masterLabel>
+            <translation><!-- El Cerrito --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>El Sobrante</masterLabel>
+            <translation><!-- El Sobrante --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Elk Grove</masterLabel>
+            <translation><!-- Elk Grove --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Emeryville</masterLabel>
+            <translation><!-- Emeryville --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Empire</masterLabel>
+            <translation><!-- Empire --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Escalon</masterLabel>
+            <translation><!-- Escalon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fairfax</masterLabel>
+            <translation><!-- Fairfax --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fairfield</masterLabel>
+            <translation><!-- Fairfield --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Folsom</masterLabel>
+            <translation><!-- Folsom --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Foster City</masterLabel>
+            <translation><!-- Foster City --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fremont</masterLabel>
+            <translation><!-- Fremont --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Galt</masterLabel>
+            <translation><!-- Galt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gilroy</masterLabel>
+            <translation><!-- Gilroy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Grass Valley</masterLabel>
+            <translation><!-- Grass Valley --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greenfield</masterLabel>
+            <translation><!-- Greenfield --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gustine</masterLabel>
+            <translation><!-- Gustine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Half Moon Bay</masterLabel>
+            <translation><!-- Half Moon Bay --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hayward</masterLabel>
+            <translation><!-- Hayward --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Healdsburg</masterLabel>
+            <translation><!-- Healdsburg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hercules</masterLabel>
+            <translation><!-- Hercules --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hillsborough</masterLabel>
+            <translation><!-- Hillsborough --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hilmar</masterLabel>
+            <translation><!-- Hilmar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hughson</masterLabel>
+            <translation><!-- Hughson --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ione</masterLabel>
+            <translation><!-- Ione --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Isleton</masterLabel>
+            <translation><!-- Isleton --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jackson</masterLabel>
+            <translation><!-- Jackson --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Keyes</masterLabel>
+            <translation><!-- Keyes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>King City</masterLabel>
+            <translation><!-- King City --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lafayette</masterLabel>
+            <translation><!-- Lafayette --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lakeport</masterLabel>
+            <translation><!-- Lakeport --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Larkspur</masterLabel>
+            <translation><!-- Larkspur --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lathrop</masterLabel>
+            <translation><!-- Lathrop --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lincoln</masterLabel>
+            <translation><!-- Lincoln --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Linden</masterLabel>
+            <translation><!-- Linden --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Live Oak</masterLabel>
+            <translation><!-- Live Oak --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Livermore</masterLabel>
+            <translation><!-- Livermore --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Livingston</masterLabel>
+            <translation><!-- Livingston --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lodi</masterLabel>
+            <translation><!-- Lodi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loomis</masterLabel>
+            <translation><!-- Loomis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Los Altos</masterLabel>
+            <translation><!-- Los Altos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Los Altos Hills</masterLabel>
+            <translation><!-- Los Altos Hills --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Los Banos</masterLabel>
+            <translation><!-- Los Banos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Los Gatos</masterLabel>
+            <translation><!-- Los Gatos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manteca</masterLabel>
+            <translation><!-- Manteca --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Martinez</masterLabel>
+            <translation><!-- Martinez --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marysville</masterLabel>
+            <translation><!-- Marysville --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Menlo Park</masterLabel>
+            <translation><!-- Menlo Park --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Merced</masterLabel>
+            <translation><!-- Merced --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mill Valley</masterLabel>
+            <translation><!-- Mill Valley --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Millbrae</masterLabel>
+            <translation><!-- Millbrae --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Milpitas</masterLabel>
+            <translation><!-- Milpitas --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Modesto</masterLabel>
+            <translation><!-- Modesto --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monte Sereno</masterLabel>
+            <translation><!-- Monte Sereno --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monterey</masterLabel>
+            <translation><!-- Monterey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Moraga</masterLabel>
+            <translation><!-- Moraga --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Morgan Hill</masterLabel>
+            <translation><!-- Morgan Hill --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mountain View</masterLabel>
+            <translation><!-- Mountain View --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Napa</masterLabel>
+            <translation><!-- Napa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nevada City</masterLabel>
+            <translation><!-- Nevada City --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Newark</masterLabel>
+            <translation><!-- Newark --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Newman</masterLabel>
+            <translation><!-- Newman --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nicasio</masterLabel>
+            <translation><!-- Nicasio --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Novato</masterLabel>
+            <translation><!-- Novato --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oakdale</masterLabel>
+            <translation><!-- Oakdale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oakland</masterLabel>
+            <translation><!-- Oakland --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oakley</masterLabel>
+            <translation><!-- Oakley --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Orinda</masterLabel>
+            <translation><!-- Orinda --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pacifica</masterLabel>
+            <translation><!-- Pacifica --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Palo Alto</masterLabel>
+            <translation><!-- Palo Alto --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patterson</masterLabel>
+            <translation><!-- Patterson --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petaluma</masterLabel>
+            <translation><!-- Petaluma --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Piedmont</masterLabel>
+            <translation><!-- Piedmont --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pinole</masterLabel>
+            <translation><!-- Pinole --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pittsburg</masterLabel>
+            <translation><!-- Pittsburg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Placerville</masterLabel>
+            <translation><!-- Placerville --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pleasant Hill</masterLabel>
+            <translation><!-- Pleasant Hill --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pleasanton</masterLabel>
+            <translation><!-- Pleasanton --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Plymouth</masterLabel>
+            <translation><!-- Plymouth --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pollock Pines</masterLabel>
+            <translation><!-- Pollock Pines --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Portola Valley</masterLabel>
+            <translation><!-- Portola Valley --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rancho Cordova</masterLabel>
+            <translation><!-- Rancho Cordova --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Redwood City</masterLabel>
+            <translation><!-- Redwood City --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Richmond</masterLabel>
+            <translation><!-- Richmond --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rio Vista</masterLabel>
+            <translation><!-- Rio Vista --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ripon</masterLabel>
+            <translation><!-- Ripon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Riverbank</masterLabel>
+            <translation><!-- Riverbank --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rocklin</masterLabel>
+            <translation><!-- Rocklin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rohnert Park</masterLabel>
+            <translation><!-- Rohnert Park --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Roseville</masterLabel>
+            <translation><!-- Roseville --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ross</masterLabel>
+            <translation><!-- Ross --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sacramento</masterLabel>
+            <translation><!-- Sacramento --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Salida</masterLabel>
+            <translation><!-- Salida --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Salinas</masterLabel>
+            <translation><!-- Salinas --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Anselmo</masterLabel>
+            <translation><!-- San Anselmo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Bruno</masterLabel>
+            <translation><!-- San Bruno --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Carlos</masterLabel>
+            <translation><!-- San Carlos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Francisco</masterLabel>
+            <translation><!-- San Francisco --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Jose</masterLabel>
+            <translation><!-- San Jose --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Leandro</masterLabel>
+            <translation><!-- San Leandro --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Mateo</masterLabel>
+            <translation><!-- San Mateo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Pablo</masterLabel>
+            <translation><!-- San Pablo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Quentin</masterLabel>
+            <translation><!-- San Quentin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Rafael</masterLabel>
+            <translation><!-- San Rafael --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Ramon</masterLabel>
+            <translation><!-- San Ramon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Santa Clara</masterLabel>
+            <translation><!-- Santa Clara --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Santa Cruz</masterLabel>
+            <translation><!-- Santa Cruz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Santa Rosa</masterLabel>
+            <translation><!-- Santa Rosa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saratoga</masterLabel>
+            <translation><!-- Saratoga --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sausalito</masterLabel>
+            <translation><!-- Sausalito --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scotts Valley</masterLabel>
+            <translation><!-- Scotts Valley --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sebastopol</masterLabel>
+            <translation><!-- Sebastopol --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sonoma</masterLabel>
+            <translation><!-- Sonoma --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>South Lake Tahoe</masterLabel>
+            <translation><!-- South Lake Tahoe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>South San Francisco</masterLabel>
+            <translation><!-- South San Francisco --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>St Helena</masterLabel>
+            <translation><!-- St Helena --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stockton</masterLabel>
+            <translation><!-- Stockton --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suisun City</masterLabel>
+            <translation><!-- Suisun City --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sunnyvale</masterLabel>
+            <translation><!-- Sunnyvale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Creek</masterLabel>
+            <translation><!-- Sutter Creek --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tiburon</masterLabel>
+            <translation><!-- Tiburon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tracy</masterLabel>
+            <translation><!-- Tracy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Truckee</masterLabel>
+            <translation><!-- Truckee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Turlock</masterLabel>
+            <translation><!-- Turlock --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Union City</masterLabel>
+            <translation><!-- Union City --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vacaville</masterLabel>
+            <translation><!-- Vacaville --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vallejo</masterLabel>
+            <translation><!-- Vallejo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Valley Springs</masterLabel>
+            <translation><!-- Valley Springs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Walnut Creek</masterLabel>
+            <translation><!-- Walnut Creek --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waterford</masterLabel>
+            <translation><!-- Waterford --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Watsonville</masterLabel>
+            <translation><!-- Watsonville --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>West Sacramento</masterLabel>
+            <translation><!-- West Sacramento --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wheatland</masterLabel>
+            <translation><!-- Wheatland --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Windsor</masterLabel>
+            <translation><!-- Windsor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Winters</masterLabel>
+            <translation><!-- Winters --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Woodland</masterLabel>
+            <translation><!-- Woodland --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Woodside</masterLabel>
+            <translation><!-- Woodside --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yountville</masterLabel>
+            <translation><!-- Yountville --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yuba City</masterLabel>
+            <translation><!-- Yuba City --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Client Cost --></label>
+        <name>Client_Cost__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Completed Date --></label>
+        <name>Completed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- County --></label>
+        <name>County__c</name>
+        <picklistValues>
+            <masterLabel>Alameda County</masterLabel>
+            <translation><!-- Alameda County --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amador County</masterLabel>
+            <translation><!-- Amador County --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Calavares County</masterLabel>
+            <translation><!-- Calavares County --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Colusa County</masterLabel>
+            <translation><!-- Colusa County --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contra Costa County</masterLabel>
+            <translation><!-- Contra Costa County --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>El Dorado County</masterLabel>
+            <translation><!-- El Dorado County --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lake County</masterLabel>
+            <translation><!-- Lake County --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marin County</masterLabel>
+            <translation><!-- Marin County --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Merced County</masterLabel>
+            <translation><!-- Merced County --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monterey County</masterLabel>
+            <translation><!-- Monterey County --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Napa County</masterLabel>
+            <translation><!-- Napa County --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nevada County</masterLabel>
+            <translation><!-- Nevada County --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Placer County</masterLabel>
+            <translation><!-- Placer County --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sacramento County</masterLabel>
+            <translation><!-- Sacramento County --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Francisco County</masterLabel>
+            <translation><!-- San Francisco County --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Joaquin County</masterLabel>
+            <translation><!-- San Joaquin County --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Mateo County</masterLabel>
+            <translation><!-- San Mateo County --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Santa Clara County</masterLabel>
+            <translation><!-- Santa Clara County --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Santa Cruz County</masterLabel>
+            <translation><!-- Santa Cruz County --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Solano County</masterLabel>
+            <translation><!-- Solano County --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sonoma County</masterLabel>
+            <translation><!-- Sonoma County --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stanislaus County</masterLabel>
+            <translation><!-- Stanislaus County --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter County</masterLabel>
+            <translation><!-- Sutter County --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yolo County</masterLabel>
+            <translation><!-- Yolo County --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yuba County</masterLabel>
+            <translation><!-- Yuba County --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Date Sold --></label>
+        <name>Date_Sold__c</name>
+    </fields>
+    <fields>
+        <label><!-- Due Date --></label>
+        <name>Due_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Renewal Date --></label>
+        <name>First_Renewal_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Flu # Completed --></label>
+        <name>Flu_completed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Follow-up Meeting Details For Renewal --></label>
+        <name>Follow_up_Meeting_Details_For_Renewal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Follow-up with Broker For Renewal --></label>
+        <name>Follow_up_with_Broker_For_Renewal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Glucose --></label>
+        <name>Glucose__c</name>
+        <picklistValues>
+            <masterLabel>Fasting</masterLabel>
+            <translation><!-- Fasting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-Fasting</masterLabel>
+            <translation><!-- Non-Fasting --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Height/Weight --></label>
+        <name>Height_Weight__c</name>
+    </fields>
+    <fields>
+        <label><!-- No. of Employees --></label>
+        <name>No_of_Employees__c</name>
+    </fields>
+    <fields>
+        <label><!-- No. Of Participants --></label>
+        <name>No_of_prticipants__c</name>
+    </fields>
+    <fields>
+        <label><!-- Participation Interest --></label>
+        <name>Participation_Interest__c</name>
+        <picklistValues>
+            <masterLabel>Fitness Activity</masterLabel>
+            <translation><!-- Fitness Activity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Healthy Eating</masterLabel>
+            <translation><!-- Healthy Eating --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Take the Stairs</masterLabel>
+            <translation><!-- Take the Stairs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tobacco cessation</masterLabel>
+            <translation><!-- Tobacco cessation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Walking Program</masterLabel>
+            <translation><!-- Walking Program --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weight Loss Challenge</masterLabel>
+            <translation><!-- Weight Loss Challenge --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Effective Date --></label>
+        <name>Plan_Effective_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Please Specify Other --></label>
+        <name>Please_Specify_Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Points Detail --></label>
+        <name>Points_Detail__c</name>
+    </fields>
+    <fields>
+        <label><!-- Priority --></label>
+        <name>Priority__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Normal</masterLabel>
+            <translation><!-- Normal --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Topic --></label>
+        <name>Program_Detail__c</name>
+    </fields>
+    <fields>
+        <label><!-- Program End Date --></label>
+        <name>Program_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Send Employer Survey --></label>
+        <name>Send_Employer_Survey__c</name>
+    </fields>
+    <fields>
+        <label><!-- Send Reminder on Upcoming Renewals --></label>
+        <name>Send_Reminder_on_Upcoming_renewals__c</name>
+    </fields>
+    <fields>
+        <label><!-- Send Welcome Kit --></label>
+        <name>Send_Welcome_Kit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Line/Product Promotion --></label>
+        <name>Service_Line_Product_Promotion__c</name>
+        <picklistValues>
+            <masterLabel>Bariatric</masterLabel>
+            <translation><!-- Bariatric --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cardiology</masterLabel>
+            <translation><!-- Cardiology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EAP</masterLabel>
+            <translation><!-- EAP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Elder Care</masterLabel>
+            <translation><!-- Elder Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Executive Health</masterLabel>
+            <translation><!-- Executive Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IHH</masterLabel>
+            <translation><!-- IHH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lung Nodule Clinic</masterLabel>
+            <translation><!-- Lung Nodule Clinic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Men&apos;s Health</masterLabel>
+            <translation><!-- Men&apos;s Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mental Health</masterLabel>
+            <translation><!-- Mental Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Neuroscience</masterLabel>
+            <translation><!-- Neuroscience --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Occupational Medicine</masterLabel>
+            <translation><!-- Occupational Medicine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oncology</masterLabel>
+            <translation><!-- Oncology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Orthopedics</masterLabel>
+            <translation><!-- Orthopedics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SHP (Sutter Health Plus)</masterLabel>
+            <translation><!-- SHP (Sutter Health Plus) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Care at Home</masterLabel>
+            <translation><!-- Sutter Care at Home --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Womens and Children</masterLabel>
+            <translation><!-- Womens and Children --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Start Date --></label>
+        <name>Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deferred</masterLabel>
+            <translation><!-- Deferred --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Started</masterLabel>
+            <translation><!-- Not Started --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Hold</masterLabel>
+            <translation><!-- On Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting on someone else</masterLabel>
+            <translation><!-- Waiting on someone else --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sub Activities --></label>
+        <name>Sub_Activities__c</name>
+        <picklistValues>
+            <masterLabel>Allergies</masterLabel>
+            <translation><!-- Allergies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BMI/BF</masterLabel>
+            <translation><!-- BMI/BF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Back</masterLabel>
+            <translation><!-- Back --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Blood Pressure</masterLabel>
+            <translation><!-- Blood Pressure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Body Fat</masterLabel>
+            <translation><!-- Body Fat --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cholesterol</masterLabel>
+            <translation><!-- Cholesterol --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Diabetes</masterLabel>
+            <translation><!-- Diabetes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ethnic health</masterLabel>
+            <translation><!-- Ethnic health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Glucose</masterLabel>
+            <translation><!-- Glucose --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HDL</masterLabel>
+            <translation><!-- HDL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Fair</masterLabel>
+            <translation><!-- Health Fair --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Healthy living</masterLabel>
+            <translation><!-- Healthy living --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Heart</masterLabel>
+            <translation><!-- Heart --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Height/weight</masterLabel>
+            <translation><!-- Height/weight --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hydration</masterLabel>
+            <translation><!-- Hydration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LDL</masterLabel>
+            <translation><!-- LDL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mental health</masterLabel>
+            <translation><!-- Mental health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Men’s health</masterLabel>
+            <translation><!-- Men’s health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nutrition</masterLabel>
+            <translation><!-- Nutrition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open Enrollment</masterLabel>
+            <translation><!-- Open Enrollment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pediatrics</masterLabel>
+            <translation><!-- Pediatrics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Safety</masterLabel>
+            <translation><!-- Safety --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Screenings</masterLabel>
+            <translation><!-- Screenings --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sleep</masterLabel>
+            <translation><!-- Sleep --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stress</masterLabel>
+            <translation><!-- Stress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Total Cholesterol</masterLabel>
+            <translation><!-- Total Cholesterol --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trig</masterLabel>
+            <translation><!-- Trig --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waist Circumference</masterLabel>
+            <translation><!-- Waist Circumference --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weight</masterLabel>
+            <translation><!-- Weight --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Women’s health</masterLabel>
+            <translation><!-- Women’s health --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- TB # Completed --></label>
+        <name>TB_completed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vendor Cost --></label>
+        <name>Vendor_Cost__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vendor --></label>
+        <name>Vendor__c</name>
+        <picklistValues>
+            <masterLabel>Clinical Health Appraisals</masterLabel>
+            <translation><!-- Clinical Health Appraisals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maxim Health Systems</masterLabel>
+            <translation><!-- Maxim Health Systems --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Affiliate Staff</masterLabel>
+            <translation><!-- Sutter Affiliate Staff --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Care at Home</masterLabel>
+            <translation><!-- Sutter Care at Home --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Waist Circumference --></label>
+        <name>Waist_Circumference__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Screenings Completed --></label>
+        <name>of_Screenings_Completed__c</name>
+    </fields>
+    <layouts>
+        <layout>Annual Action Plan Layout</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Annual Action Plan Information --></label>
+            <section>Annual Action Plan Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Employer Activity Information --></label>
+            <section>Employer Activity Information</section>
+        </sections>
+        <sections>
+            <label><!-- Employer Activity Type --></label>
+            <section>Employer Activity Type</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Health &amp; Wellness Committee Layout</layout>
+        <sections>
+            <label><!-- Activity Information --></label>
+            <section>Activity Information</section>
+        </sections>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Employer Activity Information --></label>
+            <section>Employer Activity Information</section>
+        </sections>
+        <sections>
+            <label><!-- Employer Activity Type --></label>
+            <section>Employer Activity Type</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Signed Agreement Activity Layout</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Employer Activity Information --></label>
+            <section>Employer Activity Information</section>
+        </sections>
+        <sections>
+            <label><!-- Employer Activity Type --></label>
+            <section>Employer Activity Type</section>
+        </sections>
+        <sections>
+            <label><!-- Signed Agreement Information --></label>
+            <section>Signed Agreement Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Annual Action Plan --></label>
+        <name>Annual_Action_Plan</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- General Employer Activity --></label>
+        <name>Health_and_Wellness_Committee_Participation</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Signed Agreement --></label>
+        <name>Signed_Agreement_Activities</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please specify sub activity when Other is selected. --></errorMessage>
+        <name>Other_Sub_Activities_is_Required</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Claim Header</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Claim Headers</value>
+    </caseValues>
+    <fields>
+        <label><!-- ClaimMemberIdField --></label>
+        <name>ClaimMemberIdField__c</name>
+    </fields>
+    <fields>
+        <label><!-- Claim Amount Allowed --></label>
+        <name>Claim_Amount_Allowed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Claim Amount Billed --></label>
+        <name>Claim_Amount_Billed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Claim Amount Copay --></label>
+        <name>Claim_Amount_Copay__c</name>
+    </fields>
+    <fields>
+        <label><!-- Claim Amount Deductible --></label>
+        <name>Claim_Amount_Deductible__c</name>
+    </fields>
+    <fields>
+        <label><!-- Claim Amount Paid --></label>
+        <name>Claim_Amount_Paid__c</name>
+    </fields>
+    <fields>
+        <label><!-- Claim Amount Patient Responsibility --></label>
+        <name>Claim_Amount_Patient_Responsibility__c</name>
+    </fields>
+    <fields>
+        <label><!-- Claim IsOutOfArea Flag --></label>
+        <name>Claim_IsOutOfArea_Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- Claim Status --></label>
+        <name>Claim_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Practitioner First Name --></label>
+        <name>Practitioner_First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Practitioner HCC ID --></label>
+        <name>Practitioner_HCC_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Practitioner Last Name --></label>
+        <name>Practitioner_Last_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Practitioner Middle Name --></label>
+        <name>Practitioner_Middle_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Practitioner Name --></label>
+        <name>Practitioner_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Claim Date of Receipt --></label>
+        <name>SHPClaimHdr_Claim_Date_of_Receipt__c</name>
+    </fields>
+    <fields>
+        <label><!-- Claim End Date --></label>
+        <name>SHPClaimHdr_Claim_DoS_End__c</name>
+    </fields>
+    <fields>
+        <label><!-- Claim Start Date --></label>
+        <name>SHPClaimHdr_Claim_DoS_Start__c</name>
+    </fields>
+    <fields>
+        <label><!-- Claim HCC ID --></label>
+        <name>SHPClaimHdr_Claim_HCC_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Claim HR ID --></label>
+        <name>SHPClaimHdr_Claim_HR_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Claim Diagnosis Code Description --></label>
+        <name>SHPClaimHdr_Diagnosis_Code_Description_E__c</name>
+    </fields>
+    <fields>
+        <label><!-- Claim Diagnosis Code --></label>
+        <name>SHPClaimHdr_Diagnosis_Code_E__c</name>
+    </fields>
+    <fields>
+        <label><!-- Claim Diagnosis Code HR ID --></label>
+        <name>SHPClaimHdr_Diagnosis_Code_HR_ID_E__c</name>
+    </fields>
+    <fields>
+        <help><!-- HealthEdge Claim ID --></help>
+        <label><!-- Claim External ID --></label>
+        <name>SHPClaimHdr_External_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Claim Member HCC ID --></label>
+        <name>SHPClaimHdr_Member_HCC_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Claim Member HR ID --></label>
+        <name>SHPClaimHdr_Member_HR_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Claim Member ID --></label>
+        <name>SHPClaimHdr_Member_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Member --></label>
+        <name>SHPClaimHdr_Member_Lookup__c</name>
+        <relationshipLabel><!-- Claim Headers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Claim Procedure Code Description --></label>
+        <name>SHPClaimHdr_Procedure_Code_Description_E__c</name>
+    </fields>
+    <fields>
+        <label><!-- Claim Procedure Code --></label>
+        <name>SHPClaimHdr_Procedure_Code_E__c</name>
+    </fields>
+    <fields>
+        <label><!-- Claim Procedure Code HR ID --></label>
+        <name>SHPClaimHdr_Procedure_Code_HR_ID_E__c</name>
+    </fields>
+    <fields>
+        <label><!-- Claim Subscriber HCC ID --></label>
+        <name>SHPClaimHdr_Subscriber_HCC_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Claim Subscriber HR ID --></label>
+        <name>SHPClaimHdr_Subscriber_HR_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Claim Supplier Epic ID --></label>
+        <name>SHPClaimHdr_Supplier_Epic_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Claim Supplier HCC ID --></label>
+        <name>SHPClaimHdr_Supplier_HCC_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Claim Supplier HR ID --></label>
+        <name>SHPClaimHdr_Supplier_HR_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Supplier --></label>
+        <name>SHPClaimHdr_Supplier_Lookup__c</name>
+        <relationshipLabel><!-- Claim Headers (Supplier) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Claim Supplier Name --></label>
+        <name>SHPClaimHdr_Supplier_Name__c</name>
+    </fields>
+    <layouts>
+        <layout>Claim Header Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Diagnosis Information --></label>
+            <section>Diagnosis Information</section>
+        </sections>
+        <sections>
+            <label><!-- Procedure Information --></label>
+            <section>Procedure Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Claim Header OLTP</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Diagnosis Information --></label>
+            <section>Diagnosis Information</section>
+        </sections>
+        <sections>
+            <label><!-- Procedure Information --></label>
+            <section>Procedure Information</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Claim_Detail_Button --></label>
+        <name>Claim_Detail_Button</name>
+    </webLinks>
+</CustomObjectTranslation>

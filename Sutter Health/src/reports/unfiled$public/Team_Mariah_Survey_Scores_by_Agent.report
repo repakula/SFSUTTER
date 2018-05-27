@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>SurveyTaker__c.Q1_Score__c:AVG</calculatedFormula>
+        <datatype>number</datatype>
+        <description>Average of Q1 score</description>
+        <developerName>FORMULA1</developerName>
+        <downGroupingContext>FK_CASE_OWNER_NAME</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Q1 Average</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>SurveyTaker__c.Q2_Score__c:AVG</calculatedFormula>
+        <datatype>number</datatype>
+        <description>Average of Q2 score</description>
+        <developerName>FORMULA2</developerName>
+        <downGroupingContext>FK_CASE_OWNER_NAME</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Q2 Average</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>SurveyTaker__c.Q3_Score__c:AVG</calculatedFormula>
+        <datatype>number</datatype>
+        <description>Average of Q1 score</description>
+        <developerName>FORMULA3</developerName>
+        <downGroupingContext>FK_CASE_OWNER_NAME</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Q3 Average</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>SurveyTaker__c.Q4_Score__c:AVG</calculatedFormula>
+        <datatype>number</datatype>
+        <description>Average of Q1 score</description>
+        <developerName>FORMULA4</developerName>
+        <downGroupingContext>FK_CASE_OWNER_NAME</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Q4 Average</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <columns>
+        <field>CUST_CREATED_DATE</field>
+    </columns>
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_$Case.Sub_Function__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Case.Contact_Type__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Case.Survey_Sent__c</field>
+    </columns>
+    <columns>
+        <field>SurveyTaker__c.Q1_Score__c</field>
+    </columns>
+    <columns>
+        <field>SurveyTaker__c.Q2_Score__c</field>
+    </columns>
+    <columns>
+        <field>SurveyTaker__c.Q3_Score__c</field>
+    </columns>
+    <columns>
+        <field>SurveyTaker__c.Q4_Score__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Average</aggregateTypes>
+        <field>SurveyTaker__c.Overall_Satisfaction_Score__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>FK_CASE_OWNER_NAME</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Mariah Frazee-Antamarian,Teresa Decker,Navjit Dosanjh,Vicki Filchak,Ben Laidlaw,Silvia Mora,Paula Reed,Sharry Thao,Sarah Tobi-Hitzemann,Michelle Vaigneur-Ruiz,Tim Watts,Corie Whitt,Tonya Windsor</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>FK_CASE_OWNER_NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Team Mariah: Survey Scores by Agent</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$SurveyTaker__c@SurveyTaker__c.Case__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>CUST_CREATED_DATE</sortColumn>
+    <sortOrder>Desc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_LAST30</interval>
+    </timeFrameFilter>
+</Report>

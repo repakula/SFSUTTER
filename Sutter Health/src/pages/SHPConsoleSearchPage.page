@@ -1,0 +1,91 @@
+<!--
+*     Page Name   : SHPConsoleSearchPage 
+*     Author      : IDC Offshore
+*     Date        : 09-Sept-2013
+*     Project Name: CRM - SFT - Sutter Health
+*     Description : This page is used to search the record from Member(Contact) and claim(claim header). 
+-->
+
+<apex:page Controller="SHPConsoleSearchController">
+
+<!-- Reference to Javascript libraries -->
+<apex:includeScript value="/support/console/28.0/integration.js"/>
+
+    <apex:form >
+      <apex:outputPanel id="thePanel">
+      <apex:pageMessages id="pageMessages"/>
+      
+<!-- Drop Down list with all the options on which search can be performed -->       
+          <apex:selectList value="{!searches}" multiselect="false" size="1">
+              <apex:selectOptions value="{!searchTypes}">
+              </apex:selectOptions>
+              <apex:actionSupport event="onchange" reRender="thePanel"/>
+          </apex:selectList>           
+          
+<!-- Search Block with all the fields on which search for the Member can be performed -->             
+        <apex:pageBlock id="searchPageblock" rendered="{!IF(searches==null || searches=='Member' || searches=='Claim', true, false)}">
+            <apex:pageblockSection id="memberSearch" rendered="{!IF(searches==null || searches=='Member', true, false)}" columns="2" >
+                  <apex:inputText value="{!memberID}" label="Member ID:" onkeypress="return noenter1(event,1);"/>
+                  <apex:inputText value="{!memberContactNumber}" label="Member Contact Number:" onkeypress="return noenter1(event,1);"/>
+                  <apex:inputText value="{!memberFirstName}" label="Member First Name:" onkeypress="return noenter1(event,1);"/>
+                  <apex:inputText value="{!memberLastName}" label="Member Last Name:" onkeypress="return noenter1(event,1);"/>
+                  <apex:inputField value="{!memberDOB.SearchDate__c}" label="Member DOB:" id="memberDOB" onkeypress="return noenter1(event,1);"/>
+                  <apex:pageBlockSectionItem >
+                    <apex:commandButton action="{!SearchMember}" value="Search" rerender="thePanel"/>
+                    <apex:actionFunction name="doMemberSearch" action="{!SearchMember}" reRender="thePanel" />
+                  </apex:pageBlockSectionItem>
+            </apex:pageblockSection>
+
+<!-- Search Block with all the fields on which search for the Claim can be performed -->              
+            <apex:pageblockSection id="claimSearch" rendered="{!IF(searches=='Claim', true, false)}" columns="2">
+                    <apex:inputText value="{!claimID}" label="Claim ID:" onkeypress="return noenter1(event,5);"/>
+                    <apex:inputText value="{!claimMemberID}" label="Member ID:" onkeypress="return noenter1(event,5);"/>
+                    <apex:inputField value="{!claimSearchStartDate.SearchDate__c}" label="Start Date:" id="SearchStart" onChange="dateAssignStart();" onkeypress="return noenter1(event,5);"/>
+                    <apex:inputField value="{!claimSearchEndDate.SearchDate__c}" label="End Date:" onChange="dateAssignEnd();" id="SearchEnd" onkeypress="return noenter1(event,5);"/> 
+                    <apex:inputText value="{!claimProviderID}" label="Provider ID:" onkeypress="return noenter1(event,5);"/>
+                    <apex:pageBlockSectionItem >
+                        <apex:commandButton action="{!SearchClaim}" value="Search" rerender="thePanel"/>
+                        <apex:actionFunction name="doClaimSearch" action="{!SearchClaim}" reRender="thePanel"/>
+                    </apex:pageBlockSectionItem>
+            </apex:pageblockSection>
+        </apex:pageBlock>          
+          
+<!-- Result Block which shows search results for Member Search in the form of List View -->          
+        <apex:pageBlock id="resultPageBlock" rendered="{!IF(searches=='MemberSearch' || searches=='ClaimSearch', true, false)}">
+            <apex:pageBlockTable var="member" value="{!memberResults}" rendered="{!IF(searches=='MemberSearch', true, false)}">
+                <apex:column headerValue="Member Name">
+                    <a href="javascript:sforce.console.openPrimaryTab(null,'/{!member.Id}',true, '{!member.ServiceTabLabel__c}');">{!member.ServiceTabLabel__c}</a>
+                </apex:column>
+                <apex:column value="{!member.Member_ID__c}"/>
+                <apex:column value="{!member.Member_Subscriber_Relationship__c}"/>
+                <apex:column value="{!member.MailingStreet}"/>
+                <apex:column value="{!member.MailingCity}"/>
+                <apex:column value="{!member.MailingState}"/>
+                <apex:column value="{!member.MailingPostalCode}"/>
+                <apex:column value="{!member.Birthdate}"/>
+                <apex:column value="{!member.Member_Plan_Name__c}"/>
+            </apex:pageBlockTable>
+            
+<!-- Result Block which shows search results for Claim Search in the form of List View -->              
+            <apex:pageBlockTable var="claim" value="{!claimResults}" rendered="{!IF(searches=='ClaimSearch', true, false)}">
+                <apex:column headerValue="Claim">
+                    <a href="javascript:sforce.console.openPrimaryTab(null,'/{!claim.Id}',true, '{!claim.SHPClaimHdr_Claim_HCC_ID__c}');">{!claim.SHPClaimHdr_Claim_HCC_ID__c}</a>
+                </apex:column>
+                <apex:column value="{!claim.SHPClaimHdr_Member_HCC_ID__c}"/>
+                <apex:column value="{!claim.SHPClaimHdr_Claim_DoS_Start__c}"/>
+                <apex:column value="{!claim.SHPClaimHdr_Claim_DoS_End__c}"/>
+                <apex:column value="{!claim.SHPClaimHdr_Claim_Date_of_Receipt__c}"/>
+                <!-- <apex:column value="{!claim.SHPClaimHdr_Procedure_Code__c }"/>
+                <apex:column value="{!claim.SHPClaimHdr_Procedure_Code_Description__c}"/>
+                <apex:column value="{!claim.SHPClaimHdr_Diagnosis_Code__c}"/>
+                <apex:column value="{!claim.SHPClaimHdr_Diagnosis_Code_Description__c}"/> -->
+            </apex:pageBlockTable>
+        </apex:pageBlock>          
+          
+      </apex:outputPanel>
+    </apex:form>
+  
+<!-- Reference to JS file in Static Resources containing JS functions used on the page -->  
+  <apex:includeScript value="{!$Resource.ConsoleScript}" />   
+  
+</apex:page>

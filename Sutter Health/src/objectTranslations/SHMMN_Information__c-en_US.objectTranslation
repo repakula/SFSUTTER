@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>SHMMN Account Information</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>SHMMN Information</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account1__c</name>
+        <relationshipLabel><!-- SHMMN Information --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Account Tier --></label>
+        <name>Account_Tier__c</name>
+        <picklistValues>
+            <masterLabel>Active Accounts</masterLabel>
+            <translation><!-- Active Accounts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Affiliate Projects</masterLabel>
+            <translation><!-- Affiliate Projects --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meaningful Accounts</masterLabel>
+            <translation><!-- Meaningful Accounts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prospect</masterLabel>
+            <translation><!-- Prospect --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Affiliate Project --></label>
+        <name>Affiliate_Project__c</name>
+        <picklistValues>
+            <masterLabel>Bay Area Project 1</masterLabel>
+            <translation><!-- Bay Area Project 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bay Area Project 2</masterLabel>
+            <translation><!-- Bay Area Project 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bay Area Project 3</masterLabel>
+            <translation><!-- Bay Area Project 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Valley Area Project 1</masterLabel>
+            <translation><!-- Valley Area Project 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Valley Area Project 2</masterLabel>
+            <translation><!-- Valley Area Project 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Valley Area Project 3</masterLabel>
+            <translation><!-- Valley Area Project 3 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Agreement Signed --></label>
+        <name>Agreement_Signed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Classification --></label>
+        <name>Classification__c</name>
+        <picklistValues>
+            <masterLabel>Health Plan Information Request</masterLabel>
+            <translation><!-- Health Plan Information Request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lead / Opportunity Out reach</masterLabel>
+            <translation><!-- Lead / Opportunity Out reach --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RFP Request</masterLabel>
+            <translation><!-- RFP Request --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Division --></label>
+        <name>Division__c</name>
+        <picklistValues>
+            <masterLabel>Bay Area</masterLabel>
+            <translation><!-- Bay Area --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Valley</masterLabel>
+            <translation><!-- Valley --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Market Interest --></label>
+        <name>Market_Interest__c</name>
+        <picklistValues>
+            <masterLabel>Annual Action Plan</masterLabel>
+            <translation><!-- Annual Action Plan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Biometrics</masterLabel>
+            <translation><!-- Biometrics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EAP</masterLabel>
+            <translation><!-- EAP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Etips</masterLabel>
+            <translation><!-- Etips --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Executive Health</masterLabel>
+            <translation><!-- Executive Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Flu Clinic</masterLabel>
+            <translation><!-- Flu Clinic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HRA</masterLabel>
+            <translation><!-- HRA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health &amp; Wellness Screening Committee</masterLabel>
+            <translation><!-- Health &amp; Wellness Screening Committee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Coaching</masterLabel>
+            <translation><!-- Health Coaching --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Fairs</masterLabel>
+            <translation><!-- Health Fairs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IHH</masterLabel>
+            <translation><!-- IHH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LWFL Program</masterLabel>
+            <translation><!-- LWFL Program --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mobile Clinic</masterLabel>
+            <translation><!-- Mobile Clinic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Occupational Health</masterLabel>
+            <translation><!-- Occupational Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Onsite Clinics</masterLabel>
+            <translation><!-- Onsite Clinics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Onsite lectures</masterLabel>
+            <translation><!-- Onsite lectures --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open Enrollment Participation</masterLabel>
+            <translation><!-- Open Enrollment Participation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PEP Product</masterLabel>
+            <translation><!-- PEP Product --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly Newsletter</masterLabel>
+            <translation><!-- Quarterly Newsletter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Line promotion</masterLabel>
+            <translation><!-- Service Line promotion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Survey</masterLabel>
+            <translation><!-- Survey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Care At Home</masterLabel>
+            <translation><!-- Sutter Care At Home --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Health Plus (SHP)</masterLabel>
+            <translation><!-- Sutter Health Plus (SHP) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tele-Medicine</masterLabel>
+            <translation><!-- Tele-Medicine --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Open Enrollment Month --></label>
+        <name>Open_Enrollment_Month__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Line/Product Promotion --></label>
+        <name>Service_Line_Product_Promotion__c</name>
+        <picklistValues>
+            <masterLabel>Bariatric</masterLabel>
+            <translation><!-- Bariatric --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cardiology</masterLabel>
+            <translation><!-- Cardiology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EAP</masterLabel>
+            <translation><!-- EAP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Elder Care</masterLabel>
+            <translation><!-- Elder Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Executive Health</masterLabel>
+            <translation><!-- Executive Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IHH</masterLabel>
+            <translation><!-- IHH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lung Nodule Clinic</masterLabel>
+            <translation><!-- Lung Nodule Clinic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Men&apos;s Health</masterLabel>
+            <translation><!-- Men&apos;s Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mental Health</masterLabel>
+            <translation><!-- Mental Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Neuroscience</masterLabel>
+            <translation><!-- Neuroscience --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Occupational Medicine</masterLabel>
+            <translation><!-- Occupational Medicine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oncology</masterLabel>
+            <translation><!-- Oncology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Orthopedics</masterLabel>
+            <translation><!-- Orthopedics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SHP (Sutter Health Plus)</masterLabel>
+            <translation><!-- SHP (Sutter Health Plus) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Care at Home</masterLabel>
+            <translation><!-- Sutter Care at Home --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Womens and Children</masterLabel>
+            <translation><!-- Womens and Children --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>SHMMN Information Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

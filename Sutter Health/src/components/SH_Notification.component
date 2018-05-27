@@ -1,0 +1,124 @@
+<apex:component layout="none">
+    
+    <apex:attribute name="Title" type="string" description="Notification Title."/>
+    <apex:attribute name="Description" type="string" description="Notification Description."/>
+    <apex:attribute name="Info" type="string" description="Notification More informaion link."/>
+    
+    <apex:attribute name="BrowserTitle" type="string" description="Browser Notification Title."/>
+    <apex:attribute name="BrowserDescription" type="string" description="Browser Notification Description."/>
+    <apex:attribute name="BrowserInfo" type="string" description="Browser Notification More informaion link."/>
+    
+    <apex:attribute name="BrowserNotify" type="boolean" description="Browser Notification."/>
+    <apex:attribute name="Notify" type="boolean" description="Notification."/>
+    <apex:attribute name="isPreview" type="Boolean" description="True for preview pages."/>
+    <script>
+              
+        var browserName = getCurrentBrowser();
+        
+        function RedirectLink(strLink, target) {
+            var isPreview = {!IF(isPreview == true, 'true', 'false')};
+        
+            if(isPreview == false)
+                window.open(strLink, target);
+        }
+        
+        function CheckNotifications(objTool) {
+            if(objTool != null && objTool != undefined) {
+                if(objTool.SH_Is_Show_Notification__c == true) {
+                    jQuery('input[Id$=hdnToolArticle]').val(objTool.KnowledgeArticleId);
+                    jQuery('input[Id$=hdnBrowserName]').val(browserName);
+                    //call action function to setNotification
+                    showNotification();
+                }
+                else if(objTool.SH_Is_Show_Browser_Notification__c == true) {
+                    if(objTool.SH_Not_Supported_Browser__c != null && objTool.SH_Not_Supported_Browser__c != undefined 
+                    && browserName != null && browserName != undefined
+                    && objTool.SH_Not_Supported_Browser__c.indexOf(browserName) >-1) {
+                        jQuery('input[Id$=hdnToolArticle]').val(objTool.KnowledgeArticleId);
+                        jQuery('input[Id$=hdnBrowserName]').val(browserName);
+                        //call action function to setNotification   
+                        showNotification();
+                    }
+                    else {
+                        RedirectLink(objTool.SH_Tool_Link__c, '_blank');                        
+                    }   
+                }
+            }
+        }
+        
+        function getCurrentBrowser()
+        {
+            var isIE11 = !!navigator.userAgent.match(/Trident.*rv\:11\./);
+            
+            if(isIE11 == true){
+                jQuery('input[Id$=txtSearchContent]').removeAttr('autocomplete');
+                return 'MSIE';
+            }
+            else if (jQuery.browser.mozilla){ 
+                return 'Firefox';
+            }
+            else if( jQuery.browser.opera){
+                return 'Opera';
+            }
+            else if(jQuery.browser.safari){
+                return 'Safari';
+            }
+            else if( jQuery.browser.chrome){
+                return 'Chrome';
+            }
+            else if (jQuery.browser.msie){
+                jQuery('input[Id$=txtSearchContent]').removeAttr('autocomplete');
+                return 'MSIE';
+            }
+        }
+        
+    </script>
+    <apex:outputPanel rendered="{!if(BrowserNotify == true, true, false)}" layout="none">
+        <div class="top-notification background-magenta" style="z-index: 100;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <section class="text-section with-icon">
+                            <span class="data-icon icon-purchasing"></span> 
+                            <h1>
+                                {!BrowserTitle}
+                                <a class="right close" href="#">
+                                    <label>Close</label><span class="data-icon icon-dotted-circle right">
+                                        <span class="data-icon icon-menu-close"></span>
+                                    </span>
+                                </a>
+                            </h1>   
+                            <p>
+                                {!BrowserDescription} <a href="{!IF(isPreview,'#',BrowserInfo)}" target="_blank">More Information</a>
+                            </p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </apex:outputPanel>
+    <apex:outputPanel rendered="{!if(Notify == true, true, false)}" layout="none">
+        <div class="top-notification background-blue-dark" style="z-index: 99;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <section class="text-section with-icon">
+                            <span class="data-icon icon-help-circled yellow"></span>    
+                            <h1>
+                                {!Title}
+                                <a class="right close" href="#">
+                                    <label>Close</label><span class="data-icon icon-dotted-circle right">
+                                        <span class="data-icon icon-menu-close"></span>
+                                    </span>
+                                </a>
+                            </h1>   
+                            <p>
+                                {!Description} <a href="{!IF(isPreview,'#', Info)}" target="_blank"> More Information</a>
+                            </p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </apex:outputPanel>
+</apex:component>

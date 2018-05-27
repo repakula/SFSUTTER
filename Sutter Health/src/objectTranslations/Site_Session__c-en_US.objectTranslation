@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Site Session</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Site Sessions</value>
+    </caseValues>
+    <fields>
+        <label><!-- Affiliate --></label>
+        <name>Affiliate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Browser --></label>
+        <name>Browser__c</name>
+    </fields>
+    <fields>
+        <label><!-- Day Of Week --></label>
+        <name>Day_Of_Week__c</name>
+    </fields>
+    <fields>
+        <label><!-- Region --></label>
+        <name>Region__c</name>
+    </fields>
+    <fields>
+        <label><!-- Session Date --></label>
+        <name>Session_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Full Name --></label>
+        <name>User_Full_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Metric Value --></label>
+        <name>Value__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

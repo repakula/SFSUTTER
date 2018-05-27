@@ -1,0 +1,99 @@
+<!--
+*     Page Name   : VFP41_Potential_Quality_Issue
+*     Author      : IDC Offshore
+*     Date        : 15-Aug-2013
+*     Project Name: CRM - SHP - Sutter Health
+*     Description : Thhis page is used to generate Pdf for PQI
+*
+*     HISTORY
+*     --------------
+*     
+*     VERSION           AUTHOR            DATE          DETAIL 
+*       1.0            IDC offshore     28/11/2014       Create PQI Page 
+*
+-->
+  
+<apex:page standardController="Potential_Quality_Issue__c"
+    extensions="VFC41_Potential_Quality_Issue" showHeader="true"
+    sidebar="false"  renderAs="PDF">
+    <apex:stylesheet value="{!URLFOR($Resource.PDFCss, 'PDFCss/Theme3.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.PDFCss, 'PDFCss/Theme3_dStandard.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.PDFCss, 'PDFCss/Theme3_elements.css')}"/>
+     <apex:form >
+         <h1> Potential Quality Issue</h1>
+
+       <apex:pageBlock id="pgButton" title="Potential Quality Issue">         
+            
+           <apex:pageBlockSection title="Customer Inquiry Information" collapsible="false" >
+                </apex:pageBlockSection>
+               <apex:pageBlockSection columns="1">
+               <apex:outputText id="Frm1field0" value="{!objPotentialQualityIssue.Name}"  />
+               </apex:pageBlockSection>
+               <apex:pageBlockSection columns="2">
+               <apex:outputText id="Frm1field1" value="{!objPotentialQualityIssue.PQI_Status__c}"  />
+               <apex:outputText id="Frm1field2" value="{!objPotentialQualityIssue.Customer_Inquiry_Type__c}"/>
+               <apex:outputText id="Frm1field3" value="{!objPotentialQualityIssue.Member_Name__c}"/>
+               <apex:outputText id="Frm1field4" value="{!objPotentialQualityIssue.Member_ID__r.Name}"/>
+               <apex:outputText id="Frm1field5" value="{!objPotentialQualityIssue.PCP_Practioner_Name__c}"/>
+               <apex:outputText id="Frm1field6" value="{!objPotentialQualityIssue.Member_Medical_Group_Affiliation__c}" />        
+               <apex:outputField id="Frm1field7" value="{!objPotentialQualityIssue.Member_DOB__c}"/>
+               <apex:outputText id="Frm1field8" value="{!objPotentialQualityIssue.Member_Age__c}" />   
+            </apex:pageBlockSection>
+            
+         <apex:pageBlockSection title="PQI Referral Information" collapsible="false">             
+                <apex:outputField id="Frm1field1" value="{!objPotentialQualityIssue.PQI_Referral_Date__c}"  />
+                <apex:outputText id="Frm1field2" value="{!objPotentialQualityIssue.PQI_Referred_By__c}"/>
+                <apex:outputText id="Frm1field4" value="{!objPotentialQualityIssue.Assigned_RN__r.Name}" />
+                <apex:outputText id="Frm1field41" value="{!objPotentialQualityIssue.Reason_for_Referral__c}" />
+                <apex:outputText id="Frm1field42" value="{!objPotentialQualityIssue.Related_Provider_applicable__c}" />
+                <apex:outputField id="Frm1field43" value="{!objPotentialQualityIssue.Date_of_Occurrence__c}" />
+          </apex:pageBlockSection>
+            
+         <apex:pageBlockSection title="PQI Indicators" collapsible="false" columns="2">    
+                 <apex:repeat value="{!$ObjectType.Potential_Quality_Issue__c.FieldSets.PQI_Indicators_Fields}" var="f">
+                 <apex:OutPutField value="{!Potential_Quality_Issue__c[f]}" />
+                 </apex:repeat>
+                <apex:outputField id="Frm1field1" value="{!objPotentialQualityIssue.Other_CheckBox__c}" /> 
+                 <apex:outputText id="Frm1field2" value="{!objPotentialQualityIssue.PQI_indicator_Other__c}"  />
+                 <apex:outputText id="Frm1field3" value="{!objPotentialQualityIssue.Settings__c}" />
+                 <apex:outputText id="Frm1field4" value="{!objPotentialQualityIssue.Setting_other__c}" />
+          </apex:pageBlockSection>  
+          
+          <apex:pageBlockSection title="Description Events" collapsible="false">               
+                <apex:outputfield id="Frm1field2" value="{!objPotentialQualityIssue.Description_of_Events1__c}"/>                
+          </apex:pageBlockSection>
+             
+       
+            <apex:pageBlockSection columns="1" title="RN Review (1ST Level Review)" collapsible="false">    
+                <apex:outputText id="Frm1field0" value="{!objPotentialQualityIssue.ByPass_CMO__c}" /> 
+               <apex:outputText id="Frm1field1" value="{!objPotentialQualityIssue.RN_Reviewer_user__r.Name}"  />
+               <apex:outputField id="Frm1field2"  value="{!objPotentialQualityIssue.RN_Date_of_Review__c}" />
+               <apex:outputField id="Frm1field3" value="{!objPotentialQualityIssue.RN_Timeline_of_Key_Events__c}"  />
+               <apex:outputField id="Frm1field4" value="{!objPotentialQualityIssue.RN_Pertinent_criteria_guidelines_standa__c}" />
+               <apex:outputField id="Frm1field5" value="{!objPotentialQualityIssue.RN_Case_Review_Summary1__c}"  /> 
+               <apex:outputText id="Frm1field6" value="{!objPotentialQualityIssue.RN_Recommendations__c}"/>
+               <apex:outputField id="Frm1field7" value="{!objPotentialQualityIssue.RN_Justification_of_Recommendation__c}"/>
+               <apex:outputText id="Frm1field8" value="{!objPotentialQualityIssue.RN_Leveling__c}"/>
+               <apex:outputText id="Frm1field9" value="{!objPotentialQualityIssue.RN_Severity_Level__c}"/>
+           </apex:pageBlockSection>
+                       
+                <br/>
+                <br/>
+                <br/>
+            <apex:pageBlockSection title="Medical Director Review (2nd Level Review)" collapsible="false" columns="1">             
+                <apex:outputText id="Frm1field1" value="{!objPotentialQualityIssue.Assigned_Medical_Director__c}"  />
+                <apex:outputField id="Frm1field2"  value="{!objPotentialQualityIssue.MD_Date_of_Review__c}"/>
+                <apex:outputfield id="Frm1field3" value="{!objPotentialQualityIssue.Medical_Director_Review_Summary1__c}"/>
+                <apex:outputText id="Frm1field5" value="{!objPotentialQualityIssue.Medical_Director_Recommendations__c}"/>
+                <apex:outputText id="Frm1field6" value="{!objPotentialQualityIssue.Medical_Director_Recommendations_Other__c}"/>
+                <apex:outputText id="Frm1field7" value="{!objPotentialQualityIssue.Severity_Level__c}"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Peer Review / Credentialing Outcome (If applicable)" collapsible="false" columns="1">             
+                <apex:outputText id="Frm1field1"  value="{!objPotentialQualityIssue.Peer_Review_Credentialing_Outcome__c}"  />
+                <apex:outputText id="Frm1field2"  value="{!objPotentialQualityIssue.Peer_Review_Other__c}"/>        
+            </apex:pageBlockSection> 
+               
+         </apex:pageBlock> 
+   </apex:form>  
+</apex:page>

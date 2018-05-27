@@ -1,0 +1,3606 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>A3__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>A3</label>
+        <referenceTo>A3__c</referenceTo>
+        <relationshipLabel>Projects</relationshipLabel>
+        <relationshipName>Related_Projects</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Affiliate__c</fullName>
+        <externalId>false</externalId>
+        <label>Affiliate</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>SCAH</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>S3</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Kahi</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SHSS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SHP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Systemwide</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SHSO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SAH</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SAFH</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Amador Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Auburn Faith Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Davis Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Medical Center, Sacramento</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Medical Foundation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter North Medical Foundation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Regional Medical Foundation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Roseville Medical Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Solano Medical Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Memorial Hospital Los Banos</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Memorial Medical Center Modesto</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Gould Medical Foundation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Tracy Community Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Menlo Park Surgical Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mills-Peninsula Health Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Palo Alto Medical Foundation - PCR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Maternity and Surgery Center of Santa Cruz</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Palo Alto Medical Foundation - SC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Alta Bates Summit Medical Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Eden Medical Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Delta Medical Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter East Bay Medical Foundation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Palo Alto Medical Foundation – EBR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>California Pacific Medical Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Novato Community Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Lakeside Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Medical Center of Santa Rosa</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Pacific Medical Foundation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Pacific Medical Foundation - Sonoma</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Aging__c</fullName>
+        <externalId>false</externalId>
+        <formula>Days_to_Concept_Elaboration__c + Days_to_EA_Review__c + Days_to_PRF_Received__c + Days_to_Triage__c + Days_to_Discovery_Funding__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Aging</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Assessment__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>From SBAR Analysis, what is the Project Assessment?</inlineHelpText>
+        <label>Assessment</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Background__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>From SBAR Analysis, what is the Project Background?</inlineHelpText>
+        <label>Background</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Budget_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Budget Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>On Track</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>On Hold</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>At Risk</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <length>130000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Community__c</fullName>
+        <externalId>false</externalId>
+        <label>Community</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No Rating</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>None: Not clearly tied to mission - limited community need</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Low: Limited tie to mission - other community options exist</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Moderate: Clear tie with mission - limited community options</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Strong: Strongly supports mission - community need documented</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Extreme: Critical to mission: substantial community need documented</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Concept_Elaboration__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Date</inlineHelpText>
+        <label>Concept Elaboration</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_Submitted__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Submitted</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Days_to_Concept_Elaboration__c</fullName>
+        <externalId>false</externalId>
+        <formula>Concept_Elaboration__c - EA_Review__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days to Concept Elaboration</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Days_to_Discovery_Funding__c</fullName>
+        <externalId>false</externalId>
+        <formula>Discovery_Funding__c - Triage__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days to Discovery Funding</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Days_to_EA_Review__c</fullName>
+        <externalId>false</externalId>
+        <formula>EA_Review__c - PRF_Received__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days to EA Review</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Days_to_PRF_Received__c</fullName>
+        <externalId>false</externalId>
+        <formula>PRF_Received__c - PRF_Received__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days to PRF Received</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Days_to_Triage__c</fullName>
+        <externalId>false</externalId>
+        <formula>Triage__c - Concept_Elaboration__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days to Triage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Discovery_Funding__c</fullName>
+        <externalId>false</externalId>
+        <label>Discovery Funding</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>EA_Review__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Date EA last reviewed.</inlineHelpText>
+        <label>EA Review</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>EA_Team_Member__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Which EA Analyst will work on this project?</description>
+        <externalId>false</externalId>
+        <label>EA Team Member</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Projects</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Ent_Program__c</fullName>
+        <externalId>false</externalId>
+        <label>Ent Program</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>EDV</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>EHR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>EHR-Meaningful Use</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>EHR-My Health Online</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>EHR - OpTime</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HIE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ICD 10</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ICD 10 - Systemwide IS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ICD 10 - Systemwide Operational</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IS Tech Infrastructure - IS Technical Infrastructure</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IS Tech Infrastructure - Data Center - Date Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IS Tech Infrastructure - Infrastructure Apps - Infrastructure Applications</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IS Tech Infrastructure - Life Cycle Mgmt - Life Cycle Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IS Tech Infrastructure - Servers and Storage - Servers and Storage</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IS Tech Infrastructure - Service Mgmt - Service Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IS Tech Infrastructure - Transport Infrastructure - Transport Infrastructure</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IS Tech Infrastructure - UCCE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IS Tech Infrastructure - User Access Experience - User Access Experience</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IS Tech Infrastructure - User Experience - User Experience</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ITSM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ITSM - Asset Mgmt</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ITSM - Capacity Mgmt</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ITSM - Config Mgmt</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ITSM - Svc Catalog</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ITSM - Svc Desk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MDM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>None</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Security</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Security - Cyber Security</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Security - Cyber Security - DLP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Security - ID Access Mgmt</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Security - Network Access</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Security - Risk Mgmt</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Security - Security Administration</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Security - Unsupported OS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SIIP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SIIP - Druker</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SIIP - RD and D</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SIIP - RD and D - Clinical Apps</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SIIP - RD and D - Innovation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SIIP - RD and D - VDW</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SIIP - Strategic Partnerships</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Finance_Performance__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance Performance</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No Rating</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>None: 0% ROI breaks even</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Low: ROI less than or equal to 5%</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Moderate: ROI less than or equal to 10%</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Strong: ROI less than or equal to 15%</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Extreme: ROI less than or equal to 25%</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Financial_Performance__c</fullName>
+        <externalId>false</externalId>
+        <label>Financial Performance</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No Rating</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>None: Meets 1 of 5 Goal Areas</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Low: Meets 2 of 5 Goal Areas</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Moderate: Meets 3 of 5 Goal Areas</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Strong: Meets 4 of 5 Goal Areas</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Extreme: Meets 5 of 5 Goal Areas</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Governance_Body__c</fullName>
+        <externalId>false</externalId>
+        <label>Governance Body</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Clinical</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IS Leadership</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Business Systems</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Revenue Cycle</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Web Portal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Local</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Initial_Project_Notification__c</fullName>
+        <externalId>false</externalId>
+        <label>Initial Project Notification</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Owning_Business_Unit__c</fullName>
+        <externalId>false</externalId>
+        <label>Owning Business Unit</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>SH.SHSS.SBD.SHP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SH.Affiliate.ZNR.Kahi Mohala</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SH.Affiliate.ZNR.SCAH</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SH.S3</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SH.S3.BioMed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SH.S3.Finance</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>PRF_Received__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Date the Project Request Form was received.</inlineHelpText>
+        <label>PRF Received</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>People__c</fullName>
+        <externalId>false</externalId>
+        <label>People</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No Rating</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>None: Does not impact employee satisfaction index</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Low: Low impact on employee satisfaction index</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Moderate: Evidence nationally of positive impact on employee satisfaction index</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Strong: Evidence at Sutter of positive impact on employee satisfaction index</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Extreme: Industry best practice showing impact on employee satisfaction index</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Program_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Program Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Compliance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Risk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Investment</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Program__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Program</label>
+        <referenceTo>Program__c</referenceTo>
+        <relationshipLabel>Projects</relationshipLabel>
+        <relationshipName>Projects</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Project_Coordinator__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Project Coordinator</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Projects (Project Coordinator)</relationshipLabel>
+        <relationshipName>Projects1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Project_Manager__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Project Manager</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Projects</relationshipLabel>
+        <relationshipName>Projects</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Project_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Project Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_Number__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>SHIS Project Server Project Number</inlineHelpText>
+        <label>Project Number</label>
+        <length>8</length>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_Stage__c</fullName>
+        <externalId>false</externalId>
+        <label>Project Stage</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Idea</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Exploration</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Discovery</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Design</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Build</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Test</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Go Live</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Project_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Project Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cancelled</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Declined</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>New</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>On Hold</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Submitted for Approval</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Regionally Approved</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>System Approved</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Quality__c</fullName>
+        <externalId>false</externalId>
+        <label>Quality</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No Rating</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>None: Little Direct impact on patient outcome, safety, or comfort</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Low: Impact on comfort / satisfaction, but no direct clinical / Safety impact</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Moderate: Evidence nationally of possible positive clinical, safety, or service impact</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Strong: Evidence at Sutter of likely positive clinical, safety, or service impact</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Extreme: Industry best practice for high priority area, broad clinical, safety, or service impact</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Recommendation__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>From SBAR Analysis, what is the Project Recommendation?</inlineHelpText>
+        <label>Recommendation</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Regional_CIO_Service_Line_VP__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Regional CIO / Service Line VP</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Projects (Regional CIO / Service Line VP)</relationshipLabel>
+        <relationshipName>Projects3</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Requested_Completion_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Requested Completion Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Requestor_Department__c</fullName>
+        <externalId>false</externalId>
+        <label>Region</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CVR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>EBR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PCR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SHSO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SSR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>System-Wide</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WBR</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Requestor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Who requested this project?</inlineHelpText>
+        <label>Requestor</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Requestor</relationshipLabel>
+        <relationshipName>Projects2</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Schedule_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Schedule Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>On Track</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>On Hold</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>At Risk</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Scope_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Scope Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>On Track</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>On Hold</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>At Risk</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Service__c</fullName>
+        <externalId>false</externalId>
+        <label>Service</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No Rating</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>None: Clinical capacity / network opportunity not yet identified</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Low: Potential for integration within region or across system but no plan in place</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Moderate: Integration likely within region or across system and plan in place to achieve</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Strong: Evidence at Sutter of integration success within region or across system, likelihood of achieving</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Extreme: Industry best practice for integration within region or across system</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Situation__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>From SBAR Analysis, what is the Situation?</inlineHelpText>
+        <label>Situation</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Sponsor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Sponsor</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Sponsored Projects</relationshipLabel>
+        <relationshipName>SponsoredProjects</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Status_Rating_Image__c</fullName>
+        <externalId>false</externalId>
+        <formula>IMAGE 
+( 
+ IF( AND (ISPICKVAL( Budget_Status__c ,&apos;On Track&apos;),ISPICKVAL( Scope_Status__c ,&apos;On Track&apos;),ISPICKVAL( Schedule_Status__c ,&apos;On Track&apos;)),
+			&apos;servlet/servlet.FileDownload?file=015Z000000079ob&apos;, 
+				IF( OR(ISPICKVAL(Budget_Status__c,&quot;On Hold&quot;),ISPICKVAL(Scope_Status__c,&quot;On Hold&quot;),ISPICKVAL(Schedule_Status__c,&quot;On Hold&quot;)),
+					&apos;servlet/servlet.FileDownload?file=015Z000000079oW&apos;, 
+						IF( OR(ISPICKVAL(Budget_Status__c,&quot;At Risk&quot;),ISPICKVAL(Scope_Status__c,&quot;At Risk&quot;),ISPICKVAL(Schedule_Status__c,&quot;At Risk&quot;)),&apos;servlet/servlet.FileDownload?file=015Z000000079oR&apos;,&apos;servlet/servlet.FileDownload?file=015Z000000079oR&apos; 
+						) 
+		)),
+&apos;&apos;, 30, 30 
+)</formula>
+        <label>Rating</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status_Rating__c</fullName>
+        <externalId>false</externalId>
+        <label>Status Rating</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Green</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Yellow</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Red</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Triage__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Date sent to Triage</inlineHelpText>
+        <label>Triage</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <label>Project</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Program__c</columns>
+        <columns>Project_Number__c</columns>
+        <columns>Project_Name__c</columns>
+        <columns>Description__c</columns>
+        <columns>EA_Team_Member__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Project_Stage__c</columns>
+        <columns>Owning_Business_Unit__c</columns>
+        <columns>Status_Rating_Image__c</columns>
+        <columns>Aging__c</columns>
+        <columns>Date_Submitted__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>CVR_Projects</fullName>
+        <columns>NAME</columns>
+        <columns>Date_Submitted__c</columns>
+        <columns>Description__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Project_Status__c</columns>
+        <columns>Status_Rating_Image__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Requestor_Department__c</field>
+            <operation>equals</operation>
+            <value>CVR</value>
+        </filters>
+        <label>CVR Projects</label>
+    </listViews>
+    <listViews>
+        <fullName>EBR_Projects</fullName>
+        <columns>NAME</columns>
+        <columns>Aging__c</columns>
+        <columns>Description__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Project_Status__c</columns>
+        <columns>Status_Rating_Image__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Requestor_Department__c</field>
+            <operation>equals</operation>
+            <value>EBR</value>
+        </filters>
+        <label>EBR Projects</label>
+    </listViews>
+    <listViews>
+        <fullName>Jason_Elrod_s_Projects</fullName>
+        <columns>NAME</columns>
+        <columns>Description__c</columns>
+        <columns>Project_Number__c</columns>
+        <columns>Project_Name__c</columns>
+        <columns>Project_Manager__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>EA_Team_Member__c</field>
+            <operation>equals</operation>
+            <value>Jason Elrod</value>
+        </filters>
+        <label>Jason Elrod&apos;s Projects</label>
+    </listViews>
+    <listViews>
+        <fullName>PCR_Projects</fullName>
+        <columns>NAME</columns>
+        <columns>Aging__c</columns>
+        <columns>Description__c</columns>
+        <columns>Project_Status__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Status_Rating_Image__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Requestor_Department__c</field>
+            <operation>equals</operation>
+            <value>PCR</value>
+        </filters>
+        <label>PCR Projects</label>
+    </listViews>
+    <listViews>
+        <fullName>Summary_ALL</fullName>
+        <columns>NAME</columns>
+        <columns>Requestor__c</columns>
+        <columns>Date_Submitted__c</columns>
+        <columns>Description__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Status_Rating_Image__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>Summary - ALL</label>
+    </listViews>
+    <listViews>
+        <fullName>WBR_Projects</fullName>
+        <columns>NAME</columns>
+        <columns>Aging__c</columns>
+        <columns>Description__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Project_Status__c</columns>
+        <columns>Status_Rating_Image__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Requestor_Department__c</field>
+            <operation>equals</operation>
+            <value>WBR</value>
+        </filters>
+        <label>WBR Projects</label>
+    </listViews>
+    <nameField>
+        <displayFormat>P-{000000000}</displayFormat>
+        <label>Project AN</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Projects</pluralLabel>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>New_Project</fullName>
+        <active>true</active>
+        <label>New VMO Project</label>
+        <picklistValues>
+            <picklist>Affiliate__c</picklist>
+            <values>
+                <fullName>Kahi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SCAH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SHP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SHSO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SHSS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Systemwide</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Budget_Status__c</picklist>
+            <values>
+                <fullName>At Risk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Track</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Community__c</picklist>
+            <values>
+                <fullName>Extreme%3A Critical to mission%3A substantial community need documented</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low%3A Limited tie to mission - other community options exist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moderate%3A Clear tie with mission - limited community options</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Rating</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None%3A Not clearly tied to mission - limited community need</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Strong%3A Strongly supports mission - community need documented</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ent_Program__c</picklist>
+            <values>
+                <fullName>EDV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EHR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EHR - OpTime</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EHR-Meaningful Use</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EHR-My Health Online</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HIE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ICD 10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ICD 10 - Systemwide IS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ICD 10 - Systemwide Operational</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - Data Center - Date Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - IS Technical Infrastructure</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - Infrastructure Apps - Infrastructure Applications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - Life Cycle Mgmt - Life Cycle Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - Servers and Storage - Servers and Storage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - Service Mgmt - Service Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - Transport Infrastructure - Transport Infrastructure</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - UCCE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - User Access Experience - User Access Experience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - User Experience - User Experience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITSM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITSM - Asset Mgmt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITSM - Capacity Mgmt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITSM - Config Mgmt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITSM - Svc Catalog</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITSM - Svc Desk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MDM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SIIP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SIIP - Druker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SIIP - RD and D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SIIP - RD and D - Clinical Apps</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SIIP - RD and D - Innovation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SIIP - RD and D - VDW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SIIP - Strategic Partnerships</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security - Cyber Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security - Cyber Security - DLP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security - ID Access Mgmt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security - Network Access</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security - Risk Mgmt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security - Security Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security - Unsupported OS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Finance_Performance__c</picklist>
+            <values>
+                <fullName>Extreme%3A ROI less than or equal to 25%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low%3A ROI less than or equal to 5%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moderate%3A ROI less than or equal to 10%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Rating</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None%3A 0%25 ROI breaks even</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Strong%3A ROI less than or equal to 15%25</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Financial_Performance__c</picklist>
+            <values>
+                <fullName>Extreme%3A Meets 5 of 5 Goal Areas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low%3A Meets 2 of 5 Goal Areas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moderate%3A Meets 3 of 5 Goal Areas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Rating</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None%3A Meets 1 of 5 Goal Areas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Strong%3A Meets 4 of 5 Goal Areas</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Governance_Body__c</picklist>
+            <values>
+                <fullName>Business Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Clinical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Leadership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Revenue Cycle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web Portal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Owning_Business_Unit__c</picklist>
+            <values>
+                <fullName>SH%2EAffiliate%2EZNR%2EKahi Mohala</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SH%2EAffiliate%2EZNR%2ESCAH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SH%2ES3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SH%2ES3%2EBioMed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SH%2ES3%2EFinance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SH%2ESHSS%2ESBD%2ESHP</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>People__c</picklist>
+            <values>
+                <fullName>Extreme%3A Industry best practice showing impact on employee satisfaction index</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low%3A Low impact on employee satisfaction index</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moderate%3A Evidence nationally of positive impact on employee satisfaction index</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Rating</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None%3A Does not impact employee satisfaction index</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Strong%3A Evidence at Sutter of positive impact on employee satisfaction index</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Program_Type__c</picklist>
+            <values>
+                <fullName>Compliance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Investment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Risk</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Project_Stage__c</picklist>
+            <values>
+                <fullName>Build</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Design</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Discovery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Exploration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Go Live</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Idea</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Project_Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regionally Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted for Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System Approved</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Quality__c</picklist>
+            <values>
+                <fullName>Extreme%3A Industry best practice for high priority area%2C broad clinical%2C safety%2C or service impact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low%3A Impact on comfort %2F satisfaction%2C but no direct clinical %2F Safety impact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moderate%3A Evidence nationally of possible positive clinical%2C safety%2C or service impact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Rating</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None%3A Little Direct impact on patient outcome%2C safety%2C or comfort</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Strong%3A Evidence at Sutter of likely positive clinical%2C safety%2C or service impact</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Requestor_Department__c</picklist>
+            <values>
+                <fullName>CVR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EBR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PCR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SHSO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SSR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System-Wide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WBR</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Schedule_Status__c</picklist>
+            <values>
+                <fullName>At Risk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Track</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Scope_Status__c</picklist>
+            <values>
+                <fullName>At Risk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Track</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Service__c</picklist>
+            <values>
+                <fullName>Extreme%3A Industry best practice for integration within region or across system</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low%3A Potential for integration within region or across system but no plan in place</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moderate%3A Integration likely within region or across system and plan in place to achieve</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Rating</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None%3A Clinical capacity %2F network opportunity not yet identified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Strong%3A Evidence at Sutter of integration success within region or across system%2C likelihood of achieving</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_Rating__c</picklist>
+            <values>
+                <fullName>Green</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yellow</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>SSR_Project</fullName>
+        <active>true</active>
+        <label>SSR Project</label>
+        <picklistValues>
+            <picklist>Affiliate__c</picklist>
+            <values>
+                <fullName>Alta Bates Summit Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>California Pacific Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eden Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kahi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial Hospital Los Banos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial Medical Center Modesto</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Menlo Park Surgical Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mills-Peninsula Health Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Novato Community Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation %E2%80%93 EBR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation - PCR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation - SC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SAFH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SAH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SCAH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SHP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SHSO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SHSS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Amador Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Auburn Faith Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Davis Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Delta Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter East Bay Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Gould Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Lakeside Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Maternity and Surgery Center of Santa Cruz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Center of Santa Rosa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Center%2C Sacramento</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter North Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Pacific Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Pacific Medical Foundation - Sonoma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Regional Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Roseville Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Solano Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Tracy Community Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Systemwide</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Budget_Status__c</picklist>
+            <values>
+                <fullName>At Risk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Track</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Community__c</picklist>
+            <values>
+                <fullName>Extreme%3A Critical to mission%3A substantial community need documented</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low%3A Limited tie to mission - other community options exist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moderate%3A Clear tie with mission - limited community options</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Rating</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None%3A Not clearly tied to mission - limited community need</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Strong%3A Strongly supports mission - community need documented</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ent_Program__c</picklist>
+            <values>
+                <fullName>EDV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EHR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EHR - OpTime</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EHR-Meaningful Use</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EHR-My Health Online</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HIE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ICD 10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ICD 10 - Systemwide IS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ICD 10 - Systemwide Operational</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - Data Center - Date Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - IS Technical Infrastructure</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - Infrastructure Apps - Infrastructure Applications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - Life Cycle Mgmt - Life Cycle Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - Servers and Storage - Servers and Storage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - Service Mgmt - Service Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - Transport Infrastructure - Transport Infrastructure</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - UCCE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - User Access Experience - User Access Experience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - User Experience - User Experience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITSM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITSM - Asset Mgmt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITSM - Capacity Mgmt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITSM - Config Mgmt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITSM - Svc Catalog</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITSM - Svc Desk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MDM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SIIP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SIIP - Druker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SIIP - RD and D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SIIP - RD and D - Clinical Apps</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SIIP - RD and D - Innovation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SIIP - RD and D - VDW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SIIP - Strategic Partnerships</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security - Cyber Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security - Cyber Security - DLP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security - ID Access Mgmt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security - Network Access</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security - Risk Mgmt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security - Security Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security - Unsupported OS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Finance_Performance__c</picklist>
+            <values>
+                <fullName>Extreme%3A ROI less than or equal to 25%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low%3A ROI less than or equal to 5%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moderate%3A ROI less than or equal to 10%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Rating</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None%3A 0%25 ROI breaks even</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Strong%3A ROI less than or equal to 15%25</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Financial_Performance__c</picklist>
+            <values>
+                <fullName>Extreme%3A Meets 5 of 5 Goal Areas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low%3A Meets 2 of 5 Goal Areas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moderate%3A Meets 3 of 5 Goal Areas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Rating</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None%3A Meets 1 of 5 Goal Areas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Strong%3A Meets 4 of 5 Goal Areas</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Governance_Body__c</picklist>
+            <values>
+                <fullName>Business Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Clinical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Leadership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Revenue Cycle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web Portal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Owning_Business_Unit__c</picklist>
+            <values>
+                <fullName>SH%2EAffiliate%2EZNR%2EKahi Mohala</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SH%2EAffiliate%2EZNR%2ESCAH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SH%2ES3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SH%2ES3%2EBioMed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SH%2ES3%2EFinance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SH%2ESHSS%2ESBD%2ESHP</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>People__c</picklist>
+            <values>
+                <fullName>Extreme%3A Industry best practice showing impact on employee satisfaction index</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low%3A Low impact on employee satisfaction index</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moderate%3A Evidence nationally of positive impact on employee satisfaction index</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Rating</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None%3A Does not impact employee satisfaction index</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Strong%3A Evidence at Sutter of positive impact on employee satisfaction index</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Program_Type__c</picklist>
+            <values>
+                <fullName>Compliance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Investment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Risk</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Project_Stage__c</picklist>
+            <values>
+                <fullName>Build</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Design</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Discovery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Exploration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Go Live</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Idea</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Project_Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regionally Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted for Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System Approved</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Quality__c</picklist>
+            <values>
+                <fullName>Extreme%3A Industry best practice for high priority area%2C broad clinical%2C safety%2C or service impact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low%3A Impact on comfort %2F satisfaction%2C but no direct clinical %2F Safety impact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moderate%3A Evidence nationally of possible positive clinical%2C safety%2C or service impact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Rating</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None%3A Little Direct impact on patient outcome%2C safety%2C or comfort</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Strong%3A Evidence at Sutter of likely positive clinical%2C safety%2C or service impact</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Requestor_Department__c</picklist>
+            <values>
+                <fullName>CVR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EBR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PCR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SHSO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SSR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System-Wide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WBR</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Schedule_Status__c</picklist>
+            <values>
+                <fullName>At Risk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Track</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Scope_Status__c</picklist>
+            <values>
+                <fullName>At Risk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Track</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Service__c</picklist>
+            <values>
+                <fullName>Extreme%3A Industry best practice for integration within region or across system</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low%3A Potential for integration within region or across system but no plan in place</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moderate%3A Integration likely within region or across system and plan in place to achieve</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Rating</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None%3A Clinical capacity %2F network opportunity not yet identified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Strong%3A Evidence at Sutter of integration success within region or across system%2C likelihood of achieving</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_Rating__c</picklist>
+            <values>
+                <fullName>Green</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yellow</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>VMO_Project</fullName>
+        <active>true</active>
+        <label>VMO Project</label>
+        <picklistValues>
+            <picklist>Affiliate__c</picklist>
+            <values>
+                <fullName>Alta Bates Summit Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>California Pacific Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eden Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kahi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial Hospital Los Banos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial Medical Center Modesto</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Menlo Park Surgical Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mills-Peninsula Health Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Novato Community Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation %E2%80%93 EBR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation - PCR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation - SC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SAFH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SAH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SCAH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SHP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SHSO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SHSS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Amador Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Auburn Faith Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Davis Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Delta Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter East Bay Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Gould Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Lakeside Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Maternity and Surgery Center of Santa Cruz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Center of Santa Rosa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Center%2C Sacramento</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter North Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Pacific Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Pacific Medical Foundation - Sonoma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Regional Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Roseville Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Solano Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Tracy Community Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Systemwide</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Budget_Status__c</picklist>
+            <values>
+                <fullName>At Risk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Track</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Community__c</picklist>
+            <values>
+                <fullName>Extreme%3A Critical to mission%3A substantial community need documented</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low%3A Limited tie to mission - other community options exist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moderate%3A Clear tie with mission - limited community options</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Rating</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None%3A Not clearly tied to mission - limited community need</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Strong%3A Strongly supports mission - community need documented</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ent_Program__c</picklist>
+            <values>
+                <fullName>EDV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EHR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EHR - OpTime</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EHR-Meaningful Use</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EHR-My Health Online</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HIE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ICD 10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ICD 10 - Systemwide IS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ICD 10 - Systemwide Operational</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - Data Center - Date Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - IS Technical Infrastructure</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - Infrastructure Apps - Infrastructure Applications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - Life Cycle Mgmt - Life Cycle Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - Servers and Storage - Servers and Storage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - Service Mgmt - Service Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - Transport Infrastructure - Transport Infrastructure</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - UCCE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - User Access Experience - User Access Experience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Tech Infrastructure - User Experience - User Experience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITSM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITSM - Asset Mgmt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITSM - Capacity Mgmt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITSM - Config Mgmt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITSM - Svc Catalog</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITSM - Svc Desk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MDM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SIIP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SIIP - Druker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SIIP - RD and D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SIIP - RD and D - Clinical Apps</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SIIP - RD and D - Innovation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SIIP - RD and D - VDW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SIIP - Strategic Partnerships</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security - Cyber Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security - Cyber Security - DLP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security - ID Access Mgmt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security - Network Access</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security - Risk Mgmt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security - Security Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security - Unsupported OS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Finance_Performance__c</picklist>
+            <values>
+                <fullName>Extreme%3A ROI less than or equal to 25%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low%3A ROI less than or equal to 5%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moderate%3A ROI less than or equal to 10%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Rating</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None%3A 0%25 ROI breaks even</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Strong%3A ROI less than or equal to 15%25</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Financial_Performance__c</picklist>
+            <values>
+                <fullName>Extreme%3A Meets 5 of 5 Goal Areas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low%3A Meets 2 of 5 Goal Areas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moderate%3A Meets 3 of 5 Goal Areas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Rating</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None%3A Meets 1 of 5 Goal Areas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Strong%3A Meets 4 of 5 Goal Areas</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Governance_Body__c</picklist>
+            <values>
+                <fullName>Business Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Clinical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS Leadership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Revenue Cycle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web Portal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Owning_Business_Unit__c</picklist>
+            <values>
+                <fullName>SH%2EAffiliate%2EZNR%2EKahi Mohala</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SH%2EAffiliate%2EZNR%2ESCAH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SH%2ES3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SH%2ES3%2EBioMed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SH%2ES3%2EFinance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SH%2ESHSS%2ESBD%2ESHP</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>People__c</picklist>
+            <values>
+                <fullName>Extreme%3A Industry best practice showing impact on employee satisfaction index</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low%3A Low impact on employee satisfaction index</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moderate%3A Evidence nationally of positive impact on employee satisfaction index</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Rating</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None%3A Does not impact employee satisfaction index</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Strong%3A Evidence at Sutter of positive impact on employee satisfaction index</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Program_Type__c</picklist>
+            <values>
+                <fullName>Compliance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Investment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Risk</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Project_Stage__c</picklist>
+            <values>
+                <fullName>Build</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Design</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Discovery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Exploration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Go Live</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Idea</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Project_Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regionally Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted for Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System Approved</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Quality__c</picklist>
+            <values>
+                <fullName>Extreme%3A Industry best practice for high priority area%2C broad clinical%2C safety%2C or service impact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low%3A Impact on comfort %2F satisfaction%2C but no direct clinical %2F Safety impact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moderate%3A Evidence nationally of possible positive clinical%2C safety%2C or service impact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Rating</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None%3A Little Direct impact on patient outcome%2C safety%2C or comfort</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Strong%3A Evidence at Sutter of likely positive clinical%2C safety%2C or service impact</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Requestor_Department__c</picklist>
+            <values>
+                <fullName>CVR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EBR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PCR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SHSO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SSR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System-Wide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WBR</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Schedule_Status__c</picklist>
+            <values>
+                <fullName>At Risk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Track</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Scope_Status__c</picklist>
+            <values>
+                <fullName>At Risk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Track</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Service__c</picklist>
+            <values>
+                <fullName>Extreme%3A Industry best practice for integration within region or across system</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low%3A Potential for integration within region or across system but no plan in place</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moderate%3A Integration likely within region or across system and plan in place to achieve</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Rating</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None%3A Clinical capacity %2F network opportunity not yet identified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Strong%3A Evidence at Sutter of integration success within region or across system%2C likelihood of achieving</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_Rating__c</picklist>
+            <values>
+                <fullName>Green</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yellow</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>Date_Submitted__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Project_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Project_Number__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Description__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>EA_Team_Member__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Project_Manager__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Program__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status_Rating_Image__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Project_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Project_Number__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Project_Manager__c</lookupDialogsAdditionalFields>
+        <lookupFilterFields>NAME</lookupFilterFields>
+        <lookupFilterFields>Project_Name__c</lookupFilterFields>
+        <lookupFilterFields>Project_Manager__c</lookupFilterFields>
+        <lookupFilterFields>Project_Number__c</lookupFilterFields>
+        <lookupFilterFields>Description__c</lookupFilterFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Project_Name__c</searchFilterFields>
+        <searchFilterFields>Project_Coordinator__c</searchFilterFields>
+        <searchFilterFields>Description__c</searchFilterFields>
+        <searchResultsAdditionalFields>Project_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Project_Manager__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Description__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

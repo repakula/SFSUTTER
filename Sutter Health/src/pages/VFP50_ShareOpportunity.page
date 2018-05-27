@@ -1,0 +1,12 @@
+<apex:page standardController="Opportunity" extensions="SHMMN_ShareOpportunity" action="{!shareOpp}" >
+    <apex:form > 
+        <apex:outputPanel >
+            <apex:pageBlock rendered="{!!showpage}">
+                <apex:pageMessages />
+                <apex:pageBlockButtons location="bottom">
+                    <apex:commandButton value="{!$Label.CL_20_SM_BacktoOpp}" action="{!cancel}"/>
+                </apex:pageBlockButtons>   
+            </apex:pageBlock>    
+        </apex:outputPanel> 
+    </apex:form>
+</apex:page>

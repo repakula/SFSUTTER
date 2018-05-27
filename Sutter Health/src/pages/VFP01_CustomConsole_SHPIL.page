@@ -1,0 +1,1852 @@
+<!--
+*     Page Name   : VFP01_CustomConsole_SHPIL
+*     Author      : IDC Offshore
+*     Date        : 2-March-2015
+*     Project Name: SHP Sales [Screen Optimization Service].
+*     Description : Visual Force Page for Custom console which opens for the SHP Agents based on the query parameters sent from the IVR, 
+*                   when they want to log a case and search for the appropriate Contact, SHP member,Provider,.
+*
+*     HISTORY
+*     --------------
+*     
+*     VERSION           AUTHOR            DATE          DETAIL 
+*       1.0           Manish Singh      02-March-2015   Optimisation the screen for SHP services user.  
+*
+-->
+
+<!-- Page Definition: Without sidebar for use in the Service Console. Action used to call method to save the IL -->
+<apex:page controller="VFC01_CustomConsole" sidebar="false" id="pg" action="{!saveCustInteraction}">
+
+    <!-- Style Sheet uploaded in Static Resources for the CSS used on the Page -->
+    <apex:stylesheet value="{!$Resource.ConsoleCSS}"/>
+     <apex:stylesheet value="{!$Resource.ConsoleSHPILCss}"/>
+    <!-- Reference to Javascript library for Salesforce Console Integration Toolkit -->    
+    <apex:includeScript value="/support/console/28.0/integration.js"/>
+       <script type="text/javascript">
+      
+      
+      
+    function testOpenSubtab(recordID1, recName, ElemId) {
+        
+        window.recordIdPassed = recordID1;
+        window.recName = recName;
+        window.recNameN = ElemId+'Hover';
+        
+            //alert(recordID1);
+            sforce.connection.sessionId = '{!$Api.Session_ID}';
+            if (sforce.console.isInConsole()) { 
+                sforce.console.getEnclosingPrimaryTabId(openSubtab);
+            }
+            //var hideElemLookUp = document.getElementById(elemLookUpID);
+            //alert(hideElemLookUp) 
+            //hideElemLookUp.style.visibility = "none";
+            LookupHoverDetail.getHover('lookup'+recordID1+'cas28').hide();
+        };
+   
+    var openSubtab = function openSubtab(result) {    
+            var primaryTabId = result.id;
+            sforce.console.openSubtab(result.id , '/'+window.recordIdPassed, true, 
+               window.recName, null);
+        };
+    </script>
+    
+    <!-- Reference to Javascript library for AJAX Tookit -->   
+    <script src="/soap/ajax/28.0/connection.js" type="text/javascript"></script>
+    <script src="/soap/ajax/28.0/apex.js" type="text/javascript"></script>
+    <!-- DO NOT REMOVE THE BELOW COMMENTED CODE AS IT IS USE FOR IE8  -->
+      <!--[if IE 8]>
+            <style> 
+                .leftAlignBar{
+                    margin-left:25% !important;
+                    margin-top:30% !important;
+                    width:300% !important;
+                    -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=6.123233995736766e-17, M12=1, M21=-1, M22=6.123233995736766e-17, SizingMethod='auto expand')";
+                }
+                 .inlineCssIL{
+                    margin-left:25% !important;
+                    margin-top:235% !important;
+                    width:300% !important;
+                    -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=6.123233995736766e-17, M12=1, M21=-1, M22=6.123233995736766e-17, SizingMethod='auto expand')";
+                }
+                .inlineCssArticle{
+                    margin-left:25% !important; 
+                    margin-top:235% !important;
+                    width:300% !important;
+                    -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=6.123233995736766e-17, M12=1, M21=-1, M22=6.123233995736766e-17, SizingMethod='auto expand')";
+                }
+            </style>          
+        <![endif]-->
+    
+     <!-- Req-3357 JAVASCRIPT for show and Hide IL, Article,Contact Detail  -->
+    <script>
+       
+         function setVisibility(elemtId){
+            var SearchDiv = "SearchDiv";
+            var Interactionlog = "Interactionlog";
+            var Article = "Article";
+            var clientdetail = document.getElementById('SearchDiv');
+            var Interactionlog = document.getElementById('InteractionLog');
+            var Article = document.getElementById('Article');
+            if(elemtId == 'SearchDiv' ){
+                clientdetail.style.display = 'block';   
+                Article.style.display = 'none';
+                Interactionlog.style.display ='none';
+                document.getElementById('ClientDetailTab').style.backgroundColor='#1797C0';
+                document.getElementById('InteractionLogTab').style.backgroundColor= '#49B7DA';
+                document.getElementById('ArticleTab').style.backgroundColor= '#49B7DA';
+            }
+            if(elemtId == 'Article' ){
+                clientdetail.style.display = 'none';    
+                Article.style.display = 'block';
+                Interactionlog.style.display ='none';
+                document.getElementById('ClientDetailTab').style.backgroundColor= '#49B7DA';
+                document.getElementById('InteractionLogTab').style.backgroundColor= '#49B7DA';
+                document.getElementById('ArticleTab').style.backgroundColor='#1797C0';
+            }
+            if(elemtId == 'Interactionlog' ){
+                clientdetail.style.display = 'none';    
+                Article.style.display = 'none';
+                Interactionlog.style.display = 'block';
+                document.getElementById('ClientDetailTab').style.backgroundColor= '#49B7DA';
+                document.getElementById('InteractionLogTab').style.backgroundColor='#1797C0';
+                document.getElementById('ArticleTab').style.backgroundColor= '#49B7DA';
+            }
+        }
+        
+    </script>
+   <style>
+    table tbody tr td#topButtonRow 
+    {
+        display:none !important;
+    }
+    table tbody tr td#bottomButtonRow
+    {
+        display:none !important;
+    }
+    </style>
+    
+     <!-- Req-3357 below div for Left Menu tab bar(Vertical)  -->
+    <div class="{!$label.SO_01_leftTabBar}">
+        <div class="leftMenu leftAlignBar" id ="ClientDetailTab"   onclick="setVisibility('SearchDiv');">
+          <apex:outputPanel id="hoverLinkreRenderd">
+                    <apex:outputPanel rendered="{!IF(linkId == null,true,false)}">
+                        <div class="menuTextStyle">{!$Label.SO_Contact_Detail}</div>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!IF(linkId != null,true,false)}">
+                        <div class="menuTextStyle">
+                            <c:hovercomponent displayname="{!$Label.SO_Contact_Detail}" recordId="{!linkId}"/>
+                        </div>
+                    </apex:outputPanel>          
+            </apex:outputPanel>
+        </div>
+        <div class="leftMenu inlineCssIL" id ="InteractionLogTab"  onclick="setVisibility('Interactionlog');">
+            <div class="menuTextStyle">{!$Label.SO_Interaction_Log}</div>
+        </div>
+        <div class="leftMenu inlineCssArticle" id ="ArticleTab" onclick="setVisibility('Article');">
+            <div class="menuTextStyle" style="margin-left: 31%;padding-top: 10%;">{!$Label.SO_Article}</div >
+        </div> 
+    </div>
+    <div id= "Righ Panel">
+        <apex:form id="theform" style="overflow-x:hidden;">
+        
+            <apex:inputHidden value="{!CustInteraction.CaseNumber}" id="transactionId"/>
+            <apex:inputHidden value="{!ConsoleTabLabel}" id="consoleTabLabelId"/>
+
+            <!-- Script called on page load to set the Name of the Console tab opened -->         
+            <script>
+                var tranId = '{!$Component.transactionId}';
+                var conTabId = '{!$Component.consoleTabLabelId}';
+                sforce.console.getFocusedPrimaryTabId(fn_set_title);
+                function fn_set_title(result) 
+                {
+                    var str_tb_ID = document.getElementById(conTabId).value;
+                    var str_vf_ID = document.getElementById(tranId).value;
+                    sforce.console.setTabTitle(str_tb_ID+' '+str_vf_ID);
+                };
+            </script>
+            
+            <!-- Div for Interaction Log created from Field Sets for different recordtypes -->       
+            <div style="float:left; width:100%;">
+            
+                <!-- Div for the tab panel containing tabs for search page and the accompanying list view and detail pages-->                
+                <div  id="SearchDiv"> 
+                    <!-- ActionRegion tag used to make an Ajax call to render only this section and not the entire page-->
+                    <apex:actionRegion >
+                        <!-- Show page messages if any -->
+                        <apex:pageMessages id="errorMessage" />
+                        <!-- Tab panel section that contains all the tab tags -->
+                        <apex:tabPanel id="tabPanel" value="{!selectedTab}" switchType="client">
+                            <!-- Seach tab with searches based on the DNISTC value passed-->    
+                            <apex:tab label="Search Page" id="tab1" immediate="true" rendered="{!showSearchTab}" >
+                                <!-- Rendering tab panel for SHP searches -->
+                                <apex:outputPanel rendered="{!showSHP}" id="SHPPanel">
+                                    <!-- Select list to show drop down with all the available searches, both SHP searches -->
+                                    <apex:selectList value="{!searches}" multiselect="false" size="1" id="searches1">
+                                        <apex:selectOptions value="{!searchTypes}"/>
+                                        <apex:actionSupport event="onchange" reRender="tabPanel, hoverLinkreRenderd, errorMessage">
+                                            
+                                        </apex:actionSupport>
+                                    </apex:selectList>
+                              
+                                    <apex:pageBlock >
+                                        <!-- This section rendered if search value is equal to Member according to memberID,memberContactNumber,memberFirstName,memberLastName,memberDOB text values -->
+                                        <apex:pageBlockSection rendered="{!IF(searches == 'Member', true , false)}">
+                                            <apex:inputText value="{!memberID}" label="Member ID:" onkeypress="return noenter1(event,1);"/>
+                                            <apex:inputText value="{!memberContactNumber}" label="Member Contact Number:" onkeypress="return noenter1(event,1);"/>
+                                            <apex:inputText value="{!memberFirstName}" label="Member First Name:" onkeypress="return noenter1(event,1);"/>
+                                            <apex:inputText value="{!memberLastName}" label="Member Last Name:" onkeypress="return noenter1(event,1);"/>
+                                            <apex:inputField value="{!memberDOB.SearchDate__c}" label="Member DOB:" id="memberDOB" onkeypress="return noenter1(event,1);"/>
+                                            <apex:pageBlockSectionItem >
+                                                <!-- Search button invokes SearchMember action for member search -->
+                                                <apex:commandButton action="{!SearchMember}" value="Search" rerender="tabPanel, hoverLinkreRenderd, errorMessage"/>
+                                                <apex:actionFunction name="doMemberSearch" action="{!SearchMember}" reRender="tabPanel, hoverLinkreRenderd, errorMessage" />
+                                            </apex:pageBlockSectionItem>
+                                        </apex:pageBlockSection>
+                                        <!-- This section rendered if search value is equal to Provider according to memberID,supplierName,supplierTIN,supplierNPI text values -->
+                                        <apex:pageBlockSection rendered="{!IF(searches == 'Provider', true , false)}">
+                                            <apex:inputText value="{!supplierName}" label="Provider Name:" onkeypress="return noenter1(event,2);"/>
+                                            <apex:inputText value="{!supplierTIN}" label="Provider Tax ID:" onkeypress="return noenter1(event,2);"/>
+                                            <apex:inputText value="{!supplierNPI}" label="Provider NPI:" onkeypress="return noenter1(event,2);"/>
+                                            <apex:pageBlockSectionItem >
+                                                <!-- Search button invokes SearchSupplier action for provider search -->
+                                                <apex:commandButton action="{!SearchSupplier}" value="Search" rerender="tabPanel, hoverLinkreRenderd, errorMessage"/>
+                                                <apex:actionFunction name="doProviderSearch" action="{!SearchSupplier}" reRender="tabPanel, hoverLinkreRenderd, errorMessage" />
+                                            </apex:pageBlockSectionItem>
+                                        </apex:pageBlockSection>
+                                        <!-- This section renderd if search value is equal to Broker -->
+                                        <apex:pageBlockSection rendered="{!IF(searches == 'Broker', true , false)}">
+                                            <apex:inputText value="{!brokerAgentFirstName}" label="Broker Agent First Name:" onkeypress="return noenter1(event,3);"/>
+                                            <apex:inputText value="{!brokerAgentLastName}" label="Broker Agent Last Name:" onkeypress="return noenter1(event,3);"/>
+                                            <apex:inputText value="{!brokerFirmName}" label="Broker Firm Name:" onkeypress="return noenter1(event,3);"/>
+                                            <apex:inputText value="{!brokerID}" label="Broker ID:" onkeypress="return noenter1(event,3);"/>
+                                            <apex:inputText value="{!brokerFirmTelephoneNumber}" label="Broker Firm Telephone Number:" onkeypress="return noenter1(event,3);"/>
+                                            <apex:pageBlockSectionItem >
+                                                <!-- Search button invokes SearchBroker action for broker search  -->
+                                                <apex:commandButton action="{!SearchBroker}" value="Search" rerender="tabPanel, hoverLinkreRenderd, errorMessage"/>
+                                                <apex:actionFunction name="doBrokerSearch" action="{!SearchBroker}" reRender="tabPanel, hoverLinkreRenderd, errorMessage"/>
+                                            </apex:pageBlockSectionItem>            
+                                        </apex:pageBlockSection>
+                                        <!-- This section rendered if search value is equal to Employer -->
+                                        <apex:pageBlockSection rendered="{!IF(searches == 'Employer', true , false)}">
+                                            <apex:inputText value="{!employerContactFirstName}" label="Employer Contact First Name:" onkeypress="return noenter1(event,4);"/>
+                                            <apex:inputText value="{!employerContactLastName}" label="Employer Contact Last Name:" onkeypress="return noenter1(event,4);"/>
+                                            <apex:inputText value="{!employerName}" label="Employer Name:" onkeypress="return noenter1(event,4);"/>
+                                            <apex:inputText value="{!employerTaxID}" label="Tax ID:" onkeypress="return noenter1(event,4);"/>
+                                            <!--  Req 3156 + 3363 OLTP Employer   added 1 more parameter  and it will also search  account group number -->
+                                             <apex:inputText value="{!employerGroupNumber}" label="Group Number:" onkeypress="return noenter1(event,4);"/>
+                                            <apex:pageBlockSectionItem >
+                                                <!-- Search button invokes SearchEmployer action for Employer search  -->
+                                                <apex:commandButton action="{!SearchEmployer}" value="Search" rerender="tabPanel, hoverLinkreRenderd, errorMessage"/>
+                                                <apex:actionFunction name="doEmployerSearch" action="{!SearchEmployer}" reRender="tabPanel, hoverLinkreRenderd, errorMessage"/>
+                                            </apex:pageBlockSectionItem> 
+                                        </apex:pageBlockSection>
+                                    </apex:pageBlock>
+                                </apex:outputPanel>
+                            </apex:tab>   
+                            
+                            <!-- Tab for Search Results List -->     
+                            <apex:tab label="Search Result List" id="tab2" immediate="true" rendered="{!showListTab}">                          
+                                <!-- Output Panel for search result for SHP search -->
+                                <apex:outputpanel rendered="{!showSHP}">
+                                
+                                    <!-- Output Panel for search result for Member search -->
+                                    <apex:outputPanel rendered="{!IF(searches == 'Member', true , false)}">
+                                        <apex:pageBlock >
+                                            <apex:pageBlockTable var="member" value="{!memberResults}">
+                                                <apex:column headerValue="Member Name">
+                                                    <apex:CommandLink value="{!member.ServiceTabLabel__c}" action="{!setContactLink}" rerender="tabPanel, hoverLinkreRenderd">
+                                                        <apex:param value="{!member.Id}" name="LinkId" assignTo="{!linkId}"/>
+                                                        <apex:param value="true" name="verifyBool" assignTo="{!verifyBool}"/>
+                                                    </apex:CommandLink>
+                                                </apex:column>
+                                                <apex:column value="{!member.Member_ID__c}"/>
+                                           <!-- <apex:column value="{!member.Member_Termination_Date__c}"/>  Req 3385-->>                                                 <apex:column value="{!member.Member_Subscriber_Relationship__c}"/>
+                                                <apex:column value="{!member.MailingStreet}"/>
+                                                <apex:column value="{!member.MailingCity}"/>
+                                                <apex:column value="{!member.MailingState}"/>
+                                                <apex:column value="{!member.MailingPostalCode}"/>
+                                                <apex:column value="{!member.Birthdate}"/>
+                                                <apex:column value="{!member.Member_Plan_Name__c}"/>
+                                            </apex:pageBlockTable>
+                                        </apex:pageBlock>
+                                    </apex:outputPanel>
+                                    
+                                    <!-- Output Panel for search result for Provider search -->
+                                    <apex:outputPanel rendered="{!IF(searches == 'Provider', true , false)}">
+                                        <apex:pageBlock >
+                                            <apex:pageBlockTable var="provider" value="{!supplierResults}">
+                                                <apex:column headerValue="Provider">
+                                                    <apex:CommandLink value="{!provider.ServiceTabLabel__c}" action="{!setContactLink}" rerender="tabPanel, hoverLinkreRenderd">
+                                                        <apex:param value="{!provider.Id}" name="LinkId" assignTo="{!linkId}"/>
+                                                        <apex:param value="true" name="verifyBool" assignTo="{!verifyBool}"/>
+                                                    </apex:CommandLink>
+                                                </apex:column>
+                                                <apex:column value="{!provider.Supplier_Contact_Person__c}"/>
+                                                <apex:column value="{!provider.Supplier_TIN_Address__c}"/>
+                                                <apex:column value="{!provider.Supplier_Tax_ID__c}"/>
+                                                <apex:column value="{!provider.Supplier_NPI__c}"/>
+                                                <apex:column value="{!provider.Phone}"/>
+                                            </apex:pageBlockTable>
+                                        </apex:pageBlock>
+                                    </apex:outputPanel>
+                                    
+                                    <!-- Output Panel for search result for Broker search -->
+                                    <apex:outputPanel rendered="{!IF(searches == 'Broker', true , false)}">
+                                        <apex:pageBlock >
+                                            <apex:pageBlockTable var="broker" value="{!brokerResults}">
+                                                <apex:column headerValue="Broker Agent">
+                                                    <apex:CommandLink value="{!broker.ServiceTabLabel__c}" action="{!setContactLink}" rerender="tabPanel, hoverLinkreRenderd">
+                                                        <apex:param value="{!broker.Id}" name="LinkId" assignTo="{!linkId}"/>
+                                                        <apex:param value="true" name="verifyBool" assignTo="{!verifyBool}"/>
+                                                    </apex:CommandLink>
+                                                </apex:column>
+                                                <apex:column headerValue="Brokerage Firm">
+                                                    <apex:outputField value="{!broker.Account.Name}"/>
+                                                </apex:column>
+                                                <apex:column headerValue="Shipping State/Province">
+                                                    <apex:outputField value="{!broker.Account.BillingState}"/>
+                                                </apex:column>
+                                                <apex:column headerValue="Shipping Zip/Postal Code">
+                                                    <apex:outputField value="{!broker.Account.BillingPostalCode}"/>
+                                                </apex:column>
+                                                <apex:column headerValue="Shipping Country">
+                                                    <apex:outputField value="{!broker.Account.BillingCountry}"/>
+                                                </apex:column>
+                                                <apex:column headerValue="County">
+                                                    <apex:outputField value="{!broker.Account.County__c}"/>
+                                                </apex:column>
+                                                <apex:column headerValue="Broker Firm HCC ID">
+                                                    <apex:outputField value="{!broker.Account.Broker_Firm_HCC_ID__c}"/>
+                                                </apex:column>
+                                                <apex:column headerValue="Phone">
+                                                    <apex:outputField value="{!broker.Account.Phone}"/>
+                                                </apex:column>
+                                                <apex:column headerValue="Broker Agent License No">
+                                                    <apex:outputField value="{!broker.License_Number__c}"/>
+                                                </apex:column>
+                                            </apex:pageBlockTable> 
+                                        </apex:pageBlock>
+                                    </apex:outputPanel>
+                                    
+                                    <!-- Output Panel for search result for Employer search -->
+                                    <apex:outputPanel rendered="{!IF(searches == 'Employer', true , false)}">
+                                        <apex:pageBlock >
+                                            <apex:pageBlockTable var="employer" value="{!employerResults}">
+                                                <apex:column headerValue="Employer Contact">
+                                                    <apex:CommandLink value="{!employer.ServiceTabLabel__c}" action="{!setContactLink}" rerender="tabPanel,hoverLinkreRenderd">
+                                                        <apex:param value="{!employer.Id}" name="LinkId" assignTo="{!linkId}"/>
+                                                        <apex:param value="true" name="verifyBool" assignTo="{!verifyBool}"/>
+                                                    </apex:CommandLink>
+                                                </apex:column>
+                                                <apex:column headerValue="Employer">
+                                                    <apex:outputField value="{!employer.Account.Name}"/>
+                                                </apex:column>
+                                                <apex:column headerValue="Tax ID">
+                                                    <apex:outputField value="{!employer.Account.Tax_ID__c}"/>
+                                                </apex:column>
+                                                <apex:column headerValue="Employer Type">
+                                                    <apex:outputField value="{!employer.Account.Employer_Type__c}"/>
+                                                </apex:column>
+                                                <apex:column headerValue="Broker Agent HCC ID">
+                                                    <apex:outputField value="{!employer.Account.Employer_Broker_Agent_HCC_ID__c}"/>
+                                                </apex:column>
+                                                <apex:column headerValue="Employees">
+                                                    <apex:outputField value="{!employer.Account.NumberOfEmployees}"/>
+                                                </apex:column>
+                                                <apex:column headerValue="Billing City">
+                                                    <apex:outputField value="{!employer.Account.BillingCity}"/>
+                                                </apex:column>
+                                                <apex:column headerValue="Billing State/Province">
+                                                    <apex:outputField value="{!employer.Account.BillingState}"/>
+                                                </apex:column>
+                                                <apex:column headerValue="Billing Zip/Postal Code">
+                                                    <apex:outputField value="{!employer.Account.BillingPostalCode}"/>
+                                                </apex:column>
+                                                <apex:column headerValue="Phone">
+                                                    <apex:outputField value="{!employer.Account.Phone}"/>
+                                                </apex:column>
+                                            </apex:pageBlockTable>
+                                        </apex:pageBlock>
+                                    </apex:outputPanel>
+                                </apex:outputpanel>
+                            </apex:tab>                      
+
+                            <!-- Tab for the Detail Page of the record opened -->                        
+                            <apex:tab label="{!tab3Label}" id="tab3" immediate="true" rendered="{!showDetailTab}">
+                            
+                                <!-- Verification Panel with fields against which a particular record will be verified -->                        
+                                <apex:outputPanel id="verifyPanel" rendered="{!If((custInteraction.ContactID == null && custInteraction.Patient__c == null && Searches != 'Guarantor' && verifyBool == true), true, false)}">
+                                    
+                                    <!-- Page block for Contact Verification Section -->
+                                    <apex:pageBlock id="pgBlock">
+                                    
+                                        <!-- Div for Section Heading -->
+                                        <div align="center">
+                                            <font size="4">
+                                                <p><b>Contact Verification</b></p>
+                                            </font>
+                                        </div>
+                                        <hr/>
+                                        <apex:inputHidden value="{!validationno}" id="validno"/>
+                                        <script>
+                                            var validationId = '{!$Component.validno}';
+                                        </script>
+                                        
+                                        
+                                        
+                                        <!-- OutPut Panel: Shows Verified and Unverified buttons for the Verification Section -->
+                                        <apex:outputPanel id="buttonPanel">
+                                        
+                                            
+                                            <script>
+                                                function fillKeyValuePair()
+                                                {
+                                                    var str = document.getElementById(keyValuePairId).value.split("#");
+                                                    for(var i = 0; i<str.length; i++)
+                                                    {
+                                                        if(str[i].length>0)
+                                                        {
+                                                            var keyStr = str[i].split("->");
+                                                            document.getElementById(keyStr[0]).value = keyStr[1]+" Refreshed";
+                                                        }
+                                                    }
+                                                }
+                                            </script>
+                                            <apex:commandButton value="Verified" id="verifySHP" style="position:relative;left:20%;" reRender="tabPanel,hoverLinkreRenderd, casePanel, errorMessage1" action="{!contactVerification}" rendered="{!If(showSHP == true, true, false)}" oncomplete="fillKeyValuePair();"/>
+                                            <!-- Command Button to call the method to unverify the contact -->
+                                            <apex:commandButton value="Unverified" action="{!contactVerificationForUnverified}"  id="UnverfiedButton" style="position:relative;left:60%"  reRender="tabPanel, casePanel, errorMessage1" oncomplete="fillKeyValuePair();"/>
+                                            
+                                        </apex:outputPanel>
+                                    </apex:pageBlock>
+                                    <!-- ActionFunction: function called by javascript function fn_countVerify and checkbox field label values passed to list of strings in the controller, rerender the tabPanel, casePanel, and errormessage1 -->
+                                <!-----Release 5 Bargaining Unit Code--->   
+                                    <apex:actionFunction name="passValues" reRender="tabPanel, casePanel, errorMessage1,dataCategory" action="{!contactVerification}" oncomplete="refreshSearchResult(); fillKeyValuePair();" >
+                                        <apex:param assignTo="{!fieldLabels}" name="fieldLabels" value=" "/>
+                                    </apex:actionFunction> 
+                                     
+                                </apex:outputPanel>
+                                <!-- Div for detail page opened based on the linkId  -->                            
+                                <div style="background-color:white" id="contactDiv">
+                                   <!-- <apex:detail subject="{!linkId}" relatedList="true" relatedListHover="true" rendered="{!(!showSHPM && !showSupplier && !showPractitioner )}"/>   -->
+                                    <!-- Requirement  no 3236  for OLTP Member Start -->
+                                                           <!-- Create Tab panel -->
+                                        <apex:outputpanel id="member" rendered="{!if(showSHPM == true,true,false) }">
+                                        
+                                            <apex:tabPanel switchType="client" selectedTab="name2" id="AccountTabPanel" tabClass="activeTab" inactiveTabClass="inactiveTab">
+                                            <!-- Tab for Member Contact start here -->
+                                                <apex:tab label="Member Detail" name="Member Detail" id="tabOne">
+                                                    <div style="background-color:white" id="contactDiv">
+                                                        <apex:detail subject="{!linkId}" relatedList="false" relatedListHover="true"/>
+                                                    </div>
+                                                </apex:tab>
+                                                <!-- Tab for PCP Information  start here -->
+                                                <apex:tab label="PCP Information" name="PCP Information" id="tabtwo"   >
+                                                    <apex:outputPanel rendered="{!checkPCP}">
+                                                        <table style="width:100%" border="1" class="tableheadings">
+                                                         <tr>
+                                                            <td> {!$Label.CL80_SPSEpicID} </td>
+                                                             <td>{!$Label.CL81_PCPPractitionerName}</td>
+                                                             <td>{!$Label.CL82_PCPEffectiveDate}</td>         
+                                                             <td>{!$Label.CL83_PCP_Supplier_Name}</td>         
+                                                             <td>{!$Label.CL84_PCP_Supplier_Location_Name}</td>         
+                                                             <td>{!$Label.CL85_PCP_Speciality}</td>        
+                                                         </tr>
+                                                 
+                                                        <tr>
+                                                             <td>{!$Label.CL86_Practitioner_PCP_Auto_Assigned}</td>
+                                                             <td>{!$Label.CL87_PCP_Practitioner_NPI}</td>
+                                                             <td>{!$Label.CL88_PCP_Termination_Date}</td>         
+                                                             <td >{!$Label.CL89_PCP_Supplier_NPI}</td>         
+                                                             <td>{!$Label.CL90_Medical_Group_Affiliation}</td>         
+                                                             <td>{!$Label.CL91_PCP_Sub_Specialty}</td>         
+                                                         </tr>
+                                                              
+                                                        </table>
+                                                        <apex:variable value="{!1}" var="counterPCP"/>
+                                                        <apex:repeat value="{!pcpInformation}" var="pcpInfo"  rows="10" >
+                                                            <table border="1"  class="tabledata">
+                                                                <tr style="background-color:{!if(MOD(counterPCP,2)==0,'#cfeef8','White')}">
+                                                                    <td><apex:outputfield value="{!pcpInfo.SPS_Epic_ID__c}" /> </td>
+                                                                    <td><apex:outputfield value="{!pcpInfo.PCP_Practitioner_Name__c}" /></td>
+                                                                    <td> 
+                                                                        <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                                                            <apex:param value="{!pcpInfo.PCP_Effective_date__c}" /> 
+                                                                        </apex:outputText>
+                                                                    </td>
+                                                                 
+                                                                    <td><apex:outputfield value="{!pcpInfo.PCP_Supplier_Name__c}" /></td>         
+                                                                    <td><apex:outputfield value="{!pcpInfo.PCP_Supplier_Location_name__c}" /></td>         
+                                                                     <td><apex:outputfield value="{!pcpInfo.PCP_Speciality__c}" /></td> 
+                                                                </tr>
+                                                                <tr style="background-color:{!if(MOD(counterPCP,2)==0,'#cfeef8','White')}">
+                                                                    <td><c:CheckboxTransform cb="{!pcpInfo.Practitioner_PCP_Auto_Assigned__c}"/></td>
+                                                                    <td><apex:outputfield value="{!pcpInfo.PCP_Practitioner_NPI__c}"/></td>
+                                                                    <td> 
+                                                                        <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                                                            <apex:param value="{!pcpInfo.PCP_Termination_Date__c}" /> 
+                                                                        </apex:outputText> 
+                                                                    </td>     
+                                                                    <td><apex:outputfield value="{!pcpInfo.PCP_Supplier_NPI__c}"/></td>         
+                                                                    <td><apex:outputfield value="{!pcpInfo.Medical_Group_Affiliation__c}"/></td>         
+                                                                    <td><apex:outputfield value="{!pcpInfo.PCP_sub_Specialty__c}"/></td> 
+                                                                 </tr>
+                                                            </table>
+                                                            <apex:variable value="{!counterPCP+ 1}" var="counterPCP" />
+                                                        </apex:repeat>
+                                                        <apex:panelGrid columns="4" styleclass="panelgrid" >
+                                                 
+                                                          <apex:commandLink value="|<<" action="{!fstbtn}" reRender="member" rendered="{!!prvPCP}"  styleclass="commandlink" >
+                                                          <apex:param name="PCPtab" assignTo="{!tabID}" value="{!$Label.CL130_pcpTab}"/>
+                                                          
+                                                          </apex:commandLink>
+                                                          <apex:commandLink value="<" action="{!prvbtn}" reRender="member" rendered="{!!prvPCP}" styleclass="commandlink"  >
+                                                          <apex:param name="PCPtab" assignTo="{!tabID}" value="{!$Label.CL130_pcpTab}"/>
+                                                         
+                                                          </apex:commandLink>
+
+                                                          <apex:commandLink value=">" action="{!nextbtn}"  reRender="member" rendered="{!!nxtPCP}" styleclass="commandlink">
+                                                          <apex:param name="PCPtab" assignTo="{!tabID}" value="{!$Label.CL130_pcpTab}"/>
+                                                            
+                                                          </apex:commandLink>
+                                                                       
+                                                          <apex:commandLink value=">>|" action="{!endbtn}"  reRender="member" rendered="{!!nxtPCP}" styleclass="commandlink" >
+                                                          <apex:param name="PCPtab" assignTo="{!tabID}" value="{!$Label.CL130_pcpTab}"/>
+                                                         
+                                                          </apex:commandLink>
+                                                         </apex:panelGrid> 
+
+                                                    </apex:outputPanel>
+                                                    <apex:outputpanel rendered="{!!CheckPCP}" >
+
+                                                        <apex:outputText value="No Record Found" styleClass="noRecord" >    
+                                                        </apex:outputtext>
+                                                    </apex:outputpanel>
+                                            </apex:tab>
+                                            <!-- Tab for Benefit Plan Coverage  start here -->
+                                            <apex:tab label="Benefit Plan Coverage" name="Benefit Plan Coverage" id="tabThree"> 
+                                               <div align="left">
+                                                    <font size="3">
+                                                        <p><b>Plan Selection &amp; Eligibility</b></p>
+                                                    </font>
+                                                </div>
+                                               <apex:outputPanel rendered="{!checkBenefitPlanCoverage}">
+                                                       <apex:variable value="{!1}" var="counterBenefitPlanCoverage" />
+                                                      
+                                                      <apex:repeat value="{!benefitPlanCoverage}" var="benefitPlanCov" >
+                                                        <!-- Req 3156 + 3363 Displaying Header by using component Start -->
+                                                       <c:Benefit_Plan />
+                                                        <!-- Req 3156 + 3363 End  -->                                                      
+                                                        <table style="table-layout: fixed; width:100%" border="1"  align="Center" class ="tabledata"> 
+                                                             <tr>
+
+                                                                <!-- Req 3375 Change for Benefit Grid Link--->
+                                                                <td>
+                                                                   <apex:outputPanel id="hoverBenefitGridLink">
+                                                                    <apex:outputPanel rendered="{!IF(benefitPlanCov.Benefit_Grid_Plan_ID__c == null,true,false)}">
+                                                                        <apex:outputText value="{!benefitPlanCov.PlanCov_Bene_Plan_HCC_ID__c}"/>    
+                                                                    </apex:outputPanel>
+                                                                    <apex:outputPanel rendered="{!IF(benefitPlanCov.Benefit_Grid_Plan_ID__c!= null,true,false)}" id="benifitlink">
+                                                                        <a  href="#"  id="lookup{!benefitPlanCov.Benefit_Grid_Plan_ID__c}cas28" onblur="LookupHoverDetail.getHover('{!benefitPlanCov.Benefit_Grid_Plan_ID__c}').hide();" 
+                                                                           onClick="testOpenSubtab('{!benefitPlanCov.Benefit_Grid_Plan_ID__c}','{!benefitPlanCov.PlanCov_Bene_Plan_HCC_ID__c}','lookup{!benefitPlanCov.Benefit_Grid_Plan_ID__c}cas28');return false"
+                                                                           oncomplete="LookupHoverDetail.getHover('lookup{!benefitPlanCov.Benefit_Grid_Plan_ID__c}cas28').hide();"
+                                                                           onfocus="LookupHoverDetail.getHover('lookup{!benefitPlanCov.Benefit_Grid_Plan_ID__c}cas28', '/{!benefitPlanCov.Benefit_Grid_Plan_ID__c}/m?retURL=%2F{!benefitPlanCov.Benefit_Grid_Plan_ID__c}&isAjaxRequest=1').show();" 
+                                                                           onmouseout="LookupHoverDetail.getHover('lookup{!benefitPlanCov.Benefit_Grid_Plan_ID__c}cas28').hide();" 
+                                                                           onmouseover="LookupHoverDetail.getHover('lookup{!benefitPlanCov.Benefit_Grid_Plan_ID__c}cas28', '/{!benefitPlanCov.Benefit_Grid_Plan_ID__c}/m?retURL=%2F{!benefitPlanCov.Benefit_Grid_Plan_ID__c}&isAjaxRequest=1').show();">
+                                                                           {!benefitPlanCov.PlanCov_Bene_Plan_HCC_ID__c}
+                                                                       </a> 
+                                                                </apex:outputPanel>
+                                                                  </apex:outputPanel>
+                                                                </td>
+                                                                <!--Req 3375 Change for Benefit Grid Link End-->
+                                                                <td>{!benefitPlanCov.PlanCov_Bene_Plan_Name__c}</td>
+                                                                <td>{!benefitPlanCov.PlanCov_Bene_Plan_Type__c}</td> 
+                                                                <td>
+                                                                    <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                                                        <apex:param value="{!benefitPlanCov.PlanCov_Bene_Plan_Date_Start__c}" /> 
+                                                                    </apex:outputText> </td>
+                                                                <td width="10%"  > 
+                                                                    <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                                                        <apex:param value="{!benefitPlanCov.PlanCov_Bene_Plan_Date_End__c}" /> 
+                                                                    </apex:outputText>
+                                                                </td>
+                                                     
+                                                            </tr>         
+                                                        </table>
+                                                          
+                                                        <table style="width:100%" border="1" class="tableheadings" align="Center">
+                                                            <tr>
+                                                                
+                                                                <td>{!$Label.CL97_Benefit_Coverage_HCC_ID}</td>
+                                                                <td>{!$Label.CL98_Benefit_Coverage_Name}</td>         
+                                                                <td>{!$Label.CL99_Benefit_Coverage_Description}</td>         
+                                                                <td>{!$Label.CL100_Benefit_Coverage_Date_Start}</td>         
+                                                                <td>{!$Label.CL101_Benefit_Coverage_Date_End}</td>    
+                                                                 
+                                                            </tr>
+                                                             
+                                                        </table>
+                                                        <apex:outputPanel id="mainPagePanel">
+                                                            <!-- this panel is loaded the first time only -->
+                                                            <apex:outputPanel id="def" rendered="{!IF(MasterID == null,true,false)}" >
+                                                                    <apex:variable value="{!1}" var="counterBenefitPlanCoverageDetail" />
+                                                                    <apex:repeat value="{!benefitPlanCov.Benefit_Plan_Coverage_DetailS__r }"   var="benefitPlanCovDetail"  rows="10"  >
+                                                        
+                                                                        <table  border="1"  align="Center" class ="tabledata">
+                                                                       
+                                                                             <tr style="background-color:{!if(MOD(counterBenefitPlanCoverageDetail,2)==0,'#cfeef8','White')}">
+
+                                                                                <td>{!benefitPlanCovDetail.Benefit_Coverage_HCC_ID__c}</td>
+                                                                                <td>{!benefitPlanCovDetail.Benefit_Coverage_Name__c}</td>
+                                                                                <td>{!benefitPlanCovDetail.Benefit_Coverage_Description__c}</td>
+                                                                                <td> 
+                                                                                    <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                                                                        <apex:param value="{!benefitPlanCovDetail.Benefit_Coverage_Date_Start__c}" /> 
+                                                                                    </apex:outputText> </td>
+                                                                                <td> 
+                                                                                    <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                                                                        <apex:param value="{!benefitPlanCovDetail.Benefit_Coverage_Date_End__c}" /> 
+                                                                                    </apex:outputText> </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                        <apex:variable value="{!counterBenefitPlanCoverageDetail + 1}" var="counterBenefitPlanCoverageDetail" />
+                                                                    </apex:repeat>
+                                                            </apex:outputPanel>
+                                                
+                                                            <!-- this panel is loaded when a user clicks next -->
+                                                            <apex:outputPanel rendered="{!IF(MasterID != null,true,false)}">
+                                                                 <apex:variable value="{!1}" var="counterBenefitPlanCoverageDetail" />
+                                                                    <apex:repeat value="{!benefitPlanCoverageDetail }"   var="benefitPlanCovDetail"  rows="10"  >
+                                                                        
+                                                                        <table style=" table-layout: fixed; width:100%" border="1"  align="Center" class ="tabledata" >
+                                                                      
+                                                                             <tr style="background-color:{!if(MOD(counterBenefitPlanCoverageDetail,2)==0,'#cfeef8','White')}">
+
+                                                                                <td>{!benefitPlanCovDetail.Benefit_Coverage_HCC_ID__c}</td>
+                                                                                <td>{!benefitPlanCovDetail.Benefit_Coverage_Name__c}</td>
+                                                                                <td>{!benefitPlanCovDetail.Benefit_Coverage_Description__c}</td>
+                                                                                <td > 
+                                                                                    <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                                                                        <apex:param value="{!benefitPlanCovDetail.Benefit_Coverage_Date_Start__c}" /> 
+                                                                                    </apex:outputText> </td>
+                                                                                <td> 
+                                                                                    <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                                                                        <apex:param value="{!benefitPlanCovDetail.Benefit_Coverage_Date_End__c}" /> 
+                                                                                    </apex:outputText> </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                        <apex:variable value="{!counterBenefitPlanCoverageDetail + 1}" var="counterBenefitPlanCoverageDetail" />
+                                                                    </apex:repeat>
+                                                
+                                                            </apex:outputPanel>
+                                                        </apex:outputPanel>
+                                                        <apex:outputpanel >
+                                                               <apex:panelGrid columns="4" styleclass="panelgridDetails" >
+                                                                                                                         
+                                                                      <apex:commandLink value="<" action="{!prvbtnBenefitPlanCoverageDetails}" reRender="mainPagePanel" rendered="{!IF(benefitPlanCov.Benefit_Plan_Coverage_DetailS__r.size >=2,true,false)}"  styleclass="commandlink">
+                                                                        <apex:param name="PlanBenifitCoverageDetailtableNo" assignTo="{!benefitPlanCoverageDetailTableNo}" value="{!counterBenefitPlanCoverage}"    />
+                                                                        <apex:param name="PlanBenifitCoverage" assignTo="{!MasterID}" value="{!benefitPlanCov.id}"    />
+                                                                     </apex:commandLink>
+                                                                    <apex:commandLink value=">"  action="{!nextbtnBenefitPlanCoverageDetails}" reRender="mainPagePanel" rendered="{!IF(benefitPlanCov.Benefit_Plan_Coverage_DetailS__r.size >=2,true,false)}" styleclass="commandlink">
+                                                                         <apex:param name="PlanBenifitCoverageDetailtableNo" assignTo="{!benefitPlanCoverageDetailTableNo}" value="{!counterBenefitPlanCoverage}"    />
+                                                                        <apex:param name="PlanBenifitCoverage" assignTo="{!MasterID}" value="{!benefitPlanCov.id}"    />
+                                                                     
+                                                                     </apex:commandLink>
+                                                                      
+                                                            </apex:panelGrid>
+                                                        </apex:outputPanel>
+                                                    
+                                                        <br/>
+                                                        <apex:variable value="{!counterBenefitPlanCoverage + 1}" var="counterBenefitPlanCoverage" />
+
+                                                    </apex:repeat>
+
+                                                    <apex:panelGrid columns="4" styleclass="panelgrid" >
+                                                             <apex:commandLink value="|<<"  action="{!fstbtn}"  reRender="member" rendered="{!!prvBenefitPlanCoverage}" styleclass="commandlink" >
+                                                              <apex:param name="benefitPlan" assignTo="{!tabID}" value="{!$Label.Cl131_benefitTab}"/>
+                                                             
+                                                            </apex:commandLink>
+                                                              <apex:commandLink value="<" action="{!prvbtn}" reRender="member" rendered="{!!prvBenefitPlanCoverage}" styleclass="commandlink">
+                                                               <apex:param name="benefitPlan" assignTo="{!tabID}" value="{!$Label.Cl131_benefitTab}"/>
+                                                              
+                                                             </apex:commandLink>
+                                                               <apex:commandLink value=">"  action="{!nextbtn}" reRender="member" rendered="{!!nxtBenefitPlanCoverage}" styleclass="commandlink">
+                                                               <apex:param name="benefitPlan" assignTo="{!tabID}" value="{!$Label.Cl131_benefitTab}"/>
+                                                               
+                                                             </apex:commandLink>
+                                                               <apex:commandLink value=">>|" action="{!endbtn}"  reRender="member" rendered="{!!nxtBenefitPlanCoverage}" styleclass="commandlink">
+                                                                <apex:param name="benefitPlan" assignTo="{!tabID}" value="{!$Label.Cl131_benefitTab}"/>
+                                                              
+                                                          </apex:commandLink>
+                                                    </apex:panelGrid> 
+                                                </apex:outputPanel>
+                                                <apex:outputpanel rendered="{!!checkBenefitPlanCoverage }" >
+                                                    <apex:outputText value="No Record Found" styleClass="noRecord" > 
+                                                    </apex:outputtext>
+                                                </apex:outputpanel>
+                                                <!-- Req 3182 Changes Start-->
+                                                <div align="left">
+                                                    <font size="3">
+                                                        <p><b>Employer Plan Details</b></p>
+                                                    </font>
+                                                </div>
+                                                <apex:outputPanel id="memberAssociation" rendered="{!checkBenefitPlanAssociation}" >
+                                                        <apex:variable value="{!1}" var="counterBenefitPlanAssociation" />
+                                                        <table style="width:100%" border="1"  id="bpatable">
+                                                            <tr class="tableheadings" align="Center" >
+                                                                <td width="10%"><Center>Plan ID/Plan Name</Center></td>         
+                                                                <td width="9%"><Center>Rider Plan ID</Center></td>         
+                                                                <td width="9%"><Center>Annual Deductible</Center><br/>(Indv/Indv+Family/Family)</td>   
+                                                                <td width="9%"><Center>Annual OOPM</Center><br/>(Indv/Indv+Family/Family)</td> 
+                                                                <td width="9%"><Center>OV/SOV</Center></td>    
+                                                                <td width="9%"><Center>InPatient</Center></td>  
+                                                                <td width="9%"><Center>OutPatient Surgery</Center></td>
+                                                                <td width="9%"><Center>Rx</Center><br/>Tier 1/2/3/4</td>  
+                                                                <td width="9%"><center>Rx Deductible</center><br/>Indv/Indv+Mem/Family</td>
+                                                                <td width="9%"><Center>Product</Center></td>
+                                                                <td width="9%"><Center>Custom Plan?</Center></td>  
+                                                            </tr>
+     
+                                                            <apex:repeat value="{!benefitPlanAssociation}" var="bpa" >
+                                                                
+                                                            <tr class ="tabledata">
+                                                                <td width="10%">
+                                                                    <apex:outputPanel id="hoverBenefitPlanMetadataLink">
+                                                                        <a  href="#"  id="lookup{!bpa.Benefit_Plan_Metadata__r.Benefit_Grid__c}cas28" onblur="LookupHoverDetail.getHover('{!bpa.Benefit_Plan_Metadata__r.Benefit_Grid__c}').hide();" 
+                                                                               onClick="testOpenSubtab('{!bpa.Benefit_Plan_Metadata__r.Benefit_Grid__c}','{!bpa.Benefit_Plan_Metadata__r.Benefit_Grid__r.Benefit_Plan_ID__c}','lookup{!bpa.Benefit_Plan_Metadata__r.Benefit_Grid__c}cas28');return false"
+                                                                               oncomplete="LookupHoverDetail.getHover('lookup{!bpa.Benefit_Plan_Metadata__r.Benefit_Grid__c}cas28').hide();"
+                                                                               onfocus="LookupHoverDetail.getHover('lookup{!bpa.Benefit_Plan_Metadata__r.Benefit_Grid__c}cas28', '/{!bpa.Benefit_Plan_Metadata__r.Benefit_Grid__c}/m?retURL=%2F{!bpa.Benefit_Plan_Metadata__r.Benefit_Grid__c}&isAjaxRequest=1').show();" 
+                                                                               onmouseout="LookupHoverDetail.getHover('lookup{!bpa.Benefit_Plan_Metadata__r.Benefit_Grid__c}cas28').hide();" 
+                                                                               onmouseover="LookupHoverDetail.getHover('lookup{!bpa.Benefit_Plan_Metadata__r.Benefit_Grid__c}cas28', '/{!bpa.Benefit_Plan_Metadata__r.Benefit_Grid__c}/m?retURL=%2F{!bpa.Benefit_Plan_Metadata__r.Benefit_Grid__c}&isAjaxRequest=1').show();">
+                                                                                {!bpa.Benefit_Plan_Metadata__r.Name}/{!bpa.Benefit_Plan_Metadata__r.Plan_Name__c}
+                                                                            </a>
+                                                                    </apex:outputPanel>
+                                                                </td>
+                                                                <td width="9%">
+                                                                    <apex:outputPanel id="hoverBenefitPlanRiderLink">
+                                                                        <apex:outputPanel rendered="{!IF(bpa.Raider_ID__r.Benefit_Grid__c != null,true,false)}">
+                                                                            <a  href="#"  id="lookup{!bpa.Raider_ID__r.Benefit_Grid__c}cas28" onblur="LookupHoverDetail.getHover('{!bpa.Raider_ID__r.Benefit_Grid__c}').hide();" 
+                                                                               onClick="testOpenSubtab('{!bpa.Raider_ID__r.Benefit_Grid__c}','{!bpa.Raider_ID__r.Benefit_Grid__r.Benefit_Plan_ID__c}','lookup{!bpa.Raider_ID__r.Benefit_Grid__c}cas28');return false"
+                                                                               oncomplete="LookupHoverDetail.getHover('lookup{!bpa.Raider_ID__r.Benefit_Grid__c}cas28').hide();"
+                                                                               onfocus="LookupHoverDetail.getHover('lookup{!bpa.Raider_ID__r.Benefit_Grid__c}cas28', '/{!bpa.Raider_ID__r.Benefit_Grid__c}/m?retURL=%2F{!bpa.Raider_ID__r.Benefit_Grid__c}&isAjaxRequest=1').show();" 
+                                                                               onmouseout="LookupHoverDetail.getHover('lookup{!bpa.Raider_ID__r.Benefit_Grid__c}cas28').hide();" 
+                                                                               onmouseover="LookupHoverDetail.getHover('lookup{!bpa.Raider_ID__r.Benefit_Grid__c}cas28', '/{!bpa.Raider_ID__r.Benefit_Grid__c}/m?retURL=%2F{!bpa.Raider_ID__r.Benefit_Grid__c}&isAjaxRequest=1').show();">
+                                                                                {!bpa.Raider_ID__r.Name}
+                                                                            </a>
+                                                                        </apex:outputPanel>
+                                                                    </apex:outputPanel>
+                                                                </td>
+                                                                <td width="9%">{!bpa.Deductible__c}</td>
+                                                                <td width="9%">{!bpa.OOPM__c}</td>
+                                                                <td width="9%">{!bpa.OV__c}/{!bpa.SOV__c}</td>
+                                                                <td width="9%">{!bpa.IP__c}</td>
+                                                                <td width="9%">{!bpa.OP__c}</td>
+                                                                <td width="9%">{!bpa.RX_Tier_1__c}</td>
+                                                                <td width="9%">{!bpa.Rx_Deductible_Ind_Ind_Family_Family__c}</td>
+                                                                <td width="9%">{!bpa.Benefit_PLan_Metadata__r.Product_Types__c}<apex:outputText value="{!IF(bpa.Benefit_Plan_Metadata__r.isHDHP__c == true,' - HDHP','')}"/> </td>
+                                                                <td width="9%"><apex:outputText value="{!IF(bpa.Benefit_Plan_Metadata__r.Plan_Type__c == 'Custom','Yes','No')}"/></td>
+                                                            </tr>
+                                                                <apex:variable value="{!counterBenefitPlanAssociation + 1}" var="counterBenefitPlanAssociation" />   
+                                                                </apex:repeat>
+                                                         </table>
+                                                    <apex:panelGrid columns="9" styleclass="panelgrid" >
+                                                             <apex:commandLink value="|<<"  action="{!fstbtn}"  reRender="memberAssociation" rendered="{!!prvBenefitPlanAssociation}" styleclass="commandlink" >
+                                                              <apex:param name="benefitPlan" assignTo="{!tabID}" value="{!$Label.Cl131_benefitTab}"/>
+                                                             
+                                                            </apex:commandLink>&nbsp;
+                                                              <apex:commandLink value="<" action="{!prvbtn}" reRender="memberAssociation" rendered="{!!prvBenefitPlanAssociation}" styleclass="commandlink">
+                                                               <apex:param name="benefitPlan" assignTo="{!tabID}" value="{!$Label.Cl131_benefitTab}"/>
+                                                              
+                                                             </apex:commandLink>&nbsp;&nbsp;
+                                                               <apex:commandLink value=">"  action="{!nextbtn}" reRender="memberAssociation" rendered="{!!nxtBenefitPlanAssociation}" styleclass="commandlink">
+                                                               <apex:param name="benefitPlan" assignTo="{!tabID}" value="{!$Label.Cl131_benefitTab}"/>
+                                                               
+                                                             </apex:commandLink>&nbsp;
+                                                               <apex:commandLink value=">>|" action="{!endbtn}"  reRender="memberAssociation" rendered="{!!nxtBenefitPlanAssociation}" styleclass="commandlink">
+                                                                <apex:param name="benefitPlan" assignTo="{!tabID}" value="{!$Label.Cl131_benefitTab}"/>
+                                                              
+                                                          </apex:commandLink>
+                                                    </apex:panelGrid>    
+                                                </apex:outputPanel>
+                                                <apex:outputPanel rendered="{!!checkBenefitPlanAssociation}">
+                                                    <apex:outputText value="No Record Found" styleClass="noRecord" > 
+                                                    </apex:outputtext>
+                                                </apex:outputPanel>
+                                                
+                                                
+                                                <div align="left">
+                                                    <font size="3">
+                                                        <p><b>Employer Plan Docs</b></p>
+                                                    </font>
+                                                </div>
+                                                <apex:outputPanel rendered="{!checkDocumentGeneration}" id="planDocs">
+                                                    <apex:variable value="{!1}" var="counterDocumentGeneration" />
+                                                        <table style="width:100%" border="1"  id="bpatable">
+                                                            <!--<tr class="tableheadings" align="Center" >-->
+                                                                <th width="11%" style="font-size: 12px;font-family:Arial,Helvetica,sans-serif; font-weight:bold ;text-align: Center; background-color: #1797C0;border-collapse:collapse; color: white;">Request Name</th>         
+                                                                <th width="6%" style="font-size: 12px;font-family:Arial,Helvetica,sans-serif; font-weight:bold ;text-align: Center; background-color: #1797C0;border-collapse:collapse; color: white;"># of Documents<br/>Requested</th>         
+                                                                <th width="6%" style="font-size: 12px;font-family:Arial,Helvetica,sans-serif; font-weight:bold ;text-align: Center; background-color: #1797C0;border-collapse:collapse; color: white;"># of Documents<br/>Generated</th>
+                                                                <th width="30%" style="font-size: 12px;font-family:Arial,Helvetica,sans-serif; font-weight:bold ;text-align: Center; background-color: #1797C0;border-collapse:collapse; color: white;">Documents Folder</th>
+                                                                <th width="11%" style="font-size: 12px;font-family:Arial,Helvetica,sans-serif; font-weight:bold ;text-align: Center; background-color: #1797C0;border-collapse:collapse; color: white;">Request Created Date</th>    
+                                                                <th width="11%" style="font-size: 12px;font-family:Arial,Helvetica,sans-serif; font-weight:bold ;text-align: Center; background-color: #1797C0;border-collapse:collapse; color: white;">Request Due Date</th> 
+                                                                <th width="13%" style="font-size: 12px;font-family:Arial,Helvetica,sans-serif; font-weight:bold ;text-align: Center; background-color: #1797C0;border-collapse:collapse; color: white;">Requestor</th> 
+                                                                <th width="11%" style="font-size: 12px;font-family:Arial,Helvetica,sans-serif; font-weight:bold ;text-align: Center; background-color: #1797C0;border-collapse:collapse; color: white;">Request Status</th> 
+
+                                                            <!-- </tr>-->
+     
+                                                            <apex:repeat value="{!documentGeneration}" var="docGen" >
+                                                             
+                                                            <tr class ="tabledata" >
+                                                                <td width="11%">
+                                                                    <apex:outputPanel id="hoverBenefitPlanMetadataLink">
+                                                                        <a  href="#"  id="lookup{!docGen.ID}cas28" onblur="LookupHoverDetail.getHover('{!docGen.ID}').hide();" 
+                                                                           onClick="testOpenSubtab('{!docGen.ID}','{!docGen.Name}','lookup{!docGen.ID}cas28');return false"
+                                                                           oncomplete="LookupHoverDetail.getHover('lookup{!docGen.ID}cas28').hide();"
+                                                                           onfocus="LookupHoverDetail.getHover('lookup{!docGen.ID}cas28', '/{!docGen.ID}/m?retURL=%2F{!docGen.ID}&isAjaxRequest=1').show();" 
+                                                                           onmouseout="LookupHoverDetail.getHover('lookup{!docGen.ID}cas28').hide();" 
+                                                                           onmouseover="LookupHoverDetail.getHover('lookup{!docGen.ID}cas28', '/{!docGen.ID}/m?retURL=%2F{!docGen.ID}&isAjaxRequest=1').show();">
+                                                                            {!docGen.Name}
+                                                                        </a>
+                                                                    </apex:outputPanel>
+                                                                </td>
+                                                                <td width="6%">{!docGen.of_Documents_Requested__c}</td>
+                                                                <td width="6%">{!docGen.of_Documents_generated__c}</td>
+                                                                <td width="30%">
+                                                                    <apex:outputField value="{!docGen.Documents_Folder_New__c} "/>
+                                                                </td>
+                                                                <td width="11%">
+                                                                    <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                                                        <apex:param value="{!docGen.Request_Created_Date__c}" /> 
+                                                                    </apex:outputText>
+                                                                </td>
+                                                                <td width="11%">
+                                                                    <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                                                        <apex:param value="{!docGen.Request_Due_Date__c}" /> 
+                                                                    </apex:outputText>
+                                                                </td>
+                                                                <td width="13%">{!docGen.Requestor__r.Name}</td>
+                                                                <td width="11%">{!docGen.Request_Status__c}</td>
+                                                                <!--<td width="10%">{!docGen.SLA_met_not_met__c}</td>-->
+                                                            </tr>
+                                                                 <apex:variable value="{!counterDocumentGeneration + 1}" var="counterDocumentGeneration" />      
+                                                                </apex:repeat>
+                                                         </table>
+                                                    <apex:panelGrid columns="9" styleclass="panelgrid" >
+                                                             <apex:commandLink value="|<<"  action="{!fstbtn}"  reRender="planDocs" rendered="{!!prvDocumentGeneration}" styleclass="commandlink" >
+                                                              <apex:param name="documentGeneration" assignTo="{!tabID}" value="{!$Label.Cl131_benefitTab}"/>
+                                                             
+                                                            </apex:commandLink>&nbsp;
+                                                              <apex:commandLink value="<" action="{!prvbtn}" reRender="planDocs" rendered="{!!prvDocumentGeneration}" styleclass="commandlink">
+                                                               <apex:param name="documentGeneration" assignTo="{!tabID}" value="{!$Label.Cl131_benefitTab}"/>
+                                                              
+                                                             </apex:commandLink>&nbsp;&nbsp;
+                                                               <apex:commandLink value=">"  action="{!nextbtn}" reRender="planDocs" rendered="{!!nxtDocumentGeneration}" styleclass="commandlink">
+                                                               <apex:param name="documentGeneration" assignTo="{!tabID}" value="{!$Label.Cl131_benefitTab}"/>
+                                                               
+                                                             </apex:commandLink>&nbsp;
+                                                               <apex:commandLink value=">>|" action="{!endbtn}"  reRender="planDocs" rendered="{!!nxtDocumentGeneration}" styleclass="commandlink">
+                                                                <apex:param name="documentGeneration" assignTo="{!tabID}" value="{!$Label.Cl131_benefitTab}"/>
+                                                             
+                                                          </apex:commandLink>
+                                                    </apex:panelGrid>
+                                                    
+                                                </apex:outputPanel>
+                                                <apex:outputPanel rendered="{!!checkDocumentGeneration}">
+                                                    <apex:outputText value="No Record Found" styleClass="noRecord" > 
+                                                    </apex:outputtext>
+                                                </apex:outputPanel>
+                                                
+                                                <!-- Req 3182 Changes End-->
+                                            </apex:tab> 
+                                                 <!-- Tab for Claim headers start here -->
+                                        <apex:tab label="Claim headers" name="Claim headers" id="tabfour">
+                                            <apex:outputPanel rendered="{!checkClaimHeader}">
+
+                                                <table  border="1" class="tableheadings">
+                                                    <tr>
+                                                       <td>{!$Label.CL102_Claim_HCC_ID}</td>
+                                                       <td>{!$Label.CL103_Supplier_HCC_ID}</td>         
+                                                       <td>{!$Label.CL104_Service_Start_Date}</td>         
+                                                       <td>{!$Label.CL105_Member_ID}</td>         
+                                                       <td>{!$Label.Cl106_Out_OF_Area}</td>         
+                                                       <td>{!$Label.Cl107_Procedure_Code}</td>         
+                                                       <td>{!$Label.CL108_Allowed_Amount}</td>         
+                                                       <td>{!$Label.CL109_Copay}</td>         
+                                                       <td>{!$Label.CL110_Amount_Paid}</td> 
+                                                    </tr>
+                                                    <tr>
+                                        
+                                                        <td>{!$Label.CL111_Claim_Date_Receipt}</td>
+                                                        <td>{!$Label.Cl112_Supplier_Name}</td>         
+                                                        <td>{!$Label.Cl113_Service_End_Date}</td>         
+                                                        <td>{!$Label.CL114_Subscriber_ID}</td>         
+                                                        <td>{!$Label.CL114_Claim_Status}</td>         
+                                                        <td>{!$Label.CL115_Diagnosis_Code}</td>         
+                                                        <td>{!$Label.CL116_Billed_Amount}</td>         
+                                                        <td>{!$Label.CL117_Deductible}</td>  
+                                                        <td>{!$Label.CL118_Patient_Responsibility}</td>        
+                                                    </tr>
+                                                </table>
+                                                    <apex:variable value="{!1}" var="counterClaimHeader" />
+                                                     <apex:repeat value="{!Claimheaders}"  var="claimhead"   >
+                                                    <table border="1" class ="tabledata">
+                                                       <tr style="background-color:{!if(MOD(counterClaimHeader,2)==0,'#cfeef8','White')}">
+
+                                                            <td>{!claimhead.SHPClaimHdr_Claim_HCC_ID__c}</td>
+                                                            <td>{!claimhead.SHPClaimHdr_Supplier_HCC_ID__c}</td>         
+                                                            <td> <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                                            <apex:param value="{!claimhead.SHPClaimHdr_Claim_DoS_Start__c}" /> 
+                                                            </apex:outputText> </td>           
+                                                            <td>{!claimhead.SHPClaimHdr_Member_HCC_ID__c}</td>   
+                                                            <td> <c:CheckboxTransform cb="{!claimhead.Claim_IsOutOfArea_Flag__c}"/> </td>
+
+
+
+                                                            <td>{!claimhead.SHPClaimHdr_Procedure_Code_E__c}</td>         
+                                                            <td> 
+                                                                 <apex:outputPanel >
+                                                                        <apex:outputText value=" $ {!claimhead.Claim_Amount_Allowed__c}" rendered="{!IF(claimhead.Claim_Amount_Allowed__c != null,true,false)}" />
+                                                                        <apex:outputText value=" " rendered="{!IF(claimhead.Claim_Amount_Allowed__c == null,true,false)}" />
+                                                                </apex:outputPanel>
+                                                             </td>         
+                                                            <td> 
+                                                                <apex:outputPanel >
+                                                                    <apex:outputText value=" $ {!claimhead.Claim_Amount_Copay__c}" rendered="{!IF(claimhead.Claim_Amount_Copay__c != null,true,false)}" />
+                                                                    <apex:outputText value=" " rendered="{!IF(claimhead.Claim_Amount_Copay__c == null,true,false)}" />
+                                                                </apex:outputPanel>
+                                                            </td>         
+                                                            <td>   
+                                                                <apex:outputPanel >
+                                                                    <apex:outputText value=" $ {!claimhead.Claim_Amount_Paid__c}" rendered="{!IF(claimhead.Claim_Amount_Paid__c != null,true,false)}" />
+                                                                    <apex:outputText value=" " rendered="{!IF(claimhead.Claim_Amount_Paid__c == null,true,false)}" />
+                                                                </apex:outputPanel>
+                                                            </td>   
+                                                        </tr>
+                                                        <tr style="background-color:{!if(MOD(counterClaimHeader,2)==0,'#cfeef8','White')}">
+                                                            <td width="10%"  > <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                                            <apex:param value="{!claimhead.SHPClaimHdr_Claim_Date_of_Receipt__c}" /> 
+                                                            </apex:outputText> </td>
+
+                                                            <td  >{!claimhead.SHPClaimHdr_Supplier_Name__c}</td>  
+                                                            <td width="10%"  > <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                                            <apex:param value="{!claimhead.SHPClaimHdr_Claim_DoS_End__c}" /> 
+                                                            </apex:outputText> </td>       
+
+                                                            <td>{!claimhead.SHPClaimHdr_Subscriber_HCC_ID__c}</td>        
+                                                            <td>{!claimhead.Claim_Status__c}</td>         
+                                                            <td>{!claimhead.SHPClaimHdr_Diagnosis_Code_E__c}</td>         
+                                                            <td> 
+                                                                <apex:outputPanel >
+                                                                    <apex:outputText value=" $ {!claimhead.Claim_Amount_Billed__c}" rendered="{!IF(claimhead.Claim_Amount_Billed__c != null,true,false)}" />
+                                                                    <apex:outputText value=" " rendered="{!IF(claimhead.Claim_Amount_Billed__c == null,true,false)}" />
+                                                                </apex:outputPanel>
+                                                            </td>          
+                                                            <td> 
+                                                                <apex:outputPanel >
+                                                                    <apex:outputText value=" $ {!claimhead.Claim_Amount_Deductible__c}" rendered="{!IF(claimhead.Claim_Amount_Deductible__c!= null,true,false)}" />
+                                                                    <apex:outputText value=" " rendered="{!IF(claimhead.Claim_Amount_Deductible__c == null,true,false)}" />
+                                                                </apex:outputPanel>
+                                                            </td>      
+                                                            <td> 
+                                                                <apex:outputPanel >
+                                                                    <apex:outputText value=" $ {!claimhead.Claim_Amount_Patient_Responsibility__c}" rendered="{!IF(claimhead.Claim_Amount_Patient_Responsibility__c != null,true,false)}" />
+                                                                    <apex:outputText value=" " rendered="{!IF(claimhead.Claim_Amount_Patient_Responsibility__c == null,true,false)}" />
+                                                                </apex:outputPanel>
+                                                            </td>   
+                                                        </tr>
+                                                    </table>
+                                                
+                                                  <apex:variable value="{!counterClaimHeader + 1}" var="counterClaimHeader" />
+                                                </apex:repeat>
+                                                <apex:panelGrid columns="4" styleclass="panelgrid" >
+                                                    <apex:commandLink value="|<<"  action="{!fstbtn}"  reRender="member" rendered="{!!prvClaimHeader}" styleclass="commandlink" >
+                                                    <apex:param name="claimHeader" assignTo="{!tabID}" value="{!$Label.Cl132_claimTab}"/>
+                                                   
+                                                  </apex:commandLink>
+                                                     <apex:commandLink value="<"  action="{!prvbtn}" reRender="member" rendered="{!!prvClaimHeader}" styleclass="commandlink">
+                                                     <apex:param name="claimHeader" assignTo="{!tabID}" value="{!$Label.Cl132_claimTab}"/>
+                                                     
+                                                  </apex:commandLink>
+                                                     <apex:commandLink value=">"  action="{!nextbtn}" reRender="member" rendered="{!!nxtClaimHeader}" styleclass="commandlink">
+                                                     <apex:param name="claimHeader" assignTo="{!tabID}" value="{!$Label.Cl132_claimTab}"/>
+                                                    
+                                                  </apex:commandLink>
+                                                     <apex:commandLink value=">>|"  action="{!endbtn}" reRender="member" rendered="{!!nxtClaimHeader}" styleclass="commandlink">
+                                                     <apex:param name="claimHeader" assignTo="{!tabID}" value="{!$Label.Cl132_claimTab}"/>
+                                                     
+                                                  </apex:commandLink>
+                                                </apex:panelGrid> 
+                                            </apex:outputPanel>
+                                            <apex:outputpanel rendered="{!!checkClaimHeader}" >
+
+                                                <apex:outputText value="No Record Found" styleClass="noRecord" >
+                                                </apex:outputtext>
+                                            </apex:outputpanel>
+                                        </apex:tab>
+                                        <!-- Tab for Customer Inquiries start here -->
+                                            <apex:tab label="Customer Inquiries" name="Customer Inquiries" id="tabFive">
+                                                <!-- Req 3156 + 3363 displaying  Customer inq component Start -->
+                                                 <c:Customer_Inquiries wrapCaseList="{!wrapCaseList}"  prvCustomerInquiries="{!!prvCustomerInquiries}" nxtCustomerInquiries="{!!nxtCustomerInquiries}" outputPanel="member" checkCustomerInquiries="{!checkCustomerInquiries}"  checkCustomerInquiries1="{!!checkCustomerInquiries}" CustInqOther="{!CustInqOther}"    fstbtn="{!fstbtn}"  prvbtn="{!prvbtn}" nextbtn="{!nextbtn}" endbtn="{!endbtn}" tabId="{!tabId}"/>
+                                             <!-- Req 3156 + 3363 displaying  Customer inq component End -->    
+                                                  </apex:tab>
+                                           <!--   Req no 3378  Member Employer Correspondence Display tab for member correspondence  -->
+                                        <apex:tab label="Member Correspondence" name="Member Correspondence" id="tabFiveMember">
+                                        <!-- Using  Conman Component Component to display Member  Correspondence -->
+                                            <c:SHP_Employer_Member_Correspondence correspondenceEmployer="{!correspondenceMember}" prvCorrespondenceMember="{!!prvCorrespondenceMember}" nxtCorrespondenceMember="{!!nxtCorrespondenceMember}" outputPanel="member" checkCorrespondenceEmployer="{!checkCorrespondenceMember}" fstbtn="{!fstbtn}" prvbtn="{!prvbtn}" nextbtn="{!nextbtn}" endbtn="{!endbtn}" tabId="{!tabId}" CorrespondenceEmployerMember="CorrespondenceMember" labelValue="CorrespondenceMember" />
+                                        </apex:Tab>
+                                        <!--  Display tab only if member is a subscriber   -->
+                                        <apex:tab label="Dependent Correspondence" name="Dependent Correspondence" id="tabSixMember" rendered="{!CorrespondenceMemberDependentTab}">
+                                        <!-- Using  Conman Component Component to display Member  Correspondence for subscriber -->
+                                            <c:SHP_Employer_Member_Correspondence correspondenceEmployer="{!correspondenceMemberListDisplay}" prvCorrespondenceMember="{!!prvCorrespondenceMemberDependent}" nxtCorrespondenceMember="{!!nxtCorrespondenceMemberDependent}" outputPanel="member" checkCorrespondenceEmployer="{!checkCorrespondenceMemberDependent}" fstbtn="{!fstbtn}" prvbtn="{!prvbtn}" nextbtn="{!nextbtn}" endbtn="{!endbtn}" tabId="{!tabId}" CorrespondenceEmployerMember="CorrespondenceMemberDependent" labelValue="CorrespondenceMemberDependent" />
+                                        </apex:Tab>
+                                        <!--Req no 3378  Member Employer Correspondence End -->
+                                    </apex:tabPanel>
+                                </apex:outputpanel>
+                                         <!-- Tab for MemberID  start here -->
+
+                                           <!-- Req 3238 Code end gor OLTP -->
+                                         <!-- Req 3356 Code Design Start OLTP provider  -->
+                                         <!--Supplier  Console pages OLTP provider    -->
+                                        <apex:outputpanel id="supplierID"    rendered="{!if(showSupplier == true,true,false) }">
+                                            <apex:tabPanel switchType="client" selectedTab="name2" id="supplierTabPanel" 
+                                                 tabClass="activeTab" inactiveTabClass="inactiveTab">
+                                                 <!--tab start for supplier general information -->
+                                               <apex:tab label="General Information" name="General Information" id="tabsix" style="background-color:white;">
+                                                    <apex:pageBlock mode="maindetail"   >
+                                                            <apex:pageBlockSection title="Supplier Details" columns="2"   id="practitionerGeneralPgsec" collapsible="false"   >
+                                                                 <apex:outputtext label="{!$Label.CL142_Name}" value="{!con.Salutation}  {!con.name}" />
+                                                                <apex:outputField value="{!con.RecordTypeID}"  label="{!$Label.CL141_Record_Type}" />
+                                                                <apex:outputField value="{!con.Supplier_Tax_ID__c}" label="{!$Label.CL143_Contact_TIN}" /> 
+                                                                <apex:outputField value="{!con.accountid}" />
+                                                                <apex:outputField value="{!con.SHP_Benefit_Network__c}"   />
+                                                                <apex:outputField value="{!con.Supplier_SPS_Epic_ID__c }" label="{!$Label.CL134_SPS_EPIC_ID}" />
+                                                                <apex:outputField value="{!con.Supplier_SHIS_Enterprise_ID__c}"  label="{!$Label.CL144_Supplier_SHIS_Enterprise_ID}" /> 
+                                                                <apex:outputField value="{!con.Supplier_NPI__c}"  label="NPI"/>
+                                                                
+                                                                
+                                                            </apex:pageBlockSection>
+                                                    </apex:pageBlock>
+                                                    
+                                                 </apex:tab>
+                                                <!--tab start for Contact Details information -->
+                                                <apex:tab label=" Contact Detail" name="Contact Detail" id="tabseven" style="background-color:white;">
+                                                    <apex:pageBlock mode="maindetail" >
+                                                            <apex:pageBlockSection title="Supplier Contact Details" columns="2" collapsible="false"  >
+                                                                <apex:outputField value="{!con.SHP_Supplier_Mailing_Address__c}"/>
+                                                                 <apex:outputField value="{!con.Email}" />
+                                                                <apex:outputField value="{!con.Phone}" />
+                                                                 <apex:outputField value="{!con.Fax}" />
+                                                                <apex:outputField value="{!con.Phone_Extension__c }" />
+                                                                <apex:outputField value="{!con.SHP_Turn_off_Surveys__c}"  label="Turn Off Surveys"/>
+                                                            </apex:pageBlockSection>
+                                                            <apex:pageBlockSection title="System Information" columns="2" collapsible="false"  >
+                                                                <apex:outputField value="{!con.CreatedById}" />
+                                                                <apex:outputField value="{!con.LastModifiedById }" />
+                                                            </apex:pageBlockSection>
+                                                    </apex:pageBlock>
+                                                </apex:tab>
+                                                <!-- Tab for Customer Inquiries start here -->
+                                                <apex:tab label="Customer Inquiries" name="Customer Inquiries" id="tabEight">
+                                                    <!-- Req 3156 + 3363 Start -->
+                                                    <c:Customer_Inquiries wrapCaseList="{!wrapCaseList}"  prvCustomerInquiries="{!!prvCustomerInquiries}" nxtCustomerInquiries="{!!nxtCustomerInquiries}" outputPanel="supplierID" checkCustomerInquiries="{!checkCustomerInquiries}" checkCustomerInquiries1="{!!checkCustomerInquiries}"  CustInqOther="{!CustInqOther}"   fstbtn="{!fstbtn}"  prvbtn="{!prvbtn}" nextbtn="{!nextbtn}" endbtn="{!endbtn}" tabId="{!tabId}"/>
+                                                    <!-- Req 3156 + 3363  End  -->
+                                                 </apex:tab>
+                                            </apex:tabPanel>
+                                        </apex:outputpanel>
+                                        <!-- Practitioner   Console pages OLTP provider    -->
+                                        <apex:outputpanel id="Practitioner"    rendered="{!if(showPractitioner == true,true,false) }">
+                                                <apex:tabPanel switchType="client" selectedTab="name2" id="AccountTabPanelPract" 
+                                                  tabClass="activeTab" inactiveTabClass="inactiveTab" >
+                                                  <!--tab start for General Information information -->
+                                                    <apex:tab label="General Information" name="General Information" id="tabPractGeneral" style="background-color:white;">
+                                                        <apex:pageBlock mode="maindetail">
+                                                                <apex:pageBlockSection title="Practitioner General Information" columns="2" collapsible="false"   id="practitionerGeneralPgsec"     >
+                                                                    <apex:outputtext label="{!$Label.CL142_Name}" value="{!con.Salutation}  {!con.name}" />
+                                                                    <apex:outputField value="{!con.RecordTypeID}"  label="{!$Label.CL141_Record_Type}" />
+                                                                    <apex:outputField value="{!con.Supplier_NPI__c }" label="{!$Label.CL140_NPI}" />
+                                                                     <apex:outputField value="{!con.Supplier_SPS_Epic_ID__c  }" label="{!$Label.CL134_SPS_EPIC_ID}" />
+                                                                     <apex:outputField value="{!con.SHP_Active_Tin__c}" />  
+                                                                    <apex:outputField value="{!con.Supplier_License_Number__c}" label="{!$Label.CL145_License_Number}" /> 
+                                                                    <apex:outputField value="{!con.SHP_Inactive_Tin__c}" />
+                                                                   <apex:outputField value="{!con.Provider_License_State__c}" label="{!$Label.CL135_Practitioner_License_State}" />
+                                                                    <apex:outputField value="{!con.Provider_UPIN__c }"  label="{!$Label.CL136_Practitioner_UPIN}" />
+                                                                    <apex:outputField value="{!con.Supplier_SHIS_Enterprise_ID__c}" label="{!$Label.CL137_Practitioner_SHIS_Enterprise_ID}" />
+                                                                </apex:pageBlockSection>
+                                                                <apex:pageBlockSection title="Practitioner Speciality Details" columns="2" collapsible="false"  >
+                                                                    <apex:outputField value="{!con.SHP_Practitioner_Speciality_1__c}" />
+                                                                    <apex:outputField value="{!con.SHP_Practitioner_Speciality_2__c }" />
+                                                                    <apex:outputField value="{!con.SHP_Practitioner_Speciality_3__c}" />
+                                                                </apex:pageBlockSection> 
+                                                                <apex:pageBlockSection title="Other Detail" columns="2" collapsible="false" >
+                                                                    <apex:outputField value="{!con.SHP_Practitioner_Language__c}" />
+                                                                    <apex:outputField value="{!con.accountID}" />
+                                                                    <apex:outputField value="{!con.Supplier_Contact_Credential_Suffix__c }"  label="{!$Label.CL138_Practitioner_Credential_Suffix}" />
+                                                                    <apex:outputField value="{!con.Gender__c}" />
+                                                                    <apex:outputField value="{!con.SHP_Benefit_Network__c}" />
+                                                                    <apex:outputField value="{!con.SHP_Practitioner_Medical_Grp_Affiliation__c}" />
+                                                                    <apex:outputField value="{!con.SHP_Practitioner_Accepting_New_Patients__c}" label="{!$Label.CL139_Accepting_New_Patients}" />
+                                                                    <apex:outputField value="{!con.SHP_Practitioner_PCP_Flag__C }" />
+                                                                </apex:pageBlockSection>
+                                                            </apex:pageBlock>
+                                                    </apex:tab>
+                                                      <!--tab start for Contact Detail information -->
+                                                    <apex:tab label="Contact Detail" name="Contact Detail" id="tabPractContact" style="background-color:white;">
+                                                    <apex:pageBlock mode="maindetail" >
+                                                            <apex:pageBlockSection title="Contact Detail" columns="2" collapsible="false"   id="practitionerGeneralPgsec" >                                        
+                                                                <apex:outputField value="{!con.SHP_Mailing_Address__C }" />                       
+                                                                <apex:outputField value="{!con.Email }" />
+                                                                <apex:outputField value="{!con.Phone}" />
+                                                                 <apex:outputField value="{!con.Fax }" />
+                                                                <apex:outputField value="{!con.Phone_Extension__c}" />
+                                                                <apex:outputField value="{!con.MobilePhone}" />
+                                                                <apex:outputField value="{!con.SHP_Turn_off_Surveys__c}"  label="Turn Off Surveys"/>
+                                                           </apex:pageBlockSection>
+                                                            <apex:pageBlockSection title=" Practitioner Secure Contact Detail" columns="2" collapsible="false"  >
+                                                                <apex:outputField value="{!con.SHP_Secure_Corres_Address__c}" />
+                                                                <apex:outputField value="{!con.SHP_Practitioner_Secure_Corres_Email__c}" />
+                                                                <apex:outputField value="{!con.SHP_Practitioner_Secure_Phone__c }" />
+                                                                <apex:outputField value="{!con.SHP_Practitioner_Secure_Corres_Fax__c}" />
+                                                                <apex:outputField value="{!con.SHP_Secure_Phone_extension__c}" />
+                                                                <apex:outputField value="{!con.SHP_Practitioner_Secure_Corres_Mobile__c}" />
+                                                             </apex:pageBlockSection>
+                                                            <apex:pageBlockSection title="System Information" columns="2" collapsible="false"  >
+                                                                <apex:outputField value="{!con.CreatedById}" />
+                                                                <apex:outputField value="{!con.LastModifiedById }" />
+                                                            </apex:pageBlockSection>
+                                                   </apex:pageBlock>
+                                                </apex:tab>
+                                                <!-- Tab for Customer Inquiries start here -->
+                                                <apex:tab label="Customer Inquiries" name="Customer Inquiries" id="tabPractCustInq">
+                                                    <!-- Req 3156 + 3363 Start -->
+                                                    <c:Customer_Inquiries wrapCaseList="{!wrapCaseList}"  prvCustomerInquiries="{!!prvCustomerInquiries}" nxtCustomerInquiries="{!!nxtCustomerInquiries}" outputPanel="Practitioner" checkCustomerInquiries="{!checkCustomerInquiries}"  checkCustomerInquiries1="{!!checkCustomerInquiries}" CustInqOther="{!CustInqOther}"    fstbtn="{!fstbtn}"  prvbtn="{!prvbtn}" nextbtn="{!nextbtn}" endbtn="{!endbtn}" tabId="{!tabId}"/>
+                                                     <!-- Req 3156 + 3363 End -->
+                                                </apex:tab>
+                                                </apex:tabPanel>
+                                        </apex:outputpanel>
+                                        <!-- Req 3356 Code Design END OLTP provider  -->
+                                        <!-- Req 3156 + 3363 Code Design START OLTP Employer and Broker  -->
+                                        <apex:outputpanel id="employer"  rendered="{!if(showEmployer == true,true,false)}">
+                                            <apex:tabPanel switchType="client" selectedTab="name2" id="AccountTabPanelEmployer" 
+                                                tabClass="activeTab" inactiveTabClass="inactiveTab" >
+                                                <!-- Contact Tab Start -->
+                                                    <apex:tab label="Employer Contact Detail" name="Member Detail" id="tabOneEmployer">
+                                                        <div style="background-color:white" id="contactDiv">
+                                                            <apex:detail subject="{!con.id}"  relatedList="true" relatedListHover="true" />
+                                                        </div>
+                                                    </apex:tab>
+                                                    <!-- Account Tab Start -->
+                                                    <apex:tab label="Employer Detail" name="Account Detail" id="tabTwoEployer">
+                                        <div style="background-color:white" id="accountDiv">
+                                            <apex:detail subject="{!accountobj.id}"  relatedList="true" relatedListHover="true" />
+                                        </div>
+                                    </apex:tab>
+                                                    <!-- Tab for Benefit Plan Coverage  start here -->
+                                                    <apex:tab label="Benefit Plan Coverage" name="Benefit Plan Coverage" id="tabThreeEmployer">   
+                                                    <div align="left">
+                                                            <font size="3">
+                                                                <p><b>Plan Selection &amp; Eligibility</b></p>
+                                                            </font>
+                                                        </div>
+                                                        <apex:outputPanel rendered="{!checkBenefitPlanCoverage}">
+                                                <apex:variable value="{!1}" var="counterBenefitPlanCoverage" />
+                                                <!-- component is using in member and employer and it containing HTML Table -->
+                                                <c:Benefit_Plan />
+                                                
+                                                    <apex:repeat value="{!benefitPlanCoverageEmployer}" var="benefitPlanCov" >
+                                                        <table style="table-layout: fixed; width:100%" border="1"  align="Center" class ="tabledata"> 
+                                                             <tr style="background-color:{!if(MOD(counterBenefitPlanCoverage,2)==0,'#cfeef8','White')}">
+
+                                                                <!-- Req 3375 Change for Benefit Grid Link--->
+                                                                <td>
+                                                                   <apex:outputPanel id="hoverBenefitGridLink">
+                                                                    <apex:outputPanel rendered="{!IF(benefitPlanCov.Benefit_Grid_Plan_ID__c == null,true,false)}">
+                                                                        <apex:outputText value="{!benefitPlanCov.PlanCov_Bene_Plan_HCC_ID__c}"/>    
+                                                                    </apex:outputPanel>
+                                                                    <apex:outputPanel rendered="{!IF(benefitPlanCov.Benefit_Grid_Plan_ID__c!= null,true,false)}">
+                                                                        <a  href="#"  id="lookup{!benefitPlanCov.Benefit_Grid_Plan_ID__c}cas28" onblur="LookupHoverDetail.getHover('{!benefitPlanCov.Benefit_Grid_Plan_ID__c}').hide();" 
+                                                                           onClick="testOpenSubtab('{!benefitPlanCov.Benefit_Grid_Plan_ID__c}','{!benefitPlanCov.PlanCov_Bene_Plan_HCC_ID__c}','lookup{!benefitPlanCov.Benefit_Grid_Plan_ID__c}cas28');return false"
+                                                                           oncomplete="LookupHoverDetail.getHover('lookup{!benefitPlanCov.Benefit_Grid_Plan_ID__c}cas28').hide();"
+                                                                           onfocus="LookupHoverDetail.getHover('lookup{!benefitPlanCov.Benefit_Grid_Plan_ID__c}cas28', '/{!benefitPlanCov.Benefit_Grid_Plan_ID__c}/m?retURL=%2F{!benefitPlanCov.Benefit_Grid_Plan_ID__c}&isAjaxRequest=1').show();" 
+                                                                           onmouseout="LookupHoverDetail.getHover('lookup{!benefitPlanCov.Benefit_Grid_Plan_ID__c}cas28').hide();" 
+                                                                           onmouseover="LookupHoverDetail.getHover('lookup{!benefitPlanCov.Benefit_Grid_Plan_ID__c}cas28', '/{!benefitPlanCov.Benefit_Grid_Plan_ID__c}/m?retURL=%2F{!benefitPlanCov.Benefit_Grid_Plan_ID__c}&isAjaxRequest=1').show();">
+                                                                           {!benefitPlanCov.PlanCov_Bene_Plan_HCC_ID__c}
+                                                                       </a> 
+                                                                   </apex:outputPanel>
+                                                                  </apex:outputPanel>
+                                                                </td>
+                                                                <!--Req 3375 Change for Benefit Grid Link End-->
+                                                                <td>{!benefitPlanCov.PlanCov_Bene_Plan_Name__c}</td>
+                                                                <td>{!benefitPlanCov.PlanCov_Bene_Plan_Type__c}</td> 
+                                                                <td>
+                                                                    <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                                                        <apex:param value="{!benefitPlanCov.PlanCov_Bene_Cover_Date_Start__c}"  /> 
+                                                                    </apex:outputText> </td>
+                                                                <td width="10%"  > 
+                                                                    <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                                                        <apex:param value="{!benefitPlanCov.PlanCov_Bene_Cover_Date_End__c}" /> 
+                                                                    </apex:outputText>
+                                                                </td>
+                                                     
+                                                            </tr>         
+                                                        </table>
+                                                        <apex:variable value="{!counterBenefitPlanCoverage + 1}" var="counterBenefitPlanCoverage" />
+                                                    </apex:repeat>
+                                                    
+                                                    <apex:panelGrid columns="4" styleclass="panelgrid" >
+                                                    
+                                                             <apex:commandLink value="|<<"  action="{!fstbtn}"  reRender="employer" rendered="{!!prvBenefitPlanCoverageAccount}" styleclass="commandlink" >
+                                                              <apex:param name="BenefittabAccount" assignTo="{!tabID}" value="{!$Label.CL136_Benefit_Tab_Account}"/>
+                                                            </apex:commandLink>
+                                                              <apex:commandLink value="<" action="{!prvbtn}" reRender="employer" rendered="{!!prvBenefitPlanCoverageAccount}" styleclass="commandlink">
+                                                               <apex:param name="BenefittabAccount" assignTo="{!tabID}" value="{!$Label.CL136_Benefit_Tab_Account}"/>
+                                                             </apex:commandLink>
+                                                               <apex:commandLink value=">"  action="{!nextbtn}" reRender="employer" rendered="{!!nxtBenefitPlanCoverageAccount}" styleclass="commandlink">
+                                                               <apex:param name="BenefittabAccount" assignTo="{!tabID}" value="{!$Label.CL136_Benefit_Tab_Account}"/>
+                                                             </apex:commandLink>
+                                                               <apex:commandLink value=">>|" action="{!endbtn}"  reRender="employer" rendered="{!!nxtBenefitPlanCoverageAccount}" styleclass="commandlink">
+                                                                <apex:param name="BenefittabAccount" assignTo="{!tabID}" value="{!$Label.CL136_Benefit_Tab_Account}"/>
+                                                                
+                                                          </apex:commandLink>
+                                                         
+                                                    </apex:panelGrid> 
+                                            </apex:outputPanel>
+                                            <apex:outputpanel rendered="{!!checkBenefitPlanCoverage }" >
+                                                <apex:outputText value="No Record Found" styleClass="noRecord" > 
+                                                </apex:outputtext>
+                                            </apex:outputpanel>
+                                                        <!-- Req 3182 Changes Start-->
+                                                <div align="left">
+                                                    <font size="3">
+                                                        <p><b>Employer Plan Details</b></p>
+                                                    </font>
+                                                </div>
+                                                <apex:outputPanel id="employerAccount" rendered="{!checkBenefitPlanAssociation}" >
+                                                    <apex:variable value="{!1}" var="counterBenefitPlanAssociationAccount" />
+                                                        <table style="width:100%" border="1"  id="bpatableemployer">
+                                                            <tr class="tableheadings" align="Center" >
+                                                                <td width="10%"><Center>Plan ID/Plan Name</Center></td>         
+                                                                <td width="9%"><Center>Rider Plan ID</Center></td>         
+                                                                <td width="9%"><Center>Annual Deductible</Center><br/>(Indv/Indv+Family/Family)</td>   
+                                                                <td width="9%"><Center>Annual OOPM</Center><br/>(Indv/Indv+Family/Family)</td> 
+                                                                <td width="9%"><Center>OV/SOV</Center></td>    
+                                                                <td width="9%"><Center>InPatient</Center></td>  
+                                                                <td width="9%"><Center>OutPatient Surgery</Center></td>
+                                                                <td width="9%"><Center>Rx</Center><br/>Tier 1/2/3/4</td>  
+                                                                <td width="9%"><center>Rx Deductible</center><br/>Indv/Indv+Mem/Family</td>
+                                                                <td width="9%"><Center>Product</Center></td>
+                                                                <td width="9%"><Center>Custom Plan?</Center></td>  
+                                                            </tr>
+     
+                                                            <apex:repeat value="{!benefitPlanAssociationEmployer}" var="bpa" >
+                                                                
+                                                            <tr class ="tabledata">
+                                                                <td width="10%">
+                                                                    <apex:outputPanel id="hoverBenefitPlanMetadataLink">
+                                                                        <a  href="#"  id="lookup{!bpa.Benefit_Plan_Metadata__r.Benefit_Grid__c}cas28" onblur="LookupHoverDetail.getHover('{!bpa.Benefit_Plan_Metadata__r.Benefit_Grid__c}').hide();" 
+                                                                               onClick="testOpenSubtab('{!bpa.Benefit_Plan_Metadata__r.Benefit_Grid__c}','{!bpa.Benefit_Plan_Metadata__r.Benefit_Grid__r.Benefit_Plan_ID__c}','lookup{!bpa.Benefit_Plan_Metadata__r.Benefit_Grid__c}cas28');return false"
+                                                                               oncomplete="LookupHoverDetail.getHover('lookup{!bpa.Benefit_Plan_Metadata__r.Benefit_Grid__c}cas28').hide();"
+                                                                               onfocus="LookupHoverDetail.getHover('lookup{!bpa.Benefit_Plan_Metadata__r.Benefit_Grid__c}cas28', '/{!bpa.Benefit_Plan_Metadata__r.Benefit_Grid__c}/m?retURL=%2F{!bpa.Benefit_Plan_Metadata__r.Benefit_Grid__c}&isAjaxRequest=1').show();" 
+                                                                               onmouseout="LookupHoverDetail.getHover('lookup{!bpa.Benefit_Plan_Metadata__r.Benefit_Grid__c}cas28').hide();" 
+                                                                               onmouseover="LookupHoverDetail.getHover('lookup{!bpa.Benefit_Plan_Metadata__r.Benefit_Grid__c}cas28', '/{!bpa.Benefit_Plan_Metadata__r.Benefit_Grid__c}/m?retURL=%2F{!bpa.Benefit_Plan_Metadata__r.Benefit_Grid__c}&isAjaxRequest=1').show();">
+                                                                                {!bpa.Benefit_Plan_Metadata__r.Name}/{!bpa.Benefit_Plan_Metadata__r.Plan_Name__c}
+                                                                            </a>
+                                                                    </apex:outputPanel>
+                                                                </td>
+                                                                <td width="9%">
+                                                                    <apex:outputPanel id="hoverBenefitPlanRiderLink">
+                                                                        <apex:outputPanel rendered="{!IF(bpa.Raider_ID__r.Benefit_Grid__c != null,true,false)}">
+                                                                            <a  href="#"  id="lookup{!bpa.Raider_ID__r.Benefit_Grid__c}cas28" onblur="LookupHoverDetail.getHover('{!bpa.Raider_ID__r.Benefit_Grid__c}').hide();" 
+                                                                               onClick="testOpenSubtab('{!bpa.Raider_ID__r.Benefit_Grid__c}','{!bpa.Raider_ID__r.Benefit_Grid__r.Benefit_Plan_ID__c}','lookup{!bpa.Raider_ID__r.Benefit_Grid__c}cas28');return false"
+                                                                               oncomplete="LookupHoverDetail.getHover('lookup{!bpa.Raider_ID__r.Benefit_Grid__c}cas28').hide();"
+                                                                               onfocus="LookupHoverDetail.getHover('lookup{!bpa.Raider_ID__r.Benefit_Grid__c}cas28', '/{!bpa.Raider_ID__r.Benefit_Grid__c}/m?retURL=%2F{!bpa.Raider_ID__r.Benefit_Grid__c}&isAjaxRequest=1').show();" 
+                                                                               onmouseout="LookupHoverDetail.getHover('lookup{!bpa.Raider_ID__r.Benefit_Grid__c}cas28').hide();" 
+                                                                               onmouseover="LookupHoverDetail.getHover('lookup{!bpa.Raider_ID__r.Benefit_Grid__c}cas28', '/{!bpa.Raider_ID__r.Benefit_Grid__c}/m?retURL=%2F{!bpa.Raider_ID__r.Benefit_Grid__c}&isAjaxRequest=1').show();">
+                                                                                {!bpa.Raider_ID__r.Name}
+                                                                            </a>
+                                                                        </apex:outputPanel>
+                                                                    </apex:outputPanel>
+                                                                </td>
+                                                                <td width="9%">{!bpa.Deductible__c}</td>
+                                                                <td width="9%">{!bpa.OOPM__c}</td>
+                                                                <td width="9%">{!bpa.OV__c}/{!bpa.SOV__c}</td>
+                                                                <td width="9%">{!bpa.IP__c}</td>
+                                                                <td width="9%">{!bpa.OP__c}</td>
+                                                                <td width="9%">{!bpa.RX_Tier_1__c}</td>
+                                                                <td width="9%">{!bpa.Rx_Deductible_Ind_Ind_Family_Family__c}</td>
+                                                                <td width="9%">{!bpa.Benefit_PLan_Metadata__r.Product_Types__c}<apex:outputText value="{!IF(bpa.Benefit_Plan_Metadata__r.isHDHP__c == true,' - HDHP','')}"/> </td>
+                                                                <td width="9%"><apex:outputText value="{!IF(bpa.Benefit_Plan_Metadata__r.Plan_Type__c == 'Custom','Yes','No')}"/></td>
+                                                            </tr>
+                                                               <apex:variable value="{!counterBenefitPlanAssociationAccount + 1}" var="counterBenefitPlanAssociationAccount" />    
+                                                                </apex:repeat>
+                                                         </table>
+                                                        <apex:panelGrid columns="9" styleclass="panelgrid" >
+                                                    
+                                                             <apex:commandLink value="|<<"  action="{!fstbtn}"  reRender="employerAccount" rendered="{!!prvBenefitPlanAssociationAccount}" styleclass="commandlink" >
+                                                              <apex:param name="BenefittabAccount" assignTo="{!tabID}" value="{!$Label.CL136_Benefit_Tab_Account}"/>
+                                                            </apex:commandLink>&nbsp;
+                                                              <apex:commandLink value="<" action="{!prvbtn}" reRender="employerAccount" rendered="{!!prvBenefitPlanAssociationAccount}" styleclass="commandlink">
+                                                               <apex:param name="BenefittabAccount" assignTo="{!tabID}" value="{!$Label.CL136_Benefit_Tab_Account}"/>
+                                                             </apex:commandLink>&nbsp;&nbsp;
+                                                               <apex:commandLink value=">"  action="{!nextbtn}" reRender="employerAccount" rendered="{!!nxtBenefitPlanAssociationAccount}" styleclass="commandlink">
+                                                               <apex:param name="BenefittabAccount" assignTo="{!tabID}" value="{!$Label.CL136_Benefit_Tab_Account}"/>
+                                                             </apex:commandLink>&nbsp;
+                                                               <apex:commandLink value=">>|" action="{!endbtn}"  reRender="employerAccount" rendered="{!!nxtBenefitPlanAssociationAccount}" styleclass="commandlink">
+                                                                <apex:param name="BenefittabAccount" assignTo="{!tabID}" value="{!$Label.CL136_Benefit_Tab_Account}"/>
+                                                                
+                                                          </apex:commandLink>
+                                                         
+                                                    </apex:panelGrid>   
+                                                </apex:outputPanel>
+                                                <apex:outputPanel rendered="{!!checkBenefitPlanAssociation}">
+                                                    <apex:outputText value="No Record Found" styleClass="noRecord" > 
+                                                    </apex:outputtext>
+                                                </apex:outputPanel>
+                                                
+                                                
+                                                <div align="left">
+                                                    <font size="3">
+                                                        <p><b>Employer Plan Docs</b></p>
+                                                    </font>
+                                                </div>
+                                                <apex:outputPanel rendered="{!checkDocumentGeneration}" id="planDocsEmployer">
+                                                    <apex:variable value="{!1}" var="counterDocumentGenerationAccount" />
+                                                        <table style="width:100%" border="1"  id="bpatable">
+                                                            
+                                                            <!--<tr class="tableheadings" align="Center" >-->
+                                                                <th width="11%" style="font-size: 12px;font-family:Arial,Helvetica,sans-serif; font-weight:bold ;text-align: Center; background-color: #1797C0;border-collapse:collapse; color: white;">Request Name</th>         
+                                                                <th width="6%" style="font-size: 12px;font-family:Arial,Helvetica,sans-serif; font-weight:bold ;text-align: Center; background-color: #1797C0;border-collapse:collapse; color: white;"># of Documents<br/>Requested</th>         
+                                                                <th width="6%" style="font-size: 12px;font-family:Arial,Helvetica,sans-serif; font-weight:bold ;text-align: Center; background-color: #1797C0;border-collapse:collapse; color: white;"># of Documents<br/>Generated</th>
+                                                                <th width="30%" style="font-size: 12px;font-family:Arial,Helvetica,sans-serif; font-weight:bold ;text-align: Center; background-color: #1797C0;border-collapse:collapse; color: white;">Documents Folder</th>
+                                                                <th width="11%" style="font-size: 12px;font-family:Arial,Helvetica,sans-serif; font-weight:bold ;text-align: Center; background-color: #1797C0;border-collapse:collapse; color: white;">Request Created Date</th>    
+                                                                <th width="11%" style="font-size: 12px;font-family:Arial,Helvetica,sans-serif; font-weight:bold ;text-align: Center; background-color: #1797C0;border-collapse:collapse; color: white;">Request Due Date</th> 
+                                                                <th width="13%" style="font-size: 12px;font-family:Arial,Helvetica,sans-serif; font-weight:bold ;text-align: Center; background-color: #1797C0;border-collapse:collapse; color: white;">Requestor</th> 
+                                                                <th width="11%" style="font-size: 12px;font-family:Arial,Helvetica,sans-serif; font-weight:bold ;text-align: Center; background-color: #1797C0;border-collapse:collapse; color: white;">Request Status</th> 
+
+                                                                
+                                                            <!-- </tr>-->
+     
+                                                            <apex:repeat value="{!documentGenerationEmployer}" var="docGen" >
+                                                             
+                                                            <tr class ="tabledata" >
+                                                                <td width="11%">
+                                                                    <apex:outputPanel id="hoverBenefitPlanMetadataLink">
+                                                                        <a  href="#"  id="lookup{!docGen.ID}cas28" onblur="LookupHoverDetail.getHover('{!docGen.ID}').hide();" 
+                                                                           onClick="testOpenSubtab('{!docGen.ID}','{!docGen.Name}','lookup{!docGen.ID}cas28');return false"
+                                                                           oncomplete="LookupHoverDetail.getHover('lookup{!docGen.ID}cas28').hide();"
+                                                                           onfocus="LookupHoverDetail.getHover('lookup{!docGen.ID}cas28', '/{!docGen.ID}/m?retURL=%2F{!docGen.ID}&isAjaxRequest=1').show();" 
+                                                                           onmouseout="LookupHoverDetail.getHover('lookup{!docGen.ID}cas28').hide();" 
+                                                                           onmouseover="LookupHoverDetail.getHover('lookup{!docGen.ID}cas28', '/{!docGen.ID}/m?retURL=%2F{!docGen.ID}&isAjaxRequest=1').show();">
+                                                                            {!docGen.Name}
+                                                                        </a>
+                                                                    </apex:outputPanel>
+                                                                </td>
+                                                                <td width="6%">{!docGen.of_Documents_Requested__c}</td>
+                                                                <td width="6%">{!docGen.of_Documents_generated__c}</td>
+                                                                <td width="30%">
+                                                                    <apex:outputField value="{!docGen.Documents_Folder_New__c} "/>
+                                                                </td>
+                                                                <td width="11%">
+                                                                    <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                                                        <apex:param value="{!docGen.Request_Created_Date__c}" /> 
+                                                                    </apex:outputText>
+                                                                </td>
+                                                                <td width="11%">
+                                                                    <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                                                        <apex:param value="{!docGen.Request_Due_Date__c}" /> 
+                                                                    </apex:outputText>
+                                                                </td>
+                                                                <td width="13%">{!docGen.Requestor__r.Name}</td>
+                                                                <td width="11%">{!docGen.Request_Status__c}</td>
+                                                                <!--<td width="10%">{!docGen.SLA_met_not_met__c}</td>-->
+                                                            </tr>
+                                                                <apex:variable value="{!counterDocumentGenerationAccount + 1}" var="counterDocumentGenerationAccount" />    
+                                                                </apex:repeat>
+                                                         </table>
+                                                    <apex:panelGrid columns="9" styleclass="panelgrid" >
+                                                    
+                                                             <apex:commandLink value="|<<"  action="{!fstbtn}"  reRender="planDocsEmployer" rendered="{!!prvDocumentGenerationAccount}" styleclass="commandlink" >
+                                                              <apex:param name="docGenAccount" assignTo="{!tabID}" value="{!$Label.CL136_Benefit_Tab_Account}"/>
+                                                            </apex:commandLink>&nbsp;
+                                                              <apex:commandLink value="<" action="{!prvbtn}" reRender="planDocsEmployer" rendered="{!!prvDocumentGenerationAccount}" styleclass="commandlink">
+                                                               <apex:param name="docGenAccount" assignTo="{!tabID}" value="{!$Label.CL136_Benefit_Tab_Account}"/>
+                                                             </apex:commandLink>&nbsp;&nbsp;
+                                                               <apex:commandLink value=">"  action="{!nextbtn}" reRender="planDocsEmployer" rendered="{!!nxtDocumentGenerationAccount}" styleclass="commandlink">
+                                                               <apex:param name="docGenAccount" assignTo="{!tabID}" value="{!$Label.CL136_Benefit_Tab_Account}"/>
+                                                             </apex:commandLink>&nbsp;
+                                                               <apex:commandLink value=">>|" action="{!endbtn}"  reRender="planDocsEmployer" rendered="{!!nxtDocumentGenerationAccount}" styleclass="commandlink">
+                                                                <apex:param name="docGenAccount" assignTo="{!tabID}" value="{!$Label.CL136_Benefit_Tab_Account}"/>
+                                                                
+                                                          </apex:commandLink>
+                                                         
+                                                    </apex:panelGrid>  
+                                                   
+                                                </apex:outputPanel>
+                                                <apex:outputPanel rendered="{!!checkDocumentGeneration}">
+                                                    <apex:outputText value="No Record Found" styleClass="noRecord" > 
+                                                    </apex:outputtext>
+                                                </apex:outputPanel>
+                                                        <!-- Req 3182 Changes End -->
+                                        </apex:tab> 
+                                                    <!-- Tab for Customer Inquiries start here -->
+                                                    <apex:tab label="Customer Inquiries" name="Customer Inquiries" id="tabPractCustInqEmployer">
+                                    <c:Customer_Inquiries wrapCaseList="{!wrapCaseList}"  prvCustomerInquiries="{!!prvCustomerInquiries}" nxtCustomerInquiries="{!!nxtCustomerInquiries}" outputPanel="employer" checkCustomerInquiries="{!checkCustomerInquiries}"  checkCustomerInquiries1="{!!checkCustomerInquiries}" CustInqOther="{!CustInqOther}"    fstbtn="{!fstbtn}"  prvbtn="{!prvbtn}" nextbtn="{!nextbtn}" endbtn="{!endbtn}" tabId="{!tabId}"/>
+                                </apex:tab>
+                                           <!--   Req no 3378 Member Employer correspondence Display tab for Employer correspondence  -->
+                                        <apex:tab label="Employer  Correspondence" name="Employer Correspondence" id="tabFiveEmployer">
+                                        <!-- Using  Conman Component Component to display Employer  Correspondence -->
+                                            <c:SHP_Employer_Member_Correspondence correspondenceEmployer="{!correspondenceEmployer}" prvCorrespondenceMember="{!!prvCorrespondenceEmployer}" nxtCorrespondenceMember="{!!nxtCorrespondenceEmployer}" outputPanel="employer" checkCorrespondenceEmployer="{!checkCorrespondenceEmployer}" fstbtn="{!fstbtn}" prvbtn="{!prvbtn}" nextbtn="{!nextbtn}" endbtn="{!endbtn}" tabId="{!tabId}" CorrespondenceEmployerMember="CorrespondenceEmployer" labelValue="CorrespondenceEmployer" />
+                                        </apex:Tab>
+                                        <!--   Req no 3378 Member Employer correspondence  -->
+                                    </apex:tabPanel>
+                                </apex:outputpanel>
+                                        <!-- OLTP Broker Tab -->
+                                        <apex:outputpanel id="Broker" rendered="{!if(showBroker == true,true,false)}" >
+                                            <apex:tabPanel switchType="client" selectedTab="name2" id="AccountTabPanelBroker" 
+                                                tabClass="activeTab" inactiveTabClass="inactiveTab" >
+                                                <!-- Contact Tab Start -->
+                                                <apex:tab label="Broker Contact Detail" name="Broker Detail" id="tabOneBroker">
+                                                    <div style="background-color:white" id="contactDiv">
+                                                        <apex:detail subject="{!con.id}"  relatedList="true" relatedListHover="true"/>
+                                                    </div>
+                                                </apex:tab>
+                                                <!-- Account Tab Start -->
+                                                <apex:tab label="Broker Firm Detail" name="Broker Account Detail" id="tabTwoBroker">
+                                                    <div style="background-color:white" id="accountDiv">
+                                                        <apex:detail subject="{!accountobj}"  relatedList="true" relatedListHover="true"/>
+                                                    </div>
+                                                </apex:tab>
+                                                <!-- Tab for Customer Inquiries start here -->
+                                                <apex:tab label="Customer Inquiries" name="Customer Inquiries" id="tabPractCustInqBroker">
+                                                    <c:Customer_Inquiries wrapCaseList="{!wrapCaseList}"  prvCustomerInquiries="{!!prvCustomerInquiries}" nxtCustomerInquiries="{!!nxtCustomerInquiries}" outputPanel="Broker" checkCustomerInquiries="{!checkCustomerInquiries}"  checkCustomerInquiries1="{!!checkCustomerInquiries}" CustInqOther="{!CustInqOther}"    fstbtn="{!fstbtn}"  prvbtn="{!prvbtn}" nextbtn="{!nextbtn}" endbtn="{!endbtn}" tabId="{!tabId}"/>
+                                                </apex:tab>
+                                                 <apex:tab label="Correspondence Letters" name="Correspondence Letters" id="tabCorrespondenceLetters">
+                                                  <apex:outputPanel rendered="{!checkCorrespondence}">
+                                                   <apex:variable value="{!1}" var="counterCorrespondence" />
+                                                     <table  border="1" class="tableheadings" align="Center">               
+                                                        <tr>
+                                                            <td>Correspondence Name </td>
+                                                            <td>Template Name </td>
+                                                            <td>Status</td> 
+                                                            <td>Sent Date </td>                                                             
+                                                         </tr>   
+                                                    </table> 
+                                                         <apex:repeat value="{!correspondencelist}"  var="corresList"   >
+                                                     <table border="1" class ="tabledata">
+                                                      <tr style="background-color:{!if(MOD(counterCorrespondence,2)==0,'#cfeef8','White')}">
+                                                       <td  width="10%"><apex:outputLink value="/{!corresList.id}" style="font-weight: bold;" target="_self">{!corresList.name}
+                                                                                </apex:outputLink>
+                                                     </td>
+                                                    
+                                                     <td>{!corresList.Template_Name__c}</td>
+                                                      <td>{!corresList.Status__c}</td>
+                                                     <td>{!corresList.LastModifiedDate}</td>
+                                                     </tr>
+                                                     </table>
+                                                     <apex:variable value="{!counterCorrespondence + 1}" var="counterCorrespondence" />
+                                                     </apex:repeat>
+                                                        <apex:panelGrid columns="4" styleclass="panelgrid" >
+                                                                                                            
+                                                             <apex:commandLink value="|<<"  action="{!fstbtn}"  reRender="Broker" rendered="{!!prvCorrespondence}" styleclass="commandlink" >
+                                                              <apex:param name="Correspondencetab" assignTo="{!tabID}" value="{!$Label.CL_157_Correspondence}"/>
+                                                            </apex:commandLink>
+                                                              <apex:commandLink value="<" action="{!prvbtn}" reRender="Broker" rendered="{!!prvCorrespondence}" styleclass="commandlink">
+                                                               <apex:param name="Correspondencetab" assignTo="{!tabID}" value="{!$Label.CL_157_Correspondence}"/>
+                                                             </apex:commandLink>
+                                                               <apex:commandLink value=">"  action="{!nextbtn}" reRender="Broker" rendered="{!!nxtCorrespondence}" styleclass="commandlink">
+                                                               <apex:param name="Correspondencetab" assignTo="{!tabID}" value="{!$Label.CL_157_Correspondence}"/>
+                                                             </apex:commandLink>
+                                                               <apex:commandLink value=">>|" action="{!endbtn}"  reRender="Broker" rendered="{!!nxtCorrespondence}" styleclass="commandlink">
+                                                                <apex:param name="Correspondencetab" assignTo="{!tabID}" value="{!$Label.CL_157_Correspondence}"/>
+                                                                
+                                                          </apex:commandLink>
+                                                          </apex:panelGrid>
+                                                     </apex:outputPanel>
+                                                        <apex:outputpanel rendered="{!!checkCorrespondence}" >
+                                                            <apex:outputText value="No Record Found" styleClass="noRecord" >
+                                                            </apex:outputtext>
+                                                        </apex:outputpanel>
+                                                 
+                                                  </apex:tab>
+                                            </apex:tabPanel>
+                                        </apex:outputpanel>
+                                                                        
+                                        <!--  Req 3156 + 3363 OLTP Employer  End -->                                        
+                                </div>                                     
+                                
+                                <!-- Script to hide the 'Show 5 more' Link -->                            
+                                <script>
+                                    hideShowMore();
+                                </script>                                 
+                               <!-- Script to hide the 'Show 5 more' Link -->                            
+                                    <script>
+                                        hideShowMore();
+                                    </script>
+                            </apex:tab>
+                        </apex:tabPanel>
+                    </apex:actionRegion>
+                </div>
+               <!-- Div to set IL window scrolling and height -->
+                <div id="InteractionLog" style="display:none;">
+                
+                    <apex:pageMessages id="errorMessage1" />
+                    <apex:inputHidden id="keyValuePair"/>
+                    <script>
+                        var keyValuePairId = '{!$Component.keyValuePair}';
+                  //      alert(keyValuePairId);
+                    </script>
+                    <apex:outPutPanel id="casePanel" style="overflow-y:scroll; overflow-x:hidden; height:370px;">
+                    
+                    <!-- Div for Customer Inquiry Edit Section Header --> 
+                    <div id="customerInquiryHeader">
+                        <apex:outputPanel style="height:55px"  rendered="{!showEditCase}" layout="block">
+                            <apex:sectionHeader title="Customer Inquiry Edit" subtitle="Edit Customer Inquiry" />
+                        </apex:outputPanel>
+                    </div> 
+                    
+                        <!-- Page Block Definition: Shows for Customer Inquiry Edit mode  -->    
+                        <apex:pageBlock title="Customer Inquiry Edit" rendered="{!showEditCase}" tabStyle="Case" mode="edit" id="pgBlck">
+                        
+                            <!-- Page Block Buttons: Shows for Customer Inquiry save Button to save IL in edit mode and redirect it to detail IL Page  -->    
+                            <!-- Req. 3200 Release 6.1 Changes (changed the action method saveCustInteraction to saveSHP-->                   
+                  
+                            <apex:pageBlockButtons location="top" id="pgblkBtn">
+                                <apex:commandbutton value="Save" action="{!saveSHP}" reRender="casePanel, message, errorMessage1" >
+                                
+                                    <apex:param name="setDetail" value="true" assignTo="{!setDetail}"/>
+                                    
+                                </apex:commandbutton>
+                                
+                                
+                            
+                               
+                                
+
+                              <!--Req 3242-->
+                                <apex:commandbutton value="Email Supervisor" id="SendMailBtn" styleclass="SendMailCls" rendered="{!!CustInteraction.IsMailSent__c}"
+                                    style="visibility: hidden;"  reRender="pgBlck,errorMessage1" action="{!sendMail}" 
+                                    oncomplete="javascript:if('{!CustInteraction.IsMailSent__c}'=='true'){alert('Email to supervisor has been sent successfully.');}" />   
+                                
+                            </apex:pageBlockButtons>
+                            
+                            <!-- OutPut panel used to show page messages --> 
+                            <apex:outputPanel rendered="{!showMessage}" id="message">
+                                <div align="center">
+                                    <apex:outputText ><b>{!message}</b></apex:outputText>
+                                </div>
+                            </apex:outputPanel>
+                            
+                            <!-- PageBlockSection: This section is used to show customer inquiry fields from CID(Customer Inquiry Detail for IL) field Set -->
+                            <apex:pageBlockSection collapsible="false" title="Customer Inquiry Detail" columns="2" id="pbsec">
+                                <apex:repeat value="{!CIDFields}" var="cidField" id="repeatTag">
+                                    <apex:inputField id="fieldSet" value="{!CustInteraction[cidField.fieldPath]}" onchange="enableSendMailBtn();" required="{!OR(cidField.required, cidField.dbRequired)}"/>
+                                </apex:repeat>
+                            </apex:pageBlockSection>
+                            <!-- PageBlockSection: This section is used to show customer inquiry fields form AI(Unidentified Information of IL) field Set --> 
+                            <apex:pageBlockSection collapsible="false" title="Unidentified Caller Information" columns="2">
+                                <apex:repeat value="{!AIFields}" var="aiField">
+                                    <apex:inputField value="{!CustInteraction[aiField.fieldPath]}" required="{!OR(aiField.required, aiField.dbRequired)}"/>
+                                </apex:repeat>
+                            </apex:pageBlockSection>
+                            <!-- PageBlockSection: This section is used to show customer inquiry fields from DI(Description Information) field set --> 
+                            <apex:pageBlockSection collapsible="false" title="Description Information" columns="1">
+                                <apex:actionRegion >
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="18%">
+                                            <!-- Div is used to show subject label for IL  --> 
+                                                <div align="right">
+                                                    <apex:outputLabel styleClass="labelCol" style="margin-right: 3.5%">Subject</apex:outputLabel>    
+                                                </div>
+                                            </td>
+                                            <td width="82%">
+                                            <!-- OnkeyUP and OnKeyDown function is being used to populate article list as per text entered in subject field --> 
+                                                <apex:inputField label="Subject" value="{!CustInteraction.Subject}" id="subject" style="width:83.25%" required="{!If(custInteraction.RecordType.Name == 'S3 Patient Interaction Log' || custInteraction.RecordType.Name == 'S3 Interaction Log', true, false)}" onkeyup="getSubject();" onkeydown="getSubject();" onblur="showBlur(this);"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                   <!-- This action function is re-rendring the search result Page Block and assigning to variable search String -->
+                                   <apex:actionFunction name="getSubjectFunc" reRender="theSearchResults" status="status" action="{!refreshSearchResult}">
+                                        <apex:param assignTo="{!searchstring}" name="searchstring" value=""/>
+                                    </apex:actionFunction> 
+                                    <!-- Script for assigning subject value to subID variable -->                       
+                                    <script>
+                                        var subId = '{!$Component.subject}';
+                                    </script>
+                                </apex:actionRegion>   
+                                 <!-- Repeat: This section iterates over fields in DI(Description information) field set -->
+                                <apex:repeat value="{!DIFields}" var="diField">
+                                    <apex:inputField value="{!CustInteraction[diField.fieldPath]}" required="{!OR(diField.required, diField.dbRequired)}" style="width: 83%;height:50px" onblur="showBlur(this);"/>
+                                </apex:repeat>
+                                <script>
+                                    function showBlur(ev)
+                                    {
+                        //                 alert(ev.value+" "+ev.id);
+                                         var strKeyValue = ev.id+"->"+ev.value;
+                        //                 alert(keyValuePairId);
+                       //                  alert(document.getElementById(keyValuePairId));
+                                         document.getElementById(keyValuePairId).value = document.getElementById(keyValuePairId).value + "#" + strKeyValue;
+                                     }
+                                </script>
+                                
+
+                            </apex:pageBlockSection>
+                            <!-- PageBlockSection: This section is used to show customer inquiry fields from ID(Interaction Details) field set -->
+                            <apex:pageBlockSection collapsible="false" title="Interaction Details" columns="2">
+                                <!-- Repeat: This section iterates over fields in ID(Interaction Details) field set -->
+                                <apex:repeat value="{!IDFields}" var="idField">
+                                    <apex:inputField value="{!CustInteraction[idField.fieldPath]}" required="{!OR(idField.required, idField.dbRequired)}"/>
+                                </apex:repeat>
+                            </apex:pageBlockSection>
+                            <!-- PageBlockSection: This section is used to show customer inquiry fields from System Information field set -->
+                            <apex:pageBlockSection collapsible="false" title="System Information" columns="2">
+                                <!-- Repeat: This section iterates over fields in System Information field set -->
+                                <!-- Req. 3200 Release 6.1 Added new system fields in Field set also changed the tag from iputField to Output Field and removed the required="{!OR(siField.required, siField.dbRequired)} tag-->
+                                <apex:repeat value="{!SIFields}" var="siField">
+                                    <apex:outputField value="{!CustInteraction[siField.fieldPath]}" />
+
+                                </apex:repeat>
+                            </apex:pageBlockSection>
+                            <script>
+                                function enableSendMailBtn() {
+                                    var reasonValueField = document.getElementById('pg:theform:pgBlck:pbsec:repeatTag:8:fieldSet');
+                                    var secondaryReasonValueField = document.getElementById('pg:theform:pgBlck:pbsec:repeatTag:10:fieldSet');
+                                    var emailBtn;
+                                    try {
+                                        emailBtn = document.getElementById('pg:theform:pgBlck:pgblkBtn:SendMailBtn');
+                                    } catch(e) {
+                                    }
+                                    if(reasonValueField != null && secondaryReasonValueField != null && emailBtn != null) {
+                                        var reasonValueFieldValueValue = reasonValueField.value; 
+                                        var secondaryReasonValueFieldValue = secondaryReasonValueField.value;
+                                        if(reasonValueFieldValueValue == '{!$Label.Public_Action}' && (secondaryReasonValueFieldValue == '{!$Label.Media_Threat}' || 
+                                            secondaryReasonValueFieldValue == '{!$Label.Legal_Threat}')) {
+                                            try {
+                                                document.getElementById('pg:theform:pgBlck:pgblkBtn:SendMailBtn').style.visibility = 'visible';
+                                            } catch(e) {}
+                                        } 
+                                        else  {
+                                            document.getElementById('pg:theform:pgBlck:pgblkBtn:SendMailBtn').style.visibility = 'hidden';
+                                        } 
+                                    }
+                                }
+                                enableSendMailBtn();
+                            </script>
+                        </apex:pageBlock>
+                        <!-- Output Panel: Section rendered for Detail page of Interaction Log based on showDetailCase variable -->
+                        <apex:outputPanel rendered="{!showDetailCase}" id="caseDiv">
+                         
+                        <!-- Output Panel: Shows commandbutton 'Edit' if the opened IL's status is not closed -->
+                            <apex:outputPanel Rendered="{!If(custInteraction.Status != 'Closed', true, false)}">
+                            
+                            <!-- REQ 3262 alert on creation of OOA/OON automatic SR -->
+                            <apex:inputHidden value="{!newCase.CaseNumber}" id="newCaseNumber"/>
+                            <script>
+                                
+                                
+                                var newSRNO = document.getElementById('pg:theform:newCaseNumber').value;
+                                var showPopup='{!showPopup}';//Abhijeet - 30/1/2015 --fetching the value of showPopup
+                                var reason_clinical = '{!custInteraction.Reason__c}';
+                                var sec_reason_clinical = '{!custInteraction.Secondary_Reason__c}';
+                                
+                                if(showPopup=="true")
+                                {
+                                    if(reason_clinical == 'Clinical' && (sec_reason_clinical == 'Out of Area - Medical'
+                                                || sec_reason_clinical == 'Out of Network - Medical' || sec_reason_clinical == 'ED Notification')){
+                                                
+                                        var alertString = 'New SR# ' + newSRNO + ' has been created. Please create a new Customer Inquiries by Others entry, if applicable, and complete the details in the SR.';
+                                        alert(alertString);
+                                    }
+                                }
+                                
+                            </script>
+                            
+                                <apex:commandButton value="Edit" action="{!EditButton}" reRender="casePanel" style="margin-left: 30%;margin-top: 2%;margin-bottom: 0%;width: 4%"/>
+                        
+
+                            </apex:outputPanel>
+                            <!-- Detail: Shows detail page for the IL with its related lists -->
+                            <apex:detail subject="{!caseId}" relatedList="true" />
+                            <!-- JS function called to hide 'Show 5 more' link -->                         
+                            <script>
+                                hideShowMore();
+                            </script>
+                        </apex:outputPanel>
+                    </apex:outPutPanel>
+                </div>
+            </div>        
+
+            <!-- Div for Suggested Article section, it contains the filter section with DataCategories listed as drop downs and list of Knowledge Articles -->        
+            <div id ="Article" style="display:none;">
+                
+                <!-- Div for Suggested Article Header -->
+                <div class="sidebarBoxPanelContextPane" style="width:100%;">
+                    <div class="bPageTitle" id="suggestedTitle">
+                        <div class="ptBody secondaryPalette brandSecondaryBrd">
+                            <div class="content">
+                                <h1 class="pageType noSecondHeader">Suggested Articles</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Page Block for Data Category filters to filter Suggested Article Result -->
+                <apex:pageBlock >
+                    <b><apex:outputText value="Filter Your Results" /></b>
+                    
+                    <!-- Page Block Section to Show the drop down for Data Categories to filter results -->
+                    <apex:pageBlockSection columns="1">
+                        <apex:dataTable value="{!dataCategoryGroupInfo}" var="dataCategory" id="dataCategory">
+                            <apex:column width="20%">
+                                <apex:outputLabel for="categoryType_{!dataCategory.name}">{!dataCategory.label}</apex:outputLabel>
+                                <br />
+                                
+                                
+                                <select  id="categoryType_{!dataCategory.name}" name="categoryType_{!dataCategory.name}" onchange = "refreshSearchResult()" >
+                                    
+                                    <!-- Drop down values for Data Categories -->
+                                    <option value="NoFilter">No Filter</option>
+                                    <option value="All">All</option>
+                                    <!-- Knowledge Article tag: To show all the categories by iterating over the dataCategory names -->
+                                    <knowledge:categoryList categoryVar="category" categoryGroup="{!dataCategory.name}" level="-1" rootCategory="All">
+                                        <!-- Show the category names in the drop down -->
+                      
+                                      <!-----Release 5 Bargaining Unit Code---->
+                                        <apex:outputPanel layout="none" rendered="{!TRIM(category.label)==dataCategory.value}">
+                                         <option value="{!category.name}" selected="selected">
+                                            <apex:outputText escape="false" value="{!LPAD(' ',6*category.depth,'&nbsp;')}" />
+                                            {!category.label}
+                                        </option>
+                                        </apex:outputPanel>    
+                                        <apex:outputPanel layout="none" rendered="{!TRIM(category.label)!=dataCategory.value}">
+                                         <option value="{!category.name}" >
+                                            <apex:outputText escape="false" value="{!LPAD(' ',6*category.depth,'&nbsp;')}" />
+                                            {!category.label}
+                                        </option>                                                                     
+                                        </apex:outputPanel>
+                                        
+                                        
+
+                                    </knowledge:categoryList>
+                                </select>
+                            </apex:column>
+                        </apex:dataTable>
+                    </apex:pageBlockSection>
+                </apex:pageBlock>
+                
+                <!-- Action Region to submit only particular section of the page -->
+                <apex:actionRegion >
+                
+                    <!-- Page Block containing input search string to filter the article search -->
+                    <apex:pageBlock title="Search" >
+                        <apex:inputText value="{!searchstring}" id="theSearchstring" maxlength="100" style="width:100%;"  onchange="refreshSearchResult()" />
+                        
+                        <!-- Inline script to define the search string Id -->
+                        <script>
+                            var stringId = '{!$Component.theSearchstring}';
+                        </script>  
+                        
+                        <!-- Command button to execute the filtering on the suggested articles -->
+                        <apex:commandButton value="Go" id="submitButton" style="width:30" reRender="none"  status="status">
+                            <apex:actionSupport event="onclick" rerender="theSearchResults" />
+                        </apex:commandButton>
+                        
+                        <!-- Action status to show the execution on press on Search Button on Search block -->
+                        <apex:actionstatus id="status">
+                            <apex:facet name="start"> 
+                                <span style="color:red;font-weight:bold;padding-left:5px;">Searching...</span>
+                                <img src="/img/loading.gif" alt="" />
+                            </apex:facet>
+                        </apex:actionstatus>
+                    </apex:pageBlock>
+                    
+                    <!-- Page block for the search result of suggested articles -->
+                    <apex:pageBlock id="theSearchResults">
+                        <!-- Arrow image shown on the side of Attach to Customer Interaction -->
+                        <apex:image id="theImage" value="{!$Resource.AttachToCaseArrow}" width="10" height="8" rendered="{!!showSHP}"/>&nbsp;
+                        
+                        <!-- Command Button to attach articles to Case -->
+                        <apex:commandButton value="Attach to Customer Interaction" id="button" reRender="caseDiv, errorMessage1" onclick="selectedValue();" rendered="{!!showSHP}" immediate="true"/>           
+                        
+                        <!-- Inline script to define the button Id -->
+                        <script>
+                            var attachBtn = '{!$Component.button}';
+                        </script>
+                        <br></br>
+                        <br></br>
+                        
+                        <!-- Table to display Article Search Results -->
+                        <table style="width:100%">
+                            <tr>
+                                <th style="width:10%"></th>
+                                <th style="width:68%; text-align:left">Title</th>
+                                <th style="width:30%; text-align:left">Most Viewed</th>
+                            </tr>
+                        </table>
+                        <!-- knowledge article list tag: iterates over all the searched articles and shown on the page -->
+                        <knowledge:articleList articleVar="article" id="articlesList" categories="{!categoryKeyword}" Keyword="{!searchstring}" pageNumber="{!currentPageNumber}" hasMoreVar="true" pageSize="5" >
+                            <table style="width:100%">
+                                <tr>
+                                    <td style="width:2%">
+                                        <input type = "checkbox" id="article" name="check" value="{!article.id}" onclick="selectedValueCheck();" >
+                                        </input>
+                                    </td>
+                                    <td style="width:68%; max-width:20px; word-wrap:break-word;">
+                                        <apex:outputLink value="{!URLFOR($Action.KnowledgeArticle.View,article.id,['popup' = 'true'])}" >{!article.title}</apex:outputLink>
+                                    </td>
+                                    <!-- Images of View Count bar based on the view count of searched articles -->
+                                    <td style=" width:30%">
+                                        <apex:image url="{!$Resource.whatshot_0}" rendered="{!IF(map_artId_viewCount[article.id] != null && map_artId_viewCount[article.id]<=9,true,false)}" />
+                                        <apex:image url="{!$Resource.Whatshot_20}" rendered="{!IF(map_artId_viewCount[article.id] != null && map_artId_viewCount[article.id]>9 && map_artId_viewCount[article.id]<=29,true,false)}" />
+                                        <apex:image url="{!$Resource.Whatshot_40}" rendered="{!IF(map_artId_viewCount[article.id] != null && map_artId_viewCount[article.id]>29 && map_artId_viewCount[article.id]<=49,true,false)}" />
+                                        <apex:image url="{!$Resource.Whatshot_60}" rendered="{!IF(map_artId_viewCount[article.id] != null && map_artId_viewCount[article.id]>49 && map_artId_viewCount[article.id]<=69,true,false)}" />
+                                        <apex:image url="{!$Resource.whatshot_80}" rendered="{!IF(map_artId_viewCount[article.id] != null && map_artId_viewCount[article.id]>69 && map_artId_viewCount[article.id]<=89,true,false)}" />
+                                        <apex:image url="{!$Resource.Whatshot_100}" rendered="{!IF(map_artId_viewCount[article.id] != null && map_artId_viewCount[article.id]>89 && map_artId_viewCount[article.id]<=100,true,false)}" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </knowledge:articleList>
+                        
+                        <!-- Table containing the pagination links -->
+                        <table>
+                            <tr>
+                                <td>
+                                    <apex:commandLink action="{!previous}" value="Previous" style="{!IF(prevRequired = true,'display:inline','display:none')}" reRender="theSearchResults" status="status"/>
+                                </td>
+                                <td style="width:90%">
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <apex:commandLink action="{!next}" value="Next" style="{!IF(nextRequired = true,'display:inline','display:none')}" reRender="theSearchResults" status="status"/>
+                                </td>
+                            </tr>
+                        </table>
+                        
+                        
+                    </apex:pageBlock>
+                </apex:actionRegion>  
+                
+                <!-- Action function to call refreshSearchResult to set pagination variables and refresh the search results -->
+                <apex:actionFunction action="{!refreshSearchResult}" name="refreshSearchResult" rerender="theSearchResults" status="status">
+                </apex:actionFunction>
+            </div>    
+            
+            <!-- Action function to call attach to pass the Ids of the articles checked and attach them to Customer inquiry -->
+            <apex:actionFunction name="passArticle" reRender="pageMessages" action="{!attach}">
+                <apex:param name="articleId" assignTo="{!selectedCheckbox}" value=""/>
+            </apex:actionFunction>
+
+            <apex:outputPanel id="newCasePanel">
+                <apex:inputHidden value="{!caseNew.CALLID__c}" id="callId_Id"/>
+                <apex:inputHidden value="{!caseNew.DEV__c}" id="devId"/>
+                <apex:inputHidden value="{!caseNew.DNISTYPECODE__c}" id="dnisTypeCodeId"/>
+                <apex:inputHidden value="{!caseNew.ANI__c}" id="aniId"/>
+                <apex:inputHidden value="{!caseNew.EXITPATH__c}" id="exitPathId"/>
+                <apex:inputHidden value="{!caseNew.DNIS__c}" id="dnisId"/>
+                <apex:inputHidden value="{!call_date_time_Str}" id="calldtId"/>
+                <apex:inputHidden value="{!saveAndNewError}" id="saveError"/>
+            </apex:outputPanel>
+        </apex:form>
+    </div>
+    <!-- Reference to JS file in Static Resources containing JS functions used on the page -->    
+    <apex:includeScript value="{!$Resource.ConsoleScript}" />
+
+</apex:page>

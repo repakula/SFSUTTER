@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Survey_Feedback_comment__c.Comments__c</field>
+    </columns>
+    <columns>
+        <field>Survey_Feedback__c.Outcome_Comment__c</field>
+    </columns>
+    <columns>
+        <field>Survey_Feedback__c.Q_3_Rating_on_QoS_you_got_from_initial_a__c</field>
+    </columns>
+    <columns>
+        <field>Survey_Feedback__c.Q_4_Recommend_S3_Center_to_a_colleague__c</field>
+    </columns>
+    <columns>
+        <field>Survey_Feedback__c.Poor_NPS_Quality_Score_Reason__c</field>
+    </columns>
+    <columns>
+        <field>Survey_Feedback__c.Q_1_Was_your_issue_resolved__c</field>
+    </columns>
+    <columns>
+        <field>Survey_Feedback__c.Case_Owner__c</field>
+    </columns>
+    <columns>
+        <field>Survey_Feedback__c.Related_Case__c</field>
+    </columns>
+    <columns>
+        <field>Survey_Feedback__c.Sub_Function__c</field>
+    </columns>
+    <columns>
+        <field>Survey_Feedback__c.Customer_Sub_Intent__c</field>
+    </columns>
+    <columns>
+        <field>Survey_Feedback__c.Outside_of_SLA__c</field>
+    </columns>
+    <columns>
+        <field>Survey_Feedback__c.Reason_for_Repeat_Call__c</field>
+    </columns>
+    <columns>
+        <field>Survey_Feedback__c.SR_Path__c</field>
+    </columns>
+    <filter>
+        <booleanFilter>1 OR 2 OR 3</booleanFilter>
+        <criteriaItems>
+            <column>Survey_Feedback_comment__c.Comments__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>[T1Status],[T1PrService],[T1KMrequired],[T1lackofcommun],[T1Multiple],[T1ReferredHRBP],[T1Referred3rdparty],[T1N.satisResolution],[T1wait time/call tree],[T1promoter],[T1SLAissue],[T1HrApplications]</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Survey_Feedback_comment__c.Comments__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>[T2Status],[T2PrService],[T2KMrequired],[T2lackofcommun],[T2Multiple],[T2ReferredHRBP],[T2Referred3rdparty],[T2N.satisResolution],[T2wait time/call tree],[T2promoter],[T2SLAissue],[T2HrApplications]</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Survey_Feedback_comment__c.Comments__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>[T3Status],[T3PrService],[T3KMrequired],[T3lackofcommun],[T3Multiple],[T3ReferredHRBP],[T3Referred3rdparty],[T3N.satisResolution],[T3wait time/call tree],[T3promoter],[T3SLAissue],[T3HrApplications]</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>NPS unique identifier</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntityCustomEntity$Survey_Feedback__c$Survey_Feedback_comment__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_LASTTHISMONTH</interval>
+    </timeFrameFilter>
+</Report>

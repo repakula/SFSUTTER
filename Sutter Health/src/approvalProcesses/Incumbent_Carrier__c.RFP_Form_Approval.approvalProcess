@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApprovalProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <allowRecall>false</allowRecall>
+    <allowedSubmitters>
+        <submitter>SHP_Sales</submitter>
+        <type>group</type>
+    </allowedSubmitters>
+    <approvalPageFields>
+        <field>Name</field>
+        <field>Stage__c</field>
+        <field>Owner</field>
+    </approvalPageFields>
+    <approvalStep>
+        <allowDelegate>false</allowDelegate>
+        <approvalActions>
+            <action>
+                <name>assign_to_sales_queue_on_approval</name>
+                <type>FieldUpdate</type>
+            </action>
+            <action>
+                <name>RFP_Stage_change_on_approval</name>
+                <type>FieldUpdate</type>
+            </action>
+        </approvalActions>
+        <assignedApprover>
+            <approver>
+                <name>SHP_Underwriter_Queue</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <label>RFP Approval from Underwriting</label>
+        <name>RFP_Approval_from_Underwriting</name>
+        <rejectionActions>
+            <action>
+                <name>assign_to_sales_queue_upon_rejection</name>
+                <type>FieldUpdate</type>
+            </action>
+            <action>
+                <name>RFP_RFR_has_not_been_Approved</name>
+                <type>Alert</type>
+            </action>
+            <action>
+                <name>RFP_Stage_change_on_Rejection</name>
+                <type>FieldUpdate</type>
+            </action>
+        </rejectionActions>
+    </approvalStep>
+    <description>Approval process to exchange RFP Form from Sales to Underwriting</description>
+    <emailTemplate>SHP_Sales_Email_Template/RFP_Approval_Email_Template</emailTemplate>
+    <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
+    <entryCriteria>
+        <criteriaItems>
+            <field>Incumbent_Carrier__c.Stage__c</field>
+            <operation>notEqual</operation>
+            <value>Submitted to Underwriting,Approved by Underwriting</value>
+        </criteriaItems>
+    </entryCriteria>
+    <finalApprovalRecordLock>true</finalApprovalRecordLock>
+    <finalRejectionRecordLock>false</finalRejectionRecordLock>
+    <initialSubmissionActions>
+        <action>
+            <name>Owner_set_to_Underwriter_Queue</name>
+            <type>FieldUpdate</type>
+        </action>
+        <action>
+            <name>Update_Stage_of_RFP_on_Submission</name>
+            <type>FieldUpdate</type>
+        </action>
+    </initialSubmissionActions>
+    <label>RFP Form Approval V1</label>
+    <recordEditability>AdminOrCurrentApprover</recordEditability>
+    <showApprovalHistory>true</showApprovalHistory>
+</ApprovalProcess>

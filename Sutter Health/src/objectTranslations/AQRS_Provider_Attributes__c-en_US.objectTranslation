@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>AQRS Provider Attribute</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>AQRS Provider Attributes</value>
+    </caseValues>
+    <fields>
+        <label><!-- Department Id --></label>
+        <name>Department_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Department Mnemonic --></label>
+        <name>Department_Mnemonic__c</name>
+    </fields>
+    <fields>
+        <label><!-- Department Name --></label>
+        <name>Department_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Division Id --></label>
+        <name>Division_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Division Mnemonic --></label>
+        <name>Division_Mnemonic__c</name>
+    </fields>
+    <fields>
+        <label><!-- Division Name --></label>
+        <name>Division_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Facility Id --></label>
+        <name>Facility_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Facility Mnemonic --></label>
+        <name>Facility_Mnemonic__c</name>
+    </fields>
+    <fields>
+        <label><!-- Facility Name --></label>
+        <name>Facility_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Foundation Id --></label>
+        <name>Foundation_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Foundation Mnemonic --></label>
+        <name>Foundation_Mnemonic__c</name>
+    </fields>
+    <fields>
+        <label><!-- Foundation Name --></label>
+        <name>Foundation_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Master Provider Key --></label>
+        <name>Master_Provider_Key__c</name>
+    </fields>
+    <fields>
+        <label><!-- Measure --></label>
+        <name>Measure__c</name>
+        <picklistValues>
+            <masterLabel>Adult BMI Assessment</masterLabel>
+            <translation><!-- Adult BMI Assessment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Annual Monitoring for Patients on Persistent Medications</masterLabel>
+            <translation><!-- Annual Monitoring for Patients on Persistent Medications --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Appropriate Testing for Children with Pharyngitis</masterLabel>
+            <translation><!-- Appropriate Testing for Children with Pharyngitis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Asthma Medication Ratio</masterLabel>
+            <translation><!-- Asthma Medication Ratio --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Avoidance of Antibiotic Treatment for Adults with Acute Bronchitis</masterLabel>
+            <translation><!-- Avoidance of Antibiotic Treatment for Adults with Acute Bronchitis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BreastCancerScreening</masterLabel>
+            <translation><!-- BreastCancerScreening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CAD: ACE inhibitor or ARB Therapy for Patients With CAD or Diabetes</masterLabel>
+            <translation><!-- CAD: ACE inhibitor or ARB Therapy for Patients With CAD or Diabetes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cervical Cancer Overscreening</masterLabel>
+            <translation><!-- Cervical Cancer Overscreening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CervicalCancerScreening</masterLabel>
+            <translation><!-- CervicalCancerScreening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ChildhoodImmunizeStatus</masterLabel>
+            <translation><!-- ChildhoodImmunizeStatus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ChildrenwithUpperRespiratoryInfection</masterLabel>
+            <translation><!-- ChildrenwithUpperRespiratoryInfection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chlamydia Screening in Woman</masterLabel>
+            <translation><!-- Chlamydia Screening in Woman --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ColorectalCancerScreening</masterLabel>
+            <translation><!-- ColorectalCancerScreening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ComprehensiveDiabetes</masterLabel>
+            <translation><!-- ComprehensiveDiabetes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Controlling Blood Pressure for People With Hypertension</masterLabel>
+            <translation><!-- Controlling Blood Pressure for People With Hypertension --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Disease-Modifying Anti-Rheumatic Drug Therapy for Rheumatiod Arthritis</masterLabel>
+            <translation><!-- Disease-Modifying Anti-Rheumatic Drug Therapy for Rheumatiod Arthritis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>High-Risk Medication</masterLabel>
+            <translation><!-- High-Risk Medication --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Human Papillomavirus Vaccine for Adolescents</masterLabel>
+            <translation><!-- Human Papillomavirus Vaccine for Adolescents --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IVD: Use of Asprin or Another Antithrombotic</masterLabel>
+            <translation><!-- IVD: Use of Asprin or Another Antithrombotic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Immunizations for Adolescents</masterLabel>
+            <translation><!-- Immunizations for Adolescents --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Osteoporosis Management in Women Who Had a Fracture</masterLabel>
+            <translation><!-- Osteoporosis Management in Women Who Had a Fracture --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preventive Care and Screening: Pneumonia Vaccination for Patients 65 Years and Older</masterLabel>
+            <translation><!-- Preventive Care and Screening: Pneumonia Vaccination for Patients 65 Years and Older --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Proportion of Days Covered by Medications</masterLabel>
+            <translation><!-- Proportion of Days Covered by Medications --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use of Imaging Studies for Low back Pain</masterLabel>
+            <translation><!-- Use of Imaging Studies for Low back Pain --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- NPI --></label>
+        <name>NPI__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payer --></label>
+        <name>Payer__c</name>
+        <picklistValues>
+            <masterLabel>Medic Plus</masterLabel>
+            <translation><!-- Medic Plus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medicaid</masterLabel>
+            <translation><!-- Medicaid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medicare</masterLabel>
+            <translation><!-- Medicare --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Health Plus</masterLabel>
+            <translation><!-- Sutter Health Plus --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Population --></label>
+        <name>Population__c</name>
+        <picklistValues>
+            <masterLabel>FFS_P4P_COMMERCIAL</masterLabel>
+            <translation><!-- FFS_P4P_COMMERCIAL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FFS_P4P_MEDICARE</masterLabel>
+            <translation><!-- FFS_P4P_MEDICARE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HMO_P4P_COMMERCIAL</masterLabel>
+            <translation><!-- HMO_P4P_COMMERCIAL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HMO_P4P_MEDICARE</masterLabel>
+            <translation><!-- HMO_P4P_MEDICARE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RAF Medicare</masterLabel>
+            <translation><!-- RAF Medicare --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Provider Id --></label>
+        <name>Provider_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Provider Name --></label>
+        <name>Provider_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Specialty --></label>
+        <name>Specialty__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,19 @@
+<!-- 
+ *     Name  : VFC18_EOW
+ *     Author      : Saket
+ *     Date        : 10/06/2014
+ *     Project Name: CRM - SFT - Sutter Health
+ *     Description :This page shows EOW article to manger and employee.
+ **/
+-->
+<apex:page controller="VFC18_EOW" action="{!gotoLink}" >
+
+<apex:dataTable value="{!articleList}" var="ar" border="true">
+                    
+<apex:column title="Article Title" value="{!ar.title}"/>
+
+<apex:column title="Article Title" value="{!ar.Summary}"/>
+                                                                      
+</apex:dataTable>
+ 
+</apex:page>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AutoResponseRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <autoResponseRule>
+        <fullName>EmailToCaseResponse</fullName>
+        <active>true</active>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Email,Email to Case</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Status</field>
+                <operation>notEqual</operation>
+                <value>Closed</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.RecordType_Name__c</field>
+                <operation>equals</operation>
+                <value>Finance Accounts Payable</value>
+            </criteriaItems>
+            <notifyCcRecipients>true</notifyCcRecipients>
+            <replyToEmail>s3ccapsco@sutterhealth.org</replyToEmail>
+            <senderEmail>salesforce@sutterhealth.org</senderEmail>
+            <senderName>Sutter Health</senderName>
+            <template>S3_Templates/EmailToCaseTemplateAP</template>
+        </ruleEntry>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Email,Email to Case</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Status</field>
+                <operation>notEqual</operation>
+                <value>Closed</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Finance Payroll</value>
+            </criteriaItems>
+            <notifyCcRecipients>false</notifyCcRecipients>
+            <senderEmail>salesforce@sutterhealth.org</senderEmail>
+            <senderName>Sutter Health</senderName>
+            <template>S3_Templates/EmailToCaseTemplateCreatePayroll</template>
+        </ruleEntry>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Email,Email to Case</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Status</field>
+                <operation>equals</operation>
+                <value>Closed</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Finance Payroll,Finance Payroll RO</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Non_Sutter_Email_to_case__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </criteriaItems>
+            <notifyCcRecipients>false</notifyCcRecipients>
+            <senderEmail>salesforce@sutterhealth.org</senderEmail>
+            <senderName>Sutter Health</senderName>
+            <template>S3_Templates/EmailToCaseTemplateCreatePayrollNonSutter</template>
+        </ruleEntry>
+    </autoResponseRule>
+</AutoResponseRules>

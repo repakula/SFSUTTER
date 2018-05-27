@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>KnowledgeArticle$Title</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle$ArticleNumber</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle$ArticleType</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle.VoteStats$WeightedCount</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle.VoteStats$NormalizedScore</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle$LastModifiedDate</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle.VoteStats$Channel</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle$VersionNumber</field>
+    </columns>
+    <description>KM Articles with Votes</description>
+    <format>Summary</format>
+    <name>Knowledge Articles with Votes</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Knowledge_Articles_with_Votes__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>KnowledgeArticle$CreatedDate</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

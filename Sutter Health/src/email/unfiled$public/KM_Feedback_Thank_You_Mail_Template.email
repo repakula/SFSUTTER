@@ -1,0 +1,17 @@
+<html>
+
+<p>Thank you for submitting feedback on the article entitled "<a href="{!KM_Feedback_Item__c.Article_URL__c}">{!KM_Feedback_Item__c.Article_Title__c}</a>"</p>
+
+<p>You provided the following comment(s):  {!KM_Feedback_Item__c.Feedback__c}. </p>
+
+<p>Your input is important to us, and we’re pleased to report that it has resulted in changes to the article. Please take a minute to review the revised content.</p> 
+
+<p>Thank you again. </p>
+
+<p>Regards, <br/>
+Sutter Health Knowledge Management Team
+</p>
+<p align="right">
+<img src="https://cs10.salesforce.com/servlet/servlet.ImageServer?id=015J0000000HCzg&oid=0150f00001yZ9N9" alt="Company Logo" height="50" width="120"/>
+</p>
+</html>

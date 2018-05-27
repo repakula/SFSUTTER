@@ -1,0 +1,1234 @@
+<apex:page sidebar="false" controller="AQRSCommunicationLogController" docType="html-5.0" applyHtmlTag="true"  standardStylesheets="false" tabStyle="AQRS_CRM__tab">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type="text/css">
+        .tab-content {background-color: #f9f9f9;padding-top: 10px;padding-left: 10px;padding-bottom: 10px;color: black;}
+         td { border:0px solid #ddd; color: #000 !important;line-height: 30px !important;}
+          @media (min-width: 768px){
+            .modal-dialog {
+                width: 870px !important;
+                margin: 30px auto;
+                
+            }
+            /*  #PVP_logs.row{overflow-x:auto !important;} */
+        </style>    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />    
+        <apex:stylesheet value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/bootstrap.min.css')}"/>
+        <link rel="stylesheet" media="print" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+       <!-- <apex:Stylesheet value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/bootstrap-datepicker.min.css')}"/>-->
+        <apex:stylesheet value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/fixedColumns.dataTables.min.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/dataTables.bootstrap.min.css')}"/>
+        <!--<apex:stylesheet value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/site.css')}"/>-->
+        <apex:stylesheet value="{!URLFOR($Resource.AQRSCRM_comstyle)}" />
+        <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/jquery-1.12.4.js')}"/>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/jquery.dataTables.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/dataTables.bootstrap.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/dataTables.fixedColumns.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/main.js')}"/>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+         <script>
+  $( function() {
+    
+    
+  } );
+/*  $( function() {
+     $( "#reminderDate").datepicker({
+      minDate: 0
+    });
+     $( "#Next_Appointment").datepicker({
+       minDate: 1
+    });
+     $( "#Status_Date").datepicker({
+      minDate: 1
+    });
+     $( "#MHO_MessageSentDate").datepicker({
+      maxDate: 0
+    });
+     $( "#Letter_SentDate").datepicker({
+      maxDate: 0
+    });
+  } ); */
+ 
+
+  </script>
+<apex:form id="myform">
+      <div class="container body-content">
+               <div class="container" style="border:0px solid #ccc;">
+                   <div class="teacher-name" style="padding-top:20px;">
+                       <div class="row" >
+                           <div class="col-md-8">
+                               <a href="/apex/AQRSCRMLandingPage?{!backtoHome}#" type="button" class="btn-sm left-arrow" style="width:110px;">
+                                   <span class="glyphicon glyphicon-chevron-left"></span> Back to home
+                               </a>          
+                           </div>
+                           
+                        </div>
+                    </div>
+                   <div class="row" style="margin-top:20px;">
+                        <div class="col-md-1"> 
+                            <h3><strong>Patient 360 Degree View</strong></h3>                            
+                        </div>
+                        </div>
+                                            <div class="row" style="margin-top:20px;">
+                        <div class="col-md-2"> 
+                           
+                            <a href="#"> <img src="/resource/AQRSCRM/Images/if_003_User2_183568.png"  border="0" alt=""/></a>
+                            <div style="width:100%;margin:auto;">
+                             <h5 style="text-align:center;"><strong>{!patientMRNDetails.PATIENT_NAME}</strong></h5> 
+                        </div>
+                        </div>
+
+                        <div class="col-md-3"> 
+                            <table>
+                                <tr><td>Patient Name &nbsp;</td><td>: &nbsp; {!patientMRNDetails.PATIENT_NAME}</td> </tr>
+                                <tr><td>Patient MRN &nbsp;</td><td>: &nbsp; {!patientMRNDetails.PATIENT_MRN} </td> </tr>
+                                <tr><td>DOB &nbsp;</td><td>: &nbsp;  <apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!patientMRNDetails.PATIENT_DOB}" /> </apex:outputText></td> </tr>
+                                <tr><td>AGE &nbsp;</td><td>: &nbsp; {!patientMRNDetails.PATIENT_AGE} </td> </tr>
+                                <tr><td>Gender &nbsp;</td><td>: &nbsp; {!patientMRNDetails.PATIENT_GENDER} </td> </tr>
+                                <tr><td>Phone Number &nbsp;</td><td>: &nbsp; {!patientMRNDetails.PATIENT_HOME_PHONE} </td> </tr>
+                            </table>        
+                        </div>
+
+                        <div class="col-md-7"> 
+                            <table>                         
+                               <tr><td>Email Address &nbsp;</td><td>: &nbsp; {!patientMRNDetails.EMAIL_ADDRESS} </td> </tr>
+                               <tr><td>Address &nbsp;</td><td>: &nbsp; {!patientMRNDetails.PATIENT_HOME_ADDRESS} </td> </tr>
+                               <tr><td>Population &nbsp;</td><td>: &nbsp; HMO_P4P_MEDICARE </td> </tr>
+                               <tr><td>Payer &nbsp;</td><td>: &nbsp; {!patientMRNDetails.PAYOR_NAME} </td> </tr>
+                               <tr><td>Preferred Communication Method &nbsp;</td><td>: &nbsp; {!patientMRNDetails.PREFERRED_COMMUNICATION_METHOD}  </td> </tr>
+                               <tr><td>Provider Name &nbsp;</td><td>: &nbsp; {!patientMRNDetails.ADDLN_ATTRIBUTE1} </td> </tr>
+                            </table> 
+                        </div>        
+                     </div>
+                     <!--<apex:inputField value="{!lstCommunicationLog[0].Reason_for_Call__c}" styleClass="form-control" id="reminderDate" />-->
+                         <div class="row" style="margin-top:40px;" >
+                         <div class="col-md-12 col-sm-6 col-xs-12" >
+                             <div class="col-md-12" style="padding:0px 0px 40px 0px;margin-bottom:20px;">
+                                 <div class="tab" role="tabpanel" >
+                                    <!-- Nav tabs -->
+                                     <ul class="nav nav-tabs" role="tablist">
+                                         <li role="presentation" class="pvp_active"><a href="#Section1" id="pvp_active" aria-controls="home" role="tab" data-toggle="tab">Pre-Visit Planning</a></li>
+                                         <li role="presentation" class="gic_active"><a href="#Section2" id="gic_active" aria-controls="profile" role="tab" data-toggle="tab">Gaps In Care</a></li>
+                                         <li role="presentation" class="clogs_active"><a href="#Section3"  aria-controls="messages" role="tab" data-toggle="tab">Communication Logs</a></li>
+                                         
+                                         <li role="presentation" class="myclass"><a href="#Section4" aria-controls="messages" role="tab" data-toggle="tab">Reminder Tasks</a></li> 
+                                    </ul>
+                                </div>
+                                <div class="col-md-12 activeclassbg">
+                                 <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane fade in PVP_div_active" id="Section1">
+                                            <div style="padding:20px 0px 0px 0px;">                     
+                                                <div class="col-md-12 col-sm-12 col-xs-12"> 
+                                                    <table id="example1" class="table-bordered table-striped table-condensed cf" cellspacing="0" width="100%">
+                                                        <thead class="grdidhead cf">
+                                                            <tr width="100%">
+                                                                <th data-orderable="false">Communication</th>
+                                                                <th>Next Appointment Type</th>
+                                                                <th data-orderable="false">Next Appointment Provider</th>
+                                                                <th data-orderable="false">Next Appointment Department</th>                                                                
+                                                                <th data-orderable="false">Next Appointment Date</th>
+                                                                <th data-orderable="false">Last AWV Date</th>
+                                                                <th data-orderable="false">Last Appointment Type</th>
+                                                                <th data-orderable="false">Last Appointment Date</th>
+                                                                <th data-orderable="false">Possible Actions Needed</th>
+                                                                <th data-orderable="false">Patient Race</th>
+                                                                <th data-orderable="false">Measure Name</th>                                                                
+                                                                <th data-orderable="false">HCC Gaps</th>
+                                                                <th data-orderable="false">Quality Gaps</th>
+                                                                <th data-orderable="false">AWV Gaps</th>
+                                                                <th data-orderable="false">Total Gaps</th>
+                                                                <th data-orderable="false">Next Appointment Time</th>
+                                                                <th data-orderable="false">Speciality</th>
+                                                                <th data-orderable="false">Division</th>
+                                                                <th data-orderable="false">Department</th>
+                                                                <th data-orderable="false">Facility</th>
+                                                            </tr>
+                                                       </thead>
+                                                       <tbody>
+                                                        <apex:repeat value="{!detailpatientPVPList}" var="patientPVP">
+                                                           <tr width="100%">
+                                                                <td>
+                                                                <a class="btn" type="button" style="" data-toggle="modal" data-target="#myModal" id="pvp_Outreach" >Add</a>
+                                                               | <a class="btn" type="button" style=""  data-toggle="modal" data-target="#Logs_modal" id="pvp_logs">View Logs</a>
+                                                                </td>                                                                
+                                                                <td>{!patientPVP.next_appointment_type}</td>
+                                                                <td>{!patientPVP.Next_appointment_provider}</td>
+                                                                <td>{!patientPVP.Next_appointment_department_name}</td>                                                                
+                                                                <td>{!patientPVP.date_of_next_appointment}</td>
+                                                                <td>{!patientPVP.last_awv_date}</td>
+                                                                <td>{!patientPVP.last_appointment_type}</td>
+                                                                <td>{!patientPVP.date_of_last_appointment}</td>
+                                                                <td>{!patientPVP.possible_actions_needed}</td>
+                                                                <td>American</td>
+                                                                <td>IVD: Use of Asprin or Another Antithrombotic</td>                                                               
+                                                                <td>{!patientPVP.hcc_gaps}</td>
+                                                                <td>{!patientPVP.quality_gaps}</td>
+                                                                <td>{!patientPVP.awv_gaps}</td>
+                                                                <td>1</td>
+                                                                <td>{!patientPVP.Next_Appointment_Time}</td>
+                                                                <td>{!patientPVP.specialty}</td>
+                                                                <td>Camino</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                        </apex:repeat>
+                                                       </tbody>
+                                                   </table>                                                    
+                                               </div>
+                                           </div>
+                                       </div>
+                                           <div role="tabpanel" class="tab-pane fade Gic_div_active" id="Section2">
+                                           <div style="padding:20px 0px 0px 0px;">                    
+                                               <div class="col-md-12 col-sm-12 col-xs-12"> 
+                                                   <table id="example2" class="table-bordered table-striped table-condensed cf" cellspacing="0" width="100%">
+                                                       <thead class="grdidhead cf">
+                                                           <tr width="100%">
+                                                               <th data-orderable="false">Communication</th>
+                                                               <th>Next Appointment Date</th>
+                                                               <th data-orderable="false">Next Appointment Type</th>
+                                                               <th data-orderable="false">Last Appointment Date</th>
+                                                               <th data-orderable="false">HCC Gaps</th>
+                                                               <th data-orderable="false">Qualifying Measures</th>
+                                                               <th data-orderable="false">AWV Measurement</th>
+                                                               <th data-orderable="false">Last Bill Date</th>
+                                                               <th data-orderable="false">Patient Race</th>
+                                                               <th data-orderable="false">Speciality</th>
+                                                               <th data-orderable="false">Possible Actions Needed</th>
+                                                               <th data-orderable="false">Measure Name</th>
+                                                               <th data-orderable="false">Total Gaps</th>
+                                                               <th data-orderable="false">Last AWV Date</th>
+                                                               <th data-orderable="false">Next Appointment Provider</th>
+                                                               <th data-orderable="false">Next Appointment Time</th>
+                                                               <th data-orderable="false">Division</th>
+                                                               <th data-orderable="false">Department</th>
+                                                               <th data-orderable="false">Facility</th>
+                                                           </tr>
+                                                       </thead>
+                                                       <tbody>
+                                                        <apex:repeat value="{!detailPatientGICList}" var="patientGIC">
+                                                           <tr width="100%">
+                                                                <td><a class="btn" type="button" style=""  data-toggle="modal" data-target="#myModal" id="gic_Outreach">Add</a>
+                                                                 | <a class="btn" type="button" style=""  data-toggle="modal" data-target="#Logs_modalGIC" id="gic_logs" >View Logs</a>
+                                                                </td>
+                                                                <td>{!patientGIC.date_of_next_appointment}</td>
+                                                                <td>{!patientGIC.next_appointment_type}</td>
+                                                                <td>{!patientGIC.date_of_last_appointment}</td>
+                                                                <td>{!patientGIC.hcc}</td>
+                                                                <td>{!patientGIC.qualifying_measure}</td>
+                                                                <td>{!patientGIC.awv_measurement_this_year}</td>
+                                                                <td>{!patientGIC.date_of_last_billed}</td>
+                                                                <td>American</td>
+                                                                <td>{!patientGIC.specialty}</td>
+                                                                <td>{!patientGIC.possible_actions_needed}</td>
+                                                                <td>ChildhoodImmunizeStatus</td>
+                                                                <td>1</td>
+                                                                <td>{!patientGIC.last_awv_date}</td>
+                                                                <td>{!patientGIC.next_appointment_provider}</td>
+                                                                <td>{!patientGIC.Next_Appointment_Time}</td>
+                                                                <td>Camino</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                           </tr>
+                                                        </apex:repeat>
+                                                      </tbody>
+                                                  </table>
+                                              </div>                
+                                           </div>
+                                        </div>
+                                           <div role="tabpanel" class="tab-pane fade" id="Section3">
+                                            <div style="padding:20px 0px 0px 0px;">
+                                               <!-- <a href="" style="position:absolute;right:3%;top:27px;z-index:999;text-decoration:none;"  data-toggle="modal" data-target="#reminder_modal" >Reminder</a>  -->                  
+                                               <div class="col-md-12 col-sm-12 col-xs-12">  
+                                             
+                                                   <table id="example3" class="table-bordered table-striped table-condensed cf" cellspacing="0" width="100%">
+                                                        <thead class="grdidhead cf">
+                                                            <tr width="100%">
+                                                             <!--   <th data-orderable="false">Patient Name:</th> -->
+                                                                <th data-orderable="false">Communication Log:</th>
+                                                              <!--  <th data-orderable="false">Patient MRN:</th> -->
+                                                              <!--  <th data-orderable="false">Patient ID:</th> -->
+                                                                <th data-orderable="false">EPIC Response Message:</th>
+                                                                <th data-orderable="false">Contacted About:</th>
+                                                                <th data-orderable="false">PCP:</th>
+                                                                <th data-orderable="false">Speciality:</th>
+                                                                <th data-orderable="false">Physician Type:</th>
+                                                                <th data-orderable="false">Department (Care Center):</th>
+                                                                <th data-orderable="false">Facility:</th>
+                                                                <th data-orderable="false">Division:</th>
+                                                                <th data-orderable="false">Next Visit Provider:</th>
+                                                                <th data-orderable="false">Next Apt Type :</th>
+                                                                <th data-orderable="false">Next Appointment / Contact:</th>
+                                                                <th data-orderable="false">Reason for Call:</th>
+                                                                <th data-orderable="false">Outreach Call:</th>
+                                                                <th data-orderable="false">Phone # dialed:</th>
+                                                                <th data-orderable="false">Phone Type:</th>
+                                                                <th data-orderable="false">Contact method:</th>
+                                                                <th data-orderable="false">Call result:</th>
+                                                                <th data-orderable="false">Call time:</th>
+                                                             <!--   <th data-orderable="false">Next Appointment / Contact:</th>-->
+                                                                <th data-orderable="false">Relationship to the Patient:</th>
+                                                              <!--  <th data-orderable="false">Comments:</th> -->
+                                                                <th data-orderable="false">Documentation Note:</th>
+                                                                <th data-orderable="false">Status:</th>
+                                                                <th data-orderable="false">Status Date:</th>
+                                                                <th data-orderable="false">Patient Committed to Measure:</th>
+                                                                <th data-orderable="false">Patient Outreach Complete:</th>
+                                                                <th data-orderable="false">Patient Moved:</th>
+                                                                <th data-orderable="false">MHO MESSAGE SENT:</th>
+                                                                <th data-orderable="false">MHO Message Sent Date:</th>
+                                                                <th data-orderable="false">Sent MHO/Letter:</th>
+                                                                <th data-orderable="false">Letter Sent Date:</th>
+                                                                <th data-orderable="false">Optum Form:</th>
+                                                                <th data-orderable="false">QI confirmed:</th>
+                                                                <th data-orderable="false">BMI:</th>
+                                                                <th data-orderable="false">AIM patient :</th>
+                                                                <th data-orderable="false">Patient died:</th>
+                                                                <th data-orderable="false">Number of contacts:</th>
+                                                                <th data-orderable="false">Current year AWV date (blank if none yet):</th>
+                                                                <th data-orderable="false">Prior year AWV date :</th>
+                                                                <th data-orderable="false">Provider ID (SER ID):</th>
+                                                                <th data-orderable="false">Department ID (DEP ID):</th>
+                                                                <th data-orderable="false">User ID (EMP ID - AD id):</th>
+                                                                <th data-orderable="false">EPIC Reference #:</th>
+                                                                <th data-orderable="false">EPIC Sync Date:</th>
+                                                                <th data-orderable="false">EPIC Response Message:</th>
+                                                            </tr>
+                                                       </thead>
+                                                       <tbody>
+                                                       <apex:repeat value="{!lstPatientCommunicationLog}" var="patientCL">
+                                                            <tr width="100%">                     
+                                                        <!--         <td>{!patientCL.Contact_Name__c}</td> -->
+                                                                 <td><apex:outputLink value="#" onclick="window.open('/{!patientCL.Id}','newwindow','width=900,height=600');">{!patientCL.Name}</apex:outputLink></td>
+                                                              <!--  <td>MRN 123-456</td> -->
+                                                               <!-- <td>2441539</td> -->
+                                                                <td>{!patientCL.EPIC_Response_Message__c }</td>
+                                                                <DIV style="width:100%;overflow:hidden">
+                                                                <td><apex:outputText style="word-wrap:break-word;" value="{!patientCL.Contacted_About__c }"/></td>
+                                                                </DIV>
+                                                                <td>{!patientCL.PCP__c }</td>
+                                                                <td>{!patientCL.Speciality__c }</td>
+                                                                <td>{!patientCL.Physician_Type__c}</td>
+                                                                 <td>{!patientCL.Department_Care_Center__c}</td>
+                                                                <td>{!patientCL.Facility__c}</td>
+                                                                <td>{!patientCL.Division__c}</td>
+                                                                <td>{!patientCL.Upcoming_Visit_Provider__c}</td>
+                                                                <td>{!patientCL.Next_Appointment_Type__c}</td>
+                                                                <td><apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!patientCL.Upcoming_visit_apt_time__c}" /> </apex:outputText></td>
+                                                                <td>{!patientCL.Reason_for_Call__c}</td>
+                                                                <td>{!patientCL.Outreach_Call__c}</td>
+                                                                <td>{!patientCL.Dialed_Phone__c}</td>
+                                                                <td>{!patientCL.Phone_Type_I_CAL_90__c}</td>
+                                                                <td>{!patientCL.Contact_method__c}</td>
+                                                                <td>{!patientCL.Call_result__c}</td>
+                                                                <td>{!patientCL.Call_time__c}</td>
+                                                                
+                                                                <td>{!patientCL.Relationship_to_the_Patient__c}</td>
+                                                                <!--<td>{!patientCL.Comments_Spoke_with_Patient__c}</td>-->
+                                                                <td><apex:outputText style="word-wrap:break-word;" value="{!patientCL.Documentation_Note__c}"/></td>
+                                                                <td>{!patientCL.Status__c}</td>
+                                                                <td><apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!patientCL.Status_Date__c}" /> </apex:outputText></td>
+                                                                <td>{!patientCL.Patient_Committed_to_Measure__c}</td>
+                                                                <td>{!patientCL.Patient_Outreach_Complete__c}</td>
+                                                                <td>{!patientCL.Patient_Moved__c}</td>
+                                                                <td>{!patientCL.MHO_MESSAGE_SENT__c}</td>
+                                                                <td><apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!patientCL.MHO_Message_Sent_Date__c}" /> </apex:outputText></td>
+                                                                <td>{!patientCL.Sent_MHO_Letter__c}</td>
+                                                                <!--<td>{!patientCL.Department_Care_Center__c}</td>-->
+                                                                <td><apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!patientCL.Letter_Sent_Date__c}" /> </apex:outputText></td>
+                                                                <td>{!patientCL.Optum_Form__c}</td>
+                                                                <td>{!patientCL.QI_confirmed__c}</td>
+                                                                <td>{!patientCL.BMI__c}</td>
+                                                                <td>{!patientCL.AIM_patient__c}</td>
+                                                                <td>{!patientCL.Patient_died__c}</td>
+                                                                <td>{!patientCL.Number_of_contacts__c}</td>
+                                                                <td><apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!patientCL.Current_year_AWV_date__c}" /> </apex:outputText></td>
+                                                                <td><apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!patientCL.Prior_year_AWV_date__c}" /> </apex:outputText></td>
+                                                                <td>{!patientCL.Provider_ID__c}</td>
+                                                                <td>{!patientCL.Department_ID__c}</td>
+                                                                <td>{!patientCL.User_ID__c}</td>
+                                                                <td>{!patientCL.EPIC_Reference__c}</td>
+                                                                <td><apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!patientCL.EPIC_Sync_Date__c}" /> </apex:outputText></td>
+                                                                 <td>{!patientCL.EPIC_Response_Message__c}</td> 
+                                                            </tr>
+                                                            </apex:repeat>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                           <div role="tabpanel" class="tab-pane fade in " id="Section4">
+                                          <div style="padding:20px 0px 0px 0px;">
+                                          
+                                          <apex:outputPanel id="refreshedTasks">               
+                                                <div class="col-md-12 col-sm-12 col-xs-12" > 
+                                               <!--  <button type="button" data-toggle="modal" data-target="#transferTask" id= "findCheckBox" >Transfer</button> -->
+                                                    <table id="reminder" class="table-bordered table-striped table-condensed cf" cellspacing="0" width="100%">
+                                                        <thead class="grdidhead cf">
+                                                            <tr>
+                                                            
+                                                                <th>Communication Log Id</th>
+                                                                <th>Reminder Date</th>
+                                                                <th>Status</th>
+                                                                <th>Priority</th>
+                                                                <th>Owner Name</th>
+                                                                <th>Created By</th>
+                                                                
+                                                            </tr>
+                                                       </thead>
+                                                       <tbody>
+                                                       <apex:repeat value="{!lstReminderWrapper}" var="task">
+                                                            <tr>
+                                                            <td>{!task.reminderTaskObj.What.Name}</td>
+                                                          <td><apex:outputLink value="#" onclick="window.open('/{!task.reminderTaskObj.Id}','newwindow','width=900,height=600');">
+                                                         <apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!task.reminderTaskObj.ActivityDate}" /> </apex:outputText>  </apex:outputLink></td> 
+                                                                
+                                                                <td>{!task.reminderTaskObj.status}</td>
+                                                                <td>{!task.reminderTaskObj.Priority}</td>
+                                                                <td>{!task.reminderTaskObj.owner.Name}</td>
+                                                                <td>{!task.reminderTaskObj.CreatedBy.Name}</td>
+                                                                
+                                                                </tr></apex:repeat>
+                                                                
+                                                       </tbody>
+                                                       
+                                                   </table>   
+                                                                                                    
+                                               </div>
+                                               </apex:outputPanel>
+                                             <apex:actionPoller action="{!incrementCounter}" reRender="refreshedTasks,reminderPanel" interval="5" />
+                                             </div> 
+                                       </div>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <!-- <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div> -->
+         <div class="modal-header" align="center">
+                       <h4> Add Communication Log from <span id="PreVisitPlanning_Tab">Pre-Visit Planning</span></h4>
+                       <h4><span style="display:none;" id="GapsinCare_Tab">Gaps in Care</span></h4>
+                       <!--  <button type="button" class="close" data-dismiss="modal" aria-label="Close">                    
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </button> -->
+                         <button id="" type="reset" class="close"  onclick="resetValue();"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                        
+                        <ul id="errorList" style="color:red;">
+                          
+                        </ul>
+                        <div style="clear:both;"></div>
+                    </div>
+        <div class="modal-body" style="max-height:520px;overflow-y:auto;">
+
+
+
+<div class="row row1" style="padding:0px 0px 0px 0px;">
+<div class="row Removepaddingrow">
+<div class="col-md-4">
+    <div class="form-group">
+    
+        <p class=""><label for="sel1">Patient Name:</label><br/>
+        <label class="output_fields">
+        <apex:outputField value="{!lstCommunicationLog[0].Contact_Name__c}" /></label>
+
+        </p>
+        <p class=""><label for="sel1">Patient MRN:</label><br/>
+        <label class="output_fields">
+        <apex:outputField value="{!lstCommunicationLog[0].Patient_MRN__c}" /></label>
+        </p>
+        
+        <p class=""><label for="sel1">Reason for Call:</label><br/>
+        <label class="output_fields">
+        <apex:outputField value="{!lstCommunicationLog[0].Reason_for_Call__c}"  /></label>
+        </p>
+        <p class=""><label for="sel1">PCP:</label><br/>
+        <label class="output_fields">
+        <apex:outputField value="{!lstCommunicationLog[0].PCP__c}"  /></label>
+        </p>
+        <p class=""><label for="sel1">Speciality:</label><br/>
+        <label class="output_fields">
+         <apex:outputField value="{!lstCommunicationLog[0].Speciality__c}"  /></label>
+        </p>
+        <p class=""><label for="sel1">Department(Care Center):</label><br/>
+        <label class="output_fields">
+         <apex:outputField value="{!lstCommunicationLog[0].Department_Care_Center__c}"  /></label>
+
+        </p>
+     </div>
+  </div>
+  <div class="col-md-4">
+      <div class="form-group">
+      <p class=""><label for="sel1" >Contacted About:</label>
+        <apex:selectList id="measures" value="{!strMeasures}"  size="3" multiselect="true" label="Measures" styleClass="form-control">
+        <apex:selectOptions value="{!measures}"/>
+        </apex:selectList>
+        </p>
+         
+         
+         <p class=""><label for="sel1">Phone # dialed:<label style="color:red;">*</label></label>
+         <apex:inputField value="{!lstCommunicationLog[0].Dialed_Phone__c}"  id="phoneDialled" styleClass="errorClass form-control" />
+         </p>
+         <p class=""><label for="sel1">Phone Type:<label style="color:red;">*</label></label>
+         <apex:inputField value="{!lstCommunicationLog[0].Phone_Type_I_CAL_90__c}"  id="phoneType" styleClass="errorClass form-control" />
+         </p>
+         <p class=""><label for="sel1">Outcome:<label style="color:red;">*</label></label>
+         <apex:inputField value="{!lstCommunicationLog[0].Call_result__c}"  id="outcome" styleClass="errorClass form-control" />
+         </p>
+         <p class=""><label for="sel1">Patinet Moved:<label style="color:red;">*</label></label>
+         <apex:inputField value="{!lstCommunicationLog[0].Patient_Moved__c}"  id="Patient_Moved" styleClass="errorClass form-control" />
+         </p>
+        <p class=""><label for="sel1">Contact method:</label>
+        <apex:inputField value="{!lstCommunicationLog[0].Contact_method__c}" styleClass="form-control" />
+        </p>
+        <p class=""><label for="sel1">Documentation Note:</label>
+        <apex:inputTextarea value="{!lstCommunicationLog[0].Documentation_Note__c}"  rows="3" id="documentationNotes" styleClass="form-control"/>
+    </p>
+         
+    </div>
+ </div>
+ <div class="col-md-4">
+<div>
+<p><label>Encounter Date:</label></p>
+<apex:outputText value="{0,date,MM'/'dd'/'yyyy}" styleClass="form-control">
+<apex:param value="{!lstCommunicationLog[0].Encounter_Date__c}" />
+</apex:outputText>
+</div>
+
+<div>
+<p><label>Reminder Activity Date:</label></p>
+ 
+ <apex:input type="date" value="{!strReminderDate}"  
+                    styleclass="errorClass form-control" id="reminderDate" />
+</div>
+
+
+<p class=""><label for="sel1">Outreach Call:<label style="color:red;">*</label></label>
+<apex:inputField value="{!lstCommunicationLog[0].Outreach_Call__c}"  id="outreachCall" styleClass="errorClass form-control"/>
+</p>
+<p class=""><label for="sel1">Relationship to the Patient:<label style="color:red;">*</label></label>
+<apex:inputField value="{!lstCommunicationLog[0].Relationship_to_the_Patient__c}"  id="relationship" styleClass="errorClass form-control"/>
+</p>
+  
+   <div>
+    <p><label>Next Appointment / Contact:</label></p>
+ <!-- <apex:outputField value="{!lstCommunicationLog[0].Next_Planned_Appointment__c}"  styleClass="errorClass calendar_class" id="Next_Appointment" /> -->
+     <apex:input type="date" value="{!strNextAppt}"  
+                    styleclass="errorClass form-control" id="Next_Appointment" />
+    </div>
+
+    <p class=""><label for="sel1">Status:</label>    
+    <apex:inputField value="{!lstCommunicationLog[0].Status__c}" styleClass="form-control" />
+
+        </p>
+    </div>
+    </div>
+    <div class="row Removepaddingrow">
+    <div style="width:100px;margin:auto;">
+        <button id="loadMore1" type="button" class="btn searchbtn">
+            <span class="glyphicon glyphicon-chevron-down"></span> &nbsp; Load More
+        </button>
+    </div>
+</div>
+</div>
+<div class="row row2" style="padding:0px 0px 0px 0px;display:none;">
+<div class="row Removepaddingrow">
+    <div class="col-md-4">
+        <div class="form-group">
+            <p class=""><label for="sel1">Foundation:</label><br/>
+            <label class="output_fields">
+               <apex:outputField value="{!lstCommunicationLog[0].Foundation__c}" /></label>
+            </p>
+            <p class=""><label for="sel1">Facility:</label><br/>
+            <label class="output_fields">
+               <apex:outputField value="{!lstCommunicationLog[0].Facility__c}" /></label>
+            </p>
+            <p class=""><label for="sel1">Division</label><br/>
+            <label class="output_fields">
+                <apex:outputField value="{!lstCommunicationLog[0].Division__c}" /></label>
+            </p>
+            <p class=""><label for="sel1">Next Visit Provider:</label><br/>
+            <label class="output_fields">
+                <apex:outputField value="{!lstCommunicationLog[0].Upcoming_Visit_Provider__c}" /></label>
+            </p>
+            <p class=""><label for="sel1">Next Apt Type:</label><br/>
+            <label class="output_fields">
+                <apex:outputField value="{!lstCommunicationLog[0].Next_Appointment_Type__c}" /></label>
+            </p>
+            <p class=""><label for="sel1">Next Appointment/ Contact:</label><br/>
+            
+                            <apex:outputText value="{0,date,MM/dd/yyyy h:mm a}" styleClass="form-control output_fields">
+<apex:param value="{!lstCommunicationLog[0].Upcoming_visit_apt_time__c}" />
+</apex:outputText>
+            </p>
+                                   
+        </div>
+    </div>
+    <div class="col-md-4">
+        
+    <p><label>Status Date:</label></p>
+    <!-- <apex:outputField value="{!lstCommunicationLog[0].Status_Date__c}" styleClass="errorClass calendar_class" id="Status_Date" /> -->
+   <!--  <apex:input type="date" value="{!strStatusDate}"  
+                    styleclass="errorClass form-control" id="Status_Date" /> -->
+                    <apex:outputText value="{0,date,MM'/'dd'/'yyyy}" styleClass="form-control">
+                   <apex:param value="{!lstCommunicationLog[0].Status_Date__c}" />
+                  </apex:outputText>
+        <p class=""><label for="sel1">Call result:</label>
+            <apex:inputField value="{!lstCommunicationLog[0].Call_result__c}" styleClass="form-control" />
+        </p>
+            <p class=""><label for="sel1">Call Time:</label>
+            <apex:inputField value="{!lstCommunicationLog[0].Call_time__c}" styleClass="form-control" />
+        </p>
+        <p class=""><label for="sel1">Patient Committed to Measure:</label>
+            <apex:inputField value="{!lstCommunicationLog[0].Patient_Committed_to_Measure__c}" styleClass="form-control" />
+        </p>
+            <p class=""><label for="sel1">MHO MESSAGE SENT:</label>
+                <apex:inputField value="{!lstCommunicationLog[0].MHO_MESSAGE_SENT__c}" styleClass="form-control" />
+            </p>
+            <p class=""><label for="sel1">Sent MHO/Letter:</label>
+                <apex:inputField value="{!lstCommunicationLog[0].Sent_MHO_Letter__c }" styleClass="form-control" />
+            </p>
+            
+            
+        </div>
+    
+    <div class="col-md-4">
+    
+    <p class=""><label for="sel1">AIM patient:</label>
+            <apex:inputField value="{!lstCommunicationLog[0].AIM_patient__c}" styleClass="form-control" />
+        </p>
+                           
+    <p class=""><label for="sel1">Patient Outreach Complete:</label>
+        <apex:inputField value="{!lstCommunicationLog[0].Patient_Outreach_Complete__c}" styleClass="form-control" />
+
+        </p>
+       <!--  <p class=""><label for="sel1">MHO Message Sent Date:</label>
+        <div class="input-group">
+            <apex:inputText value="{!lstCommunicationLog[0].MHO_Message_Sent_Date__c}" styleClass=" form-control" html-readonly="true" style="background-color:white !important;"/>
+            <span class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar datepicker"></span>
+        </span>
+        </div>
+        </p> -->
+   <div>
+    <p><label>MHO Message Sent Date:</label></p>
+    <!-- <apex:outputField value="{!lstCommunicationLog[0].MHO_Message_Sent_Date__c}" styleClass="errorClass calendar_class" id="MHO_MessageSentDate" /> -->
+       <apex:input type="date" value="{!strMsgSentDate}"  
+                    styleclass="errorClass form-control" id="MHO_MessageSentDate" />
+    
+    </div>
+       <!--  <p class=""><label for="sel1">Letter Sent Date:</label>
+        <div class="input-group">
+           <apex:inputText value="{!lstCommunicationLog[0].Letter_Sent_Date__c}" styleClass=" form-control" html-readonly="true" style="background-color:white !important;"/>
+           <span class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar datepicker"></span>
+        </span>
+        </div>
+        </p> -->
+         <div>
+    <p><label>Letter Sent Date:</label></p>
+    <!-- <apex:outputField value="{!lstCommunicationLog[0].Letter_Sent_Date__c}"  styleClass="errorClass calendar_class" id="Letter_SentDate" /> -->
+     <apex:input type="date" value="{!strLetterSentDate}"  
+                    styleclass="errorClass form-control" id="Letter_SentDate" />
+
+    </div>
+        <p class=""><label for="sel1">QI confirmed?:</label>
+            <apex:inputField value="{!lstCommunicationLog[0].QI_confirmed__c}" styleClass="form-control"/>
+
+        </p>
+        <p class=""><label for="sel1">BMI:</label>
+            <apex:inputField value="{!lstCommunicationLog[0].BMI__c}" styleClass="form-control" />
+        </p>
+        
+        
+    </div>
+    </div>
+    <div class="row Removepaddingrow">
+    <div style="width:100px;margin:auto;">
+        <button id="loadMore2" type="button" class="btn searchbtn">
+            <span class="glyphicon glyphicon-chevron-down"></span> &nbsp; Load More
+        </button>
+    </div>
+
+</div>
+</div>
+<div class="row row3" style="padding:0px 0px 0px 0px;display:none;">
+    <div class="col-md-4">
+        <div class="form-group">
+            
+            <p class=""><label for="sel1">Current year AWV date (blank if none yet):</label><br/>
+           
+               
+               <apex:outputText value="{0,date,MM/dd/yyyy}" styleClass="form-control output_fields">
+<apex:param value="{!lstCommunicationLog[0].Current_year_AWV_date__c}" />
+</apex:outputText>
+               
+            </p>
+            <p class=""><label for="sel1">Prior year AWV date:</label><br/>
+            
+                <apex:outputText value="{0,date,MM/dd/yyyy}" styleClass="form-control output_fields">
+<apex:param value="{!lstCommunicationLog[0].Prior_year_AWV_date__c}" />
+</apex:outputText>
+                
+            </p>                        
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+        
+            <p class=""><label for="sel1">Optum Form:</label>
+                <apex:inputField value="{!lstCommunicationLog[0].Optum_Form__c}" styleClass="form-control" />
+            </p>
+            
+            <p class=""><label for="sel1">Number of contacts:</label>
+                <apex:inputField value="{!lstCommunicationLog[0].Number_of_contacts__c}" styleClass="form-control" />
+            </p>
+            
+        </div>
+    </div>
+    <div class="col-md-4">
+   
+        
+        <p class=""><label for="sel1">Patient died:</label>
+                <apex:inputField value="{!lstCommunicationLog[0].Patient_died__c}" styleClass="form-control" />
+            </p>
+        
+    </div>
+</div>                                
+
+
+        </div>
+        <div class="modal-footer">
+         <!--  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+           <button id="" type="reset" class="btn searchbtn"  onclick="resetValue();">Cancel</button>
+          <apex:commandButton id="login_register_btn" onclick="return submitForm('submit');" styleClass="btn searchbtn" value="Submit" action="{!submitCommunicationLog}" />
+           <apex:commandButton id="login_reminder_register_btn"  styleClass="btn searchbtn" value="Submit and Reminder" onclick="return submitForm('reminder');" action="{!submitCommunicationLogWithReminder}" />
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+ <!--  Communication Log Modal -->
+
+          <!-- Modal -->
+  <div class="modal fade" id="Logs_modal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Communication Logs</h4>
+          <h4 class="modal-title" style="display:none;">Gaps in Care Communication Logs</h4>
+        </div>
+        <div class="modal-body" style="width:100%;overflow-x:auto !important;">
+        <table id="PVP_logs" class="table-bordered table-striped table-condensed cf" cellspacing="0" width="100%">
+                                                        <thead class="grdidhead cf">
+                                                            <tr width="100%">
+                                                             <!--   <th data-orderable="false">Patient Name:</th> -->
+                                                                <th data-orderable="false">Communication Log:</th>
+                                                              <!--  <th data-orderable="false">Patient MRN:</th> -->
+                                                                
+                                                                <th data-orderable="false">Contacted About:</th>
+                                                                <th data-orderable="false">PCP:</th>
+                                                                <th data-orderable="false">Speciality:</th>
+                                                                <th data-orderable="false">Physician Type:</th>
+                                                                <th data-orderable="false">Department (Care Center):</th>
+                                                                <th data-orderable="false">Facility:</th>
+                                                                <th data-orderable="false">Division:</th>
+                                                                <th data-orderable="false">Next Visit Provider:</th>
+                                                                <th data-orderable="false">Next Apt Type :</th>
+                                                                <th data-orderable="false">Next Appointment / Contact:</th>
+                                                                <th data-orderable="false">Reason for Call:</th>
+                                                                <th data-orderable="false">Outreach Call:</th>
+                                                                <th data-orderable="false">Phone # dialed:</th>
+                                                                <th data-orderable="false">Contact method:</th>
+                                                                <th data-orderable="false">Call result:</th>
+                                                                <th data-orderable="false">Call time:</th>                                                                
+                                                                <th data-orderable="false">Relationship to the Patient:</th>
+                                                                <th data-orderable="false">Comments:</th>
+                                                                <th data-orderable="false">Documentation NOTE:</th>
+                                                                <th data-orderable="false">Status:</th>
+                                                                <th data-orderable="false">Status Date:</th>
+                                                                <th data-orderable="false">Patient Committed to Measure:</th>
+                                                                <th data-orderable="false">Patient Outreach Complete:</th>
+                                                                <th data-orderable="false">MHO MESSAGE SENT:</th>
+                                                                <th data-orderable="false">MHO Message Sent Date:</th>
+                                                                <th data-orderable="false">Sent MHO/Letter:</th>
+                                                                <th data-orderable="false">Letter Sent Date:</th>
+                                                                <th data-orderable="false">Optum Form:</th>
+                                                                <th data-orderable="false">QI confirmed:</th>
+                                                                <th data-orderable="false">BMI:</th>
+                                                                <th data-orderable="false">AIM patient :</th>
+                                                                <th data-orderable="false">Patient died:</th>
+                                                                <th data-orderable="false">Number of contacts:</th>
+                                                                <th data-orderable="false">Current year AWV date (blank if none yet):</th>
+                                                                <th data-orderable="false">Prior year AWV date :</th>
+                                                                <th data-orderable="false">Provider ID (SER ID):</th>
+                                                                <th data-orderable="false">Department ID (DEP ID):</th>
+                                                                <th data-orderable="false">User id (EMP ID - AD id):</th>
+                                                                <th data-orderable="false">EPIC Reference #:</th>
+                                                                <th data-orderable="false">EPIC Sync Date:</th>
+                                                                <th data-orderable="false">EPIC Response Message:</th>
+                                                            </tr>
+                                                       </thead>
+                                                       <tbody>
+                                                       <apex:repeat value="{!lstPatientCommunicationLogPVP}" var="patientCL">
+                                                            <tr width="100%">                     
+                                                             <!--    <td>{!patientCL.Contact_Name__c}</td> -->
+                                                                 <td><apex:outputLink value="#" onclick="window.open('/{!patientCL.Id}','newwindow','width=900,height=600');">{!patientCL.Name}</apex:outputLink></td>
+                                                             <!--   <td>{!patientCL.Patient_MRN__c}</td> -->
+                                                                <td>{!patientCL.Contacted_About__c }</td>
+                                                                <td>{!patientCL.PCP__c }</td>
+                                                                <td>{!patientCL.Speciality__c }</td>
+                                                                <td>{!patientCL.Physician_Type__c}</td>
+                                                                 <td>{!patientCL.Department_Care_Center__c}</td>
+                                                                <td>{!patientCL.Facility__c}</td>
+                                                                <td>{!patientCL.Division__c}</td>
+                                                                <td>{!patientCL.Upcoming_Visit_Provider__c}</td>
+                                                                <td>{!patientCL.Next_Appointment_Type__c}</td>
+                                                                <td><apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!patientCL.Upcoming_visit_apt_time__c}" /> </apex:outputText></td>
+                                                                <td>{!patientCL.Reason_for_Call__c}</td>
+                                                                <td>{!patientCL.Outreach_Call__c}</td>
+                                                                <td>{!patientCL.Dialed_Phone__c}</td>
+                                                                <td>{!patientCL.Contact_method__c}</td>
+                                                                <td>{!patientCL.Call_result__c}</td>
+                                                                <td>{!patientCL.Call_time__c}</td>
+                                                                
+                                                                <td>{!patientCL.Relationship_to_the_Patient__c}</td>
+                                                                <td>{!patientCL.Comments_Spoke_with_Patient__c}</td>
+                                                                <td>{!patientCL.Documentation_Note__c}</td>
+                                                                <td>{!patientCL.Status__c}</td>
+                                                                <td><apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!patientCL.Status_Date__c}" /></apex:outputText></td>
+                                                                <td>{!patientCL.Patient_Committed_to_Measure__c}</td>
+                                                                <td>{!patientCL.Patient_Outreach_Complete__c}</td>
+                                                                <td>{!patientCL.MHO_MESSAGE_SENT__c}</td>
+                                                                <td><apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!patientCL.MHO_Message_Sent_Date__c}" /></apex:outputText></td>
+                                                                <td>{!patientCL.Sent_MHO_Letter__c}</td>
+                                                                
+                                                                <td><apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!patientCL.Letter_Sent_Date__c}" /> </apex:outputText></td>
+                                                                <td>{!patientCL.Optum_Form__c}</td>
+                                                                <td>{!patientCL.QI_confirmed__c}</td>
+                                                                <td>{!patientCL.BMI__c}</td>
+                                                                <td>{!patientCL.AIM_patient__c}</td>
+                                                                <td>{!patientCL.Patient_died__c}</td>
+                                                                <td>{!patientCL.Number_of_contacts__c}</td>
+                                                                <td><apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!patientCL.Current_year_AWV_date__c}" /> </apex:outputText></td>
+                                                                <td><apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!patientCL.Prior_year_AWV_date__c}" /> </apex:outputText></td>
+                                                                <td>{!patientCL.Provider_ID__c}</td>
+                                                                <td>{!patientCL.Department_ID__c}</td>
+                                                                <td>{!patientCL.User_ID__c}</td>
+                                                                <td>{!patientCL.EPIC_Reference__c}</td>
+                                                                <td><apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!patientCL.EPIC_Sync_Date__c}" /> </apex:outputText></td>
+                                                                 <td>{!patientCL.EPIC_Response_Message__c}</td> 
+                                                            </tr>
+                                                            </apex:repeat>
+                                                        </tbody>
+                                                    </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="modal fade" id="Logs_modalGIC" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Communication Logs</h4>
+          <h4 class="modal-title" style="display:none;">Gaps in Care Communication Logs</h4>
+        </div>
+        <div class="modal-body" style="width:100%;overflow-x:auto !important;">
+        <table id="GIC_logs" class="table-bordered table-striped table-condensed cf" cellspacing="0" width="100%">
+                                                        <thead class="grdidhead cf">
+                                                            <tr width="100%">
+                                                            <!--    <th data-orderable="false">Patient Name:</th> -->
+                                                                <th data-orderable="false">Communication Log:</th>
+                                                          <!--      <th data-orderable="false">Patient MRN:</th> -->
+                                                                
+                                                                <th data-orderable="false">Contacted About:</th>
+                                                                <th data-orderable="false">PCP:</th>
+                                                                <th data-orderable="false">Speciality:</th>
+                                                                <th data-orderable="false">Physician Type:</th>
+                                                                <th data-orderable="false">Department (Care Center):</th>
+                                                                <th data-orderable="false">Facility:</th>
+                                                                <th data-orderable="false">Division:</th>
+                                                                <th data-orderable="false">Next Visit Provider:</th>
+                                                                <th data-orderable="false">Next Apt Type :</th>
+                                                                <th data-orderable="false">Next Appointment / Contact:</th>
+                                                                <th data-orderable="false">Reason for Call:</th>
+                                                                <th data-orderable="false">Outreach Call:</th>
+                                                                <th data-orderable="false">Phone # dialed:</th>
+                                                                <th data-orderable="false">Contact method:</th>
+                                                                <th data-orderable="false">Call result:</th>
+                                                                <th data-orderable="false">Call time:</th>                                                                
+                                                                <th data-orderable="false">Relationship to the Patient:</th>
+                                                                <th data-orderable="false">Comments:</th>
+                                                                <th data-orderable="false">Documentation NOTE:</th>
+                                                                <th data-orderable="false">Status:</th>
+                                                                <th data-orderable="false">Status Date:</th>
+                                                                <th data-orderable="false">Patient Committed to Measure:</th>
+                                                                <th data-orderable="false">Patient Outreach Complete:</th>
+                                                                <th data-orderable="false">MHO MESSAGE SENT:</th>
+                                                                <th data-orderable="false">MHO Message Sent Date:</th>
+                                                                <th data-orderable="false">Sent MHO/Letter:</th>
+                                                                <th data-orderable="false">Letter Sent Date:</th>
+                                                                <th data-orderable="false">Optum Form:</th>
+                                                                <th data-orderable="false">QI confirmed:</th>
+                                                                <th data-orderable="false">BMI:</th>
+                                                                <th data-orderable="false">AIM patient :</th>
+                                                                <th data-orderable="false">Patient died:</th>
+                                                                <th data-orderable="false">Number of contacts:</th>
+                                                                <th data-orderable="false">Current year AWV date (blank if none yet):</th>
+                                                                <th data-orderable="false">Prior year AWV date :</th>
+                                                                <th data-orderable="false">Provider ID (SER ID):</th>
+                                                                <th data-orderable="false">Department ID (DEP ID):</th>
+                                                                <th data-orderable="false">User id (EMP ID - AD id):</th>
+                                                                <th data-orderable="false">EPIC Reference #:</th>
+                                                                <th data-orderable="false">EPIC Sync Date:</th>
+                                                                <th data-orderable="false">EPIC Response Message:</th>
+                                                            </tr>
+                                                       </thead>
+                                                       <tbody>
+                                                       <apex:repeat value="{!lstPatientCommunicationLogGIC}" var="patientCL1">
+                                                            <tr width="100%">                     
+                                                               <!--  <td>{!patientCL1.Contact_Name__c}</td> -->
+                                                                 <td><apex:outputLink value="#" onclick="window.open('/{!patientCL1.Id}','newwindow','width=900,height=600');">{!patientCL1.Name}</apex:outputLink></td>
+                                                               <!--  <td>{!patientCL1.Patient_MRN__c}</td> -->
+                                                                <td>{!patientCL1.Contacted_About__c }</td>
+                                                                <td>{!patientCL1.PCP__c }</td>
+                                                                <td>{!patientCL1.Speciality__c }</td>
+                                                                <td>{!patientCL1.Physician_Type__c}</td>
+                                                                 <td>{!patientCL1.Department_Care_Center__c}</td>
+                                                                <td>{!patientCL1.Facility__c}</td>
+                                                                <td>{!patientCL1.Division__c}</td>
+                                                                <td>{!patientCL1.Upcoming_Visit_Provider__c}</td>
+                                                                <td>{!patientCL1.Next_Appointment_Type__c}</td>
+                                                                <td><apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!patientCL1.Upcoming_visit_apt_time__c}" /> </apex:outputText></td>
+                                                                <td>{!patientCL1.Reason_for_Call__c}</td>
+                                                                <td>{!patientCL1.Outreach_Call__c}</td>
+                                                                <td>{!patientCL1.Dialed_Phone__c}</td>
+                                                                <td>{!patientCL1.Contact_method__c}</td>
+                                                                <td>{!patientCL1.Call_result__c}</td>
+                                                                <td>{!patientCL1.Call_time__c}</td>
+                                                                
+                                                                <td>{!patientCL1.Relationship_to_the_Patient__c}</td>
+                                                                <td>{!patientCL1.Comments_Spoke_with_Patient__c}</td>
+                                                                <td>{!patientCL1.Documentation_Note__c}</td>
+                                                                <td>{!patientCL1.Status__c}</td>
+                                                                <td><apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!patientCL1.Status_Date__c}"/></apex:outputText></td>
+                                                                <td>{!patientCL1.Patient_Committed_to_Measure__c}</td>
+                                                                <td>{!patientCL1.Patient_Outreach_Complete__c}</td>
+                                                                <td>{!patientCL1.MHO_MESSAGE_SENT__c}</td>
+                                                                <td><apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!patientCL1.MHO_Message_Sent_Date__c}"/></apex:outputText></td>
+                                                                <td>{!patientCL1.Sent_MHO_Letter__c}</td>
+                                                                
+                                                                <td><apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!patientCL1.Letter_Sent_Date__c}"/></apex:outputText></td>
+                                                                <td>{!patientCL1.Optum_Form__c}</td>
+                                                                <td>{!patientCL1.QI_confirmed__c}</td>
+                                                                <td>{!patientCL1.BMI__c}</td>
+                                                                <td>{!patientCL1.AIM_patient__c}</td>
+                                                                <td>{!patientCL1.Patient_died__c}</td>
+                                                                <td>{!patientCL1.Number_of_contacts__c}</td>
+                                                                <td><apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!patientCL1.Current_year_AWV_date__c}" /></apex:outputText></td>
+                                                                <td><apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!patientCL1.Prior_year_AWV_date__c}" /></apex:outputText></td>
+                                                                <td>{!patientCL1.Provider_ID__c}</td>
+                                                                <td>{!patientCL1.Department_ID__c}</td>
+                                                                <td>{!patientCL1.User_ID__c}</td>
+                                                                <td><apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!patientCL1.EPIC_Reference__c}" /></apex:outputText></td>
+                                                                <td><apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!patientCL1.EPIC_Sync_Date__c}" /> </apex:outputText></td>
+                                                                 <td>{!patientCL1.EPIC_Response_Message__c}</td> 
+                                                            </tr>
+                                                            </apex:repeat>
+                                                        </tbody>
+                                                    </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+
+
+   </div>
+  </div>
+  <script>
+  
+     $(document).ready(function(){
+        $("#pvp_Outreach").click(function(){
+              $('#myModal').removeClass('hidepopup');
+                 $('.modal-backdrop').addClass('in');
+                 $('.modal-backdrop').addClass('modal-backdrop');
+                 $('.modal-backdrop').addClass('fade');
+
+         });
+          $("#gic_Outreach").click(function(){
+              $('#myModal').removeClass('hidepopup');
+                 $('.modal-backdrop').addClass('in');
+                 $('.modal-backdrop').addClass('modal-backdrop');
+                 $('.modal-backdrop').addClass('fade');
+         });
+         $("#loadMore1").click(function(){
+              $(".row2").show();
+              $(".row3").hide();
+              $("#loadMore1").hide();
+         });
+          $("#loadMore2").click(function(){
+              $(".row2").show();
+              $(".row3").show();
+              $("#loadMore1").hide();
+              $("#loadMore2").hide();
+         });
+             $("#Section1").click(function(){
+         $("#PreVisitPlanning_Tab").show();
+          $("#GapsinCare_Tab").hide();
+          $("[id$='outreachCall']").val("Pre-Visit");
+        });
+        $("#Section2").click(function(){
+             $("#PreVisitPlanning_Tab").hide();
+          $("#GapsinCare_Tab").show();
+          $("[id$='outreachCall']").val("Gap in Care");
+        });    
+     
+     });
+       function submitForm(type)
+        {
+         
+          var parentUl = document.getElementById("errorList");
+          parentUl.innerHTML ='';
+           $(".errorClass").css({"border-color":"#ccc"});
+          var phone_value = $("[id$='phoneDialled']").val();
+         var phonePattern = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+         
+         var remindate = $("[id$='reminderDate']").val();
+         var apptdate = $("[id$='Next_Appointment']").val();
+         var statusdate = $("[id$='Status_Date']").val();
+         var msgSentdate = $("[id$='MHO_MessageSentDate']").val();
+         var letterSentdate = $("[id$='Letter_SentDate']").val();
+         
+        var now = new Date();
+        var day = ("0" + now.getDate()).slice(-2);
+        var month = ("0" + (now.getMonth() + 1)).slice(-2);
+        var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+    
+    
+          
+
+          var error = false;
+          var errorForPhone = false;
+          var errorForReminder = false;
+          var errorForApptdate =false;
+          var errorForStatusdate = false;
+          var errorForMessageSentdate = false;
+          var errorForLetterSentdate = false;
+        
+           
+            if($("[id$='outreachCall']").val() == '')
+           {            
+                $("[id$='outreachCall']").css({"border-color":"red"});
+                error = true;
+                
+            } 
+            if($("[id$='phoneDialled']").val() == '' )
+           {            
+               $("[id$='phoneDialled']").css({"border-color":"red"});
+                error = true;
+            }
+            if((!phonePattern.test(phone_value)))
+           {  
+                errorForPhone = true;
+            }
+
+            if($("[id$='phoneType']").val() == '' )
+           {            
+                 $("[id$='phoneType']").css({"border-color":"red"});
+                 
+                error = true;
+            }
+            if($("[id$='outcome']").val() == '' )
+           {            
+                 $("[id$='outcome']").css({"border-color":"red"});
+                
+                error = true;
+            }
+            if($("[id$='relationship']").val() == '' )
+           {            
+               $("[id$='relationship']").css({"border-color":"red"});              
+                error = true;
+            }
+            
+            if(($("[id$='reminderDate']").val() == '' || $("[id$='reminderDate']").val() == undefined) && type == 'reminder')
+           {            
+                $("[id$='reminderDate']").css({"border-color":"red"});
+                
+                error = true;
+            }
+            if((remindate<today && remindate !='') )
+            {    
+                errorForReminder = true;
+            }
+            if((apptdate<today && apptdate !='') )
+            {    
+                errorForApptdate = true;
+            }
+            if((statusdate>today && statusdate !='') )
+            {    
+                errorForStatusdate = true;
+            }
+            if((msgSentdate>today && msgSentdate !='') )
+            {    
+                errorForMessageSentdate = true;
+            }
+            if((letterSentdate>today && letterSentdate !='') )
+            {    
+                errorForLetterSentdate = true;
+            }
+            
+            
+            if(error == true) 
+            {
+                var childli = document.createElement("li");
+                childli.appendChild(document.createTextNode("Please fill all required fields highlighted below:"));
+                parentUl.appendChild(childli);
+                return false;
+                
+            }
+            else if(errorForPhone == true) 
+            {
+                var childli = document.createElement("li");
+                childli.appendChild(document.createTextNode("Please verify given phone number"));
+                parentUl.appendChild(childli);
+                 $("[id$='phoneDialled']").css({"border-color":"red"});
+                return false;
+                
+            }
+            else if(errorForReminder ==true || errorForApptdate ==true)
+            {
+               var childli = document.createElement("li");
+                childli.appendChild(document.createTextNode("Please provide a future date"));
+                parentUl.appendChild(childli);
+                if(errorForReminder ==true)
+                $("[id$='reminderDate']").css({"border-color":"red"});
+                if(errorForApptdate ==true)
+                $("[id$='Next_Appointment']").css({"border-color":"red"});
+                return false;
+                 
+            }
+            else if(errorForStatusdate ==true || errorForMessageSentdate ==true || errorForLetterSentdate ==true)
+            {
+               var childli = document.createElement("li");
+                childli.appendChild(document.createTextNode("Please provide a past date"));
+                parentUl.appendChild(childli);
+                if(errorForStatusdate ==true)
+                $("[id$='Status_Date']").css({"border-color":"red"});
+                if(errorForMessageSentdate ==true)
+                $("[id$='MHO_MessageSentDate']").css({"border-color":"red"});
+                
+                if(errorForLetterSentdate ==true)
+                $("[id$='Letter_SentDate']").css({"border-color":"red"});
+                return false;
+                 
+            }
+            
+            else
+            {
+                return true;
+            }
+             $("#myform")[0].clear.click();
+        
+        }
+        function resetValue()
+        { 
+             $('#myModal').addClass('hidepopup');
+             $('.modal-backdrop').removeClass('in');
+             $('.modal-backdrop').removeClass('modal-backdrop');
+             $('.modal-backdrop').removeClass('fade');
+                var parentUl = document.getElementById("errorList");
+                parentUl.innerHTML ='';
+                $(".errorClass").css({"border-color":"#ccc"});
+                $("#myform")[0].clear.click();
+              }
+        
+        $(function() {
+            var loc = window.location.href; // returns the full URL
+            if(/GIC/.test(loc)) { 
+            $('.gic_active').addClass('active');
+            $('#Section2').addClass('active');
+            //$('#Section2').addClass('fade_active');
+            $('#Section2').removeClass('fade');
+            $('.pvp_active').removeClass('active');
+            
+            //$('#Section1').removeClass('active');
+            
+            }
+            if(/PVP/.test(loc)) { 
+            $('.pvp_active').addClass('active');
+            $('#Section1').addClass('active');
+            //$('#Section1').addClass('fade_active');
+            $('#Section1').removeClass('fade');
+            //$('.pvp_active').removeClass('active');
+           
+            }
+            });
+
+  </script>
+  <apex:outputPanel id="reminderPanel">
+  
+  <script>
+  var table = $('#reminder').DataTable( {
+       bFilter:     false,
+        bInfo:     true,
+        scrollX:        false,
+        scrollCollapse: true,
+        paging:         true,
+          fixedColumns: false
+    } );
+  
+  </script>
+  
+  </apex:outputPanel>
+   </apex:form>
+</apex:page>

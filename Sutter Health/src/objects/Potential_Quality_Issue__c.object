@@ -1,0 +1,1696 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>VFP41_Potential_Quality_Issue</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>VFP41_Potential_Quality_Issue</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Req-3369</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fieldSets>
+        <fullName>PQI_Indicators_Fields</fullName>
+        <description>Used in SHPMemberLookupPage PQI UI VFpage</description>
+        <displayedFields>
+            <field>Access_Availability__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Pharmacy__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Admit_within_3_days_of_ER__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Quality_of_Care__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Assessment_Treatment_Diagnosis__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Readmission__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Coding__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Safety__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Communications_Conduct__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Sentinel_Event__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Continuity_of_Care__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Surgical_Services__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Delay_Care_or_Referral__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Technical_Competence__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Facility_Office_Environment__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>UM_Referrals_or_Auths__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Facility_Office_BH__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Underutilization__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Never_Events__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Unexpected_Death__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Overutilization__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Unsure__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>PQI Indicators Fields</label>
+    </fieldSets>
+    <fields>
+        <fullName>Access_Availability__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Access / Availability</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Admit_within_3_days_of_ER__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Admit within 3 days of ER</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Assessment_Treatment_Diagnosis__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Assessment/Treatment/Diagnosis</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Assigned_Medical_Director__c</fullName>
+        <externalId>false</externalId>
+        <label>Assigned Medical Director</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Jennifer Nuovo, MD</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Malika Stoll, MD</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Assigned_RN__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Assigned RN</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>User.Profile.Name</field>
+                <operation>equals</operation>
+                <value>System Administrator</value>
+            </filterItems>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Potential_Quality_Issue</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ByPass_CMO__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This Bypasses CMO Approval</description>
+        <externalId>false</externalId>
+        <label>Bypass CMO</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Coding__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Coding</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Comment_CMO__c</fullName>
+        <externalId>false</externalId>
+        <label>Comment</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Comment_PRC__c</fullName>
+        <externalId>false</externalId>
+        <label>Comment</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Comment_UM__c</fullName>
+        <externalId>false</externalId>
+        <label>Comment</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Communications_Conduct__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Communications / Conduct</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Continuity_of_Care__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Continuity of Care</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Customer_Inquiry_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Inquiry Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Potential Quality Issue (PQI)</fullName>
+                    <default>true</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Date_of_Occurrence__c</fullName>
+        <externalId>false</externalId>
+        <label>Date of Occurrence</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Delay_Care_or_Referral__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Delay (Care or Referral)</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Description_of_Events1__c</fullName>
+        <externalId>false</externalId>
+        <label>Description of Events</label>
+        <length>131072</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Facility_Office_BH__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Facility / Office - BH</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Facility_Office_Environment__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Facility / Office Environment</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>MD_Date_of_Review__c</fullName>
+        <externalId>false</externalId>
+        <label>Date of Review</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Medical_Director_Recommendations_Other__c</fullName>
+        <externalId>false</externalId>
+        <label>Other</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Medical_Director_Recommendations__c</fullName>
+        <externalId>false</externalId>
+        <label>Medical Director Recommendations</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Close – No issues identified</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Close – Track and Trend</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Credentialing Review Requested</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Education Letter</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Peer Review Requested</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Reff to Foundation&apos;s Quality Committee</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Site Visit</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Medical_Director_Review_Summary1__c</fullName>
+        <externalId>false</externalId>
+        <label>Medical Director Review Summary</label>
+        <length>131072</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Member_Age__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(YEAR(TODAY() ) - YEAR(Member_DOB__c))</formula>
+        <label>Member Age:</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Member_DOB__c</fullName>
+        <externalId>false</externalId>
+        <label>Member DOB</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Member_ID__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Member Name</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contact.RecordType.Name</field>
+                <operation>equals</operation>
+                <value>Member</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Potential Quality Issue (Member ID)</relationshipLabel>
+        <relationshipName>Potential_Quality_Issue1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Member_Medical_Group_Affiliation__c</fullName>
+        <externalId>false</externalId>
+        <label>Member Medical Group Affiliation</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Member_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Member ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Never_Events__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Never Events</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Other_CheckBox__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Other</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Overutilization__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Overutilization</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>PCP_Practioner_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>PCP Practioner Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PQI_Referral_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>PQI Referral Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>PQI_Referred_By__c</fullName>
+        <externalId>false</externalId>
+        <label>PQI Referred By</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PQI_Required_Field__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>PQI Required Field</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>PQI_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>UM Review</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MD Review</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PRC Rejected</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Closed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>UM Rejected</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MD Approved</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MD Rejected</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PRC Approved</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PRC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>UM Approved</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>PQI_indicator_Other__c</fullName>
+        <externalId>false</externalId>
+        <label>Other</label>
+        <length>250</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Peer_Review_Credentialing_Outcome__c</fullName>
+        <externalId>false</externalId>
+        <label>Peer  Review / Credentialing Outcome</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>805</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Close – No Issues Identified</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Close – Track and Trend</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Credentialing Review Requested</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Education Letter</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Medical Board Referral</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Peer Review Requested</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Reff to Foundation&apos;s Quality Committee</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Site Visit</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Peer_Review_Other__c</fullName>
+        <externalId>false</externalId>
+        <label>Other</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Pharmacy__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Pharmacy</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Quality_of_Care__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Quality of Care</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RN_Case_Review_Summary1__c</fullName>
+        <externalId>false</externalId>
+        <label>RN Clinical Summary</label>
+        <length>131072</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>RN_Date_of_Review__c</fullName>
+        <externalId>false</externalId>
+        <label>Date of Review</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>RN_Justification_of_Recommendation__c</fullName>
+        <externalId>false</externalId>
+        <label>Justification of Recommendation</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>RN_Leveling__c</fullName>
+        <externalId>false</externalId>
+        <label>Leveling</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>L0-No quality of care issue</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>L0-Emotional concern</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>L0-Administrative problem such as referral auth and wait time for non-urgent care.</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>L0-Member centered/interpersonal undetermined issue</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>L0-Upset, frightened member</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>L0-Issue cannot be determined from available records</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>L1-Interpersonal provider issue</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>L1-Known complication (scar, rash, etc.), surgical or medical, not due to negligence or technique</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>L1-Near miss-error or mistake caught before there was a significant problem</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>L1-Lack of medical records documentation, omission, or non-compliance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>L1-Lack of timely discharge planning</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>L2-Temporary injury or outcome</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>L2-Treatment resulted in recovery</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>L2-Complications that result in a long tereatment regimen, but no residual injury</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>L2-Patient suicide attempt or serious injury to self while in treatment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>L2-Lack of timely intervention</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>L2-Violation of patient confidentiality or ethics violation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>L3-Mild/Moderate permanent injury or outcome</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>L3-Permanent injury, which has long-term effects on activities of daily living</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>L3-Communication issue that has an adverse outcome</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>L3-Clinical judgment impacting member&apos;s care with mild to moderate adverse</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>L4-Major permament injury/grave permanent injury</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>L4-Injury is severe or is an amplification of a significant permanent injury</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>L4-Most serious injury where all aspects of life are significantly compromised</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>L4-Death</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>RN_Pertinent_criteria_guidelines_standa__c</fullName>
+        <externalId>false</externalId>
+        <label>Pertinent criteria/guidelines/standards</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>RN_Recommendations__c</fullName>
+        <externalId>false</externalId>
+        <label>RN Recommendations</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Close – No Issues Identified</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Close – Track and Trend</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Close –Unfounded, unable to substantiate</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Significant Deficiencies Noted</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Minor Deficiencies Noted</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>RN_Reviewer_user__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>RN Reviewer</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Potential_Quality_Issue1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RN_Severity_Level__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Level O or Level S : Does not require review by a physician prior to being placed on the compendium</inlineHelpText>
+        <label>Severity Level</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Level 0: No quality of care issue identified after investigation. Care appears to be appropriate and has not been compromised.</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Level S: A quality of communication or art of caring issue has been identified which did not result in any harm to the member</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Level 1: A confirmed quality problem with minimal potential for significant adverse effect on the member</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Level 2: A confirmed quality problem with moderate harm or potential for moderate level of harm to the member</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Level 3: A confirmed substantial quality of care problem or gross and flagrant violation of obligation, which had a direct effect on health and welfare of the member</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>RN_Timeline_of_Key_Events__c</fullName>
+        <externalId>false</externalId>
+        <label>Timeline of Key Events</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Readmission__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Readmission</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Reason_for_Referral__c</fullName>
+        <externalId>false</externalId>
+        <label>Reason for Referral</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Related_Provider_applicable__c</fullName>
+        <externalId>false</externalId>
+        <label>Related Provider (If applicable)</label>
+        <length>250</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Safety__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Safety</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Selected_PQI_Indicators__c</fullName>
+        <description>To store the Labels of The PQI Indicators Selected</description>
+        <externalId>false</externalId>
+        <label>Selected PQI Indicators</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Sentinel_Event__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Sentinel Event</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Setting_other__c</fullName>
+        <externalId>false</externalId>
+        <label>Other</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Settings__c</fullName>
+        <externalId>false</externalId>
+        <label>Settings</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Inpatient</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Outpatient</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Office</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Laboratory</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Severity_Level__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Level O or Level S : Does not require review by a physician prior to being placed on the compendium</inlineHelpText>
+        <label>Severity Level</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Level 0: No quality of care issue identified after investigation. Care appears to be appropriate and has not been compromised.</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Level S: A quality of communication or art of caring issue has been identified which did not result in any harm to the member</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Level 1: A confirmed quality problem with minimal potential for significant adverse effect on the member</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Level 2: A confirmed quality problem with moderate harm or potential for moderate level of harm to the member</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Level 3: A confirmed substantial quality of care problem or gross and flagrant violation of obligation, which had a direct effect on health and welfare of the member</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Surgical_Services__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Surgical Services</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Technical_Competence__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Technical Competence</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>UM_Referrals_or_Auths__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>UM Referrals or Auths</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Underutilization__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Underutilization</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Unexpected_Death__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Unexpected Death</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Unsure__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Unsure</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>owner__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( BEGINS(OwnerId , &apos;00G&apos;), Owner:Queue.QueueName ,Owner:User.FirstName + &apos; &apos; + Owner:User.LastName  )</formula>
+        <label>Owner</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Potential Quality Issue</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>ByPass_CMO__c</columns>
+        <columns>PQI_Status__c</columns>
+        <columns>Member_Age__c</columns>
+        <columns>Member_DOB__c</columns>
+        <columns>Member_Name__c</columns>
+        <columns>Member_Medical_Group_Affiliation__c</columns>
+        <columns>Member_ID__c</columns>
+        <columns>owner__c</columns>
+        <columns>Assigned_RN__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>CMO_Potential_Quality_Issue</fullName>
+        <columns>NAME</columns>
+        <columns>ByPass_CMO__c</columns>
+        <columns>PQI_Status__c</columns>
+        <columns>Member_Age__c</columns>
+        <columns>Member_DOB__c</columns>
+        <columns>Member_Name__c</columns>
+        <columns>Member_Medical_Group_Affiliation__c</columns>
+        <columns>Member_ID__c</columns>
+        <columns>owner__c</columns>
+        <columns>Assigned_RN__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>CMO</label>
+        <queue>CMO</queue>
+        <sharedTo>
+            <group>CMO_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>My_PQI</fullName>
+        <columns>NAME</columns>
+        <columns>ByPass_CMO__c</columns>
+        <columns>PQI_Status__c</columns>
+        <columns>Member_Age__c</columns>
+        <columns>Member_DOB__c</columns>
+        <columns>Member_Name__c</columns>
+        <columns>Member_Medical_Group_Affiliation__c</columns>
+        <columns>Member_ID__c</columns>
+        <columns>owner__c</columns>
+        <columns>Assigned_RN__c</columns>
+        <filterScope>Mine</filterScope>
+        <label>My PQI</label>
+    </listViews>
+    <listViews>
+        <fullName>Quality_Potential_Quality_Issue</fullName>
+        <columns>NAME</columns>
+        <columns>ByPass_CMO__c</columns>
+        <columns>PQI_Status__c</columns>
+        <columns>Member_Age__c</columns>
+        <columns>Member_DOB__c</columns>
+        <columns>Member_Name__c</columns>
+        <columns>Member_Medical_Group_Affiliation__c</columns>
+        <columns>Member_ID__c</columns>
+        <columns>owner__c</columns>
+        <columns>Assigned_RN__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>Quality</label>
+        <queue>Quality</queue>
+        <sharedTo>
+            <group>Quality_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>UM_Reviewers_Potential_Quality_Issue</fullName>
+        <columns>NAME</columns>
+        <columns>ByPass_CMO__c</columns>
+        <columns>PQI_Status__c</columns>
+        <columns>Member_Age__c</columns>
+        <columns>Member_DOB__c</columns>
+        <columns>Member_Name__c</columns>
+        <columns>Member_Medical_Group_Affiliation__c</columns>
+        <columns>Member_ID__c</columns>
+        <columns>owner__c</columns>
+        <columns>Assigned_RN__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>UM Reviewers</label>
+        <queue>UM_Reviewers</queue>
+        <sharedTo>
+            <group>UM_Reviewers_Group</group>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <displayFormat>PQI-{0000000000}</displayFormat>
+        <label>PQI Name</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Potential Quality Issue</pluralLabel>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypes>
+        <fullName>Potential_Quality_Issue</fullName>
+        <active>true</active>
+        <label>Potential Quality Issue (PQI)</label>
+        <picklistValues>
+            <picklist>Assigned_Medical_Director__c</picklist>
+            <values>
+                <fullName>Jennifer Nuovo%2C MD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malika Stoll%2C MD</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Customer_Inquiry_Type__c</picklist>
+            <values>
+                <fullName>Potential Quality Issue %28PQI%29</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Medical_Director_Recommendations__c</picklist>
+            <values>
+                <fullName>Close %E2%80%93 No issues identified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Close %E2%80%93 Track and Trend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credentialing Review Requested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Peer Review Requested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reff to Foundation%27s Quality Committee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site Visit</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>PQI_Status__c</picklist>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MD Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MD Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MD Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>PRC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PRC Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PRC Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UM Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UM Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UM Review</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Peer_Review_Credentialing_Outcome__c</picklist>
+            <values>
+                <fullName>805</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Close %E2%80%93 No Issues Identified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Close %E2%80%93 Track and Trend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credentialing Review Requested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Board Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Peer Review Requested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reff to Foundation%27s Quality Committee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site Visit</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>RN_Leveling__c</picklist>
+            <values>
+                <fullName>L0-Administrative problem such as referral auth and wait time for non-urgent care%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L0-Emotional concern</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L0-Issue cannot be determined from available records</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L0-Member centered%2Finterpersonal undetermined issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L0-No quality of care issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L0-Upset%2C frightened member</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L1-Interpersonal provider issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L1-Known complication %28scar%2C rash%2C etc%2E%29%2C surgical or medical%2C not due to negligence or technique</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L1-Lack of medical records documentation%2C omission%2C or non-compliance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L1-Lack of timely discharge planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L1-Near miss-error or mistake caught before there was a significant problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L2-Complications that result in a long tereatment regimen%2C but no residual injury</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L2-Lack of timely intervention</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L2-Patient suicide attempt or serious injury to self while in treatment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L2-Temporary injury or outcome</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L2-Treatment resulted in recovery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L2-Violation of patient confidentiality or ethics violation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L3-Clinical judgment impacting member%27s care with mild to moderate adverse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L3-Communication issue that has an adverse outcome</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L3-Mild%2FModerate permanent injury or outcome</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L3-Permanent injury%2C which has long-term effects on activities of daily living</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L4-Death</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L4-Injury is severe or is an amplification of a significant permanent injury</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L4-Major permament injury%2Fgrave permanent injury</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L4-Most serious injury where all aspects of life are significantly compromised</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>RN_Recommendations__c</picklist>
+            <values>
+                <fullName>Close %E2%80%93 No Issues Identified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Close %E2%80%93 Track and Trend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Close %E2%80%93Unfounded%2C unable to substantiate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minor Deficiencies Noted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Significant Deficiencies Noted</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>RN_Severity_Level__c</picklist>
+            <values>
+                <fullName>Level 0%3A No quality of care issue identified after investigation%2E Care appears to be appropriate and has not been compromised%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Level 1%3A A confirmed quality problem with minimal potential for significant adverse effect on the member</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Level 2%3A A confirmed quality problem with moderate harm or potential for moderate level of harm to the member</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Level 3%3A A confirmed substantial quality of care problem or gross and flagrant violation of obligation%2C which had a direct effect on health and welfare of the member</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Level S%3A A quality of communication or art of caring issue has been identified which did not result in any harm to the member</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Settings__c</picklist>
+            <values>
+                <fullName>Inpatient</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Laboratory</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outpatient</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Severity_Level__c</picklist>
+            <values>
+                <fullName>Level 0%3A No quality of care issue identified after investigation%2E Care appears to be appropriate and has not been compromised%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Level 1%3A A confirmed quality problem with minimal potential for significant adverse effect on the member</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Level 2%3A A confirmed quality problem with moderate harm or potential for moderate level of harm to the member</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Level 3%3A A confirmed substantial quality of care problem or gross and flagrant violation of obligation%2C which had a direct effect on health and welfare of the member</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Level S%3A A quality of communication or art of caring issue has been identified which did not result in any harm to the member</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>Read</sharingModel>
+    <webLinks>
+        <fullName>Generate_PDF</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>Generate PDF</masterLabel>
+        <openType>newWindow</openType>
+        <page>PotentialQualityIssuePDFGeneration</page>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+    </webLinks>
+    <webLinks>
+        <fullName>Make_Avilable</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Make Available</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}
+var url = parent.location.href;
+
+var records = new sforce.SObject(&quot;Potential_Quality_Issue__c&quot;); //fetch the Record
+records = &apos;{!Potential_Quality_Issue__c.Id}&apos;;  // Fetch the RecordId
+var Status = &apos;{!Potential_Quality_Issue__c.PQI_Status__c}&apos;;  //Fetch the Status
+var Owner= &apos;{!Potential_Quality_Issue__c.OwnerId}&apos;;  // Fetch the owner of record 
+Owner=Owner.substring(0, 15);                    // Convert the Owner ID in 15 digit  
+var currentUser= sforce.connection.getUserInfo().userId;
+currentUser= currentUser.substring(0, 15);  //convert the currentuser id in 15 digits
+var updateRecords = [];
+
+var update_PQI = new sforce.SObject(&quot;Potential_Quality_Issue__c&quot;);
+update_PQI.Id = records;
+
+if(Owner == currentUser &amp;&amp; Status!= &quot;Closed&quot;)
+{ 
+if(Status == &quot;PRC&quot; || Status == &quot;UM Review&quot; ){
+var result = sforce.connection.query(&quot;Select Id, SobjectType, QueueId, Queue.Name From QueueSobject  where Queue.Name = &apos;UM Reviewers&apos;&quot;);
+var queue_records = result[&apos;records&apos;];	
+update_PQI.OwnerId = queue_records[&apos;QueueId&apos;];
+updateRecords.push(update_PQI );
+}
+else if(Status == &quot;MD Review&quot;){
+var result = sforce.connection.query(&quot;Select Id, SobjectType, QueueId, Queue.Name From QueueSobject  where Queue.Name = &apos;CMO&apos;&quot;);
+var queue_records = result[&apos;records&apos;];
+update_PQI.OwnerId = queue_records[&apos;QueueId&apos;];
+updateRecords.push(update_PQI );
+}
+else{
+var result = sforce.connection.query(&quot;Select Id, SobjectType, QueueId, Queue.Name From QueueSobject  where Queue.Name = &apos;Quality&apos;&quot;);
+var queue_records = result[&apos;records&apos;];
+update_PQI.OwnerId = queue_records[&apos;QueueId&apos;];
+updateRecords.push(update_PQI );
+}
+}
+else{
+alert(&apos;You are not the Owner of this PQI&apos;);
+}
+result = sforce.connection.update(updateRecords);
+parent.location.href = url;</url>
+    </webLinks>
+</CustomObject>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>S3 Deployment</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>S3 Deployments</value>
+    </caseValues>
+    <fields>
+        <label><!-- Business Release --></label>
+        <name>Business_Release__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Deployed --></label>
+        <name>Date_Deployed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date First Reported --></label>
+        <name>Date_First_Reported__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Reporting Expected --></label>
+        <name>Date_Reporting_Expected__c</name>
+    </fields>
+    <fields>
+        <help><!-- Provide detail information on the deployment issue --></help>
+        <label><!-- Deployment Issue Comments --></label>
+        <name>Deployment_Issue_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Why is this region/entity not reporting on time? --></help>
+        <label><!-- Deployment Issue --></label>
+        <name>Deployment_Issue__c</name>
+        <picklistValues>
+            <masterLabel>Data Does Not Exist</masterLabel>
+            <translation><!-- Data Does Not Exist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Not Available</masterLabel>
+            <translation><!-- Data Not Available --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delayed Deployment</masterLabel>
+            <translation><!-- Delayed Deployment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Removed from Scope</masterLabel>
+            <translation><!-- Removed from Scope --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technology Unavailabe</masterLabel>
+            <translation><!-- Technology Unavailabe --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Entity --></label>
+        <name>Entity__c</name>
+        <picklistValues>
+            <masterLabel>S3</masterLabel>
+            <translation><!-- S3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SCAH</masterLabel>
+            <translation><!-- SCAH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SHCVR</masterLabel>
+            <translation><!-- SHCVR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SHEBR</masterLabel>
+            <translation><!-- SHEBR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SHP</masterLabel>
+            <translation><!-- SHP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SHPCR</masterLabel>
+            <translation><!-- SHPCR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SHSO</masterLabel>
+            <translation><!-- SHSO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SHSSR</masterLabel>
+            <translation><!-- SHSSR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SHWBR</masterLabel>
+            <translation><!-- SHWBR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SOPS</masterLabel>
+            <translation><!-- SOPS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SPS</masterLabel>
+            <translation><!-- SPS --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Function --></label>
+        <name>Function__c</name>
+    </fields>
+    <fields>
+        <label><!-- Metric ID --></label>
+        <name>Metric_ID__c</name>
+        <relationshipLabel><!-- S3 Deployments --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Removed from Scope --></label>
+        <name>Out_of_Scope__c</name>
+    </fields>
+    <fields>
+        <label><!-- Partial Deployment --></label>
+        <name>Partial_Deployment__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Business Release Number must be between 1 and 13 --></errorMessage>
+        <name>BR_Assignment</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Portfolio Audit</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Portfolio Audit</value>
+    </caseValues>
+    <fields>
+        <label><!-- Actuarial/Minimum Value --></label>
+        <name>Actuarial_Minimum_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Allergy Test Services --></label>
+        <name>Allergy_Test_Services__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ancillary EOC Version --></label>
+        <name>Ancillary_EOC_Version__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ancillary EOC --></label>
+        <name>Ancillary_EOC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ancillary GSA Version --></label>
+        <name>Ancillary_GSA_Version__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ancillary GSA --></label>
+        <name>Ancillary_GSA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ancillary SOB Version --></label>
+        <name>Ancillary_SOB_Version__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ancillary SOB --></label>
+        <name>Ancillary_SOB__c</name>
+    </fields>
+    <fields>
+        <label><!-- BCM Version --></label>
+        <name>BCM_Version__c</name>
+    </fields>
+    <fields>
+        <label><!-- BCM --></label>
+        <name>BCM__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Grid --></label>
+        <name>Benefit_Grid__c</name>
+        <relationshipLabel><!-- Portfolio Audit --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Benefit Plan ID --></label>
+        <name>Benefit_Plan_ID__c</name>
+    </fields>
+    <fields>
+        <help><!-- for Family of two or more Members --></help>
+        <label><!-- C01-For an entire Family of two or mor --></label>
+        <name>C01_For_an_entire_Family__c</name>
+    </fields>
+    <fields>
+        <help><!-- for Family of two or more Members --></help>
+        <label><!-- C01-For any one Member in a Family --></label>
+        <name>C01_For_any_one_Member_in_a_Family__c</name>
+    </fields>
+    <fields>
+        <help><!-- for a Family of one Member --></help>
+        <label><!-- C01-For self-only enrollment --></label>
+        <name>C01_For_self_only_enrollment__c</name>
+    </fields>
+    <fields>
+        <help><!-- for Family of two or more Members --></help>
+        <label><!-- C02-For an entire Family of two or more --></label>
+        <name>C02_For_an_entire_Family__c</name>
+    </fields>
+    <fields>
+        <help><!-- for a Family of two or more Members --></help>
+        <label><!-- C02-For any one Member in a Family --></label>
+        <name>C02_For_any_one_Member_in_a_Family__c</name>
+    </fields>
+    <fields>
+        <help><!-- for a Family of one Member --></help>
+        <label><!-- C02-For self-only enrollment --></label>
+        <name>C02_For_self_only_enrollment__c</name>
+    </fields>
+    <fields>
+        <help><!-- for a Family of two or more --></help>
+        <label><!-- C03-For an entire Family of two or more --></label>
+        <name>C03_For_an_entire_Family__c</name>
+    </fields>
+    <fields>
+        <help><!-- for a Family of two or more --></help>
+        <label><!-- C03-For any one Member in a Family --></label>
+        <name>C03_For_any_one_Member_in_a_family__c</name>
+    </fields>
+    <fields>
+        <help><!-- for a Family of one Member --></help>
+        <label><!-- C03-For self-only enrollment --></label>
+        <name>C03_For_self_only_enrollment__c</name>
+    </fields>
+    <fields>
+        <label><!-- C04-Lifetime Maximum --></label>
+        <name>C04_Lifetime_Maximum__c</name>
+    </fields>
+    <fields>
+        <label><!-- C05-Eye exams for refraction --></label>
+        <name>C05_Eye_exams_for_refraction__c</name>
+    </fields>
+    <fields>
+        <label><!-- C05-Hearing exams --></label>
+        <name>C05_Hearing_exams__c</name>
+    </fields>
+    <fields>
+        <help><!-- Preventive and routine physical maintenance exams (including routine screening tests) --></help>
+        <label><!-- C05-Physical maintenance exams --></label>
+        <name>C05_Physical_maintenance_exams__c</name>
+    </fields>
+    <fields>
+        <label><!-- C05-Well-child preventive care exams --></label>
+        <name>C05_child_prev_care_exams__c</name>
+    </fields>
+    <fields>
+        <label><!-- C05-Family planning counseling&amp;service --></label>
+        <name>C05_family_plan_couns_serv__c</name>
+    </fields>
+    <fields>
+        <label><!-- C05-Immunizations (including vaccines) --></label>
+        <name>C05_immun_incl_vaccines__c</name>
+    </fields>
+    <fields>
+        <label><!-- C05-Prenatal care &amp; preconception visits --></label>
+        <name>C05_prenatal_care_prec_visits__c</name>
+    </fields>
+    <fields>
+        <help><!-- Preventive X-rays, screenings, and laboratory tests --></help>
+        <label><!-- C05-Preventive X-rays,screenings &amp; tests --></label>
+        <name>C05_prev_xray_screen_tests__c</name>
+    </fields>
+    <fields>
+        <label><!-- C06-Acupuncture --></label>
+        <name>C06_Acupuncture__c</name>
+    </fields>
+    <fields>
+        <help><!-- Primary care visit or non-specialist practitioner visit to treat an injury or illness --></help>
+        <label><!-- C06-Primary care visit or non-speciali --></label>
+        <name>C06_Primarycare_nonspecialist_visit__c</name>
+    </fields>
+    <fields>
+        <label><!-- C06-Specialist visit --></label>
+        <name>C06_Specialist_visit__c</name>
+    </fields>
+    <fields>
+        <label><!-- C06-Outpatient habilitation services --></label>
+        <name>C06_op_habilitation_serv__c</name>
+    </fields>
+    <fields>
+        <label><!-- C06-Outpatient rehabilitation services --></label>
+        <name>C06_op_rehabilitation_serv__c</name>
+    </fields>
+    <fields>
+        <help><!-- Diagnostic and therapeutic X-rays and imaging --></help>
+        <label><!-- C07-Diagnostic and therapeutic X-rays --></label>
+        <name>C07_Diagnostic_therapeutic_X_rays__c</name>
+    </fields>
+    <fields>
+        <label><!-- C07-Laboratory tests --></label>
+        <name>C07_Laboratory_tests__c</name>
+    </fields>
+    <fields>
+        <label><!-- C07-Outpatient surgery (facility fee) --></label>
+        <name>C07_Outpatient_surgery_facility_fee__c</name>
+    </fields>
+    <fields>
+        <label><!-- C07-Imaging(e.g. MRI, CT, and PET scans) --></label>
+        <name>C07_imag_mri_ct_pet_scans__c</name>
+    </fields>
+    <fields>
+        <help><!-- physician/surgeon fee for Outpatient surgery --></help>
+        <label><!-- C07-Outpatientsurgery(physician/surgeon) --></label>
+        <name>C07_op_surgery_phy_surgeon__c</name>
+    </fields>
+    <fields>
+        <label><!-- C07-Outpatient visit (non-office visit) --></label>
+        <name>C07_op_visit_non_office__c</name>
+    </fields>
+    <fields>
+        <label><!-- C08-Facility fee (e.g. hospital room) --></label>
+        <name>C08_Facility_fee_e_g_hospital_room__c</name>
+    </fields>
+    <fields>
+        <label><!-- C08-Physician/surgeon fees --></label>
+        <name>C08_Physician_surgeon_fees__c</name>
+    </fields>
+    <fields>
+        <label><!-- C09-Emergency room facility fee --></label>
+        <name>C09_Emergency_room_facility_fee__c</name>
+    </fields>
+    <fields>
+        <label><!-- C09-Emergency room physician fee --></label>
+        <name>C09_Emergency_room_physician_fee__c</name>
+    </fields>
+    <fields>
+        <help><!-- Urgent care consultations, exams, and treatment --></help>
+        <label><!-- C09-Urgent care consultations, exams --></label>
+        <name>C09_Urgent_care_consultations_exams__c</name>
+    </fields>
+    <fields>
+        <label><!-- C10-Ambulance Services --></label>
+        <name>C10_Ambulance_Services__c</name>
+    </fields>
+    <fields>
+        <help><!-- Most generic medications and low-cost preferred brands --></help>
+        <label><!-- C11-Mail-Order - Tier 1 --></label>
+        <name>C11_Mail_Order_Tier_1__c</name>
+    </fields>
+    <fields>
+        <help><!-- Preferred brand name and non-preferred generic medications --></help>
+        <label><!-- C11-Mail - Order- Tier 2 --></label>
+        <name>C11_Mail_Order_Tier_2__c</name>
+    </fields>
+    <fields>
+        <help><!-- Non-preferred brand medications --></help>
+        <label><!-- C11-Mail - Order- Tier 3 --></label>
+        <name>C11_Mail_Order_Tier_3__c</name>
+    </fields>
+    <fields>
+        <help><!-- Most generic medications and low-cost preferred brands --></help>
+        <label><!-- C11-Retail - Tier 1 --></label>
+        <name>C11_Retail_Tier_1__c</name>
+    </fields>
+    <fields>
+        <help><!-- Preferred brand name and non-preferred generic medications --></help>
+        <label><!-- C11-Retail - Tier 2 --></label>
+        <name>C11_Retail_Tier_2__c</name>
+    </fields>
+    <fields>
+        <help><!-- Non-preferred brand medications --></help>
+        <label><!-- C11-Retail - Tier 3 --></label>
+        <name>C11_Retail_Tier_3__c</name>
+    </fields>
+    <fields>
+        <help><!-- Specialty, some self-administered, or bioengineered medications --></help>
+        <label><!-- C11-Retail- Tier 4 --></label>
+        <name>C11_Retail_Tier_4__c</name>
+    </fields>
+    <fields>
+        <label><!-- C12-Durable Medical Equipment --></label>
+        <name>C12_Durable_Medical_Equipment__c</name>
+    </fields>
+    <fields>
+        <help><!-- Mental/Behavioral Health/SUD inpatient facility --></help>
+        <label><!-- C13-Mental/Behavioral/SUD IP facility --></label>
+        <name>C13_Inpatient_facility__c</name>
+    </fields>
+    <fields>
+        <help><!-- Mental/Behavioral Health/SUD other outpatient services --></help>
+        <label><!-- C13-SUD other outpatient services --></label>
+        <name>C13_Other_outpatient_services__c</name>
+    </fields>
+    <fields>
+        <help><!-- Mental/Behavioral Health/SUD outpatient office visits – group (Group outpatient MH/SUD evaluation and treatment services) --></help>
+        <label><!-- C13-SUD outpatient office visits - group --></label>
+        <name>C13_Outpatient_office_visits_group__c</name>
+    </fields>
+    <fields>
+        <help><!-- Mental/Behavioral Health/SUD inpatient physician/surgeon fees --></help>
+        <label><!-- C13-SUD inpatient physician/surgeon fees --></label>
+        <name>C13_ip_phys_surgeon_fees__c</name>
+    </fields>
+    <fields>
+        <help><!-- Mental/Behavioural Health/SUD outpatient office visits – individual (Individual outpatient MH/SUD evaluation and treatment services) --></help>
+        <label><!-- C13-SUD OP office visits - individual --></label>
+        <name>C13_op_office_visits_ind__c</name>
+    </fields>
+    <fields>
+        <help><!-- up to 100 visits per plan or calendar year --></help>
+        <label><!-- C14-Home health care --></label>
+        <name>C14_Home_health_care__c</name>
+    </fields>
+    <fields>
+        <help><!-- Delivery and all hospital inpatient services --></help>
+        <label><!-- C15-Delivery and all hospital inpatient --></label>
+        <name>C15_Delivery_all_hospital_inpatient__c</name>
+    </fields>
+    <fields>
+        <help><!-- Delivery and all professional inpatient services --></help>
+        <label><!-- C15-Delivery &amp;all professional inpatient --></label>
+        <name>C15_delivery_all_profes_ip__c</name>
+    </fields>
+    <fields>
+        <help><!-- External prosthetic devices, orthotic devices, and ostomy and urological supplies --></help>
+        <label><!-- C16-External devices and supplies --></label>
+        <name>C16_Devices_supplies__c</name>
+    </fields>
+    <fields>
+        <label><!-- C16-Hospice care --></label>
+        <name>C16_Hospice_care__c</name>
+    </fields>
+    <fields>
+        <help><!-- as described in the EOC addendum --></help>
+        <label><!-- C16-Infertility Services --></label>
+        <name>C16_Infertility_Services__c</name>
+    </fields>
+    <fields>
+        <help><!-- as described in the EOC addendum --></help>
+        <label><!-- C16-Orthotics and Special Footwear --></label>
+        <name>C16_Orthotics_and_Special_Footwear__c</name>
+    </fields>
+    <fields>
+        <help><!-- up to 100 days per benefit period --></help>
+        <label><!-- C16-Skilled Nursing Facility services --></label>
+        <name>C16_skilled_nurs_fac_serv__c</name>
+    </fields>
+    <fields>
+        <help><!-- Basic pediatric dental services under age 19, such as restorative procedures and periodontal maintenance --></help>
+        <label><!-- C17-Basic pediatric dental services --></label>
+        <name>C17_Basic_pediatric_dental_services__c</name>
+    </fields>
+    <fields>
+        <help><!-- Diagnostic and preventive pediatric dental services under age 19, such as exams, cleanings, X-rays, sealants and fluoride --></help>
+        <label><!-- C17-Diagnostic and pediatric services --></label>
+        <name>C17_Diagnostic_pediatric_dental__c</name>
+    </fields>
+    <fields>
+        <help><!-- Major pediatric dental services under age 19, such as crowns and cases, endodontics, other periodontics, prosthodontics and oral surgery --></help>
+        <label><!-- C17-Major pediatric dental services --></label>
+        <name>C17_Major_pediatric_dental_services__c</name>
+    </fields>
+    <fields>
+        <help><!-- Medically necessary orthodontic paediatric dental services under age 19 --></help>
+        <label><!-- C17-Orthodontic pediatric dental service --></label>
+        <name>C17_ortho_ped_dental_serv__c</name>
+    </fields>
+    <fields>
+        <label><!-- C17-Pediatric vision services: eye exam --></label>
+        <name>C17_ped_vision_ser_eyeexam__c</name>
+    </fields>
+    <fields>
+        <help><!-- one pair of glasses or contact lenses in lieu of glasses --></help>
+        <label><!-- C17-Pediatric vision services: eyewear --></label>
+        <name>C17_ped_vision_ser_eyewear__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- EOC Version --></label>
+        <name>EOC_Version__c</name>
+    </fields>
+    <fields>
+        <label><!-- EOC --></label>
+        <name>EOC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Effective End --></label>
+        <name>Effective_End__c</name>
+    </fields>
+    <fields>
+        <label><!-- Effective Start --></label>
+        <name>Effective_Start__c</name>
+    </fields>
+    <fields>
+        <label><!-- 01 --></label>
+        <name>EndNote01__c</name>
+    </fields>
+    <fields>
+        <label><!-- 02 --></label>
+        <name>EndNote02__c</name>
+    </fields>
+    <fields>
+        <label><!-- 03 --></label>
+        <name>EndNote03__c</name>
+    </fields>
+    <fields>
+        <label><!-- 04 --></label>
+        <name>EndNote04__c</name>
+    </fields>
+    <fields>
+        <label><!-- 05 --></label>
+        <name>EndNote05__c</name>
+    </fields>
+    <fields>
+        <label><!-- 06 --></label>
+        <name>EndNote06__c</name>
+    </fields>
+    <fields>
+        <label><!-- 07 --></label>
+        <name>EndNote07__c</name>
+    </fields>
+    <fields>
+        <label><!-- 08 --></label>
+        <name>EndNote08__c</name>
+    </fields>
+    <fields>
+        <label><!-- 09 --></label>
+        <name>EndNote09__c</name>
+    </fields>
+    <fields>
+        <label><!-- 10 --></label>
+        <name>EndNote10__c</name>
+    </fields>
+    <fields>
+        <label><!-- 11 --></label>
+        <name>EndNote11__c</name>
+    </fields>
+    <fields>
+        <label><!-- 12 --></label>
+        <name>EndNote12__c</name>
+    </fields>
+    <fields>
+        <label><!-- 13 --></label>
+        <name>EndNote13__c</name>
+    </fields>
+    <fields>
+        <label><!-- 14 --></label>
+        <name>EndNote14__c</name>
+    </fields>
+    <fields>
+        <label><!-- 15 --></label>
+        <name>EndNote15__c</name>
+    </fields>
+    <fields>
+        <label><!-- 16 --></label>
+        <name>EndNote16__c</name>
+    </fields>
+    <fields>
+        <label><!-- 17 --></label>
+        <name>EndNote17__c</name>
+    </fields>
+    <fields>
+        <label><!-- 18 --></label>
+        <name>EndNote18__c</name>
+    </fields>
+    <fields>
+        <label><!-- 19 --></label>
+        <name>EndNote19__c</name>
+    </fields>
+    <fields>
+        <label><!-- 20 --></label>
+        <name>EndNote20__c</name>
+    </fields>
+    <fields>
+        <label><!-- Custom Plan? --></label>
+        <name>IsCustom__c</name>
+    </fields>
+    <fields>
+        <label><!-- HDHP? --></label>
+        <name>IsHDHP__c</name>
+    </fields>
+    <fields>
+        <label><!-- HMO? --></label>
+        <name>IsHMO__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mirrored? --></label>
+        <name>IsMirrored__c</name>
+    </fields>
+    <fields>
+        <label><!-- PartDCreditable? --></label>
+        <name>IsPartDCreditable__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rider? --></label>
+        <name>IsRider__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Year Plan ID --></label>
+        <name>Last_Year_Plan_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Market Segment --></label>
+        <name>Market_Segment__c</name>
+        <picklistValues>
+            <masterLabel>Individual</masterLabel>
+            <translation><!-- Individual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Large Group</masterLabel>
+            <translation><!-- Large Group --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Small Group</masterLabel>
+            <translation><!-- Small Group --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Plan Disclaimer Message --></label>
+        <name>Plan_Disclaimer_Message__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan Name Alternate --></label>
+        <name>Plan_Name_Alternate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan Name --></label>
+        <name>Plan_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- ActivelyMarketed? --></label>
+        <name>Plan_Status_Actively_Market__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan Status Reason --></label>
+        <name>Plan_Status_Reason__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan Status --></label>
+        <name>Plan_Status__c</name>
+        <picklistValues>
+            <masterLabel>Approved by DMHC - Available for Sale</masterLabel>
+            <translation><!-- Approved by DMHC - Available for Sale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Approved by DMHC - Not Available for Sale</masterLabel>
+            <translation><!-- Not Approved by DMHC - Not Available for Sale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending Approval by DMHC - Available for Sale</masterLabel>
+            <translation><!-- Pending Approval by DMHC - Available for Sale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending Approval by DMHC - Not Available for Sale</masterLabel>
+            <translation><!-- Pending Approval by DMHC - Not Available for Sale --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Plan Type --></label>
+        <name>Plan_Type__c</name>
+        <picklistValues>
+            <masterLabel>Acupuncture Only</masterLabel>
+            <translation><!-- Acupuncture Only --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Acupuncture and Chiro</masterLabel>
+            <translation><!-- Acupuncture and Chiro --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chiropractic Only</masterLabel>
+            <translation><!-- Chiropractic Only --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dental</masterLabel>
+            <translation><!-- Dental --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Infertility</masterLabel>
+            <translation><!-- Infertility --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical</masterLabel>
+            <translation><!-- Medical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Orthotics and Special Footwear</masterLabel>
+            <translation><!-- Orthotics and Special Footwear --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pharmacy</masterLabel>
+            <translation><!-- Pharmacy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vision</masterLabel>
+            <translation><!-- Vision --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Product Type --></label>
+        <name>Product_Type__c</name>
+        <picklistValues>
+            <masterLabel>HMO</masterLabel>
+            <translation><!-- HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HMO - Plus</masterLabel>
+            <translation><!-- HMO - Plus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rider</masterLabel>
+            <translation><!-- Rider --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Rider-Cost Share --></label>
+        <name>Rider_Cost_Share__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rider-Visit Limit --></label>
+        <name>Rider_Visit_Limit__c</name>
+    </fields>
+    <fields>
+        <label><!-- SBC Version --></label>
+        <name>SBC_Version__c</name>
+    </fields>
+    <fields>
+        <label><!-- SBC --></label>
+        <name>SBC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Year --></label>
+        <name>SHP_Benefit_Plan_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tech Date Time --></label>
+        <name>Tech_Date_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Version Number --></label>
+        <name>Version_Number__c</name>
+    </fields>
+    <layouts>
+        <layout>Benefit Grid Audit Layout</layout>
+        <sections>
+            <label><!-- Allergy Test Services --></label>
+            <section>Allergy Test Services</section>
+        </sections>
+        <sections>
+            <label><!-- Ambulance Services --></label>
+            <section>Ambulance Services</section>
+        </sections>
+        <sections>
+            <label><!-- Annual Deductible (Not Integrated Unless Otherwise Stated) --></label>
+            <section>Annual Deductible (Not Integrated Unless Otherwise Stated)</section>
+        </sections>
+        <sections>
+            <label><!-- Annual Out of Pocket Maximum (OOPM) (Combined Medical and Pharmacy) --></label>
+            <section>Annual Out of Pocket Maximum (OOPM) (Combined Medical and Pharmacy)</section>
+        </sections>
+        <sections>
+            <label><!-- Benefit Grid --></label>
+            <section>Benefit Grid</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Disclaimer --></label>
+            <section>Disclaimer</section>
+        </sections>
+        <sections>
+            <label><!-- Durable Medical Equipment --></label>
+            <section>Durable Medical Equipment</section>
+        </sections>
+        <sections>
+            <label><!-- Emergency and Urgent Care Services --></label>
+            <section>Emergency and Urgent Care Services</section>
+        </sections>
+        <sections>
+            <label><!-- End Note --></label>
+            <section>End Note</section>
+        </sections>
+        <sections>
+            <label><!-- Home Health Services --></label>
+            <section>Home Health Services</section>
+        </sections>
+        <sections>
+            <label><!-- Hospitalisation Services --></label>
+            <section>Hospitalisation Services</section>
+        </sections>
+        <sections>
+            <label><!-- Life Time Maximum --></label>
+            <section>Life Time Maximum</section>
+        </sections>
+        <sections>
+            <label><!-- Mental/Behavioral Health/Substance Use Disorder Treatment Services (SUD) --></label>
+            <section>Mental/Behavioral Health/Substance Use Disorder Treatment Services (SUD)</section>
+        </sections>
+        <sections>
+            <label><!-- Other Services --></label>
+            <section>Other Services</section>
+        </sections>
+        <sections>
+            <label><!-- Outpatient Services --></label>
+            <section>Outpatient Services</section>
+        </sections>
+        <sections>
+            <label><!-- Pediatric Dental and Vision Services --></label>
+            <section>Pediatric Dental and Vision Services</section>
+        </sections>
+        <sections>
+            <label><!-- Pregnancy Services --></label>
+            <section>Pregnancy Services</section>
+        </sections>
+        <sections>
+            <label><!-- Prescription Drugs --></label>
+            <section>Prescription Drugs</section>
+        </sections>
+        <sections>
+            <label><!-- Preventive Care Services --></label>
+            <section>Preventive Care Services</section>
+        </sections>
+        <sections>
+            <label><!-- Professional Services --></label>
+            <section>Professional Services</section>
+        </sections>
+        <sections>
+            <label><!-- Separate Annual Deductible for Prescription Medications --></label>
+            <section>Separate Annual Deductible for Prescription Medications</section>
+        </sections>
+        <sections>
+            <label><!-- Template --></label>
+            <section>Template</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

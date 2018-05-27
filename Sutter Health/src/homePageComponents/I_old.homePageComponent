@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HomePageComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <body>&lt;script&gt;	jQuery.noConflict();	jQuery(document).ready(function () {						var contactNameTd = document.querySelectorAll(&apos;.labelCol&apos;);						for(var i=0;i&lt;contactNameTd.length;i++)			{				if(contactNameTd[i].innerText != &apos;undefined&apos; &amp;&amp; contactNameTd[i].innerText == &apos;Contact Name&apos;)				{										contactNameTd[i].innerText = &apos;Requested By&apos;;				}			}	});&lt;/script&gt;</body>
+    <pageComponentType>htmlArea</pageComponentType>
+    <width>narrow</width>
+</HomePageComponent>

@@ -1,0 +1,874 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Account_Executive__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote__r.RFP_Form__r.Opportunity__r.Account.Account_Executive__r.FirstName &amp; &apos; &apos; &amp; Quote__r.RFP_Form__r.Opportunity__r.Account.Account_Executive__r.LastName</formula>
+        <label>Account Executive</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Manager__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote__r.RFP_Form__r.Opportunity__r.Account.Account_Manager__r.FirstName &amp; &apos; &apos; &amp;  Quote__r.RFP_Form__r.Opportunity__r.Account.Account_Manager__r.LastName</formula>
+        <label>Account Manager</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_RecordType_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote__r.Account_RecordType_Name__c</formula>
+        <label>Tech Account RecordType Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote__r.RFP_Form__r.Opportunity__r.Account.Name</formula>
+        <label>Account Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Assumed Subscribers Enrolling</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Approved_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Approved Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>BOR__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote__r.RFP_Form__r.Opportunity__r.Broker_of_Record__c</formula>
+        <label>BOR</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Broker__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote__r.RFP_Form__r.Opportunity__r.Broker_Rep1__r.FirstName &amp; &apos; &apos; &amp; Quote__r.RFP_Form__r.Opportunity__r.Broker_Rep1__r.LastName</formula>
+        <label>Broker</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Brokerage_Firm__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote__r.RFP_Form__r.Opportunity__r.Broker1__r.Name</formula>
+        <label>Brokerage Firm</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Commission_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Opportunity_ID__r.Medical_Commission_Type__c)</formula>
+        <label>Medical Commission Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contract_Months__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Months</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DBA__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Opportunity_ID__r.Account.DBA__c != NULL &amp;&amp; Opportunity_ID__r.Account.DBA__c != &apos;&apos;,Opportunity_ID__r.Account.DBA__c,&apos;N/A&apos;)</formula>
+        <label>DBA</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ER_Zip__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote__r.RFP_Form__r.Opportunity__r.Account.BillingPostalCode</formula>
+        <label>ER Zip</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Effective_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Effective Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Email_employer_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(TEXT(Opportunity_ID__r.Account.Employer_Type__c) != NULL &amp;&amp; TEXT(Opportunity_ID__r.Account.Employer_Type__c) != &apos;&apos;,TEXT(Opportunity_ID__r.Account.Employer_Type__c),&apos;N/A&apos;)</formula>
+        <label>Email employer Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Employer_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote__r.RFP_Form__r.Opportunity__r.Account.Name</formula>
+        <label>Employer Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Employer_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote__r.Employer_Type__c</formula>
+        <label>Employer Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Estimated_Subs__c</fullName>
+        <externalId>false</externalId>
+        <label>Estimated Subs</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Form_Submitter_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Form Submitter Name</label>
+        <length>150</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Is_Child_Record_Created__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Child Record Created?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Medical_Commission__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity_ID__r.Commission__c</formula>
+        <label>Medical Commission</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NTE__c</fullName>
+        <externalId>false</externalId>
+        <label>NTE %</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NTE_in_Place__c</fullName>
+        <externalId>false</externalId>
+        <label>NTE in Place</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>New_Business_SSO_or_Renewal_RSO__c</fullName>
+        <externalId>false</externalId>
+        <label>New Business (SSO) or Renewal (RSO)</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>SSO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RSO</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Next_Renewal_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Renewal Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity_ID__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Sold Sign Offs</relationshipLabel>
+        <relationshipName>Sold_Sign_Offs</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Stage_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Quote__r.RFP_Form__r.Opportunity__r.StageName)</formula>
+        <label>Opportunity Stage Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Plan_Year__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote__r.Plan_Year__c</formula>
+        <label>Tech Plan Year</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quote__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Quote</label>
+        <referenceTo>Proposal__c</referenceTo>
+        <relationshipLabel>Sold Sign Offs</relationshipLabel>
+        <relationshipName>Sold_Sign_Offs</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RFP_Form__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quote__r.RFP_Form__r.Name</formula>
+        <label>RFP Form</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Rejection_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Rejection Reason</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Incorrect Rates</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Effective Date Missing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Effective Date Incorrect</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sold Rates Missing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sold Rates Incorrect</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Missing Plan ID</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Quote Type Missing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Slice Carriers Missing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Commission Missing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Void</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Renewal_Year_NTE_Applies__c</fullName>
+        <externalId>false</externalId>
+        <label>Renewal Year NTE Applies</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SSO_RSO_Due_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>SSO/RSO  Due Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Slicing_with_Carrier_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Slicing with Carrier Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Special_Instructions_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Special Instructions/Comments</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Stage__c</fullName>
+        <externalId>false</externalId>
+        <label>Stage</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Draft</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Submitted to Underwriting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Approved by Underwriting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rejected by Underwriting</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>TR_Dual_Triple_Slice__c</fullName>
+        <externalId>false</externalId>
+        <label>Proposal Scenario</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>TR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Slice</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Triple Option</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TR &amp; Slice</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Slice &amp; Triple Option</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Tech_Account_Id__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Quote__c &lt;&gt; NULL , Quote__r.Tech_Account_Id__c , Opportunity_ID__r.AccountId )</formula>
+        <label>Tech Account Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tech_Quote_Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Quote__r.Stage__c)</formula>
+        <label>Tech Quote Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>regenerate__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>regenerate?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Sold Sign Off</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Employer_Type__c</columns>
+        <columns>Opportunity_ID__c</columns>
+        <columns>Quote__c</columns>
+        <columns>Stage__c</columns>
+        <columns>SSO_RSO_Due_Date__c</columns>
+        <columns>Effective_Date__c</columns>
+        <columns>Next_Renewal_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Rejection_Reason__c</field>
+            <operation>notEqual</operation>
+            <value>Void</value>
+        </filters>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>My_Queue</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Employer_Type__c</columns>
+        <columns>Opportunity_ID__c</columns>
+        <columns>Quote__c</columns>
+        <columns>Stage__c</columns>
+        <columns>SSO_RSO_Due_Date__c</columns>
+        <columns>Effective_Date__c</columns>
+        <columns>Next_Renewal_Date__c</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>Rejection_Reason__c</field>
+            <operation>notEqual</operation>
+            <value>Void</value>
+        </filters>
+        <label>My Queue</label>
+    </listViews>
+    <listViews>
+        <fullName>SHP_Sales_Queue_Sold_Sign_Off</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Employer_Type__c</columns>
+        <columns>Opportunity_ID__c</columns>
+        <columns>Quote__c</columns>
+        <columns>Stage__c</columns>
+        <columns>SSO_RSO_Due_Date__c</columns>
+        <columns>Effective_Date__c</columns>
+        <columns>Next_Renewal_Date__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>SHP Sales Queue</label>
+        <queue>SHP_Sales_Queue</queue>
+        <sharedTo>
+            <group>SHP_Sales</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>SHP_Underwriter_Queue_Sold_Sign_Off</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Employer_Type__c</columns>
+        <columns>Opportunity_ID__c</columns>
+        <columns>Quote__c</columns>
+        <columns>Stage__c</columns>
+        <columns>SSO_RSO_Due_Date__c</columns>
+        <columns>Effective_Date__c</columns>
+        <columns>Next_Renewal_Date__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>SHP Underwriter Queue</label>
+        <queue>SHP_Underwriter_Queue</queue>
+        <sharedTo>
+            <group>Underwriter</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>SHP_Void_Queue_Sold_Sign_Off</fullName>
+        <columns>NAME</columns>
+        <columns>Employer_Type__c</columns>
+        <columns>Opportunity_ID__c</columns>
+        <columns>Quote__c</columns>
+        <columns>Stage__c</columns>
+        <columns>SSO_RSO_Due_Date__c</columns>
+        <columns>Effective_Date__c</columns>
+        <columns>Next_Renewal_Date__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>SHP Void Queue</label>
+        <queue>SHP_Void_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <displayFormat>SSO-{000000}</displayFormat>
+        <label>Sold Sign Off  Name</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Sold Sign Offs</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Stage__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>SSO_RSO_Due_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Opportunity_ID__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Quote__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Effective_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Next_Renewal_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Contract_Months__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Stage__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>SSO_RSO_Due_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Account__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Account_Executive__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Account_Manager__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Opportunity_ID__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Quote__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Effective_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Next_Renewal_Date__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Stage__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>SSO_RSO_Due_Date__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Account__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Account_Executive__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Account_Manager__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Opportunity_ID__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Quote__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Effective_Date__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Next_Renewal_Date__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Stage__c</searchFilterFields>
+        <searchFilterFields>SSO_RSO_Due_Date__c</searchFilterFields>
+        <searchFilterFields>Account__c</searchFilterFields>
+        <searchFilterFields>Employer_Type__c</searchFilterFields>
+        <searchFilterFields>Opportunity_ID__c</searchFilterFields>
+        <searchFilterFields>Quote__c</searchFilterFields>
+        <searchFilterFields>Contract_Months__c</searchFilterFields>
+        <searchFilterFields>Effective_Date__c</searchFilterFields>
+        <searchFilterFields>Next_Renewal_Date__c</searchFilterFields>
+        <searchResultsAdditionalFields>Stage__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>SSO_RSO_Due_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Account__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Account_Executive__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Account_Manager__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Opportunity_ID__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Quote__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Effective_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Next_Renewal_Date__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>HR_SSO_VR01_DueDateMandatory</fullName>
+        <active>true</active>
+        <description>This rule will fire at the time of modifications. For new record, this will not fire</description>
+        <errorConditionFormula>AND(ISNULL(SSO_RSO_Due_Date__c ),NOT(ISNEW()),NOT(ISCHANGED(Is_Child_Record_Created__c)))</errorConditionFormula>
+        <errorDisplayField>SSO_RSO_Due_Date__c</errorDisplayField>
+        <errorMessage>Please enter SSO/RSO Due Date.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Email_All_Attachments_To_Me</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Email All Attachments To Me</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/apex.js&quot;)} 
+try{ 
+var proposalObj = new sforce.SObject(&quot;Sold_Sign_Off__c&quot;); 
+var userInfo = sforce.connection.getUserInfo(); 
+var relatedAttachments = sforce.connection.query(&quot;SELECT ID from Attachment where ParentId =&apos;{!Sold_Sign_Off__c.Id }&apos;&quot;); 
+records = relatedAttachments.getArray(&quot;records&quot;); 
+if(records.length == 0) 
+{ 
+alert(&apos;There is no attachment to send, please attach and try&apos;); 
+} 
+else 
+{	
+var proposalId = &apos;{!Sold_Sign_Off__c.Id}&apos;; 
+var uEmail = &apos;{!$User.Email}&apos;; 
+var accName = &apos;{!JSENCODE(Sold_Sign_Off__c.Account__c)}&apos;;
+var accdbaName = &apos;{!JSENCODE(Sold_Sign_Off__c.DBA__c)}&apos;;
+var mailSubject = &apos;Employer Name : &apos;+accName+&apos;/DBA:&apos;+accdbaName+&apos; Sold Sign Off Attachments Requested&apos;;
+var messageDesc =sforce.apex.execute(&quot;HighRoads_SendAttachmentsInEmail&quot;,&quot;sendAttachments&quot;,{recordId:proposalId,userEmail:uEmail,objName:&quot;Sold Sign Off&quot;,accountName:accName,DBAName:accdbaName,mailSubject:mailSubject}); 
+alert(messageDesc); 
+} 
+}catch(e){ 
+alert(&apos;An Error has Occured. Error: &apos; + e); 
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Generate_PDF</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>Generate PDF</masterLabel>
+        <openType>newWindow</openType>
+        <page>HighRoads_SSOPDFGeneration</page>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Sold_Sign_Off</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New Sold Sign Off</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/24.0/apex.js&quot;)} 
+var relatedSSO = sforce.connection.query(&quot;SELECT ID,Stage__c from Sold_Sign_Off__c where Quote__c =&apos;{!Proposal__c.Id}&apos; order by createddate desc limit 1&quot;); 
+
+records = relatedSSO.getArray(&quot;records&quot;); 
+if(records.length &gt; 0 &amp;&amp; records[0].Stage__c != &apos;Rejected By Sales&apos;){ 
+alert(&apos;You can not create SSO at this point of time&apos;); 
+}else{ 
+window.open(&quot;/a2a/e?retURL=%2Fa2a%2Fo&amp;CF00Nq00000019NgK={!Proposal__c.Name}&amp;CF00Nq00000019NgK_lkid={!Proposal__c.Id}&amp;CF00Nq00000019NgH={!Proposal__c.Tech_Opportunity_Name__c}&amp;CF00Nq00000019NgH_lkid={!Proposal__c.Opportunity_IDId__c}&quot;); 
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Regenerate_Documents</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Regenerate Documents</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>if({!ISPICKVAL( Sold_Sign_Off__c.Stage__c , &apos;Approved by Underwriting&apos; )}){
+window.open(&quot;/apex/HighRoads_RegeneratePage?id={!Sold_Sign_Off__c.Id }&quot;, &quot;_blank&quot;);
+}else{
+alert(&apos;You cannot Generate Documents before SSO is Approved&apos;);
+}</url>
+    </webLinks>
+</CustomObject>

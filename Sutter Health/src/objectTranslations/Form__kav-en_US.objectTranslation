@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Form</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Forms</value>
+    </caseValues>
+    <fields>
+        <label><!-- Additional Information --></label>
+        <name>Additional_Information__c</name>
+    </fields>
+    <fields>
+        <label><!-- Article Body --></label>
+        <name>Article_Body__c</name>
+    </fields>
+    <fields>
+        <label><!-- Attachment --></label>
+        <name>Attachment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comments/Suggestions --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Article Feedback --></label>
+        <name>Feedback_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- File Type --></label>
+        <name>File_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Functional Area --></label>
+        <name>Functional_Area__c</name>
+    </fields>
+    <fields>
+        <label><!-- Keywords --></label>
+        <name>Keywords__c</name>
+    </fields>
+    <fields>
+        <label><!-- Original Author --></label>
+        <name>Original_Author__c</name>
+    </fields>
+    <fields>
+        <label><!-- Production Article ID --></label>
+        <name>Production_Article_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Priority --></label>
+        <name>SH_Is_Priority__c</name>
+    </fields>
+    <fields>
+        <label><!-- Menu --></label>
+        <name>SH_Menu__c</name>
+    </fields>
+    <fields>
+        <label><!-- Priority End On --></label>
+        <name>SH_Priority_End_On__c</name>
+    </fields>
+    <fields>
+        <label><!-- Priority Start On --></label>
+        <name>SH_Priority_Start_On__c</name>
+    </fields>
+    <fields>
+        <label><!-- SubMenu --></label>
+        <name>SH_SubMenu__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sub-Function --></label>
+        <name>Sub_Function__c</name>
+    </fields>
+    <fields>
+        <label><!-- Version --></label>
+        <name>Version__c</name>
+    </fields>
+    <layouts>
+        <layout>Form Layout</layout>
+        <sections>
+            <label><!-- Feedback --></label>
+            <section>Feedback</section>
+        </sections>
+        <sections>
+            <label><!-- Form --></label>
+            <section>Form</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

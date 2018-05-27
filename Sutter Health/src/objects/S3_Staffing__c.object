@@ -1,0 +1,931 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>For Tracking Temps and Contractors</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Amended__c</fullName>
+        <externalId>false</externalId>
+        <label>Amended</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Original</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Extension</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>CPC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>CPC</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>S3 Staff (CPC)</relationshipLabel>
+        <relationshipName>S3_Staff_CPC</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Candidate_ID__c</fullName>
+        <description>Righsourcing Candidate ID for Temp staff</description>
+        <externalId>true</externalId>
+        <label>Candidate ID</label>
+        <length>7</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Engagement_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>External ID for righsourcing temp staff engagements</description>
+        <externalId>true</externalId>
+        <label>Engagement ID</label>
+        <length>6</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Engagement_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Engagement Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Engaged</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Engaged-Pend Disengage</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Disengaged-Poor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Disengaged-Hired</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Disengaged-Good</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Disengaged-Terminated</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Disengaged-False start</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Engagement Draft</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Engagement_Through_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Engagement Through Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>GL_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>GL Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>62600-0000</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0001 - Coding Manager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Account Administrator</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Accountant</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Accounting Analyst</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Admin Coordinator</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - AP Exception Specialist</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - AP Processor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Auditor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Business Analyst</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Buyer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Call Center Rep</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Claim Team Member</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Coder</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Coder II</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Coding Auditor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Coding Training &amp; Audit</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Content Management Specialist</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Contractor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Correspondence Team Member</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Credentialing Rep</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Customer Service Agent</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Customer Service Rep</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Data Analyst</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Denials Team Member</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Financial Clearance Rep</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - HIM Specialist</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - HMO Claims Follow Up Team Member</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - HR Coordinator</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - HR Customer Services Rep</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - HRIS Support Analyst</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - HRIS Support Team Member</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - HR Logistics Team Member</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - ICD-10 Trainer/Auditor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - IS eLearning Specialist</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - IT Purchasing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Medical Records Specialist</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Patient Access Representative</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Payment Processor I</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Payment Variance Team Member</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Payroll Specialist</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Payroll Tech</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Payroll Technician</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Project Support</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Purchasing Assistant</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Recruiter</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Recruitment Assistant</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Recruitment Specialist</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Revenue Cycle Integrity Team Member</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Senior Accounting Analyst</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Sourcer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Supply Chain Exception Specialist</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Team Member, Compensation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0100 - Workforce Relations Team Member</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0500 - Accounts Payable Processor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0500 - Administrative Assistant</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0500 - Clerical Support Team Member</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0500 - Scanning Technician</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0500 - Schedgistration Rep</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0500 - Support Clerk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>62600-0900</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Location</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>S3 - Sutter Shared Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SHSO - Alta Bates Med Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SHSO - PAD Ortega</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SHSO - Remote</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Original_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Original Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Project_Accounting__c</fullName>
+        <externalId>false</externalId>
+        <label>Project Accounting</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1000-Balance Sheet</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>101501-ADMINISTRATION</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>101570-FACILITY &amp; PROPERTY SERVICES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>101604-SUTTER SURGERY CENTER DIVISION</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>103000-REIMBURSEMENT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>104500-HUMAN RESOURCES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>104588-EMPLOYEE BENEFITS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>105910-INSURANCE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>256383-IS EHR ACUTE IMPLEMENTATION</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>301099-SHARED SERVICES UNASSIGNED</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>600502-SHARED SERVICES CENTER</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>601401-HR-01B</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618400-PURCHASING</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618402-STRATEGIC SOURCING</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618406-OPERATIONS &amp; PROCESSES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618510-ACCOUNTING-GL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618511-ACCOUNTING-AR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618514-ACCOUNTS PAYABLE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618515-PAYROLL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618531-CDM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618532-CBO - GOVERNMENT CLAIMS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618533-CBO - NON GOVT CLAIMS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618534-CBO OPERATIONS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618535-CBO PAYER MANAGEMENT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618538-REVENUE CYCLE ADMIN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618539-CBO ADMIN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618540-CBO Patient Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618541- CBO - MANAGED GOVERNMENT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618561-PATIENT ACCESS-PRE SERVICE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618562 - S3 - Claim Edits</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618568- RECRUITMENT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618590-DOCUMENT MANAGEMENT CENTER</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618614-CONTACT CENTER-FINANCE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618616-CONTACT CENTER-REV CYCLE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618617-CONTACT CENTER-HUMAN RESOURCES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618618-Contact Center-AP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618619-CONTACT CENTER-ADMIN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618650-COMPENSATION</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618651-BENEFITS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618653-LEARNING</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618654-WORKFORCE RELATIONS SERVICES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618656-HRIS, DATA &amp; REPORTING</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618658-RECRUITMENT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618659-HR ADMIN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618697 - Coding Education</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618698 - EDITS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618699-HIM-ICD-10</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618700-HIM - CODING ED &amp; CANCER CENTER</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618701-HIM - CODING IP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618702-HIM - CODING OP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618703-HIM - CODING TRAINING &amp; AUDITI</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618704-HIM - CHART COMPLETION</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618705-HIM - EMPI</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618706-HIM - TRANSCRIPTION</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618708-HIM - DOCUMENT IMAGING</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618710-CREDENTIALING</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>7510-PBS PPO/Comm Follow-Up II</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>88896 - EBR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>938485- SSR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>999036-SHARED SERVICES ADMIN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>999500-SHARED SERVICES FINANCE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>999501-SHARED SERVICES HR ADMIN</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Rate_Structure__c</fullName>
+        <externalId>false</externalId>
+        <label>Rate Structure</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>RightSourcing Payroll Service - Non-Exempt</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Standard Rate Structure - Non Exempt</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Standard Rate Structure - Non Exempt - Himagine FTE 36-50 - 08.08.15</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Coders Rate Structure - Himagine</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Coders Rate Structure - Non Exempt - Per Chart and Hourly</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Coders Rate Structure - Comforce &amp; On Assignment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Coders Rate Structure - Non Exempt - Per Chart and Hourly*</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Reports_To__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Reports To</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>S3 Staff</relationshipLabel>
+        <relationshipName>S3_Staff_Mgr</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Req_Title__c</fullName>
+        <externalId>false</externalId>
+        <label>Req Title</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Temp_Position__c</fullName>
+        <externalId>false</externalId>
+        <label>Temp Position</label>
+        <referenceTo>S3_PCD__c</referenceTo>
+        <relationshipLabel>S3 Temp Staff</relationshipLabel>
+        <relationshipName>S3_Staff_Temp_Position</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Vendor_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Vendor Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Accounting Principals &amp; Ajilon</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Adecco USA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Aerotek</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AppleOne</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DirectApps Inc.</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Excite Health Partners</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HCTec (T1-apps)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Himagine Solutions</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Kforce Inc</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Manpower Group</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Maxim Healthcare Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Medlinks Cost Containment, Inc.</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MGA Healthcare Torrance, INC.</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Nelson Family of Companies</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pacific Temporary Services, Inc.-Pacific Staffing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Randstad Technologies, LP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RightSourcing-Irvine, CA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>River City Staffing, Inc.</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Robert Half International</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Verso Genics D.B.A. Comforce</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Worker_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Worker Name</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>S3 Staffing</label>
+    <nameField>
+        <displayFormat>TEMP{00000}</displayFormat>
+        <label>S3 Staffing Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>S3 Staff</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

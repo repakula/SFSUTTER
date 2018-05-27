@@ -1,0 +1,11 @@
+<html>
+<body>
+Hi,<br/><br/>
+
+The Sold Sign Off: {!Employer_Group_Data__c.Sold_Sign_Off__c} has been approved by Underwriting, the Sold Case Notification <a href="'{!$Label.HR216_SCNListViewURL}'">{!Employer_Group_Data__c.Name}</a> for this group has been created and the Document Generation Request has been sent to the BPA Team for  {!Employer_Group_Data__c.Opportunity_Account_Name__c}/DBA: {!Employer_Group_Data__c.DBA_Name__c},  {!Employer_Group_Data__c.Email_Employer_Type__c}.<br/><br/>
+You can navigate to the Document Generation request from the Opportunity page to access or expedite.<br/><br/>
+Please Update the SCN and Submit for Approval.<br/><br/>
+Please find the link for detail page : {!Employer_Group_Data__c.Link}<br/><br/>
+Thank you.<br/>
+</body>
+</html>

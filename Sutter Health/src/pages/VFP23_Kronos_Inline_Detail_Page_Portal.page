@@ -1,0 +1,193 @@
+<!--
+*     Page Name   : VFP23_Kronos_Inline_Detail_Page
+*     Author      : Apoorv Kuchhal
+*     Date        : 18-Aug-2014 
+*     Project Name: CRM - SFT - Sutter Health
+*     Description :Inline edit page of Kronos displaying on Job Evaluation Pagelayout.
+-->
+<apex:page standardcontroller="Case" extensions="CaseFieldSetController" showHeader="false" sidebar="false">  
+
+
+<style>
+    .sectionStyle {
+        border-width: 2px 0 0;
+        color: #27282e;
+        padding: 4px 3px;
+        background-color: transparent;
+        font-size: 12.55px;
+        /*border-color: #c0be72;*/
+            
+    }
+</style>
+<script>
+function colorPageBlock(pageblock, color) {
+if (pageblock != null) pageblock.firstChild.style.cssText = “background-color: ” + color + “;”;
+
+}
+</script> 
+<apex:form >   
+<apex:pageMessages ></apex:pageMessages>
+<apex:outputPanel rendered="true" style="overflow:auto" >
+            <apex:pageBlock mode="maindetail">
+           
+       <apex:outputPanel id="outpanelJobEval"  rendered="{!Case.Section_View__c =='Job Evaluation'}">  
+            <div>
+                        <div class="sectionStyle"><h3>{!$Label.CL48_Job_Evaluation_Details} </h3></div>
+            <apex:pageBlockSection collapsible="false" title="{!$Label.CL48_Job_Evaluation_Details}" columns="2" id="one" showHeader="false">
+            <script>colorPageBlock(document.getElementById("{!$Component.one}"), "red");</script>
+            <apex:outputField value="{!Case.Contact_Phone_Number__c}" />
+            <apex:outputField value="{!Case.Requestor_Email__c}" /> 
+
+                            <apex:repeat value="{!$ObjectType.Case.fieldsets.Job_Eval_Type_Of_Request}" var="KFSField">
+                                <apex:outputField value="{!Case[KFSField]}"> 
+                               
+                                
+                                </apex:outputField> 
+                            </apex:repeat>
+                        </apex:pageBlockSection>  
+            </div>       
+             <hr style="border:1px solid gray"></hr>    
+              <div class="sectionStyle"><h3>Revision To Current Job</h3></div>     
+            <apex:pageBlockSection collapsible="false" title="{!$Label.CL49_Revision_To_Current_Job}" columns="2" showHeader="false">
+                            <apex:repeat value="{!$ObjectType.Case.fieldsets.Job_Eval_Revision_Of_Current_job}" var="KFSField">
+                                <apex:outputField value="{!Case[KFSField]}"> 
+                               
+                                
+                                </apex:outputField> 
+                            </apex:repeat>
+                        </apex:pageBlockSection>  
+                                    
+            <hr style="border:1px solid gray"></hr>    
+              <div class="sectionStyle"><h3>Position Duties</h3></div>                          
+            <apex:pageBlockSection collapsible="false" title="{!$Label.CL50_Position_Duties}" columns="1" showHeader="false">
+                           
+                                <apex:outputField value="{!Case.Describe_the_differences__c}"> 
+                               
+                                
+                                </apex:outputField> 
+                        
+                        </apex:pageBlockSection>  
+        
+              <hr style="border:1px solid gray"></hr>    
+              <div class="sectionStyle"><h3>Comparison (Similar) Positions</h3></div> 
+            <apex:pageBlockSection collapsible="false" title="{!$Label.CL51_Comparison_Similar_Positions}" columns="2" showHeader="false">
+                            <apex:repeat value="{!$ObjectType.Case.fieldsets.Job_Eval_ComparisonPositionsSection}" var="KFSField">
+                                <apex:outputField value="{!Case[KFSField]}"> 
+                               
+                                
+                                </apex:outputField> 
+                            </apex:repeat>
+                        </apex:pageBlockSection>  
+                      <hr style="border:1px solid gray"></hr>    
+                      <div class="sectionStyle"><h3>Additional Information</h3></div> 
+                          <apex:pageBlockSection collapsible="false" title="{!$Label.Additional_Information}" columns="2" showHeader="false">
+                           
+                                <apex:outputField value="{!Case.Describe_how_this_position_is_comparable__c}"/> 
+                                 <apex:outputField value="{!Case.Any_additional_information__c}"/> 
+                                
+                              
+                        
+                        </apex:pageBlockSection>  
+                        </apex:outputPanel>  
+            
+            <apex:outputPanel id="outpanelKronos"  rendered="{!Case.Section_View__c =='Kronos'}">   
+                    <div>
+                        <div class="sectionStyle"><h3>{!$Label.Kronos_Form_Section}</h3></div>
+                        
+                    <apex:pageBlockSection collapsible="false" title="{!$Label.Kronos_Form_Section}" columns="2" showHeader="false">
+                        <apex:repeat value="{!$ObjectType.Case.fieldsets.Kronos_Request_Form_KFS}" var="KFSField">
+                            <apex:outputField value="{!objCase[KFSField]}"> 
+                           </apex:outputField> 
+                        </apex:repeat>
+                    </apex:pageBlockSection> 
+                    </div>
+                
+                       <hr style="border:1px solid gray"></hr>    
+                      <div class="sectionStyle"><h3>Type Of Access Needed</h3></div>          
+                        <apex:pageBlockSection collapsible="false" title="{!$Label.Type_Of_Access_Needed}" columns="1" showHeader="false">
+                                <apex:outputField value="{!Case.What_manager_s_does__c}" label="{!$Label.Kronos_Request_message}" />
+                                <apex:outputField value="{!Case.Who_is_s_he_replacing__c}" label="{!$Label.Kronos_Replacing}" />
+                                <apex:outputField value="{!Case.If_replacing__c}" label="{!$Label.Kronos_Message_Access}" />
+                                <apex:outputField value="{!case.Does_this_person__c}" label="{!$Label.Kronos_Message_Backup}"/>
+                                <apex:outputField value="{!Case.If_yes_who_will_need_access__c}" label="{!$Label.Kronos_who_access}" />
+                            </apex:pageBlockSection> 
+                       
+                </apex:outputPanel>  
+             
+             <!-- HR Adhoc Reports Section -->     
+                
+            <apex:outputPanel id="outpanelAdhocReports"  rendered="{!Case.Section_View__c =='HR Report'}">   
+                    <div> 
+                    
+                        <div class="sectionStyle"><h3>Report Section</h3></div>
+                        
+                 <apex:pageBlockSection collapsible="false" title="Report Section" columns="2" showHeader="false">
+                     <apex:repeat value="{!$ObjectType.Case.fieldsets.HR_Adhoc_Reports_Report_Section}" var="HR_AR_Field">
+                        <apex:outputField value="{!Case[HR_AR_Field]}"> 
+                        </apex:outputField> 
+                    </apex:repeat>
+                </apex:pageBlockSection>  
+
+                    </div>
+                
+                    <div>
+                        <hr style="border:1px solid gray"></hr>
+                        <div class="sectionStyle"><h3>Record Selection</h3></div>
+                        <apex:pageBlockSection collapsible="false" title="Record Selection" columns="2" showHeader="false">
+                         <apex:repeat value="{!$ObjectType.Case.fieldsets.HR_Adhoc_Reports_Record_Selection}" var="HR_AR_Field">
+                         <apex:outputField value="{!Case[HR_AR_Field]}"> 
+                        </apex:outputField> 
+                        </apex:repeat>
+                    </apex:pageBlockSection> 
+                        </div>
+                        
+                        <div>
+                        <hr style="border:1px solid gray"></hr>
+                        <div class="sectionStyle"><h3>Fields to be Displayed on Report</h3></div>
+                        
+                         <apex:pageBlockSection collapsible="false" title="Fields to be Displayed on Report" columns="1" showHeader="false">
+                         <apex:repeat value="{!$ObjectType.Case.fieldsets.HR_Adhoc_Reports_FDR}" var="HR_AR_Field">
+                        <apex:outputField value="{!Case[HR_AR_Field]}"> 
+                        
+                        </apex:outputField> 
+                    </apex:repeat>       
+                          
+                 </apex:pageBlockSection> 
+
+                        </div>
+                        
+                     <div>
+                     <hr style="border:1px solid gray"></hr>
+
+                        <div class="sectionStyle"><h3>Details Of Previous Request </h3></div>
+                        
+                         <apex:pageBlockSection collapsible="false" title="Fields to be Displayed on Report" columns="1" showHeader="false">
+                         <apex:outputField value="{!Case.Report_Previously_Requested__c}"/>
+                         <apex:outputField value="{!Case.Service_Request_Number__c}" />
+                         <apex:outputField value="{!Case.Reporting_Team_Member__c}" />
+                         <apex:outputField value="{!Case.Date_of_Requested_Last_Report__c}" />           
+                          
+                 </apex:pageBlockSection> 
+
+                        </div>
+                        
+                </apex:outputPanel>  
+           
+                              
+                            
+                                    
+        </apex:pageblock> 
+    </apex:OutputPanel>  
+  
+  <!-- Component for GTM-->
+                   <c:Portal_User_Info />
+  <!-- Component for GTM-->
+  
+  <!-- Start Google Tag Manager -->
+    <apex:outputLabel value="{!$Label.GTMCustomLabel}" rendered="false"></apex:outputLabel> 
+    <apex:includeScript value="{!$Resource.GTMJavaScript}" />
+    <!-- End Google Tag Manager -->
+
+  
+  </apex:form> 
+</apex:page>

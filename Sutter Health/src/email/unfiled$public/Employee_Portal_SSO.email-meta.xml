@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Employee Portal SSO Email Template</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Employee_Portal_SSO</letterhead>
+    <name>Employee Portal SSO</name>
+    <style>freeForm</style>
+    <subject>Single Sign-On Access to MySutter Connection</subject>
+    <textOnly>Memorandum
+
+
+
+
+To: &lt;Sutter Health Managers&gt;
+
+From: Guy W. Turner, Chief Information Security Officer
+
+
+Subject: Single Sign-On Access to MySutter Connection
+
+
+
+The following message will be sent to all employees later this afternoon.
+
+
+Our Information Services team recognizes the challenge of remembering multiple usernames and passwords to access the many applications you may need to perform your job. With that in mind, we worked hard to find solutions to reduce the number of different application logins.
+
+
+As a result of these efforts, beginning April 23, employees will use their Sutter Health sign-on when accessing MySutter Connection from outside the Sutter Health network. Most users already have automated access to MySutter Connection when directly connected to our network.
+
+
+If you have questions, please contact John Abel (AbelJ@sutterhealth.org). An FAQ is available on the DSO portal.
+
+
+
+Instructions
+
+These are the instructions for employees to sign on to MySutter Connection when outside of the Sutter Health network.
+
+
+Steps
+
+Instructions
+
+1
+
+Enter http://mysutterconnection.com in the address field of the Internet browser.
+
+
+
+
+2
+
+Enter your current Network ID and password in the Username and Password fields.
+
+
+
+
+
+
+3
+
+Create a Favorite for the new login web address/URL (uniform resource locator) to replace previous login pages.</textOnly>
+    <type>html</type>
+</EmailTemplate>

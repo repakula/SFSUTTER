@@ -1,0 +1,45 @@
+<apex:page renderAs="pdf" controller="SOCPrintController" showHeader="false" sidebar="false" standardStylesheets="false">
+
+    <div align="left" style="margin-left:50px;">
+        <apex:image id="shpLogo" value="{!$Resource.Sutter_Health_Logo_Static_Resource}" />
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <div align="left" style="margin-left:50px;">
+    <p>{!AttTo}<br/>
+    {!provider_facility_name}<br/>
+    {!streetAddress}{!suite}{!floor}<br/>
+    {!city}{!state}{!zipCode}</p>    
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <p>Dear {!provider_facility_name}</p>
+
+    <p>As you may be aware, per the Center for Medicare and Medicaid Services’ (CMS) Stage 2 Meaningful Use requirements, 
+    any provider or hospital, who transitions or refers their patient to another provider or setting of care must provide a Summary of Care (SOC) 
+    document for each referral or transition of care.</p>
+    
+    <p>The SOC includes patient information such as medications, allergies and a problem list. Please add this information to your patient’s file. 
+    This document does not replace documentation you would normally receive in the referral process.</p>
+    
+    <p>Sutter has taken additional steps to ensure the mailing information for each provider is correct so that protected health information (PHI) 
+    is mailed to the intended recipient. This is the reason why the enclosed documents may be dated. Please also note that there may be multiple SOCs in the package.</p>
+    
+    <p>In addition, if you indicated you would prefer to receive these by FAX when we contacted you prior to sending these documents, 
+    then they will be sent in the future by that method.</p>
+    
+    <p>To learn more about the CMS Meaningful Use requirements, go to: 
+    <a href="http://www.cms.gov/Regulations-and-Guidance/Legislation/EHRIncentivePrograms/Stage_2.html">
+    http://www.cms.gov/Regulations-and-Guidance/Legislation/EHRIncentivePrograms/Stage_2.html</a></p>
+    
+    <p>We thank you for your understanding.</p>
+    
+    <p>Sincerely,</p>
+    
+    <p><b>Sutter Health Meaningful Use</b><br/>
+    Phone # 916-297-9950<br/>
+    Email: SHMeaningfulUse@sutterhealth.org</p>
+    </div>
+</apex:page>

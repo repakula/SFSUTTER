@@ -1,0 +1,500 @@
+<!--
+*     Page Name   : Correspondence
+*     Class Name  : CorrespondenceCls
+*     Author      : IDC Offshore
+*     Project Name: CRM - SFT - Sutter Health
+*     
+*
+*       History
+*      
+*       VERSION         AUTHOR              DATE              DETAIL 
+*         1.0          Saddam Hussain      07/04/2015       Updates  the page to Add Comments History Grid for REQ 3406 and attach documents to Correspondence Requests for REQ 3315
+          2.0          Umesh Vajpai         12/04/15        Removed commented code and add JSENCODE for  var url = "/apex/CorrespondenceLookup?ContactId=" + '{!JSENCODE(contactId)}'
+-->
+<apex:page standardController="Correspondence__c" extensions="CorrespondenceCls" id="MainPg">
+  <script type="text/javascript" src="{!$Resource.Jquery}"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css" />
+  <script>
+        var $j = jQuery.noConflict();
+        $j(document).ready(function() {
+            
+            $j("[id$='outputLinkId']").click(function() {
+                var nameAttr = $j(this).attr("name");
+                $j('#'+nameAttr).dialog();
+                return false;
+            });
+        });
+    </script>
+  <style>
+      #contentLoading {
+      background-color: black;
+      position: fixed;
+      top: 0; right: 0; bottom: 0; left: 0;
+      opacity: 0.5;
+      -moz-opacity:0.5;
+      z-index: 999999;
+    }
+  </style>  
+  <apex:sectionHeader title="Correspondence Edit" subtitle="{!strHeaderMsg}"/>  
+  <apex:form id="MainForm">
+      <apex:pageMessages id="PgMsg"></apex:pageMessages>
+      <apex:pageBlock mode="Edit" id="pgblk" title="Correspondence">
+          <apex:pageBlockButtons >
+              <apex:commandButton value="Save"  action="{!saveCorrespondence}" />
+              <apex:commandButton value="Cancel" action="{!cancel}"/>
+          </apex:pageBlockButtons>
+          
+          <div class="pbSubheader brandTertiaryBgr tertiaryPalette"><h3>Correspondence</h3>
+              <span class="pbSubExtra"><span class="requiredLegend"><span class="requiredExampleOuter"><span class="requiredExample">&nbsp;</span>
+              </span><span class="requiredText"> = Required Information</span></span></span>
+          </div>
+          
+          <div class="pbSubsection">
+              <table class="detailList" border="0" cellpadding="0" cellspacing="0">
+                  <tr style="height: 25px;">
+                      <td style="width:15%;text-align:right;">
+                          <apex:outputLabel style="margin-right: 15px;color: #4A4A56;font-size: 100%;font-weight: bold;" for="CorrespondenceType">
+                          Correspondence Recipient Type</apex:outputLabel>
+                      </td>
+                      <td style="width:40%;text-align:left;">
+                        <apex:inputField required="true" styleclass="CorrespondenceRecTypeDisabled" rendered="{!if(isUserSHPAgent && correspondenceObj.Status__c != 'Closed',true,false)}" 
+                             id="CorrespondenceType"  value="{!correspondenceObj.Member_Type__c}" />
+                          <apex:outputField rendered="{!if(correspondenceObj.Status__c == 'Closed' || isUserSHPCorrespondence ,true,false)}" 
+                             id="CorrespondenceType1"  value="{!correspondenceObj.Member_Type__c}" />   
+                      </td>
+                  
+                      <!-- Start Req:3325 Release 11  Date : 05-May-2015--->
+                      <td style="width:10%;text-align:right;">
+                          <apex:outputLabel style="margin-right: 15px;color: #4A4A56;font-size: 100%;font-weight: bold;" for="CorrespondenceType">
+                          Triggered in Health Rules</apex:outputLabel>
+                      </td>
+                      <td style="width:15%;text-align:left;">
+                          <apex:inputField id="triggerinHR" value="{!correspondenceObj.Triggered_in_Health_Rules__c}" rendered="{!if(isUserSHPAgent && correspondenceObj.Status__c != 'Closed',true,false)}"/>
+                          <apex:outputField rendered="{!if(correspondenceObj.Status__c == 'Closed' || isUserSHPCorrespondence ,true,false)}" 
+                             id="triggerinHR1"  value="{!correspondenceObj.Triggered_in_Health_Rules__c}" /> 
+                      </td>
+                      
+                      <!--End Req:3325-->
+                  </tr>
+                      
+                  <tr  style="height: 25px;">
+                      <td style="width:15%;text-align:right;">
+                          <apex:outputLabel style="margin-right: 15px;color: #4A4A56;font-size: 100%;font-weight: bold;" for="CorreDef">
+                          Correspondence Definition</apex:outputLabel>
+                      </td>
+                      <td style="width:40%;text-align:left;"> 
+                        <apex:inputField id="CorreDef" required="true" rendered="{!if(isUserSHPAgent && (correspondenceObj.Status__c != 'Closed' || IsBLank(correspondenceStatus)),true,false)}" 
+                              value="{!correspondenceObj.Correspondence_Type__c}"/>
+                          
+                          <apex:outputField rendered="{!if(correspondenceObj.Status__c == 'Closed' || isUserSHPCorrespondence ,true,false)}" 
+                          value="{!correspondenceObj.Correspondence_Type__c}"/>
+                      </td>
+                      
+                         <!--Start Req:3321  Release 11  Date : 05-May-2015-->
+                      <td style="width:10%;text-align:right;">
+                          <apex:outputLabel style="margin-right: 15px;color: #4A4A56;font-size: 100%;font-weight: bold;" for="CorrespondenceType">
+                          Overnight</apex:outputLabel>
+                      </td>
+                      <td style="width:15%;text-align:left;">
+                          <apex:inputField id="overnight" value="{!correspondenceObj.Overnight__c}" rendered="{!if(isUserSHPAgent && correspondenceObj.Status__c != 'Closed',true,false)}"/>
+                          <apex:outputField rendered="{!if(correspondenceObj.Status__c == 'Closed' || isUserSHPCorrespondence ,true,false)}" 
+                             id="overnight1"  value="{!correspondenceObj.Overnight__c}" />
+                      </td>
+                      
+                      <!--End Req:3321-->
+                  </tr>
+                  
+                  <tr style="height: 25px;">
+                      <td style="width:15%;text-align:right;">
+                          <apex:outputLabel style="margin-right: 15px;color: #4A4A56;font-size: 100%;font-weight: bold;">
+                          Vehicle of Correspondence</apex:outputLabel>
+                      </td>
+                      <td style="width:40%;text-align:left;">
+                        <apex:actionRegion >
+                          <div style="width: 30%;float:left;" class="requiredInput"><div style="top:5px;" class="requiredBlock"></div>
+                          <apex:inputField styleclass="CorrespondenceDisabled"  id="VehicleCorrespondence"
+                              rendered="{!if(isUserSHPAgent && correspondenceObj.Status__c != 'Closed',true,false)}" 
+                              value="{!correspondenceObj.Vehicle_of_Correspondence__c}">
+                              <apex:actionSupport action="{!onVehicleOfCoorespondenceChange}" event="onchange" status="loading"  reRender="CorrespondencVehicle,Address"/>
+                          </apex:inputField>
+                          </div>
+                          </apex:actionRegion>    
+                          <apex:outputField rendered="{!if(correspondenceObj.Status__c == 'Closed' || isUserSHPCorrespondence ,true,false)}"  
+                          value="{!correspondenceObj.Vehicle_of_Correspondence__c}"/>
+                          
+                          <apex:outputPanel rendered="{!if(isUserSHPAgent && correspondenceObj.Status__c != 'Closed',true,false)}" id="CorrespondencVehicle" style="float:right;  margin-right: 88px;">
+                              <apex:outputLabel style="color: #4A4A56;font-size: 100%;font-weight: bold;" rendered="{!if(CONTAINS(correspondenceObj.Vehicle_of_Correspondence__c,'Email'),true,false)}" 
+                                  for="EmailId">Email Id</apex:outputLabel>
+                              <apex:inputField style="width:200px;" rendered="{!if(CONTAINS(correspondenceObj.Vehicle_of_Correspondence__c,'Email'),true,false)}" 
+                                 required="true"  id="EmailId" value="{!correspondenceObj.Email_Id__c}"/>
+                              &nbsp;
+                              <apex:outputLabel style="color: #4A4A56;font-size: 100%;font-weight: bold;" rendered="{!if(CONTAINS(correspondenceObj.Vehicle_of_Correspondence__c,'Fax'),true,false)}" for="FaxNumber">
+                                                               Fax Number</apex:outputLabel>
+                              <apex:inputField style="width:200px;" rendered="{!if(CONTAINS(correspondenceObj.Vehicle_of_Correspondence__c,'Fax'),true,false)}" 
+                                  required="true" id="FaxNumber" value="{!correspondenceObj.Fax_Number__c}"/>
+                          </apex:outputPanel>
+                          <br/><br/>
+                          
+                          <apex:outputPanel rendered="{!if(correspondenceObj.Status__c == 'Closed' || isUserSHPCorrespondence ,true,false)}" style="float:left;">
+                              <apex:outputLabel rendered="{!if(CONTAINS(correspondenceObj.Vehicle_of_Correspondence__c,'Email'),true,false)}" style="color: #4A4A56;font-size: 100%;font-weight: bold;margin-left: -80px;">Email Id:&nbsp;&nbsp;</apex:outputLabel>
+                              <apex:outputField rendered="{!if(CONTAINS(correspondenceObj.Vehicle_of_Correspondence__c,'Email'),true,false)}" value="{!correspondenceObj.Email_Id__c}">&nbsp;&nbsp;</apex:outputField>
+                              <apex:outputLabel rendered="{!if(CONTAINS(correspondenceObj.Vehicle_of_Correspondence__c,'Fax'),true,false)}" style="color: #4A4A56;font-size: 100%;font-weight: bold;margin-left: -80px;">Fax Number:&nbsp;&nbsp;</apex:outputLabel> 
+                              <apex:outputField rendered="{!if(CONTAINS(correspondenceObj.Vehicle_of_Correspondence__c,'Fax'),true,false)}" value="{!correspondenceObj.Fax_Number__c}"/>      
+                          </apex:outputPanel>     
+                      </td>
+                      
+                      <td colspan="2" style="width:10%;text-align:right;">
+                          <table class="detailList" border="0" style="width: 80%;padding: 0px;">
+                              <tr>
+                                  <td style="text-align: right;"><apex:outputLabel style="margin-right: 15px;color: #4A4A56;font-size: 100%;font-weight: bold;" for="CorrespondenceType">
+                                  Status</apex:outputLabel></td>
+                                  <td style="text-align: left;"><apex:inputField required="true" id="Status" value="{!correspondenceObj.Status__c}"/></td>
+                              </tr>
+                              <tr>
+                                  <td style="width:25%;text-align:right;">
+                                      <apex:outputLabel style="margin-right: 15px;color: #4A4A56;font-size: 100%;font-weight: bold;" for="CorreDef">
+                                      Date Sent to Print Vendor</apex:outputLabel>
+                                  </td>
+                                  <td style="width:25%;text-align:left;">
+                                      <apex:inputField styleClass="dateSentToVendor"  
+                                          
+                                          value="{!correspondenceObj.Date_Sent_To_Vendor__c}"/>
+                                   </td>
+                               </tr>
+                          </table>
+                      </td>
+                 </tr>
+             </table>
+              <script>
+                 var newWin = null;
+                 function openLookupPopup(contactFieldId,contactFieldIdTarget,relationShipId,subjectId) {
+                    var e = document.getElementById('{!$Component.CorrespondenceType}');
+                    var correspondenceType = e.options[e.selectedIndex].value; 
+                    var url = "/apex/CorrespondenceLookup?ContactId=" + '{!JSENCODE(contactId)}' + "&idfield=" + contactFieldId + "&idfieldTarget=" + contactFieldIdTarget + "&relationshipId=" + relationShipId + "&subjectId=" + subjectId + "&CorrepondenceType=" + correspondenceType;
+                    newWin = window.open(url, 'Popup', 'height=500,width=600,left=100,top=100,resizable=no,scrollbars=yes,toolbar=no,status=no');
+                    if (window.focus) {
+                        newWin.focus();
+                    }
+                    return false;
+                }
+        
+                function closeLookupPopup() {
+                    if (null != newWin) {
+                        newWin.close();
+                    }
+                }
+                
+                function loading(val) {
+                    if (val) {
+                      document.getElementById('contentLoading').style.display = 'block';
+                    }
+                    else {
+                      document.getElementById('contentLoading').style.display = 'none';
+                    }
+               }
+              </script>
+          </div>    
+          
+          
+          
+          <div id="contentLoading" style="display:none;">
+            <div style="text-align: center;margin-top:400px;">
+              <!--<img src="/img/loading.gif" alt="Please Wait.." />-->
+              <b style="color:white;font-size:14px;">Please Wait..</b>
+            </div>
+          </div>
+          
+          <div class="pbSubheader brandTertiaryBgr tertiaryPalette"><h3>Information</h3></div>
+          
+          <div class="pbSubsection">
+              <table class="detailList" border="0" cellpadding="0" cellspacing="0">
+                  <tr >
+                      <td style="width:25%;height:30px;font-size: 15px;font-weight: bold;text-decoration: underline;text-align:center;" colspan="2">Recipient</td>
+                      <td style="width:25%;height:30px;font-size: 15px;font-weight: bold;text-decoration: underline;text-align:center;"  colspan="2">Address To</td>
+                  </tr>
+                  <tr style="height: 27px;">
+                      <td style="width:25%;text-align:right;">
+                      <apex:outputLabel style="margin-right: 15px;color: #4a4a56;font-size: 100%;font-weight: bold;" for="ServiceReq">
+                                                    Service Request</apex:outputLabel>
+                                                    
+                      </td>
+                      <td style="width:25%;text-align:left;">
+                      <apex:inputField required="true" styleclass="CorrespondenceDisabled" rendered="{!if(isUserSHPAgent && (correspondenceObj.Status__c != 'Closed' || IsBLank(correspondenceStatus)),true,false)}"  
+                                  id="ServiceReq" value="{!correspondenceObj.Service_Request__c}"/>
+                      <apex:outputField rendered="{!if(correspondenceObj.Status__c == 'Closed' || isUserSHPCorrespondence ,true,false)}" 
+                                  id="ServiceReq1" value="{!correspondenceObj.Service_Request__c}"/>            
+                      </td>
+                                  
+                      <td style="width:25%;text-align:right;">
+                      <apex:outputLabel style="margin-right: 15px;color: #4a4a56;font-size: 100%;font-weight: bold;" for="SubName">Subject Name</apex:outputLabel></td>
+                      <td style="width:25%;text-align:left;">
+                          <apex:outputpanel rendered="{!if(isUserSHPAgent && (correspondenceObj.Status__c != 'Closed' || IsBLank(correspondenceStatus)),true,false)}" >
+                              <div class="requiredInput"><div class="requiredBlock"></div>
+                                  <apex:inputtext label="Subject Name"  required="true" id="SubName" value="{!contactName}"/>
+                                  <apex:inputhidden id="SubId" value="{!subId}"/>
+                                  <a onclick="openLookupPopup('{!$Component.SubName}','{!$Component.SubId}','{!$Component.RelationShip}','{!$Component.SubjectId}'); return false;" 
+                                      id="Subject" title="Contact">
+                                      <img src="/s.gif" alt="Contact" class="lookupIcon" title="Contact" />
+                                  </a>
+                              </div>
+                              
+                          </apex:outputpanel>
+                          <apex:outputpanel rendered="{!if(correspondenceObj.Status__c == 'Closed' || isUserSHPCorrespondence ,true,false)}">
+                              <apex:outputLink value="/{!subId}">{!contactName}</apex:outputLink>
+                          </apex:outputpanel>
+                      </td>
+                  </tr>
+                  <tr style="height: 27px;">
+                      <td style="width:25%;text-align:right;">
+                      <apex:outputLabel style="margin-right: 15px;color: #4a4a56;font-size: 100%;font-weight: bold;" for="SubscriberId">
+                                                     Recipient ID</apex:outputLabel>
+                                                    
+                      </td>
+                      <td style="width:25%;text-align:left;">
+                      <apex:outputText id="SubscriberId" value="{!subScriberId}"></apex:outputText></td>
+                      <td style="width:25%;text-align:right;">
+                      <apex:outputLabel style="margin-right: 15px;color: #4a4a56;font-size: 100%;font-weight: bold;" for="SubjectId">
+                                                      Subject ID</apex:outputLabel></td>
+                      <td style="width:25%;text-align:left;">
+                          <apex:outputText id="SubjectId" value="{!subjectId}"></apex:outputText>
+                      </td>
+                  </tr>
+                  
+                  <tr style="height: 27px;">
+                      <td style="width:25%;text-align:right;">
+                      <apex:outputLabel style="margin-right: 15px;color: #4a4a56;font-size: 100%;font-weight: bold;" for="ContactId">
+                                                     Recipient Name</apex:outputLabel>
+                                                    
+                      </td>
+                      <td style="width:25%;text-align:left;">
+                          <apex:inputField styleclass="CorrespondenceDisabled" required="true" rendered="{!if(isUserSHPAgent && (correspondenceObj.Status__c != 'Closed' || IsBLank(correspondenceStatus)),true,false)}" 
+                                             id="ContactId" value="{!correspondenceObj.Contact__c}"/>
+                          <apex:outputField rendered="{!if(correspondenceObj.Status__c == 'Closed' || isUserSHPCorrespondence ,true,false)}" 
+                                              id="ContactId1" value="{!correspondenceObj.Contact__c}"/>
+                      </td>
+                      <td style="width:25%;text-align:right;">
+                      <apex:outputLabel style="margin-right: 15px;color: #4a4a56;font-size: 100%;font-weight: bold;" for="RelationShip">
+                                                      Relationship</apex:outputLabel></td>
+                      <td style="width:25%;text-align:left;">
+                          <apex:inputField styleclass="CorrespondenceDisabled" required="true"  rendered="{!if(isUserSHPAgent && (correspondenceObj.Status__c != 'Closed' || IsBLank(correspondenceStatus)),true,false)}" 
+                              id="RelationShip" value="{!correspondenceObj.Relationship_To_Sub__c}"/>
+                          <apex:outputField rendered="{!if(correspondenceObj.Status__c == 'Closed' || isUserSHPCorrespondence ,true,false)}" id="RelationShip1" value="{!correspondenceObj.Relationship_To_Sub__c}"/>
+                      </td>
+                  </tr>
+                  
+                  <tr style="height: 27px;">
+                   <td style="text-align:right;" colspan="4">
+                       <apex:outputPanel id="Address">
+                       <apex:actionRegion rendered="{!if(CONTAINS(correspondenceObj.Vehicle_of_Correspondence__c,'Mail'),true,false)}" >
+                       <table border="0" style="width:50%;">
+                            <tr>
+                               <td style="text-align: center;font-size: 13px;font-weight: bold;height: 20px;padding-top: 10px;" colspan="4">Address Section</td> 
+                            </tr>
+                           <tr>
+                               <td style="width:50%;text-align: right;"><apex:outputLabel style="margin-right: 15px;color: #4a4a56;font-size: 100%;font-weight: bold;" for="Street1">
+                                                     Address 1</apex:outputLabel></td>
+                               <td style="width:50%;text-align: left;"> 
+                               <div class="requiredInput">
+                                   <apex:outputpanel rendered="{!if(CONTAINS(correspondenceObj.Vehicle_of_Correspondence__c,'Mail'),true,false)}" 
+                                       styleclass="requiredBlock" layout="_block"></apex:outputpanel>
+                                   <apex:inputtext styleclass="CorrespondenceDisabled" 
+                                   disabled="{!if(correspondenceStatus == 'Closed' || isUserSHPCorrespondence || isDisabled,true,false)}" 
+                                   id="Street1" value="{!correspondenceObj.Street__c}"/>
+                               </div>
+                               </td>
+                               <td  style="width:50%;text-align: right;white-space: nowrap;"><apex:outputLabel style="margin-right: 15px;color: #4a4a56;font-size: 100%;font-weight: bold;" for="Street2">
+                                                     Address 2</apex:outputLabel></td>
+                               <td style="width:50%;text-align: left;">
+                               
+                               <apex:outputpanel rendered="{!if(CONTAINS(correspondenceObj.Vehicle_of_Correspondence__c,'Mail'),true,false)}"
+                                layout="_block"></apex:outputpanel>  
+                               <apex:inputtext styleclass="CorrespondenceDisabled" disabled="{!if(correspondenceStatus == 'Closed' || isUserSHPCorrespondence || isDisabled,true,false)}" id="Street2" value="{!correspondenceObj.Address_2__c}"/>
+                               
+                               </td>
+                           </tr>
+                           <tr>
+                               <td style="width:50%;text-align: right;"><apex:outputLabel style="margin-right: 15px;color: #4a4a56;font-size: 100%;font-weight: bold;" for="city">
+                                                     City</apex:outputLabel></td>
+                               <td style="width:50%;text-align: left;">
+                               <div class="requiredInput">
+                               <apex:outputpanel rendered="{!if(CONTAINS(correspondenceObj.Vehicle_of_Correspondence__c,'Mail'),true,false)}"
+                               styleclass="requiredBlock" layout="_block"></apex:outputpanel>  
+                               <apex:inputtext disabled="{!if(correspondenceStatus == 'Closed' || isUserSHPCorrespondence || isDisabled,true,false)}" id="city" 
+                               value="{!correspondenceObj.City__c}"/>
+                               </div>
+                               </td>
+                               
+                               <td style="width:50%;text-align: right;"><apex:outputLabel style="margin-right: 15px;margin-right: 15px;color: #4a4a56;font-size: 100%;font-weight: bold;" for="State">
+                                                     State</apex:outputLabel></td>
+                               <td style="width:50%;text-align: left;">
+                               <div class="requiredInput"> 
+                                   <apex:outputpanel rendered="{!if(CONTAINS(correspondenceObj.Vehicle_of_Correspondence__c,'Mail'),true,false)}"
+                                   styleclass="requiredBlock" layout="_block"></apex:outputpanel>   
+                                   <apex:inputtext styleclass="CorrespondenceDisabled" disabled="{!if(correspondenceStatus == 'Closed' || isUserSHPCorrespondence || isDisabled,true,false)}" id="State" value="{!correspondenceObj.State__c}"/>
+                               </div>
+                               </td>
+                             </tr>
+                           <tr>
+                              <td style="width:50%;text-align: right;"><apex:outputLabel style="margin-right: 15px;color: #4a4a56;font-size: 100%;font-weight: bold;" for="zipCode">
+                                                     Zip Code</apex:outputLabel></td>
+                               <td style="width:50%;text-align: left;">
+                               <div class="requiredInput">
+                               <apex:outputpanel rendered="{!if(CONTAINS(correspondenceObj.Vehicle_of_Correspondence__c,'Mail'),true,false)}"
+                               styleclass="requiredBlock" layout="_block"></apex:outputpanel>   
+                               <apex:inputtext styleclass="CorrespondenceDisabled"  disabled="{!if(correspondenceStatus == 'Closed'|| isUserSHPCorrespondence || isDisabled,true,false)}" id="zipCode" value="{!correspondenceObj.ZipCode__c}"/>
+                               </div>
+                               </td>
+                               <td style="width:50%;text-align: right;"><apex:outputLabel style="margin-right: 15px;color: #4a4a56;font-size: 100%;font-weight: bold;" for="Country">
+                                                     Country</apex:outputLabel></td>
+                               <td style="width:50%;text-align: left;">
+                               <div class="requiredInput">
+                               <apex:outputpanel rendered="{!if(CONTAINS(correspondenceObj.Vehicle_of_Correspondence__c,'Mail'),true,false)}"
+                               styleclass="requiredBlock" layout="_block"></apex:outputpanel>  
+                               <apex:inputtext disabled="{!if(correspondenceStatus == 'Closed' || isUserSHPCorrespondence || isDisabled,true,false)}" 
+                                               id="Country" value="{!correspondenceObj.Country__c}"/>
+                               </div>                
+                               </td>
+                        
+                        
+                           </tr>
+                            <tr>
+                                <td style="width:50%;text-align: right;">
+                               <apex:outputLabel style="margin-right: 15px;color: #4a4a56;font-size: 100%;font-weight: bold;" for="SameAsDefualt">
+                                                     Same as Default</apex:outputLabel></td>
+                               <td style="width:50%;text-align: left;">
+                                   <!--<input type="checkbox" name="usrname" />-->
+                                   <apex:inputCheckbox styleclass="CorrespondenceDisabled" disabled="{!if(correspondenceStatus == 'Closed' || isUserSHPCorrespondence,true,false)}" 
+                                       id="SameAsDefualt" value="{!isDefault}">
+                                       <apex:actionSupport action="{!onDefaultCHKBoxClick}" status="loading" event="onclick" reRender="Address"/>
+                                   </apex:inputCheckbox>
+                               </td>
+                            </tr>
+                       </table>
+                     
+                       </apex:actionRegion>
+                       <apex:actionStatus id="loading" onstart="loading(true);" onstop="loading(false);" />
+                       </apex:outputPanel>
+                   </td>
+                  </tr>
+                  <tr>
+                      <td style="width:25%;height:30px;font-size: 15px;font-weight: bold;text-decoration: underline;padding-left: 111px;" colspan="4">Comments</td>
+                  </tr>
+                  <tr>
+                      <td style="font-size: 15px;" colspan="4">
+                          <div style="margin: 0px auto;width: 85%;" class="requiredInput"><div class="requiredBlock"></div>
+                          <apex:inputTextarea label="Comments" required="true"  rows="5"  rendered="{!!if(correspondenceStatus == 'Closed',true,false)}"
+                                          style="width: 49%;resize: none;" value="{!correspondenceComments}"/>
+                          </div>                
+                          <apex:inputTextarea readonly="true" disabled="true" rows="5" rendered="{!if(correspondenceStatus == 'Closed',true,false)}" 
+                                          style="width: 49%;resize: none;" value="{!correspondenceComments}"/>                
+                      </td>
+                  </tr>
+              </table>
+          </div>
+
+          <script>
+              $(document).ready(function(){
+                  if('{!isUserSHPAgent}' == 'true' || '{!correspondenceStatus}' == 'Closed') {
+                       $('.dateSentToVendor').prop('disabled', true);
+                  } else if('{!isUserSHPCorrespondence}' == 'true') {
+                       $('.dateSentToVendor').prop('disabled', false);
+                  }
+                  $('.CorrespondenceRecTypeDisabled').prop('disabled', true);
+              });
+          </script>
+      <br></br>
+        <br></br>
+        <!--Start REQ 3315: To attach documents to Correspondence Requests-->
+        <apex:pageBlockSection title="Attachment" >
+            <apex:pageBlockSectionItem rendered="true">
+                Please specify a file, or a set of files:
+                <apex:inputfile value="{!attachment.body}" filename="{!attachment.name}" id="inputfileId"/>
+            </apex:pageBlockSectionItem>
+            <apex:actionRegion >
+                 <apex:commandButton value="Upload"  immediate="true" action="{!upload}" rendered="{!displaycomments}"  /> 
+            </apex:actionRegion>
+        </apex:pageBlockSection>
+        <!--END REQ 3315:To attach documents to Correspondence Requests-->
+        
+    </apex:pageBlock>
+    </apex:form>
+    <!-- Start  REQ 3406:To show CorrespondenceComment records in related list -->
+    <apex:pageBlock title="Correspondence Comments" rendered="{!displaycomments}" >
+        <apex:pageBlockTable value="{!correspondenceComment}" var="corresComment">
+            <apex:column value="{!corresComment.Name}"/>
+            <apex:column >
+                <apex:facet name="header">Correspondence Comments</apex:facet>
+                <apex:outputText value="{!left(corresComment.Comments__c,100)}"/>
+            </apex:column>
+            <apex:column >
+                <apex:facet name="header">Created By</apex:facet>
+                {!corresComment.CreatedBy.Name} {!corresComment.CreatedDate}
+            </apex:column>
+            <apex:column >
+                <a id="outputLinkId" name="{!corresComment.Id}" href=""><u>View</u></a>
+                <div id="{!corresComment.Id}" title="{!corresComment.Name} - {!corresComment.CreatedBy.Name}" style="display:none">
+                  <p>{!corresComment.Comments__c}</p>
+                </div>
+            </apex:column>
+        </apex:pageBlockTable>
+    </apex:pageBlock>       
+    <!-- END  REQ 3406:To show CorrespondanceComment records in related list-->
+    
+    <!--Start REQ 3315: To Show attached documents in Related list-->
+    <apex:outputPanel id="relatedlist" >
+        <apex:relatedList subject="{!Correspondence__c}" list="CombinedAttachments"  />
+    </apex:outputPanel>
+     <!--END REQ 3315: To Show attached documents in Related list-->
+    <apex:pageBlock >     
+      <apex:outputPanel rendered="{!if($CurrentPage.Parameters.Id != null,true,false)}">
+              <apex:outputPanel rendered="{!if(correspondenceObj.Status__c != 'Closed',true,false)}">
+                  <apex:pageBlockSection columns="2" title="System Information"  collapsible="false">
+                      <apex:pageBlockSectionItem >
+                      <apex:outputLabel style="color: #4a4a56;font-size: 100%;font-weight: bold;" for="CreatedBy">
+                                                             Created By</apex:outputLabel>
+                      <apex:outputtext id="CreatedBy" value="{!wrSystemInfo.createdBy}"/>
+                      </apex:pageBlockSectionItem>
+                      <apex:pageBlockSectionItem >
+                      <apex:outputLabel style="color: #4a4a56;font-size: 100%;font-weight: bold;" for="CreatedDate">
+                                                             Created Date</apex:outputLabel>
+                      <apex:outputtext id="CreatedDate" value="{!wrSystemInfo.createdDate}"/>
+                      </apex:pageBlockSectionItem>
+                  </apex:pageBlockSection>
+              </apex:outputPanel>
+            
+              <apex:outputPanel rendered="{!if(correspondenceObj.Status__c == 'Closed',true,false)}">
+                  <div class="pbSubheader brandTertiaryBgr tertiaryPalette"><h3>System Information</h3></div>
+                  <div class="pbSubsection">
+                      <table class="detailList" style="width:90%;margin:0px auto;" border="0" cellpadding="0" cellspacing="0">
+                          <tr>
+                              <td style="text-align:right;"><apex:outputLabel style="color: #4a4a56;font-size: 100%;font-weight: bold;" for="CreatedBy">
+                                                                 Created By</apex:outputLabel>
+                              </td>
+                              <td style="text-align:left;padding-left: 14px;"><apex:outputtext id="CreatedBy" value="{!wrSystemInfo.createdBy}"/>
+                              </td>
+                              <td style="text-align:right;"><apex:outputLabel style="color: #4a4a56;font-size: 100%;font-weight: bold;" for="CreatedDate">
+                                                                 Created Date</apex:outputLabel>
+                              </td>
+                              <td style="text-align:left;padding-left: 14px;"><apex:outputtext id="CreatedDate" value="{!wrSystemInfo.createdDate}"/>
+                              </td>
+                              <td  style="text-align:right;">
+                              <apex:outputLabel style="color: #4a4a56;font-size: 100%;font-weight: bold;" for="ClosedDate">
+                                                                 Closed Date</apex:outputLabel>
+                              </td>
+                              <td style="text-align:left;padding-left: 14px;"><apex:outputtext id="ClosedDate" value="{!wrSystemInfo.closedDate}"/>
+                              </td>
+                              <td style="text-align:right;"><apex:outputLabel style="color: #4a4a56;font-size: 100%;font-weight: bold;" for="Duration">
+                                                                 Duration in days</apex:outputLabel>
+                              </td>
+                              <td style="text-align:left;padding-left: 14px;"><apex:outputtext id="Duration" value="{!wrSystemInfo.duration}"/>
+                              </td>
+                          </tr>
+                          </table>
+                          </div>    
+              </apex:outputPanel>
+          </apex:outputPanel>
+    </apex:pageBlock>     
+</apex:page>

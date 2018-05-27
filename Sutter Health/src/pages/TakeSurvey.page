@@ -1,0 +1,228 @@
+<!--
+*     Page Name   : TakeSurvey
+*     Class Name  : ViewSurveyController
+*     Author      : IDC Offshore
+*     Project Name: CRM - SFT - Sutter Health
+*     Description : Controller associated with pages rendering the survey.
+*                  Used by SurveyPage, ResultsPage, TakeSurvey
+*
+*       History
+*      
+*       VERSION         AUTHOR              DATE              DETAIL 
+*         2.0          Saddam Hussain      20/03/2015       Updates  the class to include Submit a survey only once by a user,  and expire survey 
+*                                                             link  after 15 days  functionality as part of the REQ 3336
+*                                                            
+*         3.0           Abhishek Gupta      24/03/2015      Done the changes for SHP sale survey and SHP Service survey(3381 and 3383 )
+-->
+
+<apex:page standardcontroller="Survey__c" extensions="ViewSurveyController" cache="false" sidebar="false" showheader="false">
+
+
+    <style>
+        <apex:outputText value="{!surveyContainerCss}" /> #survey_container_expired {
+            margin: 0px;
+            width: 100%;
+            margin-top: 220px;
+            height: 50px;
+            padding: 5px;
+            font-size: 15px;
+            -moz-box-shadow: 0 0 20px #CCCCCC;
+            -webkit-box-shadow: 0 0 20px #CCCCCC;
+        }
+        
+        #survey_container_expired_logo {
+            margin: 0px;
+            width: 100%;
+            margin-top: 60px;
+            height: 50px;
+            padding: 5px;
+            font-size: 15px;
+            -moz-box-shadow: 0 0 20px #CCCCCC;
+            -webkit-box-shadow: 0 0 20px #CCCCCC;
+        }
+    </style>
+
+    <script language="Javascript">
+        function disableButton(objSubmitBtn) {
+            objSubmitBtn.disabled = true;
+            objSubmitBtn.value = 'Submitting...';
+            objSubmitBtn.style.cursor = "default";
+            objSubmitBtn.style.pointerevents = "none";
+            objSubmitBtn.style.color = "#c0c0c0";
+            objSubmitBtn.style.backgroundColor = "#ffffff";
+        }
+    </script>
+
+    <div id="survey_container">
+        <apex:form id="theForm">
+            <apex:outputpanel id="theFormPanel">
+                <apex:pageMessages />
+                <apex:outputPanel id="seeSurvey" rendered="{!thankYouRendered == false && expiredSurvey == false && alreadyTaken == false}">
+                    <apex:outputField value="{!Survey__c.Survey_Header__c}" />
+                    <h1><apex:outputField value="{!Survey__c.Name}" rendered="{!Survey__c.Hide_Survey_Name__c == false}" /></h1>
+
+                </apex:outputPanel>
+
+
+                <apex:pageBlock rendered="{!thankYouRendered == false && expiredSurvey == false && alreadyTaken == false}">
+                    <div id="qList">
+
+                        <apex:repeat value="{!allQuestions}" var="qPreview" id="aQPreview">
+
+                            <div id="{!qPreview.id}">
+
+                                <apex:pageBlock id="pblock">
+                                    <h1 class="question">
+                                    <!-- Req no  3381  SHP Sales  Start adding  extra text only in Sales survey  -->
+                                        <apex:outputpanel id="outpanelQue3" rendered="{!if(qPreview.orderNumber=='3' && (Survey__c.Name =='SH CSAT Survey' || Survey__c.Name == $Label.CL_158_Employer_Survey || Survey__c.Name == $Label.CL_159_Broker_Survey),true,false)}" >
+                                            <span style="font-weight: normal;">Using a scale of 0 -10, where zero means low quality, five means neutral and ten means high quality</span>
+                                            <br/>
+                                        </apex:outputpanel>
+                                        <apex:outputpanel id="outpanelQue4"  rendered="{!if(qPreview.orderNumber=='4'  && (Survey__c.Name =='SH CSAT Survey' || Survey__c.Name == $Label.CL_158_Employer_Survey  || Survey__c.Name == $Label.CL_159_Broker_Survey),true,false)}">
+                                            <span style="font-weight: normal;">Using a scale of 0-10, where zero means not at all likely, five means neutral, and ten means extremely likely</span>
+                                            <br/>
+                                        </apex:outputpanel>
+                                        <!-- Req no  3381 SHP Sales End   -->
+                                        <span class="questionNumber">{!qPreview.orderNumber}</span>
+                                        {!qPreview.question}
+                                        <apex:outputPanel rendered="{!qPreview.required}" styleClass="requiredText">
+                                            ({!$Label.LABS_SF_Required})
+                                        </apex:outputPanel>
+                                    </h1>
+                                    <div id="radio">
+                                        <apex:selectRadio layout="pageDirection" rendered="{!qPreview.renderSelectRadio}" value="{!qPreview.selectedOption}">
+                                            <apex:selectOptions value="{!qPreview.singleOptions}" />
+                                        </apex:selectRadio>
+                                    </div>
+                                    <div id="checkbox">
+                                        <apex:selectCheckboxes layout="pageDirection" rendered="{!qPreview.renderSelectCheckboxes}" value="{!qPreview.selectedOptions}">
+                                            <apex:selectOptions value="{!qPreview.multiOptions}" />
+                                        </apex:selectCheckboxes>
+                                    </div>
+                                    <div id="text">
+                                        <apex:inputTextArea cols="50" rows="10" rendered="{!qPreview.renderFreeText}" value="{!qPreview.choices}" />
+                                    </div>
+                                    <div id="row">
+                                        <apex:selectRadio rendered="{!qPreview.renderSelectRow}" value="{!qPreview.selectedOption}">
+                                            <apex:selectOptions value="{!qPreview.rowOptions}" />
+                                        </apex:selectRadio>
+                                    </div>
+                                    <!-- IN ORDER TO ADD A QUESTION TYPE YOU MUST CHANG THE JAVASCRIPT BELOW AS WELL -->
+                                </apex:pageBlock>
+
+                            </div>
+                            <!-- qPreview.id -->
+
+                        </apex:repeat>
+                    </div>
+                    <!-- qList -->
+                </apex:pageBlock>
+
+                <apex:outputPanel rendered="{!thankYouRendered == false  && expiredSurvey == false && alreadyTaken == false}">
+
+                    <apex:outputPanel rendered="{!isInternal}">
+                        {!$Label.LABS_SF_Answer_as}:
+                        <apex:selectRadio value="{!anonymousAnswer}">
+                            <apex:selectOptions value="{!anonymousOrUser}" />
+                            <apex:actionSupport event="onchange" rerender="hiddenAnonymousAnswer" />
+                        </apex:selectRadio>
+                        <apex:inputHidden value="{!anonymousAnswer}" id="hiddenAnonymousAnswer" />
+                        <BR />
+                    </apex:outputPanel>
+
+                    <apex:commandButton action="{!submitResults}" value="{!$Label.LABS_SF_SubmitSurvey}" onclick="disableButton(this);" rerender="theFormPanel,seeSurvey" />
+
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!alreadyTaken}">
+                    <!--      <p><b>You have already taken this survey. Thank you for your feedback !!</b></p> -->
+                    <div align="center" id="survey_Submitted">
+                            <!-- Req no  3381 and 3383   (SHP Sales  SHP Service) image will display only for SHP survey  -->
+                                <apex:outputPanel rendered="{!if((Survey__c.Name == $Label.CL_162_Portal_Survey || Survey__c.Name == $Label.CL_161_Provider_Survey || Survey__c.Name == $Label.CL_160_Member_Survey ||  Survey__c.Name == $Label.CL_158_Employer_Survey || Survey__c.Name == $Label.CL_159_Broker_Survey),true,false)}">
+                                
+                                <apex:image id="theImage" value="{!$Resource.Sutter_Health_Plus}"/>
+                        </apex:outputPanel>
+                            
+                    </div>
+                    
+                    <apex:outputPanel rendered="{!if(check.size > 0, true,false )}">
+                        <p><b>You have already taken this survey. It was completed on &nbsp; 
+              
+                                  <apex:outputText value="{0,date,MMMM dd, yyyy}">
+                                  <apex:param value="{!check[0].SurveyTaker__r.Createddate}" />
+                    </apex:outputText> for Customer Inquiry {!cs[0].CaseNumber} Thank you for your feedback!!</b></p>
+                    </apex:outputPanel>
+                        <!-- Req no  3381 and 3383   (SHP Sales  SHP Service)  rendered only if contact id not null-->
+                    <apex:outputPanel rendered="{!if(checkContact.size > 0  , true,false )}">
+                        <p><b>You have already taken this survey. It was completed on &nbsp; 
+                            <apex:outputText value="{0,date,MMMM dd, yyyy}">
+                                <apex:param value="{!checkContact[0].SurveyTaker__r.Createddate}" />
+                            </apex:outputText> </b></p>
+                    </apex:outputPanel>
+                    <!-- Req no  3381 and 3383   (SHP Sales  SHP Service)  rendered only if SCN id not null-->
+                    <apex:outputPanel rendered="{!if(checkScn.size > 0, true,false )}">
+                        <p><b>You have already taken this survey. It was completed on &nbsp; 
+                                <apex:outputText value="{0,date,MMMM dd, yyyy}">
+                                    <apex:param value="{!checkScn[0].SurveyTaker__r.Createddate}" />
+                            </apex:outputText> </b></p>
+                    </apex:outputPanel>
+                    <apex:pageBlock rendered="{!alreadyTaken}">
+                        <div id="qList">
+                            <apex:variable value="{!1}" var="rowNum" />
+                            <apex:repeat value="{!qResponseList}" var="qPreview" id="questionResponseRepeat">
+                                <div>
+                                    <apex:pageBlock id="pblock">
+                                    <!-- Req no  3381  SHP Sales  Start adding  extra text only in Sales survey  -->
+                                      <apex:outputpanel id="outpanelReadQue3" rendered="{!if(rowNum==3 && (Survey__c.Name =='SH CSAT Survey' ||  Survey__c.Name == $Label.CL_159_Broker_Survey || Survey__c.Name == $Label.CL_158_Employer_Survey ),true,false)}">
+                                            <span>Using a scale of 0 -10, where zero means low quality, five means neutral and ten means high quality</span>
+                                            <br/>
+                                        </apex:outputpanel>
+                                        <apex:outputpanel id="outpanelReadQue4" rendered="{!if(rowNum==4 && (Survey__c.Name =='SH CSAT Survey' ||  Survey__c.Name ==  $Label.CL_159_Broker_Survey || Survey__c.Name == $Label.CL_158_Employer_Survey ),true,false)}">
+                                            <span>Using a scale of 0-10, where zero means not at all likely, five means neutral, and ten means extremely likely</span>
+                                            <br/>
+                                        </apex:outputpanel>
+                                        <!-- Req no  3381  SHP Sales  End  -->
+                                        <h1 class="question">
+                                            <span class="questionNumber">{!rowNum}</span>
+                                            {!qPreview.que}
+                                        </h1>
+                                        <br></br>
+                                        <br></br>
+                                        <apex:outputText value="{!qPreview.response}" />
+                                    </apex:pageBlock>
+                                </div>
+                                <apex:variable var="rowNum" value="{!rowNum + 1}" />
+                            </apex:repeat>
+                        </div>
+                    </apex:pageBlock>
+                </apex:outputPanel>
+
+                <apex:outputPanel rendered="{!thankYouRendered}">
+                    <apex:outputText value="{!surveyThankYouText}" escape="false" />
+                </apex:outputPanel>
+                <div id="survey_container_expired">
+                    <apex:outputPanel rendered="{!expiredSurvey}">
+                        <b><apex:outputText value="{!$Label.survey_expired}"  /></b>
+                        <!-- <img src="https://mysutterconnection.force.com/resource/1428440936000/SutterSharedServices"/> -->
+
+                    </apex:outputPanel>
+                </div>
+            </apex:outputpanel>
+        </apex:form>
+    </div>
+    <div align="center" id="survey_container_expired_logo">
+
+        <apex:outputPanel rendered="{!if(expiredSurvey == true &&(Survey__c.Name != $Label.CL_162_Portal_Survey || Survey__c.Name != $Label.CL_161_Provider_Survey || Survey__c.Name != $Label.CL_160_Member_Survey ||  Survey__c.Name != $Label.CL_158_Employer_Survey || Survey__c.Name != $Label.CL_158_Employer_Survey), true, false)}">
+
+            <img src="https://mysutterconnection.force.com/resource/1428440936000/SutterSharedServices" />
+
+        </apex:outputPanel>
+        
+        <apex:outputPanel rendered="{!if(expiredSurvey == true &&(Survey__c.Name == $Label.CL_162_Portal_Survey || Survey__c.Name == $Label.CL_161_Provider_Survey || Survey__c.Name == $Label.CL_160_Member_Survey ||  Survey__c.Name == $Label.CL_158_Employer_Survey || Survey__c.Name == $Label.CL_158_Employer_Survey), true, false)}">
+
+            <apex:image id="theImage" value="{!$Resource.Sutter_Health_Plus}"/>
+
+        </apex:outputPanel>
+        
+
+    </div>
+</apex:page>

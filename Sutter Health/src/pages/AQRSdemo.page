@@ -1,0 +1,973 @@
+<apex:page sidebar="false"  docType="html-5.0" applyHtmlTag="true" controller="AQRSCRMController" standardStylesheets="false">
+    <html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}
+    body{font-size:12px !important;}
+    /*----------------JQ Table style ----------------------------*/
+    .dataTable tbody th, table.table-bordered.dataTable tbody td {
+    border-bottom-width: 0;
+    border: 0px !important;
+    border-left: 1px solid #ccc !important;
+    }
+
+    .pagination li{margin-left:0px !important;}
+    .dataTables_length{margin-top:10px !important;}
+    div.dataTables_wrapper div.dataTables_length select {width: 54px !important;display: inline-block;padding: 0px !important;
+    border: 1px solid #ccc !important;border-radius: 4px !important;height: 30px !important;}
+    .dataTables_length{float:left !important;}
+    div.dataTables_wrapper div.dataTables_filter input {
+    margin-left: 0.5em;border-top-left-radius: 4px !important;
+    border-bottom-left-radius: 4px !important;border: 1px solid #ddd !important; padding-left: 10px !important;transition: all 0.1s linear !important; 
+    padding: 6px 12px !important;box-shadow: inset 0 1px 1px rgba(0,0,0,.075) !important;height:30px !important;}
+    th, td { white-space: nowrap; }
+    div.dataTables_wrapper {
+    margin: 0 auto;
+    }
+    /*----------------JQ Table style ----------------------------*/
+    .Show_morefields1,.Show_morefields11{cursor:pointer;position:absolute;left:19%;top:44px;Z-index:999;}
+    .Show_morefields2,.Show_morefields22{cursor:pointer;position:absolute;left:19%;top:44px;Z-index:999;}
+    a:hover.Show_morefields1{text-decoration:none;}
+    a:hover.Show_morefields2{text-decoration:none;}
+    a:hover.Show_morefields11{text-decoration:none;}
+    a:hover.Show_morefields22{text-decoration:none;}
+    select[multiple], select[size] {
+    height: auto;
+    min-height: 280px;
+    }
+    .fieldsselct option{padding:6px 4px 6px 4px;}
+    div.dataTables_scrollBody thead {
+    vertical-align: top;
+    display: table-header-group !important;
+    }
+    .tableclass{
+    overflow-x: auto !important;
+    border:1px solid black;
+    white-space: nowrap; 
+
+    }
+    #example_wrapper>.row{overflow-x:auto;}
+    #gapsincare_wrapper>.row{overflow-x:auto !important;}
+
+    /* style for CRM Search tab start here*/
+    .pagination{float:right !important;}
+    .left-arrow {margin-top: 0px !important;margin-left:-14px !important;background: #E9E9E9 !important;border: none !important;color:#000 !important;}
+    .left-arrow:hover {margin-top: 0px !important;margin-left: -14px !important;background: #E9E9E9 !important;border: none !important;color:#000 !important;}
+    .right-arrow {margin-top: 0px !important;margin-left: -30px !important;background-color: #E9E9E9 !important;border: none !important;color:#000 !important;}
+    .right-arrow:hover {margin-top: 0px !important;background-color: #E9E9E9 !important;border: none !important;color:#000 !important;}
+    .form-group {
+    margin-bottom: 5px !important;
+    }
+    .tabledesign{min-height:220px !important;}
+    .arrowmenuicons{padding:0px;}
+    button.btn{height:30px !important;border-radius:4px !important;padding: 4px 12px !important;}
+    .panel-body{padding:0px !important;}
+    .fcontainerbox{margin-bottom:-10px !important;}
+    .panel-body input{height:30px !important;}
+    .nav-tabs { padding-bottom:0px !important;}
+    .tab-content { padding-top:0px !important;}
+    .planingtable h3{padding-top:16px !important;margin-top: 0px !important;}
+    .tabledisplay h3{padding-top:16px !important;margin-top: 0px !important;}
+    .panel-login {
+    border-color: #ccc;
+    -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+    }
+    .panel-login>.panel-heading {
+    color: #00415d;
+    background-color: #fff;
+    border-color: #fff;
+    text-align:center;
+    }
+    .panel-login>.panel-heading a{
+    text-decoration: none;
+    color: #30b2b1;
+    font-weight: normal;
+    font-size: 12px;
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+    }
+    .panel-login>.panel-heading a.active{
+    color: #30b2b1;
+    font-size: 15px;
+    border: 1px solid #30b2b1;
+    padding: 4px 6px 4px 6px;
+    border-radius: 4px;
+    }
+    .panel-login>.panel-heading hr{
+    margin-top: 32px;
+    margin-bottom: 0px;
+    clear: both;
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
+    background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+    background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+    background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+    }
+    .panel-login input[type="text"],.panel-login input[type="email"],.panel-login input[type="password"] {
+    height: 45px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+    }
+    .panel-heading {padding: 10px 0px 10px 0px !important;}
+    .panel-login input:hover,
+    .panel-login input:focus {
+    outline:none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border-color: #ccc;
+    }
+    .btn-login {
+    background-color: #59B2E0;
+    outline: none;
+    color: #fff;
+    font-size: 14px;
+    height: auto;
+    font-weight: normal;
+    padding: 14px 0;
+    text-transform: uppercase;
+    border-color: #59B2E6;
+    }
+    .btn-login:hover,
+    .btn-login:focus {
+    color: #fff;
+    background-color: #53A3CD;
+    border-color: #53A3CD;
+    }
+    .forgot-password {
+    text-decoration: underline;
+    color: #888;
+    }
+    .forgot-password:hover,
+    .forgot-password:focus {
+    text-decoration: underline;
+    color: #666;
+    }
+
+    .btn-register {
+    background-color: #1CB94E;
+    outline: none;
+    color: #fff;
+    font-size: 14px;
+    height: auto;
+    font-weight: normal;
+    padding: 14px 0;
+    text-transform: uppercase;
+    border-color: #1CB94A;
+    }
+    .btndesign {background:#30b2b1 !important;}
+    .searchbtn{background:#30b2b1 !important;}
+    .planingtable{margin-top:10px !important;}
+    .planingtable h5{margin-top:10px !important;}
+    .btn-register:hover,
+    .btn-register:focus {
+    color: #fff;
+    background-color: #1CA347;
+    border-color: #1CA347;
+    }
+    .tabsetpadding{padding:0px;}
+    /* style for CRM Search tab closed here*/
+
+
+    .nav-tabs {
+    padding-bottom:0px; 
+    }
+    .nav-tabs {
+    border-bottom: 0px solid #ddd !important;
+    }
+    .bodycontainer{padding-top:0px !important ;}
+    .tab-content{padding-top:0px !important ;}
+    .panel-body {
+    padding: 15px;
+    height: 390px;
+    overflow: visible;
+    overflow-y: auto;
+    }
+    .arrowvalue{margin-left:-50px !important;}
+    .table>thead:first-child>tr:first-child>th{font-size:12px !important;}
+    .dataTables_scrollHeadInner{width:100% !important;}
+    .dataTables_scrollBody{width:100% !important;}
+    div.dataTables_scrollHead table.dataTable { margin-bottom: 0 !important; width: 100% !important;}
+    div.dataTables_scrollBody>table {border-top: none;margin-top: 0 !important;margin-bottom: 0 !important;width: 100% !important;}
+    @media only screen and (max-width:767px) {
+    .Show_morefields1{cursor:pointer;position:absolute;left:60%;top:42px;Z-index:999;}
+    .Show_morefields2{cursor:pointer;position:absolute;left:60%;top:42px;Z-index:999;}
+    a:hover.Show_morefields1{text-decoration:none;}
+    a:hover.Show_morefields2{text-decoration:none;}
+    .searchbox {padding:5px 15px 5px 15px !important;}
+    .tabledesign{padding-left:0px !important;padding-right:0px !important;}
+    .panel-heading {padding: 10px 0px 10px 0px !important;}
+    .panel-login>.panel-heading a.active { color: #30b2b1;font-size: 12px;border: 0px solid #30b2b1; padding: 0px 0px 6px;border-radius: 4px;
+    border-bottom: 1px solid #30b2b1 !important;}
+    .panel-login>.panel-heading hr {margin-top: 30px;margin-bottom: 0px;clear: both;border: 0;height: 1px;
+    background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));}
+    #no-more-tables tr td {
+    padding-left: 50% !important;
+    }
+    .div.dataTables_wrapper{margin-top:10px !important;}
+    div.dataTables_wrapper div.dataTables_filter input {
+    margin-left: 0.5em;border-top-left-radius: 4px !important;
+    border-bottom-left-radius: 4px !important;border: 1px solid #ddd !important; padding-left: 10px !important;transition: all 0.1s linear !important; 
+    padding: 6px 12px !important;box-shadow: inset 0 1px 1px rgba(0,0,0,.075) !important;height:30px !important;width:80% !important;}
+    .table>thead:first-child>tr:first-child>th{font-size:12px !important;}
+    /* Force table to not be like tables anymore */
+    #no-more-tables table,head,tbody,th,td,tr {
+    display: block;padding:0px !important;
+    }
+    #filterhide{padding-left:0px !important;padding-right:0px !important;}
+    thead tr {
+    display: none;
+    }
+    table{border:0px solid #ccc !important;}
+    tr {
+    border: 1px solid #ccc;  margin: 0px 0px 10px 0px;
+    }
+    td {
+    border: none;
+    border-bottom:1px solid #eee !important;
+    position: relative;
+    padding-left: 50% !important;
+    white-space: normal;
+    text-align:left;
+    min-height: 30px;
+    overflow: hidden;
+    word-break:break-all;
+    } 
+
+    td:before {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    text-align:left;
+    font-weight: bold;
+    }
+    td:before { content: attr(data-title); }
+
+    }
+    @media (min-width: 768px)
+    {
+    .modal-dialog {width: 750px !important; margin: 30px auto;}
+    }
+
+    /* STYLE SHEET FOR MULTIPLE SELECT OPTION  */
+    .show-tick{min-height:auto !important;height:auto !important;}
+    .multiselect-container li{margin-left:0px !important;}
+        .multiselect {margin-top:0px !important;
+    background: #30b2b1 !important;border-color: #30b2b1 !important;color:#fff;}
+    span.multiselect-native-select {
+    position: relative
+}
+span.multiselect-native-select select {
+    border: 0!important;
+    clip: rect(0 0 0 0)!important;
+    height: 1px!important;
+    margin: -1px -1px -1px -3px!important;
+    overflow: hidden!important;
+    padding: 0!important;
+    position: absolute!important;
+    width: 1px!important;
+    left: 50%;
+    top: 30px
+}
+.multiselect-container {
+    position: absolute;
+    list-style-type: none;
+    margin: 0;
+    padding:0px 5px 0px 0px !important;
+}
+.multiselect-container .input-group {
+    margin: 5px
+}
+.multiselect-container>li {
+    padding: 0
+}
+.multiselect-container>li>a.multiselect-all label {
+    font-weight: 700
+}
+.multiselect-container>li.multiselect-group label {
+    margin: 0;
+    padding: 3px 20px 3px 20px;
+    height: 100%;
+    font-weight: 700
+}
+.multiselect-container>li.multiselect-group-clickable label {
+    cursor: pointer
+}
+.multiselect-container>li>a {
+    padding: 0
+}
+.multiselect-container>li>a>label {
+    margin: 0;
+    height: 100%;
+    cursor: pointer;
+    font-weight: normal;
+    padding: 3px 0 3px 20px;
+    font-size:11px !important;
+}
+.multiselect-container>li>a>label.radio, .multiselect-container>li>a>label.checkbox {
+    margin: 0
+}
+.multiselect-container>li>a>label>input[type=checkbox] {
+    margin-bottom: 5px;width:1em !important;
+    margin-top:-8px !important;margin-left:-16px !important;
+}
+.btn-group>.btn-group:nth-child(2)>.multiselect.btn {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px
+}
+.form-inline .multiselect-container label.checkbox, .form-inline .multiselect-container label.radio {
+    padding: 3px 20px 3px 40px
+}
+.form-inline .multiselect-container li a label.checkbox input[type=checkbox], .form-inline .multiselect-container li a label.radio input[type=radio] {
+    margin-left: -20px;
+    margin-right: 0
+}
+    /* STYLE SHEET FOR MULTIPLE SELECT OPTION END  */
+    </style>
+    
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <apex:stylesheet value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/bootstrap.min.css')}"/>
+    <apex:Stylesheet value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/bootstrap-datepicker.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/fixedColumns.dataTables.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/dataTables.bootstrap.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/site.css')}"/>
+
+    <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/jquery-1.12.4.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/bootstrap.min.js.download')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/jquery.dataTables.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/dataTables.bootstrap.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/dataTables.fixedColumns.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/main.js')}"/> 
+    <apex:includeScript value="{!$Resource.Bootstrap_multipleSelect}"/>
+    </head>
+    <script>
+    </script>
+    <apex:form >
+    <body class="">    
+    <div class="clear" style="clear:both;"></div>    
+    <div class="container body-content">
+    <script type="text/javascript">
+    var urlPrefix = window.location.href;
+    var UpdatedBy = "RamachP";
+    </script>
+    <form action="http://dcdwweb025:8871/" method="post">    
+    <div class="bodycontainer ng-scope" ng-app="myApp" ng-controller="HomeCtrl" id="GridGrid" style="padding-top:0px;">
+    <div class="bodycontainer">
+    <ul class="nav nav-tabs">
+    </ul>
+    <div class="tab-content">
+    <div id="home" class="tab-pane fade active in"> <!-- active -->
+    <div class="row" style="margin-top:8px">
+    <div class="col-md-12 tabledesign">
+    <div class="col-md-3 searchbox" id="searchboxid">
+    <div class="fcontainerbox">
+    <div id="accordion" class="panel-group">
+    <div class="panel panel-default">
+    <div class="panel panel-login">
+    <div class="panel-heading">
+    <div class="col-md-12">
+    
+    <div class="col-md-6 col-sm-6 col-xs-6" style="padding:0px !important;">
+    <a href="#" class="active" id="loginformlink">Pre-Visit Planning </a>
+    </div>
+    <div class="col-md-6 col-sm-6 col-xs-6" style="padding:0px !important;">
+    <a href="#" id="registerformlink">Gaps in Care</a>
+    </div>
+    </div>
+    <hr/>
+    </div>
+    <div class="panel-body">
+    <div class="col-md-12">
+    <div id="" >
+    <apex:outputPanel id="panel1">
+    <div class="form-group Pre_isitPlanning ">
+    <label>Foundation </label>
+    <apex:outputText value="{!filterWrap.foundation}" styleClass="form-control"></apex:outputText>
+    </div>                                                    
+    <div class="form-group Pre_isitPlanning">
+    <label>Facility </label>
+    <apex:selectList value="{!filterWrap.lstFacilities}" multiselect="true" size="3" styleClass="form-control show-tick">
+                <apex:selectOptions value="{!facilities}" />
+                <apex:actionSupport event="onchange" action="{!actionUpdatePicklistVals}" rerender="panel1,scriptPanel" />
+            </apex:selectList>
+<!--<apex:selectList size="1" id="facilities" multiselect="true" styleClass="multiselect-ui form-control show-tick" onblur="assignDegreeLevel(this.value);">
+    <apex:selectOptions value="{!filterWrap.lstFacilities}"/>
+    </apex:selectList>-->
+
+
+    </div>
+    <!--<apex:actionFunction name="assignDegreeLevel" action="{!providerAttributeValues}" reRender="divisions">
+    <apex:param name="strFaci" assignTo="{!strFaci}" value=""/>
+    </apex:actionFunction> -->
+    <div class="form-group Pre_isitPlanning">
+    <label>Division </label>
+    <apex:selectList value="{!filterWrap.lstDivision}" multiselect="true" size="3" styleClass="form-control show-tick">
+                <apex:selectOptions value="{!divisions}" />
+                <apex:actionSupport event="onchange" action="{!actionUpdatePicklistVals}" rerender="panel1,scriptPanel" />
+            </apex:selectList>
+    <!--<apex:selectList id="divisions" size="2" required="true" multiselect="true" styleClass="multiselect-ui1 form-control show-tick">
+    <apex:selectOptions value="{!filterWrap.lstDivision}"/>
+    </apex:selectList>-->
+    </div>
+
+    <div class="form-group Pre_isitPlanning">
+    <label>Measure </label>
+    <select class="form-control show-tick">
+    <option>-- none--</option>
+    <option>BreastCancerScreening</option>
+    <option>Diabetes Care HbA1c (2 Tests)</option>
+    <option>Hypertension Controlling High Blood Pressure</option>
+    <option>Asthma Medication Ratio</option>
+    <option>Colorectal Cancer Screening</option>
+    </select>
+    </div>
+
+    <div class="form-group Pre_isitPlanning">
+    <label>Department </label>
+    <apex:selectList value="{!filterWrap.lstDepartment}" multiselect="true" size="3" styleClass="form-control show-tick">
+                <apex:selectOptions value="{!department}" />
+                <apex:actionSupport event="onchange" action="{!actionUpdatePicklistVals}" rerender="panel1,scriptPanel" />
+            </apex:selectList>
+    <!--<apex:selectList id="department" size="2" required="true" multiselect="true" styleClass="multiselect-ui2 form-control show-tick">
+    <apex:selectOptions value="{!filterWrap.lstDepartment}"/>
+    </apex:selectList>-->
+    </div>
+    <div class="form-group Pre_isitPlanning">
+    <label>Provider </label>
+    <apex:selectList value="{!filterWrap.lstProvider}" multiselect="true" size="3" styleClass="form-control show-tick">
+                <apex:selectOptions value="{!provider}" />
+                <apex:actionSupport event="onchange" action="{!actionUpdatePicklistVals}" rerender="panel1,scriptPanel" />
+            </apex:selectList>
+    <!--<apex:selectList id="provider" size="2" required="true" multiselect="true" styleClass="multiselect-ui3 form-control show-tick">
+    <apex:selectOptions value="{!filterWrap.lstProvider}"/>
+    </apex:selectList>-->
+    </div>
+    <div class="form-group Pre_isitPlanning">
+    <label>Patient </label>
+    <input type="text" class="form-control" />
+    </div>                                                                
+    <div class="form-group Pre_isitPlanning">
+    <label>Population </label>
+    <select class="form-control show-tick">
+    <option>-- none--</option>
+    <option>HMO_P4P_MEDICARE</option>
+    <option>FFS_P4P_COMMERCIAL</option>
+    <option>HMO_P4P_COMMERCIAL</option>
+    <option>FFS_P4P_MEDICARE</option>
+    </select>
+    </div>                                
+    <div class="form-group Pre_isitPlanning ">
+    <label>Patient MRN </label>
+    <input type="text" class="form-control" />
+    </div>                                
+    <!-- <div class="form-group Gaps_inCare" style="display:none;">
+    <label>Payer </label>
+    <select class="form-control show-tick">
+    <option>-- none--</option>
+    <option>MEDICARE</option>
+    <option>BLUE CROSS</option>
+    <option>UNITED MEDICARE SOLUTIONS</option>
+    <option>BLUESHIELD</option>
+    </select>
+    </div> -->
+    <div class="form-group Pre_isitPlanning">
+    <label>Date Range </label>
+    <div class="input-group input-daterange">
+    <input type="text" class="form-control" placeholder="From Date" />
+    <div class="input-group-addon">to</div>
+    <input type="text" class="form-control" placeholder="To Date" />
+    </div>
+    </div>
+    </apex:outputPanel>
+    </div>
+ <!--  <div id="register-form"> </div>  -->
+    </div>
+
+    </div>
+    </div>
+
+
+
+    <div class="buttonalign btnaligndpt">
+    <div style="width:220px;margin:auto;">
+    <button class="btn btndesign " onclick="slt_mjr()" id="" type="submit" style="margin-top:5px;" >Search</button>
+    <!-- ng-click="OnSearchClick()" -->
+    <button  class="btn btndesign " type="reset" style="margin-top:5px;">Reset</button>
+    <!-- ng-click="OnResetClick()" -->
+    </div>
+    </div>
+
+    </div>
+    </div>
+
+    </div>
+
+    </div>
+    <div class="col-md-9 col-sm-9 col-xs-12 spacing1 arrowmenuicons">
+    <!-- <img  id="hide" src="images/arrowleft.png"  border="0" alt="" title="Hide filters" style="margin-left:-37px !important;">
+    <img id="show" style="display:none;" src="images/arrowright.png"  border="0" alt="" title="Show filters">-->
+    <button type="button" class="btn btn-default btn-sm left-arrow" id="hide">
+    <span class="glyphicon glyphicon-chevron-left"></span> Hide Filters
+    </button>
+    <button type="button" class="btn btn-default btn-sm right-arrow" id="show" style="display:none;">
+    Show Filters<span class="glyphicon glyphicon-chevron-right"></span>
+    </button>
+
+    <!-- <p class="left-arrow" id="hide" ></p> -->
+    </div>
+    <div class="col-md-9 col-xs-12" id="filterhide" >
+    <div id="no-more-tables">
+    <div><!-- style="overflow-x:scroll" -->
+    <div class="spacing1" id="mygrid" style="width:100% !important;">
+    <div class="planingtable" id="Previsitplanning" style="clear:both;">
+
+    <h5><b>Pre-Visit Planning</b></h5>
+    <button onclick="exportTableToCSV('Patients.csv')">Export HTML Table To CSV File</button>
+    <table id="example" class="table-bordered table-striped table-condensed cf" cellspacing="0" width="100%">
+    <a class="Show_morefields1" data-toggle="modal" data-target="#Addmorefields-modal">Select Display Fields</a>
+    <!--    <a class="Show_morefields2" id="hidefields" style="display:none;">Hide Fields</a> -->
+    <thead class="grdidhead cf">
+    <tr width="100%" id="fields_selected">
+    <th>Patient Name</th>
+    <th>Patient MRN</th>
+    <th>Patient DOB</th>
+    <th>Gender</th>
+    <th>Preferred Communication Method</th>
+    <th>Email address</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr width="100%" id="fields_data"  >
+    <td data-title="Patient Name">Alex</td>
+    <td data-title="Patient MRN"><a href="/apex/AQRSPatientDetails">MRN 123-456</a></td>
+    <td data-title="Patient DOB">13-10-2017</td>
+    <td data-title="Gender">Male</td>
+    <td data-title="Preferred Communication Method">Mobile</td>
+    <td data-title="Email address">XYZ@gmail.com</td>
+
+    </tr>
+    <tr width="100%" id="fields_data"  >
+    <td data-title="Patient Name">Claudia</td>
+    <td data-title="Patient MRN"><a href="/apex/AQRSPatientDetails">MRN 125-456</a></td>
+    <td data-title="Patient DOB">23-09-2017</td>
+    <td data-title="Gender">Female</td>
+    <td data-title="Preferred Communication Method">Mobile</td>
+    <td data-title="Email address">XYZ@gmail.com</td>
+
+    </tr>
+    <tr width="100%" id="fields_data"  >
+    <td data-title="Patient Name">Derik</td>
+    <td data-title="Patient MRN"><a href="/apex/AQRSPatientDetails">MRN 126-456</a></td>
+    <td data-title="Patient DOB">12-09-2017</td>
+    <td data-title="Gender">Male</td>
+    <td data-title="Preferred Communication Method">Mobile</td>
+    <td data-title="Email address">XYZ@gmail.com</td>
+
+    </tr>
+    <tr width="100%" id="fields_data"  >
+    <td data-title="Patient Name">Ellen</td>
+    <td data-title="Patient MRN"><a href="/apex/AQRSPatientDetails">MRN 124-456</a></td>
+    <td data-title="Patient DOB">12-09-2017</td>
+    <td data-title="Gender">Female</td>
+    <td data-title="Preferred Communication Method">Mobile</td>
+    <td data-title="Email address">Ellen@gmail.com</td>
+
+    </tr>
+    <tr width="100%" id="fields_data"  >
+    <td data-title="Patient Name">Niall</td>
+    <td data-title="Patient MRN"><a href="/apex/AQRSPatientDetails">MRN 127-456</a></td>
+    <td data-title="Patient DOB">12-09-2017</td>
+    <td data-title="Gender">Male</td>
+    <td data-title="Preferred Communication Method">Mobile</td>
+    <td data-title="Email address">Niall@gmail.com</td>
+
+    </tr>
+
+
+    <tr width="100%" id="fields_data"  >
+    <td data-title="Patient Name">Harry</td>
+    <td data-title="Patient MRN"><a href="/apex/AQRSPatientDetails">MRN 128-456</a></td>
+    <td data-title="Patient DOB">15-10-2017</td>
+    <td data-title="Gender">Male</td>
+    <td data-title="Preferred Communication Method">Phone</td>
+    <td data-title="Email address">Harry@gmail.com</td>
+
+    </tr>
+    <tr width="100%" id="fields_data"  >
+    <td data-title="Patient Name">Louis</td>
+    <td data-title="Patient MRN"><a href="/apex/AQRSPatientDetails">MRN 129-456</a></td>
+    <td data-title="Patient DOB">01-10-2017</td>
+    <td data-title="Gender">Male</td>
+    <td data-title="Preferred Communication Method">Mobile</td>
+    <td data-title="Email address">Louis@gmail.com</td>
+
+    </tr>
+    <tr width="100%" id="fields_data"  >
+    <td data-title="Patient Name">Liam</td>
+    <td data-title="Patient MRN"><a href="/apex/AQRSPatientDetails">MRN 130-456</a></td>
+    <td data-title="Patient DOB">16-08-2017</td>
+    <td data-title="Gender">Male</td>
+    <td data-title="Preferred Communication Method">Mobile</td>
+    <td data-title="Email address">Liam@gmail.com</td>
+
+    </tr>
+    <tr width="100%" id="fields_data"  >
+    <td data-title="Patient Name">Zayn</td>
+    <td data-title="Patient MRN"><a href="/apex/AQRSPatientDetails">MRN 131-456</a></td>
+    <td data-title="Patient DOB">27-06-2017</td>
+    <td data-title="Gender">Male</td>
+    <td data-title="Preferred Communication Method">Mobile</td>
+    <td data-title="Email address">Zayn@gmail.com</td>
+
+    </tr>
+    <tr width="100%" id="fields_data"  >
+    <td data-title="Patient Name">Megan</td>
+    <td data-title="Patient MRN"><a href="/apex/AQRSPatientDetails">MRN 132-456</a></td>
+    <td data-title="Patient DOB">15-07-2017</td>
+    <td data-title="Gender">Female</td>
+    <td data-title="Preferred Communication Method">Mobile</td>
+    <td data-title="Email address">Megan@gmail.com</td>
+
+    </tr>
+    <tr width="100%" id="fields_data"  >
+    <td data-title="Patient Name">Jennifer</td>
+    <td data-title="Patient MRN"><a href="/apex/AQRSPatientDetails">MRN 133-456</a></td>
+    <td data-title="Patient DOB">21-01-2017</td>
+    <td data-title="Gender">Female</td>
+    <td data-title="Preferred Communication Method">Phone</td>
+    <td data-title="Email address">Jennifer@gmail.com</td>
+
+    </tr>
+    <tr width="100%" id="fields_data"  >
+    <td data-title="Patient Name">Emma</td>
+    <td data-title="Patient MRN"><a href="/apex/AQRSPatientDetails">MRN 134-456</a></td>
+    <td data-title="Patient DOB">21-01-2017</td>
+    <td data-title="Gender">Female</td>
+    <td data-title="Preferred Communication Method">Phone</td>
+    <td data-title="Email address">Emma@gmail.com</td>
+
+    </tr>
+    <tr width="100%" id="fields_data"  >
+    <td data-title="Patient Name">Bella</td>
+    <td data-title="Patient MRN"><a href="/apex/AQRSPatientDetails">MRN 135-456</a></td>
+    <td data-title="Patient DOB">08-11-2017</td>
+    <td data-title="Gender">Female</td>
+    <td data-title="Preferred Communication Method">Mobile</td>
+    <td data-title="Email address">Bella@gmail.com</td>
+
+    </tr>
+    <tr width="100%" id="fields_data"  >
+    <td data-title="Patient Name">Monica</td>
+    <td data-title="Patient MRN"><a href="/apex/AQRSPatientDetails">MRN 136-456</a></td>
+    <td data-title="Patient DOB">23-07-2017</td>
+    <td data-title="Gender">Female</td>
+    <td data-title="Preferred Communication Method">Mobile</td>
+    <td data-title="Email address">Bella@gmail.com</td>
+
+    </tr>
+    <tr width="100%" id="fields_data"  >
+    <td data-title="Patient Name">Rachel</td>
+    <td data-title="Patient MRN"><a href="/apex/AQRSPatientDetails">MRN 137-456</a></td>
+    <td data-title="Patient DOB">24-03-2017</td>
+    <td data-title="Gender">Female</td>
+    <td data-title="Preferred Communication Method">Phone</td>
+    <td data-title="Email address">Rachel@gmail.com</td>
+
+    </tr>
+    <tr width="100%" id="fields_data"  >
+    <td data-title="Patient Name">Joey</td>
+    <td data-title="Patient MRN"><a href="/apex/AQRSPatientDetails">MRN 137-456</a></td>
+    <td data-title="Patient DOB">26-06-2017</td>
+    <td data-title="Gender">Male</td>
+    <td data-title="Preferred Communication Method">Mobile</td>
+    <td data-title="Email address">Joey@gmail.com</td>
+
+    </tr>
+    </tbody>
+    </table>
+
+    </div>
+    <div style="clear:both;"></div>
+    <div class="tabledisplay planingtable" id="secondtable" style="display:none;">
+    <h5><b>Gaps in Care</b></h5>
+    <table id="gapsincare" class="table-bordered table-striped table-condensed cf" cellspacing="0" width="100%">
+    <a class="Show_morefields1" data-toggle="modal" data-target="#Addmorefields-modal1">Select Display Fields</a>
+    <!-- <a class="Show_morefields22" id="gichidefields" style="display:none;">Hide Fields</a> -->
+    <thead class="grdidhead cf"> 
+    <tr width="100%" id="gicfields_selected">
+    <th width="100%">Patient Name</th>
+    <th>Patient MRN</th>
+    <th data-orderable="false">DOB</th>
+    <th data-orderable="false">Gender</th>
+    <th data-orderable="false">Preferred Communication Method</th>
+    <th data-orderable="false">Phone Number</th>
+    <th data-orderable="false">Email Address</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr width="100%" id="gicfields_data" >
+    <td  data-title="Patient Name">Nouel</td>
+    <td data-title="Patient MRN"><a href="/apex/AQRSPatientDetails">MRN 456-789</a></td>
+    <td data-title="DOB">12-09-1987</td> 
+    <td data-title="Gender">Male</td>
+    <td data-title="Preferred Communication Method">Email</td>
+    <td data-title="Phone Number">(+91)1235487</td>
+    <td data-title="Email Address">Nouel@gmail.com</td>
+    </tr>               
+
+    </tbody>
+    </table>
+    </div>
+
+
+
+
+
+
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+
+    </div>
+    </div>
+    </div>
+    </div>
+    </form>
+    </div>
+
+    <!-- BEGIN # MODAL LOGIN -->
+    <div class="modal fade" id="Addmorefields-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <!-- TD
+    display fields should be tab and store in custom Settings and Tag to respective login user   -->
+    <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header" align="center">
+    <span><b>View More Fields from Pre-Visit Planning Table</b></span>
+    <span><button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    </button></span>
+    </div>
+
+    <!-- Begin # DIV Form -->
+    <div id="div-forms">
+
+    <!-- Begin # Login Form -->
+    <div class="modal-body">
+    <div class="row" style="padding:0px 20px 0px 20px;">
+    <div class="col-md-6">
+    <div class="form-group">
+    <!-- TD
+    to be loaded from custom setings or one time moster object -->
+
+    <select class="form-control fieldsselct" multiple="multiple" id="select1">
+    <option name="Appointment Type" value="Mobile">Appointment Type</option>
+    <option name="Next appt type" value="Mobile">Next appt type</option>
+    <option  name="Next Appointment Date" value="14/09/2017">Next Appointment Date</option>
+    <option  name="Next appointment departmentd" value="WFSO OBGYNCLIN HEALTH PLAZA">Next appointment departmentd</option>
+    <option  name="Provider of Next Appointment" value="EVANS, NANCY">Provider of Next Appointment</option>
+    <option  name="Last Appt type" value="Mobile">Last Appt type</option>
+    <option  name="Last AWV Scheduled" value="AWV Scheduled">Last AWV Scheduled</option>
+    <option  name="Date of last Appt" value="19/11/2016">Date of last Appt</option>
+    <option  name="Possible Actions Needed" value="Contact Provider">Possible Actions Needed</option>
+    </select>
+
+
+    </div>
+
+    <button id="add_fields" type="button" class="btn searchbtn" style="margin-top:0px;">Add Fields</button>
+    </div>
+    <div class="col-md-6">
+    <div class="form-group">
+    <select class="form-control fieldsselct" multiple="multiple" id="select2">
+    <option name="">Patient Name </option>
+    <option name="Patient MRN">Patient MRN </option>
+    <option name="Patient DOB">Patient DOB </option>
+    <option name="Gender">Gender </option>
+    <option name="">Preferred Communication Method </option>
+    <option name="Preferred Communication Method">Email address </option>
+
+    </select>
+    </div>
+    <button id="remove_fields" type="button" class="btn searchbtn"  style="margin-top:0px;">Remove</button>
+    </div>
+    </div>
+    </div>
+    <div class="modal-footer">
+    <div>
+    <button id="cancebtn" type="button" class="btn searchbtn" data-dismiss="modal" style="margin-top:0px;">Cancel</button>
+    <button id="submit_fields" type="button" class="btn searchbtn" data-dismiss="modal"  style="margin-top:0px;">Submit</button>
+    </div>
+
+
+    </div>
+    <!-- End # Login Form -->
+
+
+
+
+    <!-- End # DIV Form -->
+
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="modal fade" id="Addmorefields-modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header" align="center">
+    <span><b>View More Fields from Gaps In Care Table</b></span>
+    <span><button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    </button></span>
+    </div>
+
+    <!-- Begin # DIV Form -->
+    <div id="div-forms">
+
+    <!-- Begin # Login Form -->
+    <div class="modal-body">
+    <div class="row" style="padding:0px 20px 0px 20px;">
+    <div class="col-md-6">
+    <div class="form-group">
+    <select class="form-control fieldsselct" multiple="multiple" id="gicselect1">
+    <option name="Date of Next Appointment" value="14/01/2018">Date of Next Appointment</option>
+    <option name="Next Appointment Type" value="Mobile">Next Appointment Type</option>
+    <option  name="Next Appointment Date" value="14/01/2018">Next Appointment Date</option>
+    <option  name="Date of Last Appointment" value="10-09-2017">Date of Last Appointment</option>
+    <option  name="HCC" value="HCC">HCC</option>
+    <option  name="Qualifying Measures" value="BreastCancerScreening">Qualifying Measures</option>
+    <option  name="AWV Measurement this year" value="AWV Scheduled">AWV Measurement this year</option>
+    <option  name="Date of Last Billed" value="10-09-2017">Date of Last Billed</option>
+    <option  name="Home Address" value="Yisrael Yisraeli, HaDoar 1/20, Jerusalem 1234567">Home Address</option>
+    <option  name="Patient Race" value="White">Patient Race</option>
+    <option  name="Speciality" value="Speciality">Speciality</option>
+    </select>
+    </div>
+
+    <button id="gicadd_fields" type="button" class="btn searchbtn" style="margin-top:0px;">Add Fields</button>
+    </div>
+    <div class="col-md-6">
+    <div class="form-group">
+    <select class="form-control fieldsselct" multiple="multiple" id="gicselect2">
+
+    </select>
+    </div>
+    <button id="gicremove_fields" type="button" class="btn searchbtn"  style="margin-top:0px;">Remove</button>
+    </div>
+    </div>
+    </div>
+    <div class="modal-footer">
+    <div>
+    <button id="cancebtn" type="button" class="btn searchbtn" data-dismiss="modal" style="margin-top:0px;">Cancel</button>
+    <button id="gicsubmit_fields" type="button" class="btn searchbtn" data-dismiss="modal"  style="margin-top:0px;">Submit</button>
+    </div>
+
+
+    </div>
+    <!-- End # Login Form -->
+
+
+
+
+    <!-- End # DIV Form -->
+
+    </div>
+    </div>
+    </div>
+    </div>
+    <!-- END # MODAL LOGIN -->
+    <apex:outputPanel id="scriptPanel">
+    
+    <script type="text/javascript">
+$(function() {
+    $('.multiselect-ui').multiselect({
+        includeSelectAllOption: true
+    });
+     $('.multiselect-ui1').multiselect({
+        includeSelectAllOption: true
+    });
+     $('.multiselect-ui2').multiselect({
+        includeSelectAllOption: true
+    });
+     $('.multiselect-ui3').multiselect({
+        includeSelectAllOption: true
+    });
+});
+
+function downloadCSV(csv, filename) {
+    var csvFile;
+    var downloadLink;
+
+    // CSV file
+    csvFile = new Blob([csv], {type: "text/csv"});
+
+    // Download link
+    downloadLink = document.createElement("a");
+
+    // File name
+    downloadLink.download = filename;
+
+    // Create a link to the file
+    downloadLink.href = window.URL.createObjectURL(csvFile);
+
+    // Hide download link
+    downloadLink.style.display = "none";
+
+    // Add the link to DOM
+    document.body.appendChild(downloadLink);
+
+    // Click download link
+    downloadLink.click();
+}
+
+function exportTableToCSV(filename) {
+    var csv = [];
+    var rows = document.querySelectorAll("#example tr");
+    
+    for (var i = 0; i < rows.length; i++) {
+        var row = [], cols = rows[i].querySelectorAll("td, th");
+        
+        for (var j = 0; j < cols.length; j++) 
+            row.push(cols[j].innerText);
+        
+        csv.push(row.join(","));        
+    }
+
+    // Download CSV file
+    downloadCSV(csv.join("\n"), filename);
+}
+</script> 
+    
+    </apex:outputPanel>
+
+    <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/typeahead.bundle.min.js.download')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/typeahead.jquery.js.download')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/bootstrap-datepicker.js.download')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/PatDisp.js.download')}"/>   
+
+    <!-- BEGIN # BOOTSNIP INFO -->  
+    <!-- END # BOOTSNIP INFO -->
+
+    <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0" style="display: none;"></ul><span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span></body>
+    </apex:form></html>
+    </apex:page>

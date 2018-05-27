@@ -1,0 +1,21 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; color:#000000; bEditID:r3st1; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">Dear&nbsp;<span style="font-family: Arial, sans-serif; font-size: 12pt; background-color: rgb(255, 255, 255);">{!Case.Contact}</span><span style="font-size: 12pt;">,</span></p><p style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="font-family: &quot;Times New Roman&quot;;"><font size="4" face="Arial,Sans-Serif"><br></font></span></p><p><font face="arial"><span style="font-size: 12pt;">Thank you for your&nbsp;</span>{!Case.Customer_Intent__c}&nbsp;<span style="font-size: 12pt;">inquiry.</span></font></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">Service Request Number {!Case.CaseNumber}&nbsp;has been created
+for your reference. Please use this reference number when calling about your
+request. </p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">You will receive another email notification when your service
+request has been resolved. </p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">If you would like to check the status, please login to
+MySutter Connection at <a href="https://mysutterconnection.force.com">https://mysutterconnection.force.com</a>, and click on <b>Help/Service Requests</b>. Select <b>My
+Service Requests</b> to see an entire list of your submitted inquires.<b> </b><span style="font-size: 12pt;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">Thank you,</p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">Sutter Health</p>]]></td>
+</tr>
+</table>

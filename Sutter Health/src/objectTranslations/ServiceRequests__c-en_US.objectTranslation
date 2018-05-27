@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>ServiceRequests</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>ServiceRequests</value>
+    </caseValues>
+    <fields>
+        <label><!-- Link Label --></label>
+        <name>Link_Label__c</name>
+    </fields>
+    <fields>
+        <label><!-- Link URL --></label>
+        <name>Link_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Permissionset Visibility To --></label>
+        <name>Permissionset_Visibility_To__c</name>
+    </fields>
+    <fields>
+        <label><!-- Profile Visibility To --></label>
+        <name>Profile_Visibility_To__c</name>
+    </fields>
+    <fields>
+        <label><!-- Section Name --></label>
+        <name>Section_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Section Sequence --></label>
+        <name>Section_Sequence__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

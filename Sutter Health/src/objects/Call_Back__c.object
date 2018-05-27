@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <comment>Open Callback record in edit mode.</comment>
+        <content>VFP_CallbackComments</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Comments to create CaseComment records.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Action__c</fullName>
+        <externalId>false</externalId>
+        <label>Action</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Call answered</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Call back required</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Call not answered</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Left voice message</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Call_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Call Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Call_Duration__c</fullName>
+        <externalId>false</externalId>
+        <label>Call Duration</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CaseCommentID__c</fullName>
+        <description>This field will keep CaseComment record id.</description>
+        <externalId>false</externalId>
+        <label>CaseCommentID</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Clinical_Review_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Clinical Review Comments</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Concurrent_Retro_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Concurrent/Retro Comments</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Concurrent_Review_Received_Date__c</fullName>
+        <description>Date concurrent review was received.</description>
+        <externalId>false</externalId>
+        <label>Concurrent Review Received Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Concurrent_Review_Received__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>REQ 3262 Care management input page</description>
+        <externalId>false</externalId>
+        <label>Concurrent Review Received</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Concurrent_Review_Requested_Date__c</fullName>
+        <description>Date request was sent to hospital.</description>
+        <externalId>false</externalId>
+        <label>Concurrent Review Requested Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Concurrent_Review_Requested__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Mark if request was sent to hospital</description>
+        <externalId>false</externalId>
+        <label>Concurrent Review Requested</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Contact_Name__c</fullName>
+        <description>Who CMC called – may be different from initial caller</description>
+        <externalId>false</externalId>
+        <label>Contact Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>End_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>End Time</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Outbound_Call_Date_Time__c</fullName>
+        <description>Date and Time in which outbound call was placed.</description>
+        <externalId>false</externalId>
+        <label>Outbound Call Date/Time</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Parent_Case__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Parent Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipName>Call_Backs</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Phone_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Phone Number</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Requested_Facesheet__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>CMC to request only if Transfer Center did not provide/forward.</description>
+        <externalId>false</externalId>
+        <label>Requested Facesheet</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Retro_Already_Discharged__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Mark if patient has been discharged.</description>
+        <externalId>false</externalId>
+        <label>Retro: Already Discharged</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Start_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Start Time</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <label>Call Backs</label>
+    <nameField>
+        <displayFormat>C-{000000}</displayFormat>
+        <label>Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Customer Inquiry Comments</pluralLabel>
+    <recordTypes>
+        <fullName>Comments_Grievance</fullName>
+        <active>true</active>
+        <description>Customer Inquiry Comments recordtype for Grievance SRs</description>
+        <label>Comments Grievance</label>
+        <picklistValues>
+            <picklist>Action__c</picklist>
+            <values>
+                <fullName>Call answered</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Call back required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Call not answered</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Left voice message</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Comments_OOA_OON</fullName>
+        <active>true</active>
+        <description>Comments for OOA/OON SR</description>
+        <label>Comments OOA OON</label>
+        <picklistValues>
+            <picklist>Action__c</picklist>
+            <values>
+                <fullName>Call answered</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Call back required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Call not answered</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Left voice message</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <webLinks>
+        <fullName>Customer_Inquiry_Comment</fullName>
+        <availability>online</availability>
+        <description>New Customer Inquiry Comment button for Call_back__c object.</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Customer Inquiry Comment</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/support/console/30.0/integration.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)} 
+
+function openCommentab(){ 
+if (sforce.console.isInConsole()) { 
+    sforce.console.getEnclosingPrimaryTabId(openSubtab);
+}else{
+    location.href = &apos;/apex/VFP_CallbackComments?cid={!Case.Id}&apos;;
+}
+}
+var openSubtab = function openSubtab(result) {
+
+var primaryTabId = result.id;
+sforce.console.openSubtab(primaryTabId , &apos;/apex/VFP_CallbackComments?cid={!Case.Id}&amp;CaseId={!Case.Id}&apos;, true,
+&apos;Customer Inquiry Comment&apos;, null, openSuccess, &apos;Customer Inquiry Comment&apos;);
+};
+ var openSuccess = function openSuccess(result) {
+};
+
+
+
+
+
+openCommentab();</url>
+    </webLinks>
+</CustomObject>

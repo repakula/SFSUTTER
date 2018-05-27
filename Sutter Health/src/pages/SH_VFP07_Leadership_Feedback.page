@@ -1,0 +1,87 @@
+<apex:page standardController="Managers_Feedback__c"
+    extensions="SH_VFC07_Leadership_Feedback_Ext" id="pg1" showHeader="false"
+    sidebar="false" applyBodyTag="false" applyHtmlTag="false"
+    action="{!forwardToLoginPage}">
+    <head>
+        <title>{!activePgName}</title>
+        <c:SH_HeaderResource />
+    </head>
+    <style>
+        .divTtl 
+        {   
+            margin-left:20px;
+            margin-top:20px;
+        }
+        .bPageBlock  
+        {
+            background-color :#FFFFFF !important;
+        }
+        .Custom71Tab .secondaryPalette, .individualPalette .Custom71Block .secondaryPalette 
+        {
+            border-top-color: #00a9a5!important;
+        }
+    </style>
+    <body id="home" class="show-notification menu-open menu-visibility">
+        <c:SH_SearchBar isPreview="{!isPreview}" />
+        <!-- notification popup -->
+        <c:SH_Notification isPreview="{!isPreview}" id="notifComponent" Title="{!strTitle}" Description="{!strDescription}" Info="{!strInfo}" BrowserTitle="{!strBrowserTitle}" BrowserDescription="{!strBrowserDescription}" BrowserInfo="{!strBrowserInfo}" BrowserNotify="{!IsBrowser}" Notify="{!IsNotify}"/>
+        
+        <!-- Menu Item -->
+        <c:SH_MenuItem lstMenuItem="{!lstMenuItem }" isPreview="{!isPreview}" Category="{!strCategoryForHelp}" SubCategory="{!strSubCategoryForHelp}"  Team="{!strTeamForHelp}" CustomerIntent="{!strCustomerIntentForHelp}" L1="{!strL1}" L1Id="{!strL1Id}" L2="{!strL2}" L2Id="{!strL2Id}"/>
+
+        <!-- content -->
+        <div id="content-wrapper">
+            <!-- Header-->
+            <c:SH_Header isPreview="{!isPreview}" actiVePg="{!activePgName}"
+                breadCrumbs="{!BreadCrumbs}" />
+            <div id="content">
+                <apex:form id="pgform">   
+                    
+                    <apex:pageMessages id="errorMsg"/>
+                    
+                    <apex:outputPanel rendered="{!!showMsg}" layout="none">
+                        <div class="divTtl">
+                            <p><font size="5">S3 Process Improvement Feedback Form</font></p>
+                            <p>Do you have Comments or suggestions on ways to improve processes at Sutter Shared Services? Send us your thoughts by submitting feedback below.</p>
+                        </div>
+                        
+                        <apex:pageBlock id="pgBlock" rendered="true">
+                            <apex:pageblockSection id="pgBlockSection" columns="1">
+                                
+                                <apex:inputField id="service_area" value="{!Managers_Feedback__c.Service_Area__c}" required="true"/>
+                                <apex:inputField id="subject" value="{!Managers_Feedback__c.Subject__c}" required="true"  style="width: 30%"/>
+                                <apex:inputField id="comments" value="{!Managers_Feedback__c.Comments__c}" required="true" style="width: 50%"/>
+                                
+                            </apex:pageblockSection>
+                            
+                            <apex:pageBlockButtons location="bottom" >
+                                <apex:commandButton value="Submit Feedback" action="{!saveAndSend}" rerender="pgform, errorMsg">
+                                </apex:commandButton>
+                            </apex:pageBlockButtons>
+                            
+                        </apex:pageBlock>
+                    </apex:outputPanel>
+                    
+                    <apex:outputpanel rendered="{!showMsg}" layout="none">
+                        <apex:pageBlock >
+                            <apex:pageblockSection id="msgSection" columns="1">
+                                <p><b>Thank you for submitting your feedback.</b></p>
+                            </apex:pageblockSection>
+                        </apex:pageBlock>
+                    </apex:outputpanel>
+                </apex:form>  
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <c:SH_Footer ></c:SH_Footer>
+        
+        
+        <apex:form >
+            <!-- added on 26-Aug-2015 for Notification -->
+            <apex:inputHidden id="hdnToolArticle" value="{!strToolArticeId}"/>
+            <apex:inputHidden id="hdnBrowserName" value="{!browserName}"/>
+            <apex:actionfunction name="showNotification" action="{!showNotification}" />
+        </apex:form>
+    </body> 
+</apex:page>

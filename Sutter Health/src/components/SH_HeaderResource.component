@@ -1,0 +1,82 @@
+<apex:component layout="none">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <link rel="shortcut icon" href="{!URLFOR($Resource.SutterHealthCare, 'favicons/favicon.ico')}"/>
+    <link rel="icon" sizes="16x16 32x32 64x64" href="{!URLFOR($Resource.SutterHealthCare, 'favicons/favicon.ico')}"/>
+    <link rel="icon" type="image/png" sizes="196x196" href="{!URLFOR($Resource.SutterHealthCare, 'favicons/favicon-192.png')}"/>
+    <link rel="icon" type="image/png" sizes="160x160" href="{!URLFOR($Resource.SutterHealthCare, 'favicons/favicon-160.png')}"/>
+    <link rel="icon" type="image/png" sizes="96x96" href="{!URLFOR($Resource.SutterHealthCare, 'favicons/favicon-96.png')}"/>
+    <link rel="icon" type="image/png" sizes="64x64" href="{!URLFOR($Resource.SutterHealthCare, 'favicons/favicon-64.png')}"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="{!URLFOR($Resource.SutterHealthCare, 'favicons/favicon-32.png')}"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="{!URLFOR($Resource.SutterHealthCare, 'favicons/favicon-16.png')}"/>
+    <link rel="apple-touch-icon" href="{!URLFOR($Resource.SutterHealthCare, 'favicons/favicon-57.png')}"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="{!URLFOR($Resource.SutterHealthCare, 'favicons/favicon-114.png')}"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="{!URLFOR($Resource.SutterHealthCare, 'favicons/favicon-72.png')}"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="{!URLFOR($Resource.SutterHealthCare, 'favicons/favicon-144.png')}"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="{!URLFOR($Resource.SutterHealthCare, 'favicons/favicon-60.png')}"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="{!URLFOR($Resource.SutterHealthCare, 'favicons/favicon-120.png')}"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="{!URLFOR($Resource.SutterHealthCare, 'favicons/favicon-76.png')}"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="{!URLFOR($Resource.SutterHealthCare, 'favicons/favicon-152.png')}"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="{!URLFOR($Resource.SutterHealthCare, 'favicons/favicon-180.png')}"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="{!URLFOR($Resource.SutterHealthCare, 'favicons/favicon-144.png')}"/>
+    <meta name="msapplication-config" content="{!URLFOR($Resource.SutterHealthCare, 'favicons/browserconfig.xml')}"/>
+    
+    <!-- load styles start -->
+    
+    <!-- google font -->
+    
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'/>
+        <apex:stylesheet value="{!URLFOR($Resource.SutterHealthCare, 'css/normalize.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.SutterHealthCare, 'css/bootstrap.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.SutterHealthCare, 'css/bootstrap-select.min.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.SutterHealthCare, 'css/bootstrap-datetimepicker.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.SutterHealthCare, 'css/perfect-scrollbar-0.5.8.min.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.SutterHealthCare, 'css/bootstrap-height.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.SutterHealthCare, 'css/style.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.SutterHealthCare, 'sutter-health/styles.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.SutterHealthCare, 'css/font.css')}"/>
+        <!--[if lte IE 9]>
+            <link type="text/css" rel="stylesheet" href="css/ie9.css"/>
+            <apex:includeScript value="{!URLFOR($Resource.SutterHealthCare, 'js/ie9-fix.js')}"/>
+        <![endif]-->
+        <!--[if lte IE 8]>
+            <apex:stylesheet value="{!URLFOR($Resource.SutterHealthCare, 'css/ie8.css')}"/>
+        <![endif]-->
+    <!-- load styles end -->
+    <style>
+       .fieldSeparator{color:#666;}
+       .big-logo {margin-top:12px;}
+       <!-- used in forms to make link to btn-->
+       .cancelBtnLink {line-height:20px !important;}
+       .orangebtn
+        {
+            background-image: none !important;
+            color: #ffffff !important;
+            float: left;
+            font-size: 14px;
+            line-height: 40px !important;
+            padding-bottom: 0;
+            padding-left: 17px;
+            padding-right: 19px !important;
+            padding-top: 0;
+            text-decoration: none;
+            transition: all 0.2s linear 0s;
+            -webkit-transition: all 0.2s linear 0s;
+            -moz-transition: all 0.2s linear 0s;
+            -o-transition: all 0.2s linear 0s;
+            border-radius: 20px;
+            border: 0;
+            margin-left: 144px;
+        }     
+        ul li, ol li {
+            margin-left: 0px;
+        }
+    </style>
+    
+</apex:component>

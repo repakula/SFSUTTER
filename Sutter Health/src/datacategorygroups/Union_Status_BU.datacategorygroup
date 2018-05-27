@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCategoryGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>ABMC CHEU</label>
+                <name>ABMC_CHEU</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SMT CHEU</label>
+                <name>SMT_CHEU</name>
+            </dataCategory>
+            <label>CHEU</label>
+            <name>CHEU</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>SMCSR CIR</label>
+                <name>SMCSR_CIR</name>
+            </dataCategory>
+            <label>CIR</label>
+            <name>CIR</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>ABMC CNA</label>
+                <name>ABMC_CNA</name>
+            </dataCategory>
+            <dataCategory>
+                <label>CPMC CNA</label>
+                <name>CPMC_CNA</name>
+            </dataCategory>
+            <dataCategory>
+                <label>EDEN CNA</label>
+                <name>EDEN_CNA</name>
+            </dataCategory>
+            <dataCategory>
+                <label>MPHS CNA</label>
+                <name>MPHS_CNA</name>
+            </dataCategory>
+            <dataCategory>
+                <label>NCH CNA</label>
+                <name>NCH_CNA</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SAFH CNA</label>
+                <name>SAFH_CNA</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SAFH CNA/V</label>
+                <name>SAFH_CNA_V</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SCVNA CNA</label>
+                <name>SCVNA_CNA</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SDMC CNA</label>
+                <name>SDMC_CNA</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SLH CNA</label>
+                <name>SLH_CNA</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SMCSR CNA</label>
+                <name>SMCSR_CNA</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SMT CNA</label>
+                <name>SMT_CNA</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SRMC CNA</label>
+                <name>SRMC_CNA</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SSMC CNA</label>
+                <name>SSMC_CNA</name>
+            </dataCategory>
+            <dataCategory>
+                <label>STCH CNA</label>
+                <name>STCH_CNA</name>
+            </dataCategory>
+            <dataCategory>
+                <label>STLH CNA</label>
+                <name>STLH_CNA</name>
+            </dataCategory>
+            <label>CNA</label>
+            <name>CNA</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>EDEN ESC</label>
+                <name>EDEN_ESC</name>
+            </dataCategory>
+            <dataCategory>
+                <label>NCH ESC</label>
+                <name>NCH_ESC</name>
+            </dataCategory>
+            <dataCategory>
+                <label>PAMF CLS</label>
+                <name>PAMF_CLS</name>
+            </dataCategory>
+            <dataCategory>
+                <label>PAMF RN</label>
+                <name>PAMF_RN</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SMCSR ESC</label>
+                <name>SMCSR_ESC</name>
+            </dataCategory>
+            <label>ESC</label>
+            <name>ESC</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>ABMC 2850</label>
+                <name>ABMC_2850</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SMT 2850</label>
+                <name>SMT_2850</name>
+            </dataCategory>
+            <label>HERE</label>
+            <name>HERE</name>
+        </dataCategory>
+        <dataCategory>
+            <label>HREB</label>
+            <name>HREB</name>
+        </dataCategory>
+        <dataCategory>
+            <label>ILWU</label>
+            <name>ILWU</name>
+        </dataCategory>
+        <dataCategory>
+            <label>LONG</label>
+            <name>LONG</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>PAMF CLVNA</label>
+                <name>PAMF_CLVNA</name>
+            </dataCategory>
+            <label>LVN</label>
+            <name>LVN</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>NONE</label>
+                <name>NONE</name>
+            </dataCategory>
+            <label>NONUNION</label>
+            <name>NONUNION</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>CPMC NUHW</label>
+                <name>CPMC_NUHW</name>
+            </dataCategory>
+            <label>NUHW</label>
+            <name>NUHW</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>ABMC 29</label>
+                <name>ABMC_29</name>
+            </dataCategory>
+            <dataCategory>
+                <label>ABMC 29 LA</label>
+                <name>ABMC_29_LA</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SMT 29</label>
+                <name>SMT_29</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SMT 29 LA</label>
+                <name>SMT_29_LA</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SMT 29 TEC</label>
+                <name>SMT_29_TEC</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SSMC 29</label>
+                <name>SSMC_29</name>
+            </dataCategory>
+            <label>OPEIU</label>
+            <name>OPEIU</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>ABMC 39</label>
+                <name>ABMC_39</name>
+            </dataCategory>
+            <dataCategory>
+                <label>CPMC 39</label>
+                <name>CPMC_39</name>
+            </dataCategory>
+            <dataCategory>
+                <label>EDEN 39</label>
+                <name>EDEN_39</name>
+            </dataCategory>
+            <dataCategory>
+                <label>MPHS 39</label>
+                <name>MPHS_39</name>
+            </dataCategory>
+            <dataCategory>
+                <label>NCH 39</label>
+                <name>NCH_39</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SMCSR 39</label>
+                <name>SMCSR_39</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SMT 39</label>
+                <name>SMT_39</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SRMC 39</label>
+                <name>SRMC_39</name>
+            </dataCategory>
+            <label>OPERENGRS</label>
+            <name>OPERENGRS</name>
+        </dataCategory>
+        <dataCategory>
+            <label>PAINTERS</label>
+            <name>PAINTERS</name>
+        </dataCategory>
+        <dataCategory>
+            <label>RAD ASSOC</label>
+            <name>RAD_ASSOC</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>ABMC 250</label>
+                <name>ABMC_250</name>
+            </dataCategory>
+            <dataCategory>
+                <label>CPMC 250</label>
+                <name>CPMC_250</name>
+            </dataCategory>
+            <dataCategory>
+                <label>EDEN 250</label>
+                <name>EDEN_250</name>
+            </dataCategory>
+            <dataCategory>
+                <label>EDEN 250C</label>
+                <name>EDEN_250C</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SAH 4988</label>
+                <name>SAH_4988</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SDMC 250</label>
+                <name>SDMC_250</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SLH 250</label>
+                <name>SLH_250</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SLH SV/TEC</label>
+                <name>SLH_SV_TEC</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SMCSR UHW</label>
+                <name>SMCSR_UHW</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SMCSR 707</label>
+                <name>SMCSR_707</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SMT 250</label>
+                <name>SMT_250</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SRMC 250</label>
+                <name>SRMC_250</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SSMC 250</label>
+                <name>SSMC_250</name>
+            </dataCategory>
+            <label>SEIU</label>
+            <name>SEIU</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>CPMC 665</label>
+                <name>CPMC_665</name>
+            </dataCategory>
+            <dataCategory>
+                <label>EDEN TEAM</label>
+                <name>EDEN_TEAM</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SAFH TEAM</label>
+                <name>SAFH_TEAM</name>
+            </dataCategory>
+            <label>TEAMSTERS</label>
+            <name>TEAMSTERS</name>
+        </dataCategory>
+        <label>All</label>
+        <name>All</name>
+    </dataCategory>
+    <description>Union Status Category with Bargaining unit values</description>
+    <label>Union Status/Bargaining Unit</label>
+    <objectUsage>
+        <object>KnowledgeArticleVersion</object>
+    </objectUsage>
+</DataCategoryGroup>

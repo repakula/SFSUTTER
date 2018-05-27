@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>This data filters are used for filtering the plans on Plan Selection screen. In this, IN,INCLUDES,= operators we can use. If we give field values then no need to give Reference Field API.</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Field_Value__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Benefit Plan Metadata Field API Name</inlineHelpText>
+        <label>Field Value</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Operator__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Use any one of these &quot;INCLUDES&quot;,&quot;IN&quot;,&quot;=&quot;</inlineHelpText>
+        <label>Operator</label>
+        <length>30</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Reference_Field_API__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Corresponding object(Opporutnity,RFP,Quote,SSO,SCN) Field API.</inlineHelpText>
+        <label>Reference Field API</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>HR_Benefit Plan Data Filters</label>
+    <visibility>Public</visibility>
+</CustomObject>

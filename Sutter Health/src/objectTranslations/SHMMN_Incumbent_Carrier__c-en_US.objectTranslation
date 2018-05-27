@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>SHMMN Incumbent Carrier</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>SHMMN Incumbent Carrier</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- SHMMN Incumbent Carrier --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- % --></label>
+        <name>Contain__c</name>
+    </fields>
+    <fields>
+        <label><!-- Incumbent Carrier --></label>
+        <name>Incumbent_Carrier__c</name>
+        <picklistValues>
+            <masterLabel>Aetna</masterLabel>
+            <translation><!-- Aetna --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Anthem</masterLabel>
+            <translation><!-- Anthem --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Blue Shield</masterLabel>
+            <translation><!-- Blue Shield --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cal Choice</masterLabel>
+            <translation><!-- Cal Choice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Calpers</masterLabel>
+            <translation><!-- Calpers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chinese Community Health Plan</masterLabel>
+            <translation><!-- Chinese Community Health Plan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cigna</masterLabel>
+            <translation><!-- Cigna --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Net</masterLabel>
+            <translation><!-- Health Net --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kaiser</masterLabel>
+            <translation><!-- Kaiser --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Self Funded</masterLabel>
+            <translation><!-- Self Funded --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shp</masterLabel>
+            <translation><!-- Shp --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>United Health Care</masterLabel>
+            <translation><!-- United Health Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wha</masterLabel>
+            <translation><!-- Wha --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sub Product --></label>
+        <name>Sub_Product__c</name>
+        <picklistValues>
+            <masterLabel>EPO</masterLabel>
+            <translation><!-- EPO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HMO</masterLabel>
+            <translation><!-- HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HRA</masterLabel>
+            <translation><!-- HRA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HSA</masterLabel>
+            <translation><!-- HSA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Indemnity</masterLabel>
+            <translation><!-- Indemnity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>POS</masterLabel>
+            <translation><!-- POS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PPO</masterLabel>
+            <translation><!-- PPO --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>SHMMN Incumbent Carrier Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,10 @@
+*** NEW SALES INQUIRY NOTIFICATION *** 
+
+The following Sales Inquiry is awaiting your response.
+Caller:  {!Sales_Inquiry__c.Caller_Name__c}
+Phone: {!Sales_Inquiry__c.Phone__c} Extension: {!Sales_Inquiry__c.Phone_Extension__c}
+Inquiry Details: {!Sales_Inquiry__c.Inquiry_Details__c}
+
+For more information on this Sales Inquiry, please click here: {!Sales_Inquiry__c.Link}
+
+Thank you

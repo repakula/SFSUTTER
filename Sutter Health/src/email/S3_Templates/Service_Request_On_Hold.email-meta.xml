@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This email is sent to the tier 3 agent and management when a service request is on hold.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Sutter_Health_Letterhead</letterhead>
+    <name>Service Request On Hold</name>
+    <style>freeForm</style>
+    <subject>Service Request has been put on-hold</subject>
+    <textOnly>Service Request {!Case.CaseNumber} has been put on-hold by {!Case.OwnerFullName}.</textOnly>
+    <type>html</type>
+</EmailTemplate>

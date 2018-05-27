@@ -1,0 +1,303 @@
+<apex:page id="homePage" docType="html-5.0" controller="UniversalProviderController" showHeader="false" standardStylesheets="false" sidebar="false">
+<head>
+    <title>Sutterhealth | Home</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="description" content="Accenture"/>
+    <meta name="author" content="Mohan"/>
+    <!-- Bootstrap CSS  -->
+    <c:PDI_Portalbootstrap_resources ></c:PDI_Portalbootstrap_resources>
+    <c:PDI_portalMenuCSS ></c:PDI_portalMenuCSS>
+  
+<script>
+    $(document).ready(function(){
+        
+        /***Slide Menu Toggle Script Starts****/
+        //stick in the fixed 100% height behind the navbar but don't wrap it
+        $('#slide-nav.navbar-inverse').after($('<div class="inverse" id="navbar-height-col"></div>'));
+        
+        $('#slide-nav.navbar-default').after($('<div id="navbar-height-col"></div>'));  
+        
+        // Enter your ids or classes
+        var toggler = '.navbar-toggle';
+        var menuneg = '-100%';
+        var slideneg = '-80%';
+        $("#slide-nav").on("click", toggler, function (e) {
+            
+            var selected = $(this).hasClass('slide-active');
+            $('#slidemenu').stop().animate({
+                left: selected ? menuneg : '0px'
+            });
+            $('#navbar-height-col').stop().animate({
+                left: selected ? slideneg : '0px'
+            });
+            $(this).toggleClass('slide-active', !selected);
+            $('.navbar-header').toggleClass('slide-active');
+        });
+        var selected = '.navbar-header';
+        $(window).on("resize", function () {
+            if ($(window).width() > 767 && $('.navbar-toggle').is(':hidden')) {
+                $(selected).removeClass('slide-active');
+            }
+        });
+        /***Slide Menu Toggle Script Ends****/
+    });
+        
+    function redirectToVP(){
+        redirectoValidate();
+    }
+    
+    function redirectToFAQ(){
+        redirectToFAQPage();
+    }
+</script>
+
+</head>
+    <body>
+        <!-- Full Body Container -->
+        <div id="container">
+            <!-- Start Header Section -->
+            <div class="hidden-header"></div>
+            <header class="clearfix">
+                <c:PDI_PortalHeader ></c:PDI_PortalHeader>
+                <div class="navbar navbar-inverse" role="navigation" id="slide-nav">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>                        
+                            </button>
+                            <a class="navbar-brand" href="#">
+                                <apex:image url="{!URLFOR($Resource.logo)}" width="162" height="54"/>
+                            </a>
+                        </div><!--navbar--header-->
+                        <div id="slidemenu">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="UniversalProviderLogin">Home</a></li>
+                                <apex:outputText rendered="{!if($Api.Session_ID != null 
+                                                           && $User.LastName != 'Site Guest User'
+                                                           && summaryObj != null,true,false)}">
+                                    <li><a href="javascript:redirectToVP();">Profile</a></li>
+                                </apex:outputText>
+                                <apex:outputText rendered="{!if($Api.Session_ID != null 
+                                                           && $User.LastName != 'Site Guest User'
+                                                           && summaryObj == null,true,false)}">
+                                    <li><a href="javascript:redirecttoProvidersList();">Profile</a></li>
+                                </apex:outputText>
+                                <li><a href="javascript:redirectToFAQ();">FAQ</a></li>
+                            </ul>
+                        </div><!--slidemenu-->
+                    </div><!-- Nav Container-->
+                </div><!--Nav bar-->
+            </header><!-- End Header Section -->        
+            <!-- Start Home Page Slider -->
+            <section id="home">
+                <apex:outputPanel rendered="{!if($Api.Session_ID != null && $User.LastName == 'Site Guest User',true,false)}">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-8"> 
+                                <!-- Carousel -->
+                                <div id="main-slide" class="carousel slide" data-ride="carousel">
+                                    <!-- Indicators -->
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#main-slide" data-slide-to="0" class="active"></li>
+                                        <li data-target="#main-slide" data-slide-to="1"></li>
+                                        <li data-target="#main-slide" data-slide-to="2"></li>
+                                    </ol>
+                                    <!--/ Indicators end-->
+                                    
+                                    <!-- Carousel inner -->
+                                    <div class="carousel-inner">
+                                        <div class="item active">
+                                            <apex:image url="{!URLFOR($Resource.PDI_Portalbootstrap,'images/slider/bg1.jpg')}" id="wows1_0"/> 
+                                            <!-- <img class="img-responsive" src="{!URLFOR($Resource.PDI_bootstrap,'images/slider/bg1.jpg" alt="slider"/>  -->
+                                            <div class="slider-content">
+                                                <div class="col-md-12 text-center">
+                                                    
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/ Carousel item end -->
+                                        <div class="item">
+                                            <apex:image url="{!URLFOR($Resource.PDI_Portalbootstrap,'images/slider/bg2.jpg')}" id="wows2_0"/> 
+                                            <!-- <img class="img-responsive" src="images/slider/bg2.jpg" alt="slider"/> -->
+                                            <div class="slider-content">
+                                                <div class="col-md-12 text-center">
+                                                    
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/ Carousel item end -->
+                                        <div class="item">
+                                            <apex:image url="{!URLFOR($Resource.PDI_Portalbootstrap,'images/slider/bg3.jpg')}" id="wows3_0"/> 
+                                            <!-- <img class="img-responsive" src="images/slider/bg3.jpg" alt="slider"/> -->
+                                            <div class="slider-content">
+                                                <div class="col-md-12 text-center">
+                                                    
+                                                    
+                                                </div>
+                                            </div>
+                                        </div><!--/ Carousel item end -->
+                                    </div><!-- Carousel inner end-->
+                                    <!-- Controls -->
+                                </div>
+                            </div>
+                            <!-- /carousel -->
+                            <div class="col-xs-6 col-md-4" id="mobileLogin"> 
+                                <div class="login_box" >
+                                    <apex:form id="loginForm" forceSSL="true">
+                                        <table cellpadding="0" cellspacing="0">
+                                            <tr><td width="10%"></td>
+                                                <td width="80%">
+                                                <table>
+                                                    <tr><td align="center"><div id = "sh1" class="title"><h4 style="font-weight:bold;">
+                                                        Sutter Health
+                                                        </h4></div></td></tr>
+                                                    <tr><td align="center"><div id = "sh2" class="title"><h4 style="font-weight:bold;">
+                                                        Provider Hub Login
+                                                        </h4></div></td></tr>
+                                                    <tr><td align="left" id="error" width="280px"><apex:pageMessages /></td></tr>
+                                                    <tr><td >
+                                                        <div class="login_form_row">
+                                                            <apex:outputLabel value="{!$Label.site.username}"></apex:outputLabel>
+                                                            <div class="inner-addon right-addon">
+                                                                <i class="fa fa-user"></i>
+                                                                <apex:inputText styleClass="form-control input-md" id="username" value="{!username}" html-placeholder="Username" style="width:280px;"/>
+                                                            </div>
+                                                        </div>
+                                                        </td></tr>
+                                                    <tr><td colspan="2" class="spacer-5">&nbsp;</td></tr>
+                                                    <tr><td >
+                                                        <div class="login_form_row">
+                                                            <apex:outputLabel value="{!$Label.site.password}"></apex:outputLabel>
+                                                            <div class="inner-addon right-addon">
+                                                                <i class="fa fa-lock"></i>
+                                                                <apex:inputSecret value="{!password}" styleClass="form-control input-md" html-placeholder="Password" onkeypress="return noenter(event);" style="width:280px;"/>
+                                                            </div>
+                                                        </div>
+                                                        </td></tr>
+                                                    <tr><td>
+                                                        <a href="/providers/secur/forgotpassword.jsp" target="_self" style="text-align=center;">Forgot your password?</a>
+                                                        </td></tr>
+                                                    <tr><td align="center">
+                                                        <apex:commandButton action="{!login}" id="submitbutton" value="Login" styleClass="btn btn-primary active btn-md" style="width:120px;"/>
+                                                        </td></tr>
+                                                    <tr><td colspan="2" class="spacer-20"></td></tr>
+                                                    <tr><td>
+                                                        <apex:outputText rendered="{!if($Label.CL181_PDI_ADID_Url != 'NULL',true,false)}">
+                                                            <a style="text-align=center; font-size:15px;" href="{!$Label.CL181_PDI_ADID_Url}" target="_self" title="{!$Label.CL181_PDI_ADID_Url_HelpText}">{!$Label.CL181_PDI_ADID_Url_Label}</a>
+                                                        </apex:outputText>
+                                                        </td></tr>
+                                                </table>
+                                                </td>
+                                                <td width="10%"></td>
+                                            </tr>
+                                        </table>
+                                    </apex:form><!--loginForm-->
+                                </div><!--login_box-->
+                            </div >
+                        </div >
+                    </div>
+                </apex:outputPanel>
+                <apex:outputPanel id="accountimageslider" rendered="{!if($Api.Session_ID != null && $User.LastName != 'Site Guest User',true,false)}">
+                    <!-- Start -->
+                    <div class="container" style="max-width: 100%;" >
+                        <!-- Carousel -->
+                        <div id="main-slide1" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#main-slide1" data-slide-to="0" class="active"></li>
+                                <li data-target="#main-slide1" data-slide-to="1"></li>
+                                <li data-target="#main-slide1" data-slide-to="2"></li>
+                            </ol>
+                            <!--/ Indicators end-->
+                            <!-- Carousel inner -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <apex:image url="{!URLFOR($Resource.PDI_Portalbootstrap,'images/slider/bg1.jpg')}" alt="slider" title="hospital" id="wows11_0"/> 
+                                    <!-- <img class="img-responsive" src="{!URLFOR($Resource.PDI_bootstrap,'images/slider/bg1.jpg" alt="slider"/>  -->
+                                    <div class="slider-content">
+                                        <div class="col-md-12 text-center">
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Carousel item end -->
+                                <div class="item">
+                                    <apex:image url="{!URLFOR($Resource.PDI_Portalbootstrap,'images/slider/bg2.jpg')}" alt="slider" title="hospital" id="wows21_0"/> 
+                                    <!-- <img class="img-responsive" src="images/slider/bg2.jpg" alt="slider"/> -->
+                                    <div class="slider-content">
+                                        <div class="col-md-12 text-center">
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/ Carousel item end -->
+                                <div class="item">
+                                    <apex:image url="{!URLFOR($Resource.PDI_Portalbootstrap,'images/slider/bg3.jpg')}" alt="slider" title="hospital" id="wows31_0"/> 
+                                    <!-- <img class="img-responsive" src="images/slider/bg3.jpg" alt="slider"/> -->
+                                    <div class="slider-content">
+                                        <div class="col-md-12 text-center">
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                </div><!--/ Carousel item end -->
+                            </div><!-- Carousel inner end-->
+                            <!-- Controls -->
+                        </div><!-- /carousel -->
+                    </div>
+                    <!-- End -->
+                </apex:outputPanel>
+            </section>
+            <!-- End Home Page Slider -->
+            <!-- Start Content -->
+            <div id="content" >
+                <!-- Start Services Section -->
+                <div class="container" >
+                    <div class="row">
+                        <apex:repeat value="{!divsList}" var="bxData">
+                            <apex:outputText value="{!bxData}" escape="false"></apex:outputText>
+                        </apex:repeat>
+                    </div>
+                    <!-- .row -->
+                </div>
+                <!-- .container -->
+                <!-- End Services Section -->
+                <!-- Divider -->
+                <div class="hr1 margin-60"></div>
+                <!-- Divider -->
+                <div class="hr1 margin-60"></div>
+                
+                <!-- Divider -->
+                <div class="hr1 margin-60"></div>
+                <!-- Divider -->
+                <div class="hr1 margin-60"></div>
+                <!-- Divider -->
+                <div class="hr1 margin-60"></div>
+                <!-- Start Clients/Partner Section -->
+                <!-- .container -->
+                <!-- End Clients/Partner Section -->
+                
+                <!-- Go To Top Link -->
+                
+            </div>
+            <!-- End Content -->
+        </div>
+        <!-- End Container -->
+        <!-- Start Footer -->
+        <c:PDI_PortalFooter ></c:PDI_PortalFooter>
+        <!-- End Footer -->
+        <apex:form >
+            <apex:actionFunction action="{!redirectoValidateProvider}" name="redirectoValidate"/>
+            <apex:actionFunction action="{!redirectoFAQ}" name="redirectToFAQPage"/>
+            <apex:actionFunction action="{!redirectoChangePassword}" name="redirectoChangePass"/>
+            <apex:actionFunction action="{!redirectoProviderList}" name="redirecttoProvidersList" id="redirecttoProvidersList"/>
+        </apex:form>
+    </body>
+</apex:page>

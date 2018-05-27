@@ -1,0 +1,831 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ComposeGmail</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>LogCall</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>MailMerge</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>RequestUpdate</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SendEmail</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ViewAll</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Actual_Hours__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Hours</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Annual_Action_Plan__c</fullName>
+        <externalId>false</externalId>
+        <label>Annual Action Plan</label>
+        <required>false</required>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <controllingField>IC_Meeting_Type__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Send Welcome Kit</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Send Reminder on Upcoming Renewals</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Follow-up with Broker For Renewal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Follow-up Meeting Details For Renewal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Send Employer Survey</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Annual Planning</controllingFieldValue>
+                <valueName>Send Welcome Kit</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Annual Planning</controllingFieldValue>
+                <valueName>Send Reminder on Upcoming Renewals</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Annual Planning</controllingFieldValue>
+                <valueName>Follow-up with Broker For Renewal</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Annual Planning</controllingFieldValue>
+                <valueName>Follow-up Meeting Details For Renewal</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Annual Planning</controllingFieldValue>
+                <valueName>Send Employer Survey</valueName>
+            </valueSettings>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Candidate_Connect__c</fullName>
+        <description>This field shows that how many days sourcing agent has to connect with Candidate</description>
+        <externalId>false</externalId>
+        <label>Candidate Connect</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>30</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>60</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>90</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Completed_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Completed Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DB_Activity_Type__c</fullName>
+        <description>This is a field that is installed by and used with the Adoption Dashboard AppExchange package.  If your org already has a similar field, you can change the reports that are part of the Adoption Dashboard package to use your custom field and then delete this field.</description>
+        <externalId>false</externalId>
+        <formula>IF(CONTAINS( Subject , &quot;Email&quot;), &quot;Email&quot;, IF(CONTAINS( Subject , &quot;Cold Call&quot;), &quot;Cold Call&quot;, IF(CONTAINS( Subject , &quot;Call&quot;), &quot;Call&quot;, IF(CONTAINS( Subject , &quot;Meeting&quot;), &quot;Meeting&quot;, IF(CONTAINS( Subject , &quot;On Site Visit&quot;), &quot;Site Visit&quot;, IF(CONTAINS( Subject , &quot;Quote&quot;), &quot;Send Letter/Quote&quot;, &quot;Other&quot;))))))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>DB Activity Type</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Digital_Campaigns__c</fullName>
+        <externalId>false</externalId>
+        <label>Digital Campaigns</label>
+        <required>false</required>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>12-Week Stress Less</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>12-Week Weight Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>4-Week DeStress Your Work</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>4-Week Hydration</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>6-Month Weight Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Breast cancer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Diabetes prevention</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dine on Nine–fruits &amp; vegetable series</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Headache management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Healthy heart</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Healthy pregnancy</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Overcoming healthy lifestyle obstacles</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sleep</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Smoking cessation</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>IC_Meeting_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>IC Meeting Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Account Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Annual Planning</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Intro Meeting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Upsell</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Wellness Meeting</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Incumbent_Carriers__c</fullName>
+        <externalId>false</externalId>
+        <label>Carrier Partners</label>
+        <required>false</required>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AETNA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ANTHEM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BLUE SHIELD</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CAL CHOICE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CALPERS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CHINESE COMMUNITY HEALTH PLAN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CIGNA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HEALTH NET</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>KAISER</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>OTHER</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SELF FUNDED</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SHP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>UNITED Health Care</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WHA</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Market_Interest__c</fullName>
+        <externalId>false</externalId>
+        <label>Market Interest</label>
+        <required>false</required>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Annual Action Plan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Biometrics</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>EAP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Etips</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Executive Health</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Flu Clinic</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Health &amp; Wellness Screening Committee</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Health Coaching</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Health Fairs</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HRA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IHH</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LWFL Program</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mobile Clinic</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Occupational Health</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Onsite Clinics</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Onsite lectures</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Open Enrollment Participation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PEP Product</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Quarterly Newsletter</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Service Line promotion (then sub tier with service line)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Survey</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Care At Home</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Health Plus (SHP)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tele-Medicine</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Meeting_Agenda__c</fullName>
+        <externalId>false</externalId>
+        <label>Meeting Agenda</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Mode__c</fullName>
+        <externalId>false</externalId>
+        <label>Meeting Mode</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>In Person</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Phone</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WebEx</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Meeting_Result__c</fullName>
+        <externalId>false</externalId>
+        <label>Meeting Result</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Follow Up Meeting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Meeting Cancelled</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Received Agreement Details</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Received Information For Prospect Account</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Received Opportunity Details</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Meeting_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Meeting Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1st Meeting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Follow-up Meeting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Touch Point Meeting</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Meeting_With_Executive__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Meeting With Executive</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Please_specify_other__c</fullName>
+        <externalId>false</externalId>
+        <label>Please specify other</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Projected_Hours__c</fullName>
+        <externalId>false</externalId>
+        <label>Projected Hours</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Reason__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter Reason why Status is On Hold or Deferred</inlineHelpText>
+        <label>Reason</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Service_Line_Product_Promotion__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Line/Product Promotion</label>
+        <required>false</required>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Bariatric</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cardiology</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>EAP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Elder Care</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Executive Health</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IHH</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Lung Nodule Clinic</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Men&apos;s Health</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mental Health</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Neuroscience</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Occupational Medicine</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Oncology</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Orthopedics</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SHP (Sutter Health Plus)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Care at Home</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Womens and Children</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Strategic_Opportunities__c</fullName>
+        <externalId>false</externalId>
+        <label>Strategic Opportunities</label>
+        <required>false</required>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Executive Engagement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mobile Clinic</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>On-Site Clinic</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PEP Product</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PHM Collaboration</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Experiment A</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Experiment B</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Experiment C</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Experiment D</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Topic__c</fullName>
+        <externalId>false</externalId>
+        <label>Topic</label>
+        <length>128</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Training_Type1__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;javascript:if(typeof(srcUp)==&apos;function&apos;) {srcUp(&apos;/&quot; &amp; Id &amp; &quot;?isdtp=vw&apos;);}&quot;+ &quot; else {window.location.href=&apos;/&quot; &amp; Id &amp; &quot;&apos;}&quot;, Type_Value__c, &quot;_self&quot;)</formula>
+        <label>Task Type</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Training_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Task Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Documentation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HealthStream</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Meeting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Patient Build</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Review</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>System Build</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Validation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Training</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Type_Value__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(Training_Type__c, &quot;Documentation&quot;,&quot;Documentation&quot;,
+&quot;HealthStream&quot;,&quot;HealthStream&quot;,
+&quot;Meeting&quot;,&quot;Meeting&quot;,
+&quot;Patient Build&quot;,&quot;Patient Build&quot;,
+&quot;Review&quot;,&quot;Review&quot;,
+&quot;System Build&quot;,&quot;System Build&quot;,
+&quot;Validation&quot;,&quot;Validation&quot;, 
+&quot;Training&quot;, &quot;Training&quot;, Null
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Type Value</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <listViews>
+        <fullName>MyActivities</fullName>
+        <filterScope>Mine</filterScope>
+        <label>My Activities</label>
+    </listViews>
+    <listViews>
+        <fullName>MyDelegatedActivities</fullName>
+        <filterScope>Delegated</filterScope>
+        <label>My Delegated Activities</label>
+    </listViews>
+    <listViews>
+        <fullName>MyTeamsActivities</fullName>
+        <filterScope>Team</filterScope>
+        <label>My Team&apos;s Activities</label>
+    </listViews>
+    <listViews>
+        <fullName>TodaysTasks</fullName>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>TASK.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>ACTIVITY.TASK</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>TASK.DUE_DATE</field>
+            <operation>lessThan</operation>
+            <value>TOMORROW</value>
+        </filters>
+        <label>Today&apos;s Tasks</label>
+    </listViews>
+    <listViews>
+        <fullName>UpcomingEvents</fullName>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>ACTIVITY.TASK</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>TASK.DUE_DATE</field>
+            <operation>greaterThan</operation>
+            <value>YESTERDAY</value>
+        </filters>
+        <label>Upcoming Events</label>
+    </listViews>
+    <searchLayouts>
+        <searchFilterFields>TASK.SUBJECT</searchFilterFields>
+        <searchFilterFields>TASK.WHO_NAME</searchFilterFields>
+        <searchFilterFields>TASK.TYPE</searchFilterFields>
+        <searchFilterFields>TASK.CREATED_DATE</searchFilterFields>
+        <searchFilterFields>TASK.DUE_DATE</searchFilterFields>
+        <searchFilterFields>TASK.WHAT_NAME</searchFilterFields>
+        <searchFilterFields>CORE.USERS.ALIAS</searchFilterFields>
+        <searchResultsAdditionalFields>TASK.SUBJECT</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>TASK.WHO_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>TASK.TYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>TASK.CREATED_DATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>TASK.DUE_DATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>TASK.WHAT_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+</CustomObject>

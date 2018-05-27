@@ -1,0 +1,23 @@
+<apex:page controller="AQRSCRMController1">
+    <apex:form >
+        <apex:outputPanel id="panel1">
+            <apex:selectList value="{!filterWrap.lstFacilities}" multiselect="true" size="3">
+                <apex:selectOptions value="{!facilities}" />
+                <apex:actionSupport event="onchange" action="{!actionUpdatePicklistVals}" rerender="panel1" />
+            </apex:selectList>
+            <apex:selectList value="{!filterWrap.lstDivision}" multiselect="true" size="3">
+                <apex:selectOptions value="{!divisions}" />
+                <apex:actionSupport event="onchange" action="{!actionUpdatePicklistVals}" rerender="panel1" />
+            </apex:selectList>
+            <apex:selectList value="{!filterWrap.lstDepartment}" multiselect="true" size="3">
+                <apex:selectOptions value="{!department}" />
+                <apex:actionSupport event="onchange" action="{!actionUpdatePicklistVals}" rerender="panel1" />
+            </apex:selectList>
+            <apex:selectList value="{!filterWrap.lstProvider}" multiselect="true" size="3">
+                <apex:selectOptions value="{!provider}" />
+                <apex:actionSupport event="onchange" action="{!actionUpdatePicklistVals}" rerender="panel1" />
+            </apex:selectList>
+            
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

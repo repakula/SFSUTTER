@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Level 2 Content</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Level 2 Contents</value>
+    </caseValues>
+    <fields>
+        <help><!-- For Developer, Admins only --></help>
+        <label><!-- SH_ArticleID_Transform_CODE --></label>
+        <name>SH_Article_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Article/Tool Id --></label>
+        <name>SH_Article_Tool_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Article/Tool --></label>
+        <name>SH_Article_Tool__c</name>
+    </fields>
+    <fields>
+        <help><!-- Background colour will not be applicable for the Listing Type &quot;Two Column Layout&quot; . --></help>
+        <label><!-- Background Class --></label>
+        <name>SH_Background_Class__c</name>
+        <picklistValues>
+            <masterLabel>background-blue</masterLabel>
+            <translation><!-- background-blue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>background-cyan</masterLabel>
+            <translation><!-- background-cyan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>background-orange</masterLabel>
+            <translation><!-- background-orange --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>background-white</masterLabel>
+            <translation><!-- background-white --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Content Image Url --></label>
+        <name>SH_Content_Image_Url__c</name>
+    </fields>
+    <fields>
+        <label><!-- Content Image --></label>
+        <name>SH_Content_Image__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field is used to store internal or external url (must be fully qualified url) --></help>
+        <label><!-- Content Link --></label>
+        <name>SH_Content_Link__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field is used to open the link in same tab (_self) or in different tab (_blank) --></help>
+        <label><!-- Content Target --></label>
+        <name>SH_Content_Target__c</name>
+        <picklistValues>
+            <masterLabel>_blank</masterLabel>
+            <translation><!-- _blank --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>_self</masterLabel>
+            <translation><!-- _self --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Content Type --></label>
+        <name>SH_Content_Type__c</name>
+        <picklistValues>
+            <masterLabel>Article</masterLabel>
+            <translation><!-- Article --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tool</masterLabel>
+            <translation><!-- Tool --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>SH_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Preview --></label>
+        <name>SH_Is_Preview__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Publish --></label>
+        <name>SH_Is_Publish__c</name>
+    </fields>
+    <fields>
+        <label><!-- Listing Type --></label>
+        <name>SH_Listing_Type__c</name>
+        <picklistValues>
+            <masterLabel>List With Left Image</masterLabel>
+            <translation><!-- List With Left Image --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>List With Right Image</masterLabel>
+            <translation><!-- List With Right Image --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Simple List View (Full Width)</masterLabel>
+            <translation><!-- Simple List View (Full Width) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Two Column Layout</masterLabel>
+            <translation><!-- Two Column Layout --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Order of Display --></label>
+        <name>SH_Order_of_Display__c</name>
+    </fields>
+    <fields>
+        <help><!-- stores the production id for the article/Tool --></help>
+        <label><!-- Production Id --></label>
+        <name>SH_Production_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Show on Top links --></label>
+        <name>SH_Show_on_Top_links__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sub Menu Item --></label>
+        <name>SH_Sub_Menu_Item__c</name>
+        <relationshipLabel><!-- Level 2 Contents --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Level 3 Content Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Required --></errorMessage>
+        <name>Article_ToolId_required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Required --></errorMessage>
+        <name>Content_Link_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please upload image before publish/preview. --></errorMessage>
+        <name>Image_required_on_publish_preview</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Invalid Article/Tool ID --></errorMessage>
+        <name>Invalid_ArticleTool_ID</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- SH_Preview --></label>
+        <name>SH_Preview</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- SH_Preview_Unpreview --></label>
+        <name>SH_Preview_Unpreview</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- SH_Publish_Unpublish --></label>
+        <name>SH_Publish_Unpublish</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- SH_Upload_Image --></label>
+        <name>SH_Upload_Image</name>
+    </webLinks>
+</CustomObjectTranslation>

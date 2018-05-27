@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Sold Sign Off</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Sold Sign Offs</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account Executive --></label>
+        <name>Account_Executive__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Manager --></label>
+        <name>Account_Manager__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tech Account RecordType Name --></label>
+        <name>Account_RecordType_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Name --></label>
+        <name>Account__c</name>
+    </fields>
+    <fields>
+        <label><!-- Assumed Subscribers Enrolling --></label>
+        <name>Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approved Date --></label>
+        <name>Approved_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- BOR --></label>
+        <name>BOR__c</name>
+    </fields>
+    <fields>
+        <label><!-- Broker --></label>
+        <name>Broker__c</name>
+    </fields>
+    <fields>
+        <label><!-- Brokerage Firm --></label>
+        <name>Brokerage_Firm__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Medical Commission Type --></label>
+        <name>Commission_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Months --></label>
+        <name>Contract_Months__c</name>
+    </fields>
+    <fields>
+        <label><!-- DBA --></label>
+        <name>DBA__c</name>
+    </fields>
+    <fields>
+        <label><!-- ER Zip --></label>
+        <name>ER_Zip__c</name>
+    </fields>
+    <fields>
+        <label><!-- Effective Date --></label>
+        <name>Effective_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email employer Type --></label>
+        <name>Email_employer_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employer Name --></label>
+        <name>Employer_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employer Type --></label>
+        <name>Employer_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estimated Subs --></label>
+        <name>Estimated_Subs__c</name>
+    </fields>
+    <fields>
+        <label><!-- Form Submitter Name --></label>
+        <name>Form_Submitter_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Child Record Created? --></label>
+        <name>Is_Child_Record_Created__c</name>
+    </fields>
+    <fields>
+        <label><!-- Medical Commission --></label>
+        <name>Medical_Commission__c</name>
+    </fields>
+    <fields>
+        <label><!-- NTE % --></label>
+        <name>NTE__c</name>
+    </fields>
+    <fields>
+        <label><!-- NTE in Place --></label>
+        <name>NTE_in_Place__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- New Business (SSO) or Renewal (RSO) --></label>
+        <name>New_Business_SSO_or_Renewal_RSO__c</name>
+        <picklistValues>
+            <masterLabel>RSO</masterLabel>
+            <translation><!-- RSO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SSO</masterLabel>
+            <translation><!-- SSO --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Next Renewal Date --></label>
+        <name>Next_Renewal_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity_ID__c</name>
+        <relationshipLabel><!-- Sold Sign Offs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Stage Name --></label>
+        <name>Opportunity_Stage_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tech Plan Year --></label>
+        <name>Plan_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote --></label>
+        <name>Quote__c</name>
+        <relationshipLabel><!-- Sold Sign Offs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RFP Form --></label>
+        <name>RFP_Form__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rejection Reason --></label>
+        <name>Rejection_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Commission Missing</masterLabel>
+            <translation><!-- Commission Missing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Effective Date Incorrect</masterLabel>
+            <translation><!-- Effective Date Incorrect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Effective Date Missing</masterLabel>
+            <translation><!-- Effective Date Missing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Incorrect Rates</masterLabel>
+            <translation><!-- Incorrect Rates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Missing Plan ID</masterLabel>
+            <translation><!-- Missing Plan ID --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quote Type Missing</masterLabel>
+            <translation><!-- Quote Type Missing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Slice Carriers Missing</masterLabel>
+            <translation><!-- Slice Carriers Missing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sold Rates Incorrect</masterLabel>
+            <translation><!-- Sold Rates Incorrect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sold Rates Missing</masterLabel>
+            <translation><!-- Sold Rates Missing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Void</masterLabel>
+            <translation><!-- Void --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Renewal Year NTE Applies --></label>
+        <name>Renewal_Year_NTE_Applies__c</name>
+    </fields>
+    <fields>
+        <label><!-- SSO/RSO  Due Date --></label>
+        <name>SSO_RSO_Due_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Slicing with Carrier Name --></label>
+        <name>Slicing_with_Carrier_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Special Instructions/Comments --></label>
+        <name>Special_Instructions_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Stage --></label>
+        <name>Stage__c</name>
+        <picklistValues>
+            <masterLabel>Approved by Underwriting</masterLabel>
+            <translation><!-- Approved by Underwriting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected by Underwriting</masterLabel>
+            <translation><!-- Rejected by Underwriting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted to Underwriting</masterLabel>
+            <translation><!-- Submitted to Underwriting --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Proposal Scenario --></label>
+        <name>TR_Dual_Triple_Slice__c</name>
+        <picklistValues>
+            <masterLabel>Slice</masterLabel>
+            <translation><!-- Slice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Slice &amp; Triple Option</masterLabel>
+            <translation><!-- Slice &amp; Triple Option --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TR</masterLabel>
+            <translation><!-- TR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TR &amp; Slice</masterLabel>
+            <translation><!-- TR &amp; Slice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Triple Option</masterLabel>
+            <translation><!-- Triple Option --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Tech Account Id --></label>
+        <name>Tech_Account_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tech Quote Status --></label>
+        <name>Tech_Quote_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- regenerate? --></label>
+        <name>regenerate__c</name>
+    </fields>
+    <layouts>
+        <layout>Sold Sign Off Layout</layout>
+        <sections>
+            <label><!-- Broker Information --></label>
+            <section>Broker Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Employer Information --></label>
+            <section>Employer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Sales Information --></label>
+            <section>Sales Information</section>
+        </sections>
+        <sections>
+            <label><!-- Sold Riders &amp; Ancillary Products --></label>
+            <section>Sold Riders &amp; Ancillary Products</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please enter SSO/RSO Due Date. --></errorMessage>
+        <name>HR_SSO_VR01_DueDateMandatory</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Email_All_Attachments_To_Me --></label>
+        <name>Email_All_Attachments_To_Me</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Generate_PDF --></label>
+        <name>Generate_PDF</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Sold_Sign_Off --></label>
+        <name>New_Sold_Sign_Off</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Regenerate_Documents --></label>
+        <name>Regenerate_Documents</name>
+    </webLinks>
+</CustomObjectTranslation>

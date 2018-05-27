@@ -1,0 +1,155 @@
+<!--
+*     Page Name   : VFP21_FPAttachment
+*     Author      : Rahul Nasa
+*     Date        : 18-Aug-2014 
+*     Project Name: CRM - SFT - Sutter Health
+*     Description : Req-3143 
+-->
+<apex:page docType="html-5.0" standardController="Case" showheader="true"
+    extensions="SH_VFC21_FPAttachment" id="pg1" showHeader="false"
+    sidebar="false" applyBodyTag="false" applyHtmlTag="false"
+    action="{!forwardToLoginPage}">
+
+    <head>
+        <title>{!activePgName}</title>
+        <c:SH_HeaderResource />
+    </head>
+
+    <style>
+.label {
+    text-align: left;
+}
+
+.color {
+    color: #4A4A56;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 0px;
+}
+
+.Margin {
+    padding-left: 300px;
+}
+
+.bPageBlock {
+    border-top: 4px solid #FFFFFF;
+}
+
+.CustomField {
+    color: rgb(102, 102, 102);
+    font-family: helvetica, arial, sans-serif; 
+    font-size: 16px;
+}
+</style>
+
+    <body id="home" class="show-notification menu-open menu-visibility">
+        <c:SH_SearchBar isPreview="{!isPreview}" />
+        <!-- notification popup -->
+        <c:SH_Notification isPreview="{!isPreview}" id="notifComponent" Title="{!strTitle}" Description="{!strDescription}" Info="{!strInfo}" BrowserTitle="{!strBrowserTitle}" BrowserDescription="{!strBrowserDescription}" BrowserInfo="{!strBrowserInfo}" BrowserNotify="{!IsBrowser}" Notify="{!IsNotify}"/>
+        
+        <!-- Menu Item -->
+        <c:SH_MenuItem lstMenuItem="{!lstMenuItem }" isPreview="{!isPreview}" Category="{!strCategoryForHelp}" SubCategory="{!strSubCategoryForHelp}"  Team="{!strTeamForHelp}" CustomerIntent="{!strCustomerIntentForHelp}" L1="{!strL1}" L1Id="{!strL1Id}" L2="{!strL2}" L2Id="{!strL2Id}"/>
+
+        <!-- content -->
+        <div id="content-wrapper">
+            <!-- Header-->
+            <c:SH_Header isPreview="{!isPreview}" actiVePg="{!activePgName}"
+                breadCrumbs="{!BreadCrumbs}" />
+
+            <div id="content">
+                <apex:pageMessages />
+                <apex:form >
+<!--                    <apex:sectionHeader title="Customer Inquiry Edit" -->
+<!--                        subtitle="{!$Label.New_Customer_Inquiry}" /> -->
+                    <apex:outputPanel rendered="{!if(IsSuccess,false, true)}" >
+                        <apex:pageBlock title="{!$Label.Payroll_Upload_Form}" mode="Edit" id="pb">
+                            <br />
+                            <apex:outputText value="This form is used exclusively to submit upload spreadsheets to payroll for processing. Do not submit any other type of payroll request using this form as it will cause a delay in processing. Should you have any questions contact the Sutter Employee Line at 855-398-1631." />
+                            <br />
+                            <!-- <apex:outputText style="font-style:normal; font-weight:800" value="Should you have any questions contact the Sutter Employee Line at 855-398-1631"/> -->
+                            <apex:pageBlockButtons location="bottom">
+                                <apex:commandLink action="{!saveAndSend}" value="Submit" styleClass="btn"/>
+                                <a id="aCancelLink" href="{!strCancelLink}" class="btn">Cancel</a>
+                                
+                                <!-- <apex:commandButton action="{!saveAndSend}" value="{!$Label.Submit}" /> -->
+                                <!-- <apex:commandButton action="{!Cancel}" value="{!$Label.LABS_SF_Cancel}" /> -->
+                            </apex:pageBlockButtons>
+                            
+                            <apex:pageBlockSection title="{!$Label.Request_Type_Section}"
+                                columns="2" collapsible="false" showHeader="false">
+                            </apex:pageBlockSection>
+
+                            <apex:pageBlockSection title="{!$Label.Request_Info}" columns="2"
+                                collapsible="false">
+                                <apex:outputField value="{!caseRecord.ContactId}"
+                                    label="{!$Label.Submitted_By}" />
+                                <apex:inputField value="{!case.Requestor_Name_Attachment__c}"
+                                    required="true" />
+                                <apex:outputField value="{!case.Affiliate__c}" />
+                                <apex:inputField value="{!case.Pay_Period_Date__c}"
+                                    required="true" />
+                                <apex:inputField value="{!case.Employee__c}" required="true" />
+                            </apex:pageBlockSection>
+
+                            <apex:pageBlockSection title="{!$Label.Description_Information}"
+                                columns="1" collapsible="false">
+                                <apex:inputField value="{!case.Internal_Comments__c}"
+                                    style="width: 350px; height: 50px;" required="true" />
+                            </apex:pageBlockSection>
+
+                            <apex:pageBlockSection title="{!$Label.Attachments}" columns="1"
+                                collapsible="false">
+                                <apex:outputPanel styleClass="color">
+                                    <apex:pageBlockSectionItem >
+                                        <apex:outputLabel value="{!$Label.Attach_File}" for="file" />
+                                        <apex:inputFile value="{!attachment.body}"
+                                            filename="{!attachment.name}" id="file"
+                                            style="margin-left:174px" />
+                                    </apex:pageBlockSectionItem>
+                                </apex:outputPanel>
+                            </apex:pageBlockSection>
+                        </apex:pageBlock>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!if(IsSuccess,true, false)}" layout="none" >
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <section class="form-section last-section">
+                                            <div style="display:block" class="success-notification">
+                                                <h4>Success! Thank you for your submission.</h4>
+                                                <p>Service Request number ({!CaseNumber}) has been created for your reference.</p>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                    </apex:outputPanel>     
+                </apex:form>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <c:SH_Footer ></c:SH_Footer>
+
+        <script>
+            jQuery(document).ready(function(){
+                
+                jQuery('div[Id$=pb]').css('background-color','#FFFFFF');
+                jQuery('div[Id$=pb]').css('padding-left','20px');
+                jQuery('.secondaryPalette').css('border-color','#FFFFFF');
+                jQuery('.pbSubheader').css('background-color','#00A9A5');
+                jQuery('.pbSubheader').css('margin-top','20px');
+                jQuery('.mainTitle').css('font-size','36px');
+                jQuery('.mainTitle').css('font-weight','bold');
+                jQuery('.mainTitle').css('width','367px');
+                jQuery('.pbHeader').css('margin-top','20px');
+                jQuery('.pbHeader').css('margin-bottom','20px');
+            });
+        </script>
+        <apex:form >
+            <!-- added on 26-Aug-2015 for Notification -->
+            <apex:inputHidden id="hdnToolArticle" value="{!strToolArticeId}"/>
+            <apex:inputHidden id="hdnBrowserName" value="{!browserName}"/>
+            <apex:actionfunction name="showNotification" action="{!showNotification}" />
+        </apex:form>
+    </body>
+</apex:page>

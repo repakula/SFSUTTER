@@ -1,0 +1,986 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Communication Log</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Communication Logs</value>
+    </caseValues>
+    <fields>
+        <label><!-- AIM patient --></label>
+        <name>AIM_patient__c</name>
+    </fields>
+    <fields>
+        <label><!-- AQRS Reference Id --></label>
+        <name>AQRS_Reference_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- BMI --></label>
+        <name>BMI__c</name>
+    </fields>
+    <fields>
+        <label><!-- Call result --></label>
+        <name>Call_result__c</name>
+        <picklistValues>
+            <masterLabel>Canceled</masterLabel>
+            <translation><!-- Canceled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delivery type mismatch</masterLabel>
+            <translation><!-- Delivery type mismatch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Duplicate reminder</masterLabel>
+            <translation><!-- Duplicate reminder --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Duplicate update</masterLabel>
+            <translation><!-- Duplicate update --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Incomplete setup to send messages</masterLabel>
+            <translation><!-- Incomplete setup to send messages --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Left Message</masterLabel>
+            <translation><!-- Left Message --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Missing or Invalid Number</masterLabel>
+            <translation><!-- Missing or Invalid Number --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Answer/Busy</masterLabel>
+            <translation><!-- No Answer/Busy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No email address on file</masterLabel>
+            <translation><!-- No email address on file --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not available</masterLabel>
+            <translation><!-- Not available --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patient is not signed up for updates</masterLabel>
+            <translation><!-- Patient is not signed up for updates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patient not accepting updates</masterLabel>
+            <translation><!-- Patient not accepting updates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patient updates disabled</masterLabel>
+            <translation><!-- Patient updates disabled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reminder rule failed</masterLabel>
+            <translation><!-- Reminder rule failed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent to Communication Vendor</masterLabel>
+            <translation><!-- Sent to Communication Vendor --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Call time --></label>
+        <name>Call_time__c</name>
+        <picklistValues>
+            <masterLabel>Afternoon</masterLabel>
+            <translation><!-- Afternoon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Evening</masterLabel>
+            <translation><!-- Evening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Morning</masterLabel>
+            <translation><!-- Morning --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments_Spoke_with_Patient__c</name>
+    </fields>
+    <fields>
+        <help><!-- Patient Name --></help>
+        <label><!-- Patient Name --></label>
+        <name>Contact_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact method --></label>
+        <name>Contact_method__c</name>
+        <picklistValues>
+            <masterLabel>E-mail</masterLabel>
+            <translation><!-- E-mail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General</masterLabel>
+            <translation><!-- General --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Person</masterLabel>
+            <translation><!-- In Person --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mail</masterLabel>
+            <translation><!-- Mail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patient Portal Message</masterLabel>
+            <translation><!-- Patient Portal Message --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Telephone</masterLabel>
+            <translation><!-- Telephone --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Contacted About --></label>
+        <name>Contacted_About__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current year AWV date --></label>
+        <name>Current_year_AWV_date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Department (Care Center) --></label>
+        <name>Department_Care_Center__c</name>
+    </fields>
+    <fields>
+        <label><!-- Department ID --></label>
+        <name>Department_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone # dialed --></label>
+        <name>Dialed_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Division --></label>
+        <name>Division__c</name>
+        <picklistValues>
+            <masterLabel>CPN Network</masterLabel>
+            <translation><!-- CPN Network --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mills Peninsula</masterLabel>
+            <translation><!-- Mills Peninsula --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SPMF LAKE DIVISION</masterLabel>
+            <translation><!-- SPMF LAKE DIVISION --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SPMF SONOMA DIVISION</masterLabel>
+            <translation><!-- SPMF SONOMA DIVISION --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Documentation Note --></label>
+        <name>Documentation_Note__c</name>
+    </fields>
+    <fields>
+        <label><!-- EPIC Error Id --></label>
+        <name>EPIC_Error_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- EPIC Reference # --></label>
+        <name>EPIC_Reference__c</name>
+    </fields>
+    <fields>
+        <label><!-- EPIC Response Message --></label>
+        <name>EPIC_Response_Message__c</name>
+    </fields>
+    <fields>
+        <label><!-- EPIC Sync Date --></label>
+        <name>EPIC_Sync_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Encounter Date --></label>
+        <name>Encounter_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Epic Patient ID --></label>
+        <name>Epic_Patient_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Facility --></label>
+        <name>Facility__c</name>
+        <picklistValues>
+            <masterLabel>SEBMF</masterLabel>
+            <translation><!-- SEBMF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SGMF</masterLabel>
+            <translation><!-- SGMF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SMF</masterLabel>
+            <translation><!-- SMF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SPMF</masterLabel>
+            <translation><!-- SPMF --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Foundation --></label>
+        <name>Foundation__c</name>
+        <picklistValues>
+            <masterLabel>EAST BAY PHYSICIANS MEDICAL GROUP</masterLabel>
+            <translation><!-- EAST BAY PHYSICIANS MEDICAL GROUP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GOULD MEDICAL GROUP</masterLabel>
+            <translation><!-- GOULD MEDICAL GROUP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PALO ALTO MEDICAL FOUNDATION</masterLabel>
+            <translation><!-- PALO ALTO MEDICAL FOUNDATION --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SUTTER MEDICAL GROUP</masterLabel>
+            <translation><!-- SUTTER MEDICAL GROUP --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Initials --></label>
+        <name>Initials__c</name>
+    </fields>
+    <fields>
+        <label><!-- Letter Sent Date --></label>
+        <name>Letter_Sent_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- MHO MESSAGE SENT? --></label>
+        <name>MHO_MESSAGE_SENT__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- MHO Message Sent Date --></label>
+        <name>MHO_Message_Sent_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Measure --></label>
+        <name>Measure__c</name>
+        <picklistValues>
+            <masterLabel>All Topics</masterLabel>
+            <translation><!-- All Topics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Asthma</masterLabel>
+            <translation><!-- Asthma --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Breast Cancer Screening</masterLabel>
+            <translation><!-- Breast Cancer Screening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Care Coordination</masterLabel>
+            <translation><!-- Care Coordination --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cervical Cancer Screening</masterLabel>
+            <translation><!-- Cervical Cancer Screening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chlamydia Screening</masterLabel>
+            <translation><!-- Chlamydia Screening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chronic kidney disease</masterLabel>
+            <translation><!-- Chronic kidney disease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chronic liver disease</masterLabel>
+            <translation><!-- Chronic liver disease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chronic obstructive pulmonary disease</masterLabel>
+            <translation><!-- Chronic obstructive pulmonary disease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Colorectal Cancer Screening</masterLabel>
+            <translation><!-- Colorectal Cancer Screening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Congestive heart failure</masterLabel>
+            <translation><!-- Congestive heart failure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coronary artery disease</masterLabel>
+            <translation><!-- Coronary artery disease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cystic fibrosis</masterLabel>
+            <translation><!-- Cystic fibrosis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Depression</masterLabel>
+            <translation><!-- Depression --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Diabetes mellitus</masterLabel>
+            <translation><!-- Diabetes mellitus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Diphtheria, tetanus, pertussis</masterLabel>
+            <translation><!-- Diphtheria, tetanus, pertussis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fall Risk</masterLabel>
+            <translation><!-- Fall Risk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General</masterLabel>
+            <translation><!-- General --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HIV/AIDS</masterLabel>
+            <translation><!-- HIV/AIDS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Haemophilus influenzae type b</masterLabel>
+            <translation><!-- Haemophilus influenzae type b --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hepatitis A</masterLabel>
+            <translation><!-- Hepatitis A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hepatitis B</masterLabel>
+            <translation><!-- Hepatitis B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Human papillomavirus</masterLabel>
+            <translation><!-- Human papillomavirus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hypertension</masterLabel>
+            <translation><!-- Hypertension --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Immunizations</masterLabel>
+            <translation><!-- Immunizations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactivated poliovirus</masterLabel>
+            <translation><!-- Inactivated poliovirus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Influenza</masterLabel>
+            <translation><!-- Influenza --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Measles, mumps, rubella</masterLabel>
+            <translation><!-- Measles, mumps, rubella --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medication Transition</masterLabel>
+            <translation><!-- Medication Transition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meningococcal</masterLabel>
+            <translation><!-- Meningococcal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-Clinical Communication</masterLabel>
+            <translation><!-- Non-Clinical Communication --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Obesity</masterLabel>
+            <translation><!-- Obesity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Osteoporosis</masterLabel>
+            <translation><!-- Osteoporosis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pneumococcal</masterLabel>
+            <translation><!-- Pneumococcal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preventive Screening</masterLabel>
+            <translation><!-- Preventive Screening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rotavirus</masterLabel>
+            <translation><!-- Rotavirus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tetanus, diphtheria, pertussis</masterLabel>
+            <translation><!-- Tetanus, diphtheria, pertussis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tobacco Cessation Counseling</masterLabel>
+            <translation><!-- Tobacco Cessation Counseling --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Varicella</masterLabel>
+            <translation><!-- Varicella --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Need Reminder --></label>
+        <name>Need_Reminder__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Appointment Type --></label>
+        <name>Next_Appointment_Type__c</name>
+        <picklistValues>
+            <masterLabel>E-mail</masterLabel>
+            <translation><!-- E-mail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General</masterLabel>
+            <translation><!-- General --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Person</masterLabel>
+            <translation><!-- In Person --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mail</masterLabel>
+            <translation><!-- Mail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patient Portal Message</masterLabel>
+            <translation><!-- Patient Portal Message --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Telephone</masterLabel>
+            <translation><!-- Telephone --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Next Planned Appointment --></label>
+        <name>Next_Planned_Appointment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Followup Date --></label>
+        <name>Next_contact_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of contacts --></label>
+        <name>Number_of_contacts__c</name>
+    </fields>
+    <fields>
+        <label><!-- Optum Form --></label>
+        <name>Optum_Form__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Outreach Call --></label>
+        <name>Outreach_Call__c</name>
+        <picklistValues>
+            <masterLabel>AWV</masterLabel>
+            <translation><!-- AWV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gap in Care</masterLabel>
+            <translation><!-- Gap in Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General</masterLabel>
+            <translation><!-- General --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pre-Visit</masterLabel>
+            <translation><!-- Pre-Visit --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Outreach Staff --></label>
+        <name>Outreach_staff__c</name>
+        <relationshipLabel><!-- Communication Logs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- PCP --></label>
+        <name>PCP__c</name>
+        <picklistValues>
+            <masterLabel>EVANS, NANCY</masterLabel>
+            <translation><!-- EVANS, NANCY --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FARNER, STEVEN HOWARD</masterLabel>
+            <translation><!-- FARNER, STEVEN HOWARD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FIRTH, THOMAS ALAN</masterLabel>
+            <translation><!-- FIRTH, THOMAS ALAN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FISH, JENNIFER CECILIA MD</masterLabel>
+            <translation><!-- FISH, JENNIFER CECILIA MD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SARINGAN, GEMMA MD</masterLabel>
+            <translation><!-- SARINGAN, GEMMA MD --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Patient Committed to Measure --></label>
+        <name>Patient_Committed_to_Measure__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Patient MRN --></label>
+        <name>Patient_MRN__c</name>
+    </fields>
+    <fields>
+        <label><!-- Patient Moved --></label>
+        <name>Patient_Moved__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Patient Outreach Complete --></label>
+        <name>Patient_Outreach_Complete__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Patient died --></label>
+        <name>Patient_died__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Phone Type (I CAL 90) --></label>
+        <name>Phone_Type_I_CAL_90__c</name>
+        <picklistValues>
+            <masterLabel>Assistant</masterLabel>
+            <translation><!-- Assistant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Home Fax</masterLabel>
+            <translation><!-- Home Fax --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Home Phone</masterLabel>
+            <translation><!-- Home Phone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JDM Comm</masterLabel>
+            <translation><!-- JDM Comm --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mobile</masterLabel>
+            <translation><!-- Mobile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Fax</masterLabel>
+            <translation><!-- Other Fax --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pager</masterLabel>
+            <translation><!-- Pager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TTY</masterLabel>
+            <translation><!-- TTY --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Txt Reminder</masterLabel>
+            <translation><!-- Txt Reminder --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Video Phone</masterLabel>
+            <translation><!-- Video Phone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Walkie Talkie</masterLabel>
+            <translation><!-- Walkie Talkie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Work Phone</masterLabel>
+            <translation><!-- Work Phone --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Physician Type --></label>
+        <name>Physician_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prior year AWV date --></label>
+        <name>Prior_year_AWV_date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Provider ID --></label>
+        <name>Provider_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- QI confirmed? --></label>
+        <name>QI_confirmed__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Reason for Call --></label>
+        <name>Reason_for_Call__c</name>
+    </fields>
+    <fields>
+        <label><!-- Relationship to the Patient --></label>
+        <name>Relationship_to_the_Patient__c</name>
+        <picklistValues>
+            <masterLabel>Attorney&apos;s Office</masterLabel>
+            <translation><!-- Attorney&apos;s Office --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aunt</masterLabel>
+            <translation><!-- Aunt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Brother</masterLabel>
+            <translation><!-- Brother --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Caregiver</masterLabel>
+            <translation><!-- Caregiver --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Carrier</masterLabel>
+            <translation><!-- Carrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Child</masterLabel>
+            <translation><!-- Child --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Copy Service</masterLabel>
+            <translation><!-- Copy Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cousin</masterLabel>
+            <translation><!-- Cousin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coworker/Associate</masterLabel>
+            <translation><!-- Coworker/Associate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Daughter</masterLabel>
+            <translation><!-- Daughter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Emergency Contact</masterLabel>
+            <translation><!-- Emergency Contact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Employer Group</masterLabel>
+            <translation><!-- Employer Group --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Father</masterLabel>
+            <translation><!-- Father --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Friend</masterLabel>
+            <translation><!-- Friend --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Grandchild</masterLabel>
+            <translation><!-- Grandchild --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Grandparent</masterLabel>
+            <translation><!-- Grandparent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Guarantor</masterLabel>
+            <translation><!-- Guarantor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Guardian</masterLabel>
+            <translation><!-- Guardian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interpreter</masterLabel>
+            <translation><!-- Interpreter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lab</masterLabel>
+            <translation><!-- Lab --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mental Health Provider</masterLabel>
+            <translation><!-- Mental Health Provider --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mother</masterLabel>
+            <translation><!-- Mother --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Network</masterLabel>
+            <translation><!-- Network --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Niece/Nephew</masterLabel>
+            <translation><!-- Niece/Nephew --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nurse</masterLabel>
+            <translation><!-- Nurse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nutritionist</masterLabel>
+            <translation><!-- Nutritionist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Call Provider</masterLabel>
+            <translation><!-- On Call Provider --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Relative</masterLabel>
+            <translation><!-- Other Relative --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PCP</masterLabel>
+            <translation><!-- PCP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parent</masterLabel>
+            <translation><!-- Parent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payor</masterLabel>
+            <translation><!-- Payor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pharmacist</masterLabel>
+            <translation><!-- Pharmacist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pharmacy</masterLabel>
+            <translation><!-- Pharmacy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Physical Therapist</masterLabel>
+            <translation><!-- Physical Therapist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Physician</masterLabel>
+            <translation><!-- Physician --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Provider</masterLabel>
+            <translation><!-- Provider --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Radiology</masterLabel>
+            <translation><!-- Radiology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Self</masterLabel>
+            <translation><!-- Self --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Significant Other</masterLabel>
+            <translation><!-- Significant Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sister</masterLabel>
+            <translation><!-- Sister --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Son</masterLabel>
+            <translation><!-- Son --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Specialist/Consultant</masterLabel>
+            <translation><!-- Specialist/Consultant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spouse</masterLabel>
+            <translation><!-- Spouse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Uncle</masterLabel>
+            <translation><!-- Uncle --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Reminder Activity Date --></label>
+        <name>Reminder_Activity_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sent MHO/Letter --></label>
+        <name>Sent_MHO_Letter__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Speciality --></label>
+        <name>Speciality__c</name>
+        <picklistValues>
+            <masterLabel>Cardiac</masterLabel>
+            <translation><!-- Cardiac --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nuero</masterLabel>
+            <translation><!-- Nuero --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Status Date --></label>
+        <name>Status_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Appointment scheduled</masterLabel>
+            <translation><!-- Appointment scheduled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deceased</masterLabel>
+            <translation><!-- Deceased --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insurance termed</masterLabel>
+            <translation><!-- Insurance termed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Moved</masterLabel>
+            <translation><!-- Moved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Moved out of state</masterLabel>
+            <translation><!-- Moved out of state --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patient Committed to Service</masterLabel>
+            <translation><!-- Patient Committed to Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patient Declined</masterLabel>
+            <translation><!-- Patient Declined --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transferred care</masterLabel>
+            <translation><!-- Transferred care --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Telephone encounter created? --></label>
+        <name>Telephone_encounter_created__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Next Visit Provider --></label>
+        <name>Upcoming_Visit_Provider__c</name>
+        <picklistValues>
+            <masterLabel>EVANS, NANCY</masterLabel>
+            <translation><!-- EVANS, NANCY --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FARNER, STEVEN HOWARD</masterLabel>
+            <translation><!-- FARNER, STEVEN HOWARD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FIRTH, THOMAS ALAN</masterLabel>
+            <translation><!-- FIRTH, THOMAS ALAN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FISH, JENNIFER CECILIA MD</masterLabel>
+            <translation><!-- FISH, JENNIFER CECILIA MD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SARINGAN, GEMMA MD</masterLabel>
+            <translation><!-- SARINGAN, GEMMA MD --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Next Visit Appt --></label>
+        <name>Upcoming_visit_apt_time__c</name>
+    </fields>
+    <fields>
+        <label><!-- User ID --></label>
+        <name>User_ID__c</name>
+    </fields>
+    <layouts>
+        <layout>Communication Log Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <workflowTasks>
+        <name>Communication_Log_Reminder</name>
+        <subject><!-- Communication Log Reminder --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- Please followup the Patient --></description>
+        <name>Please_Followup_Patient</name>
+        <subject><!-- Please Followup Patient --></subject>
+    </workflowTasks>
+</CustomObjectTranslation>

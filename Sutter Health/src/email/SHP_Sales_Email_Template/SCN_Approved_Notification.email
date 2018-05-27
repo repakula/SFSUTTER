@@ -1,0 +1,9 @@
+<html>
+<body>
+Hi,<br/><br/>
+
+The Enrollment Review of Sold Case Notification <a href="'{!$Label.HR216_SCNListViewURL}'">{!Employer_Group_Data__c.Name}</a> for {!Employer_Group_Data__c.Opportunity_Account_Name__c}/DBA: {!Employer_Group_Data__c.DBA_Name__c}, {!Employer_Group_Data__c.Email_Employer_Type__c} has been completed and has been Officially Approved.<br/><br/>
+
+Thank you.<br/>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<apex:page id="thePage" controller="ProviderCampaignInitiatorController" tabStyle="contact">
+    <c:PDI_Resources ></c:PDI_Resources>
+    <script>
+    function validate()
+    {
+        var campval = document.getElementById('{!$Component.theForm.thePageBlock.thePageBlockSection.thePageBlockSectionItem.campName}').value;
+        if(campval == '')
+        {
+            alert('Please enter campaign name.');
+        }
+        else
+        {
+            if(!confirm('Are you sure?'))
+            {
+            }
+            else
+            {
+                PerformSave();
+            }
+        }
+        
+    }
+    
+    $(document).ready(function() {
+        $(".button").click(function() {                
+            $("body").append('<div class="modalOverlay"><div class="PopupPanel"><img id="loading-image" src="{!$Resource.animatedloading}" alt="Processing..." /></div></div>');
+            
+        });
+    });
+    
+    </script>
+    <apex:form id="theForm">
+        
+        <apex:pageBlock title="{!$Label.CL195_PDICampaignInitiation}" id="thePageBlock">
+            <apex:pageMessages id="thePageMessage" ></apex:pageMessages>
+            <apex:pageBlockButtons id="thePgbButtons" location="Bottom">
+                <apex:actionStatus id="status" >
+                    <apex:facet name="start">
+                        <apex:outputPanel id="processing" >
+                            Processing... <apex:image id="loadingImage" value="{!URLFOR($Resource.AjaxLoaderImage)}" height="20px" width="20px"/>
+                        </apex:outputPanel>
+                    </apex:facet>
+                    <apex:facet name="stop">
+                        <apex:outputPanel id="btnPanel" rendered="{!CampaignStatus != $Label.CL179_PDI_Campaign_InProgress}">
+                            <apex:commandButton id="saveBtn" onclick="validate(); return false;" value="{!$Label.CL196_InitiateCampaign}"/>
+                            <apex:actionFunction id="saveFunction" name="PerformSave" action="{!Save}" reRender="theForm" status="status"/>
+                        </apex:outputPanel>
+                    </apex:facet>
+                </apex:actionStatus>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="{!$Label.CL197_CampaignDetails}" id="thePageBlockSection" columns="1">
+                <apex:pageBlockSectionItem id="thePageBlockSectionItem" >
+                    <apex:outputLabel id="lblName" value="{!$Label.CL198_CampaignName}" />
+                    <apex:outputPanel layout="block" styleClass="requiredInput" id="theOutputPanel">
+                        <div class="requiredBlock"></div>
+                        <apex:inputText id="campName" value="{!CampaignName}" disabled="true"/>
+                        <span valign="bottom"><apex:image styleClass="x-toolTipImg" value="{!URLFOR($Resource.tooltip, 'questionMarkIcon.jpg')}"
+                                                          title="{!$Label.CL240_PDICurrentCampaignTooltip}"/></span>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection id="excludeSection" title="{!$Label.CL199_ExcludeProviders}" columns="1">
+                <apex:inputCheckbox id="chkRetired" label="Retired" value="{!isRetiredOrDeparted}"/>
+                <apex:inputCheckbox id="chkResigned" label="Resigned" value="{!isResignedFromSutter}"/>
+                <apex:inputCheckbox id="chkInActive" label="Provider Inactive Status" value="{!isinActive}"/>
+                <apex:inputCheckbox id="chkTradingPartner" disabled="true" label="Trading Partner" value="{!isTradingPartner}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <apex:outputPanel id="historyBlock" rendered="{!renderHistory}">
+            <apex:pageBlock id="theCampaignHistory" title="{!$Label.CL200_CampaignHistory}">
+                <apex:pageBlockTable id="tblHistory" value="{!cHistory}" var="ch">
+                    <apex:column id="campaignName" headerValue="Campaign Name" width="12%">
+                        <apex:outputLink value="/{!ch.Id}">{!ch.Name}</apex:outputLink>
+                    </apex:column>
+                    <apex:column id="campInitiator" width="12%" value="{!ch.Campaign_Initiator__c}"/>
+                    <apex:column id="campStartDate" width="12%" value="{!ch.Start_Date_and_Time__c}"/>
+                    <apex:column id="campEndDate" width="12%" value="{!ch.End_Date_and_Time__c}"/>
+                    <apex:column id="campStatus" width="12%" value="{!ch.Campaign_Status__c}"/>
+                    <apex:column id="StatusDes" value="{!ch.Status_Description__c}"/>
+                </apex:pageBlockTable>
+            </apex:pageBlock>
+        </apex:outputPanel>
+    </apex:form>
+    
+</apex:page>

@@ -1,0 +1,98 @@
+<!--
+*     Page Name   : VFP22_Kronos_Request_Form
+*     Author      : Apoorv Kuchhal
+*     Date        : 18-Aug-2014 
+*     Project Name: CRM - SFT - Sutter Health
+*     Description :KRONOS is driven by supervisor code rather than accounting unit. It is not possible to give a person access to an individual employee. Therefore, once access is granted to a supervisor code, all employees who report to that code will appear in that person's KRONOS. 
+-->
+<apex:page standardController="Case" showheader="true" extensions="VFC22_Kronos_Request_Form" >
+    <style>
+        .requiredLegend {
+            font-weight: normal;
+            color: White;
+            }
+     </style>
+    <apex:pageMessages id="pgMsg"/>
+    <apex:form >
+        <apex:sectionHeader title="{!$Label.Customer_Inquiry_Edit}" subtitle="{!$Label.New_Customer_Inquiry}" />
+        <apex:pageBlock title="{!$Label.KRONOS_REQUEST_FORM}" mode="Edit">
+        <apex:pageBlockButtons >
+            <apex:commandButton action="{!saveAndSend}" value="{!$Label.Submit}" reRender="pgMsg"/> 
+            <apex:commandButton action="{!Cancel}" value="{!$Label.LABS_SF_Cancel}"/>
+        </apex:pageBlockButtons>
+        <br/>
+        
+        
+    <font color="red">
+    <apex:outputText label="" style="font-style:normal; font-weight:800" value="{!$Label.KRONOS_Message}"/>
+    <br/>
+    </font>
+    <br/>
+    <font color="red">
+    <apex:outputText style="font-style:normal; font-weight:800" value="Requests can take up to 3 business days to process. Thank you in advance for your understanding and cooperation."/>
+  
+    
+    </font>
+    <br/><br/>
+    <apex:pageBlockSection title="{!$Label.Requestor_Information}" columns="2" collapsible="false">
+            
+            <apex:outputField value="{!caseRecord.ContactId}" label="{!$Label.Name_of_Requestor}"/>
+            <apex:outputLabel ></apex:outputLabel>
+            <apex:outputField value="{!case.Date_Requested__c}"/>
+            <apex:outputLabel ></apex:outputLabel>
+            <apex:inputField value="{!case.Name_of_Employee_Needing_Access__c}" style="width: 150px; height: 18px;" required="true"/>
+            <apex:inputField value="{!case.Effective_Date_of_Change__c}"/>
+            <apex:inputField value="{!case.Employee_s_Job_Title__c}" style="width: 150px; height: 18px;" required="true"/>
+            <apex:inputField value="{!case.Type_Of_Access_Needed__c}" required="true"/>
+            <apex:inputField value="{!case.Employee__c}" required="true"/>
+            <apex:inputField value="{!case.Employee_Reports_To_Direct_Supervisor__c}" style="width: 150px; height: 18px;" required="true"/>
+            <apex:inputField value="{!case.Employee_s_Current_Affiliate__c}" required="true"/>
+            <apex:inputField value="{!case.Level_Of_Access_Needed__c}" required="true"/>
+            <apex:outputLabel ></apex:outputLabel>
+            <apex:outputLabel ></apex:outputLabel>
+    
+    <font color="black">
+    <apex:outputText style="font-style:normal; font-weight:800;margin-left:36%;align:left;" value="* approval access is limited to supervisory positions"/>
+    
+    </font>      
+               
+        </apex:pageBlockSection>
+       
+        <apex:pageBlockSection title="{!$Label.Access_Needed}" columns="1" collapsible="false">
+              <apex:inputField value="{!case.What_manager_s_does__c}" label="{!$Label.Kronos_Request_message}" style="width: 400px; height: 50px;"/>
+              <apex:outputLabel ></apex:outputLabel>
+              <apex:inputField value="{!case.Who_is_s_he_replacing__c}" style="width: 400px; height: 50px;"/>
+              <apex:outputLabel ></apex:outputLabel>
+              <apex:inputField value="{!case.If_replacing__c}" label="{!$Label.Kronos_Message_Access}"/>
+          </apex:pageBlockSection> 
+              
+   <br/>       
+ 
+    <font color="black">
+    <apex:outputText style="font-style:normal; font-weight:800" value="If this is a new manager position and you are not replacing a prior manager, S3 HR Data Processing will notify you when a new supervisor code is created. You will need to submit ePANs to assign employees to the new code. If you have more than fifteen (15) employees who need to be reassigned, please contact the S3 HR Data Processing at HRIS@sutterhealth.org."/>
+    <br/>
+    </font> 
+        <apex:pageBlockSection title="{!$Label.Backup_Access_Needed}" columns="1" collapsible="false">
+              <apex:inputField value="{!case.Does_this_person__c}" label="{!$Label.Kronos_Message_Backup}"/>
+              <apex:outputLabel ></apex:outputLabel>
+              <apex:inputField value="{!case.If_yes_who_will_need_access__c}" style="width: 400px; height: 50px;"/>
+              
+          </apex:pageBlockSection> 
+          
+         <apex:pageBlockSection title="{!$Label.Additional_Comments}" columns="1" collapsible="false">
+               <apex:inputField value="{!case.Internal_Comments__c}" label="Comments" style="width: 400px; height: 50px;"/>
+         </apex:pageBlockSection>
+          
+    </apex:pageBlock>
+    <!-- Component for GTM-->
+                     <c:Portal_User_Info />
+           <!-- Component for GTM-->
+    
+    </apex:form>
+    
+    <!-- Start Google Tag Manager -->
+    <apex:outputLabel value="{!$Label.GTMCustomLabel}" rendered="false"></apex:outputLabel> 
+    <apex:includeScript value="{!$Resource.GTMJavaScript}" />
+    <!-- End Google Tag Manager -->
+
+</apex:page>

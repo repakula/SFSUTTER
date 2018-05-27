@@ -1,0 +1,1000 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Sold Case Notification</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Sold Case Notification</value>
+    </caseValues>
+    <fields>
+        <label><!-- ACal L&amp;D Expiration Date --></label>
+        <name>ACal_L_D_Expiration_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- ACal L&amp;D Licence # --></label>
+        <name>ACal_L_D_Licence__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Executive --></label>
+        <name>Account_Executive__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account RecordType Name --></label>
+        <name>Account_RecordType_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account SFDC ID --></label>
+        <name>Account_SFDC_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Status --></label>
+        <name>Account_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Auditor Name --></label>
+        <name>AuditorName__c</name>
+        <relationshipLabel><!-- Sold Case Notification (Auditor Name) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Benefits Subject to ERISA Regulations? --></label>
+        <name>Benefits_Subject_to_ERISA_Regulations__c</name>
+    </fields>
+    <fields>
+        <label><!-- Billing Contact Name --></label>
+        <name>BillingContact_Name__c</name>
+        <relationshipLabel><!-- Sold Case Notification (Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Billing Contact  E-mail --></label>
+        <name>Billing_Contact_E_mail__c</name>
+    </fields>
+    <fields>
+        <label><!-- Billing Contact   Phone --></label>
+        <name>Billing_Contact_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Billing Street Address --></label>
+        <name>Billing_Street_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Broker Agency --></label>
+        <name>Broker_Agency__c</name>
+    </fields>
+    <fields>
+        <label><!-- Broker Name --></label>
+        <name>Broker_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- COBRA Members with this Group --></label>
+        <name>COBRA_Members_with_this_Group1__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- COBRA? --></label>
+        <name>COBRA__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Cal Cobra? --></label>
+        <name>Cal_Cobra__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- City --></label>
+        <name>City_BA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cloned Record? --></label>
+        <name>Cloned_Record__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please do not change this field. --></help>
+        <label><!-- Cloned from --></label>
+        <name>Cloned_from__c</name>
+    </fields>
+    <fields>
+        <label><!-- COBRA Type for this Group --></label>
+        <name>Cobra_Members_with_this_Group__c</name>
+        <picklistValues>
+            <masterLabel>Both</masterLabel>
+            <translation><!-- Both --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>COBRA</masterLabel>
+            <translation><!-- COBRA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cal COBRA</masterLabel>
+            <translation><!-- Cal COBRA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Exempt</masterLabel>
+            <translation><!-- Exempt --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Commissions - Medical --></label>
+        <name>Commissions_Medical__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commissions - Optional Acu-Chiro (ACN) --></label>
+        <name>Commissions_Optional_Acu_Chiro_ACN__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standard</masterLabel>
+            <translation><!-- Standard --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Commissions - Optional Dental (Delta) --></label>
+        <name>Commissions_Optional_Dental_Delta__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standard</masterLabel>
+            <translation><!-- Standard --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Commissions - Optional Vision (VSP) --></label>
+        <name>Commissions_Optional_Vision_VSP__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standard</masterLabel>
+            <translation><!-- Standard --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Company Name --></label>
+        <name>Company_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Completed By --></label>
+        <name>CompletedBy__c</name>
+        <relationshipLabel><!-- Sold Case Notification (Completed By) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Country_SA --></label>
+        <name>Country_SA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- County --></label>
+        <name>County__c</name>
+    </fields>
+    <fields>
+        <label><!-- Created By --></label>
+        <name>Created_By__c</name>
+        <relationshipLabel><!-- Sold Case Notification (Created By) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Current Stage Aging(Hours) --></label>
+        <name>Current_Stage_Aging__c</name>
+    </fields>
+    <fields>
+        <help><!-- DBA Name (if applicable) --></help>
+        <label><!-- DBA Name --></label>
+        <name>DBA_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date EOC Sent --></label>
+        <name>Date_EOC_Sent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date SBC Sent --></label>
+        <name>Date_SBC_Sent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Sold --></label>
+        <name>Date_Sold__c</name>
+    </fields>
+    <fields>
+        <label><!-- Distribution List --></label>
+        <name>Distribution_List__c</name>
+    </fields>
+    <fields>
+        <label><!-- Draft Start Time --></label>
+        <name>Draft_Start_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Draft hours --></label>
+        <name>Draft_hours__c</name>
+    </fields>
+    <fields>
+        <label><!-- EDI Vendor E-Mail --></label>
+        <name>EDI_Vendor_E_Mail__c</name>
+    </fields>
+    <fields>
+        <label><!-- EDI Vendor Name --></label>
+        <name>EDI_Vendor_Name__c</name>
+        <relationshipLabel><!-- Sold Case Notification (Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- EDI Vendor Phone --></label>
+        <name>EDI_Vendor_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Effective Date --></label>
+        <name>Effective_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Employer Type --></label>
+        <name>Email_Employer_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employee Waiting Other --></label>
+        <name>Employee_Waiting_Period_Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employee Waiting Period --></label>
+        <name>Employee_Waiting_Period__c</name>
+        <picklistValues>
+            <masterLabel>30 Days</masterLabel>
+            <translation><!-- 30 Days --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60 Days</masterLabel>
+            <translation><!-- 60 Days --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>90 Days</masterLabel>
+            <translation><!-- 90 Days --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Employer Contribution-DependentsPremium% --></label>
+        <name>Employer_Contribution_Dependents_Premium__c</name>
+    </fields>
+    <fields>
+        <label><!-- Emplr Cont.-Employees % or $ of Premium --></label>
+        <name>Employer_Contribution_Employees_Premium__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employer Defined Eligibility For Benefit --></label>
+        <name>Employer_Defined_Eligibility_for_Benefit__c</name>
+        <picklistValues>
+            <masterLabel>20 Hours</masterLabel>
+            <translation><!-- 20 Hours --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30 Hours</masterLabel>
+            <translation><!-- 30 Hours --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>40 Hours</masterLabel>
+            <translation><!-- 40 Hours --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Employer Type --></label>
+        <name>Employer_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Enrollment Method --></label>
+        <name>Enrollment_Method__c</name>
+        <picklistValues>
+            <masterLabel>Electronic</masterLabel>
+            <translation><!-- Electronic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paper</masterLabel>
+            <translation><!-- Paper --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Enrollment Start Time --></label>
+        <name>Enrollment_Start_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Enrollment hours --></label>
+        <name>Enrollment_hours__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fax Number --></label>
+        <name>Fax_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Federal Employer ID Number --></label>
+        <name>Federal_Employer_ID_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- GA Commission --></label>
+        <name>GA_Commission__c</name>
+    </fields>
+    <fields>
+        <label><!-- GA Contact --></label>
+        <name>GA_Contact__c</name>
+    </fields>
+    <fields>
+        <label><!-- General Agent Applicable --></label>
+        <name>General_Agent_Applicable__c</name>
+    </fields>
+    <fields>
+        <label><!-- General Agent --></label>
+        <name>General_Agent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group Type --></label>
+        <name>Group_Type__c</name>
+        <picklistValues>
+            <masterLabel>Individual</masterLabel>
+            <translation><!-- Individual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Large</masterLabel>
+            <translation><!-- Large --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Small</masterLabel>
+            <translation><!-- Small --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- HR Employer Portal Name --></label>
+        <name>HREmployer_Portal_Name1__c</name>
+        <relationshipLabel><!-- Sold Case Notification (Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- HR Employer Portal Name --></label>
+        <name>HREmployer_Portal_Name__c</name>
+        <relationshipLabel><!-- Sold Case Notification (Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- HREnrollment Name --></label>
+        <name>HREnrollment_Name__c</name>
+        <relationshipLabel><!-- Sold Case Notification (Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- HR Account Number --></label>
+        <name>HR_Account_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- HR Employer Portal E-mail --></label>
+        <name>HR_Employer_Portal_E_mail1__c</name>
+    </fields>
+    <fields>
+        <label><!-- HR Employer Portal E-mail --></label>
+        <name>HR_Employer_Portal_E_mail__c</name>
+    </fields>
+    <fields>
+        <label><!-- HR Employer Portal Name --></label>
+        <name>HR_Employer_Portal_Name1__c</name>
+    </fields>
+    <fields>
+        <label><!-- HR Employer Portal Name --></label>
+        <name>HR_Employer_Portal_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- HR Employer Portal Phone --></label>
+        <name>HR_Employer_Portal_Phone1__c</name>
+    </fields>
+    <fields>
+        <label><!-- HR Employer Portal Phone --></label>
+        <name>HR_Employer_Portal_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- HR/Enrollment  E-mail --></label>
+        <name>HR_Enrollment_E_mail__c</name>
+    </fields>
+    <fields>
+        <label><!-- HR/Enrollment  Phone --></label>
+        <name>HR_Enrollment_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Have the plan numbers changed? --></label>
+        <name>Have_the_plan_numbers_changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Medical Plan Notes --></label>
+        <name>Medical_Plan_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Medical Region --></label>
+        <name>Medical_Region__c</name>
+    </fields>
+    <fields>
+        <label><!-- Member Accumulators Previous  Carrier? --></label>
+        <name>Member_accumulators_previous_Carrier__c</name>
+    </fields>
+    <fields>
+        <label><!-- New EDI Vendor? --></label>
+        <name>New_EDI_Vendor__c</name>
+    </fields>
+    <fields>
+        <label><!-- New TPA Vendor? --></label>
+        <name>New_TPA_Vendor__c</name>
+    </fields>
+    <fields>
+        <label><!-- Old SCN Id --></label>
+        <name>Old_SCN_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Open Enrollment Date From --></label>
+        <name>Open_Enrollment_Date_From__c</name>
+    </fields>
+    <fields>
+        <label><!-- Open Enrollment Date To --></label>
+        <name>Open_Enrollment_Date_To__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please do not change the Opportunity Account Name value --></help>
+        <label><!-- Opportunity Account Name --></label>
+        <name>Opportunity_Account_Name__c</name>
+        <relationshipLabel><!-- Sold Case Notification --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Sold Case Notification --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Other --></label>
+        <name>Other_ERISA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other Language Considerations --></label>
+        <name>Other_Language_Considerations__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other --></label>
+        <name>Other_Optional_Acu_Chiro__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other --></label>
+        <name>Other_Optional_Dental__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other --></label>
+        <name>Other_Optional_Vision__c</name>
+    </fields>
+    <fields>
+        <help><!-- Performance or Implementation Performance Guarantees (if applicable - if not, N/A) --></help>
+        <label><!-- Performance or Implementation --></label>
+        <name>Performance_or_Implementation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone Number --></label>
+        <name>Phone_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan Year --></label>
+        <name>Plan_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan vs Calendar Year --></label>
+        <name>Plan_vs_Calendar_Year__c</name>
+        <picklistValues>
+            <masterLabel>Calendar Year</masterLabel>
+            <translation><!-- Calendar Year --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Plan Year</masterLabel>
+            <translation><!-- Plan Year --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Previous Group Insurance Through SHP? --></label>
+        <name>Previous_Group_Insurance_through_SHP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Projected Enrollment --></label>
+        <name>Projected_Enrollment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rejection Reason --></label>
+        <name>Rejection_Reason__c</name>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Void</masterLabel>
+            <translation><!-- Void --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Birth control coverage not provided due to religious exemption --></help>
+        <label><!-- Religious Exemption Applied --></label>
+        <name>Religious_Exemption_Applied__c</name>
+    </fields>
+    <fields>
+        <label><!-- Renewal SCN --></label>
+        <name>Renewal_SCN__c</name>
+    </fields>
+    <fields>
+        <label><!-- SCN Approved Date --></label>
+        <name>SCN_Approved_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- SCN Survey Sent Date --></label>
+        <name>SCN_Survey_Sent_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- SFDC Broker ID --></label>
+        <name>SFDC_Broker_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- SHP Broker ID --></label>
+        <name>SHP_Broker_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Manager --></label>
+        <name>SHP_Sales_Representative__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sales Auditor --></label>
+        <name>Sales_Auditor__c</name>
+        <relationshipLabel><!-- Sold Case Notification (Sales Auditor) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- County --></label>
+        <name>Shipping_County__c</name>
+    </fields>
+    <fields>
+        <label><!-- Proposal Scenario --></label>
+        <name>Slice_Account__c</name>
+        <picklistValues>
+            <masterLabel>Slice</masterLabel>
+            <translation><!-- Slice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TR/Sole Carrier</masterLabel>
+            <translation><!-- TR/Sole Carrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Triple Option</masterLabel>
+            <translation><!-- Triple Option --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Slicing with Carrier Name --></label>
+        <name>Slicing_with_Carrier_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold Case Notification --></label>
+        <name>Sold_Case_Notification__c</name>
+        <relationshipLabel><!-- Sold Case Notification --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Sold Sign Off --></label>
+        <name>Sold_Sign_Off__c</name>
+        <relationshipLabel><!-- Sold Case Notification --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Stage --></label>
+        <name>Stage__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enrollment QA Fail</masterLabel>
+            <translation><!-- Enrollment QA Fail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enrollment QA Pass</masterLabel>
+            <translation><!-- Enrollment QA Pass --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected by Underwriting</masterLabel>
+            <translation><!-- Rejected by Underwriting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted for QA</masterLabel>
+            <translation><!-- Submitted for QA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Underwriting Review</masterLabel>
+            <translation><!-- Underwriting Review --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- State --></label>
+        <name>State_BA__c</name>
+    </fields>
+    <fields>
+        <label><!-- State --></label>
+        <name>State_SA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Street Address --></label>
+        <name>Street_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sub-Account Data --></label>
+        <name>Sub_Account_Data__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tech Account Id --></label>
+        <name>Tech_Account_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tech Cloned Record --></label>
+        <name>Tech_Cloned_Record__c</name>
+    </fields>
+    <fields>
+        <label><!-- Third Party Administrator --></label>
+        <name>Third_Party_Administrator__c</name>
+    </fields>
+    <fields>
+        <label><!-- Time Elapsed --></label>
+        <name>Time_Elapsed__c</name>
+    </fields>
+    <fields>
+        <help><!-- HR Employer Portal Access -  Title --></help>
+        <label><!-- Title --></label>
+        <name>Title1__c</name>
+        <picklistValues>
+            <masterLabel>Dr.</masterLabel>
+            <translation><!-- Dr. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mr.</masterLabel>
+            <translation><!-- Mr. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mrs.</masterLabel>
+            <translation><!-- Mrs. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ms.</masterLabel>
+            <translation><!-- Ms. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prof.</masterLabel>
+            <translation><!-- Prof. --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Employer Portal Access - Title --></help>
+        <label><!-- Title --></label>
+        <name>Title__c</name>
+        <picklistValues>
+            <masterLabel>Dr.</masterLabel>
+            <translation><!-- Dr. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mr.</masterLabel>
+            <translation><!-- Mr. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mrs.</masterLabel>
+            <translation><!-- Mrs. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ms.</masterLabel>
+            <translation><!-- Ms. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prof.</masterLabel>
+            <translation><!-- Prof. --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Total Aging(Days) --></label>
+        <name>Total_Aging__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type Of Organization Other --></label>
+        <name>Type_of_Organization_Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type of Organization --></label>
+        <name>Type_of_Organization__c</name>
+        <picklistValues>
+            <masterLabel>Corporation</masterLabel>
+            <translation><!-- Corporation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General Partnership</masterLabel>
+            <translation><!-- General Partnership --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LLC</masterLabel>
+            <translation><!-- LLC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partnership</masterLabel>
+            <translation><!-- Partnership --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sole Proprietor</masterLabel>
+            <translation><!-- Sole Proprietor --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Underwriting Start Time --></label>
+        <name>Underwriting_Start_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Underwriting hours --></label>
+        <name>Underwriting_hours__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Employer Group Data --></label>
+        <name>User_Employer_Group_Data__c</name>
+        <relationshipLabel><!-- Sold Case Notification (User Employer Group Data) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Vendor Contact Email --></label>
+        <name>Vendor_Contact_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vendor Contact Name --></label>
+        <name>Vendor_Contact_Name__c</name>
+        <relationshipLabel><!-- Sold Case Notification (Vendor Contact Name) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Vendor Contact Phone --></label>
+        <name>Vendor_Contact_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vendor Name --></label>
+        <name>Vendor_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Will There Be Additional  Renewal Plans --></label>
+        <name>Will_there_be_additional_plans_offered__c</name>
+    </fields>
+    <fields>
+        <label><!-- Zip Code --></label>
+        <name>Zip_BA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Zip Code --></label>
+        <name>Zip_SA__c</name>
+    </fields>
+    <fields>
+        <label><!-- City --></label>
+        <name>city_SA__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Eligible Employees --></label>
+        <name>of_Eligible_Employees__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total FTE Employees --></label>
+        <name>of_Employees__c</name>
+    </fields>
+    <layouts>
+        <layout>Clone Employer Group Data Layout</layout>
+        <sections>
+            <label><!-- Address --></label>
+            <section>Address</section>
+        </sections>
+        <sections>
+            <label><!-- Broker Information --></label>
+            <section>Broker Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Employer Data Group --></label>
+            <section>Employer Data Group</section>
+        </sections>
+        <sections>
+            <label><!-- Employer Group Contact Details, Notes and Distribution Information --></label>
+            <section>Employer Group Contact Details, Notes and Distribution Information</section>
+        </sections>
+        <sections>
+            <label><!-- General Agent Details --></label>
+            <section>General Agent Details</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+        <sections>
+            <label><!-- Renewal SCN --></label>
+            <section>Renewal SCN</section>
+        </sections>
+        <sections>
+            <label><!-- SCN Details --></label>
+            <section>SCN Details</section>
+        </sections>
+        <sections>
+            <label><!-- Sub-Account Data --></label>
+            <section>Sub-Account Data</section>
+        </sections>
+        <sections>
+            <label><!-- Track Fieds --></label>
+            <section>Track Fieds</section>
+        </sections>
+        <sections>
+            <label><!-- Vendor Details --></label>
+            <section>Vendor Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Employer Group Data Layout</layout>
+        <sections>
+            <label><!-- Address --></label>
+            <section>Address</section>
+        </sections>
+        <sections>
+            <label><!-- Broker Information --></label>
+            <section>Broker Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Employer Data Group --></label>
+            <section>Employer Data Group</section>
+        </sections>
+        <sections>
+            <label><!-- Employer Group Contact Details, Notes and Distribution Information --></label>
+            <section>Employer Group Contact Details, Notes and Distribution Information</section>
+        </sections>
+        <sections>
+            <label><!-- General Agent Details --></label>
+            <section>General Agent Details</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+        <sections>
+            <label><!-- Renewal SCN --></label>
+            <section>Renewal SCN</section>
+        </sections>
+        <sections>
+            <label><!-- SCN Details --></label>
+            <section>SCN Details</section>
+        </sections>
+        <sections>
+            <label><!-- Sub-Account Data --></label>
+            <section>Sub-Account Data</section>
+        </sections>
+        <sections>
+            <label><!-- Vendor Details --></label>
+            <section>Vendor Details</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Cloned SCN --></label>
+        <name>Cloned_SCN</name>
+    </recordTypes>
+    <sharingReasons>
+        <label><!-- Approver --></label>
+        <name>Approver</name>
+    </sharingReasons>
+    <sharingReasons>
+        <label><!-- Submitter --></label>
+        <name>Submitter</name>
+    </sharingReasons>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please enter reason for Other --></errorMessage>
+        <name>Commissions_Optional_Acu_Chiro_Other</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter reason for Other --></errorMessage>
+        <name>Commissions_Optional_Dental_Delta_Other</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter reason for Other --></errorMessage>
+        <name>Commissions_Optional_Vision_VSP_Other</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please do not select archived contact --></errorMessage>
+        <name>Don_not_allow_to_select_archived_contact</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter reason for Other --></errorMessage>
+        <name>Enter_Type_of_Organization_Other</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Value can&apos;t be change --></errorMessage>
+        <name>OpportunittyAccountNameValidation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Medical Region is allowed only for Small Group Type --></errorMessage>
+        <name>Restrict_Medical_Region_on_Group_Type</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- SSO Value can be populated for only large groups --></errorMessage>
+        <name>Restrict_SSO_Value_for_Small_Groups</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Renewal details are allowed to edit only for Renewal SCN. --></errorMessage>
+        <name>Restrict_User_to_Edit_Renewal_Data</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Vendor Details can be entered only when Enrollment Method is Electronic --></errorMessage>
+        <name>Restrict_Vendor_and_EDI_vendor_details</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Clone --></label>
+        <name>Clone</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Generate_PDF --></label>
+        <name>Generate_PDF</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Training_Document_Help --></label>
+        <name>Training_Document_Help</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- What_is_changed --></label>
+        <name>What_is_changed</name>
+    </webLinks>
+</CustomObjectTranslation>

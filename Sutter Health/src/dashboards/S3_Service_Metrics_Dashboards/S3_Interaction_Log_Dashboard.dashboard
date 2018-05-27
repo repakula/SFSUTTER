@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dashboard xmlns="http://soap.sforce.com/2006/04/metadata">
+    <backgroundEndColor>#FFFFFF</backgroundEndColor>
+    <backgroundFadeDirection>Diagonal</backgroundFadeDirection>
+    <backgroundStartColor>#FFFFFF</backgroundStartColor>
+    <dashboardFilters>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Human Resource</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Finance</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Revenue Cycle</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Supply Chain</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Document Management Center</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Credentialing Verification</values>
+        </dashboardFilterOptions>
+        <name>Function</name>
+    </dashboardFilters>
+    <dashboardFilters>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Compensation/Payroll T&amp;E</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>HR Benefits</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Performance/ Learning/ Employee Relations</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Recruitment</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>HR Misc</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Payroll/T&amp;E</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Central Business Office (CBO)</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Accounts Payable</values>
+        </dashboardFilterOptions>
+        <name>Sub-Function</name>
+    </dashboardFilters>
+    <dashboardFilters>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Contact Center</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Tier 3</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Manager</values>
+        </dashboardFilterOptions>
+        <name>Tier Last Worked Inquiry</name>
+    </dashboardFilters>
+    <dashboardType>SpecifiedUser</dashboardType>
+    <description>Collection of dashboard components to monitor KPI&apos;s</description>
+    <isGridLayout>false</isGridLayout>
+    <leftSection>
+        <columnSize>Medium</columnSize>
+        <components>
+            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <chartAxisRange>Auto</chartAxisRange>
+            <componentType>Pie</componentType>
+            <dashboardFilterColumns>
+                <column>Case.Function__c</column>
+            </dashboardFilterColumns>
+            <dashboardFilterColumns>
+                <column>Case.Sub_Function__c</column>
+            </dashboardFilterColumns>
+            <dashboardFilterColumns>
+                <column>Case.Tier_Last_Worked_Inquiry__c</column>
+            </dashboardFilterColumns>
+            <displayUnits>Auto</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <enableHover>true</enableHover>
+            <expandOthers>true</expandOthers>
+            <footer>FCR - First Call Resolution are Interaction Logs that do not have any related Service Requests and were opened and closed by the original Agent.</footer>
+            <header>Interaction Logs - MTD</header>
+            <legendPosition>Right</legendPosition>
+            <report>S3_Service_Metric_Reports/S3_Interaction_Logs_FCR</report>
+            <showPercentage>true</showPercentage>
+            <showValues>true</showValues>
+            <sortBy>RowLabelAscending</sortBy>
+            <title>% First Call Resolution - MTD</title>
+            <useReportChart>true</useReportChart>
+        </components>
+        <components>
+            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <chartAxisRange>Auto</chartAxisRange>
+            <componentType>Pie</componentType>
+            <dashboardFilterColumns>
+                <column>Case$Function__c</column>
+            </dashboardFilterColumns>
+            <dashboardFilterColumns>
+                <column>Case$Sub_Function__c</column>
+            </dashboardFilterColumns>
+            <dashboardFilterColumns>
+                <column>Case$Tier_Last_Worked_Inquiry__c</column>
+            </dashboardFilterColumns>
+            <displayUnits>Auto</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <enableHover>false</enableHover>
+            <expandOthers>false</expandOthers>
+            <footer>Count of previous day&apos;s verified and unverified Interaction Logs.</footer>
+            <header>Interaction Logs - Previous Day</header>
+            <legendPosition>Right</legendPosition>
+            <report>S3_Service_Metric_Reports/S3_Verified_IL_Previous_Day</report>
+            <showPercentage>true</showPercentage>
+            <showValues>false</showValues>
+            <sortBy>RowLabelAscending</sortBy>
+            <title>Verified and Unverified IL&apos;s</title>
+            <useReportChart>true</useReportChart>
+        </components>
+    </leftSection>
+    <middleSection>
+        <columnSize>Medium</columnSize>
+        <components>
+            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <chartAxisRange>Auto</chartAxisRange>
+            <componentType>Column</componentType>
+            <dashboardFilterColumns>
+                <column>Case.Function__c</column>
+            </dashboardFilterColumns>
+            <dashboardFilterColumns>
+                <column>Case.Sub_Function__c</column>
+            </dashboardFilterColumns>
+            <dashboardFilterColumns>
+                <column>Case.Tier_Last_Worked_Inquiry__c</column>
+            </dashboardFilterColumns>
+            <displayUnits>Auto</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <enableHover>true</enableHover>
+            <expandOthers>false</expandOthers>
+            <footer>Interaction Logs with Status currently Open. Summarized by Function/Sub-function.</footer>
+            <header>Interaction Logs</header>
+            <legendPosition>Bottom</legendPosition>
+            <report>S3_Service_Metric_Reports/S3_Interactions_All_Open_MTD</report>
+            <showPercentage>false</showPercentage>
+            <showValues>false</showValues>
+            <sortBy>RowLabelAscending</sortBy>
+            <title>Open Interaction Logs</title>
+            <useReportChart>true</useReportChart>
+        </components>
+        <components>
+            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <chartAxisRange>Auto</chartAxisRange>
+            <componentType>Bar</componentType>
+            <dashboardFilterColumns>
+                <column>Case.Function__c</column>
+            </dashboardFilterColumns>
+            <dashboardFilterColumns>
+                <column>Case.Sub_Function__c</column>
+            </dashboardFilterColumns>
+            <dashboardFilterColumns>
+                <column>Case.Tier_Last_Worked_Inquiry__c</column>
+            </dashboardFilterColumns>
+            <displayUnits>Auto</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <enableHover>false</enableHover>
+            <expandOthers>false</expandOthers>
+            <footer>Previous day&apos;s Interaction Logs across all Tiers</footer>
+            <header>Interaction Logs - Previous Day</header>
+            <legendPosition>Bottom</legendPosition>
+            <report>S3_Service_Metric_Reports/S3_IL_Closed_Previous_Day_All_Tiers</report>
+            <showPercentage>false</showPercentage>
+            <showPicturesOnCharts>false</showPicturesOnCharts>
+            <showValues>false</showValues>
+            <sortBy>RowLabelAscending</sortBy>
+            <title>Closed Interactions by Function</title>
+            <useReportChart>true</useReportChart>
+        </components>
+    </middleSection>
+    <rightSection>
+        <columnSize>Medium</columnSize>
+        <components>
+            <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
+            <chartSummary>
+                <axisBinding>y</axisBinding>
+                <column>RowCount</column>
+            </chartSummary>
+            <componentType>Gauge</componentType>
+            <dashboardFilterColumns>
+                <column>Case.Function__c</column>
+            </dashboardFilterColumns>
+            <dashboardFilterColumns>
+                <column>Case.Sub_Function__c</column>
+            </dashboardFilterColumns>
+            <dashboardFilterColumns>
+                <column>Case.Tier_Last_Worked_Inquiry__c</column>
+            </dashboardFilterColumns>
+            <displayUnits>Integer</displayUnits>
+            <footer>S3 Interaction Logs and Patient Interaction Logs that are Open and were created more than 1 business day prior.</footer>
+            <gaugeMin>1.0</gaugeMin>
+            <header>Interaction Logs</header>
+            <indicatorHighColor>#54C254</indicatorHighColor>
+            <indicatorLowColor>#C25454</indicatorLowColor>
+            <indicatorMiddleColor>#C2C254</indicatorMiddleColor>
+            <report>S3_Service_Metric_Reports/S3_IL_Open_1_Day_Last_30_Days</report>
+            <showPercentage>false</showPercentage>
+            <showTotal>true</showTotal>
+            <showValues>false</showValues>
+            <title>Open &gt;  1 Day</title>
+        </components>
+        <components>
+            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <componentType>Gauge</componentType>
+            <dashboardFilterColumns>
+                <column>Case.Function__c</column>
+            </dashboardFilterColumns>
+            <dashboardFilterColumns>
+                <column>Case.Sub_Function__c</column>
+            </dashboardFilterColumns>
+            <dashboardFilterColumns>
+                <column>Case.Tier_Last_Worked_Inquiry__c</column>
+            </dashboardFilterColumns>
+            <displayUnits>Integer</displayUnits>
+            <footer>All Interaction Logs closed this month</footer>
+            <gaugeMax>3.0</gaugeMax>
+            <gaugeMin>0.0</gaugeMin>
+            <header>Interaction Logs</header>
+            <indicatorBreakpoint1>1.0</indicatorBreakpoint1>
+            <indicatorBreakpoint2>2.0</indicatorBreakpoint2>
+            <indicatorHighColor>#54C2C2</indicatorHighColor>
+            <indicatorLowColor>#C25454</indicatorLowColor>
+            <indicatorMiddleColor>#C2C254</indicatorMiddleColor>
+            <report>S3_Service_Metric_Reports/S3_Interaction_Logs_Closed_MTD</report>
+            <showPercentage>false</showPercentage>
+            <showTotal>true</showTotal>
+            <showValues>false</showValues>
+            <title>Closed Interactions - MTD</title>
+        </components>
+        <components>
+            <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
+            <chartAxisRange>Auto</chartAxisRange>
+            <chartSummary>
+                <axisBinding>y</axisBinding>
+                <column>RowCount</column>
+            </chartSummary>
+            <componentType>ColumnStacked</componentType>
+            <dashboardFilterColumns>
+                <column>Case.Function__c</column>
+            </dashboardFilterColumns>
+            <dashboardFilterColumns>
+                <column>Case.Sub_Function__c</column>
+            </dashboardFilterColumns>
+            <dashboardFilterColumns>
+                <column>Case.Tier_Last_Worked_Inquiry__c</column>
+            </dashboardFilterColumns>
+            <displayUnits>Integer</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <enableHover>true</enableHover>
+            <expandOthers>false</expandOthers>
+            <footer>All Interaction Logs Closed this month by origin</footer>
+            <groupingColumn>Case.Function__c</groupingColumn>
+            <groupingColumn>ORIGIN</groupingColumn>
+            <header>Interaction Logs</header>
+            <legendPosition>Bottom</legendPosition>
+            <report>S3_Service_Metric_Reports/S3_Interaction_Logs_Closed_MTD</report>
+            <showPercentage>false</showPercentage>
+            <showValues>false</showValues>
+            <sortBy>RowLabelAscending</sortBy>
+            <title>Interactions by Origin MTD</title>
+            <useReportChart>false</useReportChart>
+        </components>
+    </rightSection>
+    <runningUser>babag@sutterhealth.org</runningUser>
+    <textColor>#000000</textColor>
+    <title>S3 Interaction Log Dashboard</title>
+    <titleColor>#000000</titleColor>
+    <titleSize>12</titleSize>
+</Dashboard>

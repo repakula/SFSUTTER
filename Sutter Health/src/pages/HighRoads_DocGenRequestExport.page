@@ -1,0 +1,55 @@
+<!-- *********************************************************************************************
+*     Page Name   : HighRoads_DocGenRequestExport 
+*     Author      : IDC Offshore
+*     Date        : 17-Oct-2016  
+*     Project Name: SHP Project
+*     Description : Req 3980 - Page for exporting all the documents information into an excel
+**************************************************************************************************-->
+<apex:page cache="true" contentType="application/vnd.ms-excel#Document Names.xls" standardController="Document_Generation_Request__c" extensions="HighRoads_DocGenRequest">
+	<apex:form >
+        <apex:inputHidden id="scnId" value="{!Document_Generation_Request__c.Related_Object_Id__c}"/>
+        <apex:inputHidden id="relatedCreatedDate" value="{!Document_Generation_Request__c.CreatedDate}"/>
+        <apex:pageBlock title="Document Names">
+       		<apex:outputPanel id="tablePanel">
+            	<table border="0" id="planTable" class="planTable">
+                	<thead>
+                        <apex:repeat value="{!planRiderWrapperList}" var="planName">                        
+                            <tr>
+                                <apex:repeat value="{!planName.planWrapperList}" var="plan">
+									<tr>
+                                        <apex:outputPanel rendered="{!IF(plan.EOC != NULL , true, false)}">
+                                        	<apex:outputText value="{!plan.EOC}"></apex:outputText>
+                                        </apex:outputPanel>
+                                    </tr>
+                                   		<apex:outputPanel rendered="{!IF(plan.SBC != NULL , true, false)}">
+                                        	<apex:outputText value="{!plan.SBC}"></apex:outputText>
+                                        </apex:outputPanel>
+                                    <tr> 
+                                    </tr>
+										<apex:outputPanel rendered="{!IF(plan.BCM != NULL , true, false)}">
+                                        	<apex:outputText value="{!plan.BCM}"></apex:outputText>
+                                        </apex:outputPanel>
+                                    <tr>
+                                        <apex:outputPanel rendered="{!IF(plan.ancillaryEOC != NULL , true, false)}">
+                                        	<apex:outputText value="{!plan.ancillaryEOC}"></apex:outputText>
+                                        </apex:outputPanel>
+									</tr>
+                                    <tr>
+                                        <apex:outputPanel rendered="{!IF(plan.ancillarySOB != NULL , true, false)}">
+                                        	<apex:outputText value="{!plan.ancillarySOB}"></apex:outputText>
+                                        </apex:outputPanel>
+                                    </tr>
+                                    <tr> 
+                                        <apex:outputPanel rendered="{!IF(plan.ancillaryGSA != NULL , true, false)}">
+                                        	<apex:outputText value="{!plan.ancillaryGSA}"></apex:outputText>
+                                        </apex:outputPanel>
+                                    </tr>
+                                </apex:repeat>
+                            </tr>
+                        </apex:repeat>
+                    </thead>
+                </table>
+            </apex:outputPanel>
+        </apex:pageBlock>
+    </apex:form>         
+</apex:page>

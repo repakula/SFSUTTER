@@ -1,0 +1,130 @@
+<apex:page docType="html-5.0" controller="SH_UploadImage">
+<apex:includeScript value="{!URLFOR($Resource.SutterHealthCare, '/js/jquery-2.1.1.min.js')}"/>
+    <script type="text/javascript">
+        var __sfdcSessionId = '{!GETSESSIONID()}';
+    </script>
+    <script src="/soap/ajax/30.0/connection.js" type="text/javascript"></script>
+    
+    <script>
+      function readImage(file) 
+      {
+        var reader = new FileReader();
+        var image  = new Image();
+        
+        reader.readAsDataURL(file);
+          
+        reader.onload = function(_file) 
+        {
+            image.src = _file.target.result;
+        
+            image.onload = function() 
+            {
+                var w = this.width,
+                    h = this.height,
+                    t = file.type,          
+                    n = file.name,
+                    s = ~~(file.size/1024) +'KB';
+                
+                if(w > {!intWidth} || h > {!intHeight} || w < {!intWidth} || h < {!intHeight})
+                {
+                    jQuery("input[type='file']").replaceWith(jQuery("input[type='file']").clone(true));
+                    jQuery('#uploadPreview').empty();    
+                    return alert('Please upload a file of dimension ' + parseInt({!intWidth}) + ' x ' + parseInt({!intHeight})  + ' px.');
+                }
+                                    
+                jQuery('#uploadPreview').empty();    
+                jQuery('#uploadPreview').append('<img src="'+ this.src +'"> '+w+'x'+h+' '+s+' '+t+' '+n+'<br>');
+            };
+            
+            image.onerror= function() 
+            {
+                jQuery("input[type='file']").replaceWith(jQuery("input[type='file']").clone(true));
+                jQuery('#uploadPreview').empty();
+                alert('Invalid file type: '+ file.type);
+            };      
+        };
+    }
+    
+    function uploadfile(input) 
+    {
+        //if(input.disabled) 
+            //return alert('File upload not supported!');
+        
+        if($("input[type='file']").length > 1)
+            return alert('Upload only one file.');
+        
+        var imageTypesCommaSeprated = '{!strImageTypes}';
+        var listImages = imageTypesCommaSeprated.split(',');
+        var IsValidImage = false;
+         
+        for(var i = 0; i < listImages.length; i++)
+        { 
+            var SplitedFile = jQuery("input[type='file']").val().split('\\'); 
+            var FileName = SplitedFile[SplitedFile.length - 1].split('.');
+            
+            if(FileName[1].toLowerCase().indexOf(listImages[i].toLowerCase().trim()) > -1)
+            {
+                IsValidImage = true;
+            }
+        } 
+         
+        if(IsValidImage == true)
+        {
+            readImage(jQuery("input[type='file']")[0].files[0]);
+        }
+        else
+        {
+            jQuery("input[type='file']").replaceWith(jQuery("input[type='file']").clone(true));
+            jQuery('#uploadPreview').empty();
+            return alert('Upload the image only in these format : {!strImageTypes}.');
+        }                
+        
+    }
+    
+    function colorPageBlock(pageblock, color) 
+    {
+        if (pageblock != null)
+        { 
+            pageblock.firstChild.style.cssText = "background-color:" + color + ";";
+            pageblock.firstChild.style.cssText += "margin-top: 15px;";
+        }
+    }
+    
+    function checkImage()
+    {
+        if(jQuery('input[id$=choose]').val() != '')
+            return true;
+        else
+            return false;   
+    }
+    </script>
+    <apex:form >
+        <apex:pageBlock >
+            <div style="font-size: 1.083em;color: #353535;font-weight: bold;text-decoration: none;"> Upload Attachment - {!strName} </div>
+            <div style="margin-top: 13px;border-style: solid;border-width: 1px;border-color: #8B8989;padding: 10px;width: 400px;border-radius: 5px;">
+                <span style="font-weight: bold;color: #DB2929;"> Description: </span><br/><br/>
+                <span style="color: #DB2929;"> * {!strInfo}. </span> <br/><br/> 
+                <span style="color: #DB2929;"> * Upload image only of these types : {!strImageTypes}. </span>
+            </div>
+            <apex:pageBlockButtons rendered="{!if(strErrorMessage == '',true,false)}" location="bottom">
+                <apex:commandButton value="Save" action="{!SaveAttachment}" onClick="return checkImage();"/>
+                <apex:commandButton value="Cancel" action="{!Cancel}"/>
+            </apex:pageBlockButtons>
+            <apex:pageMessages />
+            <apex:pageBlockSection id="redSection" collapsible="false" title="Information" showHeader="true">
+            <apex:outputPanel rendered="{!if(strErrorMessage == '',true,false)}" id="test12">
+                <div id="main div">  
+                    <apex:inputFile id="choose" value="{!fileBody}" fileName="{!fileName}" onchange="uploadfile(this);" style="margin-top:10px;"/>
+                    <div id="uploadPreview" style="margin-top: 25px;"></div>
+                </div>
+            </apex:outputPanel>      
+            <apex:outputPanel rendered="{!if(strErrorMessage != '',true,false)}">
+                <div id="main div">
+                    {!strErrorMessage}
+                </div>
+            </apex:outputPanel>
+            <script>colorPageBlock(document.getElementById("{!$Component.redSection}"), "#DB2929");</script>  
+            </apex:pageBlockSection>
+        </apex:pageBlock>  
+    </apex:form>
+</apex:page>

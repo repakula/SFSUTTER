@@ -1,0 +1,245 @@
+<!-- *******************************************************
+*     Page Name   : HighRoads_SSOPDFGeneration 
+*     Author      : IDC Offshore
+*     Date        : 8/31/2016 
+*     Project Name: SHP Project
+*     Description : Req 3980 - generating the PDF for SSO detail Page 
+					along with Benefit Plans
+**********************************************************-->
+<apex:page standardController="Sold_Sign_Off__c"
+           extensions="HighRoads_SSOPDFGeneration" showHeader="false"
+           sidebar="false"  renderAs="PDF" id="page" docType="html-5.0" action="{!generatePDF}" applyBodyTag="false">
+    <head>
+        
+        <style>
+            .headercolor{
+            background-color:#4682B4;
+            color:white;
+            }
+
+            table.planTable {
+            background:#eeeff0;
+            padding: 8px;
+            font-family: verdana,arial,sans-serif;
+            font-size:11px;
+            border: 1px solid #4682B4;
+            border-collapse: collapse;
+            border-radius : 10px;
+            }
+            table.planTable th { 
+            color:white;           
+            background:#4682b4;
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #4682b4;            
+            }
+            
+            table.planTable td {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #999999;
+            }
+        </style>
+    </head>
+    <apex:stylesheet value="{!URLFOR($Resource.PDFCss, 'PDFCss/Theme3.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.PDFCss, 'PDFCss/Theme3_dStandard.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.PDFCss, 'PDFCss/Theme3_elements.css')}"/>
+    <apex:stylesheet value="{!$Resource.RFP_FormattingStyles}"/> 
+    <apex:form >
+        <!-- Sold Sign Off Detail --> 
+        <apex:pageBlock Title="Sold Sign Off">
+            <div style="page-break-after: always">
+                <apex:pageBlockSection title="Sales Information" columns="2">
+                    <apex:outputText value="{!Sold_Sign_Off__c.Account_Executive__c}"  label="Account Executive"/>
+                    <apex:outputText value="{!Sold_Sign_Off__c.Owner.Name}" label="Owner"/>
+                    <apex:outputText value="{!Sold_Sign_Off__c.Account_Manager__c}"  label="Account Manager"/>
+                    <apex:outputText value="{!Sold_Sign_Off__c.Form_Submitter_Name__c}"  label="Form Submitter Name"/>
+                    <apex:outputText value="{!Sold_Sign_Off__c.Rejection_Reason__c}" label="Reject Reason"/>
+                    <apex:outputText value="{0,date,MM'/'dd'/'yyyy}" label="SSO/RSO Due Date">
+                        <apex:param value="{!Sold_Sign_Off__c.SSO_RSO_Due_Date__c}" /> 
+                    </apex:outputText>
+                    <apex:outputText ></apex:outputText>
+                    <apex:outputText value="{!Sold_Sign_Off__c.Stage__c}" label="Stage"/>
+                    <apex:outputText ></apex:outputText>
+                    <apex:outputText value="{!Sold_Sign_Off__c.Quote__r.Name}" label="Quote"/>
+                    <apex:outputText ></apex:outputText>
+                    <apex:outputText value="{!Sold_Sign_Off__c.RFP_Form__c}" label="RFP Form"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Employer Information" columns="2">
+                    <apex:pageBlockSection >
+                        <apex:outputText Value="{!Sold_Sign_Off__c.Employer_Name__c}" label="Employer Name"/>
+                        <apex:outputText Value="{!Sold_Sign_Off__c.ER_Zip__c}" label="ER Zip"/>
+                    </apex:pageBlockSection>
+                    <apex:outputText Value="{!Sold_Sign_Off__c.Estimated_Subs__c}" label="Estimated Subs"/>
+                    <apex:outputText Value="{!Sold_Sign_Off__c.New_Business_SSO_or_Renewal_RSO__c}" label="New Business (SSO) or Renewal (RSO)"/>
+                    <apex:outputText value="{0,date,MM'/'dd'/'yyyy}" label="Effective Date">
+                        <apex:param value="{!Sold_Sign_Off__c.Effective_Date__c}" /> 
+                    </apex:outputText>
+                    <apex:outputText Value="{!Sold_Sign_Off__c.Contract_Months__c}" label="Contract Months"/>
+                    <apex:outputText value="{0,date,MM'/'dd'/'yyyy}" label="Next Renewal Date">
+                        <apex:param value="{!Sold_Sign_Off__c.Next_Renewal_Date__c}" /> 
+                    </apex:outputText>
+                    <apex:outputText Value="{!Sold_Sign_Off__c.TR_Dual_Triple_Slice__c}" label="Proposal Scenario"/>
+                    <apex:outputText ></apex:outputText>
+                    <apex:outputText ></apex:outputText>
+                    <apex:outputText Value="{!Sold_Sign_Off__c.NTE_in_Place__c}" label="NTE in Place"/>
+                    <apex:outputText value="{!Sold_Sign_Off__c.Slicing_with_Carrier_Name__c}" label="Slicing with Carrier Name"/>
+                    <apex:outputText value="{!Sold_Sign_Off__c.Renewal_Year_NTE_Applies__c}" label="Renewal Year NTE Applies"/>
+                    <apex:outputText ></apex:outputText>
+                    <apex:outputText Value="{!Sold_Sign_Off__c.NTE__c}" label="NTE %"/>
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection title="Broker Information" columns="2">
+                    <apex:outputText Value="{!Sold_Sign_Off__c.Brokerage_Firm__c}" label="Brokerage Firm"/>
+                    <apex:outputText Value="{!Sold_Sign_Off__c.Broker__c}" label="Broker"/>
+                    <apex:outputText Value="{!Sold_Sign_Off__c.Commission_Type__c}" label="Medical Commission Type"/><br/>
+                    <apex:inputField Value="{!Sold_Sign_Off__c.BOR__c}" label="BOR"/><br/>
+                    <apex:outputText Value="{!Sold_Sign_Off__c.Medical_Commission__c}" label="Medical Commission"/><br/>
+                    <apex:outputText Value="{!Sold_Sign_Off__c.Amount__c}" label="Amount"/>
+                </apex:pageBlockSection>
+            </div>
+            <div>
+                <apex:pageBlock rendered="{!IF(planRiderWrapperList != NULL && planRiderWrapperList.size >0 ,true,false)}"><apex:pageBlockSection title="Plans without Rates" ></apex:pageBlockSection> </apex:pageBlock>
+                <apex:outputPanel rendered="{!IF(planRiderWrapperList != NULL && planRiderWrapperList.size >0 ,true,false)}">
+                    <table border="0" id="planTable" class="planTable" align="center" width="75%">
+                        <thead>
+                            <tr >                               
+                                <th>Plan Name</th>
+                                <th>Type</th>
+                                <th>Benefit Plan Id</th>
+                                <apex:repeat value="{!planRiderWrapperList}" var="planName">                        
+                                    <tr>
+                                        <td rowspan="{!planName.sizeOfPlanWrappers}" width="25%">{!planName.Name}</td>
+                                        <apex:repeat value="{!planName.planWrapperList}" var="plan">
+                                            <tr>
+                                                <td width="25%"><apex:outputText value="{!plan.plantype}"></apex:outputText></td>
+                                                <td width="25%"><apex:outputText value="{!plan.BenefitId}"></apex:outputText></td>
+                                            </tr>
+                                        </apex:repeat>
+                                    </tr>
+                                </apex:repeat>
+                            </tr>
+                        </thead>
+                    </table>
+                </apex:outputPanel>
+                <br/>
+                <apex:pageBlockSection title="Sold Plans & Rates" rendered="{!IF(PlanRateTierGroupandRateEntryList != NULL && PlanRateTierGroupandRateEntryList.size > 0, true,false)}"></apex:pageBlockSection> 
+                
+                <table border="0" class="planTable" id="planTable" cellpadding="0" cellspacing="0" width="{!rateEntryTableWidth}%" align="center">
+                   <apex:outputPanel rendered="{!IF(PlanRateTierGroupandRateEntryList != NULL && PlanRateTierGroupandRateEntryList.size > 0, true,false)}">
+                        <tr style="border-top: thin solid;border-bottom: thin solid;border-left:thin solid;">
+                            <th style="width:5.26%;height:40px;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" colspan="4"></th>
+                            <th style="display:{!IF(NOT(isTier1Selected), 'None', '')};text-align:center;height:40px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;" class="headercolor">Tier 1</th>
+                            <th style="display:{!IF(NOT(isTier2Selected), 'None', '')};text-align:center;height:40px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;" colspan="2" class="headercolor">Tier 2</th>
+                            <th style="display:{!IF(NOT(isTier3Selected), 'None', '')};text-align:center;height:40px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;" colspan="3" class="headercolor">Tier 3</th>
+                            <th style="display:{!IF(NOT(isTier4Selected), 'None', '')};text-align:center;height:40px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;" colspan="4" class="headercolor">Tier 4</th>
+                            <th style="display:{!IF(NOT(isTier5Selected), 'None', '')};text-align:center;height:40px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;" colspan="5" class="headercolor">Tier 5</th>
+                        </tr>
+                        <tr style="border-top: thin solid;border-bottom: thin solid;border-left:thin solid;">
+                            <th style="text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">Plan</th>
+                            <th style="text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">Type</th>
+                            <th style="text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">Tier</th>
+                            <th style="text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">Group</th>
+                            <th style="display:{!IF(NOT(isTier1Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;" class="headercolor">Compo<br/>site</th>
+                            <th style="display:{!IF(NOT(isTier2Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">EE</th>
+                            <th style="display:{!IF(NOT(isTier2Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;" class="headercolor">EF</th>
+                            <th style="display:{!IF(NOT(isTier3Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">EE</th>
+                            <th style="display:{!IF(NOT(isTier3Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">E1</th>
+                            <th style="display:{!IF(NOT(isTier3Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;" class="headercolor">E2</th>
+                            <th style="display:{!IF(NOT(isTier4Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">EE</th>
+                            <th style="display:{!IF(NOT(isTier4Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">ES</th>
+                            <th style="display:{!IF(NOT(isTier4Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">EC</th>
+                            <th style="display:{!IF(NOT(isTier4Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;" class="headercolor">EF</th>
+                            <th style="display:{!IF(NOT(isTier5Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">EE</th>
+                            <th style="display:{!IF(NOT(isTier5Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">ES</th>
+                            <th style="display:{!IF(NOT(isTier5Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">EC</th>
+                            <th style="display:{!IF(NOT(isTier5Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" class="headercolor">ECH</th>
+                            <th style="display:{!IF(NOT(isTier5Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;" class="headercolor">EF</th>
+                        </tr>
+                        <apex:repeat value="{!PlanRateTierGroupandRateEntryList}" var="planTierGroupRate">
+                            <tr style="border-top:thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid">
+                                <td style="height:30px;width:5.26%;text-align:center;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" rowspan="{!planTierGroupRate.sizeOfTotalTiersGroups}"><center>{!planTierGroupRate.medicalPlanName}</center></td>
+                                <apex:repeat value="{!planTierGroupRate.planTypeList}" var="planTierRateEntry">
+                                    <td style="height:30px;width:5.26%;text-align:center;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" rowspan="{!planTierRateEntry.sizeOfTierandGroups}"><center>{!planTierRateEntry.planName}</center></td>
+                                    <apex:repeat value="{!planTierRateEntry.rateTierList}" var="tierRateEntry">
+                                        <td style="height:30px;width:5.26%;text-align:center;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;" rowspan="{!tierRateEntry.sizeOfGroups}"><center>{!tierRateEntry.tierName}</center></td>
+                                        <apex:repeat value="{!tierRateEntry.groupList}" var="rateEntry">
+                                            <tr>
+                                                <td style="text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;">{!rateEntry.groupName}</td>
+                                                <td  style="display:{!IF(NOT(isTier1Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;">
+                                                    {!rateEntry.tier1Composite}
+                                                </td>   
+                                                <td  style="display:{!IF(NOT(isTier2Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;">
+                                                    {!rateEntry.tier2EE}
+                                                </td>
+                                                <td  style="display:{!IF(NOT(isTier2Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;">
+                                                    {!rateEntry.tier2EF}
+                                                </td>
+                                                <td  style="display:{!IF(NOT(isTier3Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;">
+                                                    {!rateEntry.tier3EE}
+                                                </td>
+                                                <td  style="display:{!IF(NOT(isTier3Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;">
+                                                    {!rateEntry.tier3E1}
+                                                </td>
+                                                <td  style="display:{!IF(NOT(isTier3Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;">
+                                                    {!rateEntry.tier3E2}
+                                                </td>
+                                                <td  style="display:{!IF(NOT(isTier4Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;">
+                                                    {!rateEntry.tier4EE}
+                                                </td>
+                                                <td  style="display:{!IF(NOT(isTier4Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;">
+                                                    {!rateEntry.tier4ES}
+                                                </td>
+                                                <td  style="display:{!IF(NOT(isTier4Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;">
+                                                    {!rateEntry.tier4EC}
+                                                </td>
+                                                
+                                                <td  style="display:{!IF(NOT(isTier4Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;">
+                                                    {!rateEntry.tier4EF}
+                                                </td>
+                                                <td  style="display:{!IF(NOT(isTier5Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;">
+                                                    {!rateEntry.tier5EE}
+                                                </td>
+                                                <td  style="display:{!IF(NOT(isTier5Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;">
+                                                    {!rateEntry.tier5ES}
+                                                </td>
+                                                <td  style="display:{!IF(NOT(isTier5Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;">
+                                                    {!rateEntry.tier5EC}
+                                                </td>
+                                                
+                                                <td  style="display:{!IF(NOT(isTier5Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;border-right:thin solid;">
+                                                    {!rateEntry.tier5ECH}
+                                                </td>
+                                                <td  style="display:{!IF(NOT(isTier5Selected), 'None', '')};text-align:center;height:30px;width:5.26%;border-top: thin solid;border-bottom: thin solid;border-left:thin solid;">
+                                                    {!rateEntry.tier5EF}
+                                                </td>
+                                                
+                                            </tr>
+                                        </apex:repeat>
+                                    </apex:repeat>
+                                </apex:repeat>
+                            </tr>
+                        </apex:repeat>
+                       </apex:outputPanel>
+                </table>
+                    
+            </div>           
+            <br/><br/>
+            
+            <table class="detailList" border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td style="width:13%; text-align:left;" >
+                            <apex:outputLabel value="Special Instructions: " for="SpecialInstructionId" styleClass="labelCol vfLabelColTextWrap  first "  />
+                        </td>
+                        <td style="width:85%; text-align:left;" >
+                            <apex:inputTextarea value="{!Sold_Sign_Off__c.Special_Instructions_Comments__c}" styleClass="inputTextAreaClass" id="SpecialInstructionId"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </apex:pageBlock>
+    </apex:form>  
+</apex:page>

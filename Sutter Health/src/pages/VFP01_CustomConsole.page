@@ -1,0 +1,2199 @@
+<!--
+*     Page Name   : VFP01_CustomConsole
+*     Author      : IDC Offshore
+*     Date        : 15-Aug-2013
+*     Project Name: CRM - SFT - Sutter Health
+*     Description : Visual Force Page for Custom console which opens for the Agents based on the query parameters sent from the IVR, 
+*                   when they want to log a case and search for the appropriate Contact, Patient or Patient Account.
+*
+*     HISTORY
+*     --------------
+*     
+*     VERSION          AUTHOR            DATE           DETAIL 
+*       2.0            Atul Gupta      28/11/2014       Added Save & New buttons on Customer Inquiry Edit and Detail Page as part of the REQ 3226, Release 6.4
+*       3.0            IDC Offshore    14/12/2015       Updated Article functionality. Added Article Type, Function & Sub-Function filter as per REQ-3145 & REQ-3146
+*       4.0            Shivangi Gaur   23/12/2015       Added changes for Employee and Patient search pages as per Req-3274. 
+*       5.0            Shivangi Gaur   12/02/2016       Added changes for Vendor search page as per Req-3733.
+*       6.0            Brian Lee       04/18/2016       Employee details reording Req-3832.
+*       7.0            Ankit Garg      23/02/2016       Added changes for Article Changes as per Req-3147.
+*       8.0            Umesh Vajpai    July 18,2016     Added new section "Additional Inquiry Detail" as part of REQ 3756.
+-->
+
+<!-- Page Definition: Without sidebar for use in the Service Console. Action used to call method to save the IL -->
+<apex:page controller="VFC01_CustomConsole" sidebar="false" id="pg" action="{!redirectToNewPage}">
+<style>
+    .divInfoClass{
+    font-size:12px;
+    }
+</style>
+    <!-- Style Sheet uploaded in Static Resources for the CSS used on the Page -->
+    <apex:stylesheet value="{!$Resource.ConsoleCSS}"/>
+    <apex:stylesheet value="{!$Resource.SorTableCss}"/> <!--Req-3274-->
+    <!-- Reference to Javascript library for Salesforce Console Integration Toolkit -->    
+    <apex:includeScript value="/support/console/28.0/integration.js"/>
+    
+    <apex:includeScript value="{!$Resource.SortTable}"/> <!--Req-3274-->
+
+
+    
+    <!-- Reference to Javascript library for AJAX Tookit -->   
+    <script src="/soap/ajax/28.0/connection.js" type="text/javascript"></script>
+    <script src="/soap/ajax/28.0/apex.js" type="text/javascript"></script>
+        
+    <apex:form id="theform" style="overflow-x:hidden;">
+        <apex:inputHidden value="{!CustInteraction.CaseNumber}" id="transactionId"/>
+        <apex:inputHidden value="{!ConsoleTabLabel}" id="consoleTabLabelId"/>
+
+        <!-- Script called on page load to set the Name of the Console tab opened -->         
+        <script>
+            var tranId = '{!$Component.transactionId}';
+            var conTabId = '{!$Component.consoleTabLabelId}';
+            sforce.console.getFocusedPrimaryTabId(fn_set_title);
+            function fn_set_title(result) 
+            {
+                var str_tb_ID = document.getElementById(conTabId).value;
+                var str_vf_ID = document.getElementById(tranId).value;
+                sforce.console.setTabTitle(str_tb_ID+' '+str_vf_ID);
+            };
+        </script>
+        <!--Req-3274 Changes-->
+        
+        <!-- Div for Interaction Log created from Field Sets for different recordtypes -->       
+        <div style="float:left; width:85%;">
+        
+            <!-- Div for the tab panel containing tabs for search page and the accompanying list view and detail pages-->                
+            <div style="height:500px; overflow-y:scroll;" id="SearchDiv"> 
+                <!-- ActionRegion tag used to make an Ajax call to render only this section and not the entire page-->
+                <apex:actionRegion >
+                    <!-- Show page messages if any -->
+                    <apex:pageMessages id="errorMessage" />
+                    <!-- Tab panel section that contains all the tab tags -->
+                    <apex:tabPanel id="tabPanel" value="{!selectedTab}" switchType="client">
+                        <!-- Seach tab with searches based on the DNISTC value passed-->    
+                        <apex:tab label="Search Page" id="tab1" immediate="true" rendered="{!showSearchTab}" >
+                        <script>
+                            document.getElementById('SearchDiv').style.height='200px';
+                        </script>
+                            <!-- Rendering tab panel for S3 Interaction log -->
+                            <apex:outputPanel rendered="{!showS3}" id="S3Panel">
+                                <!-- Select list to show drop down with all the available searches, both SSS searches -->
+                                <apex:selectList value="{!searches}" multiselect="false" size="1" id="searches">
+                                    <apex:selectOptions value="{!sSSSearchTypes}"/>
+                                    <apex:actionSupport event="onchange" reRender="tabPanel, errorMessage" action="{!setvalidRecordType}"/>
+                                </apex:selectList>
+                                <apex:pageBlock id="pageBlock">
+                                    <!-- This section is rendered if search value is equal to Employee according to employee Firstname Lastname and Affiliate text values-->
+                                    <apex:pageBlockSection rendered="{!IF(searches == 'Employee', true , false)}">
+                                        <apex:inputText value="{!employeeFirstName}" label="Employee First Name:" onkeypress="return noenter(event,1);"/>
+                                        <apex:inputText value="{!employeeLastName}" label="Employee Last Name:" onkeypress="return noenter(event,1);"/>
+                                        <apex:inputText value="{!employeeAffiliate}" label="Employee Affiliate:" onkeypress="return noenter(event,1);"/>
+                                       <apex:inputText value="{!employeeID}" label="Employee ID:" onkeypress="return noenter(event,1);"/> 
+                                                                              <!-- this section item contains search button -->
+                                        <apex:pageBlockSectionItem >
+                                            <!-- Search button invokes searchEmployee action for employee search  -->
+                                            <apex:commandButton action="{!SearchEmployee}" value="Search" reRender="tabPanel, errorMessage"/>
+                                            <apex:actionFunction name="doEmployeeSearch" action="{!SearchEmployee}" reRender="tabPanel, errorMessage"/>
+                                        </apex:pageBlockSectionItem>
+                                    </apex:pageBlockSection>
+                                    <!-- This section rendered if search value is equal to Provider according to Provider First name Provider Last name and providerNPI text values -->
+                                    <apex:pageBlockSection rendered="{!IF(searches == 'Provider', true , false)}">
+                                        <apex:inputText value="{!providerFirstName}" label="Provider First Name:" onkeypress="return noenter(event,2);"/>
+                                        <apex:inputText value="{!providerLastName}" label="Provider Last Name:" onkeypress="return noenter(event,2);"/>
+                                        <apex:inputText value="{!providerNPI}" label="Provider NPI:" onkeypress="return noenter(event,2);"/> 
+                                        <apex:pageBlockSectionItem >
+                                            <!-- Search button invokes SearchProvider action for provider search  -->
+                                            <apex:commandButton action="{!SearchProvider}" value="Search" rerender="tabPanel, errorMessage" />
+                                            <apex:actionFunction name="doProviderSearch" action="{!SearchProvider}" reRender="tabPanel, errorMessage"/>
+                                        </apex:pageBlockSectionItem>
+                                    </apex:pageBlockSection>
+                                    <!-- This section renderd if search value is equal to Vendor according to Vendor First name Vendor Last name and vendorTaxID text values -->
+                                    <apex:pageBlockSection rendered="{!IF(searches == 'Vendor', true , false)}">
+                                        <apex:inputText value="{!vendorID}" label="Vendor ID:" onkeypress="return noenter(event,3);"/>
+                                        <apex:inputText value="{!vendorName}" label="Vendor Name:" onkeypress="return noenter(event,3);"/>
+                                        <apex:inputText value="{!vendorTaxID}" label="Vendor Tax ID:" onkeypress="return noenter(event,3);"/> 
+                                        <apex:pageBlockSectionItem >
+                                            <!-- Search button invokes SearchVendor action for Vendor search  -->
+                                            <apex:commandButton action="{!SearchVendor}" value="Search" rerender="tabPanel, errorMessage" />
+                                            <apex:actionFunction name="doVendorSearch" action="{!SearchVendor}" reRender="tabPanel, errorMessage"/>
+                                        </apex:pageBlockSectionItem>
+                                    </apex:pageBlockSection>
+                                    <!-- This section rendered if search value is equal to Patient according to Patient First name Patient  Last name and patientMRN text values -->
+                                    <apex:pageBlockSection rendered="{!IF(searches == 'Patient', true , false)}">
+                                        <apex:inputText value="{!patientFirstName}" label="Patient First Name:" onkeypress="return noenter(event,4);"/>
+                                        <apex:inputText value="{!patientLastName}" label="Patient Last Name:" onkeypress="return noenter(event,4);"/> 
+                                        <apex:inputText value="{!patientMRN}" label="Patient EPI-ID:" onkeypress="return noenter(event,4);"/>
+                                        <apex:inputText value="{!patientSHMRN}" label="Patient SHMRN:" onkeypress="return noenter(event,4);"/>
+                                       <!-- <apex:inputText value="{!employeeID}" label="Employee ID:" onkeypress="return noenter(event,1);"/>  -->
+                                        <!-- Search button invokes SearchPatient action for Patient search  -->
+                                        <apex:pageBlockSectionItem >
+                                            <apex:commandButton action="{!SearchPatient}" value="Search" rerender="tabPanel, errorMessage" />
+                                            <apex:actionFunction name="doPatientSearch" action="{!SearchPatient}" reRender="tabPanel, errorMessage" />
+                                        </apex:pageBlockSectionItem>
+                                    </apex:pageBlockSection> 
+                                    <!-- This section rendered if search value is equal to Patient Account according to Patient First name patientAccountNumber and patientMRN text values -->
+                                    <apex:pageBlockSection rendered="{!IF(searches == 'Patient Account', true , false)}">
+                                        <apex:inputText value="{!patientAccountNumber}" label="Account Number:" onkeypress="return noenter(event,6);"/>
+                                        <apex:inputText value="{!patientMRN}" label="Patient EPI-ID:" onkeypress="return noenter(event,6);"/>
+                                        <apex:inputText value="{!patientSHMRN}" label="Patient SHMRN:" onkeypress="return noenter(event,4);"/>
+                                        <apex:pageBlockSectionItem >
+                                            <!-- Search button invokes SearchPatientAccount action for Patient Account search  -->
+                                            <apex:commandButton action="{!SearchPatientAccount}" value="Search" rerender="tabPanel, errorMessage"/>
+                                            <apex:actionFunction name="doPatientAccountSearch" action="{!SearchPatientAccount}" reRender="tabPanel, errorMessage"/>
+                                        </apex:pageBlockSectionItem>
+                                    </apex:pageBlockSection>  
+                                     <!-- This section rendered if search value is equal to Guarantor according to guarantorName text values -->
+                                    <apex:pageBlockSection rendered="{!IF(searches == 'Guarantor', true , false)}">
+                                        <apex:inputText value="{!guarantorName}" label="Guarantor Name:" onkeypress="return noenter(event,5);"/>
+                                        <apex:pageBlockSectionItem >
+                                            <!-- Search button invokes SearchGuarantor action for Gurantor search  -->
+                                            <apex:commandButton action="{!SearchGuarantor}" value="Search" rerender="tabPanel, errorMessage"/>
+                                            <apex:actionFunction name="doGuarantorSearch" action="{!SearchGuarantor}" reRender="tabPanel, errorMessage"/>
+                                        </apex:pageBlockSectionItem>
+                                    </apex:pageBlockSection>
+                                </apex:pageBlock>
+                            </apex:outputPanel> 
+                            <!-- Rendering tab panel for SHP searches -->
+                            <apex:outputPanel rendered="{!showSHP}" id="SHPPanel">
+                                <!-- Select list to show drop down with all the available searches, both SHP searches -->
+                                <apex:selectList value="{!searches}" multiselect="false" size="1" id="searches1">
+                                    <apex:selectOptions value="{!searchTypes}"/>
+                                    <apex:actionSupport event="onchange" reRender="tabPanel, errorMessage">
+                                        
+                                    </apex:actionSupport>
+                                </apex:selectList>
+                          
+                                <apex:pageBlock >
+                                    <!-- This section rendered if search value is equal to Member according to memberID,memberContactNumber,memberFirstName,memberLastName,memberDOB text values -->
+                                    <apex:pageBlockSection rendered="{!IF(searches == 'Member', true , false)}">
+                                        <apex:inputText value="{!memberID}" label="Member ID:" onkeypress="return noenter1(event,1);"/>
+                                        <apex:inputText value="{!memberContactNumber}" label="Member Contact Number:" onkeypress="return noenter1(event,1);"/>
+                                        <apex:inputText value="{!memberFirstName}" label="Member First Name:" onkeypress="return noenter1(event,1);"/>
+                                        <apex:inputText value="{!memberLastName}" label="Member Last Name:" onkeypress="return noenter1(event,1);"/>
+                                        <apex:inputField value="{!memberDOB.SearchDate__c}" label="Member DOB:" id="memberDOB" onkeypress="return noenter1(event,1);"/>
+                                        <apex:pageBlockSectionItem >
+                                            <!-- Search button invokes SearchMember action for member search -->
+                                            <apex:commandButton action="{!SearchMember}" value="Search" rerender="tabPanel, errorMessage"/>
+                                            <apex:actionFunction name="doMemberSearch" action="{!SearchMember}" reRender="tabPanel, errorMessage" />
+                                        </apex:pageBlockSectionItem>
+                                    </apex:pageBlockSection>
+                                    <!-- This section rendered if search value is equal to Provider according to memberID,supplierName,supplierTIN,supplierNPI text values -->
+                                    <apex:pageBlockSection rendered="{!IF(searches == 'Provider', true , false)}">
+                                        <apex:inputText value="{!supplierName}" label="Provider Name:" onkeypress="return noenter1(event,2);"/>
+                                        <apex:inputText value="{!supplierTIN}" label="Provider Tax ID:" onkeypress="return noenter1(event,2);"/>
+                                        <apex:inputText value="{!supplierNPI}" label="Provider NPI:" onkeypress="return noenter1(event,2);"/>
+                                        <apex:pageBlockSectionItem >
+                                            <!-- Search button invokes SearchSupplier action for provider search -->
+                                            <apex:commandButton action="{!SearchSupplier}" value="Search" rerender="tabPanel, errorMessage"/>
+                                            <apex:actionFunction name="doProviderSearch" action="{!SearchSupplier}" reRender="tabPanel, errorMessage" />
+                                        </apex:pageBlockSectionItem>
+                                    </apex:pageBlockSection>
+                                    <!-- This section renderd if search value is equal to Broker -->
+                                    <apex:pageBlockSection rendered="{!IF(searches == 'Broker', true , false)}">
+                                        <apex:inputText value="{!brokerAgentFirstName}" label="Broker Agent First Name:" onkeypress="return noenter1(event,3);"/>
+                                        <apex:inputText value="{!brokerAgentLastName}" label="Broker Agent Last Name:" onkeypress="return noenter1(event,3);"/>
+                                        <apex:inputText value="{!brokerFirmName}" label="Broker Firm Name:" onkeypress="return noenter1(event,3);"/>
+                                        <apex:inputText value="{!brokerID}" label="Broker ID:" onkeypress="return noenter1(event,3);"/>
+                                        <apex:inputText value="{!brokerFirmTelephoneNumber}" label="Broker Firm Telephone Number:" onkeypress="return noenter1(event,3);"/>
+                                        <apex:pageBlockSectionItem >
+                                            <!-- Search button invokes SearchBroker action for broker search  -->
+                                            <apex:commandButton action="{!SearchBroker}" value="Search" rerender="tabPanel, errorMessage"/>
+                                            <apex:actionFunction name="doBrokerSearch" action="{!SearchBroker}" reRender="tabPanel, errorMessage"/>
+                                        </apex:pageBlockSectionItem>            
+                                    </apex:pageBlockSection>
+                                    <!-- This section rendered if search value is equal to Employer -->
+                                    <apex:pageBlockSection rendered="{!IF(searches == 'Employer', true , false)}">
+                                        <apex:inputText value="{!employerContactFirstName}" label="Employer Contact First Name:" onkeypress="return noenter1(event,4);"/>
+                                        <apex:inputText value="{!employerContactLastName}" label="Employer Contact Last Name:" onkeypress="return noenter1(event,4);"/>
+                                        <apex:inputText value="{!employerName}" label="Employer Name:" onkeypress="return noenter1(event,4);"/>
+                                        <apex:inputText value="{!employerTaxID}" label="Tax ID:" onkeypress="return noenter1(event,4);"/>
+                                        <apex:pageBlockSectionItem >
+                                            <!-- Search button invokes SearchEmployer action for Employer search  -->
+                                            <apex:commandButton action="{!SearchEmployer}" value="Search" rerender="tabPanel, errorMessage"/>
+                                            <apex:actionFunction name="doEmployerSearch" action="{!SearchEmployer}" reRender="tabPanel, errorMessage"/>
+                                        </apex:pageBlockSectionItem> 
+                                    </apex:pageBlockSection>
+                                </apex:pageBlock>
+                            </apex:outputPanel>
+                        </apex:tab>   
+                        
+                        <!-- Tab for Search Results List -->     
+                        <apex:tab label="Search Result List" id="tab2" immediate="true" rendered="{!showListTab}">
+                        <script>
+                            document.getElementById('SearchDiv').style.height='325px';
+                        </script>
+                            <!-- Output Panel for search result for SSS search -->
+                            <apex:outputpanel rendered="{!showS3}">
+                            
+                                <!-- Output Panel for search result for Employee search -->
+                                <apex:outputPanel rendered="{!IF(searches == 'Employee', true , false)}">
+                                    <apex:pageBlock >
+                                        <apex:pageBlockTable var="employee" value="{!employeeResults}">
+                                            <apex:column headerValue="Employee Name">
+                                                <apex:CommandLink value="{!employee.ServiceTabLabel__c}" action="{!setContactLink}" rerender="tabPanel">
+                                                    <apex:param value="{!employee.Id}" name="LinkId" assignTo="{!linkId}"/>
+                                                    <apex:param value="true" name="verifyBool" assignTo="{!verifyBool}"/>
+                                                </apex:CommandLink>
+                                            </apex:column>
+                                            <apex:column value="{!employee.Employee_Affiliate_Facility__c}"/>
+                                            <apex:column value="{!employee.Employee_Region__c}"/>
+                                            <apex:column value="{!employee.Phone}"/>
+                                        </apex:pageBlockTable>           
+                                    </apex:pageBlock>
+                                </apex:outputPanel>
+                                
+                                <!-- Output Panel for search result for Provider search -->
+                                <apex:outputPanel rendered="{!IF(searches == 'Provider', true , false)}">
+                                    <apex:pageBlock >
+                                        <apex:pageBlockTable var="provider" value="{!providerResults}">
+                                            <apex:column headerValue="Provider Name">
+                                                <apex:CommandLink value="{!provider.ServiceTabLabel__c}" action="{!setContactLink}" rerender="tabPanel">
+                                                    <apex:param value="{!provider.Id}" name="LinkId" assignTo="{!linkId}"/>
+                                                    <apex:param value="true" name="verifyBool" assignTo="{!verifyBool}"/>
+                                                </apex:CommandLink>
+                                            </apex:column>
+                                            <apex:column headerValue="Address" value="{!provider.Provider_Correspondence_Address__c}"/>
+                                            <apex:column headerValue="License" value="{!provider.Provider_License_Number__c}"/>
+                                            <apex:column headerValue="Specialty" value="{!provider.Provider_Specialty__c}"/>                      
+                                            <apex:column value="{!provider.Phone}"/>
+                                        </apex:pageBlockTable>  
+                                    </apex:pageBlock>
+                                </apex:outputPanel>
+                                
+                                <!-- Output Panel for search result for Vendor search -->
+                                <apex:outputPanel rendered="{!IF(searches == 'Vendor', true , false)}">
+                                    <apex:pageBlock >
+                                        <apex:pageBlockTable var="vendor" value="{!vendorResults}">
+                                            <apex:column value="{!vendor.Vendor_ID__c}"/>
+                                            <apex:column headerValue="Vendor Name (DBA)">
+                                                <apex:CommandLink value="{!vendor.ServiceTabLabel__c}" action="{!setContactLink}" rerender="tabPanel">
+                                                    <apex:param value="{!vendor.Id}" name="LinkId" assignTo="{!linkId}"/>
+                                                    <apex:param value="true" name="verifyBool" assignTo="{!verifyBool}"/>
+                                                </apex:CommandLink>
+                                            </apex:column>
+                                            <apex:column value="{!vendor.Mailingstreet}"/>
+                                            <apex:column value="{!vendor.MailingCity}"/>
+                                            <apex:column value="{!vendor.MailingState}"/>
+                                            <apex:column value="{!vendor.MailingPostalCode}"/>
+                                            <apex:column value="{!vendor.Vendor_TaxID__c}"/>
+                                        </apex:pageBlockTable>  
+                                    </apex:pageBlock>
+                                </apex:outputPanel> 
+                                
+                                <!-- Output Panel for search result for Patient search -->
+                                <apex:outputPanel rendered="{!IF(searches == 'Patient Account', true , false)}">
+                                    <apex:pageBlock >
+                                        <apex:pageBlockTable var="patient" value="{!patientAccountResults}">
+                                            <apex:column headerValue="Patient">
+                                                <apex:CommandLink value="{!patient.Patient_DotOne_Lookup__r.Patient_First_Name__c} {!patient.Patient_DotOne_Lookup__r.Patient_Middle_Name__c} {!patient.Patient_DotOne_Lookup__r.Patient_Last_Name__c}" action="{!setContactLink}" rerender="tabPanel">
+                                                    <apex:param value="{!patient.Patient_DotOne_Lookup__r.Id}" name="LinkId" assignTo="{!linkId}"/>
+                                                    <apex:param value="true" name="verifyBool" assignTo="{!verifyBool}"/>
+                                                    <apex:param value="Patient Detail" name="label" assignTo="{!tab3Label}"/>
+                                                    <apex:param value="{!patient.Patient_Account_Number__c}" assignTo="{!patAcc}" name="Account Number"/>
+                                                </apex:CommandLink>
+                                            </apex:column>
+                                            <apex:column headerValue="Guarantor">
+                                                <apex:CommandLink value="{!patient.Guarantor_ID_Lookup__r.Name}" action="{!setContactLink}" rerender="tabPanel">
+                                                    <apex:param value="{!patient.Guarantor_ID_Lookup__r.Id}" name="LinkId" assignTo="{!linkId}"/>
+                                                    <apex:param value="false" name="verifyBool" assignTo="{!verifyBool}"/>
+                                                    <apex:param value="Guarantor Detail" name="label" assignTo="{!tab3Label}"/>
+                                                    <apex:param value="{!patient.Patient_Account_Number__c}" assignTo="{!patAcc}" name="Account Number"/>
+                                                </apex:CommandLink>
+                                            </apex:column>
+                                            <apex:column value="{!patient.Patient_Account_Number__c}"/>
+                                            <apex:column value="{!patient.Patient_DotOne_Lookup__r.Patient_EPI_ID__c}"/>
+                                            <apex:column value="{!patient.Patient_Account_Service_Location__c}"/>
+                                            <apex:column value="{!patient.Patient_Account_Admission_Date__c}"/>
+                                        </apex:pageBlockTable>  
+                                    </apex:pageBlock>
+                                </apex:outputPanel>
+                                
+                                <!-- Output Panel for search result for Patient search -->
+                                <apex:outputPanel rendered="{!IF(searches == 'Patient', true , false)}">
+                                    <apex:pageBlock >
+                                        <apex:pageBlockTable var="patient" value="{!patientResults}">
+                                            <apex:column headerValue="Patient">
+                                                <apex:CommandLink value="{!patient.Patient_First_Name__c} {!patient.Patient_Middle_Name__c} {!patient.Patient_Last_Name__c}" action="{!setContactLink}" rerender="tabPanel">
+                                                    <apex:param value="{!patient.Id}" name="LinkId" assignTo="{!linkId}"/>
+                                                    <apex:param value="true" name="verifyBool" assignTo="{!verifyBool}"/>
+                                                </apex:CommandLink>
+                                            </apex:column>
+                                            <apex:column value="{!patient.Patient_Street__c}"/>
+                                            <apex:column value="{!patient.Patient_City__c}"/>
+                                            <apex:column value="{!patient.Patient_State__c}"/>
+                                            <apex:column value="{!patient.Patient_Zip__c}"/>
+                                        </apex:pageBlockTable>  
+                                    </apex:pageBlock>
+                                </apex:outputPanel>
+                                
+                                <!-- Output Panel for search result for Guarantor search -->
+                                <apex:outputPanel rendered="{!IF(searches == 'Guarantor', true , false)}">
+                                    <apex:pageBlock >
+                                        <apex:pageBlockTable var="guarantor" value="{!guarantorResults}">
+                                            <apex:column headerValue="Guarantor Full Name">
+                                                <apex:CommandLink value="{!guarantor.Name}" action="{!setContactLink}" rerender="tabPanel">
+                                                    <apex:param value="{!guarantor.Id}" name="LinkId" assignTo="{!linkId}"/>
+                                                    <apex:param value="false" name="verifyBool" assignTo="{!verifyBool}"/>
+                                            </apex:CommandLink>
+                                            </apex:column>
+                                            <apex:column value="{!guarantor.Guarantor_ID__c}"/>
+                                        </apex:pageBlockTable>  
+                                    </apex:pageBlock>
+                                </apex:outputPanel>
+                            </apex:outputpanel>
+                            
+                            <!-- Output Panel for search result for SHP search -->
+                            <apex:outputpanel rendered="{!showSHP}">
+                            
+                                <!-- Output Panel for search result for Member search -->
+                                <apex:outputPanel rendered="{!IF(searches == 'Member', true , false)}">
+                                    <apex:pageBlock >
+                                        <apex:pageBlockTable var="member" value="{!memberResults}">
+                                            <apex:column headerValue="Member Name">
+                                                <apex:CommandLink value="{!member.ServiceTabLabel__c}" action="{!setContactLink}" rerender="tabPanel">
+                                                    <apex:param value="{!member.Id}" name="LinkId" assignTo="{!linkId}"/>
+                                                    <apex:param value="true" name="verifyBool" assignTo="{!verifyBool}"/>
+                                                </apex:CommandLink>
+                                            </apex:column>
+                                            <apex:column value="{!member.Member_ID__c}"/>
+                                            <apex:column value="{!member.Member_Subscriber_Relationship__c}"/>
+                                            <apex:column value="{!member.MailingStreet}"/>
+                                            <apex:column value="{!member.MailingCity}"/>
+                                            <apex:column value="{!member.MailingState}"/>
+                                            <apex:column value="{!member.MailingPostalCode}"/>
+                                            <apex:column value="{!member.Birthdate}"/>
+                                            <apex:column value="{!member.Member_Plan_Name__c}"/>
+                                        </apex:pageBlockTable>
+                                    </apex:pageBlock>
+                                </apex:outputPanel>
+                                
+                                <!-- Output Panel for search result for Provider search -->
+                                <apex:outputPanel rendered="{!IF(searches == 'Provider', true , false)}">
+                                    <apex:pageBlock >
+                                        <apex:pageBlockTable var="provider" value="{!supplierResults}">
+                                            <apex:column headerValue="Provider">
+                                                <apex:CommandLink value="{!provider.ServiceTabLabel__c}" action="{!setContactLink}" rerender="tabPanel">
+                                                    <apex:param value="{!provider.Id}" name="LinkId" assignTo="{!linkId}"/>
+                                                    <apex:param value="true" name="verifyBool" assignTo="{!verifyBool}"/>
+                                                </apex:CommandLink>
+                                            </apex:column>
+                                            <apex:column value="{!provider.Supplier_Contact_Person__c}"/>
+                                            <apex:column value="{!provider.Supplier_TIN_Address__c}"/>
+                                            <apex:column value="{!provider.Supplier_Tax_ID__c}"/>
+                                            <apex:column value="{!provider.Supplier_NPI__c}"/>
+                                            <apex:column value="{!provider.Phone}"/>
+                                        </apex:pageBlockTable>
+                                    </apex:pageBlock>
+                                </apex:outputPanel>
+                                
+                                <!-- Output Panel for search result for Broker search -->
+                                <apex:outputPanel rendered="{!IF(searches == 'Broker', true , false)}">
+                                    <apex:pageBlock >
+                                        <apex:pageBlockTable var="broker" value="{!brokerResults}">
+                                            <apex:column headerValue="Broker Agent">
+                                                <apex:CommandLink value="{!broker.ServiceTabLabel__c}" action="{!setContactLink}" rerender="tabPanel">
+                                                    <apex:param value="{!broker.Id}" name="LinkId" assignTo="{!linkId}"/>
+                                                    <apex:param value="true" name="verifyBool" assignTo="{!verifyBool}"/>
+                                                </apex:CommandLink>
+                                            </apex:column>
+                                            <apex:column headerValue="Brokerage Firm">
+                                                <apex:outputField value="{!broker.Account.Name}"/>
+                                            </apex:column>
+                                            <apex:column headerValue="Shipping State/Province">
+                                                <apex:outputField value="{!broker.Account.BillingState}"/>
+                                            </apex:column>
+                                            <apex:column headerValue="Shipping Zip/Postal Code">
+                                                <apex:outputField value="{!broker.Account.BillingPostalCode}"/>
+                                            </apex:column>
+                                            <apex:column headerValue="Shipping Country">
+                                                <apex:outputField value="{!broker.Account.BillingCountry}"/>
+                                            </apex:column>
+                                            <apex:column headerValue="County">
+                                                <apex:outputField value="{!broker.Account.County__c}"/>
+                                            </apex:column>
+                                            <apex:column headerValue="Broker Firm HCC ID">
+                                                <apex:outputField value="{!broker.Account.Broker_Firm_HCC_ID__c}"/>
+                                            </apex:column>
+                                            <apex:column headerValue="Phone">
+                                                <apex:outputField value="{!broker.Account.Phone}"/>
+                                            </apex:column>
+                                            <apex:column headerValue="Broker Agent License#">
+                                                <apex:outputField value="{!broker.Broker_Agent_License_HCC_ID__c}"/>
+                                            </apex:column>
+                                        </apex:pageBlockTable> 
+                                    </apex:pageBlock>
+                                </apex:outputPanel>
+                                
+                                <!-- Output Panel for search result for Employer search -->
+                                <apex:outputPanel rendered="{!IF(searches == 'Employer', true , false)}">
+                                    <apex:pageBlock >
+                                        <apex:pageBlockTable var="employer" value="{!employerResults}">
+                                            <apex:column headerValue="Employer Contact">
+                                                <apex:CommandLink value="{!employer.ServiceTabLabel__c}" action="{!setContactLink}" rerender="tabPanel">
+                                                    <apex:param value="{!employer.Id}" name="LinkId" assignTo="{!linkId}"/>
+                                                    <apex:param value="true" name="verifyBool" assignTo="{!verifyBool}"/>
+                                                </apex:CommandLink>
+                                            </apex:column>
+                                            <apex:column headerValue="Employer">
+                                                <apex:outputField value="{!employer.Account.Name}"/>
+                                            </apex:column>
+                                            <apex:column headerValue="Tax ID">
+                                                <apex:outputField value="{!employer.Account.Tax_ID__c}"/>
+                                            </apex:column>
+                                            <apex:column headerValue="Employer Type">
+                                                <apex:outputField value="{!employer.Account.Employer_Type__c}"/>
+                                            </apex:column>
+                                            <apex:column headerValue="Broker Agent HCC ID">
+                                                <apex:outputField value="{!employer.Account.Employer_Broker_Agent_HCC_ID__c}"/>
+                                            </apex:column>
+                                            <apex:column headerValue="Employees">
+                                                <apex:outputField value="{!employer.Account.NumberOfEmployees}"/>
+                                            </apex:column>
+                                            <apex:column headerValue="Billing City">
+                                                <apex:outputField value="{!employer.Account.BillingCity}"/>
+                                            </apex:column>
+                                            <apex:column headerValue="Billing State/Province">
+                                                <apex:outputField value="{!employer.Account.BillingState}"/>
+                                            </apex:column>
+                                            <apex:column headerValue="Billing Zip/Postal Code">
+                                                <apex:outputField value="{!employer.Account.BillingPostalCode}"/>
+                                            </apex:column>
+                                            <apex:column headerValue="Phone">
+                                                <apex:outputField value="{!employer.Account.Phone}"/>
+                                            </apex:column>
+                                        </apex:pageBlockTable>
+                                    </apex:pageBlock>
+                                </apex:outputPanel>
+                            </apex:outputpanel>
+                        </apex:tab>                      
+
+                        <!-- Tab for the Detail Page of the record opened -->                        
+                        <apex:tab label="{!tab3Label}" id="tab3" immediate="true" rendered="{!showDetailTab}">
+                        <script>
+                            document.getElementById('SearchDiv').style.height='500px';
+                        </script>
+                            <!-- Verification Panel with fields against which a particular record will be verified -->                        
+                            <apex:outputPanel id="verifyPanel" rendered="{!If((custInteraction.ContactID == null && custInteraction.Patient__c == null && Searches != 'Guarantor' && verifyBool == true), true, false)}">
+                                
+                                <!-- Page block for Contact Verification Section -->
+                                <apex:pageBlock id="pgBlock">
+                                
+                                    <!-- Div for Section Heading -->
+                                    <div align="center">
+                                        <font size="4">
+                                            <p><b>Contact Verification</b></p>
+                                        </font>
+                                    </div>
+                                    <hr/>
+                                    <apex:inputHidden value="{!validationno}" id="validno"/>
+                                    <script>
+                                        var validationId = '{!$Component.validno}';
+                                    </script>
+                                    
+                                    <!-- Output Panel to show the check boxes on the basis of which the Contact is verified, this will appear only if it is a SSS search -->
+                                    <apex:outputPanel rendered="{!showS3}" id="verificationPanel">
+                                        <apex:pageblockSection columns="4">
+                                        
+                                            <!-- List of check box labels brought based on Custom Settings on the basis of which the Contact is verified -->
+                                            <apex:repeat value="{!fieldList}" var="fList">
+                                                <table style="width:100px">
+                                                    <tr>
+                                                        <td style="width:60%"> 
+                                                            <label style="white-space:nowrap"> {!fList}</label>
+                                                        </td>
+                                                        <td style="width:40%;text-align:right">
+                                                            <input type="checkbox" label="{!fList}" onclick="fn_count();" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </apex:repeat>
+                                        </apex:pageblockSection>
+                                        <hr/>
+                                        <apex:outputPanel rendered="{!IF(validationno == 0,true,false )}">
+                                            <p style="color:red;text-align:center"><b>Note: Verify minimum of 0 field to mark the contact as verified</b></p>
+                                        </apex:outputPanel>
+                                        <apex:outputPanel rendered="{!IF(validationno >= 1,true,false )}">
+                                            <p style="color:red;text-align:center"><b>Note: Verify minimum of {!validationno} fields to mark the contact as verified</b></p>
+                                        </apex:outputPanel>
+                                        <hr/>
+                                    </apex:outputPanel>
+                                    <!-- OutPut Panel: Shows Verified and Unverified buttons for the Verification Section -->
+                                    <apex:outputPanel id="buttonPanel">
+                                    
+                                        <!-- Command Button to call the method to verify the contact -->
+                                        <apex:commandButton value="Verified" id="verify" style="position:relative;left:20%;" onclick="fn_countVerify(); return false;" rendered="{!If(showS3 == true, true, false)}" />
+                                        <script>
+                                            function fillKeyValuePair()
+                                            {
+                                           //     alert("hello");
+                                           //     alert(document.getElementById(keyValuePairId).value);
+                                                var str = document.getElementById(keyValuePairId).value.split("#");
+                                          //      alert(str.length);
+                                                for(var i = 0; i<str.length; i++)
+                                                {
+                                          //          alert("str"+i+" "+str[i]);
+                                                    if(str[i].length>0)
+                                                    {
+                                                        var keyStr = str[i].split("->");
+                                            //            alert("key "+keyStr[0]);
+                                            //            alert("value "+keyStr[1]);
+                                            //            alert(document.getElementById(keyStr[0]));
+                                                        document.getElementById(keyStr[0]).value = keyStr[1]+" Refreshed";
+                                                    }
+                                                }
+                                            }
+                                        </script>
+                                        <apex:commandButton value="Verified" id="verifySHP" style="position:relative;left:20%;" reRender="tabPanel, casePanel, errorMessage1" action="{!contactVerification}" rendered="{!If(showSHP == true, true, false)}" oncomplete="fillKeyValuePair();"/>
+                                        <!-- Command Button to call the method to unverify the contact -->
+                                        <apex:commandButton value="Unverified" action="{!contactVerificationForUnverified}"  id="UnverfiedButton" style="position:relative;left:60%"  reRender="tabPanel, casePanel, errorMessage1" oncomplete="fillKeyValuePair();"/>
+
+                                        <!-- JS to disable the 'Verified' button on the Verification Panel if user is searching for S3 -->                                        
+                                        <script>
+                                            var booleanSHP ='{!showSHP}';
+                                            if(booleanSHP == "false")
+                                            {
+                                                var verifyBtn = '{!$Component.verify}';
+                                                var unverifyBtn = '{!$Component.UnverfiedButton}';
+                                                document.getElementById(verifyBtn).disabled=true;
+                                                document.getElementById(verifyBtn).style.borderColor='#C4C4C4';
+                                                document.getElementById(verifyBtn).style.color='#909090';
+                                                fn_count();
+                                            }
+                                            
+                                        </script>   
+                                    </apex:outputPanel>
+                                </apex:pageBlock>
+                                <!-- ActionFunction: function called by javascript function fn_countVerify and checkbox field label values passed to list of strings in the controller, rerender the tabPanel, casePanel, and errormessage1 -->
+                            <!-----Release 5 Bargaining Unit Code--->   
+                                <apex:actionFunction name="passValues" reRender="tabPanel, casePanel, errorMessage1,dataCategory" action="{!contactVerification}" oncomplete="refreshSearchResult(); fillKeyValuePair();" >
+                                    <apex:param assignTo="{!fieldLabels}" name="fieldLabels" value=" "/>
+                                </apex:actionFunction> 
+                                 
+                            </apex:outputPanel>
+                            <!-- Div for detail page opened based on the linkId  -->                            
+                            <div class="divSearchClass" id="contactDiv">
+                            <!--Req-3274 changes start-->
+                            
+                            <apex:outputPanel rendered="{!IF(searches == 'Employee', true , false)}"> 
+                            
+                            <script>
+                                
+                                SortTableInitialize();
+
+                            </script>
+                            
+                              
+                              <table class="divTable" style="table-layout:fixed" border="0" cellspacing="5" cellpadding="5">
+                              <tr>
+                              <td style="width:20%;">
+                              <div class="divInfoClass">
+                              <table class="divTable" border="0" cellspacing="5" style="table-layout:fixed;word-wrap: break-word;" cellpadding="5" id ="table1111">   
+                                <tr>                                                                
+                                  <td style="width:20%;font-weight:bold;">
+                                    <apex:outputLabel value="Employee Id" />
+                                   </td>
+                                   <td style="width:15%;font-weight:bold;">
+                                    <apex:outputfield value="{!EmployeePage.Employee_ID__c}" /> 
+                                   </td>
+                                 </tr>
+                                 <!-- Req 3832 reorder of employee fields -->
+                                 <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Employee Executive Status" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!EmployeePage.Employee_Executive_Status__c}" /> 
+                                    </td>                                   
+                                </tr>
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Name" />
+                                    </td>                                   
+                                    <td>
+                                        <apex:outputfield value="{!EmployeePage.Name}" /> 
+                                    </td>                                    
+                                </tr>                               
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Contact Middle Name" />
+                                    </td>                                   
+                                    <td>
+                                        <apex:outputfield value="{!EmployeePage.Contact_Middle_Name__c}" /> 
+                                    </td>                                    
+                                </tr>
+                                <tr>                               
+                                    <td>
+                                        <apex:outputLabel value="Employee Employment Status" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!EmployeePage.Employee_Employment_Status__c}" /> 
+                                    </td>                                    
+                                </tr> 
+                                <tr>                                
+                                        <td style="font-weight:bold;">
+                                            <apex:outputLabel value="Birthdate" />
+                                        </td>
+                                        <td style="font-weight:bold;">
+                                            <apex:outputfield value="{!EmployeePage.Birthdate}" /> 
+                                        </td>                                   
+                                    </tr>
+                                    <tr>                                
+                                    <td style="font-weight:bold;">
+                                        <apex:outputLabel value="Employee Supervisor Name" />
+                                    </td>
+                                    <td style="font-weight:bold;">
+                                        <apex:outputfield value="{!EmployeePage.Employee_Supervisor_Name__c}" /> 
+                                    </td>                                                                   
+                                </tr>
+                                <tr>                                
+                                    <td style="font-weight:bold;">
+                                        <apex:outputLabel value="Mailing Street" />
+                                    </td>
+                                    <td style="font-weight:bold;">
+                                        <apex:outputfield value="{!EmployeePage.MailingStreet}" /> 
+                                    </td>                                                                   
+                                </tr>
+                                    <tr>                                
+                                    <td style="font-weight:bold;">
+                                        <apex:outputLabel value="Mailing City" />
+                                    </td>
+                                    <td style="font-weight:bold;">
+                                        <apex:outputfield value="{!EmployeePage.MailingCity}" /> 
+                                    </td>                                                                   
+                                </tr>
+                                <tr>                                
+                                    <td style="font-weight:bold;">
+                                        <apex:outputLabel value="Mailing State/Province" />
+                                    </td>
+                                    <td style="font-weight:bold;">
+                                        <apex:outputfield value="{!EmployeePage.MailingState}" /> 
+                                    </td>                                                                   
+                                </tr><tr>                                
+                                    <td style="font-weight:bold;">
+                                        <apex:outputLabel value="Mailing Zip/Postal Code" />
+                                    </td>
+                                    <td style="font-weight:bold;">
+                                        <apex:outputfield value="{!EmployeePage.MailingPostalCode}" /> 
+                                    </td>                                                                   
+                                </tr><tr>                                
+                                    <td style="font-weight:bold;">
+                                        <apex:outputLabel value="Mailing Country" />
+                                    </td>
+                                    <td style="font-weight:bold;">
+                                        <apex:outputfield value="{!EmployeePage.MailingCountry}" /> 
+                                    </td>                                                                   
+                                </tr>
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Employee Company" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!EmployeePage.Employee_Company__c}" /> 
+                                    </td>                                                                       
+                                </tr>
+                                 <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Employee Affliate Facility" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!EmployeePage.Employee_Affiliate_Facility__c}" /> 
+                                    </td>                                   
+                                </tr>
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Employee Bargaining Unit" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!EmployeePage.Employee_Bargaining_Union__c}" /> 
+                                    </td>                                    
+                                </tr>
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Employee Union Affiliate" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!EmployeePage.Employee_Union_Affiliate__c}" /> 
+                                    </td>
+                                    </tr>
+                                    <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Employee Department" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!EmployeePage.Employee_Department__c}" />
+                                    </td>                                   
+                                </tr>
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Title" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!EmployeePage.Title}" /> 
+                                    </td>                                   
+                                </tr>
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Employee Region" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!EmployeePage.Employee_Region__c}" />
+                                    </td>                                   
+                                </tr>
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Employee Process Level" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!EmployeePage.Employee_Process_Level__c}" /> 
+                                    </td>                                                                       
+                                </tr>
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Employee Job Code" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!EmployeePage.Employee_Job_Code__c}" /> 
+                                    </td>                                   
+                                </tr>
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Employee EEO SubCode" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!EmployeePage.Employee_EEO_SubCode__c}" /> 
+                                    </td>                                   
+                                </tr>
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Employee Work Email" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!EmployeePage.Employee_Work_Email__c}" /> 
+                                    </td>                                                                       
+                                </tr>
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Employee ADID" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!EmployeePage.Employee_ADID__c}" /> 
+                                    </td>                                                                       
+                                </tr>   
+                               
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Phone" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!EmployeePage.Phone}" /> 
+                                    </td>                                   
+                                </tr>
+                              <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Contact Record Type" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!EmployeePage.RecordType.Name}" />  
+                                    </td>                                   
+                                </tr>
+                                
+                                   
+                                
+                                
+                                
+                                    
+                                  
+                                
+                                
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Employee Job Code Description" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!EmployeePage.Employee_Job_Code_Description__c}" /> 
+                                    </td>                                   
+                                </tr>
+                                
+                                 
+                                </table>
+                                </div>
+                                </td>                          
+                                
+                                    <td style="width:70%; vertical-align:top;">
+                                      
+                                      <div class="divOpendiv">Open Cases</div><br/>                                   
+                                      
+                                     <div  style="position:relative;">
+                                      <div id="" style="overflow:scroll; width:100%; height:200px; white-space: nowrap;">
+                                      <apex:outputpanel id="empOpenCase">
+                                      <table class="sortable"  style="table-layout:fixed; white-space:nowrap;" border="1" cellspacing="5" cellpadding="5">
+                                        <thead>
+                                        <tr><th class="fixHeader">Transaction</th><th class="fixHeader">Status</th><th class="fixHeader">Date Opened</th>
+                                        <th class="fixHeader">Sub-Function</th><th class="fixHeader">Customer Intent</th><th class="fixHeader">Customer Sub Intent</th><th class="fixHeader">Team</th><th class="fixHeader">Owner</th><th class="fixHeader">Customer Inquiry Type</th><th>Parent Customer Inquiry</th></tr>
+                                        </thead>
+                                         <tbody>
+                                         <apex:outputpanel layout="none" rendered="{!if(CaseOpenList.size>0,true,false)}">
+                                         <apex:repeat value="{!CaseOpenList}" var="c">
+                                         <tr>
+                                          <td>  
+                                            <apex:outputLink value="/{!c.ID}" >{!c.CaseNumber}</apex:outPutlink>
+                                          </td>
+                                          <td>
+                                            {!c.Status}
+                                          </td>
+                                          <td>
+                                           <apex:outputText value="{0, date, MM/dd/yyyy}">
+                                           <apex:param value="{!c.Created_Date_DaylightSaving__c}" />  
+                                          </apex:outputText>
+                                          </td>                                                                                    
+                                          <td>
+                                            {!c.Sub_Function__c}
+                                          </td>
+                                          <td>
+                                            {!c.Customer_Intent__c}
+                                          </td>
+                                          <td>
+                                            {!c.Customer_Sub_Intents__c}
+                                          </td>
+                                          <td>
+                                          {!c.Team__c}
+                                          </td>
+                                          <td>
+                                            {!c.Owner.Name}
+                                          </td>
+                                          <td>
+                                            {!c.Customer_Inquiry_Type__c}
+                                          </td>
+                                          <td>
+                                            {!c.parent.CaseNumber}
+                                          </td>
+                                          </tr>
+                                         </apex:repeat>
+                                         </apex:outputpanel>
+                                         </tbody>
+                                         <apex:outputpanel layout="none" rendered="{!if(CaseOpenList.size>0,false,true)}">
+                                            <tr>
+                                             <td colspan="10">No Open Cases</td>
+                                            </tr>
+                                         </apex:outputpanel>
+                                      </table>
+                                     </apex:outputpanel> 
+                                    </div>
+                                    </div> 
+                                    
+                                                                    
+                                        <div class="divCloseddiv">Closed Cases ({!CaseClosedList.size})</div><br/>
+                                        <div id="" style="overflow:scroll; width:100%; height:200px; white-space: nowrap;">
+                                        <apex:outputpanel id="empCloseCase">
+                                        <table class="sortable"  style="table-layout:fixed; white-space:nowrap;"  border="1" cellspacing="5" cellpadding="5">
+                                        <thead>
+                                        <tr><th>Transaction</th><th>Created Date</th><th>Closed Date</th>
+                                        <th>Sub-Function</th><th>Customer Intent</th><th>Customer Sub Intent</th><th>Team</th><th>Owner</th><th>Customer Inquiry Type</th><th>Parent Customer Inquiry</th></tr>
+                                        </thead>
+                                        <tbody>
+                                         <apex:outputpanel layout="none" rendered="{!if(CaseClosedList.size>0,true,false)}">
+                                         <apex:repeat value="{!CaseClosedList}" var="c">
+                                         <tr>
+                                          <td>  
+                                            <apex:outputLink value="/{!c.Id}" >{!c.CaseNumber}</apex:outPutlink>
+                                          </td>
+                                          <td>
+                                          <apex:outputText value="{0, date, MM/dd/yyyy}">
+                                         <apex:param value="{!c.Created_Date_DaylightSaving__c}" /> 
+                                          </apex:outputText> 
+                                         </td> 
+                                          <td>
+                                          <apex:outputText value="{0, date, MM/dd/yyyy}">
+                                          <apex:param value="{!c.Closed_Date_DaylightSaving__c}" /> 
+                                          </apex:outputText> 
+                                          </td> 
+                                          <td>
+                                            {!c.Sub_Function__c}
+                                          </td>
+                                          <td>
+                                            {!c.Customer_Intent__c}
+                                          </td>
+                                          <td>
+                                            {!c.Customer_Sub_Intents__c}
+                                          </td>
+                                          <td>
+                                          {!c.Team__c}
+                                          </td>
+                                          <td>
+                                            {!c.Owner.Name}
+                                          </td>
+                                          <td>
+                                            {!c.Customer_Inquiry_Type__c}
+                                          </td>
+                                           <td>
+                                            {!c.parent.CaseNumber}
+                                          </td>
+                                          </tr>
+                                         </apex:repeat>
+                                         </apex:outputpanel>
+                                         <apex:outputpanel layout="none" rendered="{!if(CaseClosedList.size>0,false,true)}">
+                                            <tr>
+                                             <td colspan="10">No Closed Cases</td>
+                                            </tr>
+                                         </apex:outputpanel>
+                                         </tbody>
+                                      </table>
+                                      </apex:outputpanel>
+                                      </div>
+                                      <br/>
+                                      <div class="divOpendiv">Manager Feedback</div><br/>
+                                      <div id=""  style="overflow:scroll; width:100%; height:200px; white-space: nowrap;">
+                                      
+                                      <table class="divTableclosedtd"  border="1" cellspacing="5" cellpadding="5">
+                                        <tr><th>FeedBack Name</th><th>Owner First Name</th><th>Owner Last Name</th><th>Service Area</th><th>Status</th><th>Resolution</th><th>Created By</th><th>Created Date</th><th>Closed Date</th></tr>
+                                         <apex:outputpanel layout="none" rendered="{!if(ManagerFeedback.size>0,true,false)}">
+                                         <apex:repeat value="{!ManagerFeedback}" var="mangr">
+                                         <tr>
+                                          <td>
+                                          <apex:outputLink value="/{!mangr.id}">
+                                            {!mangr.Name}
+                                            </apex:outPutlink>
+                                          </td>
+                                          <td>
+                                            {!mangr.Owner.FirstName}
+                                          </td>
+                                          <td>
+                                            {!mangr.Owner.LastName}
+                                          </td>                                          
+                                          <td>
+                                          {!mangr.Service_Area__c}
+                                          </td>
+                                          <td>
+                                            {!mangr.Status__c}                                            
+                                          </td>           
+                                          <td>
+                                            {!mangr.Resolution__c}                                            
+                                          </td> 
+                                          <td>
+                                            {!mangr.CreatedBy.Name}                                            
+                                          </td> 
+                                          <td>
+                                          <apex:outputText value="{0, date, MM/dd/yyyy}">
+                                          <apex:param value="{!mangr.CreatedDate}" /> 
+                                          </apex:outputText>                                                                                        
+                                          </td> 
+                                          <td>
+                                          <apex:outputText value="{0, date, MM/dd/yyyy}">
+                                          <apex:param value="{!mangr.Closed_Date__c}" /> 
+                                          </apex:outputText>                                                                                     
+                                          </td> 
+                                          </tr>
+                                         </apex:repeat>
+                                        </apex:outputpanel>
+                                        <apex:outputpanel layout="none" rendered="{!if(ManagerFeedback.size>0,false,true)}">
+                                            <tr>
+                                             <td colspan="9">No Manager Feedback</td>
+                                            </tr>
+                                         </apex:outputpanel> 
+                                      </table>
+                                    
+                                    </div>
+                                    </td>
+                               </tr>
+                                
+                                
+                               
+                              </table>
+                            </apex:outputpanel> 
+                            <!--Patient Changes-->
+                            
+                             <apex:outputPanel rendered="{!IF(searches == 'Patient' || searches == 'Patient Account', true , false)}">
+                             
+                             <script>
+                                
+                                SortTableInitialize();
+
+                            </script>
+                            
+                             
+                             <apex:outputPanel rendered="{!IF(tab3Label == 'Guarantor Detail' , true , false)}">
+                             <!--Req-3274 AND 3733 changes end-->
+
+                               <apex:detail subject="{!linkId}" relatedList="true" relatedListHover="true"/>
+                            </apex:outputpanel>
+                            
+                              <apex:outputPanel rendered="{!IF(tab3Label == 'Guarantor Detail' , false , true)}">
+                              <table class="divTable" style="table-layout:fixed;word-wrap: break-word;" border="0" cellspacing="5" cellpadding="5">
+                              <tr>
+                              <td style="width:15%; vertical-align: top;">
+                              <div class="divInfoClass">
+                              <table class="divTable" border="0" cellspacing="5" cellpadding="5">
+                              
+                                    <tr>                                    
+                                    <td style="font-weight: bold;">
+                                        <apex:outputLabel value="Patient Name" />
+                                    </td>                                   
+                                    <td style="font-weight: bold;">
+                                        <apex:outputfield value="{!PatientPage.Name}" />
+                                    </td>                               
+                                    
+                                </tr> 
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Patient Middle Name" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!PatientPage.Patient_Middle_Name__c}" /> 
+                                    </td>                                   
+                                </tr>                               
+                                <tr>                                
+                                    <td style="font-weight: bold;">
+                                        <apex:outputLabel value="Patient SSN" />
+                                    </td>
+                                    <td style="font-weight: bold;">
+                                        <apex:outputfield value="{!PatientPage.Patient_SSN_E__c}" /> 
+                                    </td>                                   
+                                </tr>
+                                
+                                <tr>                                
+                                    <td style="font-weight: bold;">                                 
+                                        <apex:outputLabel value="Patient DOB" />
+                                    </td>
+                                    <td style="font-weight: bold;">
+                                        <apex:outputfield value="{!PatientPage.Patient_DOB__c}" /> 
+                                    </td>                                   
+                                </tr>
+                                <tr>                                
+                                <td>
+                                        <apex:outputLabel value="Patient Gender" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!PatientPage.Patient_Gender__c}" /> 
+                                    </td>                                   
+                                </tr>
+                                <tr>                                
+                                    <td style="font-weight: bold;">
+                                        <apex:outputLabel value="Patient_SHMRN" />
+                                    </td>
+                                    <td style="font-weight: bold;">
+                                        <apex:outputfield value="{!PatientPage.Patient_SHMRN__c}" /> 
+                                    </td>                       
+                                    
+                                </tr>
+                                
+                                
+                                <tr>                               
+                                    <td>
+                                        <apex:outputLabel value="Patient_DotOne" />
+                                    </td>                                   
+                                    <td>
+                                        <apex:outputfield value="{!PatientPage.Patient_DotOne__c}" /> 
+                                    </td>                                   
+                                </tr> 
+                                <tr> 
+                                    <td class="divtablecolumntd">
+                                        <apex:outputLabel value="Patient EPI-ID" />
+                                    </td>
+                                    <td class="divtableinfotd">
+                                        <apex:outputfield value="{!PatientPage.Patient_EPI_ID__c}" /> 
+                                    </td>           
+                                    </tr>
+                                <tr>                                
+                                    <td style="font-weight: bold;">
+                                        <apex:outputLabel value="Patient Street" />
+                                    </td>
+                                    <td style="font-weight: bold;">
+                                        <apex:outputfield value="{!PatientPage.Patient_Street__c}" />  
+                                    </td>                                   
+                                    </tr>
+                                   <tr>                                
+                                    <td style="font-weight: bold;">
+                                        <apex:outputLabel value="Patient State" />
+                                    </td>
+                                    <td style="font-weight: bold;">
+                                        <apex:outputfield value="{!PatientPage.Patient_State__c}" /> 
+                                    </td>                                                                 
+                                </tr> 
+                                    
+                                <tr>                                
+                                    <td style="font-weight: bold;">
+                                        <apex:outputLabel value="Patient City" />
+                                    </td>
+                                    <td style="font-weight: bold;">
+                                        <apex:outputfield value="{!PatientPage.Patient_City__c}" /> 
+                                    </td>                           
+                                    
+                                </tr>
+                                    
+                                <tr>                                
+                                    <td style="font-weight: bold;">
+                                        <apex:outputLabel value="Patient Zip" />
+                                    </td>
+                                    <td style="font-weight: bold;">
+                                        <apex:outputfield value="{!PatientPage.Patient_Zip__c}" /> 
+                                    </td>                                   
+                                </tr> 
+                                                                
+                                <tr>                                 
+                                    <td>
+                                        <apex:outputLabel value="Patient Home Phone" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!PatientPage.Patient_Phone_Home__c}" />
+                                    </td>                                   
+                                </tr>
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Patient Work Phone" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!PatientPage.Patient_Phone_Work__c}" />
+                                    </td>                                   
+                                </tr>
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Patient Mobile Phone" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!PatientPage.Patient_Phone_Mobile__c}" /> 
+                                    </td>                                   
+                                </tr>
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Patient Other Phone" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!PatientPage.Patient_Phone_Other__c}" /> 
+                                    </td>                                   
+                                </tr>                                
+                                
+                                
+                                </table>
+                                </div>
+                                </td>
+                                <td style="width:70%; vertical-align:top;">
+                                
+                                
+                                      <div class="divOpendiv">Open Cases</div><br/>
+                                      <div id="" style="overflow:scroll; width:100%; height:200px; white-space: nowrap;">
+                                      <apex:outputpanel id="patientOpenCase">
+                                      <table class="sortable"  style="table-layout:fixed; white-space:nowrap;"   border="1" cellspacing="5" cellpadding="5">
+                                      <thead>
+                                        <tr><th>Transaction</th><th>Status</th><th>Date Opened</th><th>Patient Account Number</th>
+                                        <th>Sub-Function</th><th>Customer Intent</th><th>Customer Sub Intent</th><th>Team</th><th>Owner</th><th>Customer Inquiry Type</th><th>Parent Customer Inquiry</th></tr>
+                                        </thead>
+                                        <tbody>
+                                         <apex:outputpanel layout="none" rendered="{!if(PatientCaseOpenList.size>0,true,false)}">
+                                         <apex:repeat value="{!PatientCaseOpenList}" var="c">
+                                         <tr>
+                                          <td>  
+                                          <apex:outputLink value="/{!c.ID}" >{!c.CaseNumber}</apex:outPutlink>
+                                          </td>
+                                          <td>
+                                            {!c.Status}
+                                          </td>
+                                          <td>
+                                           <apex:outputText value="{0, date, MM/dd/yyyy}">
+                                          <apex:param value="{!c.Created_Date_DaylightSaving__c}" /> 
+                                          </apex:outputText>
+                                          </td>                                          
+                                          <td>
+                                          {!c.Patient_Account__r.Name}
+                                          </td>
+                                          <td>
+                                            {!c.Sub_Function__c}
+                                          </td>
+                                          <td>
+                                            {!c.Customer_Intent__c}
+                                          </td>
+                                          <td>
+                                            {!c.Customer_Sub_Intents__c}
+                                          </td>
+                                          <td>
+                                          {!c.Team__c}
+                                          </td>
+                                          <td>
+                                            {!c.Owner.Name}
+                                          </td>
+                                          <td>
+                                            {!c.Customer_Inquiry_Type__c}
+                                          </td>
+                                          <td>
+                                            {!c.parent.CaseNumber}
+                                          </td>
+                                          </tr>
+                                         </apex:repeat>
+                                         </apex:outputpanel>
+                                         <apex:outputpanel layout="none" rendered="{!if(PatientCaseOpenList.size>0,false,true)}">
+                                            <tr>
+                                             <td colspan="11">No Open Cases</td>
+                                            </tr>
+                                         </apex:outputpanel>
+                                         </tbody>
+                                      </table>
+                                     </apex:outputpanel> 
+                                    </div>
+                                
+                                
+                                    
+                                        <div class="divCloseddiv">Closed Cases ({!PatientCaseClosedList.size})</div><br/>
+                                        <div id="" style="overflow:scroll; width:100%; height:200px; white-space: nowrap;">
+                                        <apex:outputpanel id="patientCloseCase">
+                                        <table class="sortable"  style="table-layout:fixed; white-space:nowrap;"   border="1" cellspacing="5" cellpadding="5">
+                                        <thead>
+                                        <tr><th>Transaction</th><th>Created Date</th><th>Closed Date</th><th>Patient Account Number</th>
+                                        <th>Sub-Function</th><th>Customer Intent</th><th>Customer Sub Intent</th><th>Team</th><th>Owner</th><th>Customer Inquiry Type</th><th>Parent Customer Inquiry</th></tr>
+                                        </thead>
+                                        <tbody>
+                                         <apex:outputpanel layout="none" rendered="{!if(PatientCaseClosedList.size>0,true,false)}">
+                                         <apex:repeat value="{!PatientCaseClosedList}" var="c">
+                                         <tr>
+                                          <td>  
+                                          <apex:outputLink value="/{!c.ID}" >{!c.CaseNumber}</apex:outPutlink>
+                                          </td>
+                                          <td>
+                                           <apex:outputText value="{0, date, MM/dd/yyyy}">
+                                          <apex:param value="{!c.Created_Date_DaylightSaving__c}" />
+                                          </apex:outputText>
+                                          </td>
+                                          <td>
+                                          <apex:outputText value="{0, date, MM/dd/yyyy}">
+                                              <apex:param value="{!c.Closed_Date_DaylightSaving__c}" /> 
+                                            </apex:outputText>
+                                            
+                                          </td>
+                                          <td>
+                                           {!c.Patient_Account__r.Name}
+                                          </td>
+                                          <td>
+                                            {!c.Sub_Function__c}
+                                          </td>
+                                          <td>
+                                            {!c.Customer_Intent__c}
+                                          </td>
+                                          <td>
+                                            {!c.Customer_Sub_Intents__c}
+                                          </td>
+                                          <td>
+                                          {!c.Team__c}
+                                          </td>
+                                          <td>
+                                            {!c.Owner.Name}
+                                          </td>
+                                          <td>
+                                            {!c.Customer_Inquiry_Type__c}
+                                          </td>
+                                          <td>
+                                            {!c.parent.CaseNumber}
+                                          </td>
+                                          </tr>
+                                         </apex:repeat>
+                                         </apex:outputpanel>
+                                         <apex:outputpanel layout="none" rendered="{!if(PatientCaseClosedList.size>0,false,true)}">
+                                            <tr>
+                                             <td colspan="11">No Closed Cases</td>
+                                            </tr>
+                                         </apex:outputpanel>
+                                         </tbody>
+                                      </table>
+                                      </apex:outputpanel>
+                                      </div>
+                                      <br />
+                                    <div class="divOpendiv">Patient Accounts</div><br/>
+                                      <div id=""  style="overflow:scroll; width:100%; height:200px; white-space: nowrap;">
+                                      
+                                      <table class="divTableclosedtd"  border="1" cellspacing="5" cellpadding="5">
+                                        <tr><th>Patient Account Number</th><th>Patient Name</th><th>Patient Service Location</th><th>Patient Admission Date</th><th>Guarantor</th><th>Guarantor Id</th></tr>
+                                         <apex:outputpanel layout="none" rendered="{!if(PatientAccountPage.size>0,true,false)}">
+                                         <apex:repeat value="{!PatientAccountPage}" var="pac">
+                                         <tr>
+                                          <td>
+                                            {!pac.Name}
+                                          </td>
+                                          <td>
+                                            {!pac.Patient_DotOne_Lookup__r.Name}
+                                          </td>
+                                           <td>
+                                          {!pac.Patient_Account_Service_Location__c}
+                                          </td>
+                                           <td>
+                                            <apex:outputText value="{0, date, MM/dd/yyyy}">
+                                                <apex:param value="{!pac.Patient_Account_Admission_Date__c}" /> 
+                                            </apex:outputText>                                            
+                                          </td> 
+                                          <td>
+                                            {!pac.Guarantor_ID_Lookup__r.Name}
+                                          </td>
+                                          <td>
+                                            {!pac.Guarantor_ID__c}
+                                          </td>
+                                                    
+                                          
+                                          </tr>
+                                         </apex:repeat>
+                                        </apex:outputpanel>
+                                        
+                                        <apex:outputpanel layout="none" rendered="{!if(PatientAccountPage.size>0,false,true)}">
+                                            <tr>
+                                             <td colspan="10">No Patient Accounts</td>
+                                            </tr>
+                                         </apex:outputpanel> 
+                                      </table>
+                                    
+                                    </div>
+                                
+                              
+                                
+                                </td>
+                                
+                                 </tr>   
+                              </table>
+                            </apex:outputpanel>
+                            </apex:outputpanel>
+                             
+                             <!--Req-3733 Changes for Vendor Search Page-->
+                            <apex:outputPanel rendered="{!IF(searches == 'Vendor', true , false)}"> 
+                            
+                            <script>
+                                
+                                SortTableInitialize();
+
+                            </script>
+                            
+                              
+                              <table class="divTable" style="table-layout:fixed" border="0" cellspacing="5" cellpadding="5">
+                              <tr>
+                              <td style="width:20%;">
+                              <div class="divInfoClass">
+                              <table class="divTable" border="0" cellspacing="5" style="table-layout:fixed;word-wrap: break-word;" cellpadding="5" id ="table1111">   
+                                                  
+                                <tr>                                                                
+                                  <td style="width:20%; font-weight:bold;">
+                                    <apex:outputLabel value="Name" />
+                                   </td>
+                                   <td style="width:15%;font-weight:bold;">
+                                    <apex:outputfield value="{!VendorPage.Name}" /> 
+                                   </td>
+                                   </tr>
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Account Name" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!VendorPage.Account.Name}" /> 
+                                    </td>                                                                       
+                                </tr>
+                                <tr>                                
+                                        <td style="font-weight:bold;">
+                                            <apex:outputLabel value="Vendor ID" />
+                                        </td>
+                                        <td style="font-weight:bold;">
+                                            <apex:outputfield value="{!VendorPage.Vendor_ID__c}" /> 
+                                        </td>                                   
+                                    </tr>
+                                    <tr>                                
+                                    <td style="font-weight:bold;">
+                                        <apex:outputLabel value="Vendor Tax ID" />
+                                    </td>
+                                    <td style="font-weight:bold;">
+                                        <apex:outputfield value="{!VendorPage.Vendor_TaxID__c}" /> 
+                                    </td>                                   
+                                </tr>
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Title" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!VendorPage.Title}" /> 
+                                    </td>                                   
+                                </tr>
+                                    
+                                    <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Phone" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!VendorPage.Phone}" /> 
+                                    </td>                                   
+                                </tr>
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Mobile" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!VendorPage.MobilePhone}" /> 
+                                    </td>                                   
+                                </tr>
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Fax" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!VendorPage.Fax}" /> 
+                                    </td>                                   
+                                </tr>
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Email" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!VendorPage.Email}" /> 
+                                    </td>                                   
+                                </tr>
+                                                                    
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Contact SSN" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!VendorPage.Contact_SSN_E__c}" /> 
+                                    </td>                                   
+                                </tr>
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Contact External ID 1" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!VendorPage.Contact_External_ID1__c}" /> 
+                                    </td>                                   
+                                </tr>
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Contact External ID 2" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!VendorPage.Contact_External_ID2__c}" /> 
+                                    </td>                                   
+                                </tr>
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Mailing Street" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!VendorPage.MailingStreet}" /> 
+                                    </td>                                                                   
+                                </tr>
+                                    <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Mailing City" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!VendorPage.MailingCity}" /> 
+                                    </td>                                                                   
+                                </tr>
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Mailing State/Province" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!VendorPage.MailingState}" /> 
+                                    </td>                                                                   
+                                </tr>
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Mailing Zip/Postal Code" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!VendorPage.MailingPostalCode}" /> 
+                                    </td>                                                                   
+                                </tr>
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Mailing Country" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!VendorPage.MailingCountry}" /> 
+                                    </td>                                                                   
+                                </tr>
+                                <tr>                                
+                                    <td>
+                                        <apex:outputLabel value="Mailing County" />
+                                    </td>
+                                    <td>
+                                        <apex:outputfield value="{!VendorPage.Mailing_County__c}" /> 
+                                    </td>                                                                   
+                                </tr>
+                                
+                                </table>
+                                </div>
+                                </td>                  
+                                
+                                
+                                
+                                    <td style="width:70%; vertical-align:top;">
+                                      
+                                      <div class="divOpendiv">Open Cases</div><br/>                                   
+                                      
+                                     <div  style="position:relative;">
+                                      <div id="" style="overflow:scroll; width:100%; height:200px; white-space: nowrap;">
+                                      <apex:outputpanel id="vendorOpenCase">
+                                      <table class="sortable"  style="table-layout:fixed; white-space:nowrap;" border="1" cellspacing="5" cellpadding="5">
+                                        <thead>
+                                        <tr><th class="fixHeader">Transaction</th><th class="fixHeader">Status</th><th class="fixHeader">Date Opened</th>
+                                        <th class="fixHeader">Sub-Function</th><th class="fixHeader">Customer Intent</th><th class="fixHeader">Customer Sub Intent</th><th class="fixHeader">Team</th><th class="fixHeader">Owner</th><th class="fixHeader">Customer Inquiry Type</th><th>Parent Customer Inquiry</th></tr>
+                                        </thead>
+                                         <tbody>
+                                         <apex:outputpanel layout="none" rendered="{!if(CaseOpenList.size>0,true,false)}">
+                                        
+                                         <apex:repeat value="{!CaseOpenList}" var="c">
+                                         <tr>
+                                          <td>  
+                                            <apex:outputLink value="/{!c.ID}" >{!c.CaseNumber}</apex:outPutlink>
+                                          </td>
+                                          <td>
+                                            {!c.Status}
+                                          </td>
+                                          <td>
+                                          <apex:outputText value="{0, date, MM/dd/yyyy}">
+                                          <apex:param value="{!c.Created_Date_DaylightSaving__c}" /> 
+                                          </apex:outputText>
+                                          </td>                                                                                    
+                                          <td>
+                                            {!c.Sub_Function__c}
+                                          </td>
+                                          <td>
+                                            {!c.Customer_Intent__c}
+                                          </td>
+                                          <td>
+                                            {!c.Customer_Sub_Intents__c}
+                                          </td>
+                                          <td>
+                                          {!c.Team__c}
+                                          </td>
+                                          <td>
+                                            {!c.Owner.Name}
+                                          </td>
+                                          <td>
+                                            {!c.Customer_Inquiry_Type__c}
+                                          </td>
+                                          <td>
+                                            {!c.parent.CaseNumber}
+                                          </td>
+                                          </tr>
+                                         </apex:repeat>
+                                         </apex:outputpanel>
+                                         </tbody>
+                                         <apex:outputpanel layout="none" rendered="{!if(CaseOpenList.size>0,false,true)}">
+                                            <tr>
+                                             <td colspan="10">No Open Cases</td>
+                                            </tr>
+                                         </apex:outputpanel>
+                                      </table>
+                                     </apex:outputpanel> 
+                                    </div>
+                                    </div>
+                                    
+                                                                    
+                                        <div class="divCloseddiv">Closed Cases ({!CaseClosedList.size})</div><br/>
+                                        <div id="" style="overflow:scroll; width:100%; height:200px; white-space: nowrap;">
+                                        <apex:outputpanel id="venCloseCase">
+                                        <table class="sortable"  style="table-layout:fixed; white-space:nowrap;"  border="1" cellspacing="5" cellpadding="5">
+                                        <thead>
+                                        <tr><th>Transaction</th><th>Date Opened</th><th>Closed Date</th><th>Sub-Function</th><th>Customer Intent</th>
+                                        <th>Customer Sub Intent</th><th>Team</th><th>Owner</th><th>Customer Inquiry Type</th><th>Parent Customer Inquiry</th></tr>
+                                        </thead>
+                                        <tbody>
+                                         <apex:outputpanel layout="none" rendered="{!if(CaseClosedList.size>0,true,false)}">
+                                         <apex:repeat value="{!CaseClosedList}" var="c">
+                                         <tr>
+                                          <td>  
+                                            <apex:outputLink value="/{!c.Id}" >{!c.CaseNumber}</apex:outPutlink>
+                                          </td>                                          
+                                          <td>
+                                            <apex:outputText value="{0, date,MM/dd/yyyy}">
+                                           <apex:param value="{!c.Created_Date_DaylightSaving__c}" /> 
+                                          </apex:outputText>
+                                          </td>
+                                          <td>
+                                          <apex:outputText value="{0, date, MM/dd/yyyy}">
+                                         <apex:param value="{!c.Closed_Date_DaylightSaving__c}" /> 
+                                          </apex:outputText> 
+                                          </td>
+                                                                               
+                                          <td>
+                                            {!c.Sub_Function__c}
+                                          </td>
+                                          <td>
+                                            {!c.Customer_Intent__c}
+                                          </td>
+                                          <td>
+                                            {!c.Customer_Sub_Intents__c}
+                                          </td>
+                                          <td>
+                                          {!c.Team__c}
+                                          </td>
+                                          <td>
+                                            {!c.Owner.Name}
+                                          </td>
+                                          <td>
+                                            {!c.Customer_Inquiry_Type__c}
+                                          </td>
+                                           <td>
+                                            {!c.parent.CaseNumber}
+                                          </td>
+                                          </tr>
+                                         </apex:repeat>
+                                         </apex:outputpanel>
+                                         <apex:outputpanel layout="none" rendered="{!if(CaseClosedList.size>0,false,true)}">
+                                            <tr>
+                                             <td colspan="10">No Closed Cases</td>
+                                            </tr>
+                                         </apex:outputpanel>
+                                         </tbody>
+                                      </table>
+                                      </apex:outputpanel>
+                                      </div>
+                                      
+                                    </td>
+                               </tr>
+                                
+                                
+                               
+                              </table>
+                            </apex:outputpanel>
+                             
+                             
+                             
+                             
+                             <apex:outputPanel rendered="{!IF(searches == 'Employee' || searches == 'Patient' || searches == 'Patient Account' || searches == 'Vendor' , false , true)}">
+                             <!--Req-3274 AND 3733 changes end-->
+
+                               <apex:detail subject="{!linkId}" relatedList="true" relatedListHover="true"/>
+                            </apex:outputpanel>
+                            <!-- <apex:detail subject="{!linkId}" relatedList="true" relatedListHover="true"/> -->
+                            </div>                               
+                            
+                            <!-- Script to hide the 'Show 5 more' Link -->                            
+                            <script>
+                                hideShowMore();
+                            </script>                                 
+                           <!-- Script to hide the 'Show 5 more' Link -->                            
+                                <script>
+                                    hideShowMore();
+                                    document.getElementById('SearchDiv').style.height='500px';
+                                </script>
+                        </apex:tab>
+                    </apex:tabPanel>
+                </apex:actionRegion>
+            </div>
+            <br/>
+            <hr style="margin: 1px;"/>
+            <br/>
+            <!-- Div to set IL window scrolling and height -->
+            <div style="overflow-y:scroll; overflow-x:hidden; height:450px;">
+
+            
+                <apex:pageMessages id="errorMessage1" />
+                <apex:inputHidden id="keyValuePair"/>
+                <script>
+                    var keyValuePairId = '{!$Component.keyValuePair}';
+              //      alert(keyValuePairId);
+                </script>
+                <apex:outPutPanel id="casePanel" style="overflow-y:scroll; overflow-x:hidden; height:370px;">
+                
+
+
+
+                <!-- Div for Customer Inquiry Edit Section Header --> 
+                <div id="customerInquiryHeader">
+                    <apex:outputPanel style="height:55px"  rendered="{!showEditCase}" layout="block">
+                        <apex:sectionHeader title="Customer Inquiry Edit" subtitle="Edit Customer Inquiry" />
+                    </apex:outputPanel>
+                </div> 
+                
+                    <!-- Page Block Definition: Shows for Customer Inquiry Edit mode  -->    
+                    <apex:pageBlock title="Customer Inquiry Edit" rendered="{!showEditCase}" tabStyle="Case" mode="edit" id="pgBlck">
+                    
+                        <!-- Page Block Buttons: Shows for Customer Inquiry save Button to save IL in edit mode and redirect it to detail IL Page  -->    
+                        <!-- Req. 3200 Release 6.1 Changes (changed the action method saveCustInteraction to saveSHP-->                   
+              
+                        <apex:pageBlockButtons location="top" id="pgblkBtn">
+                            <apex:commandbutton value="Save" action="{!saveSHP}" reRender="casePanel, message, errorMessage1" >
+                            
+                                <apex:param name="setDetail" value="true" assignTo="{!setDetail}"/>
+                                
+                            </apex:commandbutton>
+                            
+
+
+
+
+
+
+                            
+
+                             <!-- REQ 3226 : Save & New Button functionality Date : 11/20/2014 START-->
+                           
+                            <apex:commandbutton value="Save & New" action="{!saveAndNew}" reRender="casePanel, message, errorMessage1, newCasePanel" rendered="{!showS3Patient}"  oncomplete="openNewIL();"/> 
+                            
+                            <!--Req 3242-->
+                            <apex:commandbutton value="Email Supervisor" id="SendMailBtn" styleclass="SendMailCls" rendered="{!!CustInteraction.IsMailSent__c}"
+                                style="visibility: hidden;"  reRender="pgBlck,errorMessage1" action="{!sendMail}" 
+                                oncomplete="javascript:if('{!CustInteraction.IsMailSent__c}'=='true'){alert('Email to supervisor has been sent successfully.');}" />   
+                            
+                        </apex:pageBlockButtons>
+                        
+                        <!-- OutPut panel used to show page messages --> 
+                        <apex:outputPanel rendered="{!showMessage}" id="message">
+                            <div align="center">
+                                <apex:outputText ><b>{!message}</b></apex:outputText>
+                            </div>
+                        </apex:outputPanel>
+                        
+                        <!-- PageBlockSection: This section is used to show customer inquiry fields from CID(Customer Inquiry Detail for IL) field Set -->
+                        <apex:pageBlockSection collapsible="false" title="Customer Inquiry Detail" columns="2" id="pbsec">
+                            <apex:repeat value="{!CIDFields}" var="cidField" id="repeatTag"><!-- REQ- 3147 : Added "callSearchTextAF" function on "onChange" event.-->
+                                <apex:inputField id="fieldSet" value="{!CustInteraction[cidField.fieldPath]}" onchange="enableSendMailBtn();callSearchTextAF('{!cidField}','{!$Component.fieldSet}');" required="{!OR(cidField.required, cidField.dbRequired)}"/>
+                            </apex:repeat>
+                            
+                            <apex:pageBlockSectionItem rendered="{!If(custInteraction.RecordType.Name == 'S3 Patient Interaction Log' || custInteraction.RecordType.Name == 'S3 Interaction Log', true, false)}">
+                                <apex:outputLabel >Adhoc Intent</apex:outputLabel>
+                                <apex:selectList value="{!adhocType}" multiselect="false" size="1" id="adhocType">
+                                    <apex:selectOptions value="{!adhocTypes}"/>
+                                </apex:selectList>
+                            </apex:pageBlockSectionItem>
+                            <apex:repeat value="{!CIDFields2}" var="cidField2">
+                                <apex:inputField value="{!CustInteraction[cidField2.fieldPath]}" required="{!OR(cidField2.required, cidField2.dbRequired)}" rendered="{!If(custInteraction.RecordType.Name == 'S3 Patient Interaction Log' || custInteraction.RecordType.Name == 'S3 Interaction Log', true, false)}"/>
+                            </apex:repeat>
+                            
+                        </apex:pageBlockSection>
+                        
+                        <!-- REQ 3756- PageBlockSection: This section is used to show fields from S3_Additional_Inquiry_Detail field Set --> 
+                                            
+                        <apex:pageBlockSection collapsible="false" title="Additional Inquiry Detail" columns="2" rendered="{!If(custInteraction.RecordType.Name == 'S3 Interaction Log' && ($Profile.Name != 'S3 Revenue Cycle Agent' && $Profile.Name != 'S3 Finance Accounts Payable Agent' && $Profile.Name != 'S3 Supply Chain Agent' && $Profile.Name != 'S3 Document Management Center Agent'), true, false)}">
+                            <apex:repeat value="{!AIDFields}" var="aiField">
+                                <apex:inputField value="{!CustInteraction[aiField.fieldPath]}" required="{!OR(aiField.required, aiField.dbRequired)}"/>
+                            </apex:repeat>
+                        </apex:pageBlockSection>
+                        
+                        
+                        <!-- PageBlockSection: This section is used to show customer inquiry fields form AI(Unidentified Information of IL) field Set --> 
+                        <apex:pageBlockSection collapsible="false" title="Unidentified Caller Information" columns="2">
+                            <apex:repeat value="{!AIFields}" var="aiField">
+                                <apex:inputField value="{!CustInteraction[aiField.fieldPath]}" required="{!OR(aiField.required, aiField.dbRequired)}"/>
+                            </apex:repeat>
+                        </apex:pageBlockSection>
+                        
+                        
+                        <!-- PageBlockSection: This section is used to show customer inquiry fields from DI(Description Information) field set --> 
+                        <apex:pageBlockSection collapsible="false" title="Description Information" columns="1">
+                            <apex:actionRegion >
+                                <table width="100%">
+                                    <tr>
+                                        <td width="18%">
+                                        <!-- Div is used to show subject label for IL  --> 
+                                            <div align="right">
+                                                <apex:outputLabel styleClass="labelCol" style="margin-right: 3.5%">Subject</apex:outputLabel>    
+                                            </div>
+                                        </td>
+                                        <td width="82%">
+                                        <!-- OnkeyUP and OnKeyDown function is being used to populate article list as per text entered in subject field --> 
+                                            <apex:inputField label="Subject" value="{!CustInteraction.Subject}" id="subject" style="width:83.25%;" required="{!If(custInteraction.RecordType.Name == 'S3 Patient Interaction Log' || custInteraction.RecordType.Name == 'S3 Interaction Log', true, false)}" 
+                                            onblur="showBlur(this);" /> <!-- REQ-3147 : Commented out to remove functionality to search article on subject.-->  
+                                            <!-- onkeyup="getSubject();" onkeydown="getSubject();" -->
+                                        </td>
+                                    </tr>
+                                </table>
+                               <!-- This action function is re-rendring the search result Page Block and assigning to variable search String -->
+                               <apex:actionFunction name="getSubjectFunc" reRender="theSearchResults" status="status" action="{!refreshSearchResult}">
+                                    <apex:param assignTo="{!searchstring}" name="searchstring" value=""/>
+                                </apex:actionFunction> 
+                                <!-- Script for assigning subject value to subID variable -->                       
+                                <script>
+                                    var subId = '{!$Component.subject}';
+                                </script>
+                            </apex:actionRegion>   
+                             <!-- Repeat: This section iterates over fields in DI(Description information) field set -->
+                            <apex:repeat value="{!DIFields}" var="diField">
+                                <apex:inputField value="{!CustInteraction[diField.fieldPath]}" required="{!OR(diField.required, diField.dbRequired)}" style="width: 83%;" onblur="showBlur(this);"/>
+                            </apex:repeat>
+                            <script>
+                                function showBlur(ev)
+                                {
+                    //                 alert(ev.value+" "+ev.id);
+                                     var strKeyValue = ev.id+"->"+ev.value;
+                    //                 alert(keyValuePairId);
+                   //                  alert(document.getElementById(keyValuePairId));
+                                     document.getElementById(keyValuePairId).value = document.getElementById(keyValuePairId).value + "#" + strKeyValue;
+                                 }
+                            </script>
+                            
+
+                        </apex:pageBlockSection>
+                        <!-- PageBlockSection: This section is used to show customer inquiry fields from ID(Interaction Details) field set -->
+                        <apex:pageBlockSection collapsible="false" title="Interaction Details" columns="2">
+                            <!-- Repeat: This section iterates over fields in ID(Interaction Details) field set -->
+                            <apex:repeat value="{!IDFields}" var="idField">
+                                <apex:inputField value="{!CustInteraction[idField.fieldPath]}" required="{!OR(idField.required, idField.dbRequired)}"/>
+                            </apex:repeat>
+                        </apex:pageBlockSection>
+                        <!-- PageBlockSection: This section is used to show customer inquiry fields from System Information field set -->
+                        <apex:pageBlockSection collapsible="false" title="System Information" columns="2">
+                            <!-- Repeat: This section iterates over fields in System Information field set -->
+                            <!-- Req. 3200 Release 6.1 Added new system fields in Field set also changed the tag from iputField to Output Field and removed the required="{!OR(siField.required, siField.dbRequired)} tag-->
+                            <apex:repeat value="{!SIFields}" var="siField">
+                                <apex:outputField value="{!CustInteraction[siField.fieldPath]}" />
+
+                            </apex:repeat>
+                        </apex:pageBlockSection>
+                        <script>
+                            function enableSendMailBtn() {
+                                var reasonValueField = document.getElementById('pg:theform:pgBlck:pbsec:repeatTag:8:fieldSet');
+                                var secondaryReasonValueField = document.getElementById('pg:theform:pgBlck:pbsec:repeatTag:10:fieldSet');
+                                var emailBtn;
+                                try {
+                                    emailBtn = document.getElementById('pg:theform:pgBlck:pgblkBtn:SendMailBtn');
+                                } catch(e) {
+                                }
+                                if(reasonValueField != null && secondaryReasonValueField != null && emailBtn != null) {
+                                    var reasonValueFieldValueValue = reasonValueField.value; 
+                                    var secondaryReasonValueFieldValue = secondaryReasonValueField.value;
+                                    if(reasonValueFieldValueValue == '{!$Label.Public_Action}' && (secondaryReasonValueFieldValue == '{!$Label.Media_Threat}' || 
+                                        secondaryReasonValueFieldValue == '{!$Label.Legal_Threat}')) {
+                                        try {
+                                            document.getElementById('pg:theform:pgBlck:pgblkBtn:SendMailBtn').style.visibility = 'visible';
+                                        } catch(e) {}
+                                    } 
+                                    else  {
+                                        document.getElementById('pg:theform:pgBlck:pgblkBtn:SendMailBtn').style.visibility = 'hidden';
+                                    } 
+                                }
+                            }
+                            enableSendMailBtn();
+                        </script>
+                    </apex:pageBlock>
+                    <!-- Output Panel: Section rendered for Detail page of Interaction Log based on showDetailCase variable -->
+                    <apex:outputPanel rendered="{!showDetailCase}" id="caseDiv">
+                     
+                    <!-- Output Panel: Shows commandbutton 'Edit' if the opened IL's status is not closed -->
+                        <apex:outputPanel Rendered="{!If(custInteraction.Status != 'Closed', true, false)}">
+                        
+                            <!-- REQ 3262 alert on creation of OOA/OON automatic SR -->
+                        <apex:inputHidden value="{!newCase.CaseNumber}" id="newCaseNumber"/>
+                        <script>
+                            
+                            var newSRNO = document.getElementById('pg:theform:newCaseNumber').value;
+                            var showPopup='{!showPopup}';//Abhijeet - 30/1/2015 --fetching the value of showPopup
+                            
+                            var reason_clinical = '{!custInteraction.Reason__c}';
+                            var sec_reason_clinical = '{!custInteraction.Secondary_Reason__c}';
+                            
+                            if(showPopup=="true")
+                            {
+                            
+                            if(reason_clinical == 'Clinical' && (sec_reason_clinical == 'Out of Area – Medical' 
+                                        || sec_reason_clinical == 'Out of Network – Medical' || sec_reason_clinical == 'ED Notification')){
+                                        
+                                var alertString = 'New SR# ' + newSRNO + ' has been created. Please create a new Customer Inquiries by Others entry, if applicable, and complete the details in the SR.';
+                                alert(alertString);
+                            }
+                            }
+                            
+                        </script>
+                            
+                            
+                            <apex:commandButton value="Edit" action="{!EditButton}" reRender="casePanel" style="margin-left: 30%;margin-top: 2%;margin-bottom: 0%;width: 4%"/>
+                    <!-- REQ 3226 : Save & New Button functionality Date : 11/20/2014 START-->
+                            
+                            <apex:commandButton value="Save & New" action="{!saveAndNew}" reRender="casePanel, newCasePanel" style="margin-left: 1%;margin-top: 2%;margin-bottom: 0%;width: 8%" rendered="{!showS3Patient}"  oncomplete="openNewIL();"/> 
+                           
+                            <!-- REQ 3226 : Save & New Button functionality Date : 11/20/2014 END-->
+                        
+
+                        
+                        </apex:outputPanel>
+                        <!-- Detail: Shows detail page for the IL with its related lists -->
+                        <apex:detail subject="{!caseId}" relatedList="true" />
+                        <!-- JS function called to hide 'Show 5 more' link -->                         
+                        <script>
+                            hideShowMore();
+                        </script>
+                    </apex:outputPanel>
+                </apex:outPutPanel>
+            </div>
+        </div>         
+
+        <!-- Div for Suggested Article section, it contains the filter section with DataCategories listed as drop downs and list of Knowledge Articles -->        
+        <div style="position:absolute; left:85%; width:15%;">
+            
+            <!-- Div for Suggested Article Header -->
+            <div class="sidebarBoxPanelContextPane" style="width:100%;">
+                <div class="bPageTitle" id="suggestedTitle">
+                    <div class="ptBody secondaryPalette brandSecondaryBrd">
+                        <div class="content">
+                            <h1 class="pageType noSecondHeader">Suggested Articles</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Page Block for Data Category filters to filter Suggested Article Result --><!-- REQ 3145,3146 -->
+            <apex:pageBlock id="filterBlk">
+                <b><apex:outputText value="Filter Your Results" /></b>
+                
+                <!-- Page Block Section to Show the drop down for Data Categories to filter results -->
+                <apex:pageBlockSection columns="1">
+                    <apex:outputPanel >
+                    <apex:dataTable value="{!dataCategoryGroupInfo}" var="dataCategory" id="dataCategory">
+                        <apex:column width="20%">
+                            <apex:outputLabel for="categoryType_{!dataCategory.name}">{!dataCategory.label}</apex:outputLabel>
+                            <br />
+                            
+                            
+                            <select  id="categoryType_{!dataCategory.name}" style="width:150px;" name="categoryType_{!dataCategory.name}" onchange = "refreshSearchResult()" >
+                                
+                                <!-- Drop down values for Data Categories -->
+                                <option value="NoFilter">No Filter</option>
+                                <option value="All">All</option>
+                                <!-- Knowledge Article tag: To show all the categories by iterating over the dataCategory names -->
+                                <knowledge:categoryList categoryVar="category" categoryGroup="{!dataCategory.name}" level="-1" rootCategory="All">
+                                    <!-- Show the category names in the drop down -->
+                  
+                                  <!-----Release 5 Bargaining Unit Code---->
+                                    <apex:outputPanel layout="none" rendered="{!TRIM(category.label)==dataCategory.value}">
+                                     <option value="{!category.name}" selected="selected">
+                                        <apex:outputText escape="false" value="{!LPAD(' ',6*category.depth,'&nbsp;')}" />
+                                        {!category.label}
+                                    </option>
+                                    </apex:outputPanel>    
+                                    <apex:outputPanel layout="none" rendered="{!TRIM(category.label)!=dataCategory.value}">
+                                     <option value="{!category.name}" >
+                                        <apex:outputText escape="false" value="{!LPAD(' ',6*category.depth,'&nbsp;')}" />
+                                        {!category.label}
+                                    </option>                                                                     
+                                    </apex:outputPanel>
+                                    
+                                    
+
+                                </knowledge:categoryList>
+                            </select>
+                        </apex:column>
+                    </apex:dataTable>
+                    <apex:outputpanel id="filterPnl"> 
+                            <apex:outputLabel >Article Type</apex:outputLabel>
+                            <br />
+                            <select  id="articleType" name="articleType" style="width:150px;" onchange="refreshSearchResult();" >  
+                            <option value="">--None--</option>
+                             <knowledge:articleTypeList articleTypeVar="articleType">
+                                <option value="{!articleType.name}">
+                                    {!articleType.label}
+                                </option>   
+                            </knowledge:articleTypeList>
+                            </select>
+                        <br />  
+                       <apex:outputLabel >Functional Area</apex:outputLabel>
+                         <br />
+                         <apex:inputField value="{!caseArticleSrcObj.Function__c}" style="width:150px;" id="Functionfilter" onchange="setFunctionVal();" /> 
+                        <br /> 
+                        <apex:outputLabel >Sub-Function</apex:outputLabel>
+                        <br />
+                        <apex:inputField value="{!caseArticleSrcObj.Sub_Function__c}" id="SubFunctionfilter" style="width:150px;" onchange="setFunctionVal();" />
+                    </apex:outputpanel>
+                    </apex:outputPanel>
+                    <apex:outputPanel id="hiddenFilterPnl">
+                        <input type="hidden" id="hdnfunctionalFilter" name="hdnfunctionalFilter"/>
+                        <input type="hidden" id="hdnSubfunctionalFilter" name="hdnSubfunctionalFilter"/>
+                    </apex:outputPanel>
+                    <script>
+                        var functionFieldId  = '{!$Component.Functionfilter}';
+                        var subFunctionFieldId = '{!$Component.SubFunctionfilter}';
+                        function setFunctionValOnCom() {
+                            var functionFieldValue = document.getElementById(functionFieldId).value;
+                            var subFunctionFieldValue = document.getElementById(subFunctionFieldId).value;
+                            if(functionFieldId != null && subFunctionFieldId != null) {
+                                document.getElementById('hdnfunctionalFilter').value = functionFieldValue;
+                                document.getElementById('hdnSubfunctionalFilter').value = subFunctionFieldValue;
+                                refreshSearchResult();
+                            }
+                        }
+                        
+                        function setFunctionVal() {
+                            callSetFunctionAF();
+                        }
+                    </script>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+            
+            <!-- Action Region to submit only particular section of the page -->
+            <apex:actionRegion >
+            
+                <!-- Page Block containing input search string to filter the article search -->
+                <apex:pageBlock title="Search" id="pgblkSearch"><!-- REQ 3145,3146  -->
+                    <!-- <apex:inputText value="{!searchstring}" id="theSearchstring" maxlength="100" style="width:100%;"  onchange="refreshSearchResult()" /> -->
+                    <input type="text" id="theSearchstring" name="theSearchstring" maxlength="100" style="width:100%;" onchange="refreshSearchResult();" />
+                    <!-- Inline script to define the search string Id -->
+                    <script>
+                        //var stringId = '{!$Component.theSearchstring}';
+                        var stringId = 'theSearchstring';
+                        var customerIntentId;
+                        var customerSubIntentId;
+                        // REQ - 3147 : Function to call article search functionality on Intent/Sub-Intent Change. 
+                        function articleSrchSet() {
+                            var customerIntentValueField = customerIntentId && document.getElementById(customerIntentId);
+                            var customerSubIntentValueField = customerSubIntentId && document.getElementById(customerSubIntentId);
+                            document.getElementById(stringId).value = '';
+                            if(customerIntentValueField != null && customerSubIntentValueField != null) {
+                                if(customerSubIntentValueField.value != customerSubIntentValueField.options[0].value) {
+                                    document.getElementById(stringId).value = customerSubIntentValueField.value;
+                                    refreshSearchResult();
+                                } else if(customerIntentValueField.value != customerIntentValueField.options[0].value) {
+                                    document.getElementById(stringId).value = customerIntentValueField.value;
+                                    refreshSearchResult();
+                                } else if(customerIntentValueField.value == '' || customerIntentValueField.value.length==3) {
+                                    refreshSearchResult();
+                                }
+                            }
+                            else if(customerIntentValueField != null){
+                                document.getElementById(stringId).value = customerIntentValueField.value;
+                                refreshSearchResult();
+                            } 
+                        }
+                        
+                        // REQ - 3147 : Function to call Action Function to search functionality on Intent/Sub-Intent Change.
+                        function callSearchTextAF(fieldPathName, fieldId) {
+                            if(fieldPathName === 'Customer_Intent__c'){
+                                customerIntentId = fieldId; 
+                            }
+                            else if(fieldPathName === 'Customer_Sub_Intents__c'){
+                                customerSubIntentId = fieldId;
+                            }
+                            
+                            SearchTextSetAF();
+                        }
+                    </script>  
+                    
+                    <!-- Command button to execute the filtering on the suggested articles -->
+                    <apex:commandButton value="Go" id="submitButton" style="width:30" reRender="none"  status="status">
+                        <apex:actionSupport event="onclick" rerender="theSearchResults" />
+                    </apex:commandButton>
+                    
+                    <!-- Action status to show the execution on press on Search Button on Search block -->
+                    <apex:actionstatus id="status">
+                        <apex:facet name="start"> 
+                            <span style="color:red;font-weight:bold;padding-left:5px;">Searching...</span>
+                            <img src="/img/loading.gif" alt="" />
+                        </apex:facet>
+                    </apex:actionstatus>
+                </apex:pageBlock>
+                
+                <!-- Page block for the search result of suggested articles -->
+                <apex:pageBlock id="theSearchResults"><!-- REQ 3145,3146 -->
+                    <!-- Arrow image shown on the side of Attach to Customer Interaction -->
+                    <apex:image id="theImage" value="{!$Resource.AttachToCaseArrow}" width="10" height="8" rendered="{!!showSHP}"/>&nbsp;
+                    
+                    <!-- Command Button to attach articles to Case -->
+                    <apex:commandButton value="Attach to Customer Interaction" id="button" reRender="caseDiv, errorMessage1" onclick="selectedValue();" rendered="{!!showSHP}" immediate="true"/>           
+                    
+                    <!-- Inline script to define the button Id -->
+                    <script>
+                        var attachBtn = '{!$Component.button}';
+                    </script>
+                    <br></br>
+                    <br></br>
+                    
+                    <!-- Table to display Article Search Results -->
+                    <table style="width:100%">
+                        <tr>
+                            <th style="width:10%"></th>
+                            <th style="width:68%; text-align:left">Title</th>
+                            <th style="width:30%; text-align:left">Most Viewed</th>
+                        </tr>
+                    </table>
+                    <apex:repeat value="{!articleWrLst}" id="articlesList1" var="article">  
+                        <table style="width:100%">
+                            <tr>
+                                <td style="width:2%">
+                                    <input type = "checkbox" id="article" name="check" value="{!article.articleId}" onclick="selectedValueCheck();" >
+                                    </input>
+                                </td>
+                                <td style="width:68%; max-width:20px; word-wrap:break-word;"><!-- {!article.articleTitle} -->
+                                    <apex:outputLink value="/articles/FAQ/{!article.articleUrl}?popup=true&id={!article.articleId}" >{!article.articleTitle}</apex:outputLink>
+                                </td>
+                               <!--  Images of View Count bar based on the view count of searched articles-->
+                                <td style=" width:30%"> <!-- --{!map_artId_viewCount[article.articleId]} -->
+                                    <apex:image url="{!$Resource.whatshot_0}" rendered="{!IF(map_artId_viewCount[article.articleId] != null && map_artId_viewCount[article.articleId]<=9,true,false)}" />
+                                    <apex:image url="{!$Resource.Whatshot_20}" rendered="{!IF(map_artId_viewCount[article.articleId] != null && map_artId_viewCount[article.articleId]>9 && map_artId_viewCount[article.articleId]<=29,true,false)}" />
+                                    <apex:image url="{!$Resource.Whatshot_40}" rendered="{!IF(map_artId_viewCount[article.articleId] != null && map_artId_viewCount[article.articleId]>29 && map_artId_viewCount[article.articleId]<=49,true,false)}" />
+                                    <apex:image url="{!$Resource.Whatshot_60}" rendered="{!IF(map_artId_viewCount[article.articleId] != null && map_artId_viewCount[article.articleId]>49 && map_artId_viewCount[article.articleId]<=69,true,false)}" />
+                                    <apex:image url="{!$Resource.whatshot_80}" rendered="{!IF(map_artId_viewCount[article.articleId] != null && map_artId_viewCount[article.articleId]>69 && map_artId_viewCount[article.articleId]<=89,true,false)}" />
+                                    <apex:image url="{!$Resource.Whatshot_100}" rendered="{!IF(map_artId_viewCount[article.articleId] != null && map_artId_viewCount[article.articleId]>89 && map_artId_viewCount[article.articleId]<=100,true,false)}" />
+                                </td>
+                            </tr>
+                        </table> 
+                    </apex:repeat>
+                    <table style="width:100%;">
+                        <tr>
+                            <td>
+                                <apex:commandLink action="{!previousOffSet}" value="Previous" style="{!IF(PrevRequiredOffSet = true,'display:inline','display:none')}" reRender="theSearchResults" status="status"/>
+                            </td>
+                            <!--<td style="width:90%">
+                                <span></span>
+                            </td>-->
+                            <td style="float:right;">
+                                <apex:commandLink action="{!nextOffSet}" value="Next" style="{!IF(NextRequiredOffSet = true,'display:inline','display:none')}" reRender="theSearchResults" status="status"/>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <!-- Inline script to disable the Attach to Customer Inquiry Button if it is a SSS search -->
+                    <script>
+                    var booleanSHP ='{!showSHP}';
+                        if(booleanSHP == "false")
+                        {
+                            document.getElementById(attachBtn).disabled=true;
+                            document.getElementById(attachBtn).style.borderColor='#C4C4C4';
+                            document.getElementById(attachBtn).style.color='#909090';
+                        }    
+                    </script>
+                </apex:pageBlock>
+            </apex:actionRegion>  
+            
+            <!-- Action function to call refreshSearchResult to set pagination variables and refresh the search results -->
+            <apex:actionFunction action="{!refreshSearchResult}" name="refreshSearchResult" rerender="theSearchResults" status="status">
+            </apex:actionFunction>
+            
+             <!-- REQ - 3147 : Action Function to call article search on Intent/Sub-Intent-->
+            <apex:actionFunction name="SearchTextSetAF" rerender="pgblkSearch" onComplete="articleSrchSet();">
+            </apex:actionFunction>
+            <apex:actionFunction name="callSetFunctionAF" rerender="theSearchResults" onComplete="setFunctionValOnCom();">
+            </apex:actionFunction>
+            
+            <apex:actionFunction name="resetOffSetCounterAF" rerender="theSearchResults" action="{!resetOffSetCounter}" status="status">
+            </apex:actionFunction> 
+        </div>    
+        
+        <!-- Action function to call attach to pass the Ids of the articles checked and attach them to Customer inquiry -->
+        <apex:actionFunction name="passArticle" reRender="pageMessages" action="{!attach}">
+            <apex:param name="articleId" assignTo="{!selectedCheckbox}" value=""/>
+        </apex:actionFunction>
+
+        <apex:outputPanel id="newCasePanel">
+            <apex:inputHidden value="{!caseNew.CALLID__c}" id="callId_Id"/>
+            <apex:inputHidden value="{!caseNew.DEV__c}" id="devId"/>
+            <apex:inputHidden value="{!caseNew.DNISTYPECODE__c}" id="dnisTypeCodeId"/>
+            <apex:inputHidden value="{!caseNew.ANI__c}" id="aniId"/>
+            <apex:inputHidden value="{!caseNew.EXITPATH__c}" id="exitPathId"/>
+            <apex:inputHidden value="{!caseNew.DNIS__c}" id="dnisId"/>
+            <apex:inputHidden value="{!call_date_time_Str}" id="calldtId"/>
+            <apex:inputHidden value="{!saveAndNewError}" id="saveError"/>
+        </apex:outputPanel>
+
+    </apex:form>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Reference to JS file in Static Resources containing JS functions used on the page -->    
+    <apex:includeScript value="{!$Resource.ConsoleScript}" />
+
+
+</apex:page>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>number</bucketType>
+        <developerName>BucketField_31520134</developerName>
+        <masterLabel>Service Request Age</masterLabel>
+        <nullTreatment>z</nullTreatment>
+        <sourceColumnName>Case.Inquiry_Aging__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <to>3</to>
+            </sourceValues>
+            <value>&lt; 3 Days</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>3</from>
+            </sourceValues>
+            <value>&gt; 3 Days</value>
+        </values>
+    </buckets>
+    <columns>
+        <aggregateTypes>Average</aggregateTypes>
+        <field>Case.Inquiry_Aging__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Case.Team__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>[Tier 3] Pension,[Tier 1] HR Pension,[Tier 2] HR Pension,[Tier 3] HR Pension</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case.Customer_Intent__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Retirement - Defined Contribution,Retirement - General Inquiry,Retirement Inquiry,Retirement - Pension,HR-Pension/Retiree Benefits</value>
+        </criteriaItems>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Month</dateGranularity>
+        <field>CREATED_DATE</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_31520134</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case.Tier_Last_Worked_Inquiry__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case.Customer_Intent__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Pension Requests by Tier Last Worked</name>
+    <params>
+        <name>units</name>
+        <value>d</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CaseMilestone</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATEONLY</dateColumn>
+        <interval>INTERVAL_PREVQ</interval>
+    </timeFrameFilter>
+</Report>

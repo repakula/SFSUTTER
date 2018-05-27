@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>CorrespondenceContactAssociation</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>CorrespondenceContactAssociations</value>
+    </caseValues>
+    <fields>
+        <label><!-- Bounced Mail Reason --></label>
+        <name>Bounced_Mail_Reasion__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Correspondence --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Correspondence Letter --></label>
+        <name>Correspondence_Letter__c</name>
+        <relationshipLabel><!-- CorrespondenceContactAssociations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Selected Template --></label>
+        <name>Selected_Template__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Mail Bounced</masterLabel>
+            <translation><!-- Mail Bounced --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mail Sent</masterLabel>
+            <translation><!-- Mail Sent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready For Email Sent</masterLabel>
+            <translation><!-- Ready For Email Sent --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Selected Template --></label>
+        <name>Template_Name__c</name>
+    </fields>
+    <layouts>
+        <layout>CorrespondenceContactAssociation Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>CorrespondenceContactAssociation RO</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

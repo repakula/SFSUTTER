@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>CUST_OWNER_NAME</field>
+    </columns>
+    <columns>
+        <field>Survey_Feedback__c.Agent_Name__c</field>
+    </columns>
+    <columns>
+        <field>Survey_Feedback__c.Outcome_Comment__c</field>
+    </columns>
+    <columns>
+        <field>FK_$SurveyTaker__c.Contact__c</field>
+    </columns>
+    <columns>
+        <field>Survey_Feedback__c.Status__c</field>
+    </columns>
+    <columns>
+        <field>Survey_Feedback__c.Sub_Function__c</field>
+    </columns>
+    <columns>
+        <field>Survey_Feedback__c.Survey_Date__c</field>
+    </columns>
+    <columns>
+        <field>Survey_Feedback__c.Target_Completion_Date__c</field>
+    </columns>
+    <columns>
+        <field>Survey_Feedback__c.Closed_Date__c</field>
+    </columns>
+    <description>Report on How many SFI come from each affiliate</description>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Survey_Feedback__c.Affiliate__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Survey Feedback Item Affiliate</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Survey_Feedback__c@Survey_Feedback__c.Survey_Taken__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Survey_Feedback__c.Survey_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

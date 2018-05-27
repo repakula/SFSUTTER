@@ -1,0 +1,11 @@
+<apex:page id="pgPhone" standardController="ProvidersByPhoneNumber__c">
+    <style>
+        table thead tr.x-grid3-hd-row td.x-grid3-td-ACTION_COLUMN  {
+        display : none;
+        }
+        table.x-grid3-row-table tbody tr td.x-grid3-td-ACTION_COLUMN {
+        display : none;
+        } 
+    </style>
+    <apex:enhancedList type="ProvidersByPhoneNumber__c" id="phoneListView" customizable="false" height="600" rowsPerPage="50"/>
+</apex:page>

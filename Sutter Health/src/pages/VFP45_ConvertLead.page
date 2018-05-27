@@ -1,0 +1,124 @@
+<apex:page standardController="Lead" extensions="SHMMN_ConvertLead" >
+    <apex:includescript value="//code.jquery.com/jquery-1.11.1.min.js" / >
+    <apex:includescript value="//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js" />
+    <apex:stylesheet value="//cdn.datatables.net/1.10.4/css/jquery.dataTables.css" />
+    <script type="text/javascript">
+      $j = jQuery.noConflict();
+        
+       function highlight()
+        {
+            $j("[id$=pg]").hide();
+            $k = jQuery.noConflict();
+           
+                var contactTable = $k("[id$=pg]").DataTable({
+                    "bDestroy": true,
+                    "fnInitComplete": function () { $k("[id$=pg]").show();}
+                });
+           
+        } 
+        function highlightContact()
+        {
+            $j("[id$=pg1]").hide();
+            $k = jQuery.noConflict();
+           
+                var contactTable = $k("[id$=pg1]").DataTable({
+                    "bDestroy": true,
+                    "fnInitComplete": function () { $k("[id$=pg1]").show();}
+                });
+           
+        }    
+        function changeValue(input, textid) {
+           document.getElementById(textid).value = input.value;
+           //alert(document.getElementById(textid).value);
+          
+        }
+        
+    </script>
+    <style>  
+        .hideDropdown select{
+        display: none;
+        visibility: hidden;
+        }
+    </style>
+    <apex:form >
+        
+        <apex:outputPanel rendered="{!showpage }">
+            <apex:pageBlock >
+                <apex:pageMessages id="msg"/> 
+                <apex:pageblockButtons >
+                    <apex:commandButton value="{!$Label.CL_43_SM_Approve}" action="{!Approve}" reRender="thePageBlock,msg"/>
+                    <apex:commandButton value="{!$Label.CL_44_SM_CheckDuplicate}" action="{!DuplicateCheck}" reRender="thePageBlock,msg" oncomplete="highlight(),highlightContact();" />
+                    <apex:commandButton value="{!$Label.CL_45_SM_Reject}" action="{!Reject}" reRender="msg"/>
+                    <apex:commandButton value="{!$Label.CL_02_SM_Cancel}" action="{!Cancel}"/>
+                </apex:pageblockButtons> 
+                <apex:pageBlockSection title="{!$Label.CL_46_SM_LeadDetails}" columns="2">
+                    <apex:outputField value="{!tLead.Company}"/>
+                    <apex:outputField value="{!tLead.Status}"/>
+                    <apex:outputField value="{!tLead.Industry}"/>
+                    <apex:outputField value="{!tLead.LeadSource}"/>
+                    <apex:outputField value="{!tLead.AnnualRevenue}"/>
+                    <apex:outputField value="{!tLead.Major_Carrier__c}"/>
+                    <apex:outputField value="{!tLead.Name}"/>
+                    <apex:outputField value="{!tLead.Email}"/>
+                    <apex:outputField value="{!tLead.Phone}"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.CL_47_SM_LeadConvertDetails}">
+                    <apex:inputField label="{!$Label.CL_48_SM_ParentAccount}" value="{!tLead.Parent_Account__c}"/>
+                    <apex:inputField label="{!$Label.CL_49_SM_AccountOwner}" value="{!tLead.Account_Owner__c}"  styleClass="hideDropdown" / >
+                    </apex:pageBlockSection>  
+                    <apex:outputPanel id="thePageBlock"  > 
+                        <apex:pageBlockSection title="{!$Label.CL_50_SM_DuplicateAccountDetails}" columns="1" rendered="{!showduplicate}" >
+                            <apex:pageBlockTable value="{!accountSearched}" var="ac"  id="pg"  >
+                                <apex:column headerValue="Account Name">
+                                    <apex:outputLink value="/{!ac.id}" target="_blank">{!ac.Name}</apex:outputlink>
+                                </apex:column>
+                                <apex:column value="{!ac.Employer_Type__c}"/>
+                                <apex:column value="{!ac.RecordType.Name}" headerValue="Account Record Type"/>
+                                <apex:column value="{!ac.Phone}"/>
+                                <apex:column value="{!ac.Region_Sales__c}"/>
+                                <apex:column value="{!ac.BillingStreet}"/>
+                                <apex:column value="{!ac.BillingCity}"/>
+                                <apex:column value="{!ac.BillingState}"/>
+                                <apex:column value="{!ac.BillingCountry}"/>
+                                <apex:column value="{!ac.BillingPostalCode}"/>
+                                <apex:column value="{!ac.OwnerId}"/>
+                                <apex:column headerValue="Account Hierarchy">
+                                    <apex:outputPanel >
+                                        <apex:commandLink action="{!viewHierarchy}" target="_blank"> View Hierarchy
+                                            <apex:param name="parentid" value="{!ac.id}"/>
+                                        </apex:commandLink>
+                                    </apex:outputPanel>
+                                </apex:column> 
+                            </apex:pageBlockTable>
+                        </apex:pageBlockSection>
+                        <apex:inputHidden value="{!selectedRecord}" id="RadioButtonValue" />
+                        <apex:pageBlockSection title="Duplicate Contact Details" rendered="{!showduplicate}" columns="1">
+                            <apex:pageBlockTable id="allcons" value="{!wrapperListContact}" var="l">
+                                <apex:column headerValue="Contact to Associate" style="width:50px">                 
+                                    <input type="radio" id="selectedContactRecord" name="selectedContactRecord" value="{!l.con.Id}" onclick="changeValue(this,'{!$Component.RadioButtonValue}');">                                    
+                                    </input>
+                                </apex:column>
+                                <apex:column headerValue="Contact Name">
+                                    <apex:outputLink value="/{!l.con.id}" target="_blank">{!l.con.Name}</apex:outputlink>
+                                </apex:column>
+                                <apex:column value="{!l.con.Phone}"/>
+                                <apex:column value="{!l.con.Email}"/>
+                            </apex:pageBlockTable>
+                        </apex:pageBlockSection>                        
+                    </apex:outputpanel>
+                    <apex:pageBlockSection title="{!$Label.CL_51_SM_ApproveRejectDetails}" >
+                        <apex:inputField label="{!$Label.CL_52_SM_RejectReason}" value="{!tLead.Rejection_Reason__c}"/>
+                        <apex:inputField label="{!$Label.CL_53_SM_ApproveRejectComments}" value="{!tLead.Approval_Rejection_Comments__c}"/>
+                    </apex:pageBlockSection>  
+                </apex:pageBlock>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!!showpage }">
+                <apex:pageBlock >
+                    <apex:pagemessages />
+                    <apex:pageBlockButtons location="bottom">
+                        <apex:commandButton value="{!$Label.CL_54_SM_BacktoLead}" action="{!Cancel}"/>
+                    </apex:pageBlockButtons>
+                </apex:pageBlock>
+            </apex:outputPanel>
+      </apex:form>
+</apex:page>

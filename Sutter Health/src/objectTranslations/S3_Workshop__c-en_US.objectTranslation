@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>S3 Workshop</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>S3 Workshops</value>
+    </caseValues>
+    <fields>
+        <label><!-- Actual ROI --></label>
+        <name>Actual_ROI__c</name>
+    </fields>
+    <fields>
+        <label><!-- Category --></label>
+        <name>Category__c</name>
+        <picklistValues>
+            <masterLabel>Kaizen</masterLabel>
+            <translation><!-- Kaizen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RIE</masterLabel>
+            <translation><!-- RIE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VSM</masterLabel>
+            <translation><!-- VSM --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Champion Hansei --></label>
+        <name>Champion_Hansei__c</name>
+    </fields>
+    <fields>
+        <help><!-- When is the workshop marked as closed/completed? --></help>
+        <label><!-- Completion Date --></label>
+        <name>Completion_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- How long has the workshop been in-rpogress? (Today - workshop end date) --></help>
+        <label><!-- Days to Completion --></label>
+        <name>Days_to_Completion__c</name>
+    </fields>
+    <fields>
+        <label><!-- Forecasted ROI --></label>
+        <name>Forecasted_ROI__c</name>
+    </fields>
+    <fields>
+        <label><!-- Function PM --></label>
+        <name>Function_PM__c</name>
+        <relationshipLabel><!-- S3 Workshops (Function PM) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Function --></label>
+        <name>Function__c</name>
+        <picklistValues>
+            <masterLabel>Contact Center</masterLabel>
+            <translation><!-- Contact Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credentialing Verification</masterLabel>
+            <translation><!-- Credentialing Verification --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Document Management Center</masterLabel>
+            <translation><!-- Document Management Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance</masterLabel>
+            <translation><!-- Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Human Resources</masterLabel>
+            <translation><!-- Human Resources --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revenue Cycle</masterLabel>
+            <translation><!-- Revenue Cycle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service and Performance Management</masterLabel>
+            <translation><!-- Service and Performance Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Supply Chain</masterLabel>
+            <translation><!-- Supply Chain --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eQuip</masterLabel>
+            <translation><!-- eQuip --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Is there a specific methodology applied in this workshop? --></help>
+        <label><!-- Methodology --></label>
+        <name>Methodology__c</name>
+        <picklistValues>
+            <masterLabel>5S</masterLabel>
+            <translation><!-- 5S --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Parent VSM Workshop --></label>
+        <name>Parent_VSM_Workshop__c</name>
+        <relationshipLabel><!-- S3 Workshops --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- 1 line per participant --></help>
+        <label><!-- Participants --></label>
+        <name>Participants__c</name>
+    </fields>
+    <fields>
+        <label><!-- Program Feedback --></label>
+        <name>Program_Feedback__c</name>
+    </fields>
+    <fields>
+        <help><!-- Which strategy, operational metric or approved project does this workshop align with? --></help>
+        <label><!-- Operations/Strategy --></label>
+        <name>S3_Operations_Strategy__c</name>
+        <relationshipLabel><!-- S3 Workshops --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- SPM Notes --></label>
+        <name>SPM_Notes__c</name>
+    </fields>
+    <fields>
+        <help><!-- Who on the SPM team is monitoring this workshop --></help>
+        <label><!-- SPM --></label>
+        <name>SPM__c</name>
+        <relationshipLabel><!-- S3 Workshops (SPM) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Who is sponsoring this workshop? --></help>
+        <label><!-- Sponsor --></label>
+        <name>Sponsor__c</name>
+        <relationshipLabel><!-- S3 Workshops (Sponsor) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- What is the status of this workshop currently? --></help>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In-Progress</masterLabel>
+            <translation><!-- In-Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Hold</masterLabel>
+            <translation><!-- On Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Proposed</masterLabel>
+            <translation><!-- Proposed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Subfunction --></label>
+        <name>Subfunction__c</name>
+        <picklistValues>
+            <masterLabel>Accounting - Accounts Receivable &amp; Managed Care</masterLabel>
+            <translation><!-- Accounting - Accounts Receivable &amp; Managed Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accounting - General Ledger</masterLabel>
+            <translation><!-- Accounting - General Ledger --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accounts Payable</masterLabel>
+            <translation><!-- Accounts Payable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Benefits</masterLabel>
+            <translation><!-- Benefits --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Central Business Office (CBO)</masterLabel>
+            <translation><!-- Central Business Office (CBO) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Charge Capture and CDM</masterLabel>
+            <translation><!-- Charge Capture and CDM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coding Optimization</masterLabel>
+            <translation><!-- Coding Optimization --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compensation</masterLabel>
+            <translation><!-- Compensation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Content Management</masterLabel>
+            <translation><!-- Content Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contract Management</masterLabel>
+            <translation><!-- Contract Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data and Analytics Support</masterLabel>
+            <translation><!-- Data and Analytics Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data, Applications, Reporting &amp; Audit</masterLabel>
+            <translation><!-- Data, Applications, Reporting &amp; Audit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Distribution and Fulfillment</masterLabel>
+            <translation><!-- Distribution and Fulfillment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR Data and Reporting</masterLabel>
+            <translation><!-- HR Data and Reporting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HRIS</masterLabel>
+            <translation><!-- HRIS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Information Management (HIM)</masterLabel>
+            <translation><!-- Health Information Management (HIM) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operations and Decision Support</masterLabel>
+            <translation><!-- Operations and Decision Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patient Access Services (PAS)</masterLabel>
+            <translation><!-- Patient Access Services (PAS) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payroll</masterLabel>
+            <translation><!-- Payroll --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Procure to Pay</masterLabel>
+            <translation><!-- Procure to Pay --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recruitment</masterLabel>
+            <translation><!-- Recruitment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Strategic Sourcing</masterLabel>
+            <translation><!-- Strategic Sourcing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workforce and Labor Relations</masterLabel>
+            <translation><!-- Workforce and Labor Relations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eLearning</masterLabel>
+            <translation><!-- eLearning --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Team Lead --></label>
+        <name>Team_Lead__c</name>
+        <relationshipLabel><!-- S3 Workshops (Team Lead) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Lean</masterLabel>
+            <translation><!-- Lean --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Project</masterLabel>
+            <translation><!-- Project --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Strategy</masterLabel>
+            <translation><!-- Strategy --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Validated ROI --></label>
+        <name>Validated_ROI__c</name>
+    </fields>
+    <fields>
+        <help><!-- How long was the workshop? --></help>
+        <label><!-- Workshop Days --></label>
+        <name>Workshop_Days__c</name>
+    </fields>
+    <fields>
+        <help><!-- What is the date the workshop ended? --></help>
+        <label><!-- Workshop End Date --></label>
+        <name>Workshop_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Workshop Lead --></label>
+        <name>Workshop_Lead__c</name>
+        <relationshipLabel><!-- S3 Workshops (Workshop Lead) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Workshop Name --></label>
+        <name>Workshop_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Where in the timeline are we with this workshop? --></help>
+        <label><!-- Workshop Stage --></label>
+        <name>Workshop_Stage__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Follow-up</masterLabel>
+            <translation><!-- Follow-up --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In-Progress</masterLabel>
+            <translation><!-- In-Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Hold</masterLabel>
+            <translation><!-- On Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planning</masterLabel>
+            <translation><!-- Planning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Proposed</masterLabel>
+            <translation><!-- Proposed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- What is the first date of the workshop? --></help>
+        <label><!-- Workshop Start Date --></label>
+        <name>Workshop_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Workshop URL --></label>
+        <name>Workshop_URL__c</name>
+    </fields>
+    <layouts>
+        <layout>S3 PM Workshop Layout</layout>
+        <sections>
+            <label><!-- Champion Information --></label>
+            <section>Champion Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Project Mgmt Info --></label>
+            <section>Project Mgmt Info</section>
+        </sections>
+        <sections>
+            <label><!-- ROI Calculations --></label>
+            <section>ROI Calculations</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>S3 Workshop Layout</layout>
+        <sections>
+            <label><!-- Champion Information --></label>
+            <section>Champion Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Project Mgmt Info --></label>
+            <section>Project Mgmt Info</section>
+        </sections>
+        <sections>
+            <label><!-- ROI Calculations --></label>
+            <section>ROI Calculations</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

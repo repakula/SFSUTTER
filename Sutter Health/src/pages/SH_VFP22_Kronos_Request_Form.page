@@ -1,0 +1,210 @@
+<!--
+*     Page Name   : VFP22_Kronos_Request_Form
+*     Author      : Apoorv Kuchhal
+*     Date        : 18-Aug-2014 
+*     Project Name: CRM - SFT - Sutter Health
+*     Description :KRONOS is driven by supervisor code rather than accounting unit. It is not possible to give a person access to an individual employee. Therefore, once access is granted to a supervisor code, all employees who report to that code will appear in that person's KRONOS. 
+-->
+<apex:page docType="html-5.0" standardController="Case" 
+    extensions="SH_VFC22_Kronos_Request_Form" id="pg1" showHeader="false"
+    sidebar="false" applyBodyTag="false" applyHtmlTag="false"
+    action="{!forwardToLoginPage}">
+
+    <head>
+        <title>{!activePgName}</title>
+        <c:SH_HeaderResource />
+    </head>
+
+    <style>
+.label {
+    text-align: left;
+}
+
+.color {
+    color: #4A4A56;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 0px;
+}
+
+.Margin {
+    padding-left: 300px;
+}
+
+.bPageBlock {
+    border-top: 4px solid #FFFFFF;
+}
+
+.CustomField {
+    color: rgb(102, 102, 102);
+    font-family: helvetica, arial, sans-serif;
+    font-size: 16px;
+}
+
+.requiredLegend {
+    font-weight: normal;
+    color: White;
+}
+</style>
+
+    <body id="home" class="show-notification menu-open menu-visibility">
+
+        <c:SH_SearchBar isPreview="{!isPreview}" />
+        <!-- notification popup -->
+        <c:SH_Notification isPreview="{!isPreview}" id="notifComponent" Title="{!strTitle}" Description="{!strDescription}" Info="{!strInfo}" BrowserTitle="{!strBrowserTitle}" BrowserDescription="{!strBrowserDescription}" BrowserInfo="{!strBrowserInfo}" BrowserNotify="{!IsBrowser}" Notify="{!IsNotify}"/>
+        
+        <!-- Menu Item -->
+        <c:SH_MenuItem lstMenuItem="{!lstMenuItem }" isPreview="{!isPreview}" Category="{!strCategoryForHelp}" SubCategory="{!strSubCategoryForHelp}"  Team="{!strTeamForHelp}" CustomerIntent="{!strCustomerIntentForHelp}" L1="{!strL1}" L1Id="{!strL1Id}" L2="{!strL2}" L2Id="{!strL2Id}"/>
+
+        <!-- content -->
+        <div id="content-wrapper">
+            <!-- Header-->
+            <c:SH_Header isPreview="{!isPreview}" actiVePg="{!activePgName}"
+                breadCrumbs="{!BreadCrumbs}" />
+
+            <div id="content">
+                
+                <apex:form id="apxForm">
+                <apex:pageMessages id="pgMsg" />
+                    <!--                    <apex:sectionHeader title="{!$Label.Customer_Inquiry_Edit}" subtitle="{!$Label.New_Customer_Inquiry}" /> -->
+                    <apex:outputPanel rendered="{!if(IsSuccess,false, true)}" >
+                    <apex:pageBlock title="{!$Label.KRONOS_REQUEST_FORM}" mode="Edit"
+                        id="pb">
+                        <apex:pageBlockButtons >
+                            <!--<apex:commandButton action="{!saveAndSend}"
+                                value="{!$Label.Submit}" reRender="pgMsg" style="margin-left: 100px;"/>
+                            <apex:commandButton action="{!Cancel}"
+                                value="{!$Label.LABS_SF_Cancel}" />-->
+                            <apex:commandLink action="{!saveAndSend}" value="Submit"  styleClass="btn"/> <!--reRender="apxForm"-->
+                            <a id="aCancelLink" href="{!strCancelLink}" class="btn">Cancel</a>
+                        </apex:pageBlockButtons>
+                        <br />
+                        
+                        <div style="width:100%;height:auto;margin: 0px auto;text-align: left;font-size: 17px;font-family: serif;">
+                            <font color="red"> 
+                                <apex:outputText value="{!$Label.KRONOS_Message}" />
+                            </font>
+                        </div>  
+                        <br />
+                        <br />
+                        <div style="width:100%;height:auto;margin: 0px auto;text-align: left;font-size: 17px;font-family: serif;">
+                            <font color="red">
+                                <apex:outputText value="Requests can take up to 3 business days to process. Thank you in advance for your understanding and cooperation." />
+                            </font>
+                        </div>      
+                        <br />
+                        <br />
+                        <apex:pageBlockSection title="{!$Label.Requestor_Information}"
+                            columns="2" collapsible="false">
+
+                            <apex:outputField value="{!caseRecord.ContactId}"
+                                label="{!$Label.Name_of_Requestor}" />
+                            <apex:outputLabel ></apex:outputLabel>
+                            <apex:outputField value="{!case.Date_Requested__c}" />
+                            <apex:outputLabel ></apex:outputLabel>
+                            <apex:inputField value="{!case.Name_of_Employee_Needing_Access__c}"
+                                style="width: 150px; height: 18px;" required="true" />
+                            <apex:inputField value="{!case.Effective_Date_of_Change__c}" />
+                            <apex:inputField value="{!case.Employee_s_Job_Title__c}"
+                                style="width: 150px; height: 18px;" required="true" />
+                            <apex:inputField value="{!case.Type_Of_Access_Needed__c}"
+                                required="true" />
+                            <apex:inputField value="{!case.Employee__c}" required="true" />
+                            <apex:inputField value="{!case.Employee_Reports_To_Direct_Supervisor__c}"
+                                style="width: 150px; height: 18px;" required="true" />
+                            <apex:inputField value="{!case.Employee_s_Current_Affiliate__c}"
+                                required="true" />
+                            <apex:inputField value="{!case.Level_Of_Access_Needed__c}"
+                                required="true" />
+                            <apex:outputLabel ></apex:outputLabel>
+                            <apex:outputLabel ></apex:outputLabel>
+
+                            <apex:outputText style="font-weight: bold;"
+                                value="* approval access is limited to supervisory positions" />
+                        </apex:pageBlockSection>
+
+                        <apex:pageBlockSection title="{!$Label.Access_Needed}" columns="1"
+                            collapsible="false">
+                            <apex:inputField value="{!case.What_manager_s_does__c}"
+                                label="{!$Label.Kronos_Request_message}"
+                                style="width: 400px; height: 50px;" />
+                            <apex:outputLabel ></apex:outputLabel>
+                            <apex:inputField value="{!case.Who_is_s_he_replacing__c}"
+                                style="width: 400px; height: 50px;" />
+                            <apex:outputLabel ></apex:outputLabel>
+                            <apex:inputField value="{!case.If_replacing__c}"
+                                label="{!$Label.Kronos_Message_Access}" />
+                        </apex:pageBlockSection>
+
+                        <br />
+
+                        <font color="black"> <apex:outputText style="font-weight: bold;"
+                                value="If this is a new manager position and you are not replacing a prior manager, S3 HR Data Processing will notify you when a new supervisor code is created. You will need to submit ePANs to assign employees to the new code. If you have more than fifteen (15) employees who need to be reassigned, please contact the S3 HR Data Processing at HRIS@sutterhealth.org." />
+                            <br />
+                        </font>
+                        <apex:pageBlockSection title="{!$Label.Backup_Access_Needed}"
+                            columns="1" collapsible="false">
+                            <apex:inputField value="{!case.Does_this_person__c}"
+                                label="{!$Label.Kronos_Message_Backup}" />
+                            <apex:outputLabel ></apex:outputLabel>
+                            <apex:inputField value="{!case.If_yes_who_will_need_access__c}"
+                                style="width: 400px; height: 50px;" />
+
+                        </apex:pageBlockSection>
+
+                        <apex:pageBlockSection title="{!$Label.Additional_Comments}"
+                            columns="1" collapsible="false">
+                            <apex:inputField value="{!case.Internal_Comments__c}"
+                                label="Comments" style="width: 400px; height: 50px;" />
+                        </apex:pageBlockSection>
+                    </apex:pageBlock>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!if(IsSuccess,true, false)}" layout="none" >
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <section class="form-section last-section">
+                                        <div style="display:block" class="success-notification">
+                                            <h4>Success! Thank you for your submission.</h4>
+                                            <p>Service Request number ({!CaseNumber}) has been created for your reference.</p>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </apex:outputPanel>
+                </apex:form>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <c:SH_Footer ></c:SH_Footer>
+
+        <script>
+            jQuery(document).ready(function(){
+                jQuery('div[Id$=pb]').css('background-color','#FFFFFF');
+                jQuery('div[Id$=pb]').css('padding-left','20px');
+                jQuery('div[Id$=pb]').css('margin-top','30px');
+                var element = jQuery('div[Id$=pb]').find('.mainTitle').clone();
+                jQuery('div[Id$=pb]').find('.mainTitle').remove();
+                jQuery('div[Id$=pb]').prepend(element);
+                jQuery('.secondaryPalette').css('border-color','#FFFFFF');
+                jQuery('.pbSubheader').css('background-color','#00A9A5');
+                jQuery('.pbSubheader').css('margin-top','20px');
+                jQuery('.mainTitle').css('font-size','36px');
+                jQuery('.mainTitle').css('font-weight','bold');
+                jQuery('.mainTitle').css('width','300px');
+                jQuery('.pbHeader').css('margin-top','20px');
+                jQuery('.pbHeader').css('margin-bottom','20px');
+                jQuery('.labelCol').css('color','rgb(102, 102, 102)');
+                jQuery('.labelCol').css('font-size','16px');
+                jQuery('.labelCol').css('font-family','helvetica, arial, sans-serif');
+            });
+        </script>
+        <apex:form >
+            <!-- added on 26-Aug-2015 for Notification -->
+            <apex:inputHidden id="hdnToolArticle" value="{!strToolArticeId}"/>
+            <apex:inputHidden id="hdnBrowserName" value="{!browserName}"/>
+            <apex:actionfunction name="showNotification" action="{!showNotification}" />
+        </apex:form>
+    </body>
+</apex:page>

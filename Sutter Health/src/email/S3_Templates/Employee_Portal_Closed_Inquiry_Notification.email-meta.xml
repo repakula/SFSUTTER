@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Template used for notifying an employee that the inquiry raised on the Employee Portal has been closed by an Agent</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>S3_Letterhead</letterhead>
+    <name>Employee Portal Closed Inquiry Notification</name>
+    <style>freeForm</style>
+    <subject>Your MySutter Connection Service Request Has Been Resolved</subject>
+    <textOnly>Dear {!Case.Contact},
+
+
+Your Service Request {!Case.CaseNumber} has been resolved and is closed. This request will no longer be monitored via MySutter Connection.
+
+We hope this has been handled to your satisfaction. If you have additional questions regarding this issue, please call us at 916-297-8300 and we will be happy to assist you further.
+
+Thank you,
+
+
+Sutter Health</textOnly>
+    <type>html</type>
+</EmailTemplate>

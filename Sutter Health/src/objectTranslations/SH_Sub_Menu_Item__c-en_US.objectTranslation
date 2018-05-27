@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Sub Menu Item</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Sub Menu Items</value>
+    </caseValues>
+    <fields>
+        <label><!-- Customer Intent --></label>
+        <name>SH_Customer_Intent__c</name>
+        <picklistValues>
+            <masterLabel>Contingent Staffing</masterLabel>
+            <translation><!-- Contingent Staffing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Employee Compensation</masterLabel>
+            <translation><!-- Employee Compensation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Employee Data Setup and Change</masterLabel>
+            <translation><!-- Employee Data Setup and Change --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General AP Inquiry</masterLabel>
+            <translation><!-- General AP Inquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General Inquiry</masterLabel>
+            <translation><!-- General Inquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR Disability Leave Management</masterLabel>
+            <translation><!-- HR Disability Leave Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR Information System (HRIS)</masterLabel>
+            <translation><!-- HR Information System (HRIS) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR-Health &amp; Welfare</masterLabel>
+            <translation><!-- HR-Health &amp; Welfare --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR-Pension/Retiree Benefits</masterLabel>
+            <translation><!-- HR-Pension/Retiree Benefits --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insurance (Medical, Dental, Vision)</masterLabel>
+            <translation><!-- Insurance (Medical, Dental, Vision) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kronos</masterLabel>
+            <translation><!-- Kronos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Learning Administration</masterLabel>
+            <translation><!-- Learning Administration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MyHIRE</masterLabel>
+            <translation><!-- MyHIRE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MyPSDP</masterLabel>
+            <translation><!-- MyPSDP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pay inquiry</masterLabel>
+            <translation><!-- Pay inquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purchasing</masterLabel>
+            <translation><!-- Purchasing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Requisition</masterLabel>
+            <translation><!-- Requisition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>System Inquiries</masterLabel>
+            <translation><!-- System Inquiries --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vendor Setup/Vendor Data Change Request</masterLabel>
+            <translation><!-- Vendor Setup/Vendor Data Change Request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workforce Relations</masterLabel>
+            <translation><!-- Workforce Relations --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Employee Exempt/non-exempt Status --></label>
+        <name>SH_Employee_Exempt_non_exempt_Status__c</name>
+        <picklistValues>
+            <masterLabel>0</masterLabel>
+            <translation><!-- 0 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1</masterLabel>
+            <translation><!-- 1 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Function --></label>
+        <name>SH_Function__c</name>
+        <picklistValues>
+            <masterLabel>Credentialing Verification</masterLabel>
+            <translation><!-- Credentialing Verification --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Document Management Center</masterLabel>
+            <translation><!-- Document Management Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance</masterLabel>
+            <translation><!-- Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Human Resource</masterLabel>
+            <translation><!-- Human Resource --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revenue Cycle</masterLabel>
+            <translation><!-- Revenue Cycle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Supply Chain</masterLabel>
+            <translation><!-- Supply Chain --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Is Preview --></label>
+        <name>SH_Is_Preview__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Publish --></label>
+        <name>SH_Is_Publish__c</name>
+    </fields>
+    <fields>
+        <label><!-- Menu Item --></label>
+        <name>SH_Menu_Item__c</name>
+        <relationshipLabel><!-- Sub Menu Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Order of Display --></label>
+        <name>SH_Order_of_Display__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secondary Page Description --></label>
+        <name>SH_Secondary_Page_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sub-Function --></label>
+        <name>SH_Sub_Function__c</name>
+        <picklistValues>
+            <masterLabel>Accounts Payable</masterLabel>
+            <translation><!-- Accounts Payable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accounts Receivable and Managed Care</masterLabel>
+            <translation><!-- Accounts Receivable and Managed Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Analytics</masterLabel>
+            <translation><!-- Analytics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Application Request</masterLabel>
+            <translation><!-- Application Request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Benefits</masterLabel>
+            <translation><!-- Benefits --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Biomedical Technology</masterLabel>
+            <translation><!-- Biomedical Technology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CBO Customer Service</masterLabel>
+            <translation><!-- CBO Customer Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Central Business Office (CBO)</masterLabel>
+            <translation><!-- Central Business Office (CBO) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Comp &amp; Perf Mgt</masterLabel>
+            <translation><!-- Comp &amp; Perf Mgt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Content Management</masterLabel>
+            <translation><!-- Content Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contract Management</masterLabel>
+            <translation><!-- Contract Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credentialing Verification</masterLabel>
+            <translation><!-- Credentialing Verification --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Change Request</masterLabel>
+            <translation><!-- Data Change Request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data, Applications, Reporting and Audit</masterLabel>
+            <translation><!-- Data, Applications, Reporting and Audit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Decision Support Group &amp; Data Management</masterLabel>
+            <translation><!-- Decision Support Group &amp; Data Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Defined Contribution</masterLabel>
+            <translation><!-- Defined Contribution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Document Management Center</masterLabel>
+            <translation><!-- Document Management Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance</masterLabel>
+            <translation><!-- Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GL Accounting</masterLabel>
+            <translation><!-- GL Accounting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General Inquiry</masterLabel>
+            <translation><!-- General Inquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General Purchasing</masterLabel>
+            <translation><!-- General Purchasing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HIM</masterLabel>
+            <translation><!-- HIM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR Benefits</masterLabel>
+            <translation><!-- HR Benefits --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR Compensation</masterLabel>
+            <translation><!-- HR Compensation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR Information System (HRIS)</masterLabel>
+            <translation><!-- HR Information System (HRIS) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR Ops</masterLabel>
+            <translation><!-- HR Ops --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR Pension</masterLabel>
+            <translation><!-- HR Pension --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Information Management (HIM)</masterLabel>
+            <translation><!-- Health Information Management (HIM) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Human Resources</masterLabel>
+            <translation><!-- Human Resources --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Labor</masterLabel>
+            <translation><!-- Labor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Learning</masterLabel>
+            <translation><!-- Learning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Request</masterLabel>
+            <translation><!-- Other Request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>P-Card</masterLabel>
+            <translation><!-- P-Card --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patient Access</masterLabel>
+            <translation><!-- Patient Access --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payroll/T&amp;E</masterLabel>
+            <translation><!-- Payroll/T&amp;E --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purchasing</masterLabel>
+            <translation><!-- Purchasing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Re-Application Request</masterLabel>
+            <translation><!-- Re-Application Request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recruitment</masterLabel>
+            <translation><!-- Recruitment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Report Request</masterLabel>
+            <translation><!-- Report Request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Requisition General Inquiry</masterLabel>
+            <translation><!-- Requisition General Inquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revenue Cycle</masterLabel>
+            <translation><!-- Revenue Cycle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rush Status Request</masterLabel>
+            <translation><!-- Rush Status Request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Strategic Sourcing</masterLabel>
+            <translation><!-- Strategic Sourcing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Supply Chain</masterLabel>
+            <translation><!-- Supply Chain --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>THPM</masterLabel>
+            <translation><!-- THPM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Temporary Privilege Request</masterLabel>
+            <translation><!-- Temporary Privilege Request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workforce Relations</masterLabel>
+            <translation><!-- Workforce Relations --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Team --></label>
+        <name>SH_Team__c</name>
+        <picklistValues>
+            <masterLabel>[Tier 1] AP / Purchasing / Supply Chain</masterLabel>
+            <translation><!-- [Tier 1] AP / Purchasing / Supply Chain --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>[Tier 1] Compensation</masterLabel>
+            <translation><!-- [Tier 1] Compensation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>[Tier 1] HR Benefits</masterLabel>
+            <translation><!-- [Tier 1] HR Benefits --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>[Tier 1] HR Pension</masterLabel>
+            <translation><!-- [Tier 1] HR Pension --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>[Tier 1] HR Recruitment</masterLabel>
+            <translation><!-- [Tier 1] HR Recruitment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>[Tier 1] HRIS</masterLabel>
+            <translation><!-- [Tier 1] HRIS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>[Tier 1] Learning</masterLabel>
+            <translation><!-- [Tier 1] Learning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>[Tier 1] Payroll T&amp;E / Compensation</masterLabel>
+            <translation><!-- [Tier 1] Payroll T&amp;E / Compensation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>[Tier 1] Workforce Relations</masterLabel>
+            <translation><!-- [Tier 1] Workforce Relations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>[Tier 3] Purchasing</masterLabel>
+            <translation><!-- [Tier 3] Purchasing --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Sub Menu Item Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- SH_Preview --></label>
+        <name>SH_Preview</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- SH_Preview_Unpreview --></label>
+        <name>SH_Preview_Unpreview</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- SH_Publish_Unpublish --></label>
+        <name>SH_Publish_Unpublish</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>S3 Reporting Catalogue</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>S3 Reporting Catalogue</value>
+    </caseValues>
+    <fields>
+        <label><!-- Link to Report --></label>
+        <name>Link_to_Report__c</name>
+    </fields>
+    <fields>
+        <label><!-- Metric Number --></label>
+        <name>Metric_Number__c</name>
+        <relationshipLabel><!-- S3 Reporting Catalogue --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Link to create new record for a report from junction object --></help>
+        <label><!-- New Report --></label>
+        <name>New_Report__c</name>
+    </fields>
+    <fields>
+        <label><!-- S3 Report Name --></label>
+        <name>S3_Report_Name__c</name>
+        <relationshipLabel><!-- S3 Reporting Catalogue --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- SPM Creation Effort --></label>
+        <name>SPM_Creation_Effort__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

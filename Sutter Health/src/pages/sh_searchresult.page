@@ -1,0 +1,345 @@
+<apex:page docType="html-5.0" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" controller="SH_SearchBarController" action="{!DoPageLoadActon}"> 
+    <head>
+        <title>{!activePgName}</title>
+        <c:SH_HeaderResource />
+    </head>
+    <style>
+        .big-logo {margin-top:12px;}
+        .hoverRow:hover{
+            background-color:#eefafb;
+        }
+        .hoverRow p{ text-decoration:none; }
+        .fontSize14{
+            font-size: 14px !important;
+         }
+        .Processing {
+            position: fixed;
+            background: url('{!URLFOR($Resource.SutterHealthCare, 'img/loading7_orange.gif')}');
+            background-size: 100px 100px;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            z-index: 1004;
+            left: 0%;
+            top: 0%;
+        }
+    </style>
+    
+    <body id="home" class="search show-notification menu-open menu-visibility">
+    <c:SH_SearchBar isPreview="{!isPreview}"/>
+    <!-- notification popup -->
+    <c:SH_Notification isPreview="{!isPreview}" id="notifComponent" Title="{!strTitle}" Description="{!strDescription}" Info="{!strInfo}" BrowserTitle="{!strBrowserTitle}" BrowserDescription="{!strBrowserDescription}" BrowserInfo="{!strBrowserInfo}" BrowserNotify="{!IsBrowser}" Notify="{!IsNotify}"/>
+    <!-- Menu Item -->
+    <c:SH_MenuItem lstMenuItem="{!lstMenuItem }" isPreview="{!isPreview}" Category="{!strCategoryForHelp}" SubCategory="{!strSubCategoryForHelp}"/>
+    
+    <!-- content -->
+    <div id="content-wrapper">
+        <!-- Header-->
+        <c:SH_Header isPreview="{!isPreview}" actiVePg="{!activePgName}" breadCrumbs="{!BreadCrumbs}"/>
+        
+        <div id="content"><!--{!IsShowError} || {!IsSearchResultFound}-->
+          <apex:outputPanel rendered="{!if(IsShowError, true, false)}" >
+          <p style="margin-left:25px;float:left;"><h3 style="color:red;">Error: Please key-in more then 2 characters to search.</h3></p>
+          </apex:outputPanel>   
+                                      
+            <apex:outputPanel rendered="{!if(IsSearchResultFound, true, false)}" id="searchPnl" >
+                <!-- carousel section with variations -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">  
+                        <apex:form id="frm" >
+                            <section class="text-section with-icon">
+                                <span class="data-icon icon-search-big"></span> 
+                                <h1>Your Search Results for {!SearchString} </h1>   
+                                <p>
+                                    <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit.-->
+                                    
+                                    <span style="float:right;"><b>Article Type&nbsp;&nbsp;:&nbsp;&nbsp;</b>
+                                        <apex:selectList id="slObjectNames" value="{!SelectedView}" multiselect="false" size="1" style="width:200px;" >
+                                            <apex:actionSupport event="onchange" status="act_Type" action="{!ChangeView}" rerender="searchPnl" ></apex:actionSupport>
+                                            <apex:selectOptions value="{!ArticlesTypeNames}"/>
+                                        </apex:selectList>
+                                        <apex:actionStatus id="act_Type" startStyleClass="Processing" />
+                                    </span>
+                                    
+                                </p>
+                            </section> 
+                            <table id="tblWrapper" width="100%" cellpadding="0" cellspacing="0" >      
+                                <apex:outputPanel rendered="{!if(SearchResults.size > 0, false, true)}" > No result found.</apex:outputPanel>
+                                    <apex:repeat value="{!SearchResults}" var="sr">
+                                        <tr>
+                                            <td>
+                                                <div class="row hoverRow">
+                                                    <div class="col-xs-12">
+                                                        <a href="{!sr.link}{!if(sr.EnumName== 'TOOL', '','&IsSearch=true&q='+URLENCODE(SearchString))}">
+                                                            <h2>{!sr.Header}</h2>
+                                                        </a>
+                                                        
+                                                        <p class="excerpt">
+                                                            {!sr.Description}
+                                                        </p>                                            
+                                                        <hr />
+                                                        <label style="font-weight: lighter;">RESULT TYPE: <strong>{!if(sr.EnumName== 'TOOL', 'TOOL','ARTICLE')}</strong></label>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                                        <label style="font-weight: lighter;">RATING : <strong>
+                                                        <apex:outputText value="{0, number, 0.00}">
+                                                              <apex:param value="{!sr.ArticleRating}" />
+                                                        </apex:outputText>
+                                                        </strong></label>
+                                                        <input id="resultType" type="hidden" value="{!sr.ArticleType}" />
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr> 
+                                    </apex:repeat>   
+                                 </table>  
+                            </apex:form>
+                        </div>
+                    </div>
+                </div>  
+                <div class="container-fluid">
+                    <div class="row">
+                        <section class="pagination-section">
+                            <div class="container no-padding">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12 pagination-left">                                    
+                                        <a id="aLeftArrow" href="javascript:ShowDataPrev();" class="left "><!--disabled-->
+                                            <span class="data-icon icon-dotted-circle">
+                                                <span  title="Previous"  class="data-icon icon-arrow-right"></span>
+                                            </span>
+                                        </a>
+                                        <label id="tota_page">Showing results 1 -10</label>
+                                        <a id="aRightArrow" href="javascript:ShowDataNext()" class="right">
+                                            <span class="data-icon icon-dotted-circle">
+                                                <span title="Next" class="data-icon icon-arrow-right"></span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div id="pageRecordCount" class="col-md-6 col-sm-12 pagination-right text-right">                                    
+                                        Results per page:  <span class="fontSize14 inner-record-count" id="span10"><a href="javascript:ResetPagination(10);">10 </a></span><span class="fontSize14 readonly-span">10</span> <span>|</span><span  class="inner-record-count fontSize14" id="span30"><a href="javascript:ResetPagination(30);">30</a> </span><span class="fontSize14 readonly-span">30</span> <span>|</span>  <span  class="inner-record-count fontSize14" id="span50"><a href="javascript:ResetPagination(50);">50</a> </span><span class="fontSize14 readonly-span">50</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>   
+                <script>
+                    var tcount = jQuery('[Id$=tblWrapper] tr').length;
+                    
+                    var perpage = 10;
+                    var totalpage = tcount / perpage;
+                    var Navigate = 1;
+                   
+                    // Tracking current page number and total page
+                    var ofPage = Navigate;
+                    if(totalpage > parseInt(totalpage))
+                           totalpage = parseInt(totalpage) + 1;
+                   
+                    //Recalculate-PageSize & ShowDataFirst
+                    function ResetPagination(pageSize){
+                        perpage = pageSize;
+                        totalpage = tcount / perpage;
+                        ShowDataFirst();
+                    }
+                    // First Button click  
+                    function ShowDataFirst() {
+                        var rowdata = perpage * (1 - 1);
+                        Navigate = 1;
+                        jQuery('#tblWrapper > tbody > tr').each(function (row, data) {
+                            if (row >= rowdata && row < rowdata + perpage) {
+                                jQuery(data).show();
+                            }
+                            else {
+                                jQuery(data).hide();
+                            }
+                        });
+                        
+                        ofPage = Navigate;
+                        if(ofPage > parseInt(ofPage))
+                            ofPage = parseInt(ofPage);                   
+                        jQuery('#tota_page').html('Showing results  ' + ofPage + ' - ' + Math.ceil(totalpage));  // tota_page is showing the page tracking
+                        jQuery('[id$="pageIndexId"]').val(ofPage); // remove it because it will set it 1 page after selecting more than 1 shortlist
+                        jQuery('#aLeftArrow').attr('disabled', 'disabled').addClass('disabled').removeAttr('href');
+                        if(Math.ceil(totalpage) == 1){
+                            jQuery('#aLeftArrow').attr('disabled', 'disabled').addClass('disabled').removeAttr('href');
+                            jQuery('#aRightArrow').attr('disabled', 'disabled').addClass('disabled').removeAttr('href');
+                        }else{
+                            jQuery('#aRightArrow').removeAttr('disabled', 'disabled').removeClass('disabled').attr('href','javascript:ShowDataNext();');
+                        }
+                    }
+                            
+                    // previous Button click
+                    function ShowDataPrev() {
+                        if(Navigate != 1){
+                            Navigate = Navigate - 1;
+                        }
+                        
+                        var rowdata = perpage * (Navigate - 1);
+                        jQuery('#tblWrapper > tbody > tr').each(function (row, data) {                        
+                            if (row >= rowdata && row < rowdata + perpage) {
+                                jQuery(data).show();                            
+                            }
+                            else if((rowdata + perpage) > 0) {
+                                jQuery(data).hide();
+                            }           
+                        });
+                        
+                        ofPage = Navigate;
+                        if(ofPage > parseInt(ofPage))
+                           ofPage = parseInt(ofPage) + 1;
+                        jQuery('#tota_page').text('Showing results ' + ofPage + ' - ' + Math.ceil(totalpage));  // tota_page is showing the page tracking
+                        jQuery('[id$="pageIndexId"]').val(ofPage);
+                        if(ofPage == 1){
+                            jQuery('#aLeftArrow').attr('disabled', 'disabled').addClass('disabled').removeAttr('href');
+                        }else{
+                            jQuery('#aLeftArrow').removeAttr('disabled', 'disabled').removeClass('disabled').attr('href','javascript:ShowDataPrev();');
+                        }
+                        if(Math.ceil(totalpage) > ofPage ){
+                            jQuery('#aRightArrow').removeAttr('disabled', 'disabled').removeClass('disabled').attr('href','javascript:ShowDataNext();');
+                        }
+                    }
+                
+                    // Next Button Click
+                    function ShowDataNext() {
+                        if(Navigate < 0) {
+                            Navigate = 1;
+                        }
+                        
+                        if (Navigate < totalpage) {
+                            Navigate = Navigate + 1;
+                        }
+                        var rowdata = perpage * (Navigate - 1);
+                        jQuery('#tblWrapper > tbody > tr').each(function (row, data) {
+                            if (row >= rowdata && row < rowdata + perpage) {
+                                jQuery(data).show();
+                            }
+                            else {            
+                                jQuery(data).hide();
+                            }            
+                        });
+                        
+                        ofPage = Navigate;
+                        if(ofPage > parseInt(ofPage))
+                           ofPage = parseInt(ofPage) + 1;
+                        jQuery('#tota_page').text('Showing results ' + ofPage + ' - ' + Math.ceil(totalpage));
+                        jQuery('[id$="pageIndexId"]').val(ofPage);
+                        jQuery('#aLeftArrow').removeAttr('disabled', 'disabled').removeClass('disabled').attr('href','javascript:ShowDataPrev();');
+                        if(ofPage == Math.ceil(totalpage)){
+                            jQuery('#aRightArrow').attr('disabled', 'disabled').addClass('disabled').removeAttr('href');
+                        }else{
+                            jQuery('#aRightArrow').removeAttr('disabled', 'disabled').removeClass('disabled').attr('href','javascript:ShowDataNext();');
+                        }                                       
+                    }
+                
+                    // last Button Click
+                    function ShowDataLast() {
+                        var rowdata = perpage * (totalpage - 1);
+                        Navigate = totalpage;
+                        jQuery('#tblWrapper > tbody > tr').each(function (row, data) {
+                            if (row >= rowdata && row < rowdata + perpage) {
+                                jQuery(data).show();
+                            }
+                            else {            
+                                jQuery(data).hide();
+                            }
+                        });
+                        
+                        ofPage = Navigate;
+                        if(ofPage > parseInt(ofPage))
+                           ofPage = parseInt(ofPage);
+                        jQuery('#tota_page').text('Showing results ' + ofPage + ' - ' + Math.ceil(totalpage));
+                        jQuery('[id$="pageIndexId"]').val(ofPage); // to add the value in input hidden field
+                    }
+                            
+                    // Reload the page for shortlist click
+                    function showfirstpage(currentPageIndex){
+                        var rowdata = perpage * (currentPageIndex - 1);
+                        Navigate = currentPageIndex;
+                        jQuery('#tblWrapper > tbody > tr').each(function (row, data) {
+                            if (row >= rowdata && row < rowdata + perpage) {
+                                jQuery(data).show();
+                            }
+                            else {
+                                jQuery(data).hide();
+                            }
+                        });
+                        
+                        ofPage = Navigate;
+                        if(ofPage > parseInt(ofPage))
+                            ofPage = parseInt(ofPage);                   
+                        jQuery('#tota_page').text('Showing results ' + ofPage + ' - ' + Math.ceil(totalpage));  // tota_page is showing the page tracking
+                    }
+                         
+                    jQuery('document').ready(function ($) {
+                        ShowDataFirst();
+                        EnableResultPerPage($('#span10 > a'));
+                        jQuery('#pageRecordCount a').click(function(){
+                            EnableResultPerPage(this);
+                        });
+                    });
+                    function EnableResultPerPage(current){
+                         
+                        jQuery('#pageRecordCount').find('a').each(function(){
+                            jQuery(this).parent().show();
+                            jQuery(this).parent().next().hide();
+                        });
+                        jQuery(current).parent().next().show();
+                        jQuery(current).parent().hide();
+                    }
+                </script>  
+                                
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!if((IsSearchResultFound==false && IsShowError==false), true, false)}">                            
+               <!-- carousel section with variations -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">  
+                            <section class="text-section with-icon">
+                                <span class="data-icon icon-search-big"></span> 
+                                <h1>Your Search Results for {!SearchString} </h1>   
+                                <p>
+                                    <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit.-->
+                                </p>
+                            </section> 
+                               <section class="no-result-section">
+                                    <h1>Sorry, no results found</h1>    
+                                    <p>
+                                        We are sorry, but there were zero search results that mached your search criteria.<br />
+                                        You can try your search again.
+                                    </p>
+                                    <hr />
+                                    <p>
+                                    <apex:outputPanel rendered="{!if(spellCheck!=null, true, false)}">
+                                        <strong>Did you mean <a href="sh_searchresult?q={!spellCheck.suggestion}">{!spellCheck.suggestion}?</a></strong>
+                                        <br /><span>More Suggestion(s) : 
+                                            <apex:repeat value="{!spellCheck.corrections}" var="corr">
+                                                <a href="sh_searchresult?q={!corr}">{!corr}</a>&nbsp;&nbsp;
+                                            </apex:repeat>
+                                        </span>
+                                        </apex:outputPanel>
+                                    </p>
+                                </section>
+                                </div>
+                    </div>
+                </div>
+            </apex:outputPanel>
+        </div>      
+    </div>
+    
+    <!-- Start Google analytics -->
+    <apex:outputLabel value="{!$Label.GTMCustomLabel}" rendered="false"></apex:outputLabel>
+    <apex:includeScript value="{!$Resource.GTMJavaScript}" />
+    <!-- End Google analytics -->
+    
+    <!-- Footer -->
+    <c:SH_Footer ></c:SH_Footer>
+    
+</body>
+<apex:form >
+    <!-- added on 25-Aug-2015 for Notification -->
+    <apex:inputHidden id="hdnToolArticle" value="{!strToolArticeId}"/>
+    <apex:inputHidden id="hdnBrowserName" value="{!browserName}"/>
+    <apex:actionfunction name="showNotification" action="{!showNotification}"/>
+</apex:form>
+
+</apex:page>

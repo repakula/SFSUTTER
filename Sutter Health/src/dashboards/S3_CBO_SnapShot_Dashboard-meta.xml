@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DashboardFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <folderShares>
+        <accessLevel>View</accessLevel>
+        <sharedTo>S3_Call_Center_RC_Supervisor</sharedTo>
+        <sharedToType>Role</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>View</accessLevel>
+        <sharedTo>S3_Tier_1_RC_Agent</sharedTo>
+        <sharedToType>Role</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>Manage</accessLevel>
+        <sharedTo>S3_CC_Svc_Mgmt_Admin_Group</sharedTo>
+        <sharedToType>Group</sharedToType>
+    </folderShares>
+    <name>S3 CBO SnapShot Dashboard</name>
+</DashboardFolder>

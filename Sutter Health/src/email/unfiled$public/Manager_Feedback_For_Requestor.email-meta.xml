@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Manager Feedback thank you email</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Sutter_Shared_Services_Letterhead</letterhead>
+    <name>Manager Feedback For Requestor</name>
+    <style>freeForm</style>
+    <subject>Manager Feedback:{!Managers_Feedback__c.Name}:{!Managers_Feedback__c.Subject__c}</subject>
+    <textOnly>Thank you for taking the time to tell us about your experience with the {!Managers_Feedback__c.Service_Area__c} process.  Please know that {!Managers_Feedback__c.OwnerFullName} will personally be handling your comments. If you do not hear back from us within 5 business days, please feel free to contact {!Managers_Feedback__c.OwnerFullName} directly at {!Managers_Feedback__c.OwnerEmail} / {!Managers_Feedback__c.OwnerPhone} or Ed Berdick at BerdicE@sutterhealth.org</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,13 @@
+<apex:component >
+    <table  border="1" class="tableheadings" align="Center">               
+        <tr>
+             
+            <td>{!$Label.CL92_Benefit_Plan_HCC_Id}</td>
+            <td>{!$Label.CL93_Benefit_Plan_Name}</td> 
+            <td>{!$Label.CL94_Benefit_Plan_Type}</td>        
+            <td>{!$Label.CL95_Benefit_Plan_Start_Date}</td>         
+            <td>{!$Label.CL96_Benefit_Plan_End_Date}</td>
+         </tr>  
+         
+    </table> 
+</apex:component>

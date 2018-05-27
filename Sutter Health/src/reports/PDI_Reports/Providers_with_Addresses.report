@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact$Name</field>
+    </columns>
+    <columns>
+        <field>Contact.Provider_Addresses__r$Name</field>
+    </columns>
+    <columns>
+        <field>Contact.Provider_Addresses__r$Address_Type__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Provider_Addresses__r$Serial_Number__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Provider_Addresses__r$Id</field>
+    </columns>
+    <columns>
+        <field>Contact.Provider_Addresses__r$Tech_Is_Address_Verified__c</field>
+    </columns>
+    <columns>
+        <field>Contact$Id</field>
+    </columns>
+    <columns>
+        <field>Contact.Provider_Addresses__r$CreatedBy</field>
+    </columns>
+    <columns>
+        <field>Contact.Provider_Addresses__r$CreatedDate</field>
+    </columns>
+    <columns>
+        <field>Contact$Provider_Portal_Last_Validation_Date__c</field>
+    </columns>
+    <format>Summary</format>
+    <name>Providers with Addresses</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Contacts_with_Provider_Addresses__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Contact$Birthdate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

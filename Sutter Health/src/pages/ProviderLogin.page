@@ -1,0 +1,192 @@
+<!--
+    Author        : Shakti Mehtani 
+    Date Created  : 12/11/2014 (DD/MM/YYYY)
+    Description   : Provider's Login Page
+-->
+<apex:page showHeader="false" controller="ProviderLoginController" standardStylesheets="false" sidebar="false" applyBodyTag="false">
+
+<head>
+    <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    <title>Sutter Provider Hub Login</title>
+
+    <script type='text/javascript'>
+        function noenter(ev)  {
+            if (window.event && window.event.keyCode == 13 || ev.which == 13) {
+                javascriptLogin();
+                return false;
+             } else {
+                  return true;
+             }
+         }
+    </script>
+    
+    <style type="text/css">
+         html, body,form {
+            height: 100%;
+        }
+        
+        #canvas {
+            height:100%;
+        }
+        
+
+        .clear {
+            clear: both;
+        }
+
+       
+        
+        .spacer-5 {
+            height:5px;
+        }
+    
+        .spacer-10 {
+            height:10px;
+        }
+        
+        .spacer-20 {
+            height:20px;
+        }
+    
+        .spacer-30 {
+            height:30px;
+        }
+        
+        .x-submitButton {
+            width: 345px;
+            height:45px;
+            background-color:#00A9A0;
+            color:#fff; 
+            border-radius: 4px;
+            border-top: 1px solid #CCCCCC;
+            border-right: 1px solid #707070;
+            border-bottom: 1px solid #707070;
+            border-left: 1px solid #CCCCCC; 
+            font-size: 16pt;
+            font-weight: bold;
+            text-align:center;
+        }
+        
+        .footer {
+            font-size:12px;
+            padding-top:10px;
+        }
+        
+        
+        
+        .content {
+            min-height: 417px;
+            width: 419px;
+            margin: 0 auto;
+            font-family:arial;
+            font-size:12px;
+        }
+        
+        #loginBox {
+            background-color: #F5F5F5;
+            border: 2px solid #AAAAAA;
+        }
+        
+        .label {
+            color: #333333;
+            font-size: 13px;
+            font-weight: bold;
+            padding-top: 10px;
+            text-align:left;
+        }
+        
+        input.text {
+            border: 1px solid #AAAAAA;
+            color: #5E5E5E;
+            padding: 12px;
+            width: 320px;
+            color: #586064;
+            background-color: #f3f5f6;
+            margin-top: 3px;
+            -webkit-appearance: none;
+        }
+     </style>
+    </META>
+</head>
+<body>
+    <apex:form id="loginForm" forceSSL="true">
+        <apex:actionFunction name="javascriptLogin" action="{!login}" />
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" id="canvas">
+            <tr>
+            <td width="30%"></td>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" class="content">
+                <tr><td id="loginBox">
+                    
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td width="10%"></td>
+                                    <td class="spacer-20">&nbsp;</td>
+                                    <td width="10%"></td>
+                                </tr>
+                                
+                                <tr><td colspan="3" align="center"><apex:image id="theLogo" value="{!$Resource.logo}" width="200" height="60" /></td></tr>
+                                
+                                <tr><td colspan="3" class="spacer-20">&nbsp;</td></tr>
+                                <tr>
+                                    <td></td>
+                                    <td><apex:pageMessages id="error" /></td>
+                                    <td></td>
+                                </tr>
+                                <tr><td colspan="3"  class="spacer-20">&nbsp;</td></tr>
+                                
+                                <tr>
+                                    <td></td>
+                                    <td class="label">{!$Label.site.username}</td><!--  (Username must be in Sutter email format) -->
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><apex:inputText styleClass="text" id="username" value="{!username}"/></td>
+                                    <td></td>
+                                </tr>
+                                <tr><td colspan="3" class="spacer-10">&nbsp;</td></tr>
+                                
+                                
+                                <tr>
+                                    <td></td>
+                                    <td class="label">{!$Label.site.password}</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><apex:inputSecret styleClass="text" id="password" value="{!password}" onkeypress="return noenter(event);" /></td>
+                                    <td></td>
+                                </tr>
+                                <tr><td colspan="3" class="spacer-20">&nbsp;</td></tr>
+                                
+                                <tr><td colspan="3" class="spacer-20">&nbsp;</td></tr>
+                                
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <apex:commandButton value="Log in" styleClass="x-submitButton" action="{!login}" id="submitbutton" />
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr><td colspan="3" class="spacer-20">&nbsp;</td></tr>
+    
+                                <tr>
+                                    <td></td>
+                                    <td><a href="/providers/secur/forgotpassword.jsp" style="font-size:12px;">Forgot your password?</a></td>
+                                    <td></td>
+                                </tr>
+                                <tr><td colspan="3" class="spacer-20">&nbsp;</td></tr>
+                                
+                            </table>
+                </td></tr>
+                
+                <tr><td class="footer" align="center">Copyright &copy; 2014 Sutter Health. All rights reserved.</td></tr>
+                </table>
+            </td>
+            <td width="30%"></td>
+            </tr>
+        </table>
+    </apex:form>   
+</body>
+</apex:page>

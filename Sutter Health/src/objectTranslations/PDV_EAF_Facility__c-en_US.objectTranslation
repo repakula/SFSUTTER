@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>EAF Facility</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>EAF Facilities</value>
+    </caseValues>
+    <fields>
+        <label><!-- ADDRESS --></label>
+        <name>ADDRESS__c</name>
+    </fields>
+    <fields>
+        <label><!-- AD Address Element Result Status --></label>
+        <name>AD_Address_Element_Result_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- AD Address Mailability Score --></label>
+        <name>AD_Address_Mailability_Score__c</name>
+    </fields>
+    <fields>
+        <label><!-- AD Address Process Status --></label>
+        <name>AD_Address_Process_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- AD Address Result Percentage --></label>
+        <name>AD_Address_Result_Percentage__c</name>
+    </fields>
+    <fields>
+        <label><!-- AD Address Verification Status --></label>
+        <name>AD_Address_Verification_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- AD Element Result status --></label>
+        <name>AD_Element_Result_status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address Line 1 --></label>
+        <name>Address_Line_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address Line 2 --></label>
+        <name>Address_Line_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address Modified --></label>
+        <name>Address_Modified__c</name>
+    </fields>
+    <fields>
+        <label><!-- Assigned Date --></label>
+        <name>Assigned_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Attn To --></label>
+        <name>Attn_To__c</name>
+    </fields>
+    <fields>
+        <label><!-- CITY --></label>
+        <name>CITY__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- EAF Facilities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Closed Date --></label>
+        <name>Closed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Decline Fax --></label>
+        <name>Decline_Fax__c</name>
+    </fields>
+    <fields>
+        <label><!-- Decline Phone --></label>
+        <name>Decline_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Emp Id --></label>
+        <name>Emp_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- External --></label>
+        <name>External__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- FAX NUMBER --></label>
+        <name>FAX_NUMBER__c</name>
+    </fields>
+    <fields>
+        <label><!-- Facility ID --></label>
+        <name>Facility_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Floor --></label>
+        <name>Floor__c</name>
+    </fields>
+    <fields>
+        <label><!-- Formatted Address --></label>
+        <name>Formatted_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Address Chagned --></label>
+        <name>Is_Address_Chagned__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Address Line 2 Changed --></label>
+        <name>Is_Address_Line_2_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is City Changed --></label>
+        <name>Is_City_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Fax Changed --></label>
+        <name>Is_Fax_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Phone Changed --></label>
+        <name>Is_Phone_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Phone Extension Changed --></label>
+        <name>Is_Phone_Extension_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is State Changed --></label>
+        <name>Is_State_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Zip Code Changed --></label>
+        <name>Is_Zip_Code_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Verified date --></label>
+        <name>Last_Verified_date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Names Changes Suggested --></label>
+        <name>Names_Changes_Suggested__c</name>
+    </fields>
+    <fields>
+        <label><!-- PDI Campaign --></label>
+        <name>PDI_Campaign__c</name>
+    </fields>
+    <fields>
+        <label><!-- PHONE --></label>
+        <name>PHONE__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone Extension --></label>
+        <name>Phone_Extension__c</name>
+    </fields>
+    <fields>
+        <label><!-- Printed Address --></label>
+        <name>Printed_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Printed City --></label>
+        <name>Printed_City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Printed Floor --></label>
+        <name>Printed_Floor__c</name>
+    </fields>
+    <fields>
+        <label><!-- Printed Name --></label>
+        <name>Printed_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Printed State --></label>
+        <name>Printed_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Printed Suite --></label>
+        <name>Printed_Suite__c</name>
+    </fields>
+    <fields>
+        <label><!-- Printed Zip Code --></label>
+        <name>Printed_Zip_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- STATE --></label>
+        <name>STATE__c</name>
+    </fields>
+    <fields>
+        <label><!-- S# --></label>
+        <name>Serial_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Accepted</masterLabel>
+            <translation><!-- Accepted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-Validated</masterLabel>
+            <translation><!-- Non-Validated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Validated</masterLabel>
+            <translation><!-- Validated --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Suite --></label>
+        <name>Suite__c</name>
+    </fields>
+    <fields>
+        <label><!-- ByPass Address Verification --></label>
+        <name>Tech_ByPass_Address_Verification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tech Current Campaign --></label>
+        <name>Tech_Current_Campaign__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tech is Facility Updated --></label>
+        <name>Tech_is_Facility_Updated__c</name>
+    </fields>
+    <fields>
+        <label><!-- ZIP CODE --></label>
+        <name>ZIP_CODE__c</name>
+    </fields>
+    <layouts>
+        <layout>EAF Facility Layout</layout>
+        <sections>
+            <label><!-- Address --></label>
+            <section>Address</section>
+        </sections>
+        <sections>
+            <label><!-- Address Change Details --></label>
+            <section>Address Change Details</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

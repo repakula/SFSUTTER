@@ -1,0 +1,1044 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Account_Executive__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account Executive</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Document_Generation_Requests2</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Account_ID_HCC__c</fullName>
+        <externalId>false</externalId>
+        <formula>LPAD( Account__r.SHP_Group_ID__c , 6 , &apos;0&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account_ID_HCC</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_IsRenewal__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Renewal_Existing__c = &apos;Renewal&apos; , TRUE, FALSE)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account_IsRenewal</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Account_Manager__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account Manager</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Document_Generation_Requests1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Account_Stage__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Sold_Sign_Off__c == NULL, &apos;Opportunity&apos;, &apos;SSO&apos;)</formula>
+        <label>Account Stage</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_TIN_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Account__r.Account_TIN_Type__c)</formula>
+        <label>Account TIN Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_TIN__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.Tax_ID__c</formula>
+        <label>Account TIN</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Type</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Document Generation Requests</relationshipLabel>
+        <relationshipName>Document_Generation_Requests</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Active_Members__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.SHP_Active_Members__c</formula>
+        <label>Active Members</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BPA_Team_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>BPA Team Comments</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Broker__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.Broker__r.Name</formula>
+        <label>Broker</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Calendar_Year_Plan_Year__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Opportunity__r.Calendar_or_Plan_Year__c )</formula>
+        <label>Calendar Year/Plan Year</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DBA__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Account__r.DBA__c != NULL &amp;&amp; Account__r.DBA__c != &apos;&apos;,Account__r.DBA__c,&apos;N/A&apos;)</formula>
+        <label>DBA</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Documents_Folder_New__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Link to the folder in Share point where Documents that are generated are stored</inlineHelpText>
+        <label>Documents Folder</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Documents_Folder__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Link to the folder in Share point where Documents that are generated are stored</inlineHelpText>
+        <label>Documents Folder</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Employer_First_Renewal_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.Employer_First_Renewal_Date__c</formula>
+        <label>Employer First Renewal Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Employer_Type_Email__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(TEXT(Account__r.Employer_Type__c) != NULL &amp;&amp; TEXT(Account__r.Employer_Type__c) != &apos;&apos;,TEXT(Account__r.Employer_Type__c),&apos;N/A&apos;)</formula>
+        <label>Employer Type Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Employer_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Account__r.Employer_Type__c)</formula>
+        <label>Employer Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Expedite__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Expedite Approved</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Mailing_Address__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISNULL(Account__r.ShippingAddress), NULL, Account__r.ShippingStreet  &amp; BR() &amp; Account__r.ShippingCity&amp;&quot;, &quot;&amp;Account__r.ShippingState&amp;&quot; &quot;&amp;Account__r.ShippingPostalCode&amp; BR() &amp; Account__r.Mailing_County__c&amp;&quot;, &quot;&amp;Account__r.ShippingCountry)</formula>
+        <label>Mailing Address</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Document Generation Requests</relationshipLabel>
+        <relationshipName>Document_Generation_Requests</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity_stage__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Opportunity__r.StageName)</formula>
+        <label>Opportunity stage</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Physical_Address__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISNULL(Account__r.BillingAddress ), NULL, Account__r.BillingStreet&amp; BR() &amp; Account__r.BillingCity&amp;&quot;, &quot;&amp;Account__r.BillingState&amp;&quot; &quot;&amp;Account__r.BillingPostalCode&amp; BR() &amp; Account__r.Physical_County__c&amp;&quot;, &quot;&amp;Account__r.BillingCountry)</formula>
+        <label>Physical Address</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Plan_Duration__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( 
+(Plan_End_Date__c  - Plan_Effective_Date__c) / 365 * 12 &lt; 1, 1, ROUND((Plan_End_Date__c  - Plan_Effective_Date__c) / 365 * 12,1)
+)</formula>
+        <label>Plan Duration</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Plan_Effective_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Plan_Effective_Date__c</formula>
+        <label>Plan Effective Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Plan_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Plan_end_date__c</formula>
+        <label>Plan End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Plans__c</fullName>
+        <externalId>false</externalId>
+        <label>Plans</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Reason</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Status__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Template is not available</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Regulatory reason</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Compliance reason</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Plan no longer available</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>On Hold</controllingFieldValue>
+                <valueName>Template is not available</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>On Hold</controllingFieldValue>
+                <valueName>Regulatory reason</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>On Hold</controllingFieldValue>
+                <valueName>Compliance reason</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>On Hold</controllingFieldValue>
+                <valueName>Other</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Related_Object_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>Related Object Id</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Renewal_Existing__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Opportunity__r.Renewed_Opportunity__c == true, &apos;Renewal&apos;,&apos;Existing&apos;)</formula>
+        <label>Renewal/Existing</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Request_Approved_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Request Approved Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Request_Created_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>CreatedDate</formula>
+        <label>Request Created Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Request_Due_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Request Due Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Request_IsFinal__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Request_Status__c = &apos;Approved&apos;, TRUE, FALSE)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Request_IsFinal</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Request_Status__c</fullName>
+        <defaultValue>&quot;Draft&quot;</defaultValue>
+        <externalId>false</externalId>
+        <label>Request Status</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Requested_Expedition__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Expedite Request</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Requestor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Requestor</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Document_Generation_Requests</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>SFDC_Account_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.SFDC_Auto_Number__c</formula>
+        <label>Account Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SLA_met_not_met__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISNULL(Request_Approved_Date__c) = FALSE  &amp;&amp; Request_Due_Date__c &gt; Request_Approved_Date__c,  IMAGE(&apos;/resource/Green_flag&apos;, &apos;Green&apos;,30,30),
+	IF(ISNULL(Request_Approved_Date__c) = FALSE &amp;&amp; Request_Due_Date__c &lt;  Request_Approved_Date__c, IMAGE(&apos;/resource/Red_Flag&apos;, &apos;Red&apos;,30,30), 
+		IF(ISNULL(Request_Approved_Date__c) = FALSE  &amp;&amp; Request_Due_Date__c = Request_Approved_Date__c, IMAGE(&apos;/resource/Green_flag&apos;, &apos;Green&apos;,30,30),
+			IF(ISNULL(Request_Approved_Date__c) = TRUE &amp;&amp; Request_Due_Date__c &gt;  TODAY(), IMAGE(&apos;/resource/Yellow_Flag&apos;, &apos;Yellow&apos;,30,30), 
+				IF(ISNULL(Request_Approved_Date__c) = TRUE &amp;&amp; Request_Due_Date__c &lt;  TODAY(), IMAGE(&apos;/resource/Red_Flag&apos;, &apos;Red&apos;,30,30),
+					IF(ISNULL(Request_Approved_Date__c) = TRUE &amp;&amp; Request_Due_Date__c =  TODAY(), IMAGE(&apos;/resource/Yellow_Flag&apos;, &apos;Yellow&apos;,30,30),&apos;&apos;
+					)
+				)
+			) 
+		)
+	)
+)</formula>
+        <label>SLA met/not met</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SLA_met_or_not_met__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Request_Approved_Date__c  &gt;  Request_Due_Date__c , &apos;SLA not met&apos;, &apos;SLA met&apos;)</formula>
+        <label>SLA met or not met</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sales_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Sales Comments</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Sold_Sign_Off__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Sold Sign Off</label>
+        <referenceTo>Sold_Sign_Off__c</referenceTo>
+        <relationshipLabel>Document Generation Requests</relationshipLabel>
+        <relationshipName>Document_Generation_Requests</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Status_Before_Cancellation__c</fullName>
+        <externalId>false</externalId>
+        <label>Status Before Cancellation</label>
+        <length>128</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Draft</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>On Hold</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Documents Generated</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Tech_Account_RecordType_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.RecordType.Name</formula>
+        <label>Tech Account RecordType Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Translation_services__c</fullName>
+        <externalId>false</externalId>
+        <label>Translation services</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Spanish</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Chinese</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Type_of_Business__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Opportunity__r.Type)</formula>
+        <label>Type of Business</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>has_Custom_Plans__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>has Custom Plans?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>of_Documents_Requested__c</fullName>
+        <externalId>false</externalId>
+        <label># of Documents Requested</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>of_Documents_generated__c</fullName>
+        <externalId>false</externalId>
+        <label># of Documents generated</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Document Generation Request</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Requestor__c</columns>
+        <columns>Employer_Type__c</columns>
+        <columns>Type_of_Business__c</columns>
+        <columns>Request_Status__c</columns>
+        <columns>Request_Due_Date__c</columns>
+        <columns>SLA_met_not_met__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Benefit_Plan_Admin_Queue_Document_Generation_Request</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Employer_Type__c</columns>
+        <columns>Type_of_Business__c</columns>
+        <columns>Requestor__c</columns>
+        <columns>Request_Due_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>Request_Status__c</columns>
+        <columns>of_Documents_Requested__c</columns>
+        <columns>of_Documents_generated__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>Doc.Gen.Requests Queue</label>
+        <queue>Benefit_Plan_Admin_Queue</queue>
+        <sharedTo>
+            <group>SHP_BPA_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Canceled_Doc_Gen_Requests_Queue_Document_Generation_Request</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Employer_Type__c</columns>
+        <columns>Type_of_Business__c</columns>
+        <columns>Requestor__c</columns>
+        <columns>Request_Due_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>Request_Status__c</columns>
+        <columns>of_Documents_Requested__c</columns>
+        <columns>of_Documents_generated__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>Canceled Doc. Gen. Requests Queue</label>
+        <queue>Canceled_Doc_Gen_Requests_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Custom_Benefit_Plan_QA_Queue_Document_Generation_Request</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Employer_Type__c</columns>
+        <columns>Type_of_Business__c</columns>
+        <columns>Requestor__c</columns>
+        <columns>Request_Due_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>Request_Status__c</columns>
+        <columns>of_Documents_generated__c</columns>
+        <columns>of_Documents_Requested__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>Doc.Gen.Requests QA Queue</label>
+        <queue>Custom_Benefit_Plan_QA_Queue</queue>
+        <sharedTo>
+            <group>SHP_BPA_QA_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>My_Queue</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Employer_Type__c</columns>
+        <columns>Type_of_Business__c</columns>
+        <columns>Requestor__c</columns>
+        <columns>Request_Due_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>Request_Status__c</columns>
+        <columns>of_Documents_Requested__c</columns>
+        <columns>of_Documents_generated__c</columns>
+        <filterScope>Mine</filterScope>
+        <label>My Queue</label>
+    </listViews>
+    <listViews>
+        <fullName>My_Team_Closed_Items</fullName>
+        <columns>NAME</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Request_Status__c</columns>
+        <columns>Status__c</columns>
+        <columns>Request_Created_Date__c</columns>
+        <columns>Request_Due_Date__c</columns>
+        <columns>Requestor__c</columns>
+        <columns>SLA_met_not_met__c</columns>
+        <columns>Expedite__c</columns>
+        <columns>Employer_Type__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Request_Status__c</field>
+            <operation>equals</operation>
+            <value>Approved</value>
+        </filters>
+        <label>My Team Closed Items</label>
+        <sharedTo>
+            <role>BPA_Supervisor</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>My_Team_Open_Items</fullName>
+        <columns>NAME</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Request_Status__c</columns>
+        <columns>Status__c</columns>
+        <columns>Request_Created_Date__c</columns>
+        <columns>Request_Due_Date__c</columns>
+        <columns>Requestor__c</columns>
+        <columns>SLA_met_not_met__c</columns>
+        <columns>Expedite__c</columns>
+        <columns>Employer_Type__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Request_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Approved</value>
+        </filters>
+        <filters>
+            <field>Request_Status__c</field>
+            <operation>notContain</operation>
+            <value>Cancel</value>
+        </filters>
+        <filters>
+            <field>OWNER.ALIAS</field>
+            <operation>notContain</operation>
+            <value>Benefit Plan Admin Queue</value>
+        </filters>
+        <filters>
+            <field>OWNER.ALIAS</field>
+            <operation>notContain</operation>
+            <value>SHP Sales</value>
+        </filters>
+        <label>My Team Open Items</label>
+        <sharedTo>
+            <role>BPA_Supervisor</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>SHP_BPA_Approvers_Queue_Document_Generation_Request</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Employer_Type__c</columns>
+        <columns>Type_of_Business__c</columns>
+        <columns>Requestor__c</columns>
+        <columns>Request_Due_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>Request_Status__c</columns>
+        <columns>of_Documents_Requested__c</columns>
+        <columns>of_Documents_generated__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>SHP BPA Approvers Queue</label>
+        <queue>SHP_BPA_Approvers_Queue</queue>
+        <sharedTo>
+            <group>SHP_BPA_Approvers_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>SHP_Custom_Plan_Executive_Queue_Document_Generation_Request</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Employer_Type__c</columns>
+        <columns>Type_of_Business__c</columns>
+        <columns>Requestor__c</columns>
+        <columns>Request_Due_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>Request_Status__c</columns>
+        <columns>of_Documents_Requested__c</columns>
+        <columns>of_Documents_generated__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>SHP Sales Executive Queue</label>
+        <queue>SHP_Custom_Plan_Executive_Queue</queue>
+        <sharedTo>
+            <group>SHP_Executive_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>SHP_Sales_Queue_Document_Generation_Request</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Employer_Type__c</columns>
+        <columns>Type_of_Business__c</columns>
+        <columns>Requestor__c</columns>
+        <columns>Request_Due_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>Request_Status__c</columns>
+        <columns>of_Documents_Requested__c</columns>
+        <columns>of_Documents_generated__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>SHP Sales Queue</label>
+        <queue>SHP_Sales_Queue</queue>
+        <sharedTo>
+            <group>SHP_Sales</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Sales_Approved_Doc_Gen_Requests</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Employer_Type__c</columns>
+        <columns>Type_of_Business__c</columns>
+        <columns>Requestor__c</columns>
+        <columns>Request_Due_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>Request_Status__c</columns>
+        <columns>of_Documents_Requested__c</columns>
+        <columns>of_Documents_generated__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Request_Status__c</field>
+            <operation>equals</operation>
+            <value>Approved by Sales</value>
+        </filters>
+        <label>Sales Approved Doc.Gen.Requests</label>
+    </listViews>
+    <nameField>
+        <displayFormat>REQ-{00000}</displayFormat>
+        <label>Document Generation Request Name</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Document Generation Requests</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Account_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Requestor__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Request_Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Request_Due_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>SLA_met_not_met__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>of_Documents_Requested__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>of_Documents_generated__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Account__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Account_Type__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Requestor__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Request_Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Request_Due_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>SLA_met_not_met__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>of_Documents_generated__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>of_Documents_Requested__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Account__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Account_Type__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Requestor__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Status__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Request_Status__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Request_Due_Date__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>SLA_met_not_met__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>of_Documents_generated__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>of_Documents_Requested__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>Account__c</searchFilterFields>
+        <searchFilterFields>Employer_Type__c</searchFilterFields>
+        <searchFilterFields>Requestor__c</searchFilterFields>
+        <searchFilterFields>Request_Status__c</searchFilterFields>
+        <searchFilterFields>Status__c</searchFilterFields>
+        <searchFilterFields>Request_Due_Date__c</searchFilterFields>
+        <searchFilterFields>SLA_met_not_met__c</searchFilterFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchResultsAdditionalFields>Account__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Account_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Requestor__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Request_Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Request_Due_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>SLA_met_not_met__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Owner_Not_in_Queue</fullName>
+        <active>true</active>
+        <description>Restrict user not to edit record if the record is not accepted by him from the queue</description>
+        <errorConditionFormula>AND( 
+NOT(AND(	
+Owner:Queue.QueueName = &apos;SHP BPA Doc.Gen.Queue&apos;, 
+$Profile.Name = &apos;SHP Sales&apos; 
+) 
+), 
+NOT( $UserRole.Name = &apos;SHP BPA Supervisor&apos;), 
+PRIORVALUE(OwnerId )  &lt;&gt;  $User.Id, 
+ISNEW(), 
+IF(Sold_Sign_Off__c &lt;&gt; NULL, Sold_Sign_Off__r.regenerate__c &lt;&gt; True , Opportunity__r.regenerate__c &lt;&gt; True) 
+)</errorConditionFormula>
+        <errorMessage>Only owner of the record can modify document generation request. If owner of the record is a queue, then please accept record from queue and try again</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Documents_Folder</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Documents Folder</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>window.open(&quot;{!Document_Generation_Request__c.Documents_Folder_New__c}&quot;)</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Request_for_Cancellation</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Request/Undo for Cancellation</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/apex.js&quot;)} 
+try{ 
+var docgenObj = new sforce.SObject(&quot;Document_Generation_Request__c&quot;); 
+var docgenObjId = &apos;{!Document_Generation_Request__c.Id}&apos;; 
+var messageDesc =sforce.apex.execute(&quot;HighRoads_DGRequestForCancellation&quot;,&quot;cancelDocGenRequest&quot;,{recordId:docgenObjId}); 
+alert(messageDesc);
+document.location.reload(true);  
+}catch(e){ 
+alert(&apos;An Error has Occured. Error: &apos; + e); 
+}</url>
+    </webLinks>
+</CustomObject>

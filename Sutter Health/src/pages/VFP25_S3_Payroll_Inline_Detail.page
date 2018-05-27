@@ -1,0 +1,67 @@
+<apex:page standardcontroller="Case" >
+    <style>
+        body{
+        font-size: 75%;
+        }
+    </style>
+<apex:form >   
+<apex:pageMessages ></apex:pageMessages>    
+
+<apex:outputPanel style="overflow:auto" rendered="{!Case.Section_View__c =='Payroll'}" >
+          <apex:pageBlock mode="maindetail" title="{!$Label.Payroll_Details}"  >
+        
+            <!-- PageBlockSection : This section Holds all the fields of Web to case Details-->
+            <apex:pageBlockSection columns="2" collapsible="false">                 
+                 <apex:repeat value="{!$ObjectType.Case.fieldsets.Finance_Payroll_Portal_Web_to_Case}" var="fieldValue">                      
+                       <apex:outputField value="{!Case[fieldValue]}" > 
+                           
+                        </apex:outputField>                   
+                 </apex:repeat>              
+             </apex:pageBlockSection>    
+                
+         
+        </apex:pageblock> 
+         </apex:OutputPanel> 
+
+  <apex:outputPanel style="overflow:auto" rendered="{!Case.Section_View__c =='Payroll Upload'}"  >  
+            <apex:pageBlock mode="maindetail" title="{!$Label.Payroll_Upload_Details}"   >       
+              
+                        <!-- PageBlockSection : This section Holds all the fields of Payroll upload Details--> 
+            <apex:pageBlockSection collapsible="false" columns="2" title="{!$Label.Payroll_Upload}" showHeader="false"  >
+                            <apex:repeat value="{!$ObjectType.Case.fieldsets.Finance_Payroll_Upload_Portal}" var="TANField">
+                                <apex:outputField value="{!Case[TANField]}">  
+                               
+                                
+                                </apex:outputField> 
+                                
+                            </apex:repeat>
+                        </apex:pageBlockSection> 
+                            
+                             </apex:pageblock> 
+                               </apex:OutputPanel>
+                               
+    <apex:outputPanel style="overflow:auto" rendered="{!Case.Section_View__c =='Payroll Stop Payment'}"  >  
+            <apex:pageBlock mode="maindetail" title="{!$Label.Payroll_Stop_Payment}"   >       
+              
+                        <!-- PageBlockSection : This section Holds all the fields of Payroll upload Details--> 
+            <apex:pageBlockSection collapsible="false" columns="2"  showHeader="false"  >
+                            <apex:repeat value="{!$ObjectType.Case.fieldsets.Finance_Payroll_Stop_Request}" var="StopPayrollField">
+                                <apex:outputField value="{!Case[StopPayrollField]}">  
+                               
+                                
+                                </apex:outputField> 
+                                
+                            </apex:repeat>
+                        </apex:pageBlockSection> 
+                            
+                             </apex:pageblock> 
+                               </apex:OutputPanel>                           
+
+  </apex:form> 
+  
+  <!-- Start Google Tag Manager -->
+    <apex:outputLabel value="{!$Label.GTMCustomLabel}" rendered="false"></apex:outputLabel> 
+    <apex:includeScript value="{!$Resource.GTMJavaScript}" />
+    <!-- End Google Tag Manager -->
+
+</apex:page>

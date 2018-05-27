@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Patient</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Patients</value>
+    </caseValues>
+    <fields>
+        <label><!-- Patient City --></label>
+        <name>Patient_City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Patient DOB --></label>
+        <name>Patient_DOB__c</name>
+    </fields>
+    <fields>
+        <label><!-- Patient_DotOne --></label>
+        <name>Patient_DotOne__c</name>
+    </fields>
+    <fields>
+        <label><!-- Patient_EMPI --></label>
+        <name>Patient_EMPI__c</name>
+    </fields>
+    <fields>
+        <help><!-- Patient EPI-ID from Initiate MDM. --></help>
+        <label><!-- Patient EPI-ID --></label>
+        <name>Patient_EPI_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Patient First Name --></label>
+        <name>Patient_First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Patient Gender --></label>
+        <name>Patient_Gender__c</name>
+    </fields>
+    <fields>
+        <label><!-- Patient Last Name --></label>
+        <name>Patient_Last_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Patient Middle Name --></label>
+        <name>Patient_Middle_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Patient Home Phone --></label>
+        <name>Patient_Phone_Home__c</name>
+    </fields>
+    <fields>
+        <label><!-- Patient Mobile Phone --></label>
+        <name>Patient_Phone_Mobile__c</name>
+    </fields>
+    <fields>
+        <label><!-- Patient Other Phone --></label>
+        <name>Patient_Phone_Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Patient Work Phone --></label>
+        <name>Patient_Phone_Work__c</name>
+    </fields>
+    <fields>
+        <label><!-- Patient_SHMRN --></label>
+        <name>Patient_SHMRN__c</name>
+    </fields>
+    <fields>
+        <help><!-- Last 4 digits only. --></help>
+        <label><!-- Patient SSN --></label>
+        <name>Patient_SSN_E__c</name>
+    </fields>
+    <fields>
+        <label><!-- Patient State --></label>
+        <name>Patient_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Patient Street --></label>
+        <name>Patient_Street__c</name>
+    </fields>
+    <fields>
+        <label><!-- Patient ZIP --></label>
+        <name>Patient_Zip__c</name>
+    </fields>
+    <fields>
+        <label><!-- Soft Delete --></label>
+        <name>Soft_Delete__c</name>
+    </fields>
+    <layouts>
+        <layout>Patient Layout</layout>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Patient Verification --></label>
+            <section>Patient Verification</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

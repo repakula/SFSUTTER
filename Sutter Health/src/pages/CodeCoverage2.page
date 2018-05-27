@@ -1,0 +1,32 @@
+<apex:page >
+  <apex:includeScript value="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.min.js"/>
+  <script>
+    jQuery(document).ready(function($) {
+      // Pull 10 Accounts via the REST API
+      $.ajax('/services/data/v29.0/tooling/query?q=SELECT+ApexClassOrTrigger.Name,+NumLinesCovered,+NumLinesUncovered+FROM+ApexCodeCoverageAggregate+ORDER+BY+NumLinesCovered+ASC',
+      // /services/data/v29.0/tooling/query/?q=SELECT+ApexClassOrTrigger,+NumLinesCovered,+NumLinesUncovered+FROM+ApexCodeCoverageAggregate+ORDER+BY+NumLinesCovered+ASC
+        {
+          beforeSend: function(xhr) {
+            // Set the OAuth header from the session ID
+            xhr.setRequestHeader('Authorization', 'Bearer {!$Api.Session_ID}');
+          },
+          success: function(response) {
+            // We got 'em - append our records to the HTML list
+            $.each(response.records, function(index, record) {
+              $('#accountList').append('<tr>');
+              $('#accountList').append('<td width="50%">'+record.ApexClassOrTrigger.Name + '</td><td width=10%>' + record.NumLinesCovered + '</td><td width="10%">' + record.NumLinesUncovered + '</td><td width=25%>' +  ((parseInt(record.NumLinesCovered * 100) / (parseInt(record.NumLinesCovered) + parseInt(record.NumLinesUncovered))))  + '</td>');
+              $('#accountList').append('</tr>');
+            });
+          },
+          error: function(jqXHR, textStatus, errorThrown) {
+            // Oops - what went wrong?
+            alert(jqXHR.status + ': ' + errorThrown);
+          }
+        }
+      );
+    });
+  </script>
+  <h1>Test Coverage Based on Tooling API</h1>
+  <p>Apex Class or Trigger/NumLinesCovered/NumLinesUncovered/Percent Coverage:</p>
+  <ul id="accountList"/>
+</apex:page>

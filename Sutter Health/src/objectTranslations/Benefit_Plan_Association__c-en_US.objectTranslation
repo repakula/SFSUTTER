@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Benefit Plan Association</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Benefit Plan Associations</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Benefit Plan Associations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Ancillary EOC --></label>
+        <name>Ancillary_EOC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ancillary GSA --></label>
+        <name>Ancillary_GSA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ancillary SOB --></label>
+        <name>Ancillary_SOB__c</name>
+    </fields>
+    <fields>
+        <label><!-- BCM --></label>
+        <name>BCM__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Plan Metadata --></label>
+        <name>Benefit_Plan_Metadata__c</name>
+        <relationshipLabel><!-- Benefit Plan Associations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Cost Share --></label>
+        <name>Cost_Share__c</name>
+    </fields>
+    <fields>
+        <label><!-- Custom Plan? --></label>
+        <name>Custom__c</name>
+    </fields>
+    <fields>
+        <label><!-- DOV --></label>
+        <name>DOV__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deductible(Indv+Indv+Family/Family) --></label>
+        <name>Deductible__c</name>
+    </fields>
+    <fields>
+        <label><!-- ECH (Early Retiree) --></label>
+        <name>ECH_Early_Retiree__c</name>
+    </fields>
+    <fields>
+        <label><!-- ECH --></label>
+        <name>ECH__c</name>
+    </fields>
+    <fields>
+        <label><!-- EC (Early Retiree) --></label>
+        <name>EC_Early_Retiree__c</name>
+    </fields>
+    <fields>
+        <label><!-- EC --></label>
+        <name>EC__c</name>
+    </fields>
+    <fields>
+        <label><!-- EE+1(Early Retiree) --></label>
+        <name>EE_1_Early_Retiree__c</name>
+    </fields>
+    <fields>
+        <label><!-- EE+1 --></label>
+        <name>EE_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- EE+2 (Early Retiree) --></label>
+        <name>EE_2_Early_Retiree__c</name>
+    </fields>
+    <fields>
+        <label><!-- EE+2 --></label>
+        <name>EE_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- EE (Early Retiree) --></label>
+        <name>EE_Early_Retiree__c</name>
+    </fields>
+    <fields>
+        <label><!-- EE --></label>
+        <name>EE__c</name>
+    </fields>
+    <fields>
+        <label><!-- EF(Early Retiree) --></label>
+        <name>EF_Early_Retiree__c</name>
+    </fields>
+    <fields>
+        <label><!-- EF --></label>
+        <name>EF__c</name>
+    </fields>
+    <fields>
+        <label><!-- EOC --></label>
+        <name>EOC__c</name>
+    </fields>
+    <fields>
+        <label><!-- ER --></label>
+        <name>ER__c</name>
+    </fields>
+    <fields>
+        <label><!-- ES (Early Retiree) --></label>
+        <name>ES_Early_Retiree__c</name>
+    </fields>
+    <fields>
+        <label><!-- ES --></label>
+        <name>ES__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Year Give Away --></label>
+        <name>First_Year_Give_Away__c</name>
+    </fields>
+    <fields>
+        <label><!-- IP --></label>
+        <name>IP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Included in Medical Rate --></label>
+        <name>Included_in_Medical_Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Medical or Rider --></label>
+        <name>Medical_or_Rider__c</name>
+    </fields>
+    <fields>
+        <label><!-- OOPM(Indv/Indv+Family/Family) --></label>
+        <name>OOPM__c</name>
+    </fields>
+    <fields>
+        <label><!-- OP --></label>
+        <name>OP__c</name>
+    </fields>
+    <fields>
+        <label><!-- OV --></label>
+        <name>OV__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Rate Card --></label>
+        <name>Opportunity_Rate_Card__c</name>
+        <relationshipLabel><!-- Benefit Plan Associations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Benefit Plan Associations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Plan Name --></label>
+        <name>Plan_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan Type --></label>
+        <name>Plan_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan Year --></label>
+        <name>Plan_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Class --></label>
+        <name>Product_Class__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote --></label>
+        <name>Proposal__c</name>
+        <relationshipLabel><!-- Benefit Plan Associations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Quote Benefit Version --></label>
+        <name>Quote_Benefit_Version__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote Rate Card --></label>
+        <name>Quote_Rate_Card__c</name>
+        <relationshipLabel><!-- Benefit Plan Associations (Quote Rate Card) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RFP Benefit Version --></label>
+        <name>RFP_Benefit_Version__c</name>
+    </fields>
+    <fields>
+        <label><!-- RFP Form --></label>
+        <name>RFP_Form__c</name>
+        <relationshipLabel><!-- Benefit Plan Associations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RFP Rate Card --></label>
+        <name>RFP_Rate_Card__c</name>
+        <relationshipLabel><!-- Benefit Plan Associations (RFP Rate Card) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RX Tier 1/2/3/4 --></label>
+        <name>RX_Tier_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rider Plan Name --></label>
+        <name>Raider_ID__c</name>
+        <relationshipLabel><!-- Benefit Plan Associations (Raider ID) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Rx Deductible Ind/Ind+Family/Family --></label>
+        <name>Rx_Deductible_Ind_Ind_Family_Family__c</name>
+    </fields>
+    <fields>
+        <label><!-- SBC --></label>
+        <name>SBC__c</name>
+    </fields>
+    <fields>
+        <label><!-- SCN Benefit Version --></label>
+        <name>SCN_Benefit_Version__c</name>
+    </fields>
+    <fields>
+        <label><!-- SCN Rate Card --></label>
+        <name>SCN_Rate_Card__c</name>
+        <relationshipLabel><!-- Benefit Plan Associations (SCN Rate Card) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- SOV --></label>
+        <name>SOV__c</name>
+    </fields>
+    <fields>
+        <label><!-- SSO Benefit Version --></label>
+        <name>SSO_Benefit_Version__c</name>
+    </fields>
+    <fields>
+        <label><!-- SSO Rate Card --></label>
+        <name>SSO_Rate_Card__c</name>
+        <relationshipLabel><!-- Benefit Plan Associations (SSO Rate Card) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Sold Case Notification --></label>
+        <name>Sold_Case_Notification__c</name>
+        <relationshipLabel><!-- Benefit Plan Associations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Sold Sign Off --></label>
+        <name>Sold_Sign_Off__c</name>
+        <relationshipLabel><!-- Benefit Plan Associations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Benefit Version --></label>
+        <name>Version_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Visit Limit --></label>
+        <name>Visit_Limit__c</name>
+    </fields>
+    <layouts>
+        <layout>Benefit Plan Association Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Plan Details --></label>
+            <section>Plan Details</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Retrieve_Plans --></label>
+        <name>Retrieve_Plans</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Retrieve_Plans_Quote --></label>
+        <name>Retrieve_Plans_Quote</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Retrieve_Plans_RFP --></label>
+        <name>Retrieve_Plans_RFP</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Retrieve_Plans_SCN --></label>
+        <name>Retrieve_Plans_SCN</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Retrieve_Plans_SSO --></label>
+        <name>Retrieve_Plans_SSO</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Select_Rates --></label>
+        <name>Select_Rates</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Select_Rates_Quote --></label>
+        <name>Select_Rates_Quote</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Select_Rates_RFP --></label>
+        <name>Select_Rates_RFP</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Select_Rates_SCN --></label>
+        <name>Select_Rates_SCN</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Select_Rates_SSO --></label>
+        <name>Select_Rates_SSO</name>
+    </webLinks>
+</CustomObjectTranslation>

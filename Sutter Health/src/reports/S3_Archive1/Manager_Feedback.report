@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Managers_Feedback__c$Name</field>
+    </columns>
+    <columns>
+        <field>Managers_Feedback__c$Service_Area__c</field>
+    </columns>
+    <columns>
+        <field>Managers_Feedback__c$Subject__c</field>
+    </columns>
+    <columns>
+        <field>Managers_Feedback__c$Status__c</field>
+    </columns>
+    <columns>
+        <field>Managers_Feedback__c$Resolution__c</field>
+    </columns>
+    <columns>
+        <field>Managers_Feedback__c$CreatedDate</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Managers_Feedback__c$Subject__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notContain</operator>
+            <value>For train</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Managers_Feedback__c$Subject__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notContain</operator>
+            <value>test</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Manager Feedback</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Managers_Feedback_Infos__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Managers_Feedback__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

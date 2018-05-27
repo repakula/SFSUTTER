@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Managers Feedback</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Manager Feedback</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Manager Feedback --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Affiliate --></label>
+        <name>Affiliate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Aging (Days) --></label>
+        <name>Aging_Days__c</name>
+    </fields>
+    <fields>
+        <label><!-- Call Back --></label>
+        <name>Call_Back__c</name>
+    </fields>
+    <fields>
+        <label><!-- Closed Date --></label>
+        <name>Closed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Manager Feedback --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- ConatctID --></label>
+        <name>ConatctID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Manager Feedback --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Email to L1 --></label>
+        <name>Email_to_L1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email to L2 --></label>
+        <name>Email_to_L2__c</name>
+    </fields>
+    <fields>
+        <label><!-- InternalURL --></label>
+        <name>InternalURL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job Title --></label>
+        <name>Job_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- L1 Owner --></label>
+        <name>L1_Owner__c</name>
+    </fields>
+    <fields>
+        <label><!-- L2 Owner --></label>
+        <name>L2_Owner__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Manager_Working_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Owner Change Count --></label>
+        <name>Owner_Change_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- Resolution --></label>
+        <name>Resolution__c</name>
+        <picklistValues>
+            <masterLabel>Change Identified</masterLabel>
+            <translation><!-- Change Identified --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Change Implemented</masterLabel>
+            <translation><!-- Change Implemented --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Change</masterLabel>
+            <translation><!-- No Change --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Send a Thank You</masterLabel>
+            <translation><!-- Send a Thank You --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Send Resolution Email --></label>
+        <name>Send_Resolution_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Area --></label>
+        <name>Service_Area__c</name>
+        <picklistValues>
+            <masterLabel>Accounts Payable (Payments to Vendors)</masterLabel>
+            <translation><!-- Accounts Payable (Payments to Vendors) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Benefits &amp; Retirement</masterLabel>
+            <translation><!-- Benefits &amp; Retirement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Capital Acquisition/Approval</masterLabel>
+            <translation><!-- Capital Acquisition/Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Charge Capture</masterLabel>
+            <translation><!-- Charge Capture --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contact Center</masterLabel>
+            <translation><!-- Contact Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Disability Management</masterLabel>
+            <translation><!-- Disability Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Employee Portal</masterLabel>
+            <translation><!-- Employee Portal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hiring</masterLabel>
+            <translation><!-- Hiring --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Job Descriptions &amp; Evaluations</masterLabel>
+            <translation><!-- Job Descriptions &amp; Evaluations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Learning (HealthStream)</masterLabel>
+            <translation><!-- Learning (HealthStream) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patient Access - Pre-service</masterLabel>
+            <translation><!-- Patient Access - Pre-service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payroll</masterLabel>
+            <translation><!-- Payroll --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Performance Review (PSDP)</masterLabel>
+            <translation><!-- Performance Review (PSDP) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purchasing/Ordering</masterLabel>
+            <translation><!-- Purchasing/Ordering --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Supplies Distribution/Delivery</masterLabel>
+            <translation><!-- Supplies Distribution/Delivery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Travel and Expense Reimbursement</masterLabel>
+            <translation><!-- Travel and Expense Reimbursement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tuition Reimbursement</masterLabel>
+            <translation><!-- Tuition Reimbursement --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Subject --></label>
+        <name>Subject__c</name>
+    </fields>
+    <fields>
+        <label><!-- WorkEmail --></label>
+        <name>WorkEmail__c</name>
+    </fields>
+    <fields>
+        <label><!-- Assigned to --></label>
+        <name>assigned_to__c</name>
+        <relationshipLabel><!-- Manager Feedback --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Managers Feedback Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Item Information --></label>
+            <section>Item Information</section>
+        </sections>
+        <sections>
+            <label><!-- Manager Feedback Submitted --></label>
+            <section>Manager Feedback Submitted</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Managers Feedback RO Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Item Information --></label>
+            <section>Item Information</section>
+        </sections>
+        <sections>
+            <label><!-- Manager Feedback Submitted --></label>
+            <section>Manager Feedback Submitted</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- ManagerFeedback --></label>
+        <name>ManagerFeedback</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- ManagerFeedback RO --></label>
+        <name>ManagerFeedback_RO</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Status cannot be changed back to &quot;New&quot;. --></errorMessage>
+        <name>Cannot_Change_Status_to_New</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You don&apos;t have permission to edit this Manager Feedback record --></errorMessage>
+        <name>Change_Status_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Closed Date can not be less than today&apos;s date. --></errorMessage>
+        <name>Closed_Date_Not_Less_Than_Today</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You can not change the owner for closed request --></errorMessage>
+        <name>Closed_Manager_Feedback_owner_change</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot edit the manager feedback without assigning it to yourself from the queue. --></errorMessage>
+        <name>Feedback_Owner_is_Not_in_Queqe</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You Cannot change the Owner to a Queue. Please select a User. --></errorMessage>
+        <name>Prevent_User_to_Change_Owner_To_Queue</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please select a value in Resolution. --></errorMessage>
+        <name>ResolutionNotBlankIfStatusClosed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Status should be Closed. --></errorMessage>
+        <name>StatusClosedIfResolutionisSelected</name>
+    </validationRules>
+</CustomObjectTranslation>

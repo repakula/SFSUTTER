@@ -1,0 +1,83 @@
+<!--
+*     Page Name   : VFP18_KM_Feedback
+*     Author      : Atul Gupta
+*     Date        : 04-Aug-2014 
+*     Project Name: CRM - SFT - Sutter Health
+*     Description : Release 6 Req-2899 KM Feedback
+-->
+<!-- Page Definition: KM feedback item as Standard Controller and VFC18_KM_Feedback as extension -->
+<apex:page standardController="KM_Feedback_Item__c" extensions="VFC18_KM_Feedback" action="{!articleQueryMethod}" id="pg" sidebar="false">
+
+<!-- Javascript : javascript functions --> 
+<script>
+
+    /**Description: function to close the tab after error check
+    **/
+    function realClose()
+    {
+        setTimeout(closeOnTimeOut, 6000);
+    }
+    
+    function closeOnTimeOut()
+    {
+        var bool = document.getElementById("theHiddenInput").value;
+        if(bool == 'true')
+        {
+            var win=window.open("","_top","","true");
+            win.opener=true;
+            win.close();
+        }
+    }
+</script>
+
+    <!-- Page Message : to show page messages -->
+    <apex:pageMessages id="pgMessage"/>
+    <apex:form id="theform">
+    
+    <apex:outputpanel id="panel">
+        <input type="hidden" value="{!closeWindowKM}" id="theHiddenInput"/>
+    </apex:outputpanel>
+    <!-- section header : section header with title KM Feedback -->
+    <apex:sectionHeader title="Article Feedback" subtitle="{!articleName}" />
+                
+        <apex:outputpanel id="Block">
+            <!-- PageBlock : pageblock to contain page buttons and fields -->
+            <apex:outputpanel rendered="{!!thankYouBlock}" id="inputBlock">
+                <apex:outputText value="Tell us what we can do to improve this article. Your comments will NOT be made available to the public; however, your contact information will be included in the submission."/>
+                <apex:pageBlock mode="Edit" >
+                
+                    <!-- PageBlockbuttons : Save and cancel button buttons on the page -->
+                    <apex:pageBlockButtons >
+                        <apex:commandButton action="{!Save}" value="Submit" rerender="pgMessage, panel, Block" oncomplete="realClose();"/>
+                        <apex:commandButton value="Cancel" action="{!cancel}" rerender="pgMessage, panel, Block" oncomplete="closeOnTimeOut();" immediate="true"/>
+                    </apex:pageBlockButtons>
+
+                    <br/><br/>
+                    <!-- PageBlockSection : section with only 1 column that contains feedback field -->
+                    <apex:pageBlockSection columns="1" collapsible="false"> 
+                       
+                        <apex:selectRadio value="{!km_Feedback.Arcticle_Helpfull__c}">
+                            <apex:selectOptions value="{!articleOptions}"/>
+                        </apex:selectRadio>
+                        
+                        <apex:inputField value="{!km_Feedback.Type_of_feedback__c}" label="What type of feedback would you like to provide?"  />
+                        <apex:inputField value="{!km_Feedback.Content_Rate__c}" required="true" label="How would you rate the content of this article?"  />
+                       
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection columns="1" collapsible="false"> 
+                         <apex:inputField value="{!km_Feedback.Feedback__c}" required="true" label="Comments/Suggestions" style="width:70%" />
+                    </apex:pageBlockSection>
+                 </apex:pageBlock>
+            </apex:outputpanel>
+            
+            <apex:outputpanel rendered="{!thankYouBlock}" id="thanksBlock">
+                 <apex:pageBlock >
+                    <b style="font-size: large;"><apex:outputText value="Thank you for your feedback"/></b>
+                     <br/>
+                     <br/>
+                    <apex:commandButton value="OK" onclick="closeOnTimeOut();"/>
+                 </apex:pageBlock>
+            </apex:outputpanel>
+        </apex:outputpanel>
+    </apex:form>
+</apex:page>

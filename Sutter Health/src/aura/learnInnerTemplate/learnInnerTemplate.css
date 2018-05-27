@@ -1,0 +1,143 @@
+.THIS .selfServiceProfileMenu li {
+    display:block;
+}
+
+.THIS .headerRight > li {
+font-family: 'helvetica_ce_55_romanbold'!important;
+}
+
+.THIS .headerRight > li:first-child::after, .THIS .headerRight li:last-child::before{
+    display:none;
+}
+
+.THIS .selfServiceSearchWrapper .search-wrapper, .THIS .selfServiceSearchWrapper .post-container {
+    padding:0;
+}
+
+.THIS .selfServiceSearchWrapper.big-search-container {
+    height: inherit!important;
+}
+
+.THIS .selfServiceSearchWrapper .search-button.uiButton, .THIS .selfServiceSearchWrapper .search-button.uiButton:hover {
+    left: 0;
+    height: 30px!important;
+    width: 30px!important;
+    background: url("/resource/1490179467000/project/iconSearch.jpg") no-repeat scroll center center;
+    background-color: none!important;
+    text-indent: -9999px;
+}
+
+.THIS .forceCommunityOmniBox.selfServiceSearchWrapper .search-button.uiButton, .THIS .forceCommunityOmniBox.selfServiceSearchWrapper .has-input .search-button.uiButton, .THIS  .forceCommunityOmniBox.selfServiceSearchWrapper .search-button.uiButton.focus
+
+.THIS .uiInput--input.input:focus, .THIS .uiInput--input .input:focus,  .THIS .uiInput--input.input:active,  .THIS .uiInput--input .input:active {
+    background-color: #FFF!important;
+}
+
+.THIS .forceCommunityOmniBox.selfServiceSearchWrapper .search-field {
+    padding-left: 30px;
+    padding-right: 5px;
+}
+
+.THIS .forceCommunityOmniBox.selfServiceSearchWrapper .search-input-group, 
+.THIS .forceCommunityOmniBox.selfServiceSearchWrapper .search-button.uiButton, 
+.THIS .forceCommunityOmniBox.selfServiceSearchWrapper .search-field {
+    height: 30px!important;
+}
+
+.THIS .uiInput--input .input, .THIS .uiInput--input.input {
+    min-height: inherit!important;
+    border: none;
+     background-color: #FFF!important;
+    opacity: 1;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.THIS .headerRight {
+    max-width: 500px;
+}
+
+.THIS .forceCommunityOmniBox .continue-post-wrapper, .THIS .forceCommunityDeflection .uiAutocompleteList {
+    padding: 0;
+}
+
+.THIS .forceCommunityDeflectionOption a.suggestion {
+    display: block
+}
+
+.THIS .headerRight li:last-child {
+    max-width: 200px;
+}
+
+.THIS .headerRight li, .THIS .headerRight li li {
+    margin-right: 0;
+}
+
+.THIS .lookup__item.all.suggestion.force.default.uiAutocompleteOption.forceCommunityDeflectionOption, .THIS .continue-post-wrapper {
+    width: 100%;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.THIS .result-container {
+    position: absolute;
+    left: 0;
+}
+
+.THIS .forceCommunityNavigationMenu {
+    background: none!important;
+    border: none;
+}
+
+.THIS .triggerLink:hover  {
+    background: #00a4a2!important;
+    color: #FFF !important;
+}
+
+.THIS .selfServiceProfileMenuTrigger .trigger-link {
+    display: inline-block;
+    text-align: left;
+    padding: 0px;
+}
+
+.THIS .selfServiceProfileMenuTrigger .profileName {
+    font-size: inherit !important;
+    font-family:"helvetica_ce_55_romanbold" !important;
+    font-size: 13px!important;
+    text-align: left;
+    width: 160px;
+}
+.THIS .search-container {
+    width: 175px;
+}
+.THIS .uiPopupTrigger.selfServiceProfileMenuTrigger {
+    width: 120px!important;
+}
+.THIS .homeContent h2 a{ 
+color: #4a4a4a;
+}
+.THIS .homeContent h2 a:hover{ 
+color: #333 !important;
+}
+
+.THIS .selfServiceProfileMenu li.uiMenuItem a{
+    font-weight: normal !important;
+}
+.THIS .selfServiceProfileMenu .menuList ul{
+   overflow: hidden; 
+}
+.THIS #body{
+	background: #7a7a7a;
+}
+
+/* Only for Learn Inner */
+
+.THIS #learn_topicImg > img,.THIS .innerHeader {
+    visibility: hidden;
+    max-height:170px;
+    display:block; 
+    width:100%;
+}
+.THIS #learn_topicImg{
+    background-size:cover;
+}

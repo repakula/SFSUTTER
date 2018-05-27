@@ -1,0 +1,960 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Project</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Projects</value>
+    </caseValues>
+    <fields>
+        <label><!-- A3 --></label>
+        <name>A3__c</name>
+        <relationshipLabel><!-- Projects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Affiliate --></label>
+        <name>Affiliate__c</name>
+        <picklistValues>
+            <masterLabel>Alta Bates Summit Medical Center</masterLabel>
+            <translation><!-- Alta Bates Summit Medical Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>California Pacific Medical Center</masterLabel>
+            <translation><!-- California Pacific Medical Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eden Medical Center</masterLabel>
+            <translation><!-- Eden Medical Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kahi</masterLabel>
+            <translation><!-- Kahi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Memorial Hospital Los Banos</masterLabel>
+            <translation><!-- Memorial Hospital Los Banos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Memorial Medical Center Modesto</masterLabel>
+            <translation><!-- Memorial Medical Center Modesto --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Menlo Park Surgical Hospital</masterLabel>
+            <translation><!-- Menlo Park Surgical Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mills-Peninsula Health Services</masterLabel>
+            <translation><!-- Mills-Peninsula Health Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Novato Community Hospital</masterLabel>
+            <translation><!-- Novato Community Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Palo Alto Medical Foundation - PCR</masterLabel>
+            <translation><!-- Palo Alto Medical Foundation - PCR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Palo Alto Medical Foundation - SC</masterLabel>
+            <translation><!-- Palo Alto Medical Foundation - SC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Palo Alto Medical Foundation – EBR</masterLabel>
+            <translation><!-- Palo Alto Medical Foundation – EBR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S3</masterLabel>
+            <translation><!-- S3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SAFH</masterLabel>
+            <translation><!-- SAFH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SAH</masterLabel>
+            <translation><!-- SAH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SCAH</masterLabel>
+            <translation><!-- SCAH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SHP</masterLabel>
+            <translation><!-- SHP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SHSO</masterLabel>
+            <translation><!-- SHSO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SHSS</masterLabel>
+            <translation><!-- SHSS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Amador Hospital</masterLabel>
+            <translation><!-- Sutter Amador Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Auburn Faith Hospital</masterLabel>
+            <translation><!-- Sutter Auburn Faith Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Davis Hospital</masterLabel>
+            <translation><!-- Sutter Davis Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Delta Medical Center</masterLabel>
+            <translation><!-- Sutter Delta Medical Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter East Bay Medical Foundation</masterLabel>
+            <translation><!-- Sutter East Bay Medical Foundation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Gould Medical Foundation</masterLabel>
+            <translation><!-- Sutter Gould Medical Foundation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Lakeside Hospital</masterLabel>
+            <translation><!-- Sutter Lakeside Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Maternity and Surgery Center of Santa Cruz</masterLabel>
+            <translation><!-- Sutter Maternity and Surgery Center of Santa Cruz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Medical Center of Santa Rosa</masterLabel>
+            <translation><!-- Sutter Medical Center of Santa Rosa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Medical Center, Sacramento</masterLabel>
+            <translation><!-- Sutter Medical Center, Sacramento --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Medical Foundation</masterLabel>
+            <translation><!-- Sutter Medical Foundation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter North Medical Foundation</masterLabel>
+            <translation><!-- Sutter North Medical Foundation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Pacific Medical Foundation</masterLabel>
+            <translation><!-- Sutter Pacific Medical Foundation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Pacific Medical Foundation - Sonoma</masterLabel>
+            <translation><!-- Sutter Pacific Medical Foundation - Sonoma --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Regional Medical Foundation</masterLabel>
+            <translation><!-- Sutter Regional Medical Foundation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Roseville Medical Center</masterLabel>
+            <translation><!-- Sutter Roseville Medical Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Solano Medical Center</masterLabel>
+            <translation><!-- Sutter Solano Medical Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Tracy Community Hospital</masterLabel>
+            <translation><!-- Sutter Tracy Community Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Systemwide</masterLabel>
+            <translation><!-- Systemwide --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Aging --></label>
+        <name>Aging__c</name>
+    </fields>
+    <fields>
+        <help><!-- From SBAR Analysis, what is the Project Assessment? --></help>
+        <label><!-- Assessment --></label>
+        <name>Assessment__c</name>
+    </fields>
+    <fields>
+        <help><!-- From SBAR Analysis, what is the Project Background? --></help>
+        <label><!-- Background --></label>
+        <name>Background__c</name>
+    </fields>
+    <fields>
+        <label><!-- Budget Status --></label>
+        <name>Budget_Status__c</name>
+        <picklistValues>
+            <masterLabel>At Risk</masterLabel>
+            <translation><!-- At Risk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Hold</masterLabel>
+            <translation><!-- On Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Track</masterLabel>
+            <translation><!-- On Track --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Community --></label>
+        <name>Community__c</name>
+        <picklistValues>
+            <masterLabel>Extreme: Critical to mission: substantial community need documented</masterLabel>
+            <translation><!-- Extreme: Critical to mission: substantial community need documented --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low: Limited tie to mission - other community options exist</masterLabel>
+            <translation><!-- Low: Limited tie to mission - other community options exist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Moderate: Clear tie with mission - limited community options</masterLabel>
+            <translation><!-- Moderate: Clear tie with mission - limited community options --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Rating</masterLabel>
+            <translation><!-- No Rating --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None: Not clearly tied to mission - limited community need</masterLabel>
+            <translation><!-- None: Not clearly tied to mission - limited community need --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Strong: Strongly supports mission - community need documented</masterLabel>
+            <translation><!-- Strong: Strongly supports mission - community need documented --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Date --></help>
+        <label><!-- Concept Elaboration --></label>
+        <name>Concept_Elaboration__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Submitted --></label>
+        <name>Date_Submitted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days to Concept Elaboration --></label>
+        <name>Days_to_Concept_Elaboration__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days to Discovery Funding --></label>
+        <name>Days_to_Discovery_Funding__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days to EA Review --></label>
+        <name>Days_to_EA_Review__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days to PRF Received --></label>
+        <name>Days_to_PRF_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days to Triage --></label>
+        <name>Days_to_Triage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Discovery Funding --></label>
+        <name>Discovery_Funding__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date EA last reviewed. --></help>
+        <label><!-- EA Review --></label>
+        <name>EA_Review__c</name>
+    </fields>
+    <fields>
+        <label><!-- EA Team Member --></label>
+        <name>EA_Team_Member__c</name>
+        <relationshipLabel><!-- Projects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Ent Program --></label>
+        <name>Ent_Program__c</name>
+        <picklistValues>
+            <masterLabel>EDV</masterLabel>
+            <translation><!-- EDV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EHR</masterLabel>
+            <translation><!-- EHR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EHR - OpTime</masterLabel>
+            <translation><!-- EHR - OpTime --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EHR-Meaningful Use</masterLabel>
+            <translation><!-- EHR-Meaningful Use --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EHR-My Health Online</masterLabel>
+            <translation><!-- EHR-My Health Online --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HIE</masterLabel>
+            <translation><!-- HIE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ICD 10</masterLabel>
+            <translation><!-- ICD 10 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ICD 10 - Systemwide IS</masterLabel>
+            <translation><!-- ICD 10 - Systemwide IS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ICD 10 - Systemwide Operational</masterLabel>
+            <translation><!-- ICD 10 - Systemwide Operational --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IS Tech Infrastructure - Data Center - Date Center</masterLabel>
+            <translation><!-- IS Tech Infrastructure - Data Center - Date Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IS Tech Infrastructure - IS Technical Infrastructure</masterLabel>
+            <translation><!-- IS Tech Infrastructure - IS Technical Infrastructure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IS Tech Infrastructure - Infrastructure Apps - Infrastructure Applications</masterLabel>
+            <translation><!-- IS Tech Infrastructure - Infrastructure Apps - Infrastructure Applications --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IS Tech Infrastructure - Life Cycle Mgmt - Life Cycle Management</masterLabel>
+            <translation><!-- IS Tech Infrastructure - Life Cycle Mgmt - Life Cycle Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IS Tech Infrastructure - Servers and Storage - Servers and Storage</masterLabel>
+            <translation><!-- IS Tech Infrastructure - Servers and Storage - Servers and Storage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IS Tech Infrastructure - Service Mgmt - Service Management</masterLabel>
+            <translation><!-- IS Tech Infrastructure - Service Mgmt - Service Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IS Tech Infrastructure - Transport Infrastructure - Transport Infrastructure</masterLabel>
+            <translation><!-- IS Tech Infrastructure - Transport Infrastructure - Transport Infrastructure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IS Tech Infrastructure - UCCE</masterLabel>
+            <translation><!-- IS Tech Infrastructure - UCCE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IS Tech Infrastructure - User Access Experience - User Access Experience</masterLabel>
+            <translation><!-- IS Tech Infrastructure - User Access Experience - User Access Experience --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IS Tech Infrastructure - User Experience - User Experience</masterLabel>
+            <translation><!-- IS Tech Infrastructure - User Experience - User Experience --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITSM</masterLabel>
+            <translation><!-- ITSM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITSM - Asset Mgmt</masterLabel>
+            <translation><!-- ITSM - Asset Mgmt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITSM - Capacity Mgmt</masterLabel>
+            <translation><!-- ITSM - Capacity Mgmt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITSM - Config Mgmt</masterLabel>
+            <translation><!-- ITSM - Config Mgmt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITSM - Svc Catalog</masterLabel>
+            <translation><!-- ITSM - Svc Catalog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITSM - Svc Desk</masterLabel>
+            <translation><!-- ITSM - Svc Desk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MDM</masterLabel>
+            <translation><!-- MDM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SIIP</masterLabel>
+            <translation><!-- SIIP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SIIP - Druker</masterLabel>
+            <translation><!-- SIIP - Druker --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SIIP - RD and D</masterLabel>
+            <translation><!-- SIIP - RD and D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SIIP - RD and D - Clinical Apps</masterLabel>
+            <translation><!-- SIIP - RD and D - Clinical Apps --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SIIP - RD and D - Innovation</masterLabel>
+            <translation><!-- SIIP - RD and D - Innovation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SIIP - RD and D - VDW</masterLabel>
+            <translation><!-- SIIP - RD and D - VDW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SIIP - Strategic Partnerships</masterLabel>
+            <translation><!-- SIIP - Strategic Partnerships --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Security</masterLabel>
+            <translation><!-- Security --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Security - Cyber Security</masterLabel>
+            <translation><!-- Security - Cyber Security --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Security - Cyber Security - DLP</masterLabel>
+            <translation><!-- Security - Cyber Security - DLP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Security - ID Access Mgmt</masterLabel>
+            <translation><!-- Security - ID Access Mgmt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Security - Network Access</masterLabel>
+            <translation><!-- Security - Network Access --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Security - Risk Mgmt</masterLabel>
+            <translation><!-- Security - Risk Mgmt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Security - Security Administration</masterLabel>
+            <translation><!-- Security - Security Administration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Security - Unsupported OS</masterLabel>
+            <translation><!-- Security - Unsupported OS --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Finance Performance --></label>
+        <name>Finance_Performance__c</name>
+        <picklistValues>
+            <masterLabel>Extreme: ROI less than or equal to 25%</masterLabel>
+            <translation><!-- Extreme: ROI less than or equal to 25% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low: ROI less than or equal to 5%</masterLabel>
+            <translation><!-- Low: ROI less than or equal to 5% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Moderate: ROI less than or equal to 10%</masterLabel>
+            <translation><!-- Moderate: ROI less than or equal to 10% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Rating</masterLabel>
+            <translation><!-- No Rating --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None: 0% ROI breaks even</masterLabel>
+            <translation><!-- None: 0% ROI breaks even --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Strong: ROI less than or equal to 15%</masterLabel>
+            <translation><!-- Strong: ROI less than or equal to 15% --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Financial Performance --></label>
+        <name>Financial_Performance__c</name>
+        <picklistValues>
+            <masterLabel>Extreme: Meets 5 of 5 Goal Areas</masterLabel>
+            <translation><!-- Extreme: Meets 5 of 5 Goal Areas --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low: Meets 2 of 5 Goal Areas</masterLabel>
+            <translation><!-- Low: Meets 2 of 5 Goal Areas --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Moderate: Meets 3 of 5 Goal Areas</masterLabel>
+            <translation><!-- Moderate: Meets 3 of 5 Goal Areas --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Rating</masterLabel>
+            <translation><!-- No Rating --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None: Meets 1 of 5 Goal Areas</masterLabel>
+            <translation><!-- None: Meets 1 of 5 Goal Areas --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Strong: Meets 4 of 5 Goal Areas</masterLabel>
+            <translation><!-- Strong: Meets 4 of 5 Goal Areas --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Governance Body --></label>
+        <name>Governance_Body__c</name>
+        <picklistValues>
+            <masterLabel>Business Systems</masterLabel>
+            <translation><!-- Business Systems --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clinical</masterLabel>
+            <translation><!-- Clinical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IS Leadership</masterLabel>
+            <translation><!-- IS Leadership --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Local</masterLabel>
+            <translation><!-- Local --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revenue Cycle</masterLabel>
+            <translation><!-- Revenue Cycle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web Portal</masterLabel>
+            <translation><!-- Web Portal --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Initial Project Notification --></label>
+        <name>Initial_Project_Notification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Owning Business Unit --></label>
+        <name>Owning_Business_Unit__c</name>
+        <picklistValues>
+            <masterLabel>SH.Affiliate.ZNR.Kahi Mohala</masterLabel>
+            <translation><!-- SH.Affiliate.ZNR.Kahi Mohala --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SH.Affiliate.ZNR.SCAH</masterLabel>
+            <translation><!-- SH.Affiliate.ZNR.SCAH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SH.S3</masterLabel>
+            <translation><!-- SH.S3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SH.S3.BioMed</masterLabel>
+            <translation><!-- SH.S3.BioMed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SH.S3.Finance</masterLabel>
+            <translation><!-- SH.S3.Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SH.SHSS.SBD.SHP</masterLabel>
+            <translation><!-- SH.SHSS.SBD.SHP --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Date the Project Request Form was received. --></help>
+        <label><!-- PRF Received --></label>
+        <name>PRF_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- People --></label>
+        <name>People__c</name>
+        <picklistValues>
+            <masterLabel>Extreme: Industry best practice showing impact on employee satisfaction index</masterLabel>
+            <translation><!-- Extreme: Industry best practice showing impact on employee satisfaction index --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low: Low impact on employee satisfaction index</masterLabel>
+            <translation><!-- Low: Low impact on employee satisfaction index --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Moderate: Evidence nationally of positive impact on employee satisfaction index</masterLabel>
+            <translation><!-- Moderate: Evidence nationally of positive impact on employee satisfaction index --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Rating</masterLabel>
+            <translation><!-- No Rating --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None: Does not impact employee satisfaction index</masterLabel>
+            <translation><!-- None: Does not impact employee satisfaction index --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Strong: Evidence at Sutter of positive impact on employee satisfaction index</masterLabel>
+            <translation><!-- Strong: Evidence at Sutter of positive impact on employee satisfaction index --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Program Type --></label>
+        <name>Program_Type__c</name>
+        <picklistValues>
+            <masterLabel>Compliance</masterLabel>
+            <translation><!-- Compliance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Investment</masterLabel>
+            <translation><!-- Investment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Risk</masterLabel>
+            <translation><!-- Risk --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Program --></label>
+        <name>Program__c</name>
+        <relationshipLabel><!-- Projects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Project Coordinator --></label>
+        <name>Project_Coordinator__c</name>
+        <relationshipLabel><!-- Projects (Project Coordinator) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Project Manager --></label>
+        <name>Project_Manager__c</name>
+        <relationshipLabel><!-- Projects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Project Name --></label>
+        <name>Project_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- SHIS Project Server Project Number --></help>
+        <label><!-- Project Number --></label>
+        <name>Project_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Stage --></label>
+        <name>Project_Stage__c</name>
+        <picklistValues>
+            <masterLabel>Build</masterLabel>
+            <translation><!-- Build --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Design</masterLabel>
+            <translation><!-- Design --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Discovery</masterLabel>
+            <translation><!-- Discovery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Exploration</masterLabel>
+            <translation><!-- Exploration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Go Live</masterLabel>
+            <translation><!-- Go Live --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Idea</masterLabel>
+            <translation><!-- Idea --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test</masterLabel>
+            <translation><!-- Test --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Project Status --></label>
+        <name>Project_Status__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Declined</masterLabel>
+            <translation><!-- Declined --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Hold</masterLabel>
+            <translation><!-- On Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regionally Approved</masterLabel>
+            <translation><!-- Regionally Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted for Approval</masterLabel>
+            <translation><!-- Submitted for Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>System Approved</masterLabel>
+            <translation><!-- System Approved --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Quality --></label>
+        <name>Quality__c</name>
+        <picklistValues>
+            <masterLabel>Extreme: Industry best practice for high priority area, broad clinical, safety, or service impact</masterLabel>
+            <translation><!-- Extreme: Industry best practice for high priority area, broad clinical, safety, or service impact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low: Impact on comfort / satisfaction, but no direct clinical / Safety impact</masterLabel>
+            <translation><!-- Low: Impact on comfort / satisfaction, but no direct clinical / Safety impact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Moderate: Evidence nationally of possible positive clinical, safety, or service impact</masterLabel>
+            <translation><!-- Moderate: Evidence nationally of possible positive clinical, safety, or service impact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Rating</masterLabel>
+            <translation><!-- No Rating --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None: Little Direct impact on patient outcome, safety, or comfort</masterLabel>
+            <translation><!-- None: Little Direct impact on patient outcome, safety, or comfort --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Strong: Evidence at Sutter of likely positive clinical, safety, or service impact</masterLabel>
+            <translation><!-- Strong: Evidence at Sutter of likely positive clinical, safety, or service impact --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- From SBAR Analysis, what is the Project Recommendation? --></help>
+        <label><!-- Recommendation --></label>
+        <name>Recommendation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Regional CIO / Service Line VP --></label>
+        <name>Regional_CIO_Service_Line_VP__c</name>
+        <relationshipLabel><!-- Projects (Regional CIO / Service Line VP) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Requested Completion Date --></label>
+        <name>Requested_Completion_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Region --></label>
+        <name>Requestor_Department__c</name>
+        <picklistValues>
+            <masterLabel>CVR</masterLabel>
+            <translation><!-- CVR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EBR</masterLabel>
+            <translation><!-- EBR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PCR</masterLabel>
+            <translation><!-- PCR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SHSO</masterLabel>
+            <translation><!-- SHSO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SSR</masterLabel>
+            <translation><!-- SSR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>System-Wide</masterLabel>
+            <translation><!-- System-Wide --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WBR</masterLabel>
+            <translation><!-- WBR --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Who requested this project? --></help>
+        <label><!-- Requestor --></label>
+        <name>Requestor__c</name>
+        <relationshipLabel><!-- Requestor --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Schedule Status --></label>
+        <name>Schedule_Status__c</name>
+        <picklistValues>
+            <masterLabel>At Risk</masterLabel>
+            <translation><!-- At Risk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Hold</masterLabel>
+            <translation><!-- On Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Track</masterLabel>
+            <translation><!-- On Track --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Scope Status --></label>
+        <name>Scope_Status__c</name>
+        <picklistValues>
+            <masterLabel>At Risk</masterLabel>
+            <translation><!-- At Risk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Hold</masterLabel>
+            <translation><!-- On Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Track</masterLabel>
+            <translation><!-- On Track --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Service --></label>
+        <name>Service__c</name>
+        <picklistValues>
+            <masterLabel>Extreme: Industry best practice for integration within region or across system</masterLabel>
+            <translation><!-- Extreme: Industry best practice for integration within region or across system --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low: Potential for integration within region or across system but no plan in place</masterLabel>
+            <translation><!-- Low: Potential for integration within region or across system but no plan in place --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Moderate: Integration likely within region or across system and plan in place to achieve</masterLabel>
+            <translation><!-- Moderate: Integration likely within region or across system and plan in place to achieve --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Rating</masterLabel>
+            <translation><!-- No Rating --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None: Clinical capacity / network opportunity not yet identified</masterLabel>
+            <translation><!-- None: Clinical capacity / network opportunity not yet identified --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Strong: Evidence at Sutter of integration success within region or across system, likelihood of achieving</masterLabel>
+            <translation><!-- Strong: Evidence at Sutter of integration success within region or across system, likelihood of achieving --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- From SBAR Analysis, what is the Situation? --></help>
+        <label><!-- Situation --></label>
+        <name>Situation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sponsor --></label>
+        <name>Sponsor__c</name>
+        <relationshipLabel><!-- Sponsored Projects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Rating --></label>
+        <name>Status_Rating_Image__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status Rating --></label>
+        <name>Status_Rating__c</name>
+        <picklistValues>
+            <masterLabel>Green</masterLabel>
+            <translation><!-- Green --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Red</masterLabel>
+            <translation><!-- Red --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yellow</masterLabel>
+            <translation><!-- Yellow --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Date sent to Triage --></help>
+        <label><!-- Triage --></label>
+        <name>Triage__c</name>
+    </fields>
+    <layouts>
+        <layout>Project Layout</layout>
+        <sections>
+            <label><!-- Concept Summary --></label>
+            <section>Concept Summary</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Project Contacts --></label>
+            <section>Project Contacts</section>
+        </sections>
+        <sections>
+            <label><!-- Project Timelines --></label>
+            <section>Project Timelines</section>
+        </sections>
+        <sections>
+            <label><!-- SBAR Analysis --></label>
+            <section>SBAR Analysis</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>VMO Project</layout>
+        <sections>
+            <label><!-- Concept Summary --></label>
+            <section>Concept Summary</section>
+        </sections>
+        <sections>
+            <label><!-- Contacts --></label>
+            <section>Contacts</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Overview --></label>
+            <section>Overview</section>
+        </sections>
+        <sections>
+            <label><!-- Project Lifecycle Dates --></label>
+            <section>Project Lifecycle Dates</section>
+        </sections>
+        <sections>
+            <label><!-- SBAR Analysis --></label>
+            <section>SBAR Analysis</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- New VMO Project --></label>
+        <name>New_Project</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- SSR Project --></label>
+        <name>SSR_Project</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- VMO Project --></label>
+        <name>VMO_Project</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

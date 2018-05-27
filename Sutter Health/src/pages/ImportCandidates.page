@@ -1,0 +1,200 @@
+<!--
+*     Page Name   : ImportCandidates
+*     Author      : IDC Offshore
+*     Date        : 13-Sep-2015
+*     Project Name: CRM - SFT - Sutter Health
+*     Description : Visual Force Page for Importing Candidates into Lead object for REQ - 3618 (Sourcing)
+-->
+
+
+
+<apex:page controller="ImportCandidatesCtlr" sidebar="false" showHeader="true" id="pg">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <apex:stylesheet value="{!URLFOR($Resource.ImportCandidateCss, 'ImportCandidateCss.css')}" />
+     <script type="text/javascript">
+        $(document).ready(function() {
+            //$(".btn").addClass("button");
+             $(".button").click(function() {                
+                 $("body").append('<div class="modalOverlay"><div class="PopupPanel"><img id="loading-image" src="{!fullFileURL}{!$Resource.animatedloading}" alt="Loading..." /></div></div>');
+                 
+             });
+        });
+
+
+        function assignValue(obj) {
+
+            var strUser = obj.options[obj.selectedIndex].value;
+            document.getElementById("pg:frm:hidden").value = strUser;
+
+
+
+
+        }
+    </script>
+   
+
+
+    <apex:pageMessages id="mymsg" />
+    <apex:form id="frm">
+
+
+
+
+
+        <apex:inputHidden value="{!selectedValue}" id="hidden" />
+        
+        <apex:pageBlock title="Import Candidates" mode="inlineEdit" id="pb"  >
+        
+         <div style="text-align:center;">
+    
+            <b>Browse File</b>
+            <apex:inputFile title="Browse File" value="{!objFile}" fileName="{!csvAsString}" id="upl" accept="text/csv">
+            </apex:inputFile>
+      
+      
+            <b>Owner   </b>
+            <apex:selectList id="agents" value="{!strOwner}" size="1" title="Owner" label="Owner" onChange="assignValue(this);">
+                <apex:selectOptions value="{!SourcingAgents}"></apex:selectOptions>
+            </apex:selectList>
+           
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <b>Sourcing From  </b>
+            <apex:selectList id="Source" value="{!strSourcingFrom}" size="1" title="Owner" label="Owner">
+                <apex:selectOptions value="{!SourcingFrom}"></apex:selectOptions>
+            </apex:selectList>
+
+               
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <apex:commandButton action="{!Import}" value="Import" id="Import" status="status" styleClass="button" />
+   </div> 
+
+
+
+            <br/>
+            <br/>
+            <div style="text-align:center;">
+            <apex:outputText value="{!strSuccessMsg}" rendered="{!showMsg}" style="font-weight:bold;color:#0F203D;" />
+            </div>
+
+
+            <apex:outputText rendered="{!showErrorRecords}" style="font-weight:bold;color:red;" value="{!ErrorString}" />
+
+            <br/>
+            <br/>
+
+
+
+            <apex:pageblockTable value="{!ErrorList}" var="obj" rendered="{!showErrors}" styleClass="gridtable1">
+
+                <!--<apex:column headerValue="">
+       <apex:inputtext value="{!obj.Is_Modified__c}" />
+   </apex:column>-->
+
+                <apex:column headerValue="First Name" >
+
+                    <apex:actionRegion >
+                        <apex:outputfield value="{!obj.First_Name__c}">
+                            <apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" hideOnEdit="Import" />
+                        </apex:outputField>
+                    </apex:actionRegion>
+                </apex:column>
+
+                <apex:column headerValue="Last Name">
+                    <apex:actionRegion >
+                        <apex:outputField value="{!obj.Last_Name__c}">
+                            <apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" />
+                        </apex:outputField>
+                    </apex:actionRegion>
+                </apex:column>
+
+                <apex:column headerValue="LinkedIn Id">
+
+                    <apex:actionRegion >
+                        <apex:outputField value="{!obj.LinkedIn_Id__c}">
+                            <apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" />
+                        </apex:outputField>
+                    </apex:actionRegion>
+                </apex:column>
+
+
+                <apex:column headerValue="Email" width="200px">
+
+                    <apex:actionRegion >
+                        <apex:outputField value="{!obj.Email__c}">
+                            <apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" />
+                        </apex:outputField>
+                    </apex:actionRegion>
+                </apex:column>
+
+
+
+                <apex:column headerValue="Profile URL" width="250px">
+
+                    <apex:actionRegion >
+                        <apex:outputField value="{!obj.Profile_URL__c}">
+                            <apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" />
+                        </apex:outputField>
+                    </apex:actionRegion>
+                </apex:column>
+
+                <apex:column headerValue="Error Message" width="200px">
+
+                    <apex:actionRegion >
+                        <apex:outputfield value="{!obj.Error_Encountered__c}">
+                            <apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" disabled="true" />
+                        </apex:outputField>
+                    </apex:actionRegion>
+                </apex:column>
+
+
+                <apex:column headerValue="Current Position" width="80px">
+
+                    <apex:actionRegion >
+                        <apex:outputfield value="{!obj.Current_Position__c}">
+                            <apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" />
+                        </apex:outputField>
+                    </apex:actionRegion>
+                </apex:column>
+
+                <apex:column headerValue="Company">
+
+                    <apex:actionRegion >
+                        <apex:outputfield value="{!obj.Company__c}">
+                            <apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" />
+                        </apex:outputField>
+                    </apex:actionRegion>
+                </apex:column>
+
+            </apex:pageblockTable>
+         
+            <br/>
+            <div style="float:right;">
+                
+                <apex:commandbutton action="{!doFirst}" value="<< First" rendered="{!hasPrevious}" styleClass="button"/>
+                <apex:commandbutton action="{!doPrevious}" rendered="{!hasPrevious}" value="<  Prev" styleClass="button"/>
+                
+
+                <b><apex:outputLabel value=" (page {!pageNumber} of {!totalPages}) " rendered="{!IF(totalPages>0,true,false)}"/></b>
+
+                <apex:commandbutton action="{!doNext}" rendered="{!hasNext}" value="Next  >" styleClass = "button"/>
+                
+                <apex:commandbutton action="{!doLast}" value="Last >>" rendered="{!hasNext}" styleClass = "button"/>
+                
+            </div> &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div style="text-align: center;">
+                <apex:commandButton action="{!UpdateDuplicate}" value="Update/Insert Duplicate" id="UpdateDuplicate" rendered="{!if(ErrorList.size>0,true,false)}" status="status"  />
+            </div>
+            <br/>
+            <br/>
+            <apex:outputLabel rendered="{!showUpdate}">Note: Sytem will create a new lead record if you update the Email id</apex:outputLabel>
+
+        </apex:pageBlock>
+
+
+
+
+    </apex:form>
+
+</apex:page>

@@ -1,0 +1,1023 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>Managers_Feedback</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Affiliate__c</fullName>
+        <defaultValue>$User.EmployeeAffiliate__c</defaultValue>
+        <externalId>false</externalId>
+        <label>Affiliate</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Aging_Days__c</fullName>
+        <description>Reporting Field to count the number of weekdays that a Manager Feedback has been open.</description>
+        <externalId>false</externalId>
+        <formula>If(IsNull(Closed_Date__c),
+
+CASE(MOD( DateValue(CreatedDate) - DATE(1985,6,24),7), 0 ,
+CASE( MOD( Today() - DateValue(CreatedDate) ,7),1,2,2,3,3,4,4,5,5,5,6,5,1), 1 ,
+CASE( MOD( Today() - DateValue(CreatedDate) ,7),1,2,2,3,3,4,4,4,5,4,6,5,1), 2 ,
+CASE( MOD( Today() - DateValue(CreatedDate) ,7),1,2,2,3,3,3,4,3,5,4,6,5,1), 3 ,
+CASE( MOD( Today() - DateValue(CreatedDate) ,7),1,2,2,2,3,2,4,3,5,4,6,5,1), 4 ,
+CASE( MOD( Today() - DateValue(CreatedDate) ,7),1,1,2,1,3,2,4,3,5,4,6,5,1), 5 ,
+CASE( MOD( Today() - DateValue(CreatedDate) ,7),1,0,2,1,3,2,4,3,5,4,6,5,0), 6 ,
+CASE( MOD( Today() - DateValue(CreatedDate) ,7),1,1,2,2,3,3,4,4,5,5,6,5,0), 999)
++ (FLOOR(( Today() - DateValue(CreatedDate) )/7)*5-1),
+
+CASE(MOD( DateValue(CreatedDate) - DATE(1985,6,24),7), 0 ,
+CASE( MOD( (Closed_Date__c) - DateValue(CreatedDate) ,7),1,2,2,3,3,4,4,5,5,5,6,5,1), 1 ,
+CASE( MOD( (Closed_Date__c) - DateValue(CreatedDate) ,7),1,2,2,3,3,4,4,4,5,4,6,5,1), 2 ,
+CASE( MOD( (Closed_Date__c) - DateValue(CreatedDate) ,7),1,2,2,3,3,3,4,3,5,4,6,5,1), 3 ,
+CASE( MOD( (Closed_Date__c) - DateValue(CreatedDate) ,7),1,2,2,2,3,2,4,3,5,4,6,5,1), 4 ,
+CASE( MOD( (Closed_Date__c) - DateValue(CreatedDate) ,7),1,1,2,1,3,2,4,3,5,4,6,5,1), 5 ,
+CASE( MOD( (Closed_Date__c) - DateValue(CreatedDate) ,7),1,0,2,1,3,2,4,3,5,4,6,5,0), 6 ,
+CASE( MOD( (Closed_Date__c) - DateValue(CreatedDate) ,7),1,1,2,2,3,3,4,4,5,5,6,5,0), 999)
++ (FLOOR(( (Closed_Date__c) - DateValue(CreatedDate) )/7)*5-1))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Aging (Days)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Call_Back__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Call Back</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Closed_Date__c</fullName>
+        <description>Closed Date</description>
+        <externalId>false</externalId>
+        <label>Closed Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Manager Feedback</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ConatctID__c</fullName>
+        <externalId>false</externalId>
+        <label>ConatctID</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Manager_Feedback</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Email_to_L1__c</fullName>
+        <externalId>false</externalId>
+        <label>Email to L1</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Email_to_L2__c</fullName>
+        <externalId>false</externalId>
+        <label>Email to L2</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>InternalURL__c</fullName>
+        <externalId>false</externalId>
+        <label>InternalURL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Job_Title__c</fullName>
+        <defaultValue>$User.Title</defaultValue>
+        <externalId>false</externalId>
+        <label>Job Title</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>L1_Owner__c</fullName>
+        <externalId>false</externalId>
+        <label>L1 Owner</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>L2_Owner__c</fullName>
+        <externalId>false</externalId>
+        <label>L2 Owner</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Manager_Working_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <length>250</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Owner_Change_Count__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Owner Change Count</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Resolution__c</fullName>
+        <externalId>false</externalId>
+        <label>Resolution</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Change Identified</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Change Implemented</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No Change</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Send a Thank You</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Send_Resolution_Email__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Send Resolution Email</description>
+        <externalId>false</externalId>
+        <label>Send Resolution Email</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Service_Area__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Area</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Accounts Payable (Payments to Vendors)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Benefits &amp; Retirement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Capital Acquisition/Approval</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Charge Capture</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Contact Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Disability Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Employee Portal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hiring</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Job Descriptions &amp; Evaluations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Learning (HealthStream)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Patient Access - Pre-service</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Payroll</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Performance Review (PSDP)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Purchasing/Ordering</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Supplies Distribution/Delivery</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Travel and Expense Reimbursement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tuition Reimbursement</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Closed</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Subject__c</fullName>
+        <externalId>false</externalId>
+        <label>Subject</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WorkEmail__c</fullName>
+        <externalId>false</externalId>
+        <label>WorkEmail</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>assigned_to__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Assigned to</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Managers_Feedback_Infos</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Managers Feedback</label>
+    <listViews>
+        <fullName>Accounts_Payable_Feedback</fullName>
+        <columns>NAME</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Service_Area__c</columns>
+        <columns>Subject__c</columns>
+        <columns>Status__c</columns>
+        <columns>Resolution__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Closed_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Service_Area__c</field>
+            <operation>equals</operation>
+            <value>Accounts Payable (Payments to Vendors)</value>
+        </filters>
+        <label>S3 Accounts Payable Feedback</label>
+    </listViews>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Service_Area__c</columns>
+        <columns>Subject__c</columns>
+        <columns>Status__c</columns>
+        <columns>Resolution__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Closed_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Charge_Capture_Feedback</fullName>
+        <columns>NAME</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Service_Area__c</columns>
+        <columns>Subject__c</columns>
+        <columns>Status__c</columns>
+        <columns>Resolution__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Closed_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Service_Area__c</field>
+            <operation>equals</operation>
+            <value>Charge Capture</value>
+        </filters>
+        <label>S3 Charge Capture Feedback</label>
+    </listViews>
+    <listViews>
+        <fullName>Comp_Benefits_Feedback</fullName>
+        <columns>NAME</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Service_Area__c</columns>
+        <columns>Subject__c</columns>
+        <columns>Status__c</columns>
+        <columns>Resolution__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Closed_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Service_Area__c</field>
+            <operation>equals</operation>
+            <value>Benefits &amp; Retirement,Job Descriptions &amp; Evaluations,Tuition Reimbursement</value>
+        </filters>
+        <label>S3 Comp &amp; Benefits Feedback</label>
+    </listViews>
+    <listViews>
+        <fullName>Contact_Center_Feedback</fullName>
+        <columns>NAME</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Resolution__c</columns>
+        <columns>Service_Area__c</columns>
+        <columns>Subject__c</columns>
+        <columns>Status__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Closed_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Service_Area__c</field>
+            <operation>equals</operation>
+            <value>Contact Center</value>
+        </filters>
+        <label>S3 Contact Center Feedback</label>
+    </listViews>
+    <listViews>
+        <fullName>Disability_Mgmt_Feedback</fullName>
+        <columns>NAME</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Resolution__c</columns>
+        <columns>Service_Area__c</columns>
+        <columns>Subject__c</columns>
+        <columns>Status__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Closed_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Service_Area__c</field>
+            <operation>equals</operation>
+            <value>Disability Management</value>
+        </filters>
+        <label>S3 Disability Mgmt  Feedback</label>
+    </listViews>
+    <listViews>
+        <fullName>Learning_Feedback</fullName>
+        <columns>NAME</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Resolution__c</columns>
+        <columns>Service_Area__c</columns>
+        <columns>Subject__c</columns>
+        <columns>Status__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Closed_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Service_Area__c</field>
+            <operation>equals</operation>
+            <value>Learning (HealthStream)</value>
+        </filters>
+        <label>S3 Learning Feedback</label>
+    </listViews>
+    <listViews>
+        <fullName>Manager_Feedback</fullName>
+        <columns>NAME</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Service_Area__c</columns>
+        <columns>Subject__c</columns>
+        <columns>Status__c</columns>
+        <columns>Resolution__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Closed_Date__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>Manager Feedback</label>
+        <queue>Manager_Feedback</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>PSDP_Feedback</fullName>
+        <columns>NAME</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Resolution__c</columns>
+        <columns>Service_Area__c</columns>
+        <columns>Subject__c</columns>
+        <columns>Status__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Closed_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Service_Area__c</field>
+            <operation>equals</operation>
+            <value>Performance Review (PSDP)</value>
+        </filters>
+        <label>S3 PSDP Feedback</label>
+    </listViews>
+    <listViews>
+        <fullName>Patient_Access_Feedback</fullName>
+        <columns>NAME</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Resolution__c</columns>
+        <columns>Service_Area__c</columns>
+        <columns>Subject__c</columns>
+        <columns>Status__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Closed_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Service_Area__c</field>
+            <operation>equals</operation>
+            <value>Patient Access - Pre-service</value>
+        </filters>
+        <label>S3 Patient Access Feedback</label>
+    </listViews>
+    <listViews>
+        <fullName>Payroll_Feedback</fullName>
+        <columns>NAME</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Resolution__c</columns>
+        <columns>Service_Area__c</columns>
+        <columns>Subject__c</columns>
+        <columns>Status__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Closed_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Service_Area__c</field>
+            <operation>equals</operation>
+            <value>Payroll,Travel and Expense Reimbursement</value>
+        </filters>
+        <label>S3 Payroll Feedback</label>
+    </listViews>
+    <listViews>
+        <fullName>Portal_Feedback</fullName>
+        <columns>NAME</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Resolution__c</columns>
+        <columns>Service_Area__c</columns>
+        <columns>Subject__c</columns>
+        <columns>Status__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Closed_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Service_Area__c</field>
+            <operation>equals</operation>
+            <value>Employee Portal</value>
+        </filters>
+        <label>S3 Portal Feedback</label>
+    </listViews>
+    <listViews>
+        <fullName>Recent_Manager_Feedback</fullName>
+        <columns>NAME</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Service_Area__c</columns>
+        <columns>Status__c</columns>
+        <columns>Resolution__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Closed_Date__c</columns>
+        <filterScope>Mine</filterScope>
+        <label>Recently Viewed Manager Feedback</label>
+    </listViews>
+    <listViews>
+        <fullName>Recruitment_Feedback</fullName>
+        <columns>NAME</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Resolution__c</columns>
+        <columns>Service_Area__c</columns>
+        <columns>Subject__c</columns>
+        <columns>Status__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Closed_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Service_Area__c</field>
+            <operation>equals</operation>
+            <value>Hiring</value>
+        </filters>
+        <label>S3 Recruitment Feedback</label>
+    </listViews>
+    <listViews>
+        <fullName>Supply_Chain_Feedback</fullName>
+        <columns>NAME</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Resolution__c</columns>
+        <columns>Service_Area__c</columns>
+        <columns>Subject__c</columns>
+        <columns>Status__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Closed_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Service_Area__c</field>
+            <operation>contains</operation>
+            <value>Capital Acquisition/Approval,Purchasing/Ordering,Supplies Distribution/Deliver</value>
+        </filters>
+        <label>S3 Supply Chain Feedback</label>
+    </listViews>
+    <nameField>
+        <displayFormat>MF-{0000}</displayFormat>
+        <label>Feedback ID</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Manager Feedback</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>ManagerFeedback</fullName>
+        <active>true</active>
+        <label>ManagerFeedback</label>
+        <picklistValues>
+            <picklist>Resolution__c</picklist>
+            <values>
+                <fullName>Change Identified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Change Implemented</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Change</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send a Thank You</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Service_Area__c</picklist>
+            <values>
+                <fullName>Accounts Payable %28Payments to Vendors%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Benefits %26 Retirement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Capital Acquisition%2FApproval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Charge Capture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Disability Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee Portal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hiring</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Job Descriptions %26 Evaluations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Learning %28HealthStream%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Patient Access - Pre-service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Payroll</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Performance Review %28PSDP%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchasing%2FOrdering</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Supplies Distribution%2FDelivery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel and Expense Reimbursement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tuition Reimbursement</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>ManagerFeedback_RO</fullName>
+        <active>true</active>
+        <description>Manager Feedback with Readonly fields</description>
+        <label>ManagerFeedback RO</label>
+        <picklistValues>
+            <picklist>Resolution__c</picklist>
+            <values>
+                <fullName>Change Identified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Change Implemented</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Change</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send a Thank You</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Service_Area__c</picklist>
+            <values>
+                <fullName>Accounts Payable %28Payments to Vendors%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Benefits %26 Retirement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Capital Acquisition%2FApproval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Charge Capture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Disability Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee Portal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hiring</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Job Descriptions %26 Evaluations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Learning %28HealthStream%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Patient Access - Pre-service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Payroll</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Performance Review %28PSDP%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchasing%2FOrdering</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Supplies Distribution%2FDelivery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel and Expense Reimbursement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tuition Reimbursement</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>OWNER.FIRST_NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OWNER.LAST_NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Service_Area__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Resolution__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CREATEDBY_USER</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Closed_Date__c</customTabListAdditionalFields>
+        <excludedStandardButtons>New</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Cannot_Change_Status_to_New</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( NOT( ISPICKVAL( PRIORVALUE( Status__c ) , &apos;New&apos;) ) , ISPICKVAL( Status__c , &apos;New&apos;))</errorConditionFormula>
+        <errorMessage>Status cannot be changed back to &quot;New&quot;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Change_Status_Validation</fullName>
+        <active>true</active>
+        <description>Error if Status changed by User other than Owner</description>
+        <errorConditionFormula>IF(
+AND
+( 
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$User.Id  &lt;&gt; PRIORVALUE(OwnerId),
+NOT(ISNEW())
+), true, false
+)</errorConditionFormula>
+        <errorMessage>You don&apos;t have permission to edit this Manager Feedback record</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Closed_Date_Not_Less_Than_Today</fullName>
+        <active>true</active>
+        <description>Closed Date cannot be less than Today</description>
+        <errorConditionFormula>Closed_Date__c  &lt;  TODAY()</errorConditionFormula>
+        <errorMessage>Closed Date can not be less than today&apos;s date.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Closed_Manager_Feedback_owner_change</fullName>
+        <active>true</active>
+        <description>Closed_Manager_Feedback_owner_change</description>
+        <errorConditionFormula>AND(ISCHANGED(OwnerId) , ISPICKVAL(Status__c, &apos;Closed&apos;) )</errorConditionFormula>
+        <errorMessage>You can not change the owner for closed request</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Feedback_Owner_is_Not_in_Queqe</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF 
+(
+AND ($Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+ BEGINS(PRIORVALUE(OwnerId), &apos;00G&apos;), NOT(ISNEW())
+), true, false
+)</errorConditionFormula>
+        <errorMessage>You cannot edit the manager feedback without assigning it to yourself from the queue.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Prevent_User_to_Change_Owner_To_Queue</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(CONTAINS($Profile.Name, &apos;S3&apos;) ,ISCHANGED(OwnerId), BEGINS(OwnerId, &apos;00G&apos;) )</errorConditionFormula>
+        <errorMessage>You Cannot change the Owner to a Queue. Please select a User.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ResolutionNotBlankIfStatusClosed</fullName>
+        <active>true</active>
+        <description>Resolution cannot be left Blank If Status is Closed.</description>
+        <errorConditionFormula>AND(
+   ISPICKVAL(Status__c , &apos;Closed&apos;) ,
+   ISPICKVAL( Resolution__c , &apos;&apos;)
+)</errorConditionFormula>
+        <errorDisplayField>Resolution__c</errorDisplayField>
+        <errorMessage>Please select a value in Resolution.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>StatusClosedIfResolutionisSelected</fullName>
+        <active>true</active>
+        <description>StatusClosedIfResolutionisSelected</description>
+        <errorConditionFormula>AND(
+NOT(ISPICKVAL(Status__c , &apos;Closed&apos;)) ,
+NOT(ISPICKVAL( Resolution__c , &apos;&apos;))
+)</errorConditionFormula>
+        <errorDisplayField>Status__c</errorDisplayField>
+        <errorMessage>Status should be Closed.</errorMessage>
+    </validationRules>
+</CustomObject>

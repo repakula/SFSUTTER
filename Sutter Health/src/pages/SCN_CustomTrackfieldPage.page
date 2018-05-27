@@ -1,0 +1,51 @@
+<!--
+/*_______________________________________________________________________________________________________________________________________________________________
+ * 
+ * Class Name   : SCN_CustomTrackfieldPageController
+ * Created by   : Deloitte 
+ * Date         : 16/03/2017
+ * User Story   : SFSHP-5
+ * Description  : Sales - SCN - Visual Notification of Changes in SCN. The below page is for the functionality of tracking the difference between 
+ *                Solid case notification data and its cloned record through a button that is comparing the cloned record and its source record.
+ * Change Log
+ * _______________________________________________________________________________________________________________________________________________________________
+ *      Name            Date        Userstory       Description
+ * _______________________________________________________________________________________________________________________________________________________________
+ * 
+ * _______________________________________________________________________________________________________________________________________________________________
+ * ______________________________________________________________________________________________________________________________________________________________*/
+-->
+<apex:page standardController="Employer_Group_Data__c"
+    extensions="SCN_CustomTrackfieldPageController" showChat="false" sidebar="false" showHeader="false">
+    <div class="datagrid" style="display: {!IF(ShowMessage,'block','none')};font-size: 1pc;">
+    No changes detected
+    </div>
+    <div class="datagrid" style="display: {!IF(!ShowMessage,'block','none')};">
+    <table>
+        <thead>
+            <tr>
+                <th>Field name</th>
+                <th style="color:orangered">Old value</th>
+                <th style="color:darkgreen">New value</th>
+            </tr>
+        </thead>
+        <tbody>
+        <apex:repeat value="{!FieldHistoryList}" var="a">
+            <tr>
+                <td><apex:outputText >{!a[0]}</apex:outputText></td>
+                <td ><apex:outputText >{!a[1]}</apex:outputText></td>
+                <td><apex:outputText >{!a[2]}</apex:outputText></td>
+            </tr>
+        </apex:repeat>
+        </tbody>
+    </table>
+    </div>
+    <style type="text/css">
+        .datagrid {margin: .5pc;}
+       .datagrid table { border-collapse: collapse; text-align: left; width: 100%; } 
+       .datagrid {font: normal 12px/150% Arial, Helvetica, sans-serif; background: #fff; overflow: hidden; }
+       .datagrid table td, .datagrid table th { padding: 2px 4px; }
+       .datagrid table thead th {background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, rgb(193, 208, 220)), color-stop(1, rgb(193, 208, 220)) );background-color:rgb(193, 208, 220); color:#FFFFFF; font-size: 14px; font-weight: normal;  }
+       .datagrid table tbody td { color: #7D7D7D; font-size: 12px;border-bottom: 2px solid #E1EEF4;font-weight: normal; }
+    </style>
+</apex:page>

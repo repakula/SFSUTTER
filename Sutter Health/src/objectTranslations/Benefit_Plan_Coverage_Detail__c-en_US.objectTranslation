@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Benefit Plan Coverage Detail</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Benefit Plan Coverage Details</value>
+    </caseValues>
+    <fields>
+        <label><!-- Benefit Coverage Date End --></label>
+        <name>Benefit_Coverage_Date_End__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Coverage Date Start --></label>
+        <name>Benefit_Coverage_Date_Start__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Coverage Description --></label>
+        <name>Benefit_Coverage_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Coverage HCC ID --></label>
+        <name>Benefit_Coverage_HCC_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Coverage Name --></label>
+        <name>Benefit_Coverage_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Detail Benefit Coverage HR ID --></label>
+        <name>Benefit_Detail_Benefit_Coverage_HR_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Detail Member HR ID --></label>
+        <name>Benefit_Detail_Member_HR_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Plan Coverage Detail External ID --></label>
+        <name>Benefit_Plan_Coverage_Detail_External_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Plan Coverage Detail HR ID --></label>
+        <name>Benefit_Plan_Coverage_Detail_HR_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Plan Coverage ID --></label>
+        <name>Benefit_Plan_Coverage_ID__c</name>
+        <relationshipLabel><!-- Benefit Plan Coverage Details --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Benefit Plan Coverage Detail Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

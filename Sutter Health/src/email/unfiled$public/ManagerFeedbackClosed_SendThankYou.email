@@ -1,0 +1,6 @@
+<table height="400" width="550" cellpadding="5" border="0" cellspacing="5" >
+<tr height="400" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r1" locked="0" aEditID="c1r1" >
+<![CDATA[<p>Dear {!Managers_Feedback__c.CreatedBy},</p><p>&nbsp;</p><p>Thank you for submitting feedback on the {!Managers_Feedback__c.Service_Area__c} process while using the employee portal on {!Managers_Feedback__c.CreatedDate}. This type of thoughtful feedback is extremely helpful and important to us in delivering the highest levels of quality and service to our valuable customers.&nbsp; We look forward to any additional feedback you have on our process at Sutter Shared Services.</p><p>&nbsp;</p><p>Sincerely,</p><p>&nbsp;</p><p>{!Managers_Feedback__c.OwnerFullName}</p>]]></td>
+</tr>
+</table>

@@ -1,0 +1,166 @@
+<apex:page docType="html-5.0" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" controller="SH_Landing" action="{!forwardToLoginPage}"> 
+    <head>
+        <title>Home</title>
+        <!-- added on 14-Oct-2015 to redirect on SH_UnSupportedPage if browser is less than IE 9-->
+        <!--[if lt IE 9]><script>
+            
+            window.location.href = 'SH_UnSupportedPage';
+        </script><![endif]-->
+        <c:SH_HeaderResource />
+    </head>
+    <style>
+        .big-logo {margin-top:12px;}
+        
+    </style>
+    <!--added on 05-Nov-2015 for setting home page slider animation -->
+    <script>
+        homeSliderInterval = {!homeSliderInterval};
+    </script>
+    <body id="home" class="show-notification menu-open menu-visibility">
+    <c:SH_SearchBar isPreview="{!isPreview}"/>
+    <!-- notification popup -->
+    <c:SH_Notification isPreview="{!isPreview}" id="notifComponent" Title="{!strTitle}" Description="{!strDescription}" Info="{!strInfo}" BrowserTitle="{!strBrowserTitle}" BrowserDescription="{!strBrowserDescription}" BrowserInfo="{!strBrowserInfo}" BrowserNotify="{!IsBrowser}" Notify="{!IsNotify}"/>
+    <!-- Menu Item -->
+    <c:SH_MenuItem lstMenuItem="{!lstMenuItem }" isPreview="{!isPreview}" Category="{!strCategoryForHelp}" SubCategory="{!strSubCategoryForHelp}"/>
+    
+    <!-- content -->
+    <div id="content-wrapper">
+        <!-- Header-->
+        <c:SH_Header isPreview="{!isPreview}"/>
+        <div id="content">
+                <!-- landing carousel section -->
+                <div class="container-fluid">
+                    <div class="row">
+                        <section class="carousel-section landing">  
+                            <div class="slider">
+                                <ul>
+                                    <apex:variable value="{!1}" var="count"/>
+                                    <apex:repeat value="{!lstHeadliner}" var="varHeadLiner">
+                                        <li class="{!if((count == 1),'active', '')}">
+                                        <apex:variable var="ImgUrl" value="{!imgBaseUrl +varHeadLiner.objSObject['SH_Content_Image_Url__c']}"/>
+                                            <div class="cover" style="background-image: url('{!ImgUrl}');"></div>
+                                        </li>
+                                        <apex:variable var="count" value="{!count+ 1}"/>
+                                    </apex:repeat> 
+                                </ul>
+                            </div>
+                            <div class="container">
+                                <div class="slider-navigation">
+                                    <a class="left-button" href="">
+                                        <span class="data-icon icon-dotted-circle">
+                                            <span class="data-icon icon-arrow-left"></span>
+                                        </span>
+                                    </a>
+                                    <a class="right-button" href="">
+                                        <span class="data-icon icon-dotted-circle">
+                                            <span class="data-icon icon-arrow-right"></span>
+                                        </span>
+                                    </a>
+
+                                    <ul class="slides">
+                                        <apex:variable value="{!1}" var="count"/>
+                                        <apex:repeat value="{!lstHeadliner}" var="varHeadLiner">
+                                            <li class="{!if((count == 1),'active', '')}">
+                                                <h2>{!varHeadLiner.objSObject['SH_Title__c']}</h2>
+                                                <p>
+                                                    {!varHeadLiner.objSObject['SH_Headliner_description__c']}
+                                                </p>
+                                                <a class="link background-orange" href="{!If(isPreview,'#', varHeadLiner.link)}" target="{!If(varHeadLiner.contentType == 'Tool','_self' , varHeadLiner.target)}">
+                                                    <i class="icon icon-arrow-right"></i>View More</a>
+                                            </li>
+                                            <apex:variable var="count" value="{!count+ 1}"/>
+                                        </apex:repeat> 
+                                    </ul>
+
+                                    <ul class="navigation">
+                                        <apex:variable value="{!1}" var="count"/>
+                                        <apex:repeat value="{!lstHeadliner}" var="varHeadLiner">
+                                            <li class="{!if((count == 1),'active', '')}"></li>
+                                            <apex:variable var="count" value="{!count+ 1}"/>
+                                        </apex:repeat> 
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <!-- carousel section with variations -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <section columns="4" class="carousel-section grid-icon">
+                                <div attr-index="0" class="slider" attr-childs-page-count="3">
+                                    <ul>
+                                        <apex:variable value="{!1}" var="count"/>
+                                        <apex:repeat value="{!lstCarousel}" var="varHeadCarousel">
+                                            <apex:outputPanel rendered="{!if(count < 6, true, false)}" layout="none">
+                                                <li>
+                                                   <a href="{!If(isPreview,'#', varHeadCarousel.link)}" target="{!If(varHeadCarousel.contentType == 'Tool','_self' , varHeadCarousel.target)}"><div class="overlay-img-wrapper"><i class="icon {!varHeadCarousel.objSObject['SH_Icon__c']}"></i></div></a>
+                                                   <div class="content">
+                                                       <a class="title-link" href="{!If(isPreview,'#', varHeadCarousel.link)}" target="{!If(varHeadCarousel.contentType == 'Tool','_self' , varHeadCarousel.target)}">
+                                                        <h3>{!varHeadCarousel.objSObject['SH_Title__c']}</h3>
+                                                        </a>
+                                                       <p>{!varHeadCarousel.objSObject['SH_Carousel_description__c']}</p>
+                                                   </div>
+                                                   <div class="bottom-line"><hr/></div>
+                                               </li>
+                                           </apex:outputPanel>
+                                           <apex:variable var="count" value="{!count+ 1}"/>
+                                        </apex:repeat> 
+                                    </ul>
+                                </div>
+                            </section>
+                            <section columns="4" class="carousel-section grid-icon">
+                                <div attr-index="0" class="slider" attr-childs-page-count="3">
+                                    <ul>
+                                        <apex:variable value="{!1}" var="count"/>
+                                        <apex:repeat value="{!lstCarousel}" var="varHeadCarousel">
+                                            <apex:outputPanel rendered="{!if(count > 5, true, false)}" layout="none">
+                                                <li>
+                                                    <a href="{!If(isPreview,'#', varHeadCarousel.link)}" target="{!If(varHeadCarousel.contentType == 'Tool','_self' , varHeadCarousel.target)}"><div class="overlay-img-wrapper"><i class="icon {!varHeadCarousel.objSObject['SH_Icon__c']}"></i></div></a>
+                                                    <div class="content">
+                                                        <a class="title-link" href="{!If(isPreview,'#', varHeadCarousel.link)}" target="{!If(varHeadCarousel.contentType == 'Tool','_self' , varHeadCarousel.target)}">
+                                                            <h3>{!varHeadCarousel.objSObject['SH_Title__c']}</h3>
+                                                        </a>
+                                                        <p>{!varHeadCarousel.objSObject['SH_Carousel_description__c']}</p>
+                                                    </div>
+                                                    <div class="bottom-line"><hr/></div>
+                                                </li>
+                                            </apex:outputPanel>
+                                            <apex:variable var="count" value="{!count+ 1}"/>   
+                                        </apex:repeat> 
+                                    </ul>
+                                </div>
+                            </section>
+                         </div>
+                    </div>
+                </div>
+            </div>      
+    </div>
+    
+    <!-- Footer -->
+    <c:SH_Footer ></c:SH_Footer>
+    
+    <!-- Swipe events on landing carousel -->
+    <script type="text/javascript">
+        jQuery(document).ready(function($){
+            
+            Hammer('.carousel-section.landing').on("swipeleft", function() {
+                $('.slider-navigation a.right-button').first().trigger('click');
+            });
+            Hammer('.carousel-section.landing').on("swiperight", function() {
+                $('.slider-navigation a.left-button').first().trigger('click');
+            });
+        });
+    </script>
+    
+    </body>
+    <apex:form >
+        <!-- added on 25-Aug-2015 for Notification -->
+        <apex:inputHidden id="hdnToolArticle" value="{!strToolArticeId}"/>
+        <apex:inputHidden id="hdnBrowserName" value="{!browserName}"/>
+        <apex:actionfunction name="showNotification" action="{!showNotification}"/>
+    </apex:form>
+            
+    
+</apex:page>

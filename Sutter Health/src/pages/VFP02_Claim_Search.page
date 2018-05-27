@@ -1,0 +1,190 @@
+<!--
+*     Page Name   : VFP02_Claim_Search
+*     Author      : IDC Offshore
+*     Date        : 16-Dec-2013
+*     Project Name: CRM - SFT - Sutter Health
+*     Description : Claim Search Page to Search Claims, See Associated Claims, Associate/Dissociate Claims to and from the SHP interaction log
+*       History
+*      
+*       VERSION         AUTHOR              DATE              DETAIL 
+*         1.0          IDC                  12/06/2013       Initial Creation
+          1.1          IDC                  12/04/15         Added JSENCODE
+-->
+
+
+<!-- Page Definition: Without sidebar for use in the Service Console -->
+<apex:page Controller="VFC02_Claim_Search" sidebar="false" id="pg">
+
+<!-- Reference to Javascript libraries -->
+<apex:includeScript value="/support/console/28.0/integration.js"/>
+
+    <apex:form >
+      <!-- OutputPanel that contains all the components of the page -->
+      <apex:outputPanel id="thePanel">
+        <!-- PageMessages tag to show any Apex Page messages -->
+      <apex:pageMessages id="pageMessages"/>
+
+        <!-- Search Block with all the fields on which search for the Member can be performed -->         
+        <apex:pageBlock id="searchPageblock" title="Claim Search">
+           
+            <!-- Search Block with all the fields on which search for the Claim can be performed -->           
+            <apex:pageblockSection id="claimSearch" columns="2">
+                        <!-- inputText tags for search parameters/fields, onkeypress carries javascript methods to initiate search on pressing enter on keyboard -->
+                    <apex:inputText value="{!claimID}" label="Claim ID:" onkeypress="return noenter1(event,5);"/>
+                    <apex:inputText value="{!claimMemberID}" label="Member ID:" onkeypress="return noenter1(event,5);" rendered="{!IF(claimMemberID == '',true, false)}"/>
+                    <apex:outputText value="{!claimMemberID}" label="Member ID:" rendered="{!IF(claimMemberID != '',true, false)}"/>
+                    <apex:inputField value="{!claimSearchStartDate.SearchDate__c}" label="Start Date:" id="SearchStart" onChange="dateAssignStart();" onkeypress="return noenter1(event,5);"/>
+                    <apex:inputField value="{!claimSearchEndDate.SearchDate__c}" label="End Date:" onChange="dateAssignEnd();" id="SearchEnd" onkeypress="return noenter1(event,5);"/> 
+                    <apex:inputText value="{!claimProviderID}" label="Provider ID:" onkeypress="return noenter1(event,5);" rendered="{!IF(claimProviderID == '',true, false)}"/>
+                    <apex:outputText value="{!claimProviderID}" label="Provider ID:" rendered="{!IF(claimProviderID != '',true, false)}"/>
+                    <apex:pageBlockSectionItem >
+                        <apex:commandButton action="{!SearchClaim}" value="Search" rerender="tabPanel, pageMessages"/>
+                        <apex:actionFunction name="doClaimSearch" action="{!SearchClaim}" reRender="tabPanel, pageMessages"/>
+                    </apex:pageBlockSectionItem>
+            </apex:pageblockSection>
+        </apex:pageBlock>
+    <!-- Tab panel section that contains all the tab tags -->     
+    <apex:tabPanel id="tabPanel" value="{!showTab}" rendered="{!showTabPanel}" switchType="client">
+        <!-- Tab that contains Claim Search Results  -->       
+        <apex:tab label="Claim Result" id="tab1" immediate="true" rendered="{!showResults}">
+        <!-- PageBlock that shows the Claim Search Results -->
+        <apex:pageBlock id="resultPageBlock" >
+            <!-- pageBlockButtons section for the Associate to Interaction Log button -->
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Associate Claims to Interaction Log" action="{!associateMultipleClaim}" reRender="tabPanel, pageMessages" disabled="{!isClosed}" oncomplete="refreshPrimaryTabByName(); return false;" />
+                <!-- OutputLabel to show the association message -->                
+                <center>
+                       <apex:outputLabel rendered="{!multipleMessage}"><b>Selected Claims: {!selClaim} have been associated to the Interaction Log.</b></apex:outputLabel>
+                </center>
+                <!-- OutputLabel to show the message when the interaction log is closed -->                  
+                <center>
+                       <apex:outputLabel rendered="{!isClosed}"><b>Interaction Log is Closed, Association cannot be done</b></apex:outputLabel>
+                </center>
+            </apex:pageBlockButtons>
+                <!-- PageBlockTable with the Claim Search Results in the table form -->              
+                <apex:pageBlockTable value="{!claimWrapperList}" var="cwrap">
+                    <apex:column >
+                        <apex:facet name="header"> <apex:inputCheckbox onclick="checkAll(this);">
+                            </apex:inputCheckbox>
+                        </apex:facet>
+                        <apex:inputCheckbox value="{!cwrap.isSelected}" id="checkedone">
+                        </apex:inputCheckbox>
+                    </apex:column>
+                    <apex:column headerValue="Claim">
+                    <apex:CommandLink value="{!cwrap.claim.SHPClaimHdr_Claim_HCC_ID__c}" action="{!setClaimLink}" rerender="tabPanel">
+                        <apex:param value="{!cwrap.claim.Id}" name="ClaimLinkId" assignTo="{!claimLinkId}"/>
+                    </apex:CommandLink>
+                    </apex:column>
+                    <apex:column value="{!cwrap.claim.SHPClaimHdr_Member_HCC_ID__c}"/>
+                    <apex:column value="{!cwrap.claim.SHPClaimHdr_Claim_DoS_Start__c}"/>
+                    <apex:column value="{!cwrap.claim.SHPClaimHdr_Claim_DoS_End__c}"/>
+                    <apex:column value="{!cwrap.claim.SHPClaimHdr_Claim_Date_of_Receipt__c}"/>
+                </apex:pageBlockTable>
+            </apex:pageBlock>
+        </apex:tab>
+        <!-- Tab to show Claim Detail Page --> 
+        <apex:tab label="Claim Detail" immediate="true" id="tab3" rendered="{!showClaimDetail}" >
+            <apex:pageBlock >
+                <!-- PageBlockButtons section for the Associate to Interaction Log and Close button -->
+                <apex:pageBlockButtons location="top">
+                    <apex:commandButton value="Associate Claim To Interaction Log" reRender="tabPanel, pageMessages" action="{!associateSingleClaim}" disabled="{!isClosed}" oncomplete="refreshPrimaryTabByName(); return false;"/>
+                    <apex:CommandButton value="Close" reRender="pageMessages, tabPanel" action="{!showDetailClose}">
+                    </apex:CommandButton>
+                </apex:pageBlockButtons>
+                <!-- OutputLabel to show message on Association of Single Claim on the Claim Detail Page -->
+                <center>
+                    <apex:outputLabel rendered="{!singleMessage}"><b>Selected Claim has been associated to the Interaction Log.</b></apex:outputLabel>
+                </center>
+                <!-- OutputLabel to show message that Claim is already associated to the Interaction Log -->
+                <center>
+                    <apex:outputLabel rendered="{!alreadyMessage}"><b>Selected Claim is already associated to the Interaction Log.</b></apex:outputLabel>
+                </center>
+                <!-- OutputLabel to show the message when the interaction log is closed -->
+                <center>
+                       <apex:outputLabel rendered="{!isClosed}"><b>Interaction Log is Closed, Association cannot be done</b></apex:outputLabel>
+                </center>
+                <!-- DIV to render detail tag with Claim Detail page --> 
+                <div style="background-color:white" id="claimDiv">
+                    <apex:detail subject="{!claimLinkId}" relatedList="true" relatedListHover="true"/>
+                </div>                             
+                <!-- Script to hide the 'Show 5 more' Link -->                            
+                <script>
+                    hideShowMore();
+                </script>
+            </apex:pageBlock>
+        </apex:tab>
+        <!-- Tab to show Associated Claims, rendered whenever Claims are associated to the interaction log --> 
+        <apex:tab label="Associated Claims" id="tab2" immediate="true" rendered="{!showAssociatedClaims}" >
+            <apex:pageBlock id="associatedClaimBlock" >
+                <!-- pageBlockButtons section for the Dissociate Claims Button -->
+                <apex:pageBlockButtons location="top">
+                    <apex:commandButton value="Dissociate Claims" action="{!dissociateClaims}" reRender="tabPanel, pageMessages" disabled="{!isClosed}" oncomplete="refreshPrimaryTabByName(); return false;"/>
+                    <!-- OutputLabel to show message that Claim has been dissociated from the Interaction Log -->
+                    <center>
+                        <apex:outputLabel rendered="{!deleteMessage}"><b>Selected Claims: {!disClaim} have been dissociated from the Interaction Log.</b></apex:outputLabel>
+                    </center>
+                    <!-- OutputLabel to show the message when the interaction log is closed -->
+                    <center>
+                       <apex:outputLabel rendered="{!isClosed}"><b>Interaction Log is Closed, Dissociation cannot be done</b></apex:outputLabel>
+                    </center>
+                </apex:pageBlockButtons>
+                <!-- PageBlockTable with the Associated Claims List -->  
+                <apex:pageBlockTable value="{!associateClaimWrapperList}" var="cwrap" id="pageBlckTable">
+                    <apex:column >
+                        <apex:facet name="header"> <apex:inputCheckbox onclick="checkAll(this);">
+                            </apex:inputCheckbox>
+                        </apex:facet>
+                        <apex:inputCheckbox value="{!cwrap.isSelected}" id="checkedone">
+                        </apex:inputCheckbox>
+                    </apex:column>
+                    <apex:column headerValue="Claim">
+                        <apex:CommandLink value="{!cwrap.claim.SHPClaimHdr_Claim_HCC_ID__c}" action="{!openAssociatedClaimDetail}" rerender="tabPanel">
+                            <apex:param value="{!cwrap.claim.Id}" name="ClaimDetailId" assignTo="{!ClaimDetailId}"/>
+                        </apex:CommandLink></apex:column>
+                    <apex:column value="{!cwrap.claim.SHPClaimHdr_Member_HCC_ID__c}"/>
+                    <apex:column value="{!cwrap.claim.SHPClaimHdr_Claim_DoS_Start__c}"/>
+                    <apex:column value="{!cwrap.claim.SHPClaimHdr_Claim_DoS_End__c}"/>
+                    <apex:column value="{!cwrap.claim.SHPClaimHdr_Claim_Date_of_Receipt__c}"/>
+                </apex:pageBlockTable>
+            </apex:pageBlock>
+        </apex:tab>
+        <!-- Tab to show Associated Claims Detail Page --> 
+        <apex:tab label="Claim Detail" immediate="true" id="tab4" rendered="{!showAssociatedClaimDetail}" >
+            <apex:pageBlock >
+                <!-- PageBlockButtons section for the Close button -->
+                <apex:pageBlockButtons location="top">
+                    <apex:CommandButton value="Close" reRender="pageMessages, tabPanel">
+                        <apex:param assignTo="{!showAssociatedClaimDetail}" name="CloseDetail" value="false"/>
+                        <apex:param assignTo="{!showTab}" name="SelTabAfterClose" value="tab2"/>
+                    </apex:CommandButton>
+                </apex:pageBlockButtons>
+                <!-- DIV to render detail tag with Claim Detail page --> 
+                <div style="background-color:white" id="claimDetailDiv">
+                    <apex:detail subject="{!ClaimDetailId}" relatedList="true" relatedListHover="true"/>
+                </div>                             
+                <!-- Script to hide the 'Show 5 more' Link -->    
+                <script>
+                    hideShowMore();
+                </script>
+            </apex:pageBlock>
+        </apex:tab>
+    </apex:tabPanel>    
+      </apex:outputPanel>       
+    </apex:form>
+  
+<!-- Reference to JS file in Static Resources containing JS functions used on the page -->  
+   <apex:includeScript value="{!$Resource.ConsoleScript}" />
+<script>
+        /** @Description: function to refresh Primary Tab **/
+        function refreshPrimaryTabByName() {
+                /** @Description: Set the Id of the tab **/
+                var primaryTabId = '{!JSENCODE(pTabId)}';
+                sforce.console.refreshPrimaryTabById(primaryTabId, false, refreshSuccess);
+        }
+        /** @Description: Callback function **/
+        var refreshSuccess = function refreshSuccess(result) {
+        
+        };
+        
+</script>
+</apex:page>

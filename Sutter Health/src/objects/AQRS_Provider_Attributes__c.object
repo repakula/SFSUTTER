@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Department_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>Department Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Department_Mnemonic__c</fullName>
+        <externalId>false</externalId>
+        <label>Department Mnemonic</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Department_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Department Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Division_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>Division Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Division_Mnemonic__c</fullName>
+        <externalId>false</externalId>
+        <label>Division Mnemonic</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Division_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Division Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Facility_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>Facility Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Facility_Mnemonic__c</fullName>
+        <externalId>false</externalId>
+        <label>Facility Mnemonic</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Facility_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Facility Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Foundation_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>Foundation Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Foundation_Mnemonic__c</fullName>
+        <externalId>false</externalId>
+        <label>Foundation Mnemonic</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Foundation_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Foundation Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Master_Provider_Key__c</fullName>
+        <externalId>false</externalId>
+        <label>Master Provider Key</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Measure__c</fullName>
+        <externalId>false</externalId>
+        <label>Measure</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Adult BMI Assessment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Annual Monitoring for Patients on Persistent Medications</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Appropriate Testing for Children with Pharyngitis</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Asthma Medication Ratio</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Avoidance of Antibiotic Treatment for Adults with Acute Bronchitis</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BreastCancerScreening</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CAD: ACE inhibitor or ARB Therapy for Patients With CAD or Diabetes</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cervical Cancer Overscreening</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CervicalCancerScreening</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ChildhoodImmunizeStatus</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ChildrenwithUpperRespiratoryInfection</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Chlamydia Screening in Woman</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ColorectalCancerScreening</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ComprehensiveDiabetes</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Controlling Blood Pressure for People With Hypertension</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Disease-Modifying Anti-Rheumatic Drug Therapy for Rheumatiod Arthritis</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>High-Risk Medication</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Human Papillomavirus Vaccine for Adolescents</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Immunizations for Adolescents</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IVD: Use of Asprin or Another Antithrombotic</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Osteoporosis Management in Women Who Had a Fracture</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Preventive Care and Screening: Pneumonia Vaccination for Patients 65 Years and Older</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Proportion of Days Covered by Medications</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Use of Imaging Studies for Low back Pain</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>NPI__c</fullName>
+        <externalId>false</externalId>
+        <label>NPI</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payer__c</fullName>
+        <externalId>false</externalId>
+        <label>Payer</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Medicaid</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Medic Plus</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Medicare</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Health Plus</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Population__c</fullName>
+        <externalId>false</externalId>
+        <label>Population</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>HMO_P4P_MEDICARE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FFS_P4P_COMMERCIAL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HMO_P4P_COMMERCIAL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FFS_P4P_MEDICARE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RAF Medicare</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Provider_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>Provider Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Provider_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Provider Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Specialty__c</fullName>
+        <externalId>false</externalId>
+        <label>Specialty</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>AQRS Provider Attribute</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Foundation_Mnemonic__c</columns>
+        <columns>Foundation_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>AQRS Provider Attributes Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>AQRS Provider Attributes</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

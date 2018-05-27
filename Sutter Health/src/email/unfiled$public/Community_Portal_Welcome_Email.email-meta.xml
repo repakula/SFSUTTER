@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Sutter_Health_Letterhead</letterhead>
+    <name>Community Portal Welcome Email</name>
+    <style>formalLetter</style>
+    <subject>Set your password today for ‘MySutter Connection’!</subject>
+    <textOnly>{!Receiving_User.FirstName},
+Welcome to MySutter Connection, your new, self-service website! This secure website is your 24-hour instant connection to information related to your employment— including forms, policies and helpful online tools. You can log in from any Internet connection, anywhere, anytime. You do not need to be logged into the Sutter Health server to access this website.&lt;?xml:namespace prefix = o /&gt;
+
+To begin using MySutter Connection, follow the steps below to set up a password. Your username is your Sutter Health email address.
+
+&lt;?xml:namespace prefix = u5 /&gt;
+
+Your username is: {!Receiving_User.Username}
+
+
+Logging in and setting up your MySutter Connection password:
+
+Now that you have access to this new website, you must create a unique password. Tip: You may want to use the same password you use normally to access the Sutter server.  Please follow the instructions below:
+
+Get started by going to: www.mysutterconnection.com/OneTimeSetPassword
+Note: This is a one time link to set your password for the first time. It will not work for subsequent attempts, or to reset your password if you have forgotten it.
+Follow the instructions to set up your unique password.
+You are ready to log on and use MySutter Connection. Please bookmark the https:\\mysutterconnection.force.com page for future reference.
+
+If you have forgotten your password, visit the login page at https:\\mysutterconnection.force.com and click on the &quot;Forgot your Password?&quot; link. You will receive a system-generated email with a link to a page where you can create a new password.
+
+For technical support, please contact the IS Service Desk at 888-888-6044 or servicedesk@sutterhealth.org and reference the “CRM Portal/Integration Team.” Your request will be routed to the Sutter Health Salesforce.com Support Team.
+Enjoy this new, convenient online resource!
+
+The MySutter Connection Team</textOnly>
+    <type>html</type>
+</EmailTemplate>

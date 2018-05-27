@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>text</bucketType>
+        <developerName>BucketField_56067569</developerName>
+        <masterLabel>Reporting Record Type Sales</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <otherBucketLabel>Other</otherBucketLabel>
+        <sourceColumnName>Case.Customer_Inquiry_Type__c</sourceColumnName>
+        <useOther>true</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>SHP ATC Eligibility Related</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>SHP ATC Eligibility Related RO</sourceValue>
+            </sourceValues>
+            <value>SHP ATC Eligibility Related</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>SHP ATC Incomplete Submission Related</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>SHP ATC Incomplete Submission Related RO</sourceValue>
+            </sourceValues>
+            <value>SHP ATC Incomplete Submission Related</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>SHP ATC Plan Change Issue Related</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>SHP ATC Plan Change Issue Related RO</sourceValue>
+            </sourceValues>
+            <value>SHP ATC Plan Change Issue Related</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>SHP Broker Education</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>SHP Broker Education RO</sourceValue>
+            </sourceValues>
+            <value>SHP Broker Education</value>
+        </values>
+        <values>
+            <value>SHP EDI Escalated Issue</value>
+        </values>
+        <values>
+            <value>SHP EDI Feed Issue</value>
+        </values>
+        <values>
+            <value>SHP EDI Issue Member in WB</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>SHP Employer Education</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>SHP Employer Education RO</sourceValue>
+            </sourceValues>
+            <value>SHP Employer Education</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>SHP Employer Portal Approval Access Inquiries</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>SHP Employer Portal Approval Access Inquiries RO</sourceValue>
+            </sourceValues>
+            <value>SHP Employer Portal Approval Access Inquiries</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>SHP Billing Invoice Question</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>SHP Billing Invoice Question RO</sourceValue>
+            </sourceValues>
+            <value>SHP Billing Invoice Question</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>SHP Member Information Request Related</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>SHP Member Information Request Related RO</sourceValue>
+            </sourceValues>
+            <value>SHP Member Information Requset Related</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>SHP Update Request for Contact RO</sourceValue>
+            </sourceValues>
+            <value>SHP Update Request for Contact</value>
+        </values>
+    </buckets>
+    <buckets>
+        <bucketType>text</bucketType>
+        <developerName>BucketField_28715994</developerName>
+        <masterLabel>Reporting Record Type Service</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <otherBucketLabel>Other</otherBucketLabel>
+        <sourceColumnName>Case.Customer_Inquiry_Type__c</sourceColumnName>
+        <useOther>true</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Benefits</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Benefits RO</sourceValue>
+            </sourceValues>
+            <value>Benefits</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Billing</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Billing RO</sourceValue>
+            </sourceValues>
+            <value>Billing</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Claim Review</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Claim Review RO</sourceValue>
+            </sourceValues>
+            <value>Claim Review</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Eligibility</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Eligibility RO</sourceValue>
+            </sourceValues>
+            <value>Eligibility</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Enrollment</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Enrollment RO</sourceValue>
+            </sourceValues>
+            <value>Enrollment</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Grievance</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Grievance RO</sourceValue>
+            </sourceValues>
+            <value>Grievance</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Provider Dispute</sourceValue>
+            </sourceValues>
+            <value>Provider Dispute</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Clinical Notifications RO</sourceValue>
+            </sourceValues>
+            <value>Clinical Notifications</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Portal Questions</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Portal Questions RO</sourceValue>
+            </sourceValues>
+            <value>Portal Questions</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Correspondence</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Correspondence RO</sourceValue>
+            </sourceValues>
+            <value>Correspondence</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>OOA/OON</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>OOA/OON RO</sourceValue>
+            </sourceValues>
+            <value>OOA/OON</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>COC Request RO</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>COC Request</sourceValue>
+            </sourceValues>
+            <value>COC Request</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>SHP Billing Invoice Question</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>SHP Billing Invoice Question RO</sourceValue>
+            </sourceValues>
+            <value>SHP Billing Invoice Question</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>SHP Internal Service Request</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>SHP Internal Service Request RO</sourceValue>
+            </sourceValues>
+            <value>Internal Service Request</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Documentation</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Documentation RO</sourceValue>
+            </sourceValues>
+            <value>Documentation</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Complaint</sourceValue>
+            </sourceValues>
+            <value>Complaint</value>
+        </values>
+    </buckets>
+    <columns>
+        <field>CASE_NUMBER</field>
+    </columns>
+    <columns>
+        <field>Contact.Member_Subscriber_HCC_ID__c</field>
+    </columns>
+    <columns>
+        <field>CREATED_DATEONLY</field>
+    </columns>
+    <columns>
+        <field>CREATED_DATE</field>
+    </columns>
+    <columns>
+        <field>BucketField_28715994</field>
+    </columns>
+    <columns>
+        <field>BucketField_56067569</field>
+    </columns>
+    <columns>
+        <field>Case.Reason__c</field>
+    </columns>
+    <columns>
+        <field>Case.Secondary_Reason__c</field>
+    </columns>
+    <columns>
+        <field>Case.Customer_Inquiry_Type__c</field>
+    </columns>
+    <columns>
+        <field>Case.RecordType_Name__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Average</aggregateTypes>
+        <field>AGE</field>
+    </columns>
+    <columns>
+        <field>CLOSED_DATEONLY</field>
+    </columns>
+    <columns>
+        <field>OWNER</field>
+    </columns>
+    <columns>
+        <field>PARENT_CASE_NUMBER</field>
+    </columns>
+    <description>Frequent Caller Report Base Data Extract</description>
+    <filter>
+        <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+        <criteriaItems>
+            <column>RECORDTYPE</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Case.Benefits,Case.Benefits_RO,Case.Billing,Case.Billing_RO,Case.Claim_Review_RO,Case.Complaint,Case.Complaint_RO,Case.Eligibility,Case.Eligibility_RO,Case.Enrollment,Case.Enrollment_RO,Case.Grievance_RO,Case.Provider_Dispute_RO,Case.SHP_Service_Claim_Review_Service_Request,Case.SHP_Service_Grievance_Service_Request,Case.SHP_Service_Provider_Dispute_Service_Request,Case.Clinical_Notifications,Case.Clinical_Notifications_RO,Case.Portal_Questions,Case.Portal_Questions_RO,Case.Correspondence,Case.Correspondence_RO,Case.OOA_OON,Case.OOA_OON_RO,Case.COC_Request,Case.COC_Request_RO,Case.Non_SHP_Contact_RO,Case.Non_SHP_Contact_Service_Request,Case.SHP_Billing_Invoice_Question,Case.SHP_Billing_Invoice_Question_RO,Case.SHP_Internal_Service_Request,Case.SHP_Internal_Service_Request_RO,Case.Documentation,Case.Documentation_RO</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>RECORDTYPE</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Case.ATC_Eligibility_Related,Case.SHP_ATC_Eligibility_Related_RO,Case.SHP_ATC_Incomplete_Submission_Related,Case.SHP_ATC_Incomplete_Submission_Related_RO,Case.SHP_ATC_Plan_Change_Issue_Related,Case.SHP_ATC_Plan_Change_Issue_Related_RO,Case.SHP_Broker_Education,Case.SHP_Broker_Education_RO,Case.SHP_EDI_Escalated_Issue,Case.SHP_EDI_Escalated_Issue_RO,Case.SHP_EDI_Feed_Issue,Case.SHP_EDI_Feed_Issue_RO,Case.SHP_EDI_Issue_Member_in_WB_RO,Case.SHP_EDI_Issue_Memver_in_WB,Case.SHP_Employer_Education,Case.SHP_Employer_Education_RO,Case.SHP_Employer_Portal_Approval_Access_Inquiries,Case.SHP_Employer_Portal_Approval_Access_Inquiries_RO</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.Member_Subscriber_HCC_ID__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <name>Frequent Caller Report Base Data Extract</name>
+    <params>
+        <name>units</name>
+        <value>d</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CaseList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Contact.Member_Subscriber_HCC_ID__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATEONLY</dateColumn>
+        <interval>INTERVAL_PREVCUR2Y</interval>
+    </timeFrameFilter>
+</Report>

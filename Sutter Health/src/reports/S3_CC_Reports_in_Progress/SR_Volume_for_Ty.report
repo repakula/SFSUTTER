@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CASE_NUMBER</field>
+    </columns>
+    <columns>
+        <field>CREATED_DATEONLY</field>
+    </columns>
+    <columns>
+        <field>Case.Function__c</field>
+    </columns>
+    <columns>
+        <field>Case.Sub_Function__c</field>
+    </columns>
+    <columns>
+        <field>Case.Customer_Intent__c</field>
+    </columns>
+    <columns>
+        <field>CASE_COMMENT</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>RECORDTYPE</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Case.Revenue_Cycle_RO,Case.S3_Revenue_Cycle_Service_Request_Case_RT</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case.Function__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Revenue Cycle</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case.Sub_Function__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Central Business Office (CBO),Health Information Management (HIM)</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case.Customer_Sub_Intents__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Insurance Refund Request,Patient Refund Request,ROI-Other,New Request</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case.Customer_Sub_Intents__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>SR Volume for Ty-CBO</name>
+    <params>
+        <name>units</name>
+        <value>h</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CaseList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATEONLY</dateColumn>
+        <endDate>2015-02-19</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2014-10-01</startDate>
+    </timeFrameFilter>
+</Report>

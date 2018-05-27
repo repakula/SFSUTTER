@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Deliveribility Notification to provider users</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>PCRM_Letter_Head</letterhead>
+    <name>Provider Community: Deliverabilty Email</name>
+    <style>freeForm</style>
+    <subject>No Action Required</subject>
+    <textOnly>This is an auto-generated message to confirm emails from Sutter Provider Hub are able to be delivered to you. No action on your part is required.
+
+Thank you,
+Sutter Provider Hub Team</textOnly>
+    <type>html</type>
+</EmailTemplate>

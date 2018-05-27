@@ -1,0 +1,156 @@
+<apex:page standardController="Case" extensions="PayrollStopPaymentsController" id="pg1">
+    <style>
+        .tablecolumn {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            width: 50%;
+            text-align: left !important;
+            padding-left: 20% !important;
+            padding-right: 12px;
+            font-family: serif !important;
+            font-size: 17px !important;
+        }
+        .tablecolumn1 {
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        table tbody tr th.labelCol{
+            text-align: left !important;
+            padding-left: 26% !important;
+            font-weight: normal !important;
+            font-size: 17px !important;
+            color: black !important;
+            font-family: serif !important;
+        }
+    </style>
+    <apex:form >
+        <apex:pagemessages />
+        <apex:pageblock title="Service Request">
+            <!-- <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Submit Case"/>
+                <apex:commandButton value="Cancel"/> 
+            </apex:pageBlockButtons> -->
+            <!-- <apex:pageblocksection title="Payroll-Stop Payments" columns="1"> -->
+                <div style="width:99%;height:900px;margin: 0px auto;">
+                    <!-- <div style="width:100%;height:auto;margin: 0px auto;margin-top:5px;">
+                        <img style="width:200px;" src="{!$resource.SutterSharedServices}"/>
+                    </div> -->
+                    <div style="width:100%;height:auto;margin: 0px auto;margin-top:5px;text-align: center;font-weight: bold;font-size: 18px;font-family: serif;">
+                        Sutter Health Shared Services
+                    </div>
+                    <div style="width:100%;height:auto;margin: 0px auto;margin-top:5px;text-align: center;font-weight: bold;font-size: 18px;font-family: serif;">
+                        <span>Authorization for Stop Payment</span>
+                    </div>
+                    <div style="width:100%;height:auto;margin: 0px auto;text-align: left;font-size: 17px;font-family: serif;">
+                        <p>I am requesting a stop payment be issued on the payment shown below. I understand that by authorizing this Stop Payment, this check is no longer valid.  
+                            If found, I will return this check to Sutter Health Shared Services Payroll Department immediately.  
+                            I understand that if I do cash this check, it constitutes an unlawful act of fraud and that Sutter Health will take any necessary disciplinary or legal action to 
+                            collect these funds.</p>
+                    </div>
+                    <div style="width:60%;height:auto;margin: 0px auto;text-align: center;font-size: 15px;">
+                        <table style="width:100%;text-align:left" border="0">
+                            <apex:outputpanel rendered="{!isCaseCreated}" layout="none">
+                                <tr>
+                                    <td style="width:50%;" class="tablecolumn">Case Number</td>
+                                    <td style="height:35px;"><apex:outputtext styleclass="tablecolumn1" value="{!caseObj.caseNumber}" /></td>
+                                </tr>
+                            </apex:outputpanel>
+                            <tr>
+                                <td style="width:50%;" class="tablecolumn">Employee Name</td>
+                                <td style="height:35px;"><apex:inputtext disabled="true" styleclass="tablecolumn1" value="{!wrEmployeeObj.employeeName}" /></td>
+                            </tr>
+                            <tr>
+                                <td style="width:50%;" class="tablecolumn">Employee Number</td>
+                                <td style="height:35px;"><apex:inputtext disabled="true" styleclass="tablecolumn1" value="{!wrEmployeeObj.employeeNumber}" /></td>
+                            </tr>
+                            <tr>
+                                <td style="width:50%;" class="tablecolumn">Payment Number</td>
+                                <td >
+                                    <apex:inputfield required="true" rendered="{!!isCaseCreated}" styleclass="tablecolumn1" value="{!caseObj.Payment_Number__c}"/>
+                                    <apex:inputtext disabled="true" rendered="{!isCaseCreated}" styleclass="tablecolumn1" value="{!caseObj.Payment_Number__c}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:50%;" class="tablecolumn">Payment Date</td>
+                                <td >
+                                    <apex:inputfield required="true" rendered="{!!isCaseCreated}" styleclass="tablecolumn1" value="{!caseObj.Payment_Date__c}"/>
+                                    <apex:inputtext disabled="true" rendered="{!isCaseCreated}" styleclass="tablecolumn1" value="{!wrEmployeeObj.paymentDate}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:50%;" class="tablecolumn">Net Amount</td>
+                                <td >
+                                    <apex:inputfield required="true" rendered="{!!isCaseCreated}" styleclass="tablecolumn1" value="{!caseObj.Net_Amount__c}"/>
+                                    <apex:inputtext disabled="true" rendered="{!isCaseCreated}" styleclass="tablecolumn1" value="{!caseObj.Net_Amount__c}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:50%;" class="tablecolumn">Contact Phone Number</td>
+                                <td > 
+                                    <apex:inputfield required="true" rendered="{!!isCaseCreated}" styleclass="tablecolumn1" value="{!caseObj.Contact_Phone_Number__c}"/>
+                                    <apex:inputtext disabled="true" rendered="{!isCaseCreated}" styleclass="tablecolumn1" value="{!caseObj.Contact_Phone_Number__c}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="tablecolumn" colspan="2">Mailing address as shown on record (if this is incorrect, please provide instructions in Comments box below)</td>
+                            </tr>
+                            <tr>
+                                <td style="width:50%;" class="tablecolumn">Address 1</td>
+                                <td style="height:35px;"><apex:inputtext disabled="true" styleclass="tablecolumn1" value="{!wrEmployeeObj.employeeAdd1}" /></td>
+                            </tr>
+                            <tr>
+                                <td style="width:50%;" class="tablecolumn">Address 2</td>
+                                <td style="height:35px;"><apex:inputtext disabled="true" styleclass="tablecolumn1" value="{!wrEmployeeObj.employeeAdd2}" /></td>
+                            </tr>
+                            <tr>
+                                <td class="tablecolumn" colspan="2">
+                                    <table style="width:100%;" border="0">
+                                        <tr>
+                                            <td  style="vertical-align: middle;">City</td><td><apex:inputtext disabled="true" styleclass="tablecolumn1" value="{!wrEmployeeObj.employeeCity}" /></td>
+                                            <td style="vertical-align: middle;">State</td><td><apex:inputtext disabled="true" styleclass="tablecolumn1" value="{!wrEmployeeObj.employeeState}" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="vertical-align: middle;">Zip</td><td><apex:inputtext disabled="true" styleclass="tablecolumn1" value="{!wrEmployeeObj.employeeZipCode}" /></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:50%;" class="tablecolumn">Comments</td>
+                                <td style="height:35px;"><apex:inputtextarea disabled="{!isCaseCreated}" style="width:99%;resize:none;height:75px;" value="{!caseObj.Comments__c}" /></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="text-align:center;padding-top:15px;">
+                                <apex:commandButton rendered="{!!isCaseCreated}" onclick="submitRequest();return false;" value="Submit Case"/>
+                                <apex:commandButton rendered="{!!isCaseCreated}" immediate="true" action="{!cancel}" value="Cancel"/>
+                                <apex:commandButton rendered="{!isCaseCreated}" immediate="true" action="{!newStopPayment}" value="New Case"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="width:100%;height:auto;margin: 0px auto;text-align: left;font-size: 14px;font-family: serif;color:red;">
+                        <p>Sutter Health and it&#39;s affiliates strongly encourages all employees to utilize Direct Deposit to receive their pay. 
+                            To establish a direct deposit account, please go to Employee Self Service at https://lawson.sutterhealth.org. </p>
+                    </div>
+                </div>
+                <apex:actionFunction action="{!submitCase}" name="saveRquest" />
+                <apex:actionFunction action="{!cancel}" name="CancelAF" />
+                <script>
+                    function submitRequest() {
+                        var confirmFlag = confirm('This action is not reversible and a stop payment will be processed if you proceed. Do you wish to continue?');
+                        if(confirmFlag == true) {
+                            saveRquest();
+                        } else {
+                            CancelAF();
+                        }
+                    }
+                </script>
+            <!-- </apex:pageblocksection> -->
+        </apex:pageblock>
+    </apex:form>
+    
+    <!-- Start Google Tag Manager -->
+    <apex:outputLabel value="{!$Label.GTMCustomLabel}" rendered="false"></apex:outputLabel> 
+    <apex:includeScript value="{!$Resource.GTMJavaScript}" />
+    <!-- End Google Tag Manager -->
+    
+</apex:page>

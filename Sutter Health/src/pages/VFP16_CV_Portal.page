@@ -1,0 +1,303 @@
+<!--
+*     Page Name   : VFP16_CV_Portal
+*     Author      : Atul Gupta
+*     Date        : 17-Jul-2014 
+*     Project Name: CRM - SFT - Sutter Health
+*     Description : Release 6 Req-3138 CV Portal 
+-->
+<!-- Page Definition: With header, Case sObject as Standard Controller and VFC16_CV_Portal as extension -->
+<apex:page standardController="Case" showheader="true" extensions="VFC16_CV_Portal">
+
+    <!-- page messages to show any errors on the page -->
+    <apex:pageMessages id="pgMessage"/>
+    <apex:form >
+    <apex:sectionHeader title="Customer Inquiry Edit" subtitle="New Customer Inquiry" />
+        
+        <!-- PageBlock : Page block for Address Change Request Fields, rendered only when recordtype is CV Address Change -->
+        <apex:pageBlock title="Address Change Request" mode="Edit" rendered="{!addressChange}">
+        
+        <!-- PageBlockbuttons : Save and Cancel buttons to save the feedback case record -->
+        <apex:pageBlockButtons >
+            <apex:commandButton action="{!Save}" value="Submit"/>
+            <apex:commandButton action="{!Cancel}" value="Cancel"/>
+        </apex:pageBlockButtons>
+        <font color="red">
+        <apex:outputText style="font-style:italic; font-weight:800" value="Requests must be submitted by Sutter Health Medical Staff/Credentialing Professionals Only. Use this form to submit address changes in the Echo Credentialing database."/>
+        </font>
+        <br/><br/>
+        <!-- PageBlockSection : SR summary section that holds all the relevant fields -->
+        <apex:pageBlockSection title="Service Request Summary" columns="2" collapsible="false">
+            <apex:inputField value="{!caseRecord.Provider_First_Name__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Provider_Last_Name__c}" required="true"/> 
+            <apex:inputField value="{!caseRecord.Provider_Title__c}" required="true"/>   
+            <apex:inputField value="{!caseRecord.Affiliate__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Individual_Provider_or_Group_of_Provider__c}" required="true"/> 
+            <apex:inputField value="{!caseRecord.Provider_Group_ID__c}"/> 
+            <apex:inputField value="{!caseRecord.Provider_Group_Name__c}"/>
+            <apex:inputField value="{!caseRecord.New_Group_Name__c}" />
+            <apex:inputField value="{!caseRecord.Date_Requested__c}"/>
+            <apex:outputLabel ></apex:outputLabel>
+            <apex:inputField value="{!caseRecord.New_Address__c}"/>
+            <apex:inputField value="{!caseRecord.New_City__c}"/>
+            <apex:inputField value="{!caseRecord.New_State__c}"/>
+            <apex:inputField value="{!caseRecord.New_Zip__c}"/>
+            <apex:inputField value="{!caseRecord.New_Phone__c}"/>
+            <apex:inputField value="{!caseRecord.New_Fax__c}"/>
+            <apex:inputField value="{!caseRecord.New_Address_Type__c}"/>
+            <apex:inputField value="{!caseRecord.Replace_an_address_currently_in_Echo__c}"/>
+            <apex:inputField value="{!caseRecord.Which_address_should_be_archived__c}"/>
+            <apex:inputField value="{!caseRecord.Demographic_data_field_currently_in_Echo__c}"/>
+            <apex:inputField value="{!case.Notes__c}"/>
+            <apex:outputLabel ></apex:outputLabel>
+            <apex:inputField value="{!case.Description}"/>
+
+        </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <!-- PageBlock : Page block for Application Request Fields, rendered only when recordtype is CV Application Request -->
+        <apex:pageBlock title="Application Request" mode="Edit" rendered="{!applicationRequest}">
+        
+        <!-- PageBlockbuttons : Save and Cancel buttons to save the feedback case record -->
+        <apex:pageBlockButtons >
+            <apex:commandButton action="{!Save}" value="Submit"/>
+            <apex:commandButton action="{!Cancel}" value="Cancel"/>
+        </apex:pageBlockButtons>
+        <font color="red">
+        <apex:outputText style="font-style:italic; font-weight:800" value="Requests must be submitted by Sutter Health Medical Staff/Credentialing Professionals Only. Use this form to submit a Sutter Health Credentialing Application request. "/>
+        </font>
+        <br/><br/>
+        <!-- PageBlockSection : SR summary section that holds all the relevant fields -->
+        <apex:pageBlockSection title="Service Request Summary" columns="2" collapsible="false">
+            <apex:inputField value="{!caseRecord.Provider_First_Name__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Provider_Last_Name__c}" required="true"/> 
+            <apex:inputField value="{!caseRecord.Provider_Title__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.E_Mail_Address__c}" required="true"/> 
+            <apex:inputField value="{!caseRecord.Mailing_Address__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Mailing_City__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Mailing_State__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Mailing_Zip__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Specialty_Section__c}" required="true"/>
+            <apex:outputLabel ></apex:outputLabel>
+            <apex:inputField value="{!caseRecord.Affiliate__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Privileges_to_Pull__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Send_Additional_Affiliate_Packet_s__c}" />
+            <apex:inputField value="{!caseRecord.Additional_affiliate_privileges_to_pull__c}" />
+            <apex:inputField value="{!caseRecord.If_Yes_which_affiliate_s__c}" />
+            <apex:inputField value="{!caseRecord.Date_Requested__c}" />
+            <apex:inputField value="{!caseRecord.Send_Application_Via__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Rush__c}" />
+            <apex:inputField value="{!case.Notes__c}" />
+
+        </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <!-- PageBlock : Page block for Data Change Request Fields, rendered only when recordtype is CV Data Change Request -->
+        <apex:pageBlock title="Data Change Request" mode="Edit" rendered="{!dateChangeRequest}">
+        
+        <!-- PageBlockbuttons : Save and Cancel buttons to save the feedback case record -->
+        <apex:pageBlockButtons >
+            <apex:commandButton action="{!Save}" value="Submit"/>
+            <apex:commandButton action="{!Cancel}" value="Cancel"/>
+        </apex:pageBlockButtons>
+        <font color="red">
+        <apex:outputText style="font-style:italic; font-weight:800" value="Requests must be submitted by Sutter Health Medical Staff/Credentialing Professionals Only. Use this form to submit data changes in the Echo Credentialing database."/>
+        </font>
+        <br/><br/>
+        <!-- PageBlockSection : SR summary section that holds all the relevant fields -->
+        <apex:pageBlockSection title="Service Request Summary" columns="2" collapsible="false">
+            <apex:inputField value="{!caseRecord.Provider_First_Name__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Provider_Last_Name__c}" required="true"/> 
+            <apex:inputField value="{!caseRecord.Provider_Title__c}" required="true"/>
+            <apex:inputField value="{!case.Provider_Group_Name__c}" />
+            <apex:inputField value="{!caseRecord.Individual_Provider_or_Group_of_Provider__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Affiliate__c}" required="true"/> 
+            <apex:inputField value="{!caseRecord.New_Value_in_Echo__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Old_Value_in_Echo__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Replace_an_address_currently_in_Echo__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Date_Requested__c}" />
+            <apex:inputField value="{!case.Notes__c}"/>
+            <apex:outputLabel ></apex:outputLabel>
+            <apex:inputField value="{!case.Description}"/>
+
+        </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <!-- PageBlock : Page block for Expirables Request Fields, rendered only when recordtype is CV Expirables Request -->
+        <apex:pageBlock title="Expirables Request" mode="Edit" rendered="{!expirablesRequest}">
+        
+        <!-- PageBlockbuttons : Save and Cancel buttons to save the feedback case record -->
+        <apex:pageBlockButtons >
+            <apex:commandButton action="{!Save}" value="Submit"/>
+            <apex:commandButton action="{!Cancel}" value="Cancel"/>
+        </apex:pageBlockButtons>
+        <font color="red">
+        <apex:outputText style="font-style:italic; font-weight:800" value="Requests must be submitted by Sutter Health Medical Staff/Credentialing Professionals Only. Use this form to submit an update to an Expirable record or request a copy of an Expirable record in the Echo Credentialing database."/>
+        </font>
+        <br/><br/>
+        <!-- PageBlockSection : SR summary section that holds all the relevant fields -->
+        <apex:pageBlockSection title="Service Request Summary" columns="2" collapsible="false">
+            <apex:inputField value="{!caseRecord.Provider_First_Name__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Provider_Last_Name__c}" required="true"/> 
+            <apex:inputField value="{!caseRecord.Provider_Title__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Affiliate__c}" required="true"/>
+            <apex:inputField value="{!case.Send_Application_Via__c}" />
+            <apex:inputField value="{!caseRecord.What_document_s_is_being_requested__c}" required="true"/>
+            <apex:outputLabel ></apex:outputLabel>
+            <apex:inputField value="{!caseRecord.Date_Requested__c}" />
+            <apex:inputField value="{!case.Notes__c}"/>
+            <apex:outputLabel ></apex:outputLabel>
+            <apex:inputField value="{!case.Description}"/>
+
+        </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <!-- PageBlock : Page block for Other Request Fields, rendered only when recordtype is CV Other Request -->
+        <apex:pageBlock title="Other Request" mode="Edit" rendered="{!otherRequest}">
+        
+        <!-- PageBlockbuttons : Save and Cancel buttons to save the feedback case record -->
+        <apex:pageBlockButtons >
+            <apex:commandButton action="{!Save}" value="Submit"/>
+            <apex:commandButton action="{!Cancel}" value="Cancel"/>
+        </apex:pageBlockButtons>
+        <font color="red">
+        <apex:outputText style="font-style:italic; font-weight:800" value="Requests must be submitted by Sutter Health Medical Staff/Credentialing Professionals Only. Use this form to submit an ad-hoc request to the S3 Credentialing Verification Office (S3 CVO)."/>
+        </font>
+        <br/><br/>
+        <!-- PageBlockSection : SR summary section that holds all the relevant fields -->
+        <apex:pageBlockSection title="Service Request Summary" columns="2" collapsible="false">
+            <apex:inputField value="{!caseRecord.Provider_First_Name__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Provider_Last_Name__c}" required="true"/> 
+            <apex:inputField value="{!caseRecord.Provider_Title__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Affiliate__c}" required="true"/>
+            <apex:outputLabel ></apex:outputLabel>
+            <apex:inputField value="{!caseRecord.Date_Requested__c}" />
+            <apex:inputField value="{!case.Notes__c}"/>
+            <apex:outputLabel ></apex:outputLabel>
+            <apex:inputField value="{!case.Description}"/>
+
+        </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <!-- PageBlock : Page block for Reapplication Request Fields, rendered only when recordtype is CV Reapplication Request -->
+        <apex:pageBlock title="Reapplication Request" mode="Edit" rendered="{!reapplicationRequest}">
+        
+        <!-- PageBlockbuttons : Save and Cancel buttons to save the feedback case record -->
+        <apex:pageBlockButtons >
+            <apex:commandButton action="{!Save}" value="Submit"/>
+            <apex:commandButton action="{!Cancel}" value="Cancel"/>
+        </apex:pageBlockButtons>
+        <font color="red">
+        <apex:outputText style="font-style:italic; font-weight:800" value="Requests must be submitted by Sutter Health Medical Staff/Credentialing Professionals Only. Use this form to submit a request for a duplicate Sutter Health Recredentialing Application to be sent to a current Sutter Health provider."/>
+        </font>
+        <br/><br/>
+        <!-- PageBlockSection : SR summary section that holds all the relevant fields -->
+        <apex:pageBlockSection title="Service Request Summary" columns="2" collapsible="false">
+            <apex:inputField value="{!caseRecord.Provider_First_Name__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Provider_Middle_Initial__c}" />
+            <apex:inputField value="{!caseRecord.Provider_Last_Name__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Provider_Title__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Specialty_Section__c}" />
+            <apex:inputField value="{!caseRecord.Send_Application_Via__c}" />
+            <apex:inputField value="{!caseRecord.Rush__c}" />
+            <apex:inputField value="{!caseRecord.Affiliate__c}" required="true"/>
+            <apex:outputLabel ></apex:outputLabel>
+            <apex:inputField value="{!caseRecord.Date_Requested__c}" />
+            <apex:inputField value="{!case.Notes__c}"/>
+            <apex:outputLabel ></apex:outputLabel>
+            <apex:inputField value="{!case.Description}"/>
+
+        </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <!-- PageBlock : Page block for Report Request Fields, rendered only when recordtype is CV Report Request -->
+        <apex:pageBlock title="Report Request" mode="Edit" rendered="{!reportRequest}">
+        
+        <!-- PageBlockbuttons : Save and Cancel buttons to save the feedback case record -->
+        <apex:pageBlockButtons >
+            <apex:commandButton action="{!Save}" value="Submit"/>
+            <apex:commandButton action="{!Cancel}" value="Cancel"/>
+        </apex:pageBlockButtons>
+        <font color="red">
+        <apex:outputText style="font-style:italic; font-weight:800" value="Requests must be submitted by Sutter Health Medical Staff/Credentialing Professionals Only. Use this form to submit a request for a report to be built within the Echo Credentialing database."/>
+        </font>
+        <br/><br/>
+        <!-- PageBlockSection : SR summary section that holds all the relevant fields -->
+        <apex:pageBlockSection title="Service Request Summary" columns="2" collapsible="false">
+            <apex:inputField value="{!caseRecord.Person_Requesting_Report__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Affiliate__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Report_Turn_Around_Time_Requested__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Date_Requested__c}" />
+            <apex:inputField value="{!caseRecord.Describe_the_report_you_need_created__c}" required="true"/>
+            <apex:outputLabel ></apex:outputLabel>
+            <apex:inputField value="{!case.Notes__c}"/>
+            <apex:outputLabel ></apex:outputLabel>
+            <apex:inputField value="{!case.Description}"/>
+
+        </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <!-- PageBlock : Page block for Rush Application Request Fields, rendered only when recordtype is CV Rush Application Request -->
+        <apex:pageBlock title="Rush Application Request" mode="Edit" rendered="{!rushApplicationRequest}">
+        
+        <!-- PageBlockbuttons : Save and Cancel buttons to save the feedback case record -->
+        <apex:pageBlockButtons >
+            <apex:commandButton action="{!Save}" value="Submit"/>
+            <apex:commandButton action="{!Cancel}" value="Cancel"/>
+        </apex:pageBlockButtons>
+        <font color="red">
+        <apex:outputText style="font-style:italic; font-weight:800" value="Requests must be submitted by Sutter Health Medical Staff/Credentialing Professionals Only. Use this form to change a standard Sutter Health Credentialing Application into a Rush."/>
+        </font>
+        <br/><br/>
+        <!-- PageBlockSection : SR summary section that holds all the relevant fields -->
+        <apex:pageBlockSection title="Service Request Summary" columns="2" collapsible="false">
+            <apex:inputField value="{!caseRecord.Provider_First_Name__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Provider_Last_Name__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Provider_Title__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Affiliate__c}" required="true"/>
+            <apex:inputField value="{!case.Rush_Request_Type__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Date_Requested__c}" />
+            <apex:inputField value="{!case.Notes__c}"/>
+            <apex:outputLabel ></apex:outputLabel>
+            <apex:inputField value="{!case.Description}"/>
+
+        </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <!-- PageBlock : Page block for Temporary Privilege Notice Fields, rendered only when recordtype is CV Temporary Privilege Notice -->
+        <apex:pageBlock title="Temporary Privilege Notice" mode="Edit" rendered="{!tempPrivilegeRequest}">
+        
+        <!-- PageBlockbuttons : Save and Cancel buttons to save the feedback case record -->
+        <apex:pageBlockButtons >
+            <apex:commandButton action="{!Save}" value="Submit"/>
+            <apex:commandButton action="{!Cancel}" value="Cancel"/>
+        </apex:pageBlockButtons>
+        <font color="red">
+        <apex:outputText style="font-style:italic; font-weight:800" value="Requests must be submitted by Sutter Health Medical Staff/Credentialing Professionals Only. Use this form to notify the S3 Credentialing Verification Office (S3 CVO) that temporary privileges for a provider were entered into the Echo Credentialing database by an Affiliate Super User."/>
+        </font>
+        <br/><br/>
+        <!-- PageBlockSection : SR summary section that holds all the relevant fields -->
+        <apex:pageBlockSection title="Service Request Summary" columns="2" collapsible="false">
+            <apex:inputField value="{!caseRecord.Provider_First_Name__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Provider_Last_Name__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Provider_Title__c}" required="true"/>
+            <apex:inputField value="{!caseRecord.Affiliate__c}" required="true"/>
+            <apex:outputLabel ></apex:outputLabel>
+            <apex:inputField value="{!caseRecord.Date_Requested__c}" />
+            <apex:inputField value="{!case.Notes__c}" label="Notice"/>
+            <apex:outputLabel ></apex:outputLabel>
+            <apex:inputField value="{!case.Description}"/>
+
+        </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <!-- Component for GTM-->
+                     <c:Portal_User_Info />
+           <!-- Component for GTM-->
+    </apex:form>
+    
+    <!-- Start Google Tag Manager -->
+    <apex:outputLabel value="{!$Label.GTMCustomLabel}" rendered="false"></apex:outputLabel> 
+    <apex:includeScript value="{!$Resource.GTMJavaScript}" />
+    <!-- End Google Tag Manager -->
+
+</apex:page>

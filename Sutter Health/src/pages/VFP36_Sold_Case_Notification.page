@@ -1,0 +1,1951 @@
+<!-- *******************************************************
+   *     Page Name   : VFP36_Sold_Case_Notification 
+   *     Author      : Manish Singh
+   *     Date        : 05-Jan-2015 
+   *     Project Name: SHP_SCN
+   *     Description : Req-3268
+
+   **********************************************************-->
+
+
+<apex:page standardController="Employer_Group_Data__c"
+    extensions="VFC36_Sold_Case_Notification" showHeader="true"
+    sidebar="false" id="thePage" action="{!checkOldorNew}">
+
+<apex:includeScript value="https://code.jquery.com/jquery-1.11.1.min.js"/>
+    <!-- Define Tab panel .css styles -->
+    <style>
+    .invisible {
+                display: none;
+    }  
+    .backgroundText {
+        style="background:rgb(242, 241, 241);
+    }
+        
+    .margincls {
+        margin-left: 21.9% !important
+    }
+    
+    .marginOnecls {
+        margin-left: 21.7% !important
+    }
+
+    .activeTab {
+        background-color: #236FBD;
+        color: WHITE !important;
+        font-size: 12px;
+        font-weight: bold;
+        background-image: none
+    }
+    
+    .inactiveTab {
+        background-color: lightgrey;
+        color: black !important;
+        font-size: 11px;
+        background-image: none;
+        cursor: pointer;
+    }
+    
+    .longText {
+        width: 360px;
+        height: 100px;
+    }
+
+    .closeIcon {
+        display: none !important;
+    }
+    
+    .rightCornerHelpLink {
+        float: right;
+    }
+</style>
+
+    <script>
+          window.onload=function() {
+             var valERISA = '{!employerGroupDataObj.Benefits_Subject_to_ERISA_Regulations__c}';
+             if(valERISA =='true'){
+                 document.getElementById('inptTextField').style.display = 'block';
+                 document.getElementById('inptField').style.display = 'none';
+             }else{
+                 document.getElementById('inptTextField').style.display = 'none';
+                 document.getElementById('inptField').style.display = 'block';
+             }
+          };
+    </script>
+
+    <script language="javascript">
+      
+        function setHDHP(hdhp,hdhp1){
+            var tempVar  = document.getElementById(hdhp).value; 
+                       
+            if (tempVar.indexOf('HS')> -1 || tempVar.indexOf('HL')> -1){
+                hdhp1 = hdhp1 + ':0';
+                document.getElementById(hdhp1).checked = true;
+            } else {
+                hdhp1 = hdhp1 + ':1';
+                document.getElementById(hdhp1).checked = true;
+            }          
+        }
+        
+        /* on selection on ERISA field if yes then show the other not editable or if no the show field as editable*/
+        function setShowHideOtheERISA(paramId){
+           var radioValue;   
+           if(document.getElementById(paramId).checked) {
+                radioValue = document.getElementById(paramId).value;
+                if(radioValue == 'True') {
+                    document.getElementById('inptTextField').style.display = 'block';
+                    document.getElementById('inptField').style.display = 'none';
+                } else {
+                    document.getElementById('inptTextField').style.display = 'none';
+                    document.getElementById('inptField').style.display = 'block';
+                }
+            }
+        }
+    </script>
+    
+<!-- HighRoads Wave1-3880 Change Start -->
+    <script>
+    var j$ = jQuery.noConflict();
+    
+    function defaultcursor(){
+        j$("[id$=grouptype]").focus();
+    }
+    function CursorToType(){
+        j$("[id$=TypeOfOrganization]").focus();
+    }
+    function cursorToEnrollmentMethod(){
+        j$("[id$=EnrollmentMethod]").focus();
+    }
+    function cursorToEmpWaitingPeriod(){
+        j$("[id$=EmployeeWaitingPeriod]").focus();
+    }
+    function CursorToHREnrollment(){
+        j$("[id$=HREnrollment]").focus();
+    }
+    function CursorToBillingContact(){
+        j$("[id$=BillingContact]").focus();
+    }
+    function CursorToHREmployerPortal1(){
+        j$("[id$=HREmployerPortal1]").focus();
+    }
+    function CursorToHREmployerPortal2(){
+        j$("[id$=HREmployerPortal2]").focus();
+    }
+    function CursorToVendorContact(){
+        j$("[id$=HREnrollVenNam1]").focus();
+    }
+    function CursorToEDIVendor(){
+     j$("[id$=HREnrollEDIVenNam1]").focus();
+    }
+    function rCursorToVendorContact(){
+        j$("[id$=VenNam1]").focus();
+    }
+    function rCursorToEDIVendor(){
+     j$("[id$=EDIVenNam011]").focus();
+    }
+    function CursorToDelta(){
+        j$("[id$=Delta]").focus();
+    }
+    function CursorToVSP(){
+        j$("[id$=VSP]").focus();
+    }
+    function CursorToACN(){
+        j$("[id$=ACN]").focus();
+    }
+    </script>
+<!-- HighRoads Wave1-3880 Change End -->
+    
+    <apex:pageMessages id="messageId"></apex:pageMessages>
+    <apex:form id="frmShowError" rendered="{!showErroronLoad1}">
+        <table cellspacing="10">
+            <tr>
+                <td><span style="font-weight: bold; font-size: 12pt;">Insufficient
+                        Privileges</span></td>
+            </tr>
+            <tr>
+                <td>You do not have the level of access necessary to perform
+                    the operation you requested. As this record is already sent for
+                    approval or approved. Please contact the owner of the record or
+                    your administrator if access is necessary. <br /> <br /> Click <a
+                    href="{!OpportunityId}">here</a> to return to the Opportunity page.
+                </td>
+            </tr>
+        </table>
+    </apex:form>
+
+    <apex:form id="frmShowError1" rendered="{!showErroronLoad}">
+        <apex:pageBlock id="pgButton1">
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="OK" action="{!Cancel}" />
+            </apex:pageBlockButtons>
+            <apex:pageMessage severity="{!$Label.VFP36CL61}"
+                summary="SCN can only be created for Closed Won Opportunity"
+                strength="3" rendered="true" />
+        </apex:pageBlock>
+    </apex:form>
+
+
+    <apex:form id="frmEGD"
+        rendered="{!IF(!showErroronLoad && !showErroronLoad1 && !showRenwalForm ,true,false)}">
+
+        <apex:pageBlock id="pgButton">
+            <!--- Req 3377 Training Document Link Change Start --->
+            <apex:outputLink value="/{!SCNTrainingDocument.Id}" id="trainingDocLink" target="_blank" styleClass="rightCornerHelpLink">{!$Label.SHP_KM_Training_Document_Help} </apex:outputLink>
+            <!--- Req 3377 Training Document Link Change End  --->
+            <apex:pageBlockButtons >
+                <apex:commandButton value="{!$Label.VFP36CL80}" action="{!save}" />
+                <apex:commandButton value="Send To UnderWriter Review" action="{!Completed}" />
+                <apex:commandButton value="Cancel" action="{!Cancel}" />
+            </apex:pageBlockButtons>
+
+            <apex:pageMessage severity="{!$Label.VFP36CL61}" summary="{!$Label.VFP36CL60}" strength="3" rendered="{!errorMsgDisplay}" />
+
+            <apex:tabPanel switchType="client" selectedTab="SoldCaseNotification" id="AccountTabPanel" tabClass="activeTab" inactiveTabClass="inactiveTab">
+                
+                <apex:tab label="{!$Label.VFP36CL12}" name="{!$Label.VFP36CL12}" id="tabOne">
+                    <apex:pageBlock title="{!$Label.VFP36CL13}" id="pgBlockBI">
+                        <apex:pageBlockSection title="{!$Label.VFP36CL14}" columns="2"
+                            collapsible="true">
+                            <apex:outputText value="{!employerGroupDataObj.Name}"/>
+                             <!-- HighRoads Wave1-3880 Change Start -->
+                            <apex:outputField value="{!employerGroupDataObj.Account_SFDC_ID__c}" />
+                            <!-- HighRoads Wave1-3880 Change End -->
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL15}
+                                <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField value="{!employerGroupDataObj.Company_Name__c}" taborderhint="1" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                           
+                            
+                            <apex:inputField value="{!employerGroupDataObj.DBA_Name__c}" taborderhint="1" />
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL16}
+                                <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField value="{!employerGroupDataObj.Phone_Number__c}"
+                                            taborderhint="1" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            
+                            <apex:inputField value="{!employerGroupDataObj.Fax_Number__c}" taborderhint="1" />
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL17}
+                                <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField value="{!employerGroupDataObj.Street_Address__c}" styleClass="longText" taborderhint="1" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            
+                            <apex:pageBlockSectionItem > {!$Label.VFP36CL18}
+                                <apex:outputPanel >
+                                    <apex:inputField value="{!employerGroupDataObj.Billing_Street_Address__c}"
+                                        styleClass="longText" taborderhint="2" />
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL19}
+                                <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField value="{!employerGroupDataObj.city_SA__c}" taborderhint="1" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            
+
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL19}
+                                <apex:outputPanel >
+                                    <apex:inputField value="{!employerGroupDataObj.City_BA__c}" taborderhint="2" />
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL20}
+                                <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField value="{!employerGroupDataObj.State_SA__c}" taborderhint="1" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL20}
+                                <apex:outputPanel >
+                                    <apex:inputField value="{!employerGroupDataObj.State_BA__c}" taborderhint="2" />
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL21}
+                                <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField value="{!employerGroupDataObj.Zip_SA__c}" taborderhint="1" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL21}
+                                <apex:outputPanel >
+                                    <apex:inputField value="{!employerGroupDataObj.Zip_BA__c}" taborderhint="2" />
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            
+                            <!-- HighRoads Wave1-3880 Change Start -->
+                            <apex:inputField value="{!employerGroupDataObj.Shipping_County__c}" taborderhint="1" />
+                            <apex:inputField value="{!employerGroupDataObj.County__c}" taborderhint="2" />
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL23}
+                                <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField value="{!employerGroupDataObj.Group_Type__c}" taborderhint="1" id="grouptype">
+                                        <apex:actionSupport event="onchange" action="{!DisableAndEnableMedicalRegion}" 
+                                                    reRender="MedicalRegionId2, MedicalRegionId, MedicalRegionId1"
+                                                    status="{!$Label.VFP36CL58}" oncomplete="defaultcursor();"/>
+                                        </apex:inputField>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            <!-- HighRoads Wave1-3880 Change End -->
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL22}
+                                <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField value="{!employerGroupDataObj.Federal_Employer_ID_Number__c}" taborderhint="2" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL25}
+                                <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField value="{!employerGroupDataObj.of_Employees__c}" taborderhint="2" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                             <apex:pageBlockSectionItem >{!$Label.VFP36CL24}
+                                <apex:outputPanel >
+                                    <!-- HighRoads Wave1-3880 Change Start -->
+                                    <apex:inputField value="{!employerGroupDataObj.Type_of_Organization__c}" taborderhint="2" id="TypeOfOrganization">
+                                        <apex:actionSupport event="onchange" reRender="idTypeofOrgOther" status="{!$Label.VFP36CL58}" oncomplete="CursorToType();"/>
+                                    </apex:inputField>
+                                    <!-- HighRoads Wave1-3880 Change End -->
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL27}
+                                <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField value="{!employerGroupDataObj.of_Eligible_Employees__c}" taborderhint="2" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                <apex:outputPanel id="idTypeofOrgOther">
+                                    <apex:inputText value="{!showBlankVlaue}" disabled="true" style="background:rgb(242, 241, 241);"
+                                                    rendered="{!if(employerGroupDataObj.Type_of_Organization__c == 'Other',false,true)}" />
+                                    <apex:inputField value="{!employerGroupDataObj.Type_of_Organization_Other__c}"
+                                                     rendered="{!if(employerGroupDataObj.Type_of_Organization__c == 'Other',true,false)}"
+                                                     taborderhint="2" />
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+
+                            <!--Start:Req-3612-->
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL28}
+                                <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField value="{!employerGroupDataObj.Cobra_Members_with_this_Group__c}" taborderhint="2" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            <!--End:Req-3612-->
+                            
+                            <!-- HighRoads Wave1-3880 Change Start -->
+                            <apex:inputField value="{!employerGroupDataObj.COBRA_Members_with_this_Group1__c}" taborderhint="2" label="{!$Label.VFP36CL90}"/>
+                            <apex:inputField value="{!employerGroupDataObj.COBRA__c}" taborderhint="2" label="{!$Label.VFP36CL91}"/>
+                            <apex:inputField value="{!employerGroupDataObj.Cal_Cobra__c}" taborderhint="2" label="{!$Label.VFP36CL92}"/>
+                            <!-- HighRoads Wave1-3880 Change End -->
+                            <apex:inputField value="{!employerGroupDataObj.Open_Enrollment_Date_From__c}" taborderhint="2" />
+                            
+                            <apex:inputField value="{!employerGroupDataObj.Open_Enrollment_Date_To__c}"
+                                taborderhint="2" />
+                            
+                            <!-- HighRoads Wave1-3880 Change Start -->
+                            <apex:pageBlockSectionItem >{!$Label.SHP_RFP_01}
+                                 <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputText value="{!employerGroupDataObj.Account_Executive__c}" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>                               
+                            <!-- HighRoads Wave1-3880 Change End -->
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL29}
+                                 <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField value="{!employerGroupDataObj.SHP_Sales_Representative__c}" taborderhint="2" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            
+                            <apex:inputField value="{!employerGroupDataObj.Slice_Account__c}" taborderhint="2"/>  
+                            <apex:inputField value="{!employerGroupDataObj.Plan_vs_Calendar_Year__c}" taborderhint="2" />
+                            <apex:pageBlockSectionItem > {!$Label.VFP36CL34}
+                                <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField value="{!employerGroupDataObj.Effective_Date__c}" taborderhint="2" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            <apex:inputField value="{!employerGroupDataObj.Date_Sold__c}" taborderhint="2" />
+                            <apex:inputField value="{!employerGroupDataObj.Third_Party_Administrator__c}" taborderhint="2" />
+                            <!-- HighRoads Wave1-3880 Change Start -->
+                            <apex:inputField value="{!employerGroupDataObj.Enrollment_Method__c}" id="EnrollmentMethod">
+                                <apex:actionSupport event="onchange" action="{!DisableAndEnableEDISection}" 
+                                                    reRender="HREnrollEDIVenNam,HREnrollEDIVenNam1,HREnrollEDIVenPhoneId,HREnrollEDIVenPhoneId1,HREnrollEDIVenEmailId,HREnrollEDIVenEmailId1,
+                                                              HREnrollVenNam,HREnrollVenNam1,HREnrollVenPhoneId,HREnrollVenPhoneId1,HREnrollVenEmailId,HREnrollVenEmailId1,HREnrollVenNameId, HREnrollVenNameId1"
+                                                    status="{!$Label.VFP36CL58}" oncomplete="cursorToEnrollmentMethod();"/>
+                            </apex:inputField>
+                            <!-- HighRoads Wave1-3880 Change End -->
+                            <apex:selectRadio value="{!employerGroupDataObj.Previous_Group_Insurance_through_SHP__c}" label="{!$Label.VFP36CL35}">
+                                <apex:selectOption itemLabel="{!$Label.VFP36CL30}" itemValue="{!$Label.VFP36CL32}" />
+                                <apex:selectOption itemLabel="{!$Label.VFP36CL31}" itemValue="{!$Label.VFP36CL33}" />
+                            </apex:selectRadio>
+                            <apex:pageBlockSectionItem > {!$Label.VFP36CL36}
+                                <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField value="{!employerGroupDataObj.Projected_Enrollment__c}" taborderhint="2" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            <apex:selectRadio value="{!employerGroupDataObj.Member_accumulators_previous_Carrier__c}" label="{!$Label.VFP36CL38}">
+                                <apex:selectOption itemLabel="{!$Label.VFP36CL30}" itemValue="{!$Label.VFP36CL32}" />
+                                <apex:selectOption itemLabel="{!$Label.VFP36CL31}" itemValue="{!$Label.VFP36CL33}" />
+                            </apex:selectRadio>
+                            
+                            <apex:selectRadio value="{!employerGroupDataObj.Benefits_Subject_to_ERISA_Regulations__c}" required="False" label="{!$Label.VFP36CL37}"
+                                              id="ERISA" onselect="setShowHideOtheERISA(this.id);return false;" 
+                                              onchange="setShowHideOtheERISA(this.id);return false;">
+                                <apex:selectOption itemLabel="{!$Label.VFP36CL30}" itemValue="{!$Label.VFP36CL32}" />
+                                <apex:selectOption itemLabel="{!$Label.VFP36CL31}" itemValue="{!$Label.VFP36CL33}" />
+                            </apex:selectRadio>
+                            
+                            <apex:inputField value="{!employerGroupDataObj.HR_Account_Number__c}"
+                                taborderhint="2" />
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                  <apex:outputPanel id="idEmployeeWaitingPeriodOther1">
+                                    <div id="inptTextField">
+                                        <apex:inputText styleClass="inptTextField, backgroundText" disabled="true" value="{!showBlankVlaue}"  />
+                                    </div>
+                                    <div id="inptField" styleclass  ="invisible">
+                                        <apex:inputField styleClass="inptField" value="{!employerGroupDataObj.Other_ERISA__c}" taborderhint="2" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            <apex:inputField value="{!employerGroupDataObj.Other_Language_Considerations__c}"  styleClass="longText" taborderhint="2" />
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL39}
+                                <apex:outputPanel >
+                                    <apex:inputField value="{!employerGroupDataObj.Employee_Waiting_Period__c}"  taborderhint="2" id="EmployeeWaitingPeriod">
+                                        <apex:actionSupport event="onchange" reRender="idEmployeeWaitingPeriodOther" status="{!$Label.VFP36CL58}" oncomplete="cursorToEmpWaitingPeriod();"/>
+                                    </apex:inputField>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+
+                            <apex:inputField value="{!employerGroupDataObj.Employer_Defined_Eligibility_for_Benefit__c}" taborderhint="2" />
+
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                 <apex:outputPanel id="idEmployeeWaitingPeriodOther">
+                                    <apex:inputText value="{!showBlankVlaue}" disabled="true"  style="background:rgb(242, 241, 241);"
+                                                    rendered="{!if(employerGroupDataObj.Employee_Waiting_Period__c == 'Other',false,true)}" />
+                                    <apex:inputField value="{!employerGroupDataObj.Employee_Waiting_Period_Other__c}"
+                                                     rendered="{!if(employerGroupDataObj.Employee_Waiting_Period__c == 'Other',true,false)}"
+                                                     taborderhint="2" />
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            
+                            <apex:inputField value="{!employerGroupDataObj.Employer_Contribution_Employees_Premium__c}" label="{!$Label.VFP36CL40}" taborderhint="2" />
+                            <apex:inputField value="{!employerGroupDataObj.Employer_Contribution_Dependents_Premium__c}" label="{!$Label.VFP36CL41}" taborderhint="2" />
+                            <apex:inputField value="{!employerGroupDataObj.Religious_Exemption_Applied__c}" />
+                        </apex:pageBlockSection>
+                        
+                        <apex:pageBlockSection title="{!$Label.VFP36CL42}" collapsible="true">
+                            <apex:pageBlockSectionItem > {!$Label.VFP36CL43}
+                                <apex:outputPanel >
+                                    <!-- HighRoads Wave1-3880 Change Start -->
+                                    <apex:inputField value="{!employerGroupDataObj.HREnrollment_Name__c}" taborderhint="2" id="HREnrollment">
+                                        <apex:actionSupport event="onchange" action="{!autoPopulateHRandEnrollment}" reRender="idHREnroll,idHrEnrollEmail" status="{!$Label.VFP36CL58}" focus="HREnrollment" oncomplete="CursorToHREnrollment();">
+                                           <!--  <apex:param name="q1" value="test" /> -->
+                                        </apex:actionSupport>
+                                    </apex:inputField>
+                                    <!-- HighRoads Wave1-3880 Change End -->
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+
+                            <apex:pageBlockSectionItem > {!$Label.VFP36CL44}
+                                <apex:outputPanel >
+                                    <!-- HighRoads Wave1-3880 Change Start -->
+                                    <apex:inputField value="{!employerGroupDataObj.BillingContact_Name__c}" taborderhint="3" id="BillingContact">
+                                        <apex:actionSupport event="onchange" action="{!autoPopulateBilling}" reRender="idBillingPhone,idBillingEmail" status="{!$Label.VFP36CL58}" oncomplete="CursorToBillingContact();"/>
+                                    </apex:inputField>
+                                    <!-- HighRoads Wave1-3880 Change End -->
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+
+                            <apex:pageBlockSectionItem > {!$Label.VFP36CL45}
+                                <apex:outputPanel >
+                                    <apex:inputField id="idHREnroll" value="{!employerGroupDataObj.HR_Enrollment_Phone__c}"  taborderhint="2" />
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL46}
+                                <apex:outputPanel >
+                                    <apex:inputField id="idBillingPhone" value="{!employerGroupDataObj.Billing_Contact_Phone__c}"  taborderhint="3" />
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+
+                            <apex:pageBlockSectionItem > {!$Label.VFP36CL47}
+                                <apex:outputPanel >
+                                    <apex:inputField id="idHrEnrollEmail" value="{!employerGroupDataObj.HR_Enrollment_E_mail__c}"  taborderhint="2" />
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+
+                            <apex:pageBlockSectionItem > {!$Label.VFP36CL48}
+                            <apex:outputPanel >
+                                    <apex:inputField id="idBillingEmail" value="{!employerGroupDataObj.Billing_Contact_E_mail__c}" taborderhint="3" />
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            <apex:inputField value="{!employerGroupDataObj.Title__c}" taborderhint="2" />
+                            <apex:inputField value="{!employerGroupDataObj.Title1__c}" taborderhint="3" />
+                            <!-- HighRoads Wave1-3880 Change Start -->
+                            <apex:inputField value="{!employerGroupDataObj.HREmployer_Portal_Name__c}" taborderhint="2" id="HREmployerPortal1">
+                                <apex:actionSupport event="onchange" action="{!autoPopulateHREmployPortal}" reRender="HREnrollPhoneId,HREnrollEmailId" status="{!$Label.VFP36CL58}" oncomplete="CursorToHREmployerPortal1();"/>
+                            </apex:inputField>
+                            <apex:inputField value="{!employerGroupDataObj.HREmployer_Portal_Name1__c}" taborderhint="3" id="HREmployerPortal2">
+                                <apex:actionSupport event="onselect" action="{!autoPopulateHREmployPortal1}" reRender="HREnrollPhoneId1,HREnrollEmailId1" status="{!$Label.VFP36CL58}" oncomplete="CursorToHREmployerPortal2();"/>
+                            </apex:inputField>
+                            <!-- HighRoads Wave1-3880 Change End -->
+                            <apex:inputField id="HREnrollPhoneId" value="{!employerGroupDataObj.HR_Employer_Portal_Phone__c}" taborderhint="2" />
+                            <apex:inputField id="HREnrollPhoneId1" value="{!employerGroupDataObj.HR_Employer_Portal_Phone1__c}" taborderhint="3" />
+                            <apex:inputField id="HREnrollEmailId" value="{!employerGroupDataObj.HR_Employer_Portal_E_mail__c}" taborderhint="2" />
+                            <apex:inputField id="HREnrollEmailId1" value="{!employerGroupDataObj.HR_Employer_Portal_E_mail1__c}"  taborderhint="3" />
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL52}
+                                <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField value="{!employerGroupDataObj.Performance_or_Implementation__c}" styleClass="longText" taborderhint="3" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            <apex:inputField value="{!employerGroupDataObj.Distribution_List__c}" styleClass="longText" taborderhint="3" />
+                           
+                        </apex:pageBlockSection>
+                        
+                        <!-- HighRoads Wave1-3880 Change Start -->
+                        <apex:pageBlockSection title="{!$Label.VFP36CL93}" collapsible="true">
+                                <apex:pageBlockSection columns="1" id="HREnrollVenNam">
+                                <apex:pageBlockSectionItem >
+                                <apex:outputPanel >
+                                    <apex:outputLabel value="{!$Label.VFP36CL89}" for="HREnrollVenNameId" styleClass="labelCol margincls"  rendered="{!isEDIVendorEnable}" />
+                                    <apex:inputField id="HREnrollVenNameId" value="{!employerGroupDataObj.Vendor_Name__c}" taborderhint="3" rendered="{!isEDIVendorEnable}" />
+                                    <apex:outputLabel value="{!$Label.VFP36CL89}" for="HREnrollVenNameId" styleClass="labelCol margincls" rendered="{!isEDIVendorDisable}" />
+                                    <apex:inputText id="HREnrollVenNameId1" value="{!employerGroupDataObj.Vendor_Name__c}" disabled="true" rendered="{!isEDIVendorDisable}" />
+                                    <br />
+                                    <br />
+                                    <apex:outputLabel value="{!$Label.VFP36CL85}" for="HREnrollVenNam1" styleClass="labelCol margincls"  rendered="{!isEDIVendorEnable}" />
+                                        <apex:inputField id="HREnrollVenNam1" value="{!employerGroupDataObj.Vendor_Contact_Name__c}" taborderhint="3" rendered="{!isEDIVendorEnable}">
+                                            <apex:actionSupport event="onchange" action="{!autoPopulateEDIVendor}" reRender="HREnrollVenNam,HREnrollVenPhoneId, HREnrollVenEmailId, HREnrollVenNameId" focus="HREnrollVenNam1" oncomplete="CursorToVendorContact();">
+                                            <!--  <apex:param name="q1" value="test" /> -->
+                                            </apex:actionSupport>
+                                        </apex:inputField>
+                                    <apex:outputLabel value="{!$Label.VFP36CL85}"  for="HREnrollVenNam12" styleClass="labelCol marginOnecls" rendered="{!isEDIVendorDisable}" />
+                                    <apex:inputText id="HREnrollVenNam12" value="{!employerGroupDataObj.Vendor_Contact_Name__c}" disabled="true" rendered="{!isEDIVendorDisable}" />
+                                    <br />
+                                    <br />
+                                    <apex:outputLabel value="{!$Label.VFP36CL86}" for="HREnrollVenPhoneId" styleClass="labelCol marginOnecls" rendered="{!isEDIVendorEnable}" />
+                                    <apex:inputField id="HREnrollVenPhoneId" value="{!employerGroupDataObj.Vendor_Contact_Phone__c}" taborderhint="3" rendered="{!isEDIVendorEnable}" />
+                                    <apex:outputLabel value="{!$Label.VFP36CL86}" for="HREnrollVenPhoneId1" styleClass="labelCol marginOnecls"  rendered="{!isEDIVendorDisable}" />
+                                    <apex:inputText id="HREnrollVenPhoneId1" value="{!employerGroupDataObj.Vendor_Contact_Phone__c}" disabled="true" rendered="{!isEDIVendorDisable}" />
+                                    <br />
+                                    <br />
+                                    <apex:outputLabel value="{!$Label.VFP36CL87}" for="HREnrollVenEmailId" styleClass="labelCol margincls"  rendered="{!isEDIVendorEnable}" />
+                                    <apex:inputField id="HREnrollVenEmailId" value="{!employerGroupDataObj.Vendor_Contact_Email__c}" taborderhint="3" rendered="{!isEDIVendorEnable}" />
+                                    <apex:outputLabel value="{!$Label.VFP36CL87}" for="HREnrollVenEmailId" styleClass="labelCol margincls" rendered="{!isEDIVendorDisable}" />
+                                    <apex:inputText id="HREnrollVenEmailId1" value="{!employerGroupDataObj.Vendor_Contact_Email__c}" disabled="true" rendered="{!isEDIVendorDisable}" />  
+                                </apex:outputPanel>
+                                </apex:pageBlockSectionItem>
+                            </apex:pageBlockSection>
+                            <!-- HighRoads Wave1-3880 Change End -->
+                            <apex:pageBlockSection columns="1" id="HREnrollEDIVenNam">
+                                <apex:outputPanel >
+                                    <br />
+                                    <br />
+                                    <apex:outputLabel value="{!$Label.VFP36CL49}" for="HREnrollEDIVenNam1" styleClass="labelCol margincls"  rendered="{!isEDIVendorEnable}" />
+                                    <!-- HighRoads Wave1-3880 Change Start -->
+                                    <apex:inputField id="HREnrollEDIVenNam1" value="{!employerGroupDataObj.EDI_Vendor_Name__c}" taborderhint="3" rendered="{!isEDIVendorEnable}" >
+                                        <apex:actionSupport event="onchange" action="{!autoPopulateEDIVendor}" reRender="HREnrollEDIVenNam,HREnrollEDIVenPhoneId, HREnrollEDIVenEmailId" status="{!$Label.VFP36CL58}" focus="HREnrollEDIVenNam1" oncomplete="CursorToEDIVendor();">
+                                           <!--  <apex:param name="q1" value="test" /> -->
+                                        </apex:actionSupport>
+                                    </apex:inputField>
+                                    <!-- HighRoads Wave1-3880 Change End -->
+                                    <apex:outputLabel value="{!$Label.VFP36CL49}"  for="HREnrollEDIVenNam12" styleClass="labelCol marginOnecls" rendered="{!isEDIVendorDisable}" />
+                                    <apex:inputText id="HREnrollEDIVenNam12" value="{!employerGroupDataObj.EDI_Vendor_Name__c}" disabled="true" rendered="{!isEDIVendorDisable}" />
+                                    <br />
+                                    <br />
+                                    <apex:outputLabel value="{!$Label.VFP36CL50}" for="HREnrollEDIVenPhoneId" styleClass="labelCol marginOnecls" rendered="{!isEDIVendorEnable}" />
+                                    <apex:inputField id="HREnrollEDIVenPhoneId" value="{!employerGroupDataObj.EDI_Vendor_Phone__c}" taborderhint="3" rendered="{!isEDIVendorEnable}" />
+                                    <apex:outputLabel value="{!$Label.VFP36CL50}" for="HREnrollEDIVenPhoneId1" styleClass="labelCol marginOnecls"  rendered="{!isEDIVendorDisable}" />
+                                    <apex:inputText id="HREnrollEDIVenPhoneId1" value="{!employerGroupDataObj.EDI_Vendor_Phone__c}" disabled="true" rendered="{!isEDIVendorDisable}" />
+                                    <br />
+                                    <br />
+                                    <apex:outputLabel value="{!$Label.VFP36CL51}" for="HREnrollEDIVenEmailId" styleClass="labelCol margincls"  rendered="{!isEDIVendorEnable}" />
+                                    <apex:inputField id="HREnrollEDIVenEmailId" value="{!employerGroupDataObj.EDI_Vendor_E_Mail__c}" taborderhint="3" rendered="{!isEDIVendorEnable}" />
+                                    <apex:outputLabel value="{!$Label.VFP36CL51}" for="HREnrollEDIVenEmailId" styleClass="labelCol margincls" rendered="{!isEDIVendorDisable}" />
+                                    <apex:inputText id="HREnrollEDIVenEmailId1" value="{!employerGroupDataObj.EDI_Vendor_E_Mail__c}" disabled="true" rendered="{!isEDIVendorDisable}" />                                        
+                                    
+                                </apex:outputPanel>
+                            </apex:pageBlockSection>    
+                        </apex:pageBlockSection>
+                        
+                        
+                        <apex:pageBlockSection title="{!$Label.VFP36CL77}" columns="2" collapsible="true" id="MedicalRegionId2">
+                            <apex:inputField value="{!employerGroupDataObj.Sub_Account_Data__c}" label="{!$Label.VFP36CL75}" styleClass="longText" taborderhint="3" />
+                            <apex:outputText ></apex:outputText>        
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL53}
+                                <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField value="{!employerGroupDataObj.CompletedBy__c}" taborderhint="3" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            <!-- HighRoads Wave1-3880 Change Start -->
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL84}
+                                <apex:outputPanel >
+                                     <apex:inputField value="{!employerGroupDataObj.Sales_Auditor__c}" taborderhint="3" />                                   
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            <!-- HighRoads Wave1-3880 Change End -->
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL54}
+                                <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField value="{!employerGroupDataObj.AuditorName__c}" taborderhint="3" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            <!-- HighRoads Wave1-3880 Change Start -->
+                            <apex:pageBlockSectionItem >
+                                <apex:outputPanel >
+                                    <apex:outputLabel value="{!$Label.VFP36CL88}" for="MedicalRegionId" styleClass="labelCol margincls"  rendered="{!isMedicalRegionEnable}" />
+                                        <apex:inputField id="MedicalRegionId" value="{!employerGroupDataObj.Medical_Region__c}" taborderhint="3" rendered="{!isMedicalRegionEnable}">
+                                        </apex:inputField>
+                                        <apex:outputLabel value="{!$Label.VFP36CL88}"  for="MedicalRegionId1" styleClass="labelCol marginOnecls" rendered="{!isMedicalRegionDisable}" />
+                                        <apex:inputText id="MedicalRegionId1" value="{!employerGroupDataObj.Medical_Region__c}" disabled="true" rendered="{!isMedicalRegionDisable}" />
+                                    </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            <!-- HighRoads Wave1-3880 Change End -->
+                        </apex:pageBlockSection>
+
+                        <apex:pageBlockSection title="{!$Label.VFP36CL55}" collapsible="true">
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL56}
+                                <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField value="{!employerGroupDataObj.Broker_Name__c }" taborderhint="3" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL57}
+                                <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField value="{!employerGroupDataObj.Broker_Agency__c}" taborderhint="3" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+
+                            <apex:outputPanel ></apex:outputPanel>
+                            <apex:inputField value="{!employerGroupDataObj.SFDC_Broker_ID__c}" taborderhint="3" />
+                            <apex:inputField value="{!employerGroupDataObj.ACal_L_D_Licence__c}" taborderhint="3" />
+                            <apex:inputField value="{!employerGroupDataObj.ACal_L_D_Expiration_Date__c}" taborderhint="3" />
+                            <apex:inputField value="{!employerGroupDataObj.Commissions_Medical__c}" taborderhint="3" />
+                            <!-- HighRoads Wave1-3880 Change Start -->
+                            <apex:inputField value="{!employerGroupDataObj.Commissions_Optional_Dental_Delta__c}" taborderhint="3" id="Delta">
+                                <apex:actionSupport event="onchange" reRender="idOtherOptionalDental" status="{!$Label.VFP36CL58}" oncomplete="CursorToDelta();"/>
+                            </apex:inputField>
+                            <apex:inputField value="{!employerGroupDataObj.Commissions_Optional_Vision_VSP__c}" taborderhint="3" id="VSP">
+                                <apex:actionSupport event="onchange" reRender="idOtherOptionalVision" status="{!$Label.VFP36CL58}" oncomplete="CursorToVSP();"/>
+                            </apex:inputField>
+                            <!-- HighRoads Wave1-3880 Change End -->
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                <apex:outputPanel id="idOtherOptionalDental">
+                                    <apex:inputText value="{!showBlankVlaue}" disabled="true" style="background:rgb(242, 241, 241);"
+                                                    rendered="{!if(employerGroupDataObj.Commissions_Optional_Dental_Delta__c == 'Other',false,true)}" />
+                                    <apex:inputField value="{!employerGroupDataObj.Other_Optional_Dental__c}"
+                                                    rendered="{!if(employerGroupDataObj.Commissions_Optional_Dental_Delta__c == 'Other',true,false)}" taborderhint="2" />
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                 <apex:outputPanel id="idOtherOptionalVision">
+                                    <apex:inputText value="{!showBlankVlaue}" disabled="true" style="background:rgb(242, 241, 241);"
+                                                    rendered="{!if(employerGroupDataObj.Commissions_Optional_Vision_VSP__c == 'Other',false,true)}" />
+                                    <apex:inputField value="{!employerGroupDataObj.Other_Optional_Vision__c}" 
+                                                     rendered="{!if(employerGroupDataObj.Commissions_Optional_Vision_VSP__c == 'Other',true,false)}" taborderhint="2" />
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            <!-- HighRoads Wave1-3880 Change Start -->
+                            <apex:inputField value="{!employerGroupDataObj.Commissions_Optional_Acu_Chiro_ACN__c}" taborderhint="3" id="ACN">
+                                <apex:actionSupport event="onchange" reRender="idOtherOptional_Acu_Chiro" status="{!$Label.VFP36CL58}" oncomplete="CursorToACN();"/>
+                            </apex:inputField>
+                            <!-- HighRoads Wave1-3880 Change End -->
+                            <apex:inputField Value="{!employerGroupDataObj.Opportunity_Account_Name__c}" />
+                            <!-- Validate -->
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                    <apex:outputPanel id="idOtherOptional_Acu_Chiro">
+                                    <apex:inputText value="{!showBlankVlaue}" disabled="true"  style="background:rgb(242, 241, 241);"
+                                                    rendered="{!if(employerGroupDataObj.Commissions_Optional_Acu_Chiro_ACN__c == 'Other',false,true)}" />
+                                    <apex:inputField value="{!employerGroupDataObj.Other_Optional_Acu_Chiro__c}"
+                                                    rendered="{!if(employerGroupDataObj.Commissions_Optional_Acu_Chiro_ACN__c == 'Other',true,false)}" taborderhint="2" />
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                        </apex:pageBlockSection>
+                    </apex:pageBlock>
+                    
+                    <!-- HighRoads Wave1-3880 Change Start -->
+                    <apex:outputpanel id="pgBlock">                  
+                    <apex:pageBlockSection title="{!$Label.SHP_RFP_100}" columns="2" rendered="{!IF(employerGroupDataObj.General_Agent_Applicable__c = true , true , false)}">                                  
+                          <apex:outputField value="{!employerGroupDataObj.General_Agent_Applicable__c}" label="{!$Label.SHP_RFP_104}" >
+                          <apex:actionSupport event="onchange" rerender="pgBlock"/>
+                          </apex:outputField>
+                          <apex:outputField value="{!employerGroupDataObj.General_Agent__c}" label="{!$Label.SHP_RFP_101}"/>
+                          <apex:outputField value="{!employerGroupDataObj.GA_Contact__c}" label="{!$Label.SHP_RFP_102}"/>
+                          <apex:outputField value="{!employerGroupDataObj.GA_Commission__c}" label="{!$Label.SHP_RFP_103}"/>               
+                    </apex:pageBlockSection>                                       
+                    </apex:outputpanel> 
+                    <!-- HighRoads Wave1-3880 Change End -->
+                </apex:tab>
+
+                <apex:tab label="{!$Label.VFP36CL59}" name="{!$Label.VFP36CL59}" id="TabMedicalPlan">
+                    <apex:pageBlock id="pgBlockMedicalPlan" rendered="{!errorOccur}">
+                        <apex:pageMessage severity="{!$Label.VFP36CL61}" summary="{!$Label.VFP36CL60}" strength="3" />
+                    </apex:pageBlock>
+
+                    <apex:pageBlock id="pgBlockMedicalPlan1" title="{!$Label.VFP36CL83}">
+                        <apex:pageBlockButtons location="bottom">
+                            <apex:commandButton value="{!$Label.VFP36CL62}" action="{!addMedicalPan}"  disabled="{!HideAddMedPlanButton}" id="addMedicalPlan" />
+                            <apex:commandButton value="{!$Label.VFP36CL63}" action="{!removeMedicalPan}" disabled="{!HideRemoveMedPlanButton}" id="removeMedicalPlan" />
+                        </apex:pageBlockButtons>
+
+                        <apex:repeat value="{!lstMedicalPlan}" var="MedPlanObj">
+                            <apex:pageBlockSection title="{!$Label.VFP36CL59}" columns="1" collapsible="true">
+                                <apex:pageBlockSection >
+                                    <apex:pageBlockSectionItem > {!$Label.VFP36CL64}
+                                        <apex:outputPanel >
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputField value="{!MedPlanObj.Medical_type__c}" required="{!required}" />
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+
+                                    <apex:pageBlockSectionItem > {!$Label.VFP36CL65}
+                                        <apex:outputPanel >
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputField value="{!MedPlanObj.Medical__c}" required="{!required}" id="PlanId">
+                                                    <apex:actionSupport event="onchange" reRender="planIdOther" status="{!$Label.VFP36CL58}" oncomplete="setHDHP(this.id,'{!$Component.HDHP}')" />
+                                                </apex:InputField>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+                                    
+                                    <apex:pageBlockSectionItem >
+                                    </apex:pageBlockSectionItem>
+
+                                    <apex:pageBlockSectionItem > {!$Label.VFP36CL26}
+                                        <apex:outputPanel id="planIdOther">
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputText value="{!showBlankVlaue}" disabled="true" style="background:rgb(242, 241, 241);"
+                                                                rendered="{!if(MedPlanObj.Medical__c == 'Others',false,true)}" />
+                                                <apex:inputField value="{!MedPlanObj.Other_Plan_Id__c }" rendered="{!if(MedPlanObj.Medical__c == 'Others',true,false)}" />
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL67}
+                                            <apex:outputPanel >
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputField value="{!MedPlanObj.Custom_Medical__c}">
+                                                    <apex:actionSupport event="onchange" reRender="idCustomMedicalOther" status="{!$Label.VFP36CL58}" />
+                                                </apex:inputField>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL68} 
+                                        <apex:outputPanel >
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputField value="{!MedPlanObj.Dental__c}">
+                                                    <apex:actionSupport event="onchange" reRender="idDentalOther" status="{!$Label.VFP36CL58}" />
+                                                </apex:inputField>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                            <apex:outputPanel id="idCustomMedicalOther">
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputText value="{!showBlankVlaue}" disabled="true" style="background:rgb(242, 241, 241);"
+                                                                rendered="{!if(MedPlanObj.Custom_Medical__c == 'Other',false,true)}" />
+                                                <apex:inputField value="{!MedPlanObj.CustomMedical_Other__c }" rendered="{!if(MedPlanObj.Custom_Medical__c == 'Other',true,false)}" />
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                            <apex:outputPanel id="idDentalOther">
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputText value="{!showBlankVlaue}" disabled="true" style="background:rgb(242, 241, 241);"
+                                                                rendered="{!if(MedPlanObj.Dental__c == 'Other',false,true)}" />
+                                                <apex:inputField value="{!MedPlanObj.Dental_Other__c }"  rendered="{!if(MedPlanObj.Dental__c == 'Other',true,false)}" />
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL69}
+                                        <apex:outputPanel >
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputField value="{!MedPlanObj.Vision__C }">
+                                                    <apex:actionSupport event="onchange" reRender="idVisionOther" status="{!$Label.VFP36CL58}" />
+                                                </apex:inputField>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL73}
+                                        <apex:outputPanel >
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputField value="{!MedPlanObj.Chiropractic__C }">
+                                                    <apex:actionSupport event="onchange" reRender="idChiropratica" status="{!$Label.VFP36CL58}" />
+                                                </apex:inputField>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                            <apex:outputPanel id="idVisionOther">
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputText value="{!showBlankVlaue}" disabled="true" style="background:rgb(242, 241, 241);"
+                                                                rendered="{!if(MedPlanObj.Vision__c == 'Other',false,true)}" />
+                                                <apex:inputText value="{!MedPlanObj.Vision_Other__c }" rendered="{!if(MedPlanObj.Vision__c == 'Other',true,false)}" />
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                            <apex:outputPanel id="idChiropratica">
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputText value="{!showBlankVlaue }" disabled="true" style="background:rgb(242, 241, 241);"
+                                                                rendered="{!if(MedPlanObj.Chiropractic__c == 'Other',false,true)}" />
+                                                <apex:inputField value="{!MedPlanObj.Chiropractic_other__C }" rendered="{!if(MedPlanObj.Chiropractic__c == 'Other',true,false)}" />
+
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL72}
+                                        <apex:outputPanel >
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputField value="{!MedPlanObj.Acupuncture__C }">
+                                                    <apex:actionSupport event="onchange" reRender="idAcupunctureOther" status="{!$Label.VFP36CL58}" />
+                                                </apex:inputField>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL74}
+                                        <apex:outputPanel >
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputField value="{!MedPlanObj.Acupuncture_Chiropractic__c}">
+                                                    <apex:actionSupport event="onchange" reRender="idAcupuncturechiropracticOther" status="{!$Label.VFP36CL58}" />
+                                                </apex:inputField>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                            <apex:outputPanel id="idAcupunctureOther">
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputText value="{!showBlankVlaue }" disabled="true" style="background:rgb(242, 241, 241);"
+                                                                rendered="{!if(MedPlanObj.Acupuncture__c == 'Other',false,true)}" />
+                                                <apex:inputField value="{!MedPlanObj.Acupuncture_other__C }" rendered="{!if(MedPlanObj.Acupuncture__c == 'Other',true,false)}" />
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                            <apex:outputPanel id="idAcupuncturechiropracticOther">
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputText value="{!showBlankVlaue }" disabled="true" style="background:rgb(242, 241, 241);"
+                                                                rendered="{!if(MedPlanObj.Acupuncture_Chiropractic__c == 'Others',false,true)}" />
+                                                <apex:inputField value="{!MedPlanObj.AcupunctureChiropractic_Other__c}"
+                                                                 rendered="{!if(MedPlanObj.Acupuncture_Chiropractic__c == 'Others',true,false)}" />
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL70}
+                                        <apex:outputPanel >
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputField value="{!MedPlanObj.Prosthetic_Orthotic__c}"  required="{!required}" />
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL71}
+                                        <apex:outputPanel styleClass="requiredInput" layout="block">
+                                            <apex:outputPanel styleClass="requiredBlock" layout="block" />
+                                            <apex:inputField value="{!MedPlanObj.Infertility__c}" required="{!required}" />
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+
+                                    <apex:selectRadio value="{!MedPlanObj.HDHP__c}" label="HDHP" id="HDHP">
+                                        <apex:selectOption itemLabel="{!$Label.VFP36CL30}" itemValue="{!$Label.VFP36CL32}" />
+                                        <apex:selectOption itemLabel="{!$Label.VFP36CL31}" itemValue="{!$Label.VFP36CL33}" />
+                                    </apex:selectRadio>
+                                    <apex:outputPanel >
+                                        </apex:outputpanel>
+
+                                        <apex:inputField value="{!MedPlanObj.Plan_Name_Active_2__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.Plan_Name_Early_Retiree_2__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.EE2__c}"  required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.EE_Early_Retiree2__c}" required="{!required}" />
+                                        <apex:inputField Value="{!MedPlanObj.EF_Sec1__c}" />
+                                        <apex:inputField Value="{!MedPlanObj.EF_Early_Retiree_Sec1__c}" />
+
+                                        <apex:inputField value="{!MedPlanObj.Plan_Name_Active__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.Plan_Name_Early_Retiree__c}"  required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.EE__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.EE_Early_Retiree__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.EE_1__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.EE_1_Early_Retiree__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.EE_2__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.EE_2_Early_Retiree__c}" required="{!required}" />
+
+                                        <apex:inputField value="{!MedPlanObj.Plan_Name_Active_1__c}"  required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.Plan_Name_Early_Retiree_1__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.EE1__c}"  />
+                                        <apex:inputField value="{!MedPlanObj.EE_Early_Retiree1__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.ES__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.ES_Early_Retiree__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.EC__c}" required="{!required}" />                         
+                                        <apex:inputField value="{!MedPlanObj.EC_Early_Retiree__c}"  required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.EF__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.EF_Early_Retiree__c}" required="{!required}" />
+                                </apex:pageBlockSection>
+                                <apex:pageBlockSection columns="1" collapsible="true">
+                                    <apex:inputField value="{!MedPlanObj.Medical_Plan_Notes__c}" required="{!required}" />
+                                </apex:pageBlockSection>
+                            </apex:pageBlockSection>
+
+                        </apex:repeat>
+                    </apex:pageBlock>
+                </apex:tab>
+
+                <apex:tab label=" {!$Label.VFP36CL82}" name="{!$Label.VFP36CL82}" id="TabMedicalPlan1" >
+                    <apex:pageBlock id="pgBlockMedicalPlan21" rendered="{!errorOccur}">
+                        <apex:pageMessage severity="{!$Label.VFP36CL61}"
+                            summary="{!$Label.VFP36CL60}"  
+                            strength="3" />
+                    </apex:pageBlock>
+
+                    <apex:pageBlock id="pgBlockMedicalPlan22" title="{!$Label.VFP36CL83}">
+                        <apex:pageBlockButtons location="bottom">
+                            <apex:commandButton value="{!$Label.VFP36CL62}" action="{!addNonMedicalPan}" id="addMedicalPlan221" disabled="{!HideAddNonMedPlanButton}" />
+                            <apex:commandButton value="{!$Label.VFP36CL63}" action="{!removeNonMedicalPan}" disabled="{!HideReamoveNonMedPlanButton}" id="removeMedicalPlan221" />
+                        </apex:pageBlockButtons>
+                        <apex:repeat value="{!lstMedicalPlanOther}" var="MedPlanObj">
+                            <apex:pageBlockSection title="{!$Label.VFP36CL59}" columns="1" collapsible="true">
+                                <apex:pageBlockSection >
+
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL68}
+                                    <apex:outputPanel >
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputField value="{!MedPlanObj.Dental__c}">
+                                                    <apex:actionSupport event="onchange" reRender="idDentalOther1" status="{!$Label.VFP36CL58}" />
+                                                </apex:inputField>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL69}
+                                    <apex:outputPanel >
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputField value="{!MedPlanObj.Vision__C }">
+                                                    <apex:actionSupport event="onchange" reRender="idVisionOther1" status="{!$Label.VFP36CL58}" />
+                                                </apex:inputField>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                        <apex:outputPanel id="idDentalOther1">
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputText value="{!showBlankVlaue}" disabled="true" style="background:rgb(242, 241, 241);" 
+                                                                rendered="{!if(MedPlanObj.Dental__c == 'Other',false,true)}" />
+                                                <apex:inputText value="{!MedPlanObj.Dental_Other__c }" disabled="false" rendered="{!if(MedPlanObj.Dental__c == 'Other',true,false)}" />
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                        <apex:outputPanel id="idVisionOther1">
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputText value="{!showBlankVlaue}" disabled="true" style="background:rgb(242, 241, 241);"
+                                                                rendered="{!if(MedPlanObj.Vision__c == 'Other',false,true)}" />
+                                                <apex:inputText value="{!MedPlanObj.Vision_Other__c }" disabled="false" rendered="{!if(MedPlanObj.Vision__c == 'Other',true,false)}" />
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL73}
+                                    <apex:outputPanel >
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputField value="{!MedPlanObj.Chiropractic__C }">
+                                                    <apex:actionSupport event="onchange" reRender="idChiropractice1" status="{!$Label.VFP36CL58}" />
+                                                </apex:inputField>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL72}
+                                    <apex:outputPanel >
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputField value="{!MedPlanObj.Acupuncture__C }">
+                                                    <apex:actionSupport event="onchange" reRender="idAcupunctureOther1" status="{!$Label.VFP36CL58}" />
+                                                </apex:inputField>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                        <apex:outputPanel id="idChiropractice1">
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputText value="{!showBlankVlaue }" disabled="true" style="background:rgb(242, 241, 241);"
+                                                                rendered="{!if(MedPlanObj.Chiropractic__c == 'Other',false,true)}" />
+                                                <apex:inputText value="{!MedPlanObj.Chiropractic_Other__c}" disabled="false"
+                                                                rendered="{!if(MedPlanObj.Chiropractic__c == 'Other',true,false)}" />
+                                                <!--/>-->
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                        <apex:outputPanel id="idAcupunctureOther1">
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputText value="{!showBlankVlaue }" disabled="true" style="background:rgb(242, 241, 241);"
+                                                                rendered="{!if(MedPlanObj.Acupuncture__c == 'Other',false,true)}" />
+                                                <apex:inputText value="{!MedPlanObj.Acupuncture_other__C }" disabled="false"
+                                                                rendered="{!if(MedPlanObj.Acupuncture__c == 'Other',true,false)}" />
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL74}
+                                    <apex:outputPanel >
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputField value="{!MedPlanObj.Acupuncture_Chiropractic__c}">
+                                                    <apex:actionSupport event="onchange" reRender="idAcupunctureChiropracticOther1" status="{!$Label.VFP36CL58}" />
+                                                </apex:inputField>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL70}
+                                    <apex:outputPanel >
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputField value="{!MedPlanObj.Prosthetic_Orthotic__c}"  required="{!required}" />
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                        <apex:outputPanel id="idAcupunctureChiropracticOther1">
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputText value="{!showBlankVlaue }" disabled="true" style="background:rgb(242, 241, 241);"
+                                                                rendered="{!if(MedPlanObj.Acupuncture_Chiropractic__c == 'Others',false,true)}" />
+                                                <apex:inputText value="{!MedPlanObj.AcupunctureChiropractic_Other__c}" disabled="false"
+                                                                rendered="{!if(MedPlanObj.Acupuncture_Chiropractic__c == 'Others',true,false)}" />
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL71}
+                                    <apex:outputPanel styleClass="requiredInput" layout="block">
+                                            <apex:outputPanel styleClass="requiredBlock" layout="block" />
+                                            <apex:inputField value="{!MedPlanObj.Infertility__c}" required="{!required}" />
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+
+                                    <apex:selectRadio value="{!MedPlanObj.HDHP__c}" label="{!$Label.VFP36CL81}" id="HDHP">
+                                        <apex:selectOption itemLabel="{!$Label.VFP36CL30}" itemValue="{!$Label.VFP36CL32}" />
+                                        <apex:selectOption itemLabel="{!$Label.VFP36CL31}" itemValue="{!$Label.VFP36CL33}" />
+                                    </apex:selectRadio>
+                                    <apex:outputPanel >
+                                        </apex:outputpanel>
+
+                                        <apex:inputField value="{!MedPlanObj.Plan_Name_Active_2__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.Plan_Name_Early_Retiree_2__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.EE2__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.EE_Early_Retiree2__c}" required="{!required}" />
+                                        <apex:inputField Value="{!MedPlanObj.EF_Sec1__c}" />
+                                        <apex:inputField Value="{!MedPlanObj.EF_Early_Retiree_Sec1__c}" />
+
+                                        <apex:inputField value="{!MedPlanObj.Plan_Name_Active__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.Plan_Name_Early_Retiree__c}"  required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.EE__c}"  required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.EE_Early_Retiree__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.EE_1__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.EE_1_Early_Retiree__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.EE_2__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.EE_2_Early_Retiree__c}" required="{!required}" />
+                                        
+                                        <apex:inputField value="{!MedPlanObj.Plan_Name_Active_1__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.Plan_Name_Early_Retiree_1__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.EE1__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.EE_Early_Retiree1__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.ES__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.ES_Early_Retiree__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.EC__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.EC_Early_Retiree__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.EF__c}" required="{!required}" />
+                                        <apex:inputField value="{!MedPlanObj.EF_Early_Retiree__c}" required="{!required}" />
+                                </apex:pageBlockSection>
+                                <apex:pageBlockSection columns="1">
+                                    <apex:inputField value="{!MedPlanObj.Medical_Plan_Notes__c}" required="{!required}" />
+                                </apex:pageBlockSection>
+                            </apex:pageBlockSection>
+                        </apex:repeat>
+                    </apex:pageBlock>
+                </apex:tab>
+            </apex:tabPanel>
+        </apex:pageBlock>
+    </apex:form>
+    
+    <!-- Renwal SCN FORM start  Abhishek Gupta-->
+    <apex:form id="frmEGDRenwal" rendered="{!IF(!showErroronLoad && !showErroronLoad1 && !!showRenwalForm ,true,false)}">
+        <apex:pageBlock id="pgButtonRenwal">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="{!$Label.VFP36CL80}" action="{!save}" />
+                <apex:commandButton value="Send To UnderWriter Review" action="{!Completed}" />
+                <apex:commandButton value="Cancel" action="{!Cancel}" />
+            </apex:pageBlockButtons>
+            <apex:pageMessage severity="{!$Label.VFP36CL61}" summary="{!$Label.VFP36CL60}" strength="3" rendered="{!errorMsgDisplay}" />
+            <apex:tabPanel switchType="client" selectedTab="SoldCaseNotification" id="AccountTabPanelRenwal" tabClass="activeTab" inactiveTabClass="inactiveTab">
+                <apex:tab label="{!$Label.VFP36CL79}" name="SoldCaseNotification" id="tabOneRenwal">
+                    <apex:pageBlock title="{!$Label.VFP36CL13}"  id="pgBlockBIRenwal">
+                        <apex:pageBlockSection title="Employer Group Data" columns="2" collapsible="true">
+                            <apex:outputText value="{!employerGroupDataObj.Name}"/>
+                            <!-- HighRoads Wave1-3880 Change Start -->
+                            <apex:outputField value="{!employerGroupDataObj.Account_SFDC_ID__c}" />
+                            <!-- HighRoads Wave1-3880 Change End -->
+                            
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL15}
+                            <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField value="{!employerGroupDataObj.Company_Name__c}" label="{!$Label.VFP36CL15}" taborderhint="1" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            
+                             <apex:inputField value="{!employerGroupDataObj.DBA_Name__c}" taborderhint="1" />
+                           
+                            <apex:inputField value="{!employerGroupDataObj.Phone_Number__c}" label="{!$Label.VFP36CL16}" taborderhint="1" />
+                            <apex:inputField value="{!employerGroupDataObj.Fax_Number__c}" taborderhint="1" />
+                            <apex:inputField value="{!employerGroupDataObj.Street_Address__c}" styleClass="longText" label="{!$Label.VFP36CL17}" taborderhint="1" />
+                            <apex:inputField value="{!employerGroupDataObj.Billing_Street_Address__c}" styleClass="longText" label="{!$Label.VFP36CL18}" taborderhint="2" />
+                            <apex:inputField value="{!employerGroupDataObj.city_SA__c}" label="{!$Label.VFP36CL19}" taborderhint="1" />
+                            <apex:inputField value="{!employerGroupDataObj.City_BA__c}" label="{!$Label.VFP36CL19}" taborderhint="2" />
+                            <apex:inputField value="{!employerGroupDataObj.State_SA__c}" label="{!$Label.VFP36CL20}" taborderhint="1" />
+                            <apex:inputField value="{!employerGroupDataObj.State_BA__c}" label="{!$Label.VFP36CL20}" taborderhint="2" />
+                            <apex:inputField value="{!employerGroupDataObj.Zip_SA__c}" label="{!$Label.VFP36CL21}" taborderhint="1" />
+                            <apex:inputField value="{!employerGroupDataObj.Zip_BA__c}" label="{!$Label.VFP36CL21}" taborderhint="2" />
+                                                      <!-- HighRoads Wave1-3880 Change Start -->
+                            <apex:inputField value="{!employerGroupDataObj.Shipping_County__c}" taborderhint="1" /> 
+                            <apex:inputField value="{!employerGroupDataObj.County__c}" taborderhint="2" />
+                            <apex:inputField value="{!employerGroupDataObj.Group_Type__c}" label="{!$Label.VFP36CL23}" taborderhint="2" id="grouptype">
+                            
+                                <apex:actionSupport event="onchange" action="{!DisableAndEnableMedicalRegion}" 
+                                                    reRender="MedicalRegionId3, MedicalRegionId4, MedicalRegionId5"
+                                                    status="{!$Label.VFP36CL58}" oncomplete="defaultcursor();" />
+                            </apex:inputField>
+                            <!-- HighRoads Wave1-3880 Change End -->
+                            <apex:inputField value="{!employerGroupDataObj.Federal_Employer_ID_Number__c}" taborderhint="2" />
+                            <apex:inputField value="{!employerGroupDataObj.of_Employees__c}"
+                                label="# Employees" taborderhint="2" />
+                            <!-- HighRoads Wave1-3880 Change Start -->
+                            <apex:inputField value="{!employerGroupDataObj.Type_of_Organization__c}" label="{!$Label.VFP36CL24}" taborderhint="2" id="TypeOfOrganization">
+                                <apex:actionSupport event="onchange" reRender="idTypeofOrgOtherRenwal" status="{!$Label.VFP36CL58}" oncomplete="CursorToType();"/>
+                            </apex:inputField>
+                            <!-- HighRoads Wave1-3880 Change End -->
+                            <apex:inputField value="{!employerGroupDataObj.of_Eligible_Employees__c}" taborderhint="2" />
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                            <apex:outputPanel id="idTypeofOrgOtherRenwal">
+                                    <apex:inputText value="{!showBlankVlaue}" disabled="true" style="background:rgb(242, 241, 241);"
+                                                    rendered="{!if(employerGroupDataObj.Type_of_Organization__c == 'Other',false,true)}" />
+                                    <apex:inputField value="{!employerGroupDataObj.Type_of_Organization_Other__c}"
+                                                     rendered="{!if(employerGroupDataObj.Type_of_Organization__c == 'Other',true,false)}" taborderhint="2" />
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            <!--Start:Req-3612-->
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL28}
+                            <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField value="{!employerGroupDataObj.Cobra_Members_with_this_Group__c}" taborderhint="2" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            <!--End:Req-3612-->
+                            <!-- HighRoads Wave1-3880 Change Start -->
+                            <apex:inputField value="{!employerGroupDataObj.COBRA_Members_with_this_Group1__c}" taborderhint="2" label="{!$Label.VFP36CL90}"/>
+                            <apex:inputField value="{!employerGroupDataObj.COBRA__c}" taborderhint="2" label="{!$Label.VFP36CL91}"/>
+                            <apex:inputField value="{!employerGroupDataObj.Cal_Cobra__c}" taborderhint="2" label="{!$Label.VFP36CL92}"/>
+                            <!-- HighRoads Wave1-3880 Change End -->
+                            <apex:inputField value="{!employerGroupDataObj.Open_Enrollment_Date_From__c}" taborderhint="2" />
+                            <apex:inputField value="{!employerGroupDataObj.Open_Enrollment_Date_To__c}" taborderhint="2" />
+                            <!-- HighRoads Wave1-3880 Change Start --> 
+                            <apex:pageBlockSectionItem >{!$Label.SHP_RFP_01}
+                                 <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputText value="{!employerGroupDataObj.Account_Executive__c}" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem> 
+                            <!-- HighRoads Wave1-3880 Change End -->
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL29}
+                                 <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField value="{!employerGroupDataObj.SHP_Sales_Representative__c}" taborderhint="2" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+
+                            <apex:inputField value="{!employerGroupDataObj.Slice_Account__c}" taborderhint="2"/> 
+
+                            <apex:inputField value="{!employerGroupDataObj.Plan_vs_Calendar_Year__c}" taborderhint="2" />
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL34}
+                                 <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+
+                                        <apex:inputField value="{!employerGroupDataObj.Effective_Date__c}" taborderhint="2" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            <apex:inputField value="{!employerGroupDataObj.Date_Sold__c}" taborderhint="2" />
+
+                            <apex:inputField value="{!employerGroupDataObj.Third_Party_Administrator__c}" taborderhint="2" />
+                            <!-- HighRoads Wave1-3880 Change Start -->
+                            <apex:inputField value="{!employerGroupDataObj.Enrollment_Method__c}" id="EnrollmentMethod">
+                                <apex:actionSupport event="onchange" action="{!DisableAndEnableEDISection}"
+                                                    reRender="EDIVenNam01,EDIVenNam011,EDIVenPhoneId01,EDIVenPhoneId101,EDIVenEmailId01,EDIVenEmailId101, 
+                                                              VenNam,VenNam1,VenPhoneId,PhoneId1,VenEmailId,VenEmailId1,VenNameId,VenNameId1 "
+                                                    status="{!$Label.VFP36CL58}" oncomplete="cursorToEnrollmentMethod();"/>
+                            </apex:inputField>
+                            <!-- HighRoads Wave1-3880 Change End -->
+                            <apex:selectRadio value="{!employerGroupDataObj.Previous_Group_Insurance_through_SHP__c}" label="{!$Label.VFP36CL35}">
+                                <apex:selectOption itemLabel="{!$Label.VFP36CL30}" itemValue="{!$Label.VFP36CL32}" />
+                                <apex:selectOption itemLabel="{!$Label.VFP36CL31}" itemValue="{!$Label.VFP36CL33}" />
+                            </apex:selectRadio>
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL36}
+                                 <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField value="{!employerGroupDataObj.Projected_Enrollment__c}"  taborderhint="2" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            <apex:selectRadio value="{!employerGroupDataObj.Member_accumulators_previous_Carrier__c}" label="{!$Label.VFP36CL38}">
+                                <apex:selectOption itemLabel="{!$Label.VFP36CL30}" itemValue="{!$Label.VFP36CL32}" />
+                                <apex:selectOption itemLabel="{!$Label.VFP36CL31}" itemValue="{!$Label.VFP36CL33}" />
+                            </apex:selectRadio>
+                            <apex:selectRadio value="{!employerGroupDataObj.Benefits_Subject_to_ERISA_Regulations__c}"
+                                              required="False" label="Benefits Subject to ERISA Regulations?" id="ERISA" onselect="setShowHideOtheERISA(this.id);return false;"
+                                              onchange="setShowHideOtheERISA(this.id);return false;">
+                                <apex:selectOption itemLabel="{!$Label.VFP36CL30}" itemValue="{!$Label.VFP36CL32}" />
+                                <apex:selectOption itemLabel="{!$Label.VFP36CL31}" itemValue="{!$Label.VFP36CL33}" />
+                            </apex:selectRadio>
+
+                            <apex:inputField value="{!employerGroupDataObj.HR_Account_Number__c}"  taborderhint="2" />
+
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                <apex:outputPanel id="idEmployeeWaitingPeriodOther1">
+                                    <div id="inptTextField">
+                                        <apex:inputText styleClass="inptTextField" disabled="true" value="{!showBlankVlaue}" styleclass="backgroundText" />
+                                    </div>
+                                    <div id="inptField" styleclass  ="invisible">
+                                        <apex:inputField styleClass="inptField" value="{!employerGroupDataObj.Other_ERISA__c}" taborderhint="2" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+
+                            <apex:inputField value="{!employerGroupDataObj.Other_Language_Considerations__c}"
+                                styleClass="longText" taborderhint="2" />
+                            
+                            <apex:pageBlockSectionItem >Employee Waiting Period
+                                <apex:outputPanel >
+                                    <!-- HighRoads Wave1-3880 Change Start -->
+                                    <apex:inputField value="{!employerGroupDataObj.Employee_Waiting_Period__c}"  taborderhint="2" id="EmployeeWaitingPeriod">
+                                        <apex:actionSupport event="onchange" reRender="idEmployeeWaitingPeriodOtherRenwal" status="{!$Label.VFP36CL58}" oncomplete="cursorToEmpWaitingPeriod();"/>
+                                    </apex:inputField>
+                                    <!-- HighRoads Wave1-3880 Change End -->
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            <apex:inputField value="{!employerGroupDataObj.Employer_Defined_Eligibility_for_Benefit__c}" taborderhint="2" />
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                        <apex:outputPanel id="idEmployeeWaitingPeriodOtherRenwal">
+                                    <apex:inputText value="{!showBlankVlaue}" disabled="true" style="background:rgb(242, 241, 241);"
+                                                    rendered="{!if(employerGroupDataObj.Employee_Waiting_Period__c == 'Other',false,true)}" />
+                                    <apex:inputField value="{!employerGroupDataObj.Employee_Waiting_Period_Other__c}" 
+                                                    rendered="{!if(employerGroupDataObj.Employee_Waiting_Period__c == 'Other',true,false)}" taborderhint="2" />
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            <apex:inputField value="{!employerGroupDataObj.Employer_Contribution_Employees_Premium__c}"
+                                             label="{!$Label.VFP36CL40}" taborderhint="2" />
+                            <apex:inputField value="{!employerGroupDataObj.Employer_Contribution_Dependents_Premium__c}"
+                                             label="{!$Label.VFP36CL41}" taborderhint="2" />
+                        </apex:pageBlockSection>
+
+                        <apex:pageBlockSection title="Employer Group Contact Details, Notes and Distribution Information" collapsible="true">
+                            <!-- HighRoads Wave1-3880 Change Start -->
+                            <apex:inputField value="{!employerGroupDataObj.HREnrollment_Name__c}" label="{!$Label.VFP36CL43}" taborderhint="3" id="HREnrollment">
+                                <apex:actionSupport event="onchange" action="{!autoPopulateHRandEnrollment}" reRender="HREnrollId,HREnrollIdPhone" status="{!$Label.VFP36CL58}" oncomplete="CursorToHREnrollment();">
+                                    <apex:param name="q2" value="test" />
+                                </apex:actionSupport>
+                            </apex:inputField>
+                            <apex:inputField value="{!employerGroupDataObj.BillingContact_Name__c}" taborderhint="3" id="BillingContact">
+                                <apex:actionSupport event="onchange" action="{!autoPopulateBilling}" reRender="idBillingPhone,idBillingEmail" status="{!$Label.VFP36CL58}" oncomplete="CursorToBillingContact();"/>
+                            </apex:inputField>
+                            <!-- HighRoads Wave1-3880 Change End -->
+                            <apex:inputText id="HREnrollId" value="{!employerGroupDataObj.HR_Enrollment_Phone__c}" label="{!$Label.VFP36CL45}" />
+                            <apex:inputField id="idBillingPhone" value="{!employerGroupDataObj.Billing_Contact_Phone__c}"
+                                             label="{!$Label.VFP36CL46}" taborderhint="3" />
+                            <apex:inputField id="HREnrollIdPhone"  value="{!employerGroupDataObj.HR_Enrollment_E_mail__c}" label="{!$Label.VFP36CL47}" taborderhint="2" />
+                            <apex:inputField id="idBillingEmail" value="{!employerGroupDataObj.Billing_Contact_E_mail__c}" label="{!$Label.VFP36CL48}" taborderhint="3" />
+                            <apex:inputField value="{!employerGroupDataObj.Title__c}" taborderhint="2" />
+                            <apex:inputField value="{!employerGroupDataObj.Title1__c}" taborderhint="3" />
+                            <!-- HighRoads Wave1-3880 Change Start -->
+                            <apex:inputField value="{!employerGroupDataObj.HREmployer_Portal_Name__c}" taborderhint="2" id="HREmployerPortal1">
+                                <apex:actionSupport event="onchange" action="{!autoPopulateHREmployPortal}" reRender="HREnrollPhoneId,HREnrollEmailId" status="{!$Label.VFP36CL58}" oncomplete="CursorToHREmployerPortal1();"/>
+                            </apex:inputField>
+                            <apex:inputField value="{!employerGroupDataObj.HREmployer_Portal_Name1__c}" taborderhint="3" id="HREmployerPortal2">
+                                <apex:actionSupport event="onchange" action="{!autoPopulateHREmployPortal1}" reRender="HREnrollPhoneId1,HREnrollEmailId1" status="{!$Label.VFP36CL58}" oncomplete="CursorToHREmployerPortal2();"/>
+                            </apex:inputField>
+                            <!-- HighRoads Wave1-3880 Change End -->
+                            <apex:inputField id="HREnrollPhoneId"  value="{!employerGroupDataObj.HR_Employer_Portal_Phone__c}" taborderhint="2" />
+                            <apex:inputField id="HREnrollPhoneId1" value="{!employerGroupDataObj.HR_Employer_Portal_Phone1__c}" taborderhint="3" />
+                            <apex:inputField id="HREnrollEmailId" value="{!employerGroupDataObj.HR_Employer_Portal_E_mail__c}" taborderhint="2" />
+                            <apex:inputField id="HREnrollEmailId1"  value="{!employerGroupDataObj.HR_Employer_Portal_E_mail1__c}" taborderhint="3" />
+
+                            <apex:selectRadio value="{!employerGroupDataObj.Have_the_plan_numbers_changed__c}">
+                                <apex:selectOption itemLabel="{!$Label.VFP36CL30}" itemValue="{!$Label.VFP36CL32}" />
+                                <apex:selectOption itemLabel="{!$Label.VFP36CL31}" itemValue="{!$Label.VFP36CL33}" />
+                            </apex:selectRadio>
+
+                            <apex:selectRadio value="{!employerGroupDataObj.Will_there_be_additional_plans_offered__c}"
+                                label="{!$Label.VFP36CL78}">
+                                <apex:selectOption itemLabel="{!$Label.VFP36CL30}" itemValue="{!$Label.VFP36CL32}" />
+                                <apex:selectOption itemLabel="{!$Label.VFP36CL31}" itemValue="{!$Label.VFP36CL33}" />
+                            </apex:selectRadio>
+
+                            <apex:selectRadio value="{!employerGroupDataObj.New_TPA_Vendor__c}">
+                                <apex:selectOption itemLabel="{!$Label.VFP36CL30}" itemValue="{!$Label.VFP36CL32}" />
+                                <apex:selectOption itemLabel="{!$Label.VFP36CL31}" itemValue="{!$Label.VFP36CL33}" />
+                            </apex:selectRadio>
+
+                            <apex:selectRadio value="{!employerGroupDataObj.New_EDI_Vendor__c}">
+                                <apex:selectOption itemLabel="{!$Label.VFP36CL30}" itemValue="{!$Label.VFP36CL32}" />
+                                <apex:selectOption itemLabel="{!$Label.VFP36CL31}" itemValue="{!$Label.VFP36CL33}" />
+                            </apex:selectRadio>
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL52}
+                                <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField value="{!employerGroupDataObj.Performance_or_Implementation__c}" styleClass="longText" taborderhint="3" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            <apex:inputField value="{!employerGroupDataObj.Distribution_List__c}" styleClass="longText" taborderhint="3" />
+                            </apex:pageBlockSection>
+                        
+                        <apex:pageBlockSection title="{!$Label.VFP36CL93}" collapsible="true">
+                            <!-- HighRoads Wave1-3880 Change Start -->
+                                <apex:pageBlockSection columns="1" id="VenNam">
+                                <apex:pageBlockSectionItem >
+                                <apex:outputPanel >
+                                    <apex:outputLabel value="{!$Label.VFP36CL89}" for="VenNameId" styleClass="labelCol margincls"  rendered="{!isEDIVendorEnable}" />
+                                    <apex:inputField id="VenNameId" value="{!employerGroupDataObj.Vendor_Name__c}" taborderhint="3" rendered="{!isEDIVendorEnable}" />
+                                    <apex:outputLabel value="{!$Label.VFP36CL89}" for="VenNameId" styleClass="labelCol margincls" rendered="{!isEDIVendorDisable}" />
+                                    <apex:inputText id="VenNameId1" value="{!employerGroupDataObj.Vendor_Name__c}" disabled="true" rendered="{!isEDIVendorDisable}" />
+                                    <br />
+                                    <br />
+                                    <apex:outputLabel value="{!$Label.VFP36CL85}" for="VenNam1" styleClass="labelCol margincls"  rendered="{!isEDIVendorEnable}" />
+                                        <apex:inputField id="VenNam1" value="{!employerGroupDataObj.Vendor_Contact_Name__c}" taborderhint="3" rendered="{!isEDIVendorEnable}">
+                                            <apex:actionSupport event="onchange" action="{!autoPopulateEDIVendor}" reRender="VenPhoneId, VenEmailId, VenNameId" status="{!$Label.VFP36CL58}" focus="VenNam1" oncomplete="rCursorToVendorContact();">
+                                            <!--  <apex:param name="q1" value="test" /> -->
+                                            </apex:actionSupport>
+                                        </apex:inputField>
+                                    <apex:outputLabel value="{!$Label.VFP36CL85}"  for="VenNam12" styleClass="labelCol marginOnecls" rendered="{!isEDIVendorDisable}" />
+                                    <apex:inputText id="VenNam12" value="{!employerGroupDataObj.Vendor_Contact_Name__c}" disabled="true" rendered="{!isEDIVendorDisable}" />
+                                    <br />
+                                    <br />
+                                    <apex:outputLabel value="{!$Label.VFP36CL86}" for="VenPhoneId" styleClass="labelCol marginOnecls" rendered="{!isEDIVendorEnable}" />
+                                    <apex:inputField id="VenPhoneId" value="{!employerGroupDataObj.Vendor_Contact_Phone__c}" taborderhint="3" rendered="{!isEDIVendorEnable}" />
+                                    <apex:outputLabel value="{!$Label.VFP36CL86}" for="VenPhoneId1" styleClass="labelCol marginOnecls"  rendered="{!isEDIVendorDisable}" />
+                                    <apex:inputText id="VenPhoneId1" value="{!employerGroupDataObj.Vendor_Contact_Phone__c}" disabled="true" rendered="{!isEDIVendorDisable}" />
+                                    <br />
+                                    <br />
+                                    <apex:outputLabel value="{!$Label.VFP36CL87}" for="VenEmailId" styleClass="labelCol margincls"  rendered="{!isEDIVendorEnable}" />
+                                    <apex:inputField id="VenEmailId" value="{!employerGroupDataObj.Vendor_Contact_Email__c}" taborderhint="3" rendered="{!isEDIVendorEnable}" />
+                                    <apex:outputLabel value="{!$Label.VFP36CL87}" for="VenEmailId" styleClass="labelCol margincls" rendered="{!isEDIVendorDisable}" />
+                                    <apex:inputText id="VenEmailId1" value="{!employerGroupDataObj.Vendor_Contact_Email__c}" disabled="true" rendered="{!isEDIVendorDisable}" />  
+                                </apex:outputPanel>
+                                </apex:pageBlockSectionItem>
+                            </apex:pageBlockSection>
+                            <!-- HighRoads Wave1-3880 Change End -->
+                            
+                            <apex:pageBlockSection columns="1" id="EDIVenNam01">
+                                <apex:outputPanel >
+                                    <br />
+                                    <br />
+                                    <apex:outputLabel value="{!$Label.VFP36CL49}" for="EDIVenNam011" styleClass="labelCol margincls"  rendered="{!isEDIVendorEnable}" />
+                                    <!-- HighRoads Wave1-3880 Change Start -->
+                                    <apex:inputField id="EDIVenNam011" value="{!employerGroupDataObj.EDI_Vendor_Name__c}" taborderhint="3" rendered="{!isEDIVendorEnable}">
+                                        <apex:actionSupport event="onchange" action="{!autoPopulateEDIVendor}" reRender="EDIVenPhoneId01, EDIVenEmailId01" status="{!$Label.VFP36CL58}" focus="EDIVenNam011" oncomplete="rCursorToEDIVendor();">
+                                           <!--  <apex:param name="q1" value="test" /> -->
+                                        </apex:actionSupport>
+                                    </apex:inputField>
+                                    <!-- HighRoads Wave1-3880 Change End -->
+                                    <apex:outputLabel value="{!$Label.VFP36CL49}"  for="EDIVenNam012" styleClass="labelCol marginOnecls" rendered="{!isEDIVendorDisable}" />
+                                    <apex:inputText id="EDIVenNam012" value="{!employerGroupDataObj.EDI_Vendor_Name__c}" disabled="true" rendered="{!isEDIVendorDisable}" />
+                                    <br />
+                                    <br />
+                                    <apex:outputLabel value="{!$Label.VFP36CL50}" for="EDIVenPhoneId01" styleClass="labelCol marginOnecls" rendered="{!isEDIVendorEnable}" />
+                                    <apex:inputField id="EDIVenPhoneId01" value="{!employerGroupDataObj.EDI_Vendor_Phone__c}" taborderhint="3" rendered="{!isEDIVendorEnable}" />
+                                    <apex:outputLabel value="{!$Label.VFP36CL50}" for="EDIVenPhoneId101" styleClass="labelCol marginOnecls"  rendered="{!isEDIVendorDisable}" />
+                                    <apex:inputText id="EDIVenPhoneId101" value="{!employerGroupDataObj.EDI_Vendor_Phone__c}" disabled="true" rendered="{!isEDIVendorDisable}" />
+                                    <br />
+                                    <br />
+                                    <apex:outputLabel value="{!$Label.VFP36CL51}" for="EDIVenEmailId01" styleClass="labelCol margincls"  rendered="{!isEDIVendorEnable}" />
+                                    <apex:inputField id="EDIVenEmailId01" value="{!employerGroupDataObj.EDI_Vendor_E_Mail__c}" taborderhint="3" rendered="{!isEDIVendorEnable}" />
+                                    <apex:outputLabel value="{!$Label.VFP36CL51}" for="EDIVenEmailId01" styleClass="labelCol margincls" rendered="{!isEDIVendorDisable}" />
+                                    <apex:inputText id="EDIVenEmailId101" value="{!employerGroupDataObj.EDI_Vendor_E_Mail__c}" disabled="true" rendered="{!isEDIVendorDisable}" />                                        
+                                    
+                                </apex:outputPanel>
+                            </apex:pageBlockSection>     
+                        </apex:pageBlockSection>
+                        
+                        <apex:pageBlockSection title="{!$Label.VFP36CL77}" columns="2" collapsible="true" id="MedicalRegionId3">
+                            <apex:inputField value="{!employerGroupDataObj.Sub_Account_Data__c}" label="{!$Label.VFP36CL75}" styleClass="longText" taborderhint="3" />
+                            <apex:outputText ></apex:outputText>
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL53}
+                            <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField value="{!employerGroupDataObj.CompletedBy__c}" taborderhint="3" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            <!-- HighRoads Wave1-3880 Change Start -->
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL84}
+                                <apex:outputPanel >                                 
+                                        <apex:inputField value="{!employerGroupDataObj.Sales_Auditor__c}" taborderhint="3" />                                   
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>  
+                            <!-- HighRoads Wave1-3880 Change End -->
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL54}
+                                <apex:outputPanel >
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField value="{!employerGroupDataObj.AuditorName__c}" taborderhint="3" />
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            <!-- HighRoads Wave1-3880 Change Start -->
+                            <apex:pageBlockSectionItem >
+                                <apex:outputPanel >                         
+                                    <apex:outputLabel value="{!$Label.VFP36CL88}" for="MedicalRegionId4" styleClass="labelCol margincls"  rendered="{!isMedicalRegionEnable}" />
+                                    <apex:inputField id="MedicalRegionId4" value="{!employerGroupDataObj.Medical_Region__c}" taborderhint="3" rendered="{!isMedicalRegionEnable}">
+                                    </apex:inputField>
+                                    <apex:outputLabel value="{!$Label.VFP36CL88}"  for="MedicalRegionId5" styleClass="labelCol marginOnecls" rendered="{!isMedicalRegionDisable}" />
+                                    <apex:inputText id="MedicalRegionId5" value="{!employerGroupDataObj.Medical_Region__c}" disabled="true" rendered="{!isMedicalRegionDisable}" />
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            <!-- HighRoads Wave1-3880 Change End -->
+                        </apex:pageBlockSection>
+                        <apex:pageBlockSection title="{!$Label.VFP36CL76}" collapsible="true">
+                            <apex:inputField value="{!employerGroupDataObj.Broker_Name__c }" label="Broker Name" taborderhint="3" />
+                            <apex:inputField value="{!employerGroupDataObj.Broker_Agency__c}" label="Broker Agency" taborderhint="3" />
+                            <apex:outputPanel ></apex:outputPanel>
+                            <apex:inputField value="{!employerGroupDataObj.SFDC_Broker_ID__c}" taborderhint="3" />
+                            <apex:inputField value="{!employerGroupDataObj.ACal_L_D_Licence__c}" taborderhint="3" />
+                            <apex:inputField value="{!employerGroupDataObj.ACal_L_D_Expiration_Date__c}" taborderhint="3" />
+                            <apex:inputField value="{!employerGroupDataObj.Commissions_Medical__c}" taborderhint="3" />
+                            <!-- HighRoads Wave1-3880 Change Start -->
+                            <apex:inputField value="{!employerGroupDataObj.Commissions_Optional_Dental_Delta__c}" taborderhint="3" id="Delta">
+                                <apex:actionSupport event="onchange" reRender="idOtherOptionalDental1" status="{!$Label.VFP36CL58}" oncomplete="CursorToDelta();"/>
+                            </apex:inputField>
+                            <apex:inputField value="{!employerGroupDataObj.Commissions_Optional_Vision_VSP__c}" taborderhint="3" id="VSP">
+                                <apex:actionSupport event="onchange" reRender="idOtherOptionalVision1" status="{!$Label.VFP36CL58}" oncomplete="CursorToVSP();"/>
+                            </apex:inputField>
+                            <!-- HighRoads Wave1-3880 Change End -->
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                <apex:outputPanel id="idOtherOptionalDental1">
+                                    <apex:inputText value="{!showBlankVlaue}" disabled="true" style="background:rgb(242, 241, 241);"
+                                                    rendered="{!if(employerGroupDataObj.Commissions_Optional_Dental_Delta__c == 'Other',false,true)}" />
+                                    <apex:inputField value="{!employerGroupDataObj.Other_Optional_Dental__c}"
+                                                     rendered="{!if(employerGroupDataObj.Commissions_Optional_Dental_Delta__c == 'Other',true,false)}" taborderhint="2" />
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                <apex:outputPanel id="idOtherOptionalVision1">
+                                    <apex:inputText value="{!showBlankVlaue}" disabled="true"  style="background:rgb(242, 241, 241);"
+                                                    rendered="{!if(employerGroupDataObj.Commissions_Optional_Vision_VSP__c == 'Other',false,true)}" />
+                                    <apex:inputField value="{!employerGroupDataObj.Other_Optional_Vision__c}" 
+                                                    rendered="{!if(employerGroupDataObj.Commissions_Optional_Vision_VSP__c == 'Other',true,false)}" taborderhint="2" />
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                            <!-- HighRoads Wave1-3880 Change Start -->
+                            <apex:inputField value="{!employerGroupDataObj.Commissions_Optional_Acu_Chiro_ACN__c}" taborderhint="3" id="ACN">
+                                <apex:actionSupport event="onchange" reRender="idOtherOptional_Acu_Chiro1" status="{!$Label.VFP36CL58}"
+                                                    oncomplete="CursorToACN();" />
+                            </apex:inputField>
+                            <!-- HighRoads Wave1-3880 Change End -->
+                            <apex:inputField Value="{!employerGroupDataObj.Opportunity_Account_Name__c}" />
+                            <apex:pageBlockSectionItem >{!$Label.VFP36CL26}  
+                                <apex:outputPanel id="idOtherOptional_Acu_Chiro1">
+                                    <apex:inputText value="{!showBlankVlaue}" disabled="true" style="background:rgb(242, 241, 241);"
+                                                    rendered="{!if(employerGroupDataObj.Commissions_Optional_Acu_Chiro_ACN__c == 'Other',false,true)}" />
+                                    <apex:inputField value="{!employerGroupDataObj.Other_Optional_Acu_Chiro__c}"
+                                                     rendered="{!if(employerGroupDataObj.Commissions_Optional_Acu_Chiro_ACN__c == 'Other',true,false)}" taborderhint="2" />
+                                </apex:outputPanel>
+                            </apex:pageBlockSectionItem>
+                        </apex:pageBlockSection>
+
+                    </apex:pageBlock>
+                    <!-- HighRoads Wave1-3880 Change Start -->
+                    <apex:outputpanel id="pgBlock">                  
+                    <apex:pageBlockSection title="{!$Label.SHP_RFP_100}" columns="2" rendered="{!IF(employerGroupDataObj.General_Agent_Applicable__c = true , true , false)}">                                  
+                          <apex:outputField value="{!employerGroupDataObj.General_Agent_Applicable__c}" label="{!$Label.SHP_RFP_104}" >
+                          <apex:actionSupport event="onchange" rerender="pgBlock"/>
+                          </apex:outputField>
+                          <apex:outputField value="{!employerGroupDataObj.General_Agent__c}" label="{!$Label.SHP_RFP_101}"/>
+                          <apex:outputField value="{!employerGroupDataObj.GA_Contact__c}" label="{!$Label.SHP_RFP_102}"/>
+                          <apex:outputField value="{!employerGroupDataObj.GA_Commission__c}" label="{!$Label.SHP_RFP_103}"/>               
+                    </apex:pageBlockSection>                                       
+                    </apex:outputpanel> 
+                    <!-- HighRoads Wave1-3880 Change End -->
+                </apex:tab>
+
+                <apex:tab label="{!$Label.VFP36CL59}" name="{!$Label.VFP36CL59}"
+                    id="TabMedicalPlanRenwal">
+                    <apex:pageBlock id="pgBlockMedicalPlanRenwal" rendered="{!errorOccur}">
+                        <apex:pageMessage severity="{!$Label.VFP36CL61}" summary="{!$Label.VFP36CL60}"  strength="3" />
+                    </apex:pageBlock>
+
+                    <apex:pageBlock id="pgBlockMedicalPlan1Renwal" title="{!$Label.VFP36CL59}s">
+                        <apex:pageBlockButtons location="bottom">
+                            <apex:commandButton value="{!$Label.VFP36CL62}" action="{!addMedicalPan}" disabled="{!HideAddMedPlanButton}" id="addMedicalPlanRenwalRenwal" />
+                            <apex:commandButton value="{!$Label.VFP36CL63}" action="{!removeMedicalPan}" disabled="{!HideRemoveMedPlanButton}" id="removeMedicalPlanRenwal" />
+                        </apex:pageBlockButtons>
+
+                        <apex:repeat value="{!lstMedicalPlan}" var="MedPlanObj">
+                            <apex:pageBlockSection title="{!$Label.VFP36CL59}" columns="1" collapsible="true">
+                                <apex:pageBlockSection >
+                                    <apex:inputField value="{!MedPlanObj.Medical_type__c}" required="{!required}" label="{!$Label.VFP36CL64}" />
+                                    <apex:inputField value="{!MedPlanObj.Medical__c}" required="{!required}" label="Plan ID" id="PlanId">
+                                        <apex:actionSupport event="onchange" reRender="planIdOtherRenwal" status="{!$Label.VFP36CL58}" oncomplete="setHDHP(this.id,'{!$Component.HDHP}')" />
+                                        </apex:InputField>
+                                        <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                                        <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                            <apex:outputPanel id="planIdOtherRenwal">
+                                                <apex:inputText value="{!showBlankVlaue}" disabled="true" style="background:rgb(242, 241, 241);"
+                                                                rendered="{!if(MedPlanObj.Medical__c == 'Others',false,true)}" label="{!$Label.VFP36CL26}" />
+                                                <apex:inputField value="{!MedPlanObj.Other_Plan_Id__c }" rendered="{!if(MedPlanObj.Medical__c == 'Others',true,false)}"
+                                                                 label="{!$Label.VFP36CL26}" />
+                                            </apex:outputPanel>
+                                        </apex:pageBlockSectionItem>
+                                        <apex:inputField value="{!MedPlanObj.Custom_Medical__c}" label="{!$Label.VFP36CL67}">
+                                            <apex:actionSupport event="onchange" reRender="idCustomMedicalOtherRenwal" status="{!$Label.VFP36CL58}" />
+                                        </apex:inputField>
+                                        <apex:inputField value="{!MedPlanObj.Dental__c}" label="{!$Label.VFP36CL68}">
+                                            <apex:actionSupport event="onchange"  reRender="idDentalOtherRenwal" status="{!$Label.VFP36CL58}" />
+                                        </apex:inputField>
+                                        <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                            <apex:outputPanel id="idCustomMedicalOtherRenwal">
+                                                <apex:inputText value="{!showBlankVlaue}" disabled="true" style="background:rgb(242, 241, 241);"
+                                                                rendered="{!if(MedPlanObj.Custom_Medical__c == 'Other',false,true)}" />
+                                                <apex:inputField value="{!MedPlanObj.CustomMedical_Other__c }"  rendered="{!if(MedPlanObj.Custom_Medical__c == 'Other',true,false)}" />
+                                            </apex:outputPanel>
+                                        </apex:pageBlockSectionItem>
+                                        <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                        <apex:outputPanel id="idDentalOtherRenwal">
+
+                                                <apex:inputText value="{!showBlankVlaue}" disabled="true" style="background:rgb(242, 241, 241);"
+                                                                rendered="{!if(MedPlanObj.Dental__c == 'Other',false,true)}" />
+                                                <apex:inputField value="{!MedPlanObj.Dental_Other__c }" rendered="{!if(MedPlanObj.Dental__c == 'Other',true,false)}" />
+                                            </apex:outputPanel>
+                                        </apex:pageBlockSectionItem>
+
+                                        <apex:inputField value="{!MedPlanObj.Vision__C }" label="{!$Label.VFP36CL69}">
+                                            <apex:actionSupport event="onchange" reRender="idVisionOtherRenwal" status="{!$Label.VFP36CL58}" />
+                                        </apex:inputField>
+                                        <apex:inputField value="{!MedPlanObj.Chiropractic__C }" label="{!$Label.VFP36CL73}">
+                                            <apex:actionSupport event="onchange" reRender="idChiropraticaRenwal" status="{!$Label.VFP36CL58}" />
+                                        </apex:inputField>
+                                        <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                        <apex:outputPanel id="idVisionOtherRenwal">
+                                                <apex:inputText value="{!showBlankVlaue}" disabled="true" style="background:rgb(242, 241, 241);"
+                                                                rendered="{!if(MedPlanObj.Vision__c == 'Other',false,true)}" />
+                                                <apex:inputField value="{!MedPlanObj.Vision_Other__c }" rendered="{!if(MedPlanObj.Vision__c == 'Other',true,false)}" />
+                                            </apex:outputPanel>
+                                        </apex:pageBlockSectionItem>
+
+                                        <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                        <apex:outputPanel id="idChiropraticaRenwal">
+                                                <apex:inputText value="{!showBlankVlaue }" disabled="true" style="background:rgb(242, 241, 241);"
+                                                                rendered="{!if(MedPlanObj.Chiropractic__c == 'Other',false,true)}" />
+                                                <apex:inputField value="{!MedPlanObj.Chiropractic_other__C }" rendered="{!if(MedPlanObj.Chiropractic__c == 'Other',true,false)}" />
+
+                                            </apex:outputPanel>
+                                        </apex:pageBlockSectionItem>
+                                        <apex:pageBlockSectionItem >{!$Label.VFP36CL72}
+                                               <apex:inputField value="{!MedPlanObj.Acupuncture__C }" label="{!$Label.VFP36CL72}">
+                                                <apex:actionSupport event="onchange" reRender="idAcupunctureOtherRenwal" status="{!$Label.VFP36CL58}" />
+                                            </apex:inputField>
+                                        </apex:pageBlockSectionItem>
+                                        <apex:pageBlockSectionItem >{!$Label.VFP36CL74}
+                                             <apex:inputField value="{!MedPlanObj.Acupuncture_Chiropractic__c}" label="{!$Label.VFP36CL74}">
+                                                <apex:actionSupport event="onchange" reRender="idAcupuncturechiropracticOtherRenwal" status="{!$Label.VFP36CL58}" />
+                                            </apex:inputField>
+                                        </apex:pageBlockSectionItem>
+
+                                        <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                        <apex:outputPanel id="idAcupunctureOtherRenwal">
+                                                <apex:inputText value="{!showBlankVlaue }" disabled="true" style="background:rgb(242, 241, 241);"
+                                                                rendered="{!if(MedPlanObj.Acupuncture__c == 'Other',false,true)}" />
+                                                <apex:inputField value="{!MedPlanObj.Acupuncture_other__C }" rendered="{!if(MedPlanObj.Acupuncture__c == 'Other',true,false)}" />
+                                            </apex:outputPanel>
+                                        </apex:pageBlockSectionItem>
+
+                                        <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                        <apex:outputPanel id="idAcupuncturechiropracticOtherRenwal">
+                                                <apex:inputText value="{!showBlankVlaue }" disabled="true" style="background:rgb(242, 241, 241);"
+                                                                rendered="{!if(MedPlanObj.Acupuncture_Chiropractic__c == 'Others',false,true)}" />
+                                                <apex:inputField value="{!MedPlanObj.AcupunctureChiropractic_Other__c}"
+                                                                 rendered="{!if(MedPlanObj.Acupuncture_Chiropractic__c == 'Others',true,false)}" />
+                                            </apex:outputPanel>
+                                        </apex:pageBlockSectionItem>
+                                        <apex:inputField value="{!MedPlanObj.Prosthetic_Orthotic__c}" required="{!required}" label="{!$Label.VFP36CL70}" />
+
+                                        <apex:inputField value="{!MedPlanObj.Infertility__c}" required="{!required}" label="{!$Label.VFP36CL71}" />
+                                        <apex:selectRadio value="{!MedPlanObj.HDHP__c}" label="HDHP" id="HDHP">
+                                            <apex:selectOption itemLabel="{!$Label.VFP36CL30}" itemValue="{!$Label.VFP36CL32}" />
+                                            <apex:selectOption itemLabel="{!$Label.VFP36CL31}" itemValue="{!$Label.VFP36CL33}" />
+                                        </apex:selectRadio>
+                                        <apex:outputPanel >
+                                            </apex:outputpanel>
+                                            <apex:inputField value="{!MedPlanObj.Plan_Name_Active_2__c}"  required="{!required}" />
+                                            <apex:inputField value="{!MedPlanObj.Plan_Name_Early_Retiree_2__c}"  required="{!required}" />
+                                            <apex:inputField value="{!MedPlanObj.EE2__c}" required="{!required}" />
+                                            <apex:inputField value="{!MedPlanObj.EE_Early_Retiree2__c}"  required="{!required}" />
+                                            <apex:inputField Value="{!MedPlanObj.EF_Sec1__c}" />
+                                            <apex:inputField Value="{!MedPlanObj.EF_Early_Retiree_Sec1__c}" />
+
+                                            <apex:inputField value="{!MedPlanObj.Plan_Name_Active__c}" required="{!required}" />
+                                            <apex:inputField value="{!MedPlanObj.Plan_Name_Early_Retiree__c}" required="{!required}" />
+                                            <apex:inputField value="{!MedPlanObj.EE__c}"  required="{!required}" />
+                                            <apex:inputField value="{!MedPlanObj.EE_Early_Retiree__c}" required="{!required}" />
+                                            <apex:inputField value="{!MedPlanObj.EE_1__c}" required="{!required}" />
+                                            <apex:inputField value="{!MedPlanObj.EE_1_Early_Retiree__c}" required="{!required}" />
+                                            <apex:inputField value="{!MedPlanObj.EE_2__c}" required="{!required}" />
+                                            <apex:inputField value="{!MedPlanObj.EE_2_Early_Retiree__c}" required="{!required}" />
+
+                                            <apex:inputField value="{!MedPlanObj.Plan_Name_Active_1__c}" required="{!required}" />
+                                            <apex:inputField value="{!MedPlanObj.Plan_Name_Early_Retiree_1__c}" required="{!required}" />
+                                            <apex:inputField value="{!MedPlanObj.EE1__c}"  required="{!required}" />
+                                            <apex:inputField value="{!MedPlanObj.EE_Early_Retiree1__c}"  required="{!required}" />
+                                            <apex:inputField value="{!MedPlanObj.ES__c}" required="{!required}" />
+                                            <apex:inputField value="{!MedPlanObj.ES_Early_Retiree__c}" required="{!required}" />
+                                            <apex:inputField value="{!MedPlanObj.EC__c}"  required="{!required}" />
+                                            <apex:inputField value="{!MedPlanObj.EC_Early_Retiree__c}"  required="{!required}" />
+                                            <apex:inputField value="{!MedPlanObj.EF__c}"  required="{!required}" />
+                                            <apex:inputField value="{!MedPlanObj.EF_Early_Retiree__c}"  required="{!required}" />
+                                </apex:pageBlockSection>
+                                <apex:pageBlockSection columns="1" collapsible="true">
+                                    <apex:pageBlockSectionItem > Medical Plan Notes
+
+                                        <apex:outputPanel >
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputField value="{!MedPlanObj.Medical_Plan_Notes__c}" required="{!required}" label="Medical Plan Notes" />
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+                                </apex:pageBlockSection>
+                            </apex:pageBlockSection>
+
+                        </apex:repeat>
+                    </apex:pageBlock>
+                </apex:tab>
+
+                <apex:tab label=" {!$Label.VFP36CL82}" name="{!$Label.VFP36CL82}" id="TabMedicalPlan1Renwal">
+                    <apex:pageBlock id="pgBlockMedicalPlan21Renwal" rendered="{!errorOccur}">
+                        <apex:pageMessage severity="{!$Label.VFP36CL61}" summary="{!$Label.VFP36CL60}" strength="3" />
+                    </apex:pageBlock>
+
+                    <apex:pageBlock id="pgBlockMedicalPlan22Renwal"  title="{!$Label.VFP36CL83}">
+                        <apex:pageBlockButtons location="bottom">
+                            <apex:commandButton value="{!$Label.VFP36CL62}" action="{!addNonMedicalPan}" id="addMedicalPlan221Renwal" disabled="{!HideAddNonMedPlanButton}" />
+                            <apex:commandButton value="{!$Label.VFP36CL63}" action="{!removeNonMedicalPan}"  disabled="{!HideReamoveNonMedPlanButton}" id="removeMedicalPlan221RenwalRenwal" />
+                        </apex:pageBlockButtons>
+                        <apex:repeat value="{!lstMedicalPlanOther}" var="MedPlanObj">
+                            <apex:pageBlockSection title="{!$Label.VFP36CL59}" columns="1" collapsible="true">
+                                <apex:pageBlockSection >
+                                    <apex:inputField value="{!MedPlanObj.Dental__c}" label="{!$Label.VFP36CL68}">
+                                        <apex:actionSupport event="onchange"  reRender="idDentalOther1Renwal" status="{!$Label.VFP36CL58}" />
+                                    </apex:inputField>
+                                    <apex:inputField value="{!MedPlanObj.Vision__C }"  label="{!$Label.VFP36CL69}">
+                                        <apex:actionSupport event="onchange"  reRender="idVisionOther1Renwal" status="{!$Label.VFP36CL58}" />
+                                    </apex:inputField>
+
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                        <apex:outputPanel id="idDentalOther1Renwal">
+                                            <apex:inputText value="{!showBlankVlaue}" disabled="true" style="background:rgb(242, 241, 241);"
+                                                            rendered="{!if(MedPlanObj.Dental__c == 'Other',false,true)}" />
+                                            <apex:inputText value="{!MedPlanObj.Dental_Other__c }" disabled="false"
+                                                            rendered="{!if(MedPlanObj.Dental__c == 'Other',true,false)}" />
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                        <apex:outputPanel id="idVisionOther1Renwal">
+                                            <apex:inputText value="{!showBlankVlaue}" disabled="true" style="background:rgb(242, 241, 241);"
+                                                            rendered="{!if(MedPlanObj.Vision__c == 'Other',false,true)}" />
+                                            <apex:inputText value="{!MedPlanObj.Vision_Other__c }" disabled="false"
+                                                            rendered="{!if(MedPlanObj.Vision__c == 'Other',true,false)}" />
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+                                    <apex:inputField value="{!MedPlanObj.Chiropractic__C }" label="{!$Label.VFP36CL73}">
+                                        <apex:actionSupport event="onchange" reRender="idChiropractice1Renwal" status="{!$Label.VFP36CL58}" />
+                                    </apex:inputField>
+                                    <apex:inputField value="{!MedPlanObj.Acupuncture__C }" label="{!$Label.VFP36CL72}">
+                                        <apex:actionSupport event="onchange" reRender="idAcupunctureOther1Renwal" status="{!$Label.VFP36CL58}" />
+                                    </apex:inputField>
+
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL26} 
+                                        <apex:outputPanel id="idChiropractice1Renwal">
+                                            <apex:inputText value="{!showBlankVlaue }" disabled="true" style="background:rgb(242, 241, 241);"
+                                                            rendered="{!if(MedPlanObj.Chiropractic__c == 'Other',false,true)}" />
+                                            <apex:inputText value="{!MedPlanObj.Chiropractic_Other__c}" disabled="false"
+                                                            rendered="{!if(MedPlanObj.Chiropractic__c == 'Other',true,false)}" />
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                        <apex:outputPanel id="idAcupunctureOther1Renwal">
+                                            <apex:inputText value="{!showBlankVlaue }" disabled="true" style="background:rgb(242, 241, 241);"
+                                                            rendered="{!if(MedPlanObj.Acupuncture__c == 'Other',false,true)}" />
+                                            <apex:inputText value="{!MedPlanObj.Acupuncture_other__C }" rendered="{!if(MedPlanObj.Acupuncture__c == 'Other',true,false)}" />
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+                                    <apex:inputField value="{!MedPlanObj.Acupuncture_Chiropractic__c}" label="{!$Label.VFP36CL74}">
+                                        <apex:actionSupport event="onchange" reRender="idAcupunctureChiropracticOther1Renwal" status="{!$Label.VFP36CL58}" />
+                                    </apex:inputField>
+                                    <apex:inputField value="{!MedPlanObj.Prosthetic_Orthotic__c}" required="{!required}" label="{!$Label.VFP36CL70}" />
+
+                                    <apex:pageBlockSectionItem >{!$Label.VFP36CL26}
+                                        <apex:outputPanel id="idAcupunctureChiropracticOther1Renwal">
+                                            <apex:inputText value="{!showBlankVlaue }" disabled="true" style="background:rgb(242, 241, 241);"
+                                                            rendered="{!if(MedPlanObj.Acupuncture_Chiropractic__c == 'Others',false,true)}" />
+                                            <apex:inputText value="{!MedPlanObj.AcupunctureChiropractic_Other__c}"  disabled="false"
+                                                            rendered="{!if(MedPlanObj.Acupuncture_Chiropractic__c == 'Others',true,false)}" />
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+
+                                    <apex:inputField value="{!MedPlanObj.Infertility__c}" required="{!required}" label="{!$Label.VFP36CL71}" />
+                                    <apex:selectRadio value="{!MedPlanObj.HDHP__c}" label="HDHP">
+                                        <apex:selectOption itemLabel="{!$Label.VFP36CL30}" itemValue="{!$Label.VFP36CL32}" />
+                                        <apex:selectOption itemLabel="{!$Label.VFP36CL31}" itemValue="{!$Label.VFP36CL33}" />
+                                    </apex:selectRadio>
+
+                                    <apex:outputPanel />
+                                    <apex:inputField value="{!MedPlanObj.Plan_Name_Active_2__c}" required="{!required}" />
+                                    <apex:inputField value="{!MedPlanObj.Plan_Name_Early_Retiree_2__c}" required="{!required}" />
+                                    <apex:inputField value="{!MedPlanObj.EE2__c}" required="{!required}" />
+                                    <apex:inputField value="{!MedPlanObj.EE_Early_Retiree2__c}" required="{!required}" />
+                                    <apex:inputField Value="{!MedPlanObj.EF_Sec1__c}" />
+                                    <apex:inputField Value="{!MedPlanObj.EF_Early_Retiree_Sec1__c}" />
+
+                                    <apex:inputField value="{!MedPlanObj.Plan_Name_Active__c}" required="{!required}" />
+                                    <apex:inputField value="{!MedPlanObj.Plan_Name_Early_Retiree__c}" required="{!required}" />
+                                    <apex:inputField value="{!MedPlanObj.EE__c}" required="{!required}" />
+                                    <apex:inputField value="{!MedPlanObj.EE_Early_Retiree__c}" required="{!required}" />
+                                    <apex:inputField value="{!MedPlanObj.EE_1__c}" required="{!required}" />
+                                    <apex:inputField value="{!MedPlanObj.EE_1_Early_Retiree__c}" required="{!required}" />
+                                    <apex:inputField value="{!MedPlanObj.EE_2__c}" required="{!required}" />
+                                    <apex:inputField value="{!MedPlanObj.EE_2_Early_Retiree__c}" required="{!required}" />
+                                    <apex:inputField value="{!MedPlanObj.Plan_Name_Active_1__c}" required="{!required}" />
+                                    <apex:inputField value="{!MedPlanObj.Plan_Name_Early_Retiree_1__c}" required="{!required}" />
+                                    <apex:inputField value="{!MedPlanObj.EE1__c}" required="{!required}" />
+                                    <apex:inputField value="{!MedPlanObj.EE_Early_Retiree1__c}" required="{!required}" />
+                                    <apex:inputField value="{!MedPlanObj.ES__c}" required="{!required}" />
+                                    <apex:inputField value="{!MedPlanObj.ES_Early_Retiree__c}" required="{!required}" />
+                                    <apex:inputField value="{!MedPlanObj.EC__c}"  required="{!required}" />
+                                    <apex:inputField value="{!MedPlanObj.EC_Early_Retiree__c}"  required="{!required}" />
+                                    <apex:inputField value="{!MedPlanObj.EF__c}" required="{!required}" />
+                                    <apex:inputField value="{!MedPlanObj.EF_Early_Retiree__c}" required="{!required}" />
+
+                                </apex:pageBlockSection>
+                                <apex:pageBlockSection columns="1">
+                                    <apex:pageBlockSectionItem > Medical Plan Notes
+                                        <apex:outputPanel >
+                                            <div class="requiredInput">
+                                                <div class="requiredBlock"></div>
+                                                <apex:inputField value="{!MedPlanObj.Medical_Plan_Notes__c}" required="{!required}" />
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+                                </apex:pageBlockSection>
+                            </apex:pageBlockSection>
+                        </apex:repeat>
+                    </apex:pageBlock>
+                </apex:tab>
+            </apex:tabPanel>
+        </apex:pageBlock>
+    </apex:form>
+
+
+
+
+
+    <!-- renwal SCN FORM End Abhishek Gupta-->
+    <!-- The below fields have been added so that they can be accessed in controller  -->
+    <apex:outputPanel rendered="false">
+
+        <apex:outputText value="{!Employer_Group_Data__c.Company_Name__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.DBA_Name__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Phone_Number__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Fax_Number__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Street_Address__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Billing_Street_Address__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.city_SA__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.City_BA__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.State_SA__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.State_BA__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Zip_SA__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Zip_BA__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Shipping_County__c}"/> 
+        <apex:outputText value="{!Employer_Group_Data__c.County__c}" />
+        
+        <apex:outputText value="{!Employer_Group_Data__c.Federal_Employer_ID_Number__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Group_Type__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Type_of_Organization__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Type_of_Organization_Other__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.SHP_Sales_Representative__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.of_Employees__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.of_Eligible_Employees__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Projected_Enrollment__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Plan_vs_Calendar_Year__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Effective_Date__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Third_Party_Administrator__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Member_accumulators_previous_Carrier__c}" />
+
+        <apex:outputText value="{!Employer_Group_Data__c.Employer_Contribution_Employees_Premium__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Employer_Contribution_Dependents_Premium__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Employer_Defined_Eligibility_for_Benefit__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.User_Employer_Group_Data__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Employee_Waiting_Period__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Employee_Waiting_Period_Other__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.HR_Account_Number__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Open_Enrollment_Date_From__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Open_Enrollment_Date_To__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Cobra_Members_with_this_Group__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.COBRA_Members_with_this_Group1__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.COBRA__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Cal_Cobra__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Other_Language_Considerations__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Performance_or_Implementation__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Benefits_Subject_to_ERISA_Regulations__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Previous_Group_Insurance_through_SHP__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Broker_Name__c }" />
+        <apex:outputText value="{!Employer_Group_Data__c.Broker_Agency__c}" />
+
+        <apex:outputText value="{!Employer_Group_Data__c.SFDC_Broker_ID__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.ACal_L_D_Expiration_Date__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Commissions_Medical__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Commissions_Optional_Dental_Delta__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Commissions_Optional_Vision_VSP__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Commissions_Optional_Acu_Chiro_ACN__c}" />
+        <apex:outputText Value="{!Employer_Group_Data__c.HREnrollment_Name__c}" />
+        <apex:outputText Value="{!Employer_Group_Data__c.HR_Enrollment_Phone__c}" />
+        <apex:outputText Value="{!Employer_Group_Data__c.HR_Enrollment_E_mail__c}" />
+        <apex:outputText Value="{!Employer_Group_Data__c.BillingContact_Name__c}" />
+        <apex:outputText Value="{!Employer_Group_Data__c.Billing_Contact_Phone__c}" />
+        <apex:outputText Value="{!Employer_Group_Data__c.Billing_Contact_E_mail__c}" />
+
+        <apex:outputText value="{!Employer_Group_Data__c.Title__c}" />
+        <apex:outputText Value="{!Employer_Group_Data__c.HREmployer_Portal_Name__c}" />
+        <apex:outputText Value="{!Employer_Group_Data__c.HR_Employer_Portal_Phone__c}" />
+        <apex:outputText Value="{!Employer_Group_Data__c.HR_Employer_Portal_E_mail__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Title1__c}" />
+        <apex:outputText Value="{!Employer_Group_Data__c.HREmployer_Portal_Name1__c}" />
+        <apex:outputText Value="{!Employer_Group_Data__c.HR_Employer_Portal_Phone1__c}" />
+        <apex:outputText Value="{!Employer_Group_Data__c.HR_Employer_Portal_E_mail1__c}" />
+
+
+        <apex:outputText value="{!Employer_Group_Data__c.New_EDI_Vendor__c}" />
+        <apex:outputText Value="{!Employer_Group_Data__c.Will_there_be_additional_plans_offered__c}" />
+        <apex:outputText Value="{!Employer_Group_Data__c.New_TPA_Vendor__c}" />
+        <apex:outputText Value="{!Employer_Group_Data__c.Have_the_plan_numbers_changed__c}" />
+
+
+
+        <apex:outputText Value="{!Employer_Group_Data__c.Performance_or_Implementation__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Opportunity__r.Id}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Date_Sold__c}" />
+        <apex:outputText Value="{!Employer_Group_Data__c.Enrollment_Method__c}" />
+
+        <apex:outputText Value="{!Employer_Group_Data__c.Distribution_List__c}" />
+        <apex:outputText Value="{!Employer_Group_Data__c.Sub_Account_Data__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.CompletedBy__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Sales_Auditor__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.AuditorName__c}" />
+        <apex:outputText Value="{!Employer_Group_Data__c.ACal_L_D_Licence__c}" />
+        <apex:outputText value="{!Employer_Group_Data__c.Slice_Account__c }" /> 
+    </apex:outputPanel>
+</apex:page>

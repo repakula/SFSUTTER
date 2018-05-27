@@ -1,0 +1,2131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Age_Banded_Total_Premium__c</fullName>
+        <externalId>false</externalId>
+        <label>Age Banded Total Premium</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Carrier__c</fullName>
+        <externalId>false</externalId>
+        <label>Carrier</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Aetna</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Anthem Blue Cross</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Blue Shield</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cal Choice</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Health Net</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Kaiser</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>United Health Care</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Western Health Advantage</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Coinsurance__c</fullName>
+        <externalId>false</externalId>
+        <label>Coinsurance</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Deductible__c</fullName>
+        <externalId>false</externalId>
+        <label>Deductible</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>EE_Family_Rate__c</fullName>
+        <externalId>false</externalId>
+        <label>EE + Family Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>EE_Rate__c</fullName>
+        <externalId>false</externalId>
+        <label>EE Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>EE_S_rate__c</fullName>
+        <externalId>false</externalId>
+        <label>EE + S rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>EE__c</fullName>
+        <externalId>false</externalId>
+        <label>EE + CC Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Number_Of_Employees__c</fullName>
+        <externalId>false</externalId>
+        <label>Number Of Employees</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OOPM__c</fullName>
+        <externalId>false</externalId>
+        <label>OOPM</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PCP__c</fullName>
+        <externalId>false</externalId>
+        <label>PCP</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Plan_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Plan Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>HMO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PPO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>EPO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DHMO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HSA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HRA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Plan__c</fullName>
+        <externalId>false</externalId>
+        <label>Plan</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Carrier__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Unknown</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Bronze HMO Deductible 5500</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Gold AVN HMO 10</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Gold AVN HMO 20</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Gold AVN HMO 30</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Gold HMO 10</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Gold HMO 20</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Gold HMO 30</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Gold HMO Copay Plan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Platinum HMO Copay Plan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Silver HMO Deductible 1000</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Silver HMO Deductible 1500</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Silver HMO Deductible 2000</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Silver HMO Deductible Copay Plan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Bronze MC 3500 50/50</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Bronze MC 4000 Copay Plan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Bronze MC 6350 100/50</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Bronze MC HSA 2500 50/50</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Bronze MC HSA 3500 70/50</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Bronze MC HSA 6300 100/50</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Bronze MC Plan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Gold MC 500 80/50</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Gold MC Copay Plan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Gold PPO 750 80/50</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Platinum MC Copay Plan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Silver MC 1000 60/50</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Silver MC 1000 75/50</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Silver MC 1500 60/50</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Silver MC 2000 60/50</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA Silver MC Coinsurance Plan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Enhanced Exclusive HMO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Enhanced Exclusive HMO $55</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Enhanced Full HMO $55</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Preferred Exclusive HMO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Preferred Exclusive HMO $30</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Preferred Full HMO $30</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ultimate Exclusive HMO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ultimate Exclusive HMO $25</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ultimate Full HMO $25</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Basic Exclusive PPO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Basic Full PPO 3500 HSA Compatable</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Basic Full PPO 4500</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Basic Full PPO 5500 HSA Compatable</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Enhanced Full PPO 1250</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Enhanced Full PPO 2000</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Enhanced Full PPO 2000 HSA Compatable</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Preferred Full PPO 0</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Preferred Full PPO 750</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ultimate Full PPO 0</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ultimate Full PPO 150</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Essential Guided Access Plus gboa</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Essential Guided Access Plus w/Dental gboa</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Preferred Guided Access gfca</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Preferred Guided Access gxba</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Preferred Guided Access gzba</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Essential Guided Access gyaf</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Essential Guided Access Plus gboa</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Essential Guided Access Plus w/Dental gboa</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Preferred Guided Access gfca</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Preferred Guided Access gxba</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Preferred Guided Access gzba</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Preferred Guided Access Plus gpaa</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Preferred Guided Access Plus gsaa</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Preferred Guided Access Plus gxaf</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Preferred Guided Access Plus gzna</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Premier Guided Access Plus gjaa</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Premier Guided Access Plus gwaf</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Core Direct Access gkua</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Core DirectAccess gfua</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Core DirectAccess gtdf</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Core DirectAccess Plus gsdf</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Core DirectAccess Plus w/Dental gsdf</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Core DirectAccess w/HSA gjua</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Core DirectAccess w/HSA gmua</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Core DirectAccess w/HSA gpua</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Essential DirectAccess gbwa</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Essential DirectAccess gtob</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Essential DirectAccess guob</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Essential DirectAccess Plus gbpa</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Essential DirectAccess Plus gbqa</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Essential DirectAccess w/HSA gzra</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Preferred DirectAccess gwfa</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Preferred DirectAccess gyfa</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Preferred DirectAccess gzfa</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Preferred DirectAccess w/HRA gfra</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Preferred DirectAccess w/HRA gkkb</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Preferred DirectAccess w/HRA gsob</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Core Direct Access gkua</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Core DirectAccess gdbf</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Core DirectAccess gfua</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Core DirectAccess gtdf</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Core DirectAccess Plus gsdf</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Core DirectAccess Plus w/Dental gsdf</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Core DirectAccess w/HSA gjua</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Core DirectAccess w/HSA gmua</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Core DirectAccess w/HSA gpua</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Essential DirectAccess gbwa</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Essential DirectAccess gcbf</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Essential DirectAccess gtob</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Essential DirectAccess guob</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Essential DirectAccess Plus gbpa</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Essential DirectAccess Plus gbqa</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Essential DirectAccess w/HSA gzra</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Preferred DirectAccess gwfa</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Preferred DirectAccess gyfa</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Preferred DirectAccess gzfa</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Preferred DirectAccess Plus gbbf</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Preferred DirectAccess Plus gjca</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Preferred DirectAccess Plus gmca</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Preferred DirectAccess Plus gnca</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Preferred DirectAccess w/HRA gfra</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Preferred DirectAccess w/HRA gkkb</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Preferred DirectAccess w/HRA gsob</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Premier Direct Access Plus gabf</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Anthem Blue Cross A Bronze EPO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Anthem Blue Cross A Silver EPO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Aetna HMO Deductible A Bronze</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Aetna HMO Deductible A Silver</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Aetna Value Network A Gold HMO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Aetna Value Network A Platinum HMO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Aetna Value Network B Gold HMO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Anthem Blue Cross Select A Gold HMO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Anthem Blue Cross Select A Platinum HMO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Anthem Blue Cross Select A Silver HMO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Anthem Blue Cross Select B Gold HMO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Health Net A Gold HMO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Health Net B Gold HMO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Kaiser A Bronze HMO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Kaiser A Gold HMO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Kaiser A Platinum HMO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Kaiser A Silver HMO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Kaiser B Bronze HMO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Kaiser B Gold HMO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Kaiser B Silver HMO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Kaiser C Bronze HMO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Kaiser C Silver HMO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Western Health A Bronze HMO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Western Health A Gold HMO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Western Health A Platinum HMO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Western Health A Silver HMO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Anthem Blue Cross A Gold PPO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Anthem Blue Cross A Silver PPO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Anthem Blue Cross Select B Gold PPO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Anthem Blue Cross Select B Silver PPO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Anthem Blue Cross Select C Gold PPO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Anthem Blue Cross Select D Gold PPO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Health Net A Bronze PPO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Health Net A Gold PPO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Health Net A Silver PPO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WholeCare HMO Gold $35</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WholeCare HMO Gold $45</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WholeCare HMO Gold Standard Copay</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WholeCare HMO Platinum $15</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WholeCare HMO Platinum $20</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WholeCare HMO Platinum $25</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WholeCare HMO Platinum Standard Copay</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bronze PPO $60/$5000</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bronze PPO $60/$5000 w/Infertility</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Gold PPO $30/$0</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Gold PPO $30/$0 w/Infertility</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Platinum PPO $20/$0</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Platinum PPO $20/$0 w/Infertility</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Silver PPO $45/$1500</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Silver PPO $45/$1500 w/Infertility</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bronze 3500/30 Deductible HSA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bronze 4500/40% Deductible HSA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bronze 5000/60 Deductible</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Gold 0/30 Copay</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Gold 2000/30 Deductible HRA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Gold 500/30 Deductible</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Platinum 0/20 Copay</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Silver 1000/40 Deductible</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Silver 1500/20% Deductible HSA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Silver 1500/45 Deductible</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bronze 5000/60 PPO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Gold 0/30 PPO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Platinum 0/20 PPO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Silver 1500/45 PPO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Select 20/10% Platinum</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Select 30/20% Gold</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Select 45/1500/20% Silver</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Select HSA 4500/40% Bronze</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Advantage 10-20/300a/250ded Platinum</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Advantage 20-40/1000d/1000ded Gold</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Advantage 20-40/1000d/500ded Gold</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Advantage 30-50/25%/1750ded Silver</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Advantage 50-75/30%/4500ded Bronze</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Signature 10-20/300a/250ded Platinum</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Signature 20-40/1000d/1000ded Gold</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Signature 20-40/1000d/500ded Gold</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Signature 30-50/25%/1750ded Silver</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Signature 50-75/30%/4500ded Bronze</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Non-Differential PPO 2000/20% Silver</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Plus 15/10% Platinum</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Plus 15/1000/10% Gold</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Plus 15/250/10% Gold</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Plus 15/500/10% Gold</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Plus 25/1800/20% Silver</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Plus 4500/20% Bronze</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Plus HSA 1500/20% Silver</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Plus HSA 2000/20% Silver</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Plus HSA 3500/20% Bronze</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select Plus HSA 5000/20% Bronze</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CAPITAL BRONZE 60</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CAPITAL BRONZE 60B HSA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CAPITAL GOLD 80</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CAPITAL PLATINUM 90</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CAPITAL SILVER 70</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CAPITAL SILVER 70 HSA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GATEWAY 1500 HSA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GATEWAY 1800 HSA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GATEWAY 20</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GATEWAY 30</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GATEWAY 4000B HSA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GATEWAY 4010</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GATEWAY 4020</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GATEWAY 5020</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GATEWAY 5500B HSA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GATEWAY 70</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <controllingFieldValue>Anthem Blue Cross</controllingFieldValue>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <controllingFieldValue>Health Net</controllingFieldValue>
+                <controllingFieldValue>Kaiser</controllingFieldValue>
+                <controllingFieldValue>United Health Care</controllingFieldValue>
+                <controllingFieldValue>Western Health Advantage</controllingFieldValue>
+                <valueName>Unknown</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Bronze HMO Deductible 5500</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Gold AVN HMO 10</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Gold AVN HMO 20</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Gold AVN HMO 30</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Gold HMO 10</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Gold HMO 20</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Gold HMO 30</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Gold HMO Copay Plan</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Platinum HMO Copay Plan</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Silver HMO Deductible 1000</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Silver HMO Deductible 1500</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Silver HMO Deductible 2000</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Silver HMO Deductible Copay Plan</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Bronze MC 3500 50/50</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Bronze MC 4000 Copay Plan</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Bronze MC 6350 100/50</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Bronze MC HSA 2500 50/50</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Bronze MC HSA 3500 70/50</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Bronze MC HSA 6300 100/50</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Bronze MC Plan</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Gold MC 500 80/50</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Gold MC Copay Plan</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Gold PPO 750 80/50</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Platinum MC Copay Plan</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Silver MC 1000 60/50</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Silver MC 1000 75/50</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Silver MC 1500 60/50</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Silver MC 2000 60/50</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aetna</controllingFieldValue>
+                <valueName>CA Silver MC Coinsurance Plan</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Anthem Blue Cross</controllingFieldValue>
+                <valueName>Enhanced Exclusive HMO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Anthem Blue Cross</controllingFieldValue>
+                <valueName>Enhanced Exclusive HMO $55</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Anthem Blue Cross</controllingFieldValue>
+                <valueName>Enhanced Full HMO $55</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Anthem Blue Cross</controllingFieldValue>
+                <valueName>Preferred Exclusive HMO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Anthem Blue Cross</controllingFieldValue>
+                <valueName>Preferred Exclusive HMO $30</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Anthem Blue Cross</controllingFieldValue>
+                <valueName>Preferred Full HMO $30</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Anthem Blue Cross</controllingFieldValue>
+                <valueName>Ultimate Exclusive HMO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Anthem Blue Cross</controllingFieldValue>
+                <valueName>Ultimate Exclusive HMO $25</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Anthem Blue Cross</controllingFieldValue>
+                <valueName>Ultimate Full HMO $25</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Anthem Blue Cross</controllingFieldValue>
+                <valueName>Basic Exclusive PPO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Anthem Blue Cross</controllingFieldValue>
+                <valueName>Basic Full PPO 3500 HSA Compatable</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Anthem Blue Cross</controllingFieldValue>
+                <valueName>Basic Full PPO 4500</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Anthem Blue Cross</controllingFieldValue>
+                <valueName>Basic Full PPO 5500 HSA Compatable</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Anthem Blue Cross</controllingFieldValue>
+                <valueName>Enhanced Full PPO 1250</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Anthem Blue Cross</controllingFieldValue>
+                <valueName>Enhanced Full PPO 2000</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Anthem Blue Cross</controllingFieldValue>
+                <valueName>Enhanced Full PPO 2000 HSA Compatable</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Anthem Blue Cross</controllingFieldValue>
+                <valueName>Preferred Full PPO 0</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Anthem Blue Cross</controllingFieldValue>
+                <valueName>Preferred Full PPO 750</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Anthem Blue Cross</controllingFieldValue>
+                <valueName>Ultimate Full PPO 0</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Anthem Blue Cross</controllingFieldValue>
+                <valueName>Ultimate Full PPO 150</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Essential Guided Access Plus gboa</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Essential Guided Access Plus w/Dental gboa</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Preferred Guided Access gfca</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Preferred Guided Access gxba</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Preferred Guided Access gzba</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Essential Guided Access gyaf</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Essential Guided Access Plus gboa</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Essential Guided Access Plus w/Dental gboa</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Preferred Guided Access gfca</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Preferred Guided Access gxba</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Preferred Guided Access gzba</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Preferred Guided Access Plus gpaa</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Preferred Guided Access Plus gsaa</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Preferred Guided Access Plus gxaf</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Preferred Guided Access Plus gzna</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Premier Guided Access Plus gjaa</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Premier Guided Access Plus gwaf</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Core Direct Access gkua</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Core DirectAccess gfua</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Core DirectAccess gtdf</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Core DirectAccess Plus gsdf</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Core DirectAccess Plus w/Dental gsdf</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Core DirectAccess w/HSA gjua</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Core DirectAccess w/HSA gmua</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Core DirectAccess w/HSA gpua</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Essential DirectAccess gbwa</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Essential DirectAccess gtob</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Essential DirectAccess guob</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Essential DirectAccess Plus gbpa</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Essential DirectAccess Plus gbqa</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Essential DirectAccess w/HSA gzra</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Preferred DirectAccess gwfa</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Preferred DirectAccess gyfa</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Preferred DirectAccess gzfa</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Preferred DirectAccess w/HRA gfra</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Preferred DirectAccess w/HRA gkkb</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Preferred DirectAccess w/HRA gsob</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Core Direct Access gkua</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Core DirectAccess gdbf</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Core DirectAccess gfua</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Core DirectAccess gtdf</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Core DirectAccess Plus gsdf</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Core DirectAccess Plus w/Dental gsdf</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Core DirectAccess w/HSA gjua</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Core DirectAccess w/HSA gmua</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Core DirectAccess w/HSA gpua</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Essential DirectAccess gbwa</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Essential DirectAccess gcbf</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Essential DirectAccess gtob</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Essential DirectAccess guob</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Essential DirectAccess Plus gbpa</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Essential DirectAccess Plus gbqa</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Essential DirectAccess w/HSA gzra</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Preferred DirectAccess gwfa</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Preferred DirectAccess gyfa</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Preferred DirectAccess gzfa</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Preferred DirectAccess Plus gbbf</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Preferred DirectAccess Plus gjca</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Preferred DirectAccess Plus gmca</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Preferred DirectAccess Plus gnca</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Preferred DirectAccess w/HRA gfra</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Preferred DirectAccess w/HRA gkkb</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Preferred DirectAccess w/HRA gsob</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blue Shield</controllingFieldValue>
+                <valueName>Select Premier Direct Access Plus gabf</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Anthem Blue Cross A Bronze EPO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Anthem Blue Cross A Silver EPO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Aetna HMO Deductible A Bronze</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Aetna HMO Deductible A Silver</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Aetna Value Network A Gold HMO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Aetna Value Network A Platinum HMO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Aetna Value Network B Gold HMO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Anthem Blue Cross Select A Gold HMO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Anthem Blue Cross Select A Platinum HMO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Anthem Blue Cross Select A Silver HMO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Anthem Blue Cross Select B Gold HMO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Health Net A Gold HMO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Health Net B Gold HMO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Kaiser A Bronze HMO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Kaiser A Gold HMO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Kaiser A Platinum HMO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Kaiser A Silver HMO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Kaiser B Bronze HMO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Kaiser B Gold HMO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Kaiser B Silver HMO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Kaiser C Bronze HMO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Kaiser C Silver HMO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Western Health A Bronze HMO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Western Health A Gold HMO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Western Health A Platinum HMO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Western Health A Silver HMO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Anthem Blue Cross A Gold PPO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Anthem Blue Cross A Silver PPO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Anthem Blue Cross Select B Gold PPO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Anthem Blue Cross Select B Silver PPO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Anthem Blue Cross Select C Gold PPO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Anthem Blue Cross Select D Gold PPO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Health Net A Bronze PPO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Health Net A Gold PPO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cal Choice</controllingFieldValue>
+                <valueName>Health Net A Silver PPO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health Net</controllingFieldValue>
+                <valueName>WholeCare HMO Gold $35</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health Net</controllingFieldValue>
+                <valueName>WholeCare HMO Gold $45</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health Net</controllingFieldValue>
+                <valueName>WholeCare HMO Gold Standard Copay</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health Net</controllingFieldValue>
+                <valueName>WholeCare HMO Platinum $15</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health Net</controllingFieldValue>
+                <valueName>WholeCare HMO Platinum $20</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health Net</controllingFieldValue>
+                <valueName>WholeCare HMO Platinum $25</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health Net</controllingFieldValue>
+                <valueName>WholeCare HMO Platinum Standard Copay</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health Net</controllingFieldValue>
+                <valueName>Bronze PPO $60/$5000</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health Net</controllingFieldValue>
+                <valueName>Bronze PPO $60/$5000 w/Infertility</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health Net</controllingFieldValue>
+                <valueName>Gold PPO $30/$0</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health Net</controllingFieldValue>
+                <valueName>Gold PPO $30/$0 w/Infertility</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health Net</controllingFieldValue>
+                <valueName>Platinum PPO $20/$0</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health Net</controllingFieldValue>
+                <valueName>Platinum PPO $20/$0 w/Infertility</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health Net</controllingFieldValue>
+                <valueName>Silver PPO $45/$1500</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health Net</controllingFieldValue>
+                <valueName>Silver PPO $45/$1500 w/Infertility</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Kaiser</controllingFieldValue>
+                <valueName>Bronze 3500/30 Deductible HSA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Kaiser</controllingFieldValue>
+                <valueName>Bronze 4500/40% Deductible HSA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Kaiser</controllingFieldValue>
+                <valueName>Bronze 5000/60 Deductible</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Kaiser</controllingFieldValue>
+                <valueName>Gold 0/30 Copay</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Kaiser</controllingFieldValue>
+                <valueName>Gold 2000/30 Deductible HRA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Kaiser</controllingFieldValue>
+                <valueName>Gold 500/30 Deductible</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Kaiser</controllingFieldValue>
+                <valueName>Platinum 0/20 Copay</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Kaiser</controllingFieldValue>
+                <valueName>Silver 1000/40 Deductible</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Kaiser</controllingFieldValue>
+                <valueName>Silver 1500/20% Deductible HSA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Kaiser</controllingFieldValue>
+                <valueName>Silver 1500/45 Deductible</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Kaiser</controllingFieldValue>
+                <valueName>Bronze 5000/60 PPO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Kaiser</controllingFieldValue>
+                <valueName>Gold 0/30 PPO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Kaiser</controllingFieldValue>
+                <valueName>Platinum 0/20 PPO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Kaiser</controllingFieldValue>
+                <valueName>Silver 1500/45 PPO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>United Health Care</controllingFieldValue>
+                <valueName>State Select 20/10% Platinum</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>United Health Care</controllingFieldValue>
+                <valueName>State Select 30/20% Gold</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>United Health Care</controllingFieldValue>
+                <valueName>State Select 45/1500/20% Silver</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>United Health Care</controllingFieldValue>
+                <valueName>State Select HSA 4500/40% Bronze</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>United Health Care</controllingFieldValue>
+                <valueName>Advantage 10-20/300a/250ded Platinum</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>United Health Care</controllingFieldValue>
+                <valueName>Advantage 20-40/1000d/1000ded Gold</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>United Health Care</controllingFieldValue>
+                <valueName>Advantage 20-40/1000d/500ded Gold</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>United Health Care</controllingFieldValue>
+                <valueName>Advantage 30-50/25%/1750ded Silver</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>United Health Care</controllingFieldValue>
+                <valueName>Advantage 50-75/30%/4500ded Bronze</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>United Health Care</controllingFieldValue>
+                <valueName>Signature 10-20/300a/250ded Platinum</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>United Health Care</controllingFieldValue>
+                <valueName>Signature 20-40/1000d/1000ded Gold</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>United Health Care</controllingFieldValue>
+                <valueName>Signature 20-40/1000d/500ded Gold</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>United Health Care</controllingFieldValue>
+                <valueName>Signature 30-50/25%/1750ded Silver</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>United Health Care</controllingFieldValue>
+                <valueName>Signature 50-75/30%/4500ded Bronze</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>United Health Care</controllingFieldValue>
+                <valueName>Non-Differential PPO 2000/20% Silver</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>United Health Care</controllingFieldValue>
+                <valueName>Select Plus 15/10% Platinum</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>United Health Care</controllingFieldValue>
+                <valueName>Select Plus 15/1000/10% Gold</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>United Health Care</controllingFieldValue>
+                <valueName>Select Plus 15/250/10% Gold</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>United Health Care</controllingFieldValue>
+                <valueName>Select Plus 15/500/10% Gold</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>United Health Care</controllingFieldValue>
+                <valueName>Select Plus 25/1800/20% Silver</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>United Health Care</controllingFieldValue>
+                <valueName>Select Plus 4500/20% Bronze</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>United Health Care</controllingFieldValue>
+                <valueName>Select Plus HSA 1500/20% Silver</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>United Health Care</controllingFieldValue>
+                <valueName>Select Plus HSA 2000/20% Silver</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>United Health Care</controllingFieldValue>
+                <valueName>Select Plus HSA 3500/20% Bronze</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>United Health Care</controllingFieldValue>
+                <valueName>Select Plus HSA 5000/20% Bronze</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Western Health Advantage</controllingFieldValue>
+                <valueName>CAPITAL BRONZE 60</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Western Health Advantage</controllingFieldValue>
+                <valueName>CAPITAL BRONZE 60B HSA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Western Health Advantage</controllingFieldValue>
+                <valueName>CAPITAL GOLD 80</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Western Health Advantage</controllingFieldValue>
+                <valueName>CAPITAL PLATINUM 90</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Western Health Advantage</controllingFieldValue>
+                <valueName>CAPITAL SILVER 70</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Western Health Advantage</controllingFieldValue>
+                <valueName>CAPITAL SILVER 70 HSA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Western Health Advantage</controllingFieldValue>
+                <valueName>GATEWAY 1500 HSA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Western Health Advantage</controllingFieldValue>
+                <valueName>GATEWAY 1800 HSA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Western Health Advantage</controllingFieldValue>
+                <valueName>GATEWAY 20</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Western Health Advantage</controllingFieldValue>
+                <valueName>GATEWAY 30</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Western Health Advantage</controllingFieldValue>
+                <valueName>GATEWAY 4000B HSA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Western Health Advantage</controllingFieldValue>
+                <valueName>GATEWAY 4010</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Western Health Advantage</controllingFieldValue>
+                <valueName>GATEWAY 4020</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Western Health Advantage</controllingFieldValue>
+                <valueName>GATEWAY 5020</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Western Health Advantage</controllingFieldValue>
+                <valueName>GATEWAY 5500B HSA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Western Health Advantage</controllingFieldValue>
+                <valueName>GATEWAY 70</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Purchased__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Purchased</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Quote__c</fullName>
+        <externalId>false</externalId>
+        <label>Quote</label>
+        <referenceTo>Quote__c</referenceTo>
+        <relationshipLabel>Competitor Plans</relationshipLabel>
+        <relationshipName>Competitor_Plans</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>RX_Deductible__c</fullName>
+        <externalId>false</externalId>
+        <label>RX Deductible</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RX_Tier_1__c</fullName>
+        <externalId>false</externalId>
+        <label>RX Tier 1</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RX_Tier_2__c</fullName>
+        <externalId>false</externalId>
+        <label>RX Tier 2</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RX_Tier_3__c</fullName>
+        <externalId>false</externalId>
+        <label>RX Tier 3</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Rate_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Rate Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Current</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Renewal</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Renewal_Increase__c</fullName>
+        <externalId>false</externalId>
+        <label>Renewal Increase</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>SPC__c</fullName>
+        <externalId>false</externalId>
+        <label>SPC</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <label>Competitor Plan</label>
+    <nameField>
+        <displayFormat>C-{00000}</displayFormat>
+        <label>Competitor Plan ID</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Competitor Plans</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Carrier__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Quote__c</lookupDialogsAdditionalFields>
+        <searchFilterFields>OBJECT_ID</searchFilterFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Carrier__c</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

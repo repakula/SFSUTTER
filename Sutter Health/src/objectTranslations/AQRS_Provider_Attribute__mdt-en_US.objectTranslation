@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>AQRS Provider Attribute</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>AQRS Provider Attributes</value>
+    </caseValues>
+    <fields>
+        <label><!-- Department Id --></label>
+        <name>Department_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Department Mnemonic --></label>
+        <name>Department_Mnemonic__c</name>
+    </fields>
+    <fields>
+        <label><!-- Department Name --></label>
+        <name>Department_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Division Id --></label>
+        <name>Division_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Division Mnemonic --></label>
+        <name>Division_Mnemonic__c</name>
+    </fields>
+    <fields>
+        <label><!-- Division Name --></label>
+        <name>Division_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Facility Id --></label>
+        <name>Facility_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Facility Mnemonic --></label>
+        <name>Facility_Mnemonic__c</name>
+    </fields>
+    <fields>
+        <label><!-- Facility Name --></label>
+        <name>Facility_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Foundation Id --></label>
+        <name>Foundation_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Foundation Mnemonic --></label>
+        <name>Foundation_Mnemonic__c</name>
+    </fields>
+    <fields>
+        <label><!-- Foundation Name --></label>
+        <name>Foundation_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Master Provider Key --></label>
+        <name>Master_Provider_Key__c</name>
+    </fields>
+    <fields>
+        <label><!-- NPI --></label>
+        <name>NPI__c</name>
+    </fields>
+    <fields>
+        <label><!-- Provider Id --></label>
+        <name>Provider_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Provider Name --></label>
+        <name>Provider_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Specialty --></label>
+        <name>Specialty__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

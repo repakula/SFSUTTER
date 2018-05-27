@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>ProcessInstance$TargetName</field>
+    </columns>
+    <columns>
+        <field>ProcessInstance.Nodes$ProcessNode</field>
+    </columns>
+    <columns>
+        <field>ProcessInstance$ElapsedTimeInDays</field>
+    </columns>
+    <description>This reports targets SCN&apos;s Approval process to target SCN that have been in the SHP Enrollment QA queue for more than 2 days.</description>
+    <filter>
+        <criteriaItems>
+            <column>ProcessInstance$TableEnumOrId</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>01IG0000002qLus</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ProcessInstance.Nodes$NodeStatus</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>P</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ProcessInstance.Nodes$ProcessNode</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>EnrollMent QA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ProcessInstance$ElapsedTimeInDays</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>greaterThan</operator>
+            <value>2</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <name>SCN’s &gt; 2 days</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Approval_History__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>ProcessInstance$TargetName</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>ProcessInstance.Nodes$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

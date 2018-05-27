@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Manager Feedback Comment</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Manager Feedback Comments</value>
+    </caseValues>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Managers Feedback --></label>
+        <name>Managers_Feedback__c</name>
+        <relationshipLabel><!-- Manager Feedback Comments --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- NotificationEmailTo --></label>
+        <name>NotificationEmailTo__c</name>
+    </fields>
+    <layouts>
+        <layout>Comment Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Comments can not be empty. --></errorMessage>
+        <name>Comment_can_not_be_empty</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- New --></label>
+        <name>New</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Affiliate__c</fullName>
+        <externalId>false</externalId>
+        <label>Affiliate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ABSMC-Ashby</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ABSMC-Herrick</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ABSMC-Summit</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CPMC-California</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CPMC-Davies</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CPMC-Pacific</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CPMC-St. Luke&apos;s</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Eden Medical Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Kahi Mohala, A Behavioral Healthcare System</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Memorial Hospital, Los Banos</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Memorial Medical Center, Modesto</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Menlo Park Surgical Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mills-Peninsula Health Servies</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Novato Community Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Amador Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Auburn Faith Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Coast Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Center for Psychiatry</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Davis</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Delta Medical Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Lakeside Hospital &amp; Center for Health</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Maternity &amp; Surgey Center of Santa Cruz</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Medical Center, Modesto</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Roseville Medical Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Medical Center, Sacramento</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Santa Rosa Regional Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Solano Medical Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Tracy Community Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Palo Alto Medical Foundation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Pacific Medical Foundation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter East Bay Medical Foundation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Gould Medical Foundation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Medical Foundation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Care At Home</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Category_of_Event__c</fullName>
+        <externalId>false</externalId>
+        <label>Category of Event</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Procedural</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Environmental</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Patient Protection</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Care management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Product or Device</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Criminal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Teamwork Failures</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Causes__c</fullName>
+        <externalId>false</externalId>
+        <label>Causes</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Category_of_Event__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Wrong Body Part</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Wrong Patient</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Wrong Procedure</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Unintended Retention of a Foreign Object</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Post Procedure Death of Healthy Patient</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other Procedural</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Electric Shock</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Burn</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fall</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Restraints/Bedrails</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Gas Administration Event</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other Environmental</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Infant Discharged to Wrong Person</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Patient Elopement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Suicide or Attempted Suicide</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Inappropriate Discharge</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Medication Error</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Blood Product Administration Event</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Maternal/Perinatal Death or Disability</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pressure Ulcer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hospital Acquired Infection (HAI)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Delay in Diagnosis or Treatment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other Care</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Contaminated Drugs, Devices, or Biologics</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Device Malfunction or Use Not as Intended</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Intravascular Air Embolism</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Non-Licensed Individual Orders Care</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Abduction</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sexual Assault</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Physical Assault</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Communications breakdown among team members</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Disrespectful behavior by team member</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Procedural</controllingFieldValue>
+                <valueName>Wrong Body Part</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Procedural</controllingFieldValue>
+                <valueName>Wrong Patient</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Procedural</controllingFieldValue>
+                <valueName>Wrong Procedure</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Procedural</controllingFieldValue>
+                <valueName>Unintended Retention of a Foreign Object</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Procedural</controllingFieldValue>
+                <valueName>Post Procedure Death of Healthy Patient</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Procedural</controllingFieldValue>
+                <valueName>Other Procedural</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Environmental</controllingFieldValue>
+                <valueName>Electric Shock</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Environmental</controllingFieldValue>
+                <valueName>Burn</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Environmental</controllingFieldValue>
+                <valueName>Fall</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Environmental</controllingFieldValue>
+                <valueName>Restraints/Bedrails</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Environmental</controllingFieldValue>
+                <valueName>Gas Administration Event</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Environmental</controllingFieldValue>
+                <valueName>Other Environmental</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Patient Protection</controllingFieldValue>
+                <valueName>Infant Discharged to Wrong Person</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Patient Protection</controllingFieldValue>
+                <valueName>Patient Elopement</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Patient Protection</controllingFieldValue>
+                <valueName>Suicide or Attempted Suicide</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Patient Protection</controllingFieldValue>
+                <valueName>Inappropriate Discharge</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Care management</controllingFieldValue>
+                <valueName>Medication Error</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Care management</controllingFieldValue>
+                <valueName>Blood Product Administration Event</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Care management</controllingFieldValue>
+                <valueName>Maternal/Perinatal Death or Disability</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Care management</controllingFieldValue>
+                <valueName>Pressure Ulcer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Care management</controllingFieldValue>
+                <valueName>Hospital Acquired Infection (HAI)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Care management</controllingFieldValue>
+                <valueName>Delay in Diagnosis or Treatment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Care management</controllingFieldValue>
+                <valueName>Other Care</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product or Device</controllingFieldValue>
+                <valueName>Contaminated Drugs, Devices, or Biologics</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product or Device</controllingFieldValue>
+                <valueName>Device Malfunction or Use Not as Intended</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product or Device</controllingFieldValue>
+                <valueName>Intravascular Air Embolism</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Criminal</controllingFieldValue>
+                <valueName>Non-Licensed Individual Orders Care</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Criminal</controllingFieldValue>
+                <valueName>Abduction</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Criminal</controllingFieldValue>
+                <valueName>Sexual Assault</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Criminal</controllingFieldValue>
+                <valueName>Physical Assault</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Teamwork Failures</controllingFieldValue>
+                <valueName>Communications breakdown among team members</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Teamwork Failures</controllingFieldValue>
+                <valueName>Disrespectful behavior by team member</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Department__c</fullName>
+        <externalId>false</externalId>
+        <label>Department</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MRN__c</fullName>
+        <externalId>false</externalId>
+        <label>MRN</label>
+        <length>175</length>
+        <maskChar>asterisk</maskChar>
+        <maskType>all</maskType>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>EncryptedText</type>
+    </fields>
+    <fields>
+        <fullName>Tip_To_Avoid__c</fullName>
+        <externalId>false</externalId>
+        <label>Tip To Avoid</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type_of_Event__c</fullName>
+        <externalId>false</externalId>
+        <label>Type of Event</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Near Miss/Good Catch [Error occurred but didn’t reach patient]</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Precursor Event [Error reached patient, but no or minimal harm]</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Serious Event [Error reach patient and moderate to severe harm]</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Teamwork Failures</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Safety Improvement Opportunity [No error occurred--YET, but one could!]</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Username__c</fullName>
+        <externalId>false</externalId>
+        <label>Username</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Safety Reporting</label>
+    <nameField>
+        <displayFormat>SRN-{000000000}</displayFormat>
+        <label>Safety Reporting Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Safety Reporting</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

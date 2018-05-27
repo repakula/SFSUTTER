@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Guarantor</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Guarantors</value>
+    </caseValues>
+    <fields>
+        <label><!-- Guarantor First Name --></label>
+        <name>Guarantor_First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor ID --></label>
+        <name>Guarantor_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor Last Name --></label>
+        <name>Guarantor_Last_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor Middle Name --></label>
+        <name>Guarantor_Middle_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor Home Phone --></label>
+        <name>Guarantor_Phone_Home__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor Work Phone --></label>
+        <name>Guarantor_Phone_Work__c</name>
+    </fields>
+    <layouts>
+        <layout>Guarantor Layout</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

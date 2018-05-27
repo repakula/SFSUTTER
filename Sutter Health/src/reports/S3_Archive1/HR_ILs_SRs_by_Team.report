@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>Case.Inquiry_Aging__c:AVG</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA1</developerName>
+        <isActive>false</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Average Age</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>Case.Duration__c:AVG</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA2</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Avg Duration (Minutes)</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>Case.Duration__c:AVG/60</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA3</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Avg Duration (Hrs)</masterLabel>
+        <scale>1</scale>
+    </aggregates>
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_94907513</developerName>
+        <masterLabel>Tiers</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <otherBucketLabel>Other</otherBucketLabel>
+        <sourceColumnName>Case.Team__c</sourceColumnName>
+        <useOther>true</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>[Tier 1] AP / Purchasing / Supply Chain</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 1] Defined Contribution</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 1] HR Benefits</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 1] HR Data</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 1] HRIS</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 1] HR Pension</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 1] HR Recruitment</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 1] HR Reporting</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 1] Learning</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 1] Payroll T&amp;E / Compensation</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 1] RC CBO Customer Service</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 1] Workforce Relations</sourceValue>
+            </sourceValues>
+            <value>Tier 1</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>[Tier 2] Finance Payroll / T&amp;E</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 2] HR Benefits</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 2] HR Data</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 2] HRIS</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 2] HR Pension</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 2] HR Reporting</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 2] Learning</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 2] Recruitment</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 2] Workforce Relations</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 2] Defined Contribution</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 2] Finance Accounts Payable</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Tier 2 Data/Reporting/HRIS</sourceValue>
+            </sourceValues>
+            <value>Tier 2</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>[Tier 3] Compensation</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 3] Defined Contribution</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 3] HR Benefits</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 3] HR Pension</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 3] Pension</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Benefits</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Compensation</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>HR - Compensation</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>HR - Defined Contribution</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>HR - General Benefits</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>HR - HR Performance Mgmt</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>HR - Pension</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Pension &amp; Retirement</sourceValue>
+            </sourceValues>
+            <value>Tier 3-Comp/Ben</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>[Tier 3] HRIS</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 3] HR Data</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 3] HR Reporting</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>HR - HR Data &amp; Reporting</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>HR - HRIS</sourceValue>
+            </sourceValues>
+            <value>Tier 3-Data/Reporting</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>[Tier 3] Learning Delivery Admin</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 3] Learning</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>HR - eLearning</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>HR - Training Delivery</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Learning</sourceValue>
+            </sourceValues>
+            <value>Tier 3-Learning</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>HR - Recruitment</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Recruitment</sourceValue>
+            </sourceValues>
+            <value>Tier 3-Recruiting</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>HR - Workforce Relations</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Labor &amp; Employee Relations</sourceValue>
+            </sourceValues>
+            <value>Tier 3-Workforce</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Credential Verification</sourceValue>
+            </sourceValues>
+            <value>Credentialing</value>
+        </values>
+    </buckets>
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>RowCount</column>
+        </chartSummaries>
+        <chartSummaries>
+            <axisBinding>y2</axisBinding>
+            <column>FORMULA3</column>
+        </chartSummaries>
+        <chartType>VerticalColumnStackedLine</chartType>
+        <enableHoverLabels>true</enableHoverLabels>
+        <expandOthers>true</expandOthers>
+        <groupingColumn>BucketField_94907513</groupingColumn>
+        <legendPosition>Right</legendPosition>
+        <location>CHART_TOP</location>
+        <secondaryGroupingColumn>Case.Sub_Function__c</secondaryGroupingColumn>
+        <showAxisLabels>true</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>false</showValues>
+        <size>Large</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <title>Service Requests by Status</title>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <columns>
+        <field>CASE_NUMBER</field>
+    </columns>
+    <columns>
+        <field>STATUS</field>
+    </columns>
+    <columns>
+        <field>PARENT_CASE_NUMBER</field>
+    </columns>
+    <columns>
+        <field>Case.Customer_Intent__c</field>
+    </columns>
+    <columns>
+        <field>CLOSED</field>
+    </columns>
+    <columns>
+        <field>OWNER</field>
+    </columns>
+    <columns>
+        <field>OWNER_ROLE</field>
+    </columns>
+    <columns>
+        <field>Case.Duration__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Case.Function__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Human Resource,Credentialing Verification</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_94907513</field>
+        <sortOrder>Desc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case.Team__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <aggregateType>RowCount</aggregateType>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case.Sub_Function__c</field>
+        <sortByName>RowCount</sortByName>
+        <sortOrder>Desc</sortOrder>
+        <sortType>Aggregate</sortType>
+    </groupingsDown>
+    <name>HR ILs &amp; SRs by Team</name>
+    <params>
+        <name>units</name>
+        <value>h</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CaseList</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <sortColumn>CLOSED</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATEONLY</dateColumn>
+        <interval>INTERVAL_THISMONTH</interval>
+    </timeFrameFilter>
+</Report>

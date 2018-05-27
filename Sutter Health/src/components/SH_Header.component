@@ -1,0 +1,55 @@
+<!-- This component is created by prashant kumar on 7/24/2015 to store header info in it-->
+<apex:component layout="none">
+    <apex:attribute name="isPreview" type="Boolean" description="True for preview pages."/>
+    <apex:attribute name="breadCrumbs" type="SH_BreadCrumb[]" description="BreadCrumbs"/>
+    <apex:attribute name="actiVePg" type="string" description="Active page name"/>
+<!--     <apex:attribute name="IsbreadCrumbs" type="Boolean" description="BreadCrumb visiblity"/> -->
+    
+    <div id="header" class="header">
+        <!-- header top section -->
+        <div id="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="pull-left">
+                            <a href="sh_landing" class="logo big-logo">
+                                <!--logo updated on Sutter Request on 30-Oct-2015-->
+                                <!--<apex:image value="{!URLFOR($Resource.SutterHealthCare, 'img/logo@2x.png')}" width="269" height="41"/>-->
+                                <apex:image value="{!URLFOR($Resource.SutterHealthCare, 'img/MySutterLogo.jpg')}" width="237" height="41"/>
+                            </a>
+                            <a href="sh_landing" class="logo small-logo">
+                                <apex:image value="{!URLFOR($Resource.SutterHealthCare, 'img/mobile-logo@2x.png')}" width="41" height="41"/>
+                            </a>
+                        </div>
+                        <div class="pull-right no-print">
+                            <ul id="top-navigation">
+                                <li><a id="search-link" href=""><span class="link-text">SEARCH</span><span class="data-icon icon-search-small" style="cursor:pointer;"></span></a></li>
+                                <li><a href="{!IF(isPreview,'#','SH_History')}"><span class="link-text">HISTORY</span><span class="data-icon icon-history"></span></a></li>
+                                <li><a href="{!IF(isPreview,'#','secur/logout.jsp')}"><span class="link-text">SIGN OUT</span><span class="data-icon icon-profile"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- breadcrumb section -->
+        <apex:outputpanel rendered="{!IF(AND(NOT(ISNULL(breadCrumbs)),breadCrumbs.size >0), true, false)}" layout="none">
+            <div id="breadcrumb">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="pull-left">
+                                <ol>
+                                    <apex:repeat value="{!breadCrumbs}" var="breadCrumb">
+                                        <li class="{!IF(actiVePg == breadCrumb.pgName, 'active', '')}"><a href="{!IF(isPreview,'#',breadCrumb.pgLink)}">{!breadCrumb.pgName}</a></li>
+                                    </apex:repeat>    
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </apex:outputpanel>
+    </div>
+</apex:component>

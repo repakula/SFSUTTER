@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>SOC Queue</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>SOC Queues</value>
+    </caseValues>
+    <fields>
+        <label><!-- Associated Case Id --></label>
+        <name>Associated_Case_Id__c</name>
+        <relationshipLabel><!-- SOC Queues --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Associated Case Id --></label>
+        <name>Associated_Case_Id_formula__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Number --></label>
+        <name>Case_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Status --></label>
+        <name>Case_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Subject --></label>
+        <name>Case_Subject__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Imported Into Salesforce --></label>
+        <name>Date_Imported_Into_Salesforce__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date SOC Documents Returned --></label>
+        <name>Date_SOC_Documents_Returned__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date SOC Documents Sent --></label>
+        <name>Date_SOC_Documents_Sent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Escalated To --></label>
+        <name>Escalated_To__c</name>
+        <picklistValues>
+            <masterLabel>MU Closed</masterLabel>
+            <translation><!-- MU Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MeaningfulUse</masterLabel>
+            <translation><!-- MeaningfulUse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Supervisor</masterLabel>
+            <translation><!-- Supervisor --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Facility Id --></label>
+        <name>Facility_Id__c</name>
+        <relationshipLabel><!-- SOC Queues --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Printed Id --></label>
+        <name>Printed_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Provider ID --></label>
+        <name>Provider_Facility_ID__c</name>
+        <relationshipLabel><!-- SOC Queues --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Returned Status --></label>
+        <name>Returned_Status__c</name>
+        <picklistValues>
+            <masterLabel>Mail Returned – Envelope Not Opened</masterLabel>
+            <translation><!-- Mail Returned – Envelope Not Opened --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mail Returned – Envelope Opened</masterLabel>
+            <translation><!-- Mail Returned – Envelope Opened --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Accepted</masterLabel>
+            <translation><!-- Accepted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cannot Send</masterLabel>
+            <translation><!-- Cannot Send --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Escalated</masterLabel>
+            <translation><!-- Escalated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Queue</masterLabel>
+            <translation><!-- In Queue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Print</masterLabel>
+            <translation><!-- Print --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Returned</masterLabel>
+            <translation><!-- Returned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent</masterLabel>
+            <translation><!-- Sent --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Type of Provider --></label>
+        <name>Type_of_Provider__c</name>
+        <picklistValues>
+            <masterLabel>EAF</masterLabel>
+            <translation><!-- EAF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SER</masterLabel>
+            <translation><!-- SER --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>SOC Queue Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You cannot change SOC record Name --></errorMessage>
+        <name>Cannot_Edit_SOC_Name</name>
+    </validationRules>
+</CustomObjectTranslation>

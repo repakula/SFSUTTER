@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_84851824</developerName>
+        <masterLabel>Status of SFI</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>Survey_Feedback__c.Status__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Closed</sourceValue>
+            </sourceValues>
+            <value>Closed</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>New</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>In Progress</sourceValue>
+            </sourceValues>
+            <value>Open</value>
+        </values>
+    </buckets>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Survey_Feedback__c.Status__c</field>
+    </columns>
+    <columns>
+        <field>Survey_Feedback__c.Sub_Function__c</field>
+    </columns>
+    <columns>
+        <field>Survey_Feedback__c.Priority__c</field>
+    </columns>
+    <columns>
+        <field>Survey_Feedback__c.Agent_Name__c</field>
+    </columns>
+    <columns>
+        <field>Survey_Feedback__c.Survey_Date__c</field>
+    </columns>
+    <columns>
+        <field>Survey_Feedback__c.Target_Completion_Date__c</field>
+    </columns>
+    <columns>
+        <field>Survey_Feedback__c.Closed_Date__c</field>
+    </columns>
+    <description>Survey Feedback Items Status Open to closed</description>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_84851824</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Survey Feedback Item Status</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Survey_Feedback__c@Survey_Feedback__c.Survey_Taken__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Survey_Feedback__c.Agent_Name__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Survey_Feedback__c.Closed_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

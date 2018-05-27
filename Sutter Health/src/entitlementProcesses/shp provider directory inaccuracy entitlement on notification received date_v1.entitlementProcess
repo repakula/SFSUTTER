@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntitlementProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <SObjectType>Case</SObjectType>
+    <active>true</active>
+    <entryStartDateField>Case.Notification_Received_Date__c</entryStartDateField>
+    <exitCriteriaFilterItems>
+        <field>Case.Status</field>
+        <operation>equals</operation>
+        <value>Closed</value>
+    </exitCriteriaFilterItems>
+    <isVersionDefault>false</isVersionDefault>
+    <milestones>
+        <businessHours>SHP Business Hours</businessHours>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordType_Name__c</field>
+            <operation>equals</operation>
+            <value>Provider Directory Inaccuracy</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Secondary_Reason__c</field>
+            <operation>equals</operation>
+            <value>Notification, Grievance</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Initial Outreach to Provider</milestoneName>
+        <minutesToComplete>2700</minutesToComplete>
+        <timeTriggers>
+            <actions>
+                <name>Reminder_Notification_1_day_before_PDI_SR_is_hitting_the_milestone</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>-540</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <businessHours>SHP Business Hours</businessHours>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Provider Directory Inaccuracy</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Secondary_Reason__c</field>
+            <operation>equals</operation>
+            <value>Notification, Grievance</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Closure%2FResolution</milestoneName>
+        <minutesToComplete>16200</minutesToComplete>
+        <timeTriggers>
+            <actions>
+                <name>Reminder_Notification_5days_before_PDI_SR_is_hitting_the_milestone</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>-2700</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <timeLength>-2</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <actions>
+                <name>Reminder_Notification_for_PDI_oncompletion_of_milestone</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <businessHours>Calendar Days</businessHours>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordType_Name__c</field>
+            <operation>equals</operation>
+            <value>Provider Directory Inaccuracy</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Secondary_Reason__c</field>
+            <operation>equals</operation>
+            <value>Grievance</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>A%26G Closure%2FResolution</milestoneName>
+        <minutesToComplete>21600</minutesToComplete>
+        <timeTriggers>
+            <actions>
+                <name>Reminder_Notification_for_PDI_on_completion_of_mileston</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <timeLength>-2</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <actions>
+                <name>Reminder_Notification_5_days_before_PDI_SR_is_hitting_the_milestone</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>-7200</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <name>SHP Provider Directory Inaccuracy Entitlement on Notification Received Date</name>
+    <versionMaster>55219000000CaW2</versionMaster>
+    <versionNumber>1</versionNumber>
+</EntitlementProcess>

@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Coinsurance__c</fullName>
+        <externalId>false</externalId>
+        <label>Coinsurance</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Deductible__c</fullName>
+        <externalId>false</externalId>
+        <label>Deductible</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OOPM__c</fullName>
+        <externalId>false</externalId>
+        <label>OOPM</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PCP__c</fullName>
+        <externalId>false</externalId>
+        <label>PCP</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Plan__c</fullName>
+        <externalId>false</externalId>
+        <label>Plan(SHP)</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ML01 - LG Standard $10 - $500</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML02 - LG Standard $20 - $500 (Rx $100)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML03 - LG Standard $20 - $1000</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML04 - LG Standard $30 - $1000 (Rx $100)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML05 - LG Standard $30 - $1000 (Rx $250)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML06 - LG Standard $20 - $1500</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML07 - LG Standard $40 - $1500</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML08 - LG Standard $20 - $2000</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML09 - LG Standard $40 - $2500</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML10 - LG Standard $40 - $3000</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML11 - LG Coinsurance 10% - $250</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML12 - LG Coinsurance 20% - $500</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML13 - LG Coinsurance 30% - $500</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML14 - LG Coinsurance 20% - $1000</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML15 - LG Coinsurance 30% - $1000</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML16 - LG Split $10/$20 - $250</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML17 - LG Split $10/$20 - $500</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML18 - LG Split $20/$40 - $500</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML19 - LG HSP $10 - $250 - 10%</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML20 - LG HSP $20 - $500 - 10%</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML21 - LG HSP $20 - $1000 - 20%</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML22 - LG HSP $20 - $1500 - 20%</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML23 - LG HSP $20 - $1500 - 30%</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML24 - LG HSP $20 - $2500 - 20%</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML25 - LG HSP $20 - $3000 - 30%</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HL01 / HL51 - LG HDHP $20 - $1500 (HSA Eligible)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HL02 / HL52 - LG HDHP $40 - $2500 (HSA Eligible)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HL03 / HL53 - LG HDHP 10% - $1500 (HSA Eligible)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HL04 / HL54 - LG HDHP 20% - $2500 (HSA Eligible)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML30 - LG Standard $10 - $0</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML31 - LG Standard $25 - $0</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML32 - LG SHP $10 - $0</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ML33 - Sutter Health Plus HMO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HL05 / HL55 - Sutter Health Plus HMO HDHP (HSA Eligible)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Custom</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>RX_Deductible__c</fullName>
+        <externalId>false</externalId>
+        <label>RX Deductible</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RX_Tier_1__c</fullName>
+        <externalId>false</externalId>
+        <label>RX Tier 1</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RX_Tier_2__c</fullName>
+        <externalId>false</externalId>
+        <label>RX Tier 2</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RX_Tier_3__c</fullName>
+        <externalId>false</externalId>
+        <label>RX Tier 3</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SPC__c</fullName>
+        <externalId>false</externalId>
+        <label>SPC</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <label>SHP Product</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Coinsurance__c</columns>
+        <columns>Deductible__c</columns>
+        <columns>OOPM__c</columns>
+        <columns>PCP__c</columns>
+        <columns>SPC__c</columns>
+        <columns>RX_Deductible__c</columns>
+        <columns>RX_Tier_1__c</columns>
+        <columns>RX_Tier_2__c</columns>
+        <columns>RX_Tier_3__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>SHP Product Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>SHP Products</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Deductible__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Coinsurance__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>PCP__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>SPC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>OOPM__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RX_Deductible__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RX_Tier_1__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RX_Tier_2__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RX_Tier_3__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Coinsurance__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Deductible__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>PCP__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>SPC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>OOPM__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>RX_Deductible__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>RX_Tier_1__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>RX_Tier_2__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>RX_Tier_3__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

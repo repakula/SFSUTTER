@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Benefit Plan Coverage</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Benefit Plan Coverage</value>
+    </caseValues>
+    <fields>
+        <label><!-- Benefit Grid HCC ID --></label>
+        <name>Benefit_Grid_HCC_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Grid Plan ID --></label>
+        <name>Benefit_Grid_Plan_ID__c</name>
+        <relationshipLabel><!-- Benefit Plan Coverage --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Employer Account --></label>
+        <name>Employer_Account__c</name>
+        <relationshipLabel><!-- Benefit Plan Coverages --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Benefit Coverage End Date --></label>
+        <name>PlanCov_Bene_Cover_Date_End__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Coverage Start Date --></label>
+        <name>PlanCov_Bene_Cover_Date_Start__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Coverage Description --></label>
+        <name>PlanCov_Bene_Cover_Desc__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Coverage HCC ID --></label>
+        <name>PlanCov_Bene_Cover_HCC_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Coverage HR ID --></label>
+        <name>PlanCov_Bene_Cover_HR_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Coverage ID --></label>
+        <name>PlanCov_Bene_Cover_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Coverage Name --></label>
+        <name>PlanCov_Bene_Cover_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Plan End Date --></label>
+        <name>PlanCov_Bene_Plan_Date_End__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Plan Start Date --></label>
+        <name>PlanCov_Bene_Plan_Date_Start__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Plan HCC ID --></label>
+        <name>PlanCov_Bene_Plan_HCC_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Plan HR ID --></label>
+        <name>PlanCov_Bene_Plan_HR_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Plan ID --></label>
+        <name>PlanCov_Bene_Plan_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Plan Name --></label>
+        <name>PlanCov_Bene_Plan_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Plan Type --></label>
+        <name>PlanCov_Bene_Plan_Type__c</name>
+    </fields>
+    <fields>
+        <help><!-- HealthEdge Benefit Plan Coverage ID. --></help>
+        <label><!-- Benefit Plan Coverage	 External ID --></label>
+        <name>PlanCov_External_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Member Date Effective --></label>
+        <name>PlanCov_Member_Date_Effective__c</name>
+    </fields>
+    <fields>
+        <label><!-- Member Date Termination --></label>
+        <name>PlanCov_Member_Date_Termination__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Plan Member HCC ID --></label>
+        <name>PlanCov_Member_HCC_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Plan Member  HR ID --></label>
+        <name>PlanCov_Member_HR_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Plan Member ID --></label>
+        <name>PlanCov_Member_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Member --></label>
+        <name>PlanCov_Member_Lookup__c</name>
+        <relationshipLabel><!-- Benefit Plan Coverage --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Benefit Plan Subscriber HCC ID --></label>
+        <name>PlanCov_Subscriber_HCC_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Plan Subscriber HR ID --></label>
+        <name>PlanCov_Subscriber_HR_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Benefit Plan Subscriber ID --></label>
+        <name>PlanCov_Subscriber_ID__c</name>
+    </fields>
+    <layouts>
+        <layout>Benefit Plan coverage OLTP Member</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

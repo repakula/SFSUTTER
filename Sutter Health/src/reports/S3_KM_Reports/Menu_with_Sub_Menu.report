@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>SH_Menu_Item__c$Name</field>
+    </columns>
+    <columns>
+        <field>SH_Menu_Item__c$Id</field>
+    </columns>
+    <columns>
+        <field>SH_Menu_Item__c.Sub_Menu_Items__r$Name</field>
+    </columns>
+    <columns>
+        <field>SH_Menu_Item__c.Sub_Menu_Items__r$Id</field>
+    </columns>
+    <format>Tabular</format>
+    <name>MSC Menu with Sub Menu</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Menu_with_Sub_Menu__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>SH_Menu_Item__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

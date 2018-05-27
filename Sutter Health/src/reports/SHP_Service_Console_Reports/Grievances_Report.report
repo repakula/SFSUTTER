@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_16039687</developerName>
+        <masterLabel>Reason</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <otherBucketLabel>Other</otherBucketLabel>
+        <sourceColumnName>Case.Reason__c</sourceColumnName>
+        <useOther>true</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Member</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Member Appeal</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Member Balance Bill</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Member Demographic Changes</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Member Grievance</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Potential Member / Employer Group</sourceValue>
+            </sourceValues>
+            <value>Member</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Exempt Grievances</sourceValue>
+            </sourceValues>
+            <value>Exempt</value>
+        </values>
+    </buckets>
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_77197409</developerName>
+        <masterLabel>Status</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>STATUS</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Assign</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Breaches</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Escalated</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>External Transfer</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Follow Up Required</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>In Progress</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Internal Transfer</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>New</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Not Reprocessed</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>On Hold</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Open</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Pending</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Ready for Call Back</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Re-assign</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Risk Management</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Sent to Vendor</sourceValue>
+            </sourceValues>
+            <value>Open</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Resolved</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Closed</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Transferred</sourceValue>
+            </sourceValues>
+            <value>Closed</value>
+        </values>
+    </buckets>
+    <columns>
+        <field>CASE_NUMBER</field>
+    </columns>
+    <columns>
+        <field>OWNER</field>
+    </columns>
+    <columns>
+        <field>SUBJECT</field>
+    </columns>
+    <columns>
+        <field>Case.Requestor_Type__c</field>
+    </columns>
+    <columns>
+        <field>Case.Grievance_Coordinator__c</field>
+    </columns>
+    <columns>
+        <field>Case.Secondary_Reason__c</field>
+    </columns>
+    <columns>
+        <field>Case.Pending_Reason__c</field>
+    </columns>
+    <columns>
+        <field>Case.Call_Back_defaut_true__c</field>
+    </columns>
+    <columns>
+        <field>AGE</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Case.Reason__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Member,Member Grievance,Exempt Grievances</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CONTACT_RECORDTYPE</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Contact.Member</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Month</dateGranularity>
+        <field>CREATED_DATE</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_77197409</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_16039687</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Grievances Report</name>
+    <params>
+        <name>units</name>
+        <value>d</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CaseList</reportType>
+    <scope>team</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATEONLY</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

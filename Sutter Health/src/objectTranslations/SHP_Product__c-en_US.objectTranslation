@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>SHP Product</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>SHP Products</value>
+    </caseValues>
+    <fields>
+        <label><!-- Coinsurance --></label>
+        <name>Coinsurance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deductible --></label>
+        <name>Deductible__c</name>
+    </fields>
+    <fields>
+        <label><!-- OOPM --></label>
+        <name>OOPM__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCP --></label>
+        <name>PCP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan(SHP) --></label>
+        <name>Plan__c</name>
+        <picklistValues>
+            <masterLabel>Custom</masterLabel>
+            <translation><!-- Custom --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HL01 / HL51 - LG HDHP $20 - $1500 (HSA Eligible)</masterLabel>
+            <translation><!-- HL01 / HL51 - LG HDHP $20 - $1500 (HSA Eligible) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HL02 / HL52 - LG HDHP $40 - $2500 (HSA Eligible)</masterLabel>
+            <translation><!-- HL02 / HL52 - LG HDHP $40 - $2500 (HSA Eligible) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HL03 / HL53 - LG HDHP 10% - $1500 (HSA Eligible)</masterLabel>
+            <translation><!-- HL03 / HL53 - LG HDHP 10% - $1500 (HSA Eligible) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HL04 / HL54 - LG HDHP 20% - $2500 (HSA Eligible)</masterLabel>
+            <translation><!-- HL04 / HL54 - LG HDHP 20% - $2500 (HSA Eligible) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HL05 / HL55 - Sutter Health Plus HMO HDHP (HSA Eligible)</masterLabel>
+            <translation><!-- HL05 / HL55 - Sutter Health Plus HMO HDHP (HSA Eligible) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML01 - LG Standard $10 - $500</masterLabel>
+            <translation><!-- ML01 - LG Standard $10 - $500 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML02 - LG Standard $20 - $500 (Rx $100)</masterLabel>
+            <translation><!-- ML02 - LG Standard $20 - $500 (Rx $100) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML03 - LG Standard $20 - $1000</masterLabel>
+            <translation><!-- ML03 - LG Standard $20 - $1000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML04 - LG Standard $30 - $1000 (Rx $100)</masterLabel>
+            <translation><!-- ML04 - LG Standard $30 - $1000 (Rx $100) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML05 - LG Standard $30 - $1000 (Rx $250)</masterLabel>
+            <translation><!-- ML05 - LG Standard $30 - $1000 (Rx $250) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML06 - LG Standard $20 - $1500</masterLabel>
+            <translation><!-- ML06 - LG Standard $20 - $1500 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML07 - LG Standard $40 - $1500</masterLabel>
+            <translation><!-- ML07 - LG Standard $40 - $1500 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML08 - LG Standard $20 - $2000</masterLabel>
+            <translation><!-- ML08 - LG Standard $20 - $2000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML09 - LG Standard $40 - $2500</masterLabel>
+            <translation><!-- ML09 - LG Standard $40 - $2500 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML10 - LG Standard $40 - $3000</masterLabel>
+            <translation><!-- ML10 - LG Standard $40 - $3000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML11 - LG Coinsurance 10% - $250</masterLabel>
+            <translation><!-- ML11 - LG Coinsurance 10% - $250 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML12 - LG Coinsurance 20% - $500</masterLabel>
+            <translation><!-- ML12 - LG Coinsurance 20% - $500 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML13 - LG Coinsurance 30% - $500</masterLabel>
+            <translation><!-- ML13 - LG Coinsurance 30% - $500 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML14 - LG Coinsurance 20% - $1000</masterLabel>
+            <translation><!-- ML14 - LG Coinsurance 20% - $1000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML15 - LG Coinsurance 30% - $1000</masterLabel>
+            <translation><!-- ML15 - LG Coinsurance 30% - $1000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML16 - LG Split $10/$20 - $250</masterLabel>
+            <translation><!-- ML16 - LG Split $10/$20 - $250 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML17 - LG Split $10/$20 - $500</masterLabel>
+            <translation><!-- ML17 - LG Split $10/$20 - $500 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML18 - LG Split $20/$40 - $500</masterLabel>
+            <translation><!-- ML18 - LG Split $20/$40 - $500 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML19 - LG HSP $10 - $250 - 10%</masterLabel>
+            <translation><!-- ML19 - LG HSP $10 - $250 - 10% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML20 - LG HSP $20 - $500 - 10%</masterLabel>
+            <translation><!-- ML20 - LG HSP $20 - $500 - 10% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML21 - LG HSP $20 - $1000 - 20%</masterLabel>
+            <translation><!-- ML21 - LG HSP $20 - $1000 - 20% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML22 - LG HSP $20 - $1500 - 20%</masterLabel>
+            <translation><!-- ML22 - LG HSP $20 - $1500 - 20% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML23 - LG HSP $20 - $1500 - 30%</masterLabel>
+            <translation><!-- ML23 - LG HSP $20 - $1500 - 30% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML24 - LG HSP $20 - $2500 - 20%</masterLabel>
+            <translation><!-- ML24 - LG HSP $20 - $2500 - 20% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML25 - LG HSP $20 - $3000 - 30%</masterLabel>
+            <translation><!-- ML25 - LG HSP $20 - $3000 - 30% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML30 - LG Standard $10 - $0</masterLabel>
+            <translation><!-- ML30 - LG Standard $10 - $0 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML31 - LG Standard $25 - $0</masterLabel>
+            <translation><!-- ML31 - LG Standard $25 - $0 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML32 - LG SHP $10 - $0</masterLabel>
+            <translation><!-- ML32 - LG SHP $10 - $0 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML33 - Sutter Health Plus HMO</masterLabel>
+            <translation><!-- ML33 - Sutter Health Plus HMO --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- RX Deductible --></label>
+        <name>RX_Deductible__c</name>
+    </fields>
+    <fields>
+        <label><!-- RX Tier 1 --></label>
+        <name>RX_Tier_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- RX Tier 2 --></label>
+        <name>RX_Tier_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- RX Tier 3 --></label>
+        <name>RX_Tier_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- SPC --></label>
+        <name>SPC__c</name>
+    </fields>
+    <layouts>
+        <layout>SHP Product Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

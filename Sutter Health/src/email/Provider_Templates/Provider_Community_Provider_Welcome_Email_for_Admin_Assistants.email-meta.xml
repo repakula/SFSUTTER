@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email sent to new Sutter Provider Hub Admin Assistant users.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>PCRM_Letter_Head</letterhead>
+    <name>Provider Community: Provider Welcome Email for Admin Assistants</name>
+    <style>freeForm</style>
+    <subject>ACTION REQUESTED: Validate Providers Contact Information Through Sutter Provider Hub</subject>
+    <textOnly>You have been identified and approved as a delegate for [{!Contact.Tech_Admin_Associated_Providers__c}]. In this capacity you have been granted administrative access to make changes to their contact information on their behalf.
+
+
+
+The accuracy and integrity of provider business information is a priority at Sutter Health. Accurate data ensures that patients’ protected health information (PHI), as well as other important business related documents, are delivered to a provider&apos;s preferred location. Sutter Health providers are asked to validate their contact information every 6 months.
+
+
+
+If a patient of provider you represent may ever be seen at a Sutter Health affiliate for future care or outpatient services (e.g. radiology &amp; lab tests), and/or Sutter patients may be referred to to this provider for follow-up care, it is important that you review--and if necessary update--the provider&apos;s contact information.
+
+
+
+
+To validate the provider&apos;s contact information, visit the Sutter Provider Hub, a self-service application that allows you to easily and securely manage the provider&apos;s Sutter Health information. Clicking the link will take you to a page where you can set your password, then log in with the Username supplied below.
+
+
+
+Username: {!Receiving_User.Username}
+
+If the link above does not work, copy and paste www.sutterproviderhub.com into your web browser. If you need to reset your password, click on the Forgot Password link.
+
+For technical support, please contact the IS Service Desk at 888-888-6044 or servicedesk@sutterhealth.org and reference the CRM-Salesforce Team. Additional details are available on the FAQ guide.
+
+We appreciate your help with this important effort!
+
+Thank you,
+
+
+Arieh Rosenbaum, M.D.
+
+
+c/o Sutter Provider Hub Team
+
+
+
+To confirm the authenticity of this message, please feel free to contact the IS Service Desk by phone, or Arieh Rosenbaum, M.D. Chief Medical Information Officer, West Bay Region (Rosenba@Sutterhealth.org)</textOnly>
+    <type>html</type>
+</EmailTemplate>

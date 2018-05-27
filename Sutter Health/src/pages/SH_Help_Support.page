@@ -1,0 +1,500 @@
+<apex:page docType="html-5.0" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" action="{!forwardToLoginPage}" controller="SH_Help_Support">
+    <head>
+        <title>{!activePgName}</title>
+        <c:SH_HeaderResource />
+    </head>
+    <script>
+        
+        function CheckFieldValidation()
+        {
+            var IsError = false;
+            
+            if(jQuery('input[Id$=strSubject]').val() == '')
+            {
+                jQuery('input[Id$=strSubject]').closest('.form-group').attr('class','form-group with-help error');
+                IsError = true;
+            }
+            else{
+                jQuery('input[Id$=strSubject]').closest('.form-group').attr('class','form-group with-help');
+            }
+            /*	req 3930 - adding picklist 'helpWith' and helpWithMore
+            	If these picklists are displayed on the page (form-group visible) than an option must be selected else display 
+            	error similar to subject and description
+            */
+            //helpWith
+             if(jQuery('#helpWith').closest('.form-group').filter(":visible").length && !jQuery('#helpWith').val() )
+            {
+                jQuery('#helpWith').closest('.form-group').attr('class','form-group with-help error');
+                IsError = true;
+            }
+            else{
+                jQuery('#helpWith').closest('.form-group').attr('class','form-group with-help');
+            }
+            //helpWithMore
+             if(jQuery('#helpWithMore').closest('.form-group').filter(":visible").length && !jQuery('#helpWithMore').val())
+            {
+                jQuery('#helpWithMore').closest('.form-group').attr('class','form-group with-help error');
+                IsError = true;
+            }
+            else{
+                jQuery('#helpWithMore').closest('.form-group').attr('class','form-group with-help');
+            }
+            //Commented Phone and Email on Client FeedBack on 04-09-2015
+            /*
+            if(jQuery('input[Id$=strEmail]').val() == '')
+            {
+                jQuery('input[Id$=strEmail]').closest('.form-group').attr('class','form-group with-help error');
+                IsError = true;
+            }
+            else if(!isValidEmail(jQuery('input[Id$=strEmail]').val()))  
+            {
+                jQuery('input[Id$=strEmail]').closest('.form-group').attr('class','form-group with-help error');
+                IsError = true;
+            }
+            else
+                jQuery('input[Id$=strEmail]').closest('.form-group').attr('class','form-group with-help');
+                
+            if(jQuery('input[Id$=strPhone]').val() == '')
+            {
+                jQuery('input[Id$=strPhone]').closest('.form-group').attr('class','form-group with-help error');
+                IsError = true;
+            }
+            else
+                jQuery('input[Id$=strPhone]').closest('.form-group').attr('class','form-group with-help');
+            */
+                
+            if(jQuery('textarea[Id$=strDescription]').val() == '')
+            {
+                jQuery('textarea[Id$=strDescription]').closest('.form-group').attr('class','form-group checkbox-group with-help error');
+                IsError = true;
+            }
+            else{
+                jQuery('textarea[Id$=strDescription]').closest('.form-group').attr('class','form-group checkbox-group with-help');
+            }
+                
+            if(IsError == false)
+            {
+                jQuery('.error-notification').css('display','none');
+                jQuery('.error-notification').find('#errMsg').html('Please enter required fields.');
+                jQuery('#submit').css('display','block');
+                CreateCase();
+                return true;
+            }
+            else
+            {
+                jQuery('.error-notification').css('display','block');
+                jQuery('.error-notification').find('#errMsg').html('Please enter required fields.');
+                return false;
+            }
+        }
+        
+    </script>
+    
+    <style>
+        .Processing {
+            position: fixed;
+            background: url('{!URLFOR($Resource.SutterHealthCare, 'img/loading7_orange.gif')}');
+            background-size: 100px 100px;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            z-index: 1004;
+            left: 0%;
+            top: 0%;
+        }
+        #submitHeader > p{
+        	font-family: calibra;
+        	font-size: 1.2rem;
+        }
+        .data-icon{
+        	font-size: 2rem;
+        	font-weight: bold;
+        	
+        	
+        }
+        .btn-group{
+        	margin-left: -5px !important;
+        }
+        .btn-group > button{
+        	font-family: helvetica,arial,sans-serif;
+        	font-weight:100;
+        }
+        @media (max-width: 767px) {
+         form.contact-form .form-group button[type="button"] {
+          margin-left: 0px !important;
+         }
+        }
+    </style>
+    <body id="home" class="show-notification menu-open menu-visibility">
+        <c:SH_SearchBar isPreview="{!isPreview}"/>
+        <!-- notification popup -->
+        <c:SH_Notification isPreview="{!isPreview}" id="notifComponent" Title="{!strTitle}" Description="{!strDescription}" Info="{!strInfo}" BrowserTitle="{!strBrowserTitle}" BrowserDescription="{!strBrowserDescription}" BrowserInfo="{!strBrowserInfo}" BrowserNotify="{!IsBrowser}" Notify="{!IsNotify}"/>
+        <!-- Menu Item -->
+        <c:SH_MenuItem lstMenuItem="{!lstMenuItem }" isHAndSDisabled="true" isPreview="{!isPreview}" Category="{!strCategoryForHelp}" SubCategory="{!strSubCategoryForHelp}"/>
+        
+        <!-- content -->
+        <div id="content-wrapper">
+            <!-- Header-->
+            <c:SH_Header isPreview="{!isPreview}" actiVePg="{!activePgName}" breadCrumbs="{!BreadCrumbs}"/>
+            
+            <div id="content">
+                <div class="container" style="padding-bottom:0px;">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <section class="text-section title" style="border-bottom:0px">  
+                                <h1>Help and Service Requests</h1>   
+                                <p>
+                                    {!objHelp.SH_Title__c}
+                                </p>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="container-fluid">
+                    <div class="row">
+                        <section class="cta-section" style="cursor: default;">
+                            <div class="background-orange">
+                                <div class="container-fluid">
+                                    <div id="submitHeader" class="container" style="padding: 20px 20px; padding-top: 15px; padding-left: 0px;">
+                                        <span class="data-icon">
+                                            <span  style="color:#ffffff">
+                                                <!--Consider Using Search -->
+                                                <!--changed on 30-sep-2015 on Sutter Request (Brian) -->
+                                                Submit a Service Request
+                                            </span>
+                                        </span>
+                                        <p style="margin-top: 10px;padding-left: 0px;color: black;">
+                                            <!--MySutter Connection navigation display frequently viewed items for your convenience. using the search feature may provide 
+                                            more information about this topic. It's easy; simply enter keywords and get instant result!-->
+                                            <!--changed on 30-sep-2015 on Sutter Request (Brian) -->
+                                            <b>Here's How:</b> Complete the <b>Get in Touch form</b> below, attach a file (if necessary) and click <br/><b>Submit.</b>
+											<br/>It's that easy!
+                                        </p>
+                                    </div>  
+                                </div>
+                            </div>
+                        </section>
+                     </div>
+                 </div>           
+                <apex:form id="optForm" styleClass="contact-form">
+                    <apex:outputPanel rendered="{!if(IsShowHP == 'true',true,false)}">
+                        <div class="container">
+                            <div class="row">
+                                <section class="form-section last-section">
+                                    <div class="col-xs-12">
+                                        <div class="success-notification" style="display:{!strSuccess}">    
+                                            <h4>Success! Thank you for your submission.</h4>
+                                            <p>Service Request Number {!strCaseNumber} has been created for your reference. </p>
+                                        </div>
+                                    </div>
+                                </section>    
+                             </div>       
+                        </div>    
+                    </apex:outputPanel> 
+                    <apex:outputPanel rendered="{!if(showCreateCaseForm == true && IsShowHP == 'false',true,false) }" layout="none">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <section class="text-section title">    
+                                        <h1>Get in Touch</h1>   
+                                        <p>
+                                            {!objHelp.SH_Get_In_Touch__c}
+                                        </p>
+                                    </section>
+                                    
+                                    <section class="form-section last-section">
+                                        
+                                        <div class="success-notification" style="display:{!strSuccess}">    
+                                            <h4>Success! Thank you for your submission.</h4>
+                                            <p>Service Request Number {!strCaseNumber} has been created for your reference. </p>
+                                        </div>
+                                        
+                                        <div class="error-notification" style="display:{!strError}">    
+                                            <h4>Error! Please correct the following:</h4>
+                                            <p id="errMsg">{!strErrorMessage}.</p>
+                                        </div>
+                                        <!-- start 3930 picklist add -->
+                                        <div class="form-group with-help" style="display:{!createCaseRouting}">
+                                        	<label for="helpWith">What would you like help with?</label>
+                                            <select id="helpWith" class="selectpicker long" >
+                                            </select>
+                                            <apex:inputHidden id="menuItemInput" value="{!selectedMenuItem}"/> 
+                                            <div style="clear:both"></div>
+                                        </div>
+                                        <div class="form-group with-help" style="display:{!createCaseRouting}">
+                                        	<label for="helpWithMore">Please tell us more</label>
+                                            <select id="helpWithMore" class="selectpicker long" >
+                                            </select>
+                                            <apex:inputHidden id="subMenuItemInput" value="{!selectedSubMenuItem}"/>
+                                            <div style="clear:both"></div>
+                                        </div>  
+                                         <!-- end 3930 picklist add -->
+                                        <div class="form-group with-help">
+                                            <label for="subject">Subject</label>
+                                            <apex:inputText id="strSubject" value="{!objCase.Subject}" styleClass="long" html-placeholder="Enter Subject"/>
+                                            <div style="clear:both"></div>
+                                        </div>
+                                        <!-- Commented Phone and Email on Client FeedBack on 04-09-2015-->
+                                        <!-- 
+                                        <div class="form-group with-help">
+                                            <label for="email">Email</label>
+                                            <apex:inputText id="strEmail" value="{!objCase.SuppliedEmail}" styleClass="long" html-placeholder="Enter Email"/>
+                                            <div style="clear:both"></div>
+                                        </div>
+                                        
+                                        <div class="form-group with-help">
+                                            <label for="phone">Phone</label>
+                                            <apex:inputText id="strPhone" value="{!objCase.SuppliedPhone}" styleClass="long" html-placeholder="Enter phone"/>
+                                            <div style="clear:both"></div>
+                                        </div>
+                                         -->
+                                        <div class="form-group checkbox-group with-help">
+                                            <label for="description">Description</label>
+                                            <apex:inputTextArea id="strDescription" value="{!strComments}" styleClass="long" html-placeholder="Enter description" style="line-height: 20px;"/>
+                                            <div style="clear:both"></div>
+                                        </div>
+                                         <!-- start 3930 attach file -->
+                                        <div class="form-group with-help row">
+                                            
+                                            <label class="col-xs-12 col-md-4 col-md-offset-0" for="attachFile">Attach File <apex:image style="padding-left: 5px;" url="{!$Resource.paperClip}" width="15" height="25"/></label>
+                                            
+                                            <div class="col-xs-12 col-md-8 col-md-offset-0">
+                                            <apex:inputFile id="attachFile" value="{!attachment.body}" filename="{!attachment.name}" styleClass="long" style="line-height: 20px;"/>
+                                            <!--<input type="file" name="{!attachment.name}" value="{!attachment.body}" id="attachFile"/>-->
+                                            </div>
+                                            <div style="clear:both"></div>
+                                        </div>
+                                        <!-- end 3930 attach file -->
+                                        <!--
+                                        <div class="form-group with-help">
+                                            <label>Function:</label>
+                                            <apex:inputField id="drpCategory" value="{!objCase.Function__c}" styleClass="selectpicker long"/>
+                                            <div style="clear:both"></div>    
+                                        </div>
+                                        
+                                        <div class="form-group with-help">
+                                            <label>Sub Function:</label>
+                                            <apex:inputField id="drpSubCategory" value="{!objCase.Sub_Function__c}" styleClass="selectpicker long"/>
+                                            <div style="clear:both"></div>
+                                        </div>
+                                        <div class="form-group with-help">
+                                            <label>Team:</label>
+                                            <apex:inputField id="drpTeam" value="{!objCase.Team__c}" styleClass="selectpicker long"/>
+                                            <div style="clear:both"></div>
+                                        </div>
+                                        <div class="form-group with-help">
+                                            <label>Customer Intent:</label>
+                                            <apex:inputField id="drpCustomerIntent" value="{!objCase.Customer_Intent__c}" styleClass="selectpicker long"/>
+                                            <div style="clear:both"></div>
+                                        </div>
+                                         -->
+                                        <div class="form-group last">
+                                            <button type="button" class="background-orange orangebtn" onclick="return CheckFieldValidation();"><i class="icon icon-arrow-right"></i>Submit</button>
+                                                <apex:actionFunction name="CreateCase" action="{!CreateCase}" status="act_Type"/>
+                                                
+                                            <a href="" class="clear-fields" style="cursor:pointer;">Clear All Options</a>
+                                            <script>
+                                                jQuery(document).ready(function(){
+                                                    // clear fields link
+                                                    jQuery('.clear-fields').click(function(e){
+                                                        e.preventDefault();
+                                                        
+                                                        jQuery('form')[1].reset();
+                                                        jQuery('form').find('.datetimepicker .form-control').val('');
+                                                        jQuery('form').find('select').selectpicker('render');
+                                                        jQuery('form').find('.btn-group .btn').removeClass('active');
+                                                        jQuery('form').find('.radio-group .btn-group .btn:first-child').addClass('active');
+                                                        jQuery('form').find('.selectpicker').selectpicker('refresh');
+                                                        
+                                                    });
+                                                });
+                                            </script>
+                                        </div>
+                                    	<span id="submit" class="Processing" style="display: none"></span>
+                                        <apex:actionStatus id="act_Type" startText="Processing.." startStyleClass="Processing" />
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </apex:outputPanel>
+                    <!-- added on 25-Aug-2015 for Notification -->
+                    <apex:inputHidden id="hdnToolArticle" value="{!strToolArticeId}"/>
+                    <apex:inputHidden id="hdnBrowserName" value="{!browserName}"/>
+                    <apex:actionfunction name="showNotification" action="{!showNotification}"/>
+                    
+                </apex:form>    
+                <div class="container-fluid">
+                    <div class="row">
+                        <section class="cta-section">
+                            <div class="cta-single background-blue">
+                                <div class="container-fluid">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <a class="right" href="{!IF(isPreview,'#', 'SH_MyCases?C=O'+strFaqParam)}">
+                                                    <span class="data-icon icon-dotted-circle">
+                                                        <span class="data-icon icon-arrow-right"></span>
+                                                    </span>
+                                                </a>
+                                                <h2>My Service Requests</h2>
+                                                <p>{!objHelp.SH_My_Open_Case_Title__c}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+<!--                             <div class="cta-single background-orange"> -->
+<!--                                 <div class="container-fluid"> -->
+<!--                                     <div class="container"> -->
+<!--                                         <div class="row"> -->
+<!--                                             <div class="col-xs-12"> -->
+<!--                                                 <a class="right" href="{!IF(isPreview,'#', 'SH_MyCases?C=C'+strFaqParam)}"> -->
+<!--                                                     <span class="data-icon icon-dotted-circle"> -->
+<!--                                                         <span class="data-icon icon-arrow-right"></span> -->
+<!--                                                     </span> -->
+<!--                                                 </a> -->
+<!--                                                 <h2>My Closed Cases</h2> -->
+<!--                                                 <p>{!objHelp.SH_My_Closed_Case_Title__c}</p> -->
+<!--                                             </div> -->
+<!--                                         </div> -->
+<!--                                     </div> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+                        </section>
+                    </div>
+                </div>
+            
+                            <div class="container-fluid background background-blue margin-bottom-60" style="padding-top:0px;">
+                    <div class="row">
+                        <div class="container ">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <section class="section-with-columns">  
+                                        <div class="row">
+                                            <div class="row-same-height">
+                                                <!--<div id="MapParentDiv" style="position:relative;display: none;" onblur="HideMap();">
+                                                    <div id="MapChildDiv" style="position:absolute; z-index: 1; left: 20%; top: -90px;">
+                                                        <apex:map width="600px" height="400px" mapType="roadmap" zoomLevel="10">
+                                                            <apex:mapMarker title="{!objUser.Contact.Name}" position="{!objHelp.SH_Street__c}, {!objHelp.SH_City__c}, {!objHelp.SH_State__c},
+                                                             {!objHelp.SH_PinCode__c}, {!objHelp.SH_Country__c}">
+                                                                <apex:mapInfoWindow >
+                                                                    <apex:outputPanel layout="block" style="font-weight: bold;">
+                                                                            <apex:outputText >{!objUser.Contact.Name}</apex:outputText>
+                                                                    </apex:outputPanel>
+                                                                    <apex:outputPanel layout="block">
+                                                                        <apex:outputText >
+                                                                            {!objHelp.SH_Street__c}
+                                                                            <br/>
+                                                                            {!objHelp.SH_City__c}, {!objHelp.SH_State__c}
+                                                                            <br/>
+                                                                            {!objHelp.SH_Country__c}, {!objHelp.SH_PinCode__c}
+                                                                        </apex:outputText>
+                                                                    </apex:outputPanel>               
+                                                                </apex:mapInfoWindow>
+                                                            </apex:mapMarker>
+                                                        </apex:map>
+                                                    </div>
+                                                </div>
+                                                -->
+                                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-sm-height with-bottom-line last">
+                                                    <section class="section-nav">
+                                                        <h3>Contact Details</h3>
+                                                        <p>
+                                                            <label> Phone : {!objHelp.SH_Phone__c} </label><br/>
+                                                            <!--Commented on 12-Oct-2015 on Sutter Prod feedback-->
+                                                            <!--
+                                                            <label> Fax : {!objHelp.SH_Fax__c} </label><br/>
+                                                            <label> Email : <a href="mailto:{!objHelp.SH_Email__c}"> {!objHelp.SH_Email__c}</a></label><br/>
+                                                            -->
+                                                            <!--Added on 12-Oct-2015 on Sutter Prod feedback-->
+                                                            <label>Contact Center Hours of Operation : {!objHelp.SH_Hours_of_Operation__c}</label><br/>
+                                                            <label> Obtaining Services from S3, <a href="{!IF(ISBlank(objHelp.SH_FAQ_Link__c),'#', objHelp.SH_FAQ_Link__c + strFaqParam) }" target="_self"> click here</a> </label>
+                                                        </p>
+                                                    </section>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <c:SH_Footer ></c:SH_Footer>
+    </body>
+<script>
+/*Start 3930 remote javascript and event binding for picklist*/
+var hiddenMenu = '{!$Component.optForm.menuItemInput}';
+var hiddenSubMenu = '{!$Component.optForm.subMenuItemInput}';
+var MENU_ITEMS = (function(menuId, subMenuId){
+    J$ = jQuery.noConflict();
+    function loadMenuItems(){
+    	Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.SH_Help_Support.getMenuItems}', function(result,event){populatePicklist(result,event, 'helpWith');});
+    }
+    /* Add event functions to picklists 
+    */
+    function bindEvents(){
+    	J$('#helpWith').on('changed.bs.select', function () {MENU_ITEMS.loadSubMenuItems(this);return false;});
+    	J$('#helpWithMore').on('changed.bs.select', function () {MENU_ITEMS.bindSubMenuItems(this);return false;});
+    }
+    /* populate picklist values or add error message
+    */
+    function populatePicklist(result,event, elementId){
+    	if (event.status){
+	    	var targetSelectNode = document.getElementById(elementId);
+	    	while(targetSelectNode.firstChild){
+	    	 	targetSelectNode.removeChild(targetSelectNode.firstChild);
+	    	}
+	    	var docFragment = document.createDocumentFragment();
+	    	var node = document.createElement("option");
+	    	node.setAttribute('value', '');
+	    	node.innerHTML = 'Nothing selected';
+	 		docFragment.appendChild(node);
+	    	for(var i = 0, j = result && result.length ? result.length : 0; i < j; i++){
+	    		node = document.createElement("option");
+	    		node.setAttribute('value', result[i].Id);
+	    		node.innerHTML = result[i].Name;
+	    		docFragment.appendChild(node);
+	    		
+	    	}
+			targetSelectNode.appendChild(docFragment);
+	    } 
+	    else if (event.type === 'exception'){
+	        J$('.error-notification').css('display','block');
+	        J$('#errMsg').html(event.message + "<br/>\n<pre>" + event.where + "</pre>");
+	    } 
+	    else{
+	        J$('.error-notification').css('display','block');
+	        J$('#errMsg').html(event.message);
+	    }
+	    J$('.selectpicker').selectpicker('refresh');
+    }
+    
+    window.onload = bindEvents();
+    window.onload = loadMenuItems();
+    return {
+    	loadSubMenuItems : function(selected){
+    		document.getElementById(menuId).value = selected.value;
+    		Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.SH_Help_Support.getSubMenuItems}', selected.value, function(result,event){populatePicklist(result,event, 'helpWithMore');});
+    	},
+    	bindSubMenuItems : function(selected){
+    		document.getElementById(subMenuId).value = selected.value;
+    		
+    	},
+    	reloadMenuItems : function(selected){
+    		bindEvents();
+    		loadMenuItems();
+    		
+    	}
+    }
+    })(hiddenMenu, hiddenSubMenu);
+/*End 3930 remote javascript and event binding for picklist*/
+</script>
+</apex:page>

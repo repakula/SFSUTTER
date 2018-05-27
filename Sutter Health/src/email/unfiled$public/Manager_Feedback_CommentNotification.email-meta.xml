@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Template used for sending manager feedback notification</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Manager Feedback CommentNotification</name>
+    <style>none</style>
+    <subject>Manager Feedback Comment Notification:{!Manager_Feedback_Comment__c.Managers_Feedback__c}</subject>
+    <textOnly>A comment &apos;{!Manager_Feedback_Comment__c.Comments__c}&apos; has been added to your feedback {!Manager_Feedback_Comment__c.Managers_Feedback__c}.     
+
+Thank you, 
+Sutter Health</textOnly>
+    <type>custom</type>
+</EmailTemplate>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_91108397</developerName>
+        <masterLabel>First Call Resolution Status</masterLabel>
+        <nullTreatment>z</nullTreatment>
+        <sourceColumnName>STATUS</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Closed</sourceValue>
+            </sourceValues>
+            <value>FCR</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>New</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Open</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>In Progress</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Pending</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Escalated</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>On Hold</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Internal Transfer</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>External Transfer</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Assign</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Re-assign</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Breaches</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Not Reprocessed</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Ready for Call Back</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Transferred</sourceValue>
+            </sourceValues>
+            <value>Other</value>
+        </values>
+    </buckets>
+    <columns>
+        <field>OWNER</field>
+    </columns>
+    <columns>
+        <field>CREATED_DATEONLY</field>
+    </columns>
+    <columns>
+        <field>CLOSED_DATEONLY</field>
+    </columns>
+    <columns>
+        <field>Case.Inquiry_Aging__c</field>
+    </columns>
+    <columns>
+        <field>Case.Sub_Function__c</field>
+    </columns>
+    <columns>
+        <field>Case.Customer_Intent__c</field>
+    </columns>
+    <columns>
+        <field>Case.Customer_Sub_Intents__c</field>
+    </columns>
+    <columns>
+        <field>CASE_COMMENT_CREATED_BY</field>
+    </columns>
+    <columns>
+        <field>COMMENT_CREATED_DATE</field>
+    </columns>
+    <columns>
+        <field>CASE_COMMENT</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>RECORDTYPE</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Case.S3_Interaction_Log_Case_RT,Case.S3_Interaction_Log_RO</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>OWNER_ROLE</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>S3 Tier 2 Payroll Agent,S3 Tier 2 HR Agent</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case.Customer_Intent__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>HIM Inquiry,General Inquiry-Other,Dropped Call,Answered Question,Adhoc Issue,DMC Service Request</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case.Tier_Created_By__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>Contact Center</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>CASE_NUMBER</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>HR/Payroll Intent Raw Data</name>
+    <params>
+        <name>units</name>
+        <value>h</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CaseList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATEONLY</dateColumn>
+        <interval>INTERVAL_LAST90</interval>
+    </timeFrameFilter>
+</Report>

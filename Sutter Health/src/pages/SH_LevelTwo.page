@@ -1,0 +1,252 @@
+<apex:page docType="html-5.0" id="pgMain" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" controller="SH_LevelTwo">
+
+    <head>
+        <title>{!activePgName}</title>
+        <c:SH_HeaderResource />
+    </head>
+    <style>
+        .remove-padding .container {
+         /*padding-top: 0px !important;*/
+        }
+        #content section.cta-section .right {
+            float: left;
+            text-decoration: none;
+        }
+        /*#content .cta-single .container {
+            padding: 40px 20px !important;
+        }*/
+        .container-padding{
+            padding: 40px 20px !important;
+        }
+        .Processing {
+            position: fixed;
+            background: url('{!URLFOR($Resource.SutterHealthCare, 'img/loading7_orange.gif')}');
+            background-size: 100px 100px;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            z-index: 1004;
+            left: 0%;
+            top: 0%;
+        }
+    </style>
+    
+    <body id="home" class="show-notification search menu-open menu-visibility">
+    <c:SH_SearchBar isPreview="{!isPreview}"/>
+    <!-- notification popup -->
+    <c:SH_Notification isPreview="{!isPreview}" id="notifComponent" Title="{!strTitle}" Description="{!strDescription}" Info="{!strInfo}" BrowserTitle="{!strBrowserTitle}" BrowserDescription="{!strBrowserDescription}" BrowserInfo="{!strBrowserInfo}" BrowserNotify="{!IsBrowser}" Notify="{!IsNotify}"/>
+    <!-- Menu Item -->
+    <c:SH_MenuItem lstMenuItem="{!lstMenuItem }" isPreview="{!isPreview}" Category="{!strCategoryForHelp}" SubCategory="{!strSubCategoryForHelp}"  Team="{!strTeamForHelp}" CustomerIntent="{!strCustomerIntentForHelp}" L1="{!strL1}" L1Id="{!strL1Id}" L2="{!strL2}" L2Id="{!strL2Id}" LevelOneAciveId="{!strActiveMenuId}" LevelTwoAciveId="{!strActiveSubMenuId}" IsApplyClasses="true"/>
+    
+    
+    <!-- content -->
+    <div id="content-wrapper">
+        <!-- Header-->
+        <c:SH_Header isPreview="{!isPreview}" actiVePg="{!activePgName}" breadCrumbs="{!BreadCrumbs}"/> 
+        <!-- Content pnl -->
+        <apex:outputPanel layout="none" rendered="{!isShowInsufficientPnl}">
+            <div id="content" >
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <section class="text-section with-icon title">
+                                <span class="data-icon icon-dotted-circle right forbidden-icon"><span class="data-icon icon-menu-close"></span></span>
+                                <h1>No Content Available for This Topic</h1>    
+                                <p>
+                                    If you feel this is in error, please consider performing a search.
+                                </p>
+                            </section>
+                            
+                            <section class="section-nav">
+                                <a class="link background-orange" href="sh_landing">
+                                    <i class="icon icon-arrow-right"></i>
+                                    Back to Home page
+                                </a>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </apex:outputPanel>
+        <apex:outputPanel layout="none" rendered="{!Not(isShowInsufficientPnl)}">
+            <!-- Content -->
+            <div id="content" class="margin-bottom-60">
+            <!-- cta section inside of full width wrapper -->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="container container-padding">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <section class="text-section title">    
+                                        <h1> {!objSubMenuItem.Name}</h1>   
+                                        <p>
+                                            {!objSubMenuItem.SH_Secondary_Page_Description__c}
+                                        </p>
+                                    </section>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                <apex:repeat value="{!ListOrder}" var="cs" id="theRepeat">
+                    <apex:outputpanel rendered="{!if(cs.ListName == 'Simple List View (Full Width)',true,false)}" layout="none">
+                        <apex:repeat value="{!lstContentFullWidth}" var="Wrap">
+                            <apex:outputpanel rendered="{!if(Wrap.strListingType == 'Simple List View (Full Width)',true,false)}" layout="none">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <section class="cta-section">
+                                               <div class="cta-single {!Wrap.objSObject['SH_Background_Class__c']}">
+                                                   <div class="container-fluid">
+                                                       <div class="container container-padding">
+                                                           <div class="row">
+                                                               <div class="col-xs-12">
+                                                                   <a class="right" href="{!If(isPreview,'#', Wrap.link) + If(OR(IsBlank(Wrap.link), Wrap.contentType == 'Tool'),'', if(Contains(Wrap.link,'?') ,'&','?') + 'L1='+ URLENCODE(strL1) + '&L1Id='+ URLENCODE(strL1Id) + '&L2='+ URLENCODE(strL2) + '&L2Id='+ URLENCODE(strL2Id) + '&M=' + URLENCODE(strCategoryForHelp) + '&SM=' + URLENCODE(strSubCategoryForHelp) + '&T=' + URLENCODE(strTeamForHelp) + '&CI=' + URLENCODE(strCustomerIntentForHelp))}" target="{!If(Wrap.contentType == 'Tool','_self' , Wrap.target)}">
+                                                                       <span class="data-icon icon-dotted-circle">
+                                                                           <span class="data-icon icon-arrow-right"></span>
+                                                                       </span>
+                                                                   </a>
+                                                                   
+                                                                   <h2>{!Wrap.objSObject['Name']}</h2>
+                                                                   <p>{!Wrap.objSObject['SH_Description__c']}</p>
+                                                               </div>
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                               </div>
+                                        </section>
+                                    </div>
+                                </div>
+                           </apex:outputpanel>          
+                        </apex:repeat>
+                    </apex:outputpanel>
+                    <apex:outputPanel rendered="{!if(cs.ListName == 'Two Column Layout' && IsShowTwoColumnLayout == true && lstContentListWrapper.size >0,true,false)}" layout="none">
+                        <div class="container-fluid background background-blue">
+                            <div class="row">
+                                <div class="container ">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <apex:repeat value="{!lstContentListWrapper}" var="ListWrapper">
+                                                <section class="section-with-columns">  
+                                                    <div class="row">
+                                                        <div class="row-same-height">
+                                                            <apex:repeat value="{!ListWrapper.contentWrapperList}" var="Wrap">
+                                                                <apex:outputpanel rendered="{!if(Wrap.strListingType == 'Two Column Layout',true,false)}" layout="none">
+                                                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-sm-height with-bottom-line">
+                                                                        <section class="section-nav">
+                                                                            <h3>{!Wrap.objSObject['Name']}</h3>
+                                                                            <p>
+                                                                                {!Wrap.objSObject['SH_Description__c']}
+                                                                            </p>
+                                                                            <p>
+                                                                                <br/>
+                                                                                <a class="link background-cyan-dark" href="{!If(isPreview,'#', Wrap.link) + If(OR(IsBlank(Wrap.link), Wrap.contentType == 'Tool'),'', if(Contains(Wrap.link,'?') ,'&','?') + 'L1='+ URLENCODE(strL1) + '&L1Id='+ URLENCODE(strL1Id) + '&L2='+ URLENCODE(strL2) + '&L2Id='+ URLENCODE(strL2Id) + '&M=' + URLENCODE(strCategoryForHelp) + '&SM=' + URLENCODE(strSubCategoryForHelp) + '&T=' + URLENCODE(strTeamForHelp) + '&CI=' + URLENCODE(strCustomerIntentForHelp))}" target="{!If(Wrap.contentType == 'Tool','_self' , Wrap.target)}">
+                                                                                    <i class="icon icon-arrow-right"></i>Learn More 
+                                                                                    <!--commented on 10-09-2015 on UAT Feedback-->
+                                                                                    <!--about {!Wrap.objSObject['Name']}-->
+                                                                                </a>
+                                                                            </p>
+                                                                        </section>
+                                                                    </div>
+                                                                </apex:outputpanel>
+                                                            </apex:repeat>      
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </apex:repeat>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       </apex:outputPanel>
+                        <apex:outputPanel rendered="{!if(cs.ListName == 'List With Left Image',true,false)}" layout="none">
+                            <apex:repeat value="{!lstContentWithLeftImage}" var="Wrap">
+                                <apex:outputpanel rendered="{!if(Wrap.strListingType == 'List With Left Image',true,false)}" layout="none">
+                                    <div class="container-fluid {!Wrap.objSObject['SH_Background_Class__c']}">
+                                        <div class="row">
+                                            <div class="container no-padding">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <section class="section-with-columns">  
+                                                            <div class="row">
+                                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                    <section class="text-section">
+                                                                        <img src="{!imgBaseUrl + Wrap.objSObject['SH_Content_Image_Url__c']}" />
+                                                                    </section>
+                                                                </div>
+                                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 column-with-padding last">
+                                                                    <section class="section-nav">
+                                                                        <h3>{!Wrap.objSObject['Name']}</h3>
+                                                                        <p>
+                                                                            {!Wrap.objSObject['SH_Description__c']}
+                                                                        </p>
+                                                                        <p>
+                                                                            <br/>
+                                                                            <a class="link background-cyan-dark" href="{!If(isPreview,'#', Wrap.link) + If(OR(IsBlank(Wrap.link), Wrap.contentType == 'Tool'),'', if(Contains(Wrap.link,'?') ,'&','?') + 'L1='+ URLENCODE(strL1) + '&L1Id='+ URLENCODE(strL1Id) + '&L2='+ URLENCODE(strL2) + '&L2Id='+ URLENCODE(strL2Id) + '&M=' + URLENCODE(strCategoryForHelp) + '&SM=' + URLENCODE(strSubCategoryForHelp) + '&T=' + URLENCODE(strTeamForHelp) + '&CI=' + URLENCODE(strCustomerIntentForHelp))}" target="{!If(Wrap.contentType == 'Tool','_self' , Wrap.target)}">
+                                                                                <i class="icon icon-arrow-right"></i>Learn More 
+                                                                                <!--commented on 10-09-2015 on UAT Feedback-->
+                                                                                <!--about {!Wrap.objSObject['Name']}-->
+                                                                            </a>
+                                                                        </p>
+                                                                    </section>
+                                                                </div>
+                                                            </div>
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </apex:outputpanel> 
+                            </apex:repeat>      
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!if(cs.ListName == 'List With Right Image',true,false)}" layout="none">
+                            <apex:repeat value="{!lstContentWithRightImage}" var="Wrap">
+                                <apex:outputpanel rendered="{!if(Wrap.strListingType == 'List With Right Image',true,false)}" layout="none">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <section class="cta-section">
+                                                <div class="cta-single {!Wrap.objSObject['SH_Background_Class__c']}">
+                                                    <div class="container-fluid">
+                                                        <div class="container no-padding">
+                                                            <div class="row" >
+                                                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 column-with-padding">
+                                                                    <a class="right" href="{!If(isPreview,'#', Wrap.link) + If(OR(IsBlank(Wrap.link), Wrap.contentType == 'Tool'),'', if(Contains(Wrap.link,'?') ,'&','?') + 'L1='+ URLENCODE(strL1) + '&L1Id='+ URLENCODE(strL1Id) + '&L2='+ URLENCODE(strL2) + '&L2Id='+ URLENCODE(strL2Id) + '&M=' + URLENCODE(strCategoryForHelp) + '&SM=' + URLENCODE(strSubCategoryForHelp) + '&T=' + URLENCODE(strTeamForHelp) + '&CI=' + URLENCODE(strCustomerIntentForHelp))}" target="{!If(Wrap.contentType == 'Tool','_self' , Wrap.target)}">
+                                                                        <span class="data-icon icon-dotted-circle">
+                                                                            <span class="data-icon icon-arrow-right"></span>
+                                                                        </span>
+                                                                    </a>
+                                                                    <h2>{!Wrap.objSObject['Name']}</h2>
+                                                                    <p>{!Wrap.objSObject['SH_Description__c']}</p>
+                                                                </div>
+                                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                    <section class="text-section">
+                                                                        <img src="{!imgBaseUrl}{!Wrap.objSObject['SH_Content_Image_Url__c']}" />
+                                                                    </section>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </apex:outputpanel>
+                            </apex:repeat>          
+                        </apex:outputPanel>
+                </apex:repeat>
+            </div>
+        </apex:outputPanel>
+    </div> 
+    
+    <!-- Footer -->
+    <c:SH_Footer id="compFooter"></c:SH_Footer>
+    </body>   
+    <apex:form >
+        <!-- added on 25-Aug-2015 for Notification -->
+        <apex:inputHidden id="hdnToolArticle" value="{!strToolArticeId}"/>
+        <apex:inputHidden id="hdnBrowserName" value="{!browserName}"/>
+        <apex:actionfunction name="showNotification" action="{!showNotification}"/>
+    </apex:form> 
+</apex:page>

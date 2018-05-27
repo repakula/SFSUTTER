@@ -1,0 +1,114 @@
+<apex:page id="pg" controller="VFC41_Provider_List_Controller">
+
+    <apex:includeScript value="/support/console/28.0/integration.js"/>
+    <script type="text/javascript" src="{!$Resource.Jquery}"></script>
+    <script>
+        function openTabFunc(prId, providerName){
+            if(prId != '') {
+                sforce.console.openPrimaryTab(null, '/apex/VFP42_Provider_Detail?pvqid='+prId, true, providerName);
+                
+            } else {
+                alert('Provider is not attached to the value');
+            }
+        }
+    
+        function noenter(ev)  {
+            if (window.event && window.event.keyCode == 13 || ev.which == 13) {
+               javascriptSearchProvider();
+               return false;
+            } else {
+                 return true;
+            } 
+        }
+    </script>
+    <style>
+        table thead tr.x-grid3-hd-row td.x-grid3-td-ACTION_COLUMN  {
+            display : none;
+        }
+        table.x-grid3-row-table tbody tr td.x-grid3-td-ACTION_COLUMN {
+            display : none;
+        } 
+    </style>
+
+    <div id="providerPanelListView" style="width:49%; height:100%; float:left">
+       <apex:enhancedList type="Contact_Validation_Summary__c" height="600" rowsPerPage="50" customizable="false" id="YourListViewId" /> 
+    </div>
+    <apex:form id="frm">
+    <apex:actionFunction name="javascriptSearchProvider" action="{!SearchProvider}" rerender="frm,searchResultsPanel" status="status"/>
+
+        <apex:outputPanel style="width:49%; height:100%; float:right; padding-top:3%" id="righPanel">
+            <apex:pageMessages id="pgmsg"/>
+            <apex:pageBlock title="Search for Provider">
+                <apex:pageBlockSection id="Pgblksec1">
+                    <apex:inputText value="{!providerFirstName}" label="Provider First Name:" onkeypress="return noenter(event);"/>
+                    <apex:inputText value="{!providerLastName}" label="Provider Last Name:" onkeypress="return noenter(event);"/>
+                    <apex:inputText value="{!providerTransactionNumber}" label="Transaction Number:" onkeypress="return noenter(event);"/>
+                    <!--Req:3926 Added new Search fields-->
+                    <apex:inputText value="{!providerTelephoneNumber}" label="Phone Number:" onkeypress="return noenter(event);"/>
+                    <apex:inputText value="{!providerNPI}" label="Provider NPI" onkeypress="return noenter(event);"/>
+                    <apex:pageBlockSectionItem > 
+                        <!--Search button invokes SearchProvider action for provider search--> 
+                        <apex:commandButton style="width:2000" action="{!SearchProvider}" value="Search" rerender="frm,searchResultsPanel,pgmsg" status="status"/>
+                        <apex:actionstatus id="status">
+                            <apex:facet name="start"> 
+                                <span style="color:red;font-weight:bold;padding-left:5px;">Searching...</span>
+                                <img src="/img/loading.gif" alt="" />
+                            </apex:facet>
+                        </apex:actionstatus>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+        
+            <!-- Output Panel for search result for Provider search -->
+            <apex:outputPanel rendered="{!showProviderResults}" id="searchResultsPanel">
+                
+                    <apex:pageBlock title="Search Results" >
+                        <apex:pageBlockButtons id="navigationButtonsPanelTop" location="top">
+                        <apex:commandbutton value="<< First" rendered="{!NOT(hasPrevious)}" disabled="true"/>
+                        <apex:commandbutton action="{!doFirst}" value="<< First" reRender="{!$Component.searchResultsPanel}"  rendered="{!hasPrevious}"/>
+                        <apex:commandbutton action="{!doPrevious}" rendered="{!hasPrevious}" value="<< Previous" reRender="{!$Component.searchResultsPanel}" />
+                        <apex:commandbutton rendered="{!NOT(hasPrevious)}" value="<< Previous" disabled="true"/>
+                        
+                        <b><apex:outputLabel value=" (page {!pageNumber} of {!totalPages}) " /></b>
+                        
+                        <apex:commandbutton action="{!doNext}" rendered="{!hasNext}" value="Next >>" reRender="{!$Component.searchResultsPanel}" />
+                        <apex:commandbutton rendered="{!NOT(hasNext)}" value="Next >>" disabled="true"/>
+                        <apex:commandbutton action="{!doLast}" value="Last >>" reRender="{!$Component.searchResultsPanel}" rendered="{!hasNext}"/>
+                        <apex:commandbutton value="Last >>" rendered="{!NOT(hasNext)}" disabled="true"/>
+                    </apex:pageBlockButtons>
+                         <!--Req:3926 Modifie to get the results from summary object-->
+                        <apex:pageBlockTable var="provider" value="{!ProvidersList}" >
+                        
+                            <apex:column headerValue="Provider Name">
+                                <!--Req-3911- Need the ability to allow a user to take ownership of 
+                                        a case that is already owned by another agent and see who currently owns the casestarts -->
+                                <!--
+                                <apex:outputLink onclick="openTabFunc('{!provider.Id}', '{!provider.Contact_Id__r.ServiceTabLabel__c}'); return false;" rendered="{!provider.summaryOwnerId == $User.Id || LEFT(provider.summaryOwnerId, 3) == '00G' || provider.summaryOwnerProfileId <> $User.ProfileId || provider.summarystatus == 'Validated'}" >{!provider.Contact_Id__r.ServiceTabLabel__c}</apex:outputLink>
+                                <apex:outputText rendered="{!provider.summaryOwnerId != $User.Id && LEFT(provider.summaryOwnerId, 3) != '00G' && provider.summaryOwnerProfileId == $User.ProfileId && provider.summarystatus != 'Validated'}" >{!provider.providerContact.ServiceTabLabel__c}</apex:outputText>
+                                -->
+                                <apex:outputLink onclick="openTabFunc('{!provider.Id}', '{!provider.Contact_Id__r.ServiceTabLabel__c}'); return false;">{!provider.Contact_Id__r.ServiceTabLabel__c}</apex:outputLink>
+                                <!--Req-3911 Ends -->
+                            </apex:column>
+                             <apex:column headerValue="Address" value="{!provider.Secure_Street_Address__c}"/>
+                            <apex:column headerValue="License" value="{!provider.Provider_License_Number__c}"/>
+                            <apex:column headerValue="Validation Source" value="{!provider.Tech_Validation_Status__c}"/> <!-- Req- 3940 to display validation source in search results -->
+                            <apex:column headerValue="Specialty" value="{!provider.Contact_Id__r.Provider_Specialty__c}"/>  
+                            <!--Req 3694 Added Provider Phone column -->                            
+                            <apex:column value="{!provider.Secure_Phone__c}"/>
+                            <apex:column headerValue="Owner Name" value="{!provider.Owner.Name}"/> <!--Req-3911 - It would be helpful to add in the Owner Alias or Owner Name in the custom search box-->
+                         <!--Req:3926 Ended-->
+                        </apex:pageBlockTable>  
+                    </apex:pageBlock>
+                
+            </apex:outputPanel>
+        </apex:outputPanel>
+    </apex:form>
+    <script>
+        var $j = jQuery.noConflict();
+        $j(document).ready(function() {
+            
+            $j("img.pageTitleIcon").hide();
+        });
+            
+    </script>
+</apex:page>

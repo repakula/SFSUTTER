@@ -1,0 +1,427 @@
+<apex:page sidebar="false" controller="AQRSCommunicationLogController" docType="html-5.0" applyHtmlTag="true"  showHeader="false">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <style type="text/css">
+            ul li, ol li { margin-left:0em !important;padding-left: 0;}
+            body{font-size:12px !important;}
+            a{text-decoration:none;}
+            .searchbox {background: #E9E9E9 none repeat scroll 0 0;border-radius: 18px;margin-bottom: 5px;margin-bottom: 20px;padding-bottom:10px;}
+            .fcontainerbox {background: #E9E9E9 none repeat scroll 0 0;border-radius: 10px;margin-top: 10px;}
+            .panel-group .panel {border-radius: 4px;margin-bottom: 0;}
+            .panel-default {border: none;}
+            .tab-content {background-color: #f9f9f9;padding-top: 10px;padding-left: 10px;padding-bottom: 10px;color: black;}
+            .bodycontainer {padding: 15px;padding-left: 0px;padding-right: 0px;}
+            .searchpannel{background:#fff !important; padding-top:5px;padding-bottom:5px;}
+            .panel-group{background:#fff !important; }
+            .planingtable{margin-top:10px;}
+            table.dataTable{margin-top:0px !important;}
+            table.table-bordered.dataTable th, table.table-bordered.dataTable td {
+                border-left-width: 1px !important;
+            }
+            .para {display:none;}
+            .para1 { display:none;} 
+            a, a:visited {
+                color: #33739E;
+                text-decoration: none;
+                display: block;
+                margin: 0px 0 !important;
+            }
+            a:hover {
+                text-decoration: none;
+            }
+            #loadMore {
+               width:100px;
+                text-align: center;
+                color: #fff;
+                 background-color: #33739E;
+                transition: all 600ms ease-in-out;
+                -webkit-transition: all 600ms ease-in-out;
+                -moz-transition: all 600ms ease-in-out;
+                -o-transition: all 600ms ease-in-out;
+            }
+            #loadMore:hover {
+                color: #fff;
+                 background-color: #33739E;
+            }
+            #loadMore1 {
+               width:100px;
+                text-align: center;
+                color: #fff;
+                 background-color: #33739E;
+                transition: all 600ms ease-in-out;
+                -webkit-transition: all 600ms ease-in-out;
+                -moz-transition: all 600ms ease-in-out;
+                -o-transition: all 600ms ease-in-out;
+            }
+            #loadMore1:hover {
+                color: #fff;
+                 background-color: #33739E;
+            }
+            @media (min-width: 768px){
+            .modal-dialog {
+                width: 870px !important;
+                margin: 30px auto;
+                
+            }
+            .modal-body{max-height:510px !important;overflow-y:auto;}
+            }
+
+            .searchbtn{height: 30px !important;border-radius: 4px !important;padding: 4px 12px !important;background: #30b2b1 !important;
+            border: none !important;color: #000 !important;}
+            .pagination>li {display: inline; float: left; margin: 0px;}
+            /*----------------JQ Table style ----------------------------*/
+            .dataTable tbody th, table.table-bordered.dataTable tbody td {
+                border-bottom-width: 0;
+                border: 0px !important;
+                border-left: 1px solid #ccc !important;
+            }
+            .table-bordered {
+                border:0px solid #ddd !important;
+            }
+            div.dataTables_wrapper div.dataTables_length select {width: 54px !important;display: inline-block;padding: 0px !important;
+            border: 1px solid #ccc !important;border-radius: 4px !important;height: 30px !important;}
+            .dataTables_length{float:left !important;}
+            div.dataTables_wrapper div.dataTables_filter input {
+            margin-left: 0.5em;border-top-left-radius: 4px !important;
+            border-bottom-left-radius: 4px !important;border: 1px solid #ddd !important; padding-left: 10px !important;transition: all 0.1s linear !important; 
+            padding: 6px 12px !important;box-shadow: inset 0 1px 1px rgba(0,0,0,.075) !important;height:30px !important;}
+              th, td { white-space: nowrap; }
+                div.dataTables_wrapper {
+                    margin: 0 auto;
+                }
+            /*----------------JQ Table style ----------------------------*/
+            
+            td { border:0px solid #ddd; color: #000 !important;line-height: 30px !important;}
+            .activeclassbg{background:#f9f9f9;padding-bottom:20px;margin-top:2px;}
+            .tab .nav-tabs{
+                border-bottom:0px;
+            }
+            .tab .nav-tabs li{
+                border-right:1px solid #ddd;
+            }
+            .tab .nav-tabs li:last-child{
+                border-right:0px solid #ddd;
+            }
+            .tab .nav-tabs li:first-child a{
+                border-left:1px solid #ddd;
+            }
+            .tab .nav-tabs li a {
+                color: #868686;
+                background:#fff;
+                border-radius:0;
+                font-size:16px;
+                margin-right:-1px;
+                padding: 5.5px 30px;
+                border-top:1px solid #30b2b1;
+                border-bottom: 1px solid #30b2b1;
+            }
+            .nav-tabs li:first-child a{
+                border-radius: 5px 0 0 5px;
+            }
+            .nav-tabs li:last-child a{
+                border-radius: 0 5px 5px 0;
+                border-right:1px solid #30b2b1;
+            }
+            .tab .nav-tabs li a:hover{
+                background:#eee;
+            }
+            .tab .nav-tabs li a:hover:before{
+                border-left: 15px solid #eee;
+            }
+            .tab .nav-tabs li.active a:after,
+            .tab .nav-tabs li a:after{
+                content:"";
+                border-left: 17px solid ##30b2b1;
+                border-top: 17px solid transparent;
+                border-bottom: 17px solid transparent;
+                position: absolute;
+                top: 0px;
+                right: -17px;
+                z-index:1;
+            }
+            .tab .nav-tabs li a:after{
+                border-left: 17px solid #30b2b1;
+            }
+            .tab .nav-tabs li.active a:before{
+                border-left: 17px solid #30b2b1;
+            }
+            .tab .nav-tabs li a:before{
+                border-bottom: 15px solid rgba(0, 0, 0, 0);
+                border-left: 15px solid #fff;
+                border-top: 15px solid rgba(0, 0, 0, 0);
+                content: "";
+                position: absolute;
+                right: -15px;
+                top: 2px;
+                z-index: 2;
+            }
+            .tab .nav-tabs li.active > a,
+            .tab .nav-tabs > li.active > a:focus,
+            .tab .nav-tabs > li.active > a:hover {
+                border: none;
+                color:#000;
+                background:#30b2b1;
+                border-top:1px solid #30b2b1;
+                border-bottom: 1px solid #30b2b1;
+            }
+            .tab .nav-tabs li:last-child.active a:after,
+            .tab .nav-tabs li:last-child a:after{
+                border: none;
+            }
+            .tab .nav-tabs li:last-child a:after,
+            .tab .nav-tabs li:last-child a:hover:before,
+            .tab .nav-tabs li:last-child.active a:before,
+            .tab .nav-tabs li:last-child a:before{
+                border-left: none;
+            }
+            .tab .tab-content{
+                padding:12px;
+                color:#5a5c5d;
+                margin-top:2%;
+                font-size: 14px;
+                border: 1px solid #fff;
+            }            
+        </style>    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />    
+        <apex:stylesheet value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/bootstrap.min.css')}"/>
+        <link rel="stylesheet" media="print" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+        <apex:Stylesheet value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/bootstrap-datepicker.min.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/fixedColumns.dataTables.min.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/dataTables.bootstrap.min.css')}"/>
+        <!--<apex:stylesheet value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/site.css')}"/>-->
+        <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/jquery-1.12.4.js')}"/>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/jquery.dataTables.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/dataTables.bootstrap.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/dataTables.fixedColumns.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/main.js')}"/>
+    </head>
+    <body class=""><apex:form >
+        <div class="clear" style="clear:both;"></div>
+        <div class="container body-content">
+            <div class="container" style="border:0px solid #ccc;">
+            <script></script> 
+        
+            <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/typeahead.bundle.min.js.download')}"/>
+            <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/typeahead.jquery.js.download')}"/>
+            <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/bootstrap-datepicker.js.download')}"/>
+            <apex:includeScript value="{!URLFOR($Resource.AQRSCRM, 'LandingPage_files/PatDisp.js.download')}"/>
+            
+            <!-- Begin # DIV Form -->
+                    <div id="div-forms1">
+                        <div class="modal-body">
+                            <div class="row" style="padding:0px 0px 0px 0px;">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <p class="para1"><label for="sel1">Patient Name:</label>
+                                        <apex:inputText value="{!lstCommunicationLog[0].Contact_Name__c}" styleClass="form-control" html-readonly="true"/>
+                                        </p>
+                                        <p class="para1"><label for="sel1">Patient MRN:</label>
+                                        <apex:inputText value="{!lstCommunicationLog[0].Patient_MRN__c}" styleClass="form-control" html-readonly="true"/>
+                                        </p>
+                                        
+                                        <p class="para1"><label for="sel1" >Contacted About:</label>
+                                        <apex:inputText value="{!lstCommunicationLog[0].Contacted_About__c}" styleClass="form-control" html-readonly="true"/>
+                                        </p>
+                                        <p class="para1"><label for="sel1">Reason for Call:</label>
+                                        <apex:inputText value="{!lstCommunicationLog[0].Reason_for_Call__c}" styleClass="form-control" html-readonly="true"/>
+                                        </p>
+                                        <p class="para1"><label for="sel1">PCP:</label>
+                                        <apex:inputText value="{!lstCommunicationLog[0].PCP__c}" styleClass="form-control" html-readonly="true"/>
+                                        </p>
+                                        <p class="para1"><label for="sel1">Speciality:</label>
+                                         <apex:inputText value="{!lstCommunicationLog[0].Speciality__c}" styleClass="form-control" html-readonly="true"/>
+                                        </p>
+                                        <p class="para1"><label for="sel1">Department(Care Center):</label>
+                                         <apex:inputText value="{!lstCommunicationLog[0].Department_Care_Center__c}" styleClass="form-control" html-readonly="true"/>
+                                        </p>
+                                     </div>
+                                  </div>
+                                  <div class="col-md-4">
+                                      <div class="form-group">
+                                         <p class="para1"><label for="sel1">Outreach Call:</label>
+                                            <apex:inputField value="{!lstCommunicationLog[0].Outreach_Call__c}" styleClass="form-control" />
+                                         </p>
+                                         <p class="para1"><label for="sel1">Phone # dialed:<font style="color:red;">*</font></label>
+                                         <apex:inputField value="{!lstCommunicationLog[0].Dialed_Phone__c}" styleClass="form-control" />
+                                         </p>
+                                         <p class="para1"><label for="sel1">Phone Type:<font style="color:red;">*</font></label>
+                                         <apex:inputField value="{!lstCommunicationLog[0].Phone_Type_I_CAL_90__c}" styleClass="form-control" />
+                                         </p>
+                                         <p class="para1"><label for="sel1">Outcome:<font style="color:red;">*</font></label>
+                                         <apex:inputField value="{!lstCommunicationLog[0].Phone_Type_I_CAL_90__c}" styleClass="form-control" />
+                                         </p>
+                                         
+                                        <p class="para1"><label for="sel1">Contact method:</label>
+                                        <apex:inputField value="{!lstCommunicationLog[0].Contact_method__c}" styleClass="form-control" />
+                                        </p>
+                                        <p class="para1"><label for="sel1">Encounter Date:</label>
+                                        <apex:inputText value="{!lstCommunicationLog[0].Next_Planned_Appointment__c}" styleClass="datepicker form-control" />
+                                    </p>
+                                    <p class="para1"><label for="sel1">Status:</label>
+                                    <apex:inputField value="{!lstCommunicationLog[0].Status__c}" styleClass="form-control" />
+                                        </p>     
+                                    </div>
+                                 </div>
+                                 <div class="col-md-4">
+                                     <p class="para1"><label for="sel1">Relationship to the Patient:</label>
+                                            <apex:inputField value="{!lstCommunicationLog[0].Relationship_to_the_Patient__c}" styleClass="form-control"/>
+                                         </p>
+                                    <p class="para1"><label for="sel1">Next Appointment / Contact:</label>
+                                        <apex:inputText value="{!lstCommunicationLog[0].Next_Planned_Appointment__c}" styleClass="datepicker form-control" />
+                                    </p>
+                                    
+                                    <p class="para1"><label for="sel1">Comments:</label>
+                                        <apex:inputTextarea value="{!lstCommunicationLog[0].Comments_Spoke_with_Patient__c}" styleClass="form-control" rows="4"/>
+                                    </p>
+                                    <p class="para1"><label for="sel1">Documentation Note:</label>
+                                        <apex:inputTextarea value="{!lstCommunicationLog[0].Documentation_Note__c}" styleClass="form-control" rows="4"/>
+                                    </p>
+                                                           
+                                    <p class="para1"><label for="sel1">Patient Outreach Complete:</label>
+                                        <select class="form-control" id="sel1">
+                                        <option>Yes</option>
+                                        <option>No</option>                                    
+                                        </select>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding:0px 0px 0px 0px;">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <p class="para1"><label for="sel1">Facility:</label>
+                                                <input type="text" class="form-control" placeholder="" readonly="true"/>
+                                            </p>
+                                            <p class="para1"><label for="sel1">Division</label>
+                                                <input type="text" class="form-control" placeholder="" readonly="true"/>
+                                            </p>
+                                            <p class="para1"><label for="sel1">Next Visit Provider:</label>
+                                                <input type="text" class="form-control" placeholder="" readonly="true"/>
+                                            </p>
+                                            <p class="para1"><label for="sel1">Next Apt Type:</label>
+                                                <input type="text" class="form-control" placeholder="" readonly="true"/>
+                                            </p>
+                                            <p class="para1"><label for="sel1">Next Apt Data Time:</label>
+                                                <input type="text" class="form-control" placeholder="" readonly="true"/>
+                                            </p>
+                                            <p class="para1"><label for="sel1">Current year AWV date (blank if none yet):</label>
+                                                <input type="text" class="form-control" placeholder="" readonly="true"/>
+                                            </p>                        
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                        
+                                        <p class="para1"><label for="sel1">Call result:</label>
+                                            <select class="form-control" id="sel1">
+                                            <option>Cancelled</option>
+                                            <option>Left Message</option>
+                                            <option>Missing or Invalid Number</option>
+                                            <option>No Answer/Busy</option>
+                                            <option> Not available</option>
+                                            <option>no response</option>
+                                            </select>
+                                        </p>
+                                            <p class="para1"><label for="sel1">Call Time:</label>
+                                            <select class="form-control" id="sel1">
+                                            <option>Morning</option>
+                                            <option>Afternoon</option>
+                                            <option>Evening</option>
+                                            </select>
+                                        </p>
+                                        <p class="para1"><label for="sel1">Patient Committed to Measure:</label>
+                                            <select class="form-control" id="sel1">
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                            </select>
+                                        </p>
+                                            <p class="para1"><label for="sel1">MHO MESSAGE SENT?:</label>
+                                                <select class="form-control" id="sel1">
+                                                <option>Yes</option>
+                                                <option>No</option>
+                                                </select>
+                                            </p>
+                                            <p class="para1"><label for="sel1">Sent MHO/Letter:</label>
+                                                <select class="form-control" id="sel1">
+                                                <option>Yes</option>
+                                                <option>No</option>
+                                                </select>
+                                            </p>
+                                            <p class="para1"><label for="sel1">Optum Form:</label>
+                                                <select class="form-control" id="sel1">
+                                                <option>Yes</option>
+                                                <option>No</option>
+                                                </select>
+                                            </p>
+                                            <p class="para1"><label for="sel1">Patient died:</label>
+                                                <select class="form-control" id="sel1">
+                                                <option>Yes</option>
+                                                <option>No</option>
+                                                </select>
+                                            </p>
+                                            <p class="para1"><label for="sel1">Number of contacts:</label>
+                                                <input type="text" class="form-control" placeholder="" />
+                                            </p>
+                                            <p class="para1"><label for="sel1">Prior year AWV date:</label>
+                                                <input type="text" class="form-control" placeholder="" readonly="true"/>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p class="para1"><label for="sel1">MHO Message Sent Date:</label>
+                                            <input class="datepicker form-control" type="text" name="dateofbirth" value="" />
+                                        </p>
+                                        <p class="para1"><label for="sel1">Letter Sent Date:</label>
+                                            <input class="datepicker form-control" type="text" name="dateofbirth" value="" />
+                                        </p>
+                                        <p class="para1"><label for="sel1">QI confirmed:</label>
+                                            <select class="form-control" id="sel1">
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                            </select>
+                                        </p>
+                                        <p class="para1"><label for="sel1">BMI:</label>
+                                            <input type="text" class="form-control" placeholder=""/>
+                                        </p>
+                                        <p class="para1"><label for="sel1">AIM patient:</label>
+                                            <input type="text" class="form-control" placeholder=""/>
+                                        </p>
+                                        
+                                    </div>
+                                </div>                    
+                                <div class="row">
+                                    <div style="width:100px;margin:auto;">
+                                        <button id="loadMore1" type="button" class="btn btn-default btn-sm">
+                                            <span class="glyphicon glyphicon-chevron-down"></span> &nbsp; Load More
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+
+                            <div>
+                                <button id="login_register_btn" type="button" class="btn searchbtn" data-dismiss="modal">Cancel</button>
+                                <button id="login_register_btn" type="button" class="btn searchbtn" >Submit</button>
+                                <button id="login_register_btn" type="button" class="btn searchbtn" data-toggle="modal" data-target="#reminder_modal">Submit and Reminder</button>
+                            </div>
+                        </div>
+                    <!-- End # Login Form -->
+                <!-- End # DIV Form -->
+                    </div>
+
+        
+
+   
+    <script>
+        $(function () {
+            $(".datepicker").datepicker();
+        });
+    </script>
+    </div>
+            
+        </div>
+</apex:form>
+    <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0" style="display: none;"></ul><span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span></body></html>
+</apex:page>

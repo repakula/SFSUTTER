@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email sent to new Sutter Provider Hub Internal users.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>PCRM_Letter_Head</letterhead>
+    <name>Provider Community: Provider Welcome Email for Internal Providers</name>
+    <style>freeForm</style>
+    <subject>ACTION REQUESTED: Validate Your Contact Information Through Sutter Provider Hub</subject>
+    <textOnly>The accuracy and integrity of your business information is a priority at Sutter Health. Accurate data ensures that your patients’ protected health information (PHI), as well as other important business related documents, are delivered to your preferred location. In order to maintain the accuracy of your data, you will be asked to validate your contact information every 6 months.
+
+If a patient of yours may ever be seen at a Sutter Health affiliate for future care or outpatient services (e.g. radiology &amp; lab tests), and/or Sutter patients may be referred to you for follow-up care, it is important that you review--and if necessary update--your contact information through the Sutter Provider Hub. This self-service portal allows you to easily and securely manage your Sutter Health information.
+
+NEW: You can now use your Sutter username and password as well as single sign-on (when inside the Sutter network) to access the Sutter Provider Hub.
+
+
+Login instructions:
+
+Go to Sutter Provider Hub. If clicking the link does not work, type or paste www.sutterproviderhub.com directly into your browser.
+
+Click on the Sutter Health Provider? link on the home page
+Enter your Sutter Health email address on the Microsoft Azure page (your Sutter Health username@sutterhealth.org)
+On the following page, enter your Sutter username and password combination
+You will be taken directly to the Sutter Provider Hub portal, where you can review and update your contact information
+
+Delegate information:
+
+Certain providers may authorize a delegate (administrative assistant, office manager, etc.) to validate contact information on their behalf. If you see a named individual below, that person has been identified as a potential delegate.  Within the next several days, you will receive another email through which you can provide formal access approval for this individual to validate your data in the future.
+
+Identified Delegate: {!Contact.Provider_Admin_Assistant__c}  {!Contact.Provider_Admin_Assistant_Title__c}
+
+If you are unable to remember your password, or for other technical support, please contact the IS Service Desk at 888-888-6044 or servicedesk@sutterhealth.org and reference the CRM-Salesforce Team. Additional details are available on the FAQ guide.
+
+We appreciate your help with this important effort!
+
+Thank you,
+
+Arieh Rosenbaum, M.D.
+
+c/o Sutter Provider Hub Team
+
+
+
+To confirm the authenticity of this message, please feel free to contact the IS Service Desk by phone, or Arieh Rosenbaum, M.D. Chief Medical Information Officer, West Bay Region (Rosenba@Sutterhealth.org)</textOnly>
+    <type>html</type>
+</EmailTemplate>

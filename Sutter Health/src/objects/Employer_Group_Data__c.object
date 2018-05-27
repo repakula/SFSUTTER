@@ -1,0 +1,2751 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>VFP36_Sold_Case_Notification</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>VFP36_Sold_Case_Notification</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>This object is created for SCN and develop Req -3268
+ It split into three parts
+1.Sold case Notifaction
+2. Medical Plan
+3.Non standard medical plan</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>ACal_L_D_Expiration_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>ACal L&amp;D Expiration Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ACal_L_D_Licence__c</fullName>
+        <externalId>false</externalId>
+        <label>ACal L&amp;D Licence #</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Executive__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Executive</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_RecordType_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Account_RecordType_Name__c</formula>
+        <label>Account RecordType Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_SFDC_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Account.SFDC_Auto_Number__c</formula>
+        <label>Account SFDC ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Account_Status__c</formula>
+        <label>Account Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AuditorName__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Auditor Name</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Sold_Case_Notification1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Benefits_Subject_to_ERISA_Regulations__c</fullName>
+        <defaultValue>true</defaultValue>
+        <externalId>false</externalId>
+        <label>Benefits Subject to ERISA Regulations?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>BillingContact_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Billing Contact Name</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contact.AccountId</field>
+                <operation>equals</operation>
+                <valueField>$Source.Opportunity_Account_Name__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Sold Case Notification (Contact)</relationshipLabel>
+        <relationshipName>Sold_Case_Notification3</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Billing_Contact_E_mail__c</fullName>
+        <description>This field split from Billing Contact - Name, Phone, E-mail</description>
+        <externalId>false</externalId>
+        <label>Billing Contact  E-mail</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Billing_Contact_Phone__c</fullName>
+        <description>Billing Contact - Name, Phone, E-mail</description>
+        <externalId>false</externalId>
+        <label>Billing Contact   Phone</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Billing_Street_Address__c</fullName>
+        <description>Billing Address of Employee</description>
+        <externalId>false</externalId>
+        <label>Billing Street Address</label>
+        <length>131072</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Broker_Agency__c</fullName>
+        <externalId>false</externalId>
+        <label>Broker Agency</label>
+        <length>60</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Broker_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Broker Name</label>
+        <length>60</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>COBRA_Members_with_this_Group1__c</fullName>
+        <externalId>false</externalId>
+        <label>COBRA Members with this Group</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>COBRA__c</fullName>
+        <externalId>false</externalId>
+        <label>COBRA?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>COBRA_Members_with_this_Group1__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Yes</controllingFieldValue>
+                <valueName>Yes</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Yes</controllingFieldValue>
+                <valueName>No</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Cal_Cobra__c</fullName>
+        <externalId>false</externalId>
+        <label>Cal Cobra?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>COBRA_Members_with_this_Group1__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Yes</controllingFieldValue>
+                <valueName>Yes</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Yes</controllingFieldValue>
+                <valueName>No</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>City_BA__c</fullName>
+        <description>This field split from &quot;City / State / Zip Code&quot;</description>
+        <externalId>false</externalId>
+        <label>City</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cloned_Record__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Cloned Record?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Cloned_from__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please do not change this field.</inlineHelpText>
+        <label>Cloned from</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cobra_Members_with_this_Group__c</fullName>
+        <externalId>false</externalId>
+        <label>COBRA Type for this Group</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>COBRA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cal COBRA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Both</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Exempt</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Commissions_Medical__c</fullName>
+        <externalId>false</externalId>
+        <label>Commissions - Medical</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Commissions_Optional_Acu_Chiro_ACN__c</fullName>
+        <externalId>false</externalId>
+        <label>Commissions - Optional Acu-Chiro (ACN)</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Standard</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Commissions_Optional_Dental_Delta__c</fullName>
+        <externalId>false</externalId>
+        <label>Commissions - Optional Dental (Delta)</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Standard</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Commissions_Optional_Vision_VSP__c</fullName>
+        <externalId>false</externalId>
+        <label>Commissions - Optional Vision (VSP)</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Standard</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Company_Name__c</fullName>
+        <description>the name of the employee company name</description>
+        <externalId>false</externalId>
+        <label>Company Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CompletedBy__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Completed By</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Sold_Case_Notification</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Country_SA__c</fullName>
+        <externalId>false</externalId>
+        <label>Country_SA</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Country__c</fullName>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>County__c</fullName>
+        <externalId>false</externalId>
+        <label>County</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Created_By__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This field stores the user Value for a Rejected SCN</description>
+        <externalId>false</externalId>
+        <label>Created By</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Sold_Case_Notification2</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Current_Stage_Aging__c</fullName>
+        <description>Gives the current aging based on stage</description>
+        <externalId>false</externalId>
+        <formula>CASE(Stage__c , &apos;Completed&apos;,( 9 * ( 
+( 5 * FLOOR( ( DATEVALUE( NOW() ) - DATE( 1996, 1, 1) ) / 7) + 
+MIN(5, 
+MOD( DATEVALUE(NOW() ) - DATE( 1996, 1, 1), 7) + 
+MIN( 1, 24 / 9 * ( MOD(NOW() - DATETIMEVALUE( &apos;1996-01-01 15:00:00&apos; ), 1 ) ) ) 
+) 
+) - ( 5 * FLOOR( ( DATEVALUE( Enrollment_Start_Time__c ) - DATE( 1996, 1, 1) ) / 7) + 
+MIN( 5, MOD( DATEVALUE( Enrollment_Start_Time__c ) - DATE( 1996, 1, 1), 7 ) + 
+MIN( 1, 24 / 9 * ( MOD( Enrollment_Start_Time__c - DATETIMEVALUE( &apos;1996-01-01 15:00:00&apos; ), 1) ) ) 
+) ) ) ),&apos;Underwriting Review&apos;,(9 * ( 
+( 5 * FLOOR( ( DATEVALUE( NOW() ) - DATE( 1996, 1, 1) ) / 7) + 
+MIN(5, 
+MOD( DATEVALUE(NOW() ) - DATE( 1996, 1, 1), 7) + 
+MIN( 1, 24 / 9 * ( MOD(NOW() - DATETIMEVALUE( &apos;1996-01-01 15:00:00&apos; ), 1 ) ) ) 
+) 
+) - ( 5 * FLOOR( ( DATEVALUE( Underwriting_Start_Time__c ) - DATE( 1996, 1, 1) ) / 7) + 
+MIN( 5, MOD( DATEVALUE( Underwriting_Start_Time__c ) - DATE( 1996, 1, 1), 7 ) + 
+MIN( 1, 24 / 9 * ( MOD( Underwriting_Start_Time__c - DATETIMEVALUE( &apos;1996-01-01 15:00:00&apos; ), 1) ) ) 
+) ) ) ),IF( NOT(ISPICKVAL( Stage__c ,&apos;Approved&apos;)),( 9 * (
+   ( 5 * FLOOR( ( DATEVALUE( NOW()  ) - DATE( 1996, 1, 1) ) / 7) +
+    MIN(5, 
+     MOD( DATEVALUE(NOW() ) - DATE( 1996, 1, 1), 7) +
+     MIN( 1, 24 / 9 * ( MOD(NOW() - DATETIMEVALUE( &apos;1996-01-01 15:00:00&apos; ), 1 ) ) )
+    ) 
+   )
+ -
+   ( 5 * FLOOR( ( DATEVALUE( Draft_Start_Time__c ) - DATE( 1996, 1, 1) ) / 7) +
+     MIN( 5,
+      MOD( DATEVALUE(  Draft_Start_Time__c ) - DATE( 1996, 1, 1), 7 ) +
+      MIN( 1, 24 / 9 * ( MOD(  Draft_Start_Time__c - DATETIMEVALUE( &apos;1996-01-01 15:00:00&apos; ), 1) ) )
+    )
+   ) 
+  )),0 ) )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Current Stage Aging(Hours)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DBA_Name__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>DBA Name (if applicable)</inlineHelpText>
+        <label>DBA Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Date_EOC_Sent__c</fullName>
+        <externalId>false</externalId>
+        <label>Date EOC Sent</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_SBC_Sent__c</fullName>
+        <externalId>false</externalId>
+        <label>Date SBC Sent</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_Sold__c</fullName>
+        <description>Req 3268</description>
+        <externalId>false</externalId>
+        <label>Date Sold</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Distribution_List__c</fullName>
+        <description>Req 3268</description>
+        <externalId>false</externalId>
+        <label>Distribution List</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Draft_Start_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Draft Start Time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Draft_hours__c</fullName>
+        <externalId>false</externalId>
+        <label>Draft hours</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EDI_Vendor_E_Mail__c</fullName>
+        <externalId>false</externalId>
+        <label>EDI Vendor E-Mail</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EDI_Vendor_Name__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Req-3384</description>
+        <externalId>false</externalId>
+        <label>EDI Vendor Name</label>
+        <lookupFilter>
+            <active>false</active>
+            <filterItems>
+                <field>Contact.Archive__c</field>
+                <operation>equals</operation>
+                <value>False</value>
+            </filterItems>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Sold Case Notification (Contact)</relationshipLabel>
+        <relationshipName>Sold_Case_Notification</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>EDI_Vendor_Phone__c</fullName>
+        <description>Req-3384</description>
+        <externalId>false</externalId>
+        <label>EDI Vendor Phone</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Effective_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Effective Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Email_Employer_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(TEXT(Opportunity__r.Account.Employer_Type__c) != NULL &amp;&amp; TEXT(Opportunity__r.Account.Employer_Type__c) != &apos;&apos;,TEXT(Opportunity__r.Account.Employer_Type__c),&apos;N/A&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Email Employer Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Employee_Waiting_Period_Other__c</fullName>
+        <description>This field will display when user select  &quot;Employee Waiting Period&quot; in picklist and value is &quot;Other&quot;</description>
+        <externalId>false</externalId>
+        <label>Employee Waiting Other</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Employee_Waiting_Period__c</fullName>
+        <externalId>false</externalId>
+        <label>Employee Waiting Period</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>None</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>30 Days</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>60 Days</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>90 Days</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>true</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Employer_Contribution_Dependents_Premium__c</fullName>
+        <externalId>false</externalId>
+        <label>Employer Contribution-DependentsPremium%</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Employer_Contribution_Employees_Premium__c</fullName>
+        <externalId>false</externalId>
+        <label>Emplr Cont.-Employees % or $ of Premium</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Employer_Defined_Eligibility_for_Benefit__c</fullName>
+        <externalId>false</externalId>
+        <label>Employer Defined Eligibility For Benefit</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>20 Hours</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>30 Hours</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>40 Hours</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Employer_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Sold_Sign_Off__c &lt;&gt; NULL,Sold_Sign_Off__r.Employer_Type__c, Opportunity__r.Employer_Type__c)</formula>
+        <label>Employer Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Enrollment_Method__c</fullName>
+        <externalId>false</externalId>
+        <label>Enrollment Method</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Paper</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Electronic</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Enrollment_Start_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Enrollment Start Time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Enrollment_hours__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Enrollment hours</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Fax_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Fax Number</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Federal_Employer_ID_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Federal Employer ID Number</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GA_Commission__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.GA_Commission__c</formula>
+        <label>GA Commission</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>GA_Contact__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.GA_Contact__r.FirstName &amp; &apos; &apos; &amp;  Opportunity__r.GA_Contact__r.LastName</formula>
+        <label>GA Contact</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>General_Agent_Applicable__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.General_Agent_Applicable__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>General Agent Applicable</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>General_Agent__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.General_Agent__r.Name</formula>
+        <label>General Agent</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Group_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Group Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Individual</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Small</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Large</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>HREmployer_Portal_Name1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>HR Employer Portal Name</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contact.AccountId</field>
+                <operation>equals</operation>
+                <valueField>$Source.Opportunity_Account_Name__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Sold Case Notification (Contact)</relationshipLabel>
+        <relationshipName>Sold_Case_Notification4</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>HREmployer_Portal_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>HR Employer Portal Name</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contact.AccountId</field>
+                <operation>equals</operation>
+                <valueField>$Source.Opportunity_Account_Name__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Sold Case Notification (Contact)</relationshipLabel>
+        <relationshipName>Sold_Case_Notification5</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>HREnrollment_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>HREnrollment Name</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contact.AccountId</field>
+                <operation>equals</operation>
+                <valueField>$Source.Opportunity_Account_Name__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Sold Case Notification (Contact)</relationshipLabel>
+        <relationshipName>Sold_Case_Notification2</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>HR_Account_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>HR Account Number</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HR_Employer_Portal_E_mail1__c</fullName>
+        <description>This field split from HR Employer Portal Access - Name, Title, Phone, E-mail</description>
+        <externalId>false</externalId>
+        <label>HR Employer Portal E-mail</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HR_Employer_Portal_E_mail__c</fullName>
+        <description>This field split from HR Employer Portal Access - Name, Title, Phone, E-mail</description>
+        <externalId>false</externalId>
+        <label>HR Employer Portal E-mail</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HR_Employer_Portal_Name1__c</fullName>
+        <description>This field split from HR Employer Portal Access - Name, Title, Phone, E-mail</description>
+        <externalId>false</externalId>
+        <label>HR Employer Portal Name</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HR_Employer_Portal_Name__c</fullName>
+        <description>This field split from HR Employer Portal Access - Name, Title, Phone, E-mail</description>
+        <externalId>false</externalId>
+        <label>HR Employer Portal Name</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HR_Employer_Portal_Phone1__c</fullName>
+        <description>This field split from HR Employer Portal Access - Name, Title, Phone, E-mail</description>
+        <externalId>false</externalId>
+        <label>HR Employer Portal Phone</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>HR_Employer_Portal_Phone__c</fullName>
+        <description>This field split from HR Employer Portal Access - Name, Title, Phone, E-mail</description>
+        <externalId>false</externalId>
+        <label>HR Employer Portal Phone</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>HR_Enrollment_E_mail__c</fullName>
+        <description>This field split from HR/Enrollment Contact - Name, Phone, E-mail</description>
+        <externalId>false</externalId>
+        <label>HR/Enrollment  E-mail</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HR_Enrollment_Phone__c</fullName>
+        <description>this field spilt from HR/Enrollment Contact - Name, Phone, E-mail</description>
+        <externalId>false</externalId>
+        <label>HR/Enrollment  Phone</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Have_the_plan_numbers_changed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Visible only for Renewal SCN</description>
+        <externalId>false</externalId>
+        <label>Have the plan numbers changed?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Medical_Plan_Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Medical Plan Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Medical_Region__c</fullName>
+        <externalId>false</externalId>
+        <label>Medical Region</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Member_accumulators_previous_Carrier__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Member Accumulators Previous  Carrier?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>New_EDI_Vendor__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>New EDI Vendor?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>New_TPA_Vendor__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Visible only for Renewal SCN</description>
+        <externalId>false</externalId>
+        <label>New TPA Vendor?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Old_SCN_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>Old SCN Id</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Open_Enrollment_Date_From__c</fullName>
+        <description>This field split  from Open Enrollment Date Range</description>
+        <externalId>false</externalId>
+        <label>Open Enrollment Date From</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Open_Enrollment_Date_To__c</fullName>
+        <description>This field split from Open Enrollment Date Range</description>
+        <externalId>false</externalId>
+        <label>Open Enrollment Date To</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Account_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This field is created to implement the Lookup filter on Contact. It will be autopopulated with the Opportunity&apos;s Account Name. DO NOT Put on page layout</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please do not change the Opportunity Account Name value</inlineHelpText>
+        <label>Opportunity Account Name</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Sold Case Notification</relationshipLabel>
+        <relationshipName>Sold_Case_Notification</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Sold Case Notification</relationshipLabel>
+        <relationshipName>Sold_Case_Notification</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Other_ERISA__c</fullName>
+        <externalId>false</externalId>
+        <label>Other</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Other_Language_Considerations__c</fullName>
+        <externalId>false</externalId>
+        <label>Other Language Considerations</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Other_Optional_Acu_Chiro__c</fullName>
+        <externalId>false</externalId>
+        <label>Other</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Other_Optional_Dental__c</fullName>
+        <externalId>false</externalId>
+        <label>Other</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Other_Optional_Vision__c</fullName>
+        <externalId>false</externalId>
+        <label>Other</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Performance_or_Implementation__c</fullName>
+        <defaultValue>&apos;N/A&apos;</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Performance or Implementation Performance Guarantees (if applicable - if not, N/A)</inlineHelpText>
+        <label>Performance or Implementation</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Phone_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Phone Number</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Plan_Year__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Plan_Year__c</formula>
+        <label>Plan Year</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Plan_vs_Calendar_Year__c</fullName>
+        <externalId>false</externalId>
+        <label>Plan vs Calendar Year</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Plan Year</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Calendar Year</fullName>
+                    <default>true</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Previous_Group_Insurance_through_SHP__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Previous Group Insurance Through SHP?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Projected_Enrollment__c</fullName>
+        <externalId>false</externalId>
+        <label>Projected Enrollment</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Rejection_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Rejection Reason</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Void</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>None</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Religious_Exemption_Applied__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Birth control coverage not provided due to religious exemption</inlineHelpText>
+        <label>Religious Exemption Applied</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Renewal_SCN__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Renewed_Opportunity__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Renewal SCN</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SCN_Approved_Date__c</fullName>
+        <description>To track the approval date of SCN at the back end</description>
+        <externalId>false</externalId>
+        <label>SCN Approved Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>SCN_Survey_Sent_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>SCN Survey Sent Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SFDC_Broker_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>SFDC Broker ID</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SHP_Broker_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>SHP Broker ID</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SHP_Sales_Representative__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Manager</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sales_Auditor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Sales Auditor</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Sold_Case_Notification3</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Shipping_County__c</fullName>
+        <externalId>false</externalId>
+        <label>County</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Slice_Account__c</fullName>
+        <externalId>false</externalId>
+        <label>Proposal Scenario</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>TR/Sole Carrier</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Slice</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Triple Option</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Slicing_with_Carrier_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Slicing with Carrier Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sold_Case_Notification__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Sold Case Notification</label>
+        <referenceTo>Employer_Group_Data__c</referenceTo>
+        <relationshipLabel>Sold Case Notification</relationshipLabel>
+        <relationshipName>Sold_Case_Notification</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Sold_Sign_Off__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Sold Sign Off</label>
+        <referenceTo>Sold_Sign_Off__c</referenceTo>
+        <relationshipLabel>Sold Case Notification</relationshipLabel>
+        <relationshipName>Sold_Case_Notification</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Stage__c</fullName>
+        <externalId>false</externalId>
+        <label>Stage</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Draft</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Underwriting Review</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rejected by Underwriting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Enrollment QA Pass</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Enrollment QA Fail</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Submitted for QA</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>State_BA__c</fullName>
+        <description>This field split from &quot;City / State / Zip Code&quot;</description>
+        <externalId>false</externalId>
+        <label>State</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>State_SA__c</fullName>
+        <description>This field split from &quot;City / State / Zip Code&quot;</description>
+        <externalId>false</externalId>
+        <label>State</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Street_Address__c</fullName>
+        <description>Address of the employee</description>
+        <externalId>false</externalId>
+        <label>Street Address</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Sub_Account_Data__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub-Account Data</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Tech_Account_Id__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Sold_Sign_Off__c &lt;&gt; NULL , Sold_Sign_Off__r.Tech_Account_Id__c, Opportunity__r.AccountId)</formula>
+        <label>Tech Account Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tech_Cloned_Record__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Tech Cloned Record</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Third_Party_Administrator__c</fullName>
+        <externalId>false</externalId>
+        <label>Third Party Administrator</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Time_Elapsed__c</fullName>
+        <externalId>false</externalId>
+        <formula>NOW()- Draft_Start_Time__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Time Elapsed</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Title1__c</fullName>
+        <description>This field split from HR Employer Portal Access - Name, Title, Phone, E-mail</description>
+        <externalId>false</externalId>
+        <inlineHelpText>HR Employer Portal Access -  Title</inlineHelpText>
+        <label>Title</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Mr.</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mrs.</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ms.</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dr.</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Prof.</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Title__c</fullName>
+        <description>This field split from HR Employer Portal Access - Name, Title, Phone, E-mail</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Employer Portal Access - Title</inlineHelpText>
+        <label>Title</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Mr.</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mrs.</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ms.</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dr.</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Prof.</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Total_Aging__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISPICKVAL(Stage__c, &apos;Approved&apos;)  , 0, ABS(ROUND( 9 * ( 
+( 5 * FLOOR( ( DATEVALUE( NOW() ) - DATE( 1900, 1, 9) ) / 7) + 
+MIN(5, 
+MOD( DATEVALUE(NOW() ) - DATE( 1900, 1, 9), 7) + 
+MIN( 1, 24 / 9 * ( MOD(NOW() - DATETIMEVALUE( &apos;1900-01-09 15:00:00&apos; ), 1 ) ) ) 
+) 
+) 
+- 
+( 5 * FLOOR( ( DATEVALUE( CreatedDate ) - DATE( 1900, 1, 9) ) / 7) + 
+MIN( 5, 
+MOD( DATEVALUE( CreatedDate ) - DATE( 1996, 1, 1), 7 ) + 
+MIN( 1, 24 / 9 * ( MOD( CreatedDate - DATETIMEVALUE( &apos;1900-01-09 15:00:00&apos; ), 1) ) ) 
+) 
+) 
+), 
+0 )/9
+))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Aging(Days)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type_of_Organization_Other__c</fullName>
+        <description>it will display when user select &quot;Type of Organization&quot; is &quot;Other&quot;</description>
+        <externalId>false</externalId>
+        <label>Type Of Organization Other</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type_of_Organization__c</fullName>
+        <externalId>false</externalId>
+        <label>Type of Organization</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Corporation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Partnership</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sole Proprietor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>General Partnership</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LLC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Underwriting_Start_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Underwriting Start Time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Underwriting_hours__c</fullName>
+        <externalId>false</externalId>
+        <label>Underwriting hours</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>User_Employer_Group_Data__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>User Employer Group Data</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Employer_Group_Data</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Vendor_Contact_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Vendor Contact Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Vendor_Contact_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Vendor Contact Name</label>
+        <lookupFilter>
+            <active>false</active>
+            <filterItems>
+                <field>Contact.Archive__c</field>
+                <operation>equals</operation>
+                <value>False</value>
+            </filterItems>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Sold Case Notification (Vendor Contact Name)</relationshipLabel>
+        <relationshipName>Sold_Case_Notification1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Vendor_Contact_Phone__c</fullName>
+        <externalId>false</externalId>
+        <label>Vendor Contact Phone</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Vendor_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Vendor Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Will_there_be_additional_plans_offered__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Will There Be Additional  Renewal Plans</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Zip_BA__c</fullName>
+        <description>This field split from &quot;City / State / Zip Code&quot;</description>
+        <externalId>false</externalId>
+        <label>Zip Code</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Zip_SA__c</fullName>
+        <description>This field split from &quot;City / State / Zip Code&quot;</description>
+        <externalId>false</externalId>
+        <label>Zip Code</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>city_SA__c</fullName>
+        <description>This field split from &quot;City / State / Zip Code&quot;</description>
+        <externalId>false</externalId>
+        <label>City</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>of_Eligible_Employees__c</fullName>
+        <externalId>false</externalId>
+        <label># of Eligible Employees</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>of_Employees__c</fullName>
+        <externalId>false</externalId>
+        <label>Total FTE Employees</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Sold Case Notification</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Stage__c</columns>
+        <columns>of_Eligible_Employees__c</columns>
+        <columns>SHP_Sales_Representative__c</columns>
+        <columns>Company_Name__c</columns>
+        <columns>Broker_Agency__c</columns>
+        <columns>Broker_Name__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Approved_SCN</fullName>
+        <columns>NAME</columns>
+        <columns>Stage__c</columns>
+        <columns>of_Eligible_Employees__c</columns>
+        <columns>ACal_L_D_Expiration_Date__c</columns>
+        <columns>BillingContact_Name__c</columns>
+        <columns>Billing_Contact_Phone__c</columns>
+        <columns>Billing_Contact_E_mail__c</columns>
+        <filterScope>Queue</filterScope>
+        <filters>
+            <field>Stage__c</field>
+            <operation>equals</operation>
+            <value>Approved</value>
+        </filters>
+        <label>Approved SCN</label>
+        <queue>SHP_Enrollment_SCN</queue>
+        <sharedTo>
+            <group>SHP_Enrollment_SCN</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>My_SCN</fullName>
+        <columns>NAME</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Company_Name__c</columns>
+        <columns>Group_Type__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Stage__c</columns>
+        <filterScope>Mine</filterScope>
+        <label>My SCN</label>
+    </listViews>
+    <listViews>
+        <fullName>SHP_Enrollment_QA_queue_Employer_Group_Data</fullName>
+        <columns>NAME</columns>
+        <columns>Stage__c</columns>
+        <columns>Company_Name__c</columns>
+        <columns>DBA_Name__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Queue</filterScope>
+        <filters>
+            <field>Stage__c</field>
+            <operation>equals</operation>
+            <value>Submitted for QA</value>
+        </filters>
+        <label>SHP Enrollment QA queue</label>
+        <queue>SHP_Enrollment_QA_queue</queue>
+        <sharedTo>
+            <group>Enrollment_QA</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>SHP_Enrollment_SCN_Employer_Group_Data</fullName>
+        <columns>NAME</columns>
+        <columns>Stage__c</columns>
+        <columns>Company_Name__c</columns>
+        <columns>DBA_Name__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Created_By__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>of_Eligible_Employees__c</columns>
+        <filterScope>Queue</filterScope>
+        <filters>
+            <field>Stage__c</field>
+            <operation>equals</operation>
+            <value>Completed,Enrollment QA Pass,Enrollment QA Fail</value>
+        </filters>
+        <label>SHP Enrollment SCN</label>
+        <queue>SHP_Enrollment_SCN</queue>
+        <sharedTo>
+            <group>SHP_Enrollment_SCN</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>SHP_Sales_Queue_Employer_Group_Data</fullName>
+        <columns>NAME</columns>
+        <columns>Stage__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Queue</filterScope>
+        <label>SHP Sales Queue</label>
+        <queue>SHP_Sales_Queue</queue>
+        <sharedTo>
+            <group>SHP_Sales</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>SHP_Underwriter_Queue_Employer_Group_Data</fullName>
+        <columns>NAME</columns>
+        <columns>Stage__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Queue</filterScope>
+        <label>SHP Underwriter Queue</label>
+        <queue>SHP_Underwriter_Queue</queue>
+        <sharedTo>
+            <group>Underwriter</group>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <displayFormat>SCN-{00000}</displayFormat>
+        <label>Sold Case Notification Name</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Sold Case Notification</pluralLabel>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Cloned_SCN</fullName>
+        <active>true</active>
+        <label>Cloned SCN</label>
+        <picklistValues>
+            <picklist>COBRA_Members_with_this_Group1__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>COBRA__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Cal_Cobra__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Cobra_Members_with_this_Group__c</picklist>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>COBRA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cal COBRA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Exempt</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Commissions_Optional_Acu_Chiro_ACN__c</picklist>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Standard</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Commissions_Optional_Dental_Delta__c</picklist>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Standard</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Commissions_Optional_Vision_VSP__c</picklist>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Standard</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Employee_Waiting_Period__c</picklist>
+            <values>
+                <fullName>30 Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60 Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90 Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Employer_Defined_Eligibility_for_Benefit__c</picklist>
+            <values>
+                <fullName>20 Hours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30 Hours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40 Hours</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Enrollment_Method__c</picklist>
+            <values>
+                <fullName>Electronic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paper</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Group_Type__c</picklist>
+            <values>
+                <fullName>Individual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Large</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Plan_vs_Calendar_Year__c</picklist>
+            <values>
+                <fullName>Calendar Year</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Plan Year</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Rejection_Reason__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Void</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Slice_Account__c</picklist>
+            <values>
+                <fullName>Slice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TR%2FSole Carrier</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Triple Option</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Stage__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Enrollment QA Fail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Enrollment QA Pass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected by Underwriting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted for QA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Underwriting Review</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Title1__c</picklist>
+            <values>
+                <fullName>Dr%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mr%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mrs%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ms%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prof%2E</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Title__c</picklist>
+            <values>
+                <fullName>Dr%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mr%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mrs%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ms%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prof%2E</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_of_Organization__c</picklist>
+            <values>
+                <fullName>Corporation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Partnership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LLC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partnership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sole Proprietor</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>Stage__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>of_Eligible_Employees__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>SHP_Sales_Representative__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Company_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Broker_Agency__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Broker_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OWNER.FIRST_NAME</customTabListAdditionalFields>
+        <excludedStandardButtons>New</excludedStandardButtons>
+        <lookupDialogsAdditionalFields>Stage__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>of_Eligible_Employees__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>SHP_Sales_Representative__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Company_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Broker_Agency__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Broker_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>OWNER.FIRST_NAME</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Stage__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>of_Eligible_Employees__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>SHP_Sales_Representative__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Company_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Broker_Agency__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Broker_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>OWNER.FIRST_NAME</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <sharingReasons>
+        <fullName>Approver__c</fullName>
+        <label>Approver</label>
+    </sharingReasons>
+    <sharingReasons>
+        <fullName>Submitter__c</fullName>
+        <label>Submitter</label>
+    </sharingReasons>
+    <validationRules>
+        <fullName>Commissions_Optional_Acu_Chiro_Other</fullName>
+        <active>true</active>
+        <description>This rule is used to restrict the user to enter Other Reason if they Select Commissions_Optional_Acu-Chiro as Other</description>
+        <errorConditionFormula>AND(ISPICKVAL(Commissions_Optional_Acu_Chiro_ACN__c,&quot;Other&quot;),ISBLANK(Other_Optional_Acu_Chiro__c))</errorConditionFormula>
+        <errorDisplayField>Other_Optional_Acu_Chiro__c</errorDisplayField>
+        <errorMessage>Please enter reason for Other</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Commissions_Optional_Dental_Delta_Other</fullName>
+        <active>true</active>
+        <description>This rule is used to restrict the user to enter Other Reason if they Select Commissions_Optional_Dental_Delta as Other</description>
+        <errorConditionFormula>AND(ISPICKVAL(Commissions_Optional_Dental_Delta__c,&quot;Other&quot;),ISBLANK(Other_Optional_Dental__c))</errorConditionFormula>
+        <errorDisplayField>Other_Optional_Dental__c</errorDisplayField>
+        <errorMessage>Please enter reason for Other</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Commissions_Optional_Vision_VSP_Other</fullName>
+        <active>true</active>
+        <description>This rule is used to restrict the user to enter Other Reason if they Select Commissions_Optional_Vision_(VSP) as Other</description>
+        <errorConditionFormula>AND(ISPICKVAL(Commissions_Optional_Vision_VSP__c,&quot;Other&quot;),ISBLANK(Other_Optional_Vision__c))</errorConditionFormula>
+        <errorDisplayField>Other_Optional_Vision__c</errorDisplayField>
+        <errorMessage>Please enter reason for Other</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Don_not_allow_to_select_archived_contact</fullName>
+        <active>false</active>
+        <errorConditionFormula>(EDI_Vendor_Name__r.Archive__c  = true)  || ( Vendor_Contact_Name__r.Archive__c = true)</errorConditionFormula>
+        <errorMessage>Please do not select archived contact</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Enter_Type_of_Organization_Other</fullName>
+        <active>true</active>
+        <description>This is used to restrict the user to enter the Type of Organization Other field if Type Of Organization is Other</description>
+        <errorConditionFormula>AND(ISPICKVAL(Type_of_Organization__c,&quot;Other&quot;),ISBLANK( Type_of_Organization_Other__c ))</errorConditionFormula>
+        <errorDisplayField>Type_of_Organization_Other__c</errorDisplayField>
+        <errorMessage>Please enter reason for Other</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>OpportunittyAccountNameValidation</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF(Opportunity__r.AccountId != Opportunity_Account_Name__r.Id, true, false)</errorConditionFormula>
+        <errorDisplayField>Opportunity_Account_Name__c</errorDisplayField>
+        <errorMessage>Value can&apos;t be change</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Restrict_Medical_Region_on_Group_Type</fullName>
+        <active>true</active>
+        <description>This validation rule is used to allow the user to edit the Medical Region only when the Group Type is Small</description>
+        <errorConditionFormula>AND(NOT(ISPICKVAL( Group_Type__c ,&apos;Small&apos;)), NOT(ISBLANK(Medical_Region__c )))</errorConditionFormula>
+        <errorDisplayField>Medical_Region__c</errorDisplayField>
+        <errorMessage>Medical Region is allowed only for Small Group Type</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Restrict_SSO_Value_for_Small_Groups</fullName>
+        <active>true</active>
+        <description>This validation rule is used to restrict the user to not enter the SSO value when it is Small Group</description>
+        <errorConditionFormula>AND(Opportunity__r.Employer_Type__c = &apos;Small Group (1-100)&apos;, Sold_Sign_Off__c  &lt;&gt; NULL)</errorConditionFormula>
+        <errorDisplayField>Sold_Sign_Off__c</errorDisplayField>
+        <errorMessage>SSO Value can be populated for only large groups</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Restrict_User_to_Edit_Renewal_Data</fullName>
+        <active>true</active>
+        <description>This validation rule is used to restrict the user to change the Renewal details on SCN if it is not a renewal SCN.</description>
+        <errorConditionFormula>AND(Renewal_SCN__c != TRUE,OR(Have_the_plan_numbers_changed__c = true,New_TPA_Vendor__c= true,Will_there_be_additional_plans_offered__c = true,New_EDI_Vendor__c = true))</errorConditionFormula>
+        <errorMessage>Renewal details are allowed to edit only for Renewal SCN.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Restrict_Vendor_and_EDI_vendor_details</fullName>
+        <active>true</active>
+        <description>This validation rule is used to restrict the user from selecting Vendor Contact Details and EDI Vendor Contact details when Enrollment Method is other than Electronic</description>
+        <errorConditionFormula>AND(NOT(ISPICKVAL(Enrollment_Method__c,&apos;Electronic&apos;)),OR( NOT(ISBLANK(Vendor_Contact_Email__c)),NOT(ISBLANK( Vendor_Contact_Name__c )),NOT(ISBLANK( Vendor_Contact_Phone__c )),NOT(ISBLANK( EDI_Vendor_E_Mail__c )),NOT(ISBLANK( EDI_Vendor_Name__c )),NOT(ISBLANK( EDI_Vendor_Phone__c )),NOT(ISBLANK( Vendor_Name__c ))))</errorConditionFormula>
+        <errorMessage>Vendor Details can be entered only when Enrollment Method is Electronic</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Clone</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Clone</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>{!$Site.BaseUrl}/{!Employer_Group_Data__c.Id}/e?clone=1&amp;00N0f00000FIpUM={!Employer_Group_Data__c.Name}&amp;retURL={!$Site.BaseUrl}/{!Employer_Group_Data__c.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Generate_PDF</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>Generate PDF</masterLabel>
+        <openType>newWindow</openType>
+        <page>SoldCaseNotificationPDFGeneration</page>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+    </webLinks>
+    <webLinks>
+        <fullName>Training_Document_Help</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Training Document Help</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>window.open(&quot;/{!$Label.SCN_Traning_Doc_KnowledgeId}&quot;,&quot;_blank&quot;)</url>
+    </webLinks>
+    <webLinks>
+        <fullName>What_is_changed</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>What&apos;s changed ?</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&apos;/soap/ajax/26.0/connection.js&apos;)} 
+{!REQUIRESCRIPT(&apos;/js/functions.js&apos;)} 
+{!REQUIRESCRIPT(&apos;/resource/jQueryForPopup/jQuery/jquery-1.8.2.min.js&apos;)} 
+{!REQUIRESCRIPT(&apos;/resource/jQueryForPopup/jQuery/ui/jquery-ui-1.9.1.custom.min.js&apos;)} 
+{!REQUIRESCRIPT(&apos;/resource/jQueryForPopup/jQuery/postmessage/jquery.ba-postmessage.js&apos;)} 
+{!REQUIRESCRIPT(&apos;/resource/jQueryForPopup/jQuery/bbq/jquery.ba-bbq.min.js&apos;)} 
+requireCssFile(&apos;/resource/jQueryForPopup/jQuery/ui/css/ui-lightness/jquery-ui-1.9.1.custom.min.css&apos;); 
+function requireCssFile(filename) 
+{ 
+var fileref = document.createElement(&apos;link&apos;);
+fileref.setAttribute(&apos;rel&apos;, &apos;stylesheet&apos;);
+fileref.setAttribute(&apos;type&apos;, &apos;text/css&apos;);
+fileref.setAttribute(&apos;href&apos;, filename);
+document.getElementsByTagName(&apos;head&apos;)[0].appendChild(fileref);
+}
+var j$ = jQuery.noConflict();
+var iframe_url = &apos;/apex/SCN_CustomTrackfieldPage?Id={!Employer_Group_Data__c.Id}&apos;;
+console.log(&apos;@@@ : &apos;+iframe_url);
+var child_domain = iframe_url.substring(0, iframe_url.indexOf(&apos;/&apos;, 9));
+var parent_domain = window.location.protocol + &apos;//&apos; + window.location.host;
+var j$modalDialog = j$(&apos;&lt;div id=&quot;opppopup&quot;&gt;&lt;/div&gt;&apos;)
+.html(&apos;&lt;iframe id=&quot;iframeContentId&quot; src=&quot;&apos; + iframe_url + &apos;&quot; frameborder=&quot;0&quot; height=&quot;100%&quot; width=&quot;100%&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot; scrolling=&quot;yes&quot; /&gt;&apos;) 
+.dialog({ 
+autoOpen: false, 
+title: &apos;Change Summary&apos;, 
+resizable: false, 
+width: 900, 
+height: 500, 
+autoResize: true, 
+modal: true, 
+draggable: false
+});
+j$modalDialog.dialog(&apos;open&apos;);</url>
+    </webLinks>
+</CustomObject>

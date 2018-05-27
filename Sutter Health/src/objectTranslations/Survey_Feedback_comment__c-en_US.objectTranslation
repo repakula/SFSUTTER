@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Survey Feedback Comment</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Survey Feedback Comments</value>
+    </caseValues>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Survey Feedback Comments --></label>
+        <name>Survey_Feedback__c</name>
+        <relationshipLabel><!-- Survey Feedback Comments --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Survey Feedback Comment Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Comments can not be empty. --></errorMessage>
+        <name>Comment_can_not_be_empty</name>
+    </validationRules>
+</CustomObjectTranslation>

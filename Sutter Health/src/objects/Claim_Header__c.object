@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>The Claim Header object is used to store all claims information for SHP Members.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>ClaimMemberIdField__c</fullName>
+        <description>This field is used for the custom search.</description>
+        <externalId>false</externalId>
+        <label>ClaimMemberIdField</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Claim_Amount_Allowed__c</fullName>
+        <externalId>false</externalId>
+        <label>Claim Amount Allowed</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Claim_Amount_Billed__c</fullName>
+        <externalId>false</externalId>
+        <label>Claim Amount Billed</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Claim_Amount_Copay__c</fullName>
+        <externalId>false</externalId>
+        <label>Claim Amount Copay</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Claim_Amount_Deductible__c</fullName>
+        <externalId>false</externalId>
+        <label>Claim Amount Deductible</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Claim_Amount_Paid__c</fullName>
+        <externalId>false</externalId>
+        <label>Claim Amount Paid</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Claim_Amount_Patient_Responsibility__c</fullName>
+        <externalId>false</externalId>
+        <label>Claim Amount Patient Responsibility</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Claim_IsOutOfArea_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Claim IsOutOfArea Flag</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Claim_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Claim Status</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Practitioner_First_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Practitioner First Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Practitioner_HCC_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Practitioner HCC ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Practitioner_Last_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Practitioner Last Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Practitioner_Middle_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Practitioner Middle Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Practitioner_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Practitioner Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SHPClaimHdr_Claim_Date_of_Receipt__c</fullName>
+        <description>Receipt date of a specific claim when received by SHP.</description>
+        <externalId>false</externalId>
+        <label>Claim Date of Receipt</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SHPClaimHdr_Claim_DoS_End__c</fullName>
+        <externalId>false</externalId>
+        <label>Claim End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SHPClaimHdr_Claim_DoS_Start__c</fullName>
+        <externalId>false</externalId>
+        <label>Claim Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SHPClaimHdr_Claim_HCC_ID__c</fullName>
+        <description>Primary key and best static identifier from HealthRules</description>
+        <externalId>false</externalId>
+        <label>Claim HCC ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SHPClaimHdr_Claim_HR_ID__c</fullName>
+        <description>Secondary key from HealthRules, used to ensure differentiation from the HCC ID</description>
+        <externalId>false</externalId>
+        <label>Claim HR ID</label>
+        <length>19</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SHPClaimHdr_Diagnosis_Code_Description_E__c</fullName>
+        <externalId>false</externalId>
+        <label>Claim Diagnosis Code Description</label>
+        <length>50</length>
+        <maskChar>asterisk</maskChar>
+        <maskType>all</maskType>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>EncryptedText</type>
+    </fields>
+    <fields>
+        <fullName>SHPClaimHdr_Diagnosis_Code_E__c</fullName>
+        <externalId>false</externalId>
+        <label>Claim Diagnosis Code</label>
+        <length>50</length>
+        <maskChar>asterisk</maskChar>
+        <maskType>all</maskType>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>EncryptedText</type>
+    </fields>
+    <fields>
+        <fullName>SHPClaimHdr_Diagnosis_Code_HR_ID_E__c</fullName>
+        <description>Diagnosis Code ID associated to a specific claim.</description>
+        <externalId>false</externalId>
+        <label>Claim Diagnosis Code HR ID</label>
+        <length>19</length>
+        <maskChar>asterisk</maskChar>
+        <maskType>all</maskType>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>EncryptedText</type>
+    </fields>
+    <fields>
+        <fullName>SHPClaimHdr_External_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>External ID used to match a Claim Header record to the original record in HealthEdge when updating and/or inserting.
+ Composite key created from the concatenation of  SHPClaimHdr_Member_HR_ID__c + SHPClaimHdr_Claim_HR_ID__c (Claim Header)</description>
+        <externalId>true</externalId>
+        <inlineHelpText>HealthEdge Claim ID</inlineHelpText>
+        <label>Claim External ID</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>SHPClaimHdr_Member_HCC_ID__c</fullName>
+        <description>Primary key and best static identifier from HealthRules</description>
+        <externalId>false</externalId>
+        <label>Claim Member HCC ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SHPClaimHdr_Member_HR_ID__c</fullName>
+        <description>Secondary key from HealthRules, used to ensure differentiation from the HCC ID</description>
+        <externalId>false</externalId>
+        <label>Claim Member HR ID</label>
+        <length>19</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SHPClaimHdr_Member_ID__c</fullName>
+        <description>Member ID of a member associated to a specific claim.</description>
+        <externalId>false</externalId>
+        <label>Claim Member ID</label>
+        <length>19</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SHPClaimHdr_Member_Lookup__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to the Contact object to associate claims with members.</description>
+        <externalId>false</externalId>
+        <label>Member</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Claim Headers</relationshipLabel>
+        <relationshipName>Claim_Header_Member</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>SHPClaimHdr_Procedure_Code_Description_E__c</fullName>
+        <externalId>false</externalId>
+        <label>Claim Procedure Code Description</label>
+        <length>50</length>
+        <maskChar>asterisk</maskChar>
+        <maskType>all</maskType>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>EncryptedText</type>
+    </fields>
+    <fields>
+        <fullName>SHPClaimHdr_Procedure_Code_E__c</fullName>
+        <description>Procedure code associated to a specific claim.</description>
+        <externalId>false</externalId>
+        <label>Claim Procedure Code</label>
+        <length>10</length>
+        <maskChar>asterisk</maskChar>
+        <maskType>all</maskType>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>EncryptedText</type>
+    </fields>
+    <fields>
+        <fullName>SHPClaimHdr_Procedure_Code_HR_ID_E__c</fullName>
+        <description>Procedure code ID associated to a specific claim.</description>
+        <externalId>false</externalId>
+        <label>Claim Procedure Code HR ID</label>
+        <length>19</length>
+        <maskChar>asterisk</maskChar>
+        <maskType>all</maskType>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>EncryptedText</type>
+    </fields>
+    <fields>
+        <fullName>SHPClaimHdr_Subscriber_HCC_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Claim Subscriber HCC ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SHPClaimHdr_Subscriber_HR_ID__c</fullName>
+        <description>Subscriber ID associated to a specific claim.</description>
+        <externalId>false</externalId>
+        <label>Claim Subscriber HR ID</label>
+        <length>19</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SHPClaimHdr_Supplier_Epic_ID__c</fullName>
+        <description>Supplier Epic ID associated to a specific claim.</description>
+        <externalId>false</externalId>
+        <label>Claim Supplier Epic ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SHPClaimHdr_Supplier_HCC_ID__c</fullName>
+        <description>Primary key and best static identifier from HealthRules</description>
+        <externalId>false</externalId>
+        <label>Claim Supplier HCC ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SHPClaimHdr_Supplier_HR_ID__c</fullName>
+        <description>Secondary key from HealthRules, used to ensure differentiation from the HCC ID</description>
+        <externalId>false</externalId>
+        <label>Claim Supplier HR ID</label>
+        <length>19</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SHPClaimHdr_Supplier_Lookup__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to the Contact object to associate claims with suppliers.</description>
+        <externalId>false</externalId>
+        <label>Supplier</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Claim Headers (Supplier)</relationshipLabel>
+        <relationshipName>Claim_Header_Supplier</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>SHPClaimHdr_Supplier_Name__c</fullName>
+        <description>Supplier associated to a specific claim.</description>
+        <externalId>false</externalId>
+        <label>Claim Supplier Name</label>
+        <length>150</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Claim Header</label>
+    <listViews>
+        <fullName>SHP_Claim_Header</fullName>
+        <columns>NAME</columns>
+        <columns>SHPClaimHdr_Member_HCC_ID__c</columns>
+        <columns>SHPClaimHdr_Member_Lookup__c</columns>
+        <columns>SHPClaimHdr_Claim_Date_of_Receipt__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>SHP Claim Header</label>
+    </listViews>
+    <nameField>
+        <label>Claim ID</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Claim Headers</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>SHPClaimHdr_Member_Lookup__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>SHPClaimHdr_Member_ID__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>SHPClaimHdr_Claim_DoS_Start__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>SHPClaimHdr_Claim_DoS_End__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>SHPClaimHdr_Member_ID__c</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>SHPClaimHdr_Claim_DoS_Start__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>SHPClaimHdr_Claim_DoS_End__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>SHPClaimHdr_Member_ID__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <webLinks>
+        <fullName>Claim_Detail_Button</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Claim Detail</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>srcUp(&apos;/apex/VFP05_Claim_Detail?hccid={!Claim_Header__c.SHPClaimHdr_Claim_HCC_ID__c}&amp;isdtp=vw&amp;isWsVw=true&apos;);</url>
+    </webLinks>
+</CustomObject>

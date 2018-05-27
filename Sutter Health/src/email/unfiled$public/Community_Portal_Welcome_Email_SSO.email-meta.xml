@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Welcome email</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Employee_Portal_SSO</letterhead>
+    <name>Community Portal Welcome Email SSO</name>
+    <style>freeForm</style>
+    <subject>Welcome to MySutter Connection!</subject>
+    <textOnly>{!Receiving_User.FirstName},
+
+Welcome to MySutter Connection, your new, self-service website! This secure website is your 24-hour instant connection to information related to your employment— including forms, policies and helpful online tools. You do not need to be logged into the Sutter Health network to access this website.
+
+Instructions:
+These are the instructions for employees to sign on to MySutter Connection when outside of the Sutter Health network. 
+Steps
+Instructions
+1
+Enter http://mysutterconnection.com in the address field of the Internet browser. 
+
+ 
+2
+Enter your current Network ID and password in the Username and Password fields.
+
+3
+Create a Favorite for the new login web address/URL (uniform resource locator) to replace previous login pages.
+
+  
+
+For technical support, please contact the IS Service Desk at 888-888-6044 or servicedesk@sutterhealth.org and reference the “CRM-Salesforce Team”. Your request will be routed to the Sutter Health Salesforce.com Support Team.
+
+Enjoy this new, convenient online resource!
+MySutter Connection Team</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Workshop Participant</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>S3 Participants</value>
+    </caseValues>
+    <fields>
+        <label><!-- Affiliate --></label>
+        <name>Affiliate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Sutter Department (from Lawson data) --></help>
+        <label><!-- Department --></label>
+        <name>Department__c</name>
+    </fields>
+    <fields>
+        <label><!-- Participant Type --></label>
+        <name>Participant_Type__c</name>
+        <picklistValues>
+            <masterLabel>KPO</masterLabel>
+            <translation><!-- KPO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PO</masterLabel>
+            <translation><!-- PO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sponsor</masterLabel>
+            <translation><!-- Sponsor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Team Lead</masterLabel>
+            <translation><!-- Team Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Team Member</masterLabel>
+            <translation><!-- Team Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workshop Lead</masterLabel>
+            <translation><!-- Workshop Lead --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- S3 Workshop --></label>
+        <name>S3Workshop__c</name>
+        <relationshipLabel><!-- S3 Participants --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Supervisor --></label>
+        <name>Supervisor__c</name>
+    </fields>
+    <fields>
+        <label><!-- Title --></label>
+        <name>Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Workshop Name --></label>
+        <name>Workshop_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Workshop Participant --></label>
+        <name>Workshop_Participant__c</name>
+        <relationshipLabel><!-- S3 Participants --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Workshop Sponsor --></label>
+        <name>Workshop_Sponsor__c</name>
+    </fields>
+    <fields>
+        <label><!-- Workshop Start Date --></label>
+        <name>Workshop_Start_Date__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

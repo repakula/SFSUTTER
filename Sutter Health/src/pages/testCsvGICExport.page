@@ -1,0 +1,11 @@
+<apex:page controller="AQRSCRMController"  readOnly="true" contentType="application/vnd.csv#PatientGICList.csv">
+  
+  
+      {!headerGIC}
+    <apex:repeat value="{!recievedPatientGICList}" var="resGIC" >
+    {!resGIC.outReached},{!resGIC.patient_name},{!resGIC.patient_mrn},<apex:outputText value="{0,date,mm/dd/yy}"> <apex:param value="{!resGIC.patient_dob}"/></apex:outputText>,{!resGIC.patient_gender},{!resGIC.preferred_communication_method},{!resGIC.email_address},{!resGIC.patient_home_phone},{!resGIC.possible_actions_needed},"{!resGIC.provider_ID}",{!resGIC.measure_Name},{!resGIC.next_appointment_type},{!resGIC.payor_Name},"{!resGIC.patient_home_address}",{!resGIC.patient_Race},{!resGIC.next_Appointment_Time},{!resGIC.population},{!resGIC.specialty},{!resGIC.awv_measurement_this_year },{!resGIC.date_of_last_billed},{!resGIC.date_of_last_appointment},{!resGIC.date_of_next_appointment},{!resGIC.hcc},{!resGIC.total_Gaps},{!resGIC.last_awv_date},"{!resGIC.next_appointment_provider}",{!resGIC.division_name},{!resGIC.department_Name},{!resGIC.facility_ID},{!resGIC.qualifying_measure}
+  </apex:repeat>
+  
+ 
+ 
+</apex:page>

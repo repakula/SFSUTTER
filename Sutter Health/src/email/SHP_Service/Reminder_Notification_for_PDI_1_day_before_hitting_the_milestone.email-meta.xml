@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Reminder Notification for PDI before 1 day of hitting the 30 days milestone</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Reminder Notification for PDI 1 day before hitting the milestone</name>
+    <style>none</style>
+    <subject>Reminder: PDI SR {!Case.CaseNumber}</subject>
+    <type>text</type>
+</EmailTemplate>

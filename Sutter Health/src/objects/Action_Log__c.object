@@ -1,0 +1,5155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Above_Ceiling_Explanation__c</fullName>
+        <externalId>false</externalId>
+        <label>Above Ceiling Explanation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Action_Log_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Action Log Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Open</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>On Hold</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cancelled</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Affiliate__c</fullName>
+        <externalId>false</externalId>
+        <label>Affiliate</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>All Valley</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>All Bay</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>System</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Alta Bates Medical Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>California Pacific Medical Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Central Valley Medical Group</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Eden Medical Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Gould Medical Group</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Memorial Hospital Los Banos</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Memorial Medical Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Menlo Park Surgical Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mills-Peninsula Health Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Novato Community Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Palo Alto Medical Foundation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Palo Alto Medical Foundation – Mills Div</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>San Leandro Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>St. Luke’s Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Summit Medical Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Amador Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Auburn Faith Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Care at Home</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Center for Psychiatry</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Coast Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Davis Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Delta Medical Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter East Bay Medical Foundation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Gould Medical Foundation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Lakeside Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Maternity and Surgery Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Medical Center Sacramento</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Medical Foundation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Medical Foundation – Contracted</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Pacific Medical Foundation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Roseville Medical Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Santa Rosa</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Solano Medical Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Tracy Community Hospital</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Air_Flow_Explanation__c</fullName>
+        <externalId>false</externalId>
+        <label>Air Flow Explanation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Application_Services__c</fullName>
+        <externalId>false</externalId>
+        <label>Application Services</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>BAA__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>BAA?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>CRF_Submitted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>CRF Submitted?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Completed_Hospital_Fire_Emergency_Proc__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Contractor education completed for Hospital Fire and Emergency procedures</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contractor education completed for Hospital Fire and Emergency procedures</inlineHelpText>
+        <label>Completed: Hospital Fire/Emergency Proc</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Completed_Infection_Control_Req__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Completed: Infection Control Req</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Confined_Space_Explanation__c</fullName>
+        <externalId>false</externalId>
+        <label>Confined Space Explanation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Construction_Activity_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Construction Activity Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>A</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>B</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>C</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>D</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Construction_Clean_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Construction Clean Required</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Construction_Matrix_Class__c</fullName>
+        <externalId>false</externalId>
+        <label>Construction Matrix Class</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>I</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>II</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>III</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IV</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Construction_Operation_Hours__c</fullName>
+        <externalId>false</externalId>
+        <label>Construction Operation Hours</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Construction_Operation__c</fullName>
+        <externalId>false</externalId>
+        <label>Construction Operation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Item_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Item Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contract_Signed_Actual_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Signed Actual Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Signed_Target_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Signed Target Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Net new</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Renewal</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Contractor_Consultant__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Contractor/Consultant?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DF_Approval_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>DF Approval Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DSOC_Completed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>DSOC Completed?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DSO_Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>DSO Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>DSO_Primary_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>DSO Primary Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Agenda_Items</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DSO_Review_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>DSO Review Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Not Started</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Date_BAA_last_executed__c</fullName>
+        <externalId>false</externalId>
+        <label>Date BAA last executed</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_MSA_last_executed__c</fullName>
+        <externalId>false</externalId>
+        <label>Date MSA last executed</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Detail__c</fullName>
+        <externalId>false</externalId>
+        <label>Detail</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Director_Facilities__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Director Facilities</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Agenda_Items_DF</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Duration__c</fullName>
+        <externalId>false</externalId>
+        <label>Duration</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Dust_Explanation__c</fullName>
+        <externalId>false</externalId>
+        <label>Dust Explanation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Executive_Sponsor__c</fullName>
+        <externalId>false</externalId>
+        <label>Executive Sponsor</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Food_for_Thought__c</fullName>
+        <externalId>false</externalId>
+        <label>Food for Thought</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Go_Live__c</fullName>
+        <externalId>false</externalId>
+        <label>Go Live</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>HSO_Approval_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>HSO Approval Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Hazard_Management_Mitigation_Measures__c</fullName>
+        <description>Environmental hazard Management and mitigation measures required</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Environmental hazard Management and mitigation measures required</inlineHelpText>
+        <label>Hazard Management/Mitigation Measures</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Hazard_Materials_Chemicals_Present__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Are Hazardous materials or chemicals present?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Are Hazardous materials or chemicals present?</inlineHelpText>
+        <label>Hazard: Materials/Chemicals Present</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Hazards_Present__c</fullName>
+        <description>List of Environmental Hazard(s) Present</description>
+        <externalId>false</externalId>
+        <inlineHelpText>List of Environmental Hazard(s) Present</inlineHelpText>
+        <label>Hazards Present</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Hospital_Safety_Officer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Hospital Safety Officer</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Agenda_Items_HSO</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Hot_Permit_Explanation__c</fullName>
+        <externalId>false</externalId>
+        <label>Hot Permit Explanation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>ICC_Approval_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>ICC Approval Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ISSC_Topic__c</fullName>
+        <externalId>false</externalId>
+        <label>ISSC Topic</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Check in/Roll call</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Action Item Review</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Project Review</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Physician Updates</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hot Topics/Misc</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Round Robin</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Impact_Above_Ceiling_Permit_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Impact: Above Ceiling Permit Required</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Impact_Air_Flow__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Will there be any impact on Air Flow</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Will there be any impact on Air Flow</inlineHelpText>
+        <label>Impact: Air Flow</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Impact_Confined_Space__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Impact: Confined Space</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Impact_Dust__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Will the project create any dust</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Will the project create any dust</inlineHelpText>
+        <label>Impact: Dust</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Impact_Hot_Permit_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Is a Hot Permit Required</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Is a Hot Permit Required</inlineHelpText>
+        <label>Impact: Hot Permit Required</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Impact_Noise_Disturbance__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Will the project create noise disturbance</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Will the project create noise disturbance</inlineHelpText>
+        <label>Impact: Noise Disturbance</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Impact_Other_Permit__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Impact: Other Permit(s)</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Impact_vibration_disturbance__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Will the project create a vibration disturbance</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Will the project create a vibration disturbance</inlineHelpText>
+        <label>Impact: Vibration Disturbance</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Infection_Control_Coordinator__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Infection Control Coordinator</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Agenda_Items_ICC</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Infection_Control_Group__c</fullName>
+        <externalId>false</externalId>
+        <label>Infection Control Group</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Infection_Control_Permit_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Infection Control Permit Required</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Interim_Life_Safety_Measures_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Please attach an Infection Control Evaluation if Interim Life Safety Measures are required</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please attach an Infection Control Evaluation if Interim Life Safety Measures are required</inlineHelpText>
+        <label>Interim Life Safety Measures Required</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Interruption_Shutdown_Explanation__c</fullName>
+        <externalId>false</externalId>
+        <label>Interruption/Shutdown Explanation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>LOTO_Explanation__c</fullName>
+        <externalId>false</externalId>
+        <label>LOTO Explanation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>LOTO_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>LOTO Required</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>MOU_Completed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>MOU Completed?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>MSA__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>MSA?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Main_Business_Owner__c</fullName>
+        <externalId>false</externalId>
+        <label>Main Business Owner</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Material_Chemical_Hazard_Explanation__c</fullName>
+        <externalId>false</externalId>
+        <label>Material/Chemical Hazard Explanation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Attendee__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Meeting Attendee</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Action Log (Meeting Attendee)</relationshipLabel>
+        <relationshipName>Action_Log</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Noise_Disturbance_Explanation__c</fullName>
+        <externalId>false</externalId>
+        <label>Noise Disturbance Explanation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>OGC_Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>OGC Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>OGC_Primary_Contact__c</fullName>
+        <externalId>false</externalId>
+        <label>OGC Primary Contact</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OGC_Review_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>OGC Review Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>In Process</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Not Started</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Offshore_Resources__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Offshore Resources?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Other_Permit_s_Explanation__c</fullName>
+        <externalId>false</externalId>
+        <label>Other Permit(s) Explanation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Owner__c</fullName>
+        <externalId>false</externalId>
+        <label>Owner</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PHI__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>PHI?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>PII__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>PII</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Presentation_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Presentation Time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Presenter__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Presenter</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Action Log (Presenter)</relationshipLabel>
+        <relationshipName>Action_Log1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Priority__c</fullName>
+        <externalId>false</externalId>
+        <label>Priority</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Critical</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Project_Cost__c</fullName>
+        <externalId>false</externalId>
+        <label>Project Cost</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Project_Impact__c</fullName>
+        <externalId>false</externalId>
+        <label>Project Impact</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>System</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Valley</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Local</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bay</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Project_Notes__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Notes about the project that are specific to the IS/SS/OGC collaboration.</inlineHelpText>
+        <label>Project Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Project_Number__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The Project Server project number</inlineHelpText>
+        <label>Project Number</label>
+        <length>32</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Related_Project__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related Project</label>
+        <referenceTo>Project__c</referenceTo>
+        <relationshipLabel>Action Log</relationshipLabel>
+        <relationshipName>Action_Log</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Renewal_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Renewal Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Required_Management_Mitigation_Measure__c</fullName>
+        <description>Management and mitigation measures required</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Management and mitigation measures required</inlineHelpText>
+        <label>Required Management/Mitigation Measures</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Review_Level__c</fullName>
+        <externalId>false</externalId>
+        <label>Review Level</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>High Level Review Sufficient</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Detailed Review Required</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Review Completed</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Risk__c</fullName>
+        <externalId>false</externalId>
+        <label>Risk</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SRA_Completed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>SRA Completed?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Secondary_Affiliate__c</fullName>
+        <externalId>false</externalId>
+        <label>Secondary Affiliate</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Alta Bates Medical Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>California Pacific Medical Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Central Valley Medical Group</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Eden Medical Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Gould Medical Group</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Memorial Hospital Los Banos</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Memorial Medical Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Menlo Park Surgical Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mills-Peninsula Health Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Novato Community Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Palo Alto Medical Foundation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Palo Alto Medical Foundation – Mills Div</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>San Leandro Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>St. Luke’s Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Summit Medical Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Amador Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Auburn Faith Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Care at Home</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Center for Psychiatry</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Coast Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Davis Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Delta Medical Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter East Bay Medical Foundation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Gould Medical Foundation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Lakeside Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Maternity and Surgery Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Medical Center Sacramento</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Medical Foundation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Medical Foundation – Contracted</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Pacific Medical Foundation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Roseville Medical Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Santa Rosa</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Solano Medical Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Tracy Community Hospital</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Strategic_Sourcing_Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Strategic Sourcing Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Strategic_Sourcing_Primary_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Strategic Sourcing Primary Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Agenda_Items1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Strategic_Sourcing_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Strategic Sourcing Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>On Hold</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Technical_Services__c</fullName>
+        <externalId>false</externalId>
+        <label>Technical Services</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Terminal_Clean_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Terminal Clean Required</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Topic__c</fullName>
+        <externalId>false</externalId>
+        <label>Topic</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Utility_Interruption_Shutdown_Procedure__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Contractor education completed for Utility interuption/shutdown procedure</description>
+        <externalId>false</externalId>
+        <label>Utility Interruption/Shutdown Procedure</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Utility_Interruptions_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Utility: Interruptions Required</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Utility_s_Affected__c</fullName>
+        <description>List of utility(s) affected</description>
+        <externalId>false</externalId>
+        <inlineHelpText>List of utility(s) affected</inlineHelpText>
+        <label>Utility(s) Affected</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Vibration_Disturbance_Explanation__c</fullName>
+        <externalId>false</externalId>
+        <label>Vibration Disturbance Explanation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <label>Action Log</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Action_Log_Status__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Bay</fullName>
+        <columns>NAME</columns>
+        <columns>Action_Log_Status__c</columns>
+        <columns>Description__c</columns>
+        <columns>Detail__c</columns>
+        <columns>LAST_ACTIVITY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Affiliate__c</field>
+            <operation>equals</operation>
+            <value>All Bay</value>
+        </filters>
+        <label>All Bay</label>
+        <sharedTo>
+            <group>Valley_Simple_App_Users</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_ISSC_Items</fullName>
+        <columns>NAME</columns>
+        <columns>Action_Log_Status__c</columns>
+        <columns>Executive_Sponsor__c</columns>
+        <columns>ISSC_Topic__c</columns>
+        <columns>Owner__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Action_Log__c.ISSC</value>
+        </filters>
+        <label>All ISSC Items</label>
+        <sharedTo>
+            <group>Valley_Simple_App_Users</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_Valley</fullName>
+        <columns>NAME</columns>
+        <columns>Action_Log_Status__c</columns>
+        <columns>Owner__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Action_Log__c.Rounding,Action_Log__c.One_on_One,Action_Log__c.Leadship,Action_Log__c.ChAM,Action_Log__c.ISSC</value>
+        </filters>
+        <filters>
+            <field>Affiliate__c</field>
+            <operation>equals</operation>
+            <value>All Valley</value>
+        </filters>
+        <label>All Valley</label>
+        <sharedTo>
+            <group>Valley_Simple_App_Users</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>ChAM</fullName>
+        <columns>NAME</columns>
+        <columns>Topic__c</columns>
+        <columns>Description__c</columns>
+        <columns>Owner__c</columns>
+        <columns>LAST_ACTIVITY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Action_Log__c.ChAM</value>
+        </filters>
+        <label>ChAM</label>
+        <sharedTo>
+            <group>Valley_Simple_App_Users</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>ISSC</fullName>
+        <columns>NAME</columns>
+        <columns>Topic__c</columns>
+        <columns>Owner__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>LAST_ACTIVITY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Action_Log__c.ISSC</value>
+        </filters>
+        <label>ISSC</label>
+        <sharedTo>
+            <group>Valley_Simple_App_Users</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>ISSC_Open</fullName>
+        <columns>NAME</columns>
+        <columns>Action_Log_Status__c</columns>
+        <columns>Completed_Hospital_Fire_Emergency_Proc__c</columns>
+        <columns>Construction_Activity_Type__c</columns>
+        <columns>Construction_Operation_Hours__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Action_Log__c.ISSC</value>
+        </filters>
+        <filters>
+            <field>Action_Log_Status__c</field>
+            <operation>equals</operation>
+            <value>Open</value>
+        </filters>
+        <label>ISSC Open</label>
+        <sharedTo>
+            <group>Valley_Simple_App_Users</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>ISSC_SAFH_Open</fullName>
+        <columns>NAME</columns>
+        <columns>Action_Log_Status__c</columns>
+        <columns>Description__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Action_Log_Status__c</field>
+            <operation>notEqual</operation>
+            <value>On Hold,Cancelled,Completed</value>
+        </filters>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+        </filters>
+        <label>ISSC - SAFH Open</label>
+        <sharedTo>
+            <group>Valley_Simple_App_Users</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>ISSC_SAH_Open</fullName>
+        <columns>NAME</columns>
+        <columns>Action_Log_Status__c</columns>
+        <columns>Description__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Action_Log_Status__c</field>
+            <operation>notEqual</operation>
+            <value>On Hold,Cancelled,Completed</value>
+        </filters>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+        </filters>
+        <label>ISSC - SAH Open</label>
+        <sharedTo>
+            <group>Valley_Simple_App_Users</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>IS_SS_OGC_Committee</fullName>
+        <columns>NAME</columns>
+        <columns>Topic__c</columns>
+        <columns>Description__c</columns>
+        <columns>Action_Log_Status__c</columns>
+        <columns>Executive_Sponsor__c</columns>
+        <columns>OGC_Primary_Contact__c</columns>
+        <columns>Owner__c</columns>
+        <columns>LAST_ACTIVITY</columns>
+        <columns>OGC_Review_Status__c</columns>
+        <columns>DSO_Review_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Action_Log__c.IS_SS_OGC</value>
+        </filters>
+        <label>IS/SS/OGC Committee ALL</label>
+        <sharedTo>
+            <group>IS_SS_OGC</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>IS_SS_OGC_Committee_All_closed</fullName>
+        <booleanFilter>1 AND 2</booleanFilter>
+        <columns>NAME</columns>
+        <columns>Topic__c</columns>
+        <columns>Description__c</columns>
+        <columns>Action_Log_Status__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Action_Log__c.IS_SS_OGC</value>
+        </filters>
+        <filters>
+            <field>Action_Log_Status__c</field>
+            <operation>equals</operation>
+            <value>Cancelled,Completed</value>
+        </filters>
+        <label>IS/SS/OGC Committee - All closed</label>
+        <sharedTo>
+            <group>IS_SS_OGC</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>IS_SS_OGC_Medium_Priority</fullName>
+        <columns>NAME</columns>
+        <columns>Topic__c</columns>
+        <columns>Description__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Action_Log__c.IS_SS_OGC</value>
+        </filters>
+        <filters>
+            <field>Priority__c</field>
+            <operation>equals</operation>
+            <value>Medium</value>
+        </filters>
+        <label>IS/SS/OGC - Medium Priority</label>
+        <sharedTo>
+            <group>IS_SS_OGC</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>LeaderShip_Open</fullName>
+        <columns>NAME</columns>
+        <columns>Action_Log_Status__c</columns>
+        <columns>Description__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Action_Log__c.Leadship</value>
+        </filters>
+        <filters>
+            <field>Action_Log_Status__c</field>
+            <operation>notEqual</operation>
+            <value>On Hold,Cancelled,Completed</value>
+        </filters>
+        <label>Leadership Open</label>
+        <sharedTo>
+            <group>Valley_Simple_App_Users</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Net_new_contracts</fullName>
+        <columns>NAME</columns>
+        <columns>Topic__c</columns>
+        <columns>Description__c</columns>
+        <columns>BAA__c</columns>
+        <columns>MSA__c</columns>
+        <columns>Executive_Sponsor__c</columns>
+        <columns>Main_Business_Owner__c</columns>
+        <columns>Action_Log_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Contract_Type__c</field>
+            <operation>equals</operation>
+            <value>Net new</value>
+        </filters>
+        <label>Net new contracts</label>
+        <sharedTo>
+            <group>IS_SS_OGC</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>One_on_One_Open</fullName>
+        <columns>NAME</columns>
+        <columns>Action_Log_Status__c</columns>
+        <columns>Description__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Action_Log__c.One_on_One</value>
+        </filters>
+        <filters>
+            <field>Action_Log_Status__c</field>
+            <operation>notEqual</operation>
+            <value>On Hold,Cancelled,Completed</value>
+        </filters>
+        <label>One-on-One Open</label>
+        <sharedTo>
+            <group>Valley_Simple_App_Users</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Rounding</fullName>
+        <columns>NAME</columns>
+        <columns>Description__c</columns>
+        <columns>Affiliate__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Action_Log__c.Rounding</value>
+        </filters>
+        <label>Rounding</label>
+        <sharedTo>
+            <group>Valley_Simple_App_Users</group>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <displayFormat>A-{0000}</displayFormat>
+        <label>Action Log No</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Action Log</pluralLabel>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypes>
+        <fullName>ChAM</fullName>
+        <active>true</active>
+        <description>Construction and Maintenance Projects, Evaluation of the Impact to the Environment of Care</description>
+        <label>ChAM</label>
+        <picklistValues>
+            <picklist>Action_Log_Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Affiliate__c</picklist>
+            <values>
+                <fullName>All Bay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>All Valley</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Alta Bates Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>California Pacific Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central Valley Medical Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eden Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gould Medical Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial Hospital Los Banos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Menlo Park Surgical Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mills-Peninsula Health Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Novato Community Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation %E2%80%93 Mills Div</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>San Leandro Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>St%2E Luke%E2%80%99s Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Summit Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Amador Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Auburn Faith Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Care at Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Center for Psychiatry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Coast Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Davis Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Delta Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter East Bay Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Gould Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Lakeside Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Maternity and Surgery Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Center Sacramento</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Foundation %E2%80%93 Contracted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Pacific Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Roseville Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Santa Rosa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Solano Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Tracy Community Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Construction_Activity_Type__c</picklist>
+            <values>
+                <fullName>A</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Construction_Matrix_Class__c</picklist>
+            <values>
+                <fullName>I</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>II</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>III</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contract_Type__c</picklist>
+            <values>
+                <fullName>Net new</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>DSO_Review_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ISSC_Topic__c</picklist>
+            <values>
+                <fullName>Action Item Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Check in%2FRoll call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hot Topics%2FMisc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Physician Updates</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Project Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Round Robin</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Infection_Control_Group__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>OGC_Review_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Process</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority__c</picklist>
+            <values>
+                <fullName>Critical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Project_Impact__c</picklist>
+            <values>
+                <fullName>Bay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valley</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Review_Level__c</picklist>
+            <values>
+                <fullName>Detailed Review Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>High Level Review Sufficient</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Completed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Risk__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Secondary_Affiliate__c</picklist>
+            <values>
+                <fullName>Alta Bates Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>California Pacific Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central Valley Medical Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eden Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gould Medical Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial Hospital Los Banos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Menlo Park Surgical Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mills-Peninsula Health Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Novato Community Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation %E2%80%93 Mills Div</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>San Leandro Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>St%2E Luke%E2%80%99s Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Summit Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Amador Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Auburn Faith Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Care at Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Center for Psychiatry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Coast Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Davis Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Delta Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter East Bay Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Gould Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Lakeside Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Maternity and Surgery Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Center Sacramento</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Foundation %E2%80%93 Contracted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Pacific Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Roseville Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Santa Rosa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Solano Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Tracy Community Hospital</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Strategic_Sourcing_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>ISSC</fullName>
+        <active>true</active>
+        <description>Information Services Steering Committee</description>
+        <label>ISSC</label>
+        <picklistValues>
+            <picklist>Action_Log_Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Affiliate__c</picklist>
+            <values>
+                <fullName>All Bay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>All Valley</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Alta Bates Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>California Pacific Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central Valley Medical Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eden Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gould Medical Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial Hospital Los Banos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Menlo Park Surgical Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mills-Peninsula Health Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Novato Community Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation %E2%80%93 Mills Div</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>San Leandro Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>St%2E Luke%E2%80%99s Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Summit Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Amador Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Auburn Faith Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Care at Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Center for Psychiatry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Coast Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Davis Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Delta Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter East Bay Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Gould Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Lakeside Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Maternity and Surgery Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Center Sacramento</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Foundation %E2%80%93 Contracted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Pacific Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Roseville Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Santa Rosa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Solano Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Tracy Community Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Construction_Activity_Type__c</picklist>
+            <values>
+                <fullName>A</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Construction_Matrix_Class__c</picklist>
+            <values>
+                <fullName>I</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>II</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>III</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contract_Type__c</picklist>
+            <values>
+                <fullName>Net new</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>DSO_Review_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ISSC_Topic__c</picklist>
+            <values>
+                <fullName>Action Item Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Check in%2FRoll call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hot Topics%2FMisc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Physician Updates</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Project Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Round Robin</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Infection_Control_Group__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>OGC_Review_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Process</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority__c</picklist>
+            <values>
+                <fullName>Critical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Project_Impact__c</picklist>
+            <values>
+                <fullName>Bay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valley</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Review_Level__c</picklist>
+            <values>
+                <fullName>Detailed Review Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>High Level Review Sufficient</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Completed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Risk__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Secondary_Affiliate__c</picklist>
+            <values>
+                <fullName>Alta Bates Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>California Pacific Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central Valley Medical Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eden Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gould Medical Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial Hospital Los Banos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Menlo Park Surgical Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mills-Peninsula Health Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Novato Community Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation %E2%80%93 Mills Div</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>San Leandro Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>St%2E Luke%E2%80%99s Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Summit Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Amador Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Auburn Faith Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Care at Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Center for Psychiatry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Coast Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Davis Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Delta Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter East Bay Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Gould Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Lakeside Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Maternity and Surgery Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Center Sacramento</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Foundation %E2%80%93 Contracted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Pacific Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Roseville Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Santa Rosa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Solano Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Tracy Community Hospital</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Strategic_Sourcing_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>IS_SS_OGC</fullName>
+        <active>true</active>
+        <description>Information Services / Strategic Sourcing / Office of General Counsel</description>
+        <label>IS/SS/OGC</label>
+        <picklistValues>
+            <picklist>Action_Log_Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Affiliate__c</picklist>
+            <values>
+                <fullName>All Bay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>All Valley</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Alta Bates Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>California Pacific Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central Valley Medical Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eden Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gould Medical Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial Hospital Los Banos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Menlo Park Surgical Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mills-Peninsula Health Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Novato Community Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation %E2%80%93 Mills Div</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>San Leandro Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>St%2E Luke%E2%80%99s Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Summit Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Amador Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Auburn Faith Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Care at Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Center for Psychiatry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Coast Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Davis Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Delta Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter East Bay Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Gould Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Lakeside Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Maternity and Surgery Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Center Sacramento</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Foundation %E2%80%93 Contracted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Pacific Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Roseville Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Santa Rosa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Solano Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Tracy Community Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Construction_Activity_Type__c</picklist>
+            <values>
+                <fullName>A</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Construction_Matrix_Class__c</picklist>
+            <values>
+                <fullName>I</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>II</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>III</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contract_Type__c</picklist>
+            <values>
+                <fullName>Net new</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>DSO_Review_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ISSC_Topic__c</picklist>
+            <values>
+                <fullName>Action Item Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Check in%2FRoll call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hot Topics%2FMisc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Physician Updates</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Project Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Round Robin</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Infection_Control_Group__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>OGC_Review_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Process</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority__c</picklist>
+            <values>
+                <fullName>Critical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Project_Impact__c</picklist>
+            <values>
+                <fullName>Bay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valley</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Review_Level__c</picklist>
+            <values>
+                <fullName>Detailed Review Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>High Level Review Sufficient</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Completed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Risk__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Secondary_Affiliate__c</picklist>
+            <values>
+                <fullName>Alta Bates Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>California Pacific Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central Valley Medical Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eden Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gould Medical Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial Hospital Los Banos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Menlo Park Surgical Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mills-Peninsula Health Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Novato Community Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation %E2%80%93 Mills Div</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>San Leandro Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>St%2E Luke%E2%80%99s Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Summit Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Amador Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Auburn Faith Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Care at Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Center for Psychiatry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Coast Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Davis Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Delta Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter East Bay Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Gould Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Lakeside Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Maternity and Surgery Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Center Sacramento</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Foundation %E2%80%93 Contracted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Pacific Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Roseville Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Santa Rosa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Solano Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Tracy Community Hospital</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Strategic_Sourcing_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Leadship</fullName>
+        <active>true</active>
+        <label>Leadship</label>
+        <picklistValues>
+            <picklist>Action_Log_Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Affiliate__c</picklist>
+            <values>
+                <fullName>All Bay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>All Valley</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Alta Bates Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>California Pacific Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central Valley Medical Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eden Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gould Medical Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial Hospital Los Banos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Menlo Park Surgical Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mills-Peninsula Health Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Novato Community Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation %E2%80%93 Mills Div</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>San Leandro Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>St%2E Luke%E2%80%99s Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Summit Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Amador Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Auburn Faith Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Care at Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Center for Psychiatry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Coast Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Davis Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Delta Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter East Bay Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Gould Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Lakeside Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Maternity and Surgery Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Center Sacramento</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Foundation %E2%80%93 Contracted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Pacific Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Roseville Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Santa Rosa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Solano Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Tracy Community Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Construction_Activity_Type__c</picklist>
+            <values>
+                <fullName>A</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Construction_Matrix_Class__c</picklist>
+            <values>
+                <fullName>I</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>II</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>III</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contract_Type__c</picklist>
+            <values>
+                <fullName>Net new</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>DSO_Review_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ISSC_Topic__c</picklist>
+            <values>
+                <fullName>Action Item Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Check in%2FRoll call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hot Topics%2FMisc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Physician Updates</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Project Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Round Robin</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Infection_Control_Group__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>OGC_Review_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Process</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority__c</picklist>
+            <values>
+                <fullName>Critical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Project_Impact__c</picklist>
+            <values>
+                <fullName>Bay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valley</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Review_Level__c</picklist>
+            <values>
+                <fullName>Detailed Review Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>High Level Review Sufficient</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Completed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Risk__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Secondary_Affiliate__c</picklist>
+            <values>
+                <fullName>Alta Bates Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>California Pacific Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central Valley Medical Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eden Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gould Medical Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial Hospital Los Banos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Menlo Park Surgical Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mills-Peninsula Health Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Novato Community Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation %E2%80%93 Mills Div</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>San Leandro Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>St%2E Luke%E2%80%99s Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Summit Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Amador Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Auburn Faith Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Care at Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Center for Psychiatry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Coast Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Davis Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Delta Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter East Bay Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Gould Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Lakeside Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Maternity and Surgery Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Center Sacramento</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Foundation %E2%80%93 Contracted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Pacific Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Roseville Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Santa Rosa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Solano Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Tracy Community Hospital</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Strategic_Sourcing_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>One_on_One</fullName>
+        <active>true</active>
+        <label>One-on-One</label>
+        <picklistValues>
+            <picklist>Action_Log_Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Affiliate__c</picklist>
+            <values>
+                <fullName>All Bay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>All Valley</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Alta Bates Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>California Pacific Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central Valley Medical Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eden Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gould Medical Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial Hospital Los Banos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Menlo Park Surgical Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mills-Peninsula Health Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Novato Community Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation %E2%80%93 Mills Div</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>San Leandro Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>St%2E Luke%E2%80%99s Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Summit Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Amador Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Auburn Faith Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Care at Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Center for Psychiatry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Coast Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Davis Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Delta Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter East Bay Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Gould Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Lakeside Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Maternity and Surgery Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Center Sacramento</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Foundation %E2%80%93 Contracted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Pacific Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Roseville Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Santa Rosa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Solano Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Tracy Community Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Construction_Activity_Type__c</picklist>
+            <values>
+                <fullName>A</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Construction_Matrix_Class__c</picklist>
+            <values>
+                <fullName>I</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>II</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>III</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contract_Type__c</picklist>
+            <values>
+                <fullName>Net new</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>DSO_Review_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ISSC_Topic__c</picklist>
+            <values>
+                <fullName>Action Item Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Check in%2FRoll call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hot Topics%2FMisc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Physician Updates</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Project Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Round Robin</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Infection_Control_Group__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>OGC_Review_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Process</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority__c</picklist>
+            <values>
+                <fullName>Critical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Project_Impact__c</picklist>
+            <values>
+                <fullName>Bay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valley</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Review_Level__c</picklist>
+            <values>
+                <fullName>Detailed Review Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>High Level Review Sufficient</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Completed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Risk__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Secondary_Affiliate__c</picklist>
+            <values>
+                <fullName>Alta Bates Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>California Pacific Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central Valley Medical Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eden Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gould Medical Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial Hospital Los Banos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Menlo Park Surgical Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mills-Peninsula Health Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Novato Community Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation %E2%80%93 Mills Div</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>San Leandro Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>St%2E Luke%E2%80%99s Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Summit Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Amador Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Auburn Faith Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Care at Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Center for Psychiatry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Coast Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Davis Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Delta Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter East Bay Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Gould Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Lakeside Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Maternity and Surgery Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Center Sacramento</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Foundation %E2%80%93 Contracted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Pacific Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Roseville Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Santa Rosa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Solano Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Tracy Community Hospital</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Strategic_Sourcing_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Rounding</fullName>
+        <active>true</active>
+        <label>Rounding</label>
+        <picklistValues>
+            <picklist>Action_Log_Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Affiliate__c</picklist>
+            <values>
+                <fullName>All Bay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>All Valley</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Alta Bates Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>California Pacific Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central Valley Medical Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eden Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gould Medical Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial Hospital Los Banos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Menlo Park Surgical Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mills-Peninsula Health Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Novato Community Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation %E2%80%93 Mills Div</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>San Leandro Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>St%2E Luke%E2%80%99s Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Summit Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Amador Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Auburn Faith Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Care at Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Center for Psychiatry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Coast Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Davis Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Delta Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter East Bay Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Gould Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Lakeside Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Maternity and Surgery Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Center Sacramento</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Foundation %E2%80%93 Contracted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Pacific Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Roseville Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Santa Rosa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Solano Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Tracy Community Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Construction_Activity_Type__c</picklist>
+            <values>
+                <fullName>A</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Construction_Matrix_Class__c</picklist>
+            <values>
+                <fullName>I</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>II</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>III</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contract_Type__c</picklist>
+            <values>
+                <fullName>Net new</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>DSO_Review_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ISSC_Topic__c</picklist>
+            <values>
+                <fullName>Action Item Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Check in%2FRoll call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hot Topics%2FMisc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Physician Updates</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Project Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Round Robin</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Infection_Control_Group__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>OGC_Review_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Process</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority__c</picklist>
+            <values>
+                <fullName>Critical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Project_Impact__c</picklist>
+            <values>
+                <fullName>Bay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valley</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Review_Level__c</picklist>
+            <values>
+                <fullName>Detailed Review Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>High Level Review Sufficient</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Completed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Risk__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Secondary_Affiliate__c</picklist>
+            <values>
+                <fullName>Alta Bates Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>California Pacific Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central Valley Medical Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eden Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gould Medical Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial Hospital Los Banos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Menlo Park Surgical Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mills-Peninsula Health Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Novato Community Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palo Alto Medical Foundation %E2%80%93 Mills Div</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>San Leandro Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>St%2E Luke%E2%80%99s Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Summit Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Amador Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Auburn Faith Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Care at Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Center for Psychiatry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Coast Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Davis Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Delta Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter East Bay Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Gould Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Lakeside Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Maternity and Surgery Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Center Sacramento</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Medical Foundation %E2%80%93 Contracted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Pacific Medical Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Roseville Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Santa Rosa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Solano Medical Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Tracy Community Hospital</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Strategic_Sourcing_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Topic__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Description__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Owner__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Action_Log_Status__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Action_Log_Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Description__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Topic__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Owner__c</lookupDialogsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <webLinks>
+        <fullName>Print</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Print</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/{!Action_Log__c.Id}/p?retURL=/{!Action_Log__c.Id}</url>
+    </webLinks>
+</CustomObject>

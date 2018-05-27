@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Notify Sales on SSO Creation</name>
+    <style>none</style>
+    <subject>Request for Sold Sign Off Available - {!Sold_Sign_Off__c.Account__c}/DBA: {!Sold_Sign_Off__c.DBA__c} {!Sold_Sign_Off__c.Email_employer_Type__c}</subject>
+    <textOnly>Hi,
+
+The Sold Sign Off: {!Sold_Sign_Off__c.Name} has been created for {!Sold_Sign_Off__c.Account__c}/DBA: {!Sold_Sign_Off__c.DBA__c}, {!Sold_Sign_Off__c.Email_employer_Type__c}.
+
+Before submitting for approval - Please update:
+• Additional fields
+• Plan selections (if necessary)
+• Add Plan Rates with the necessary Tiers &amp; Groupings
+
+Thank you.</textOnly>
+    <type>custom</type>
+</EmailTemplate>

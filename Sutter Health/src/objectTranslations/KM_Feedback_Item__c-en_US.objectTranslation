@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>KM Feedback Item</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>KM Feedback Items</value>
+    </caseValues>
+    <fields>
+        <label><!-- Affiliate --></label>
+        <name>Affiliate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Was this article helpful? --></label>
+        <name>Arcticle_Helpfull__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Article URL --></label>
+        <name>ArticleURL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Article Title --></label>
+        <name>Article_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Article URL --></label>
+        <name>Article_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Content Rating --></label>
+        <name>Content_Rate__c</name>
+        <picklistValues>
+            <masterLabel>Bad</masterLabel>
+            <translation><!-- Bad --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Excellent</masterLabel>
+            <translation><!-- Excellent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fair</masterLabel>
+            <translation><!-- Fair --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Good</masterLabel>
+            <translation><!-- Good --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Poor</masterLabel>
+            <translation><!-- Poor --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- By when should this request be fulfilled/completed? --></help>
+        <label><!-- Due Date --></label>
+        <name>Due_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Feedback Reason --></label>
+        <name>Feedback_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Access Issue</masterLabel>
+            <translation><!-- Access Issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Content</masterLabel>
+            <translation><!-- Content --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Multiple Issues</masterLabel>
+            <translation><!-- Multiple Issues --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Negative Feedback</masterLabel>
+            <translation><!-- Negative Feedback --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Positive Feedback</masterLabel>
+            <translation><!-- Positive Feedback --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>URL</masterLabel>
+            <translation><!-- URL --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Comments/Suggestions --></label>
+        <name>Feedback__c</name>
+    </fields>
+    <fields>
+        <label><!-- Functional Area --></label>
+        <name>Functional_Area__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reported By --></label>
+        <name>Reported_By__c</name>
+        <relationshipLabel><!-- KM Feedback Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Reported On --></label>
+        <name>Reported_On__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Closed - Completed</masterLabel>
+            <translation><!-- Closed - Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed - No Action</masterLabel>
+            <translation><!-- Closed - No Action --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Duplicate</masterLabel>
+            <translation><!-- Duplicate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending Review</masterLabel>
+            <translation><!-- Pending Review --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sub-Function --></label>
+        <name>Sub_Function__c</name>
+    </fields>
+    <fields>
+        <label><!-- Submitter Profile --></label>
+        <name>Submitter_Profile__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type of Feedback --></label>
+        <name>Type_of_feedback__c</name>
+        <picklistValues>
+            <masterLabel>Access Issue</masterLabel>
+            <translation><!-- Access Issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Content</masterLabel>
+            <translation><!-- Content --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Multiple Issues</masterLabel>
+            <translation><!-- Multiple Issues --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Negative</masterLabel>
+            <translation><!-- Negative --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Positive</masterLabel>
+            <translation><!-- Positive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>URL Issue</masterLabel>
+            <translation><!-- URL Issue --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>KM Feedback Item Layout</layout>
+        <sections>
+            <label><!-- Comments --></label>
+            <section>Comments</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Feedback &amp; Comments --></label>
+            <section>Feedback &amp; Comments</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

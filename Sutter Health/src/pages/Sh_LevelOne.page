@@ -1,0 +1,84 @@
+<apex:page docType="html-5.0" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" controller="Sh_LevelOne" action="{!forwardToLoginPage}">
+    <head>
+        <title>{!activePgName}</title>
+        <c:SH_HeaderResource />
+    </head>
+    <style>
+        .container { padding-top: 0px!important;}
+    </style>
+    
+    <body id="home" class="show-notification menu-open menu-visibility">
+    <c:SH_SearchBar isPreview="{!isPreview}"/>
+    <!-- notification popup -->
+    <c:SH_Notification isPreview="{!isPreview}" id="notifComponent" Title="{!strTitle}" Description="{!strDescription}" Info="{!strInfo}" BrowserTitle="{!strBrowserTitle}" BrowserDescription="{!strBrowserDescription}" BrowserInfo="{!strBrowserInfo}" BrowserNotify="{!IsBrowser}" Notify="{!IsNotify}"/>
+    <!-- Menu Item -->
+    <c:SH_MenuItem lstMenuItem="{!lstMenuItem }" isPreview="{!isPreview}" Category="{!strCategoryForHelp}" SubCategory="{!strSubCategoryForHelp}" Team="{!strTeamForHelp}" CustomerIntent="{!strCustomerIntentForHelp}" L1="{!strL1}" L1Id="{!strL1Id}" L2="{!strL2}" L2Id="{!strL2Id}" LevelOneAciveId="{!strActiveMenuId}" LevelTwoAciveId="{!strActiveSubMenuId}" IsApplyClasses="true"/>
+    
+    <!-- content -->
+    <div id="content-wrapper">
+        <!-- Header-->
+        <c:SH_Header isPreview="{!isPreview}" actiVePg="{!activePgName}" breadCrumbs="{!BreadCrumbs}"/>
+    
+        <!-- Content -->
+        <div id="content">
+                <div class="cover" style="background-image: url('{!imgBaseUrl+ strMenuImgUrl}');"></div>
+                       
+                <div class="container margin-top-60">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <section class="text-section title">    
+                                <h1>{!strMenuName}</h1>    
+                                <p>
+                                    {!strMenuDescrition}
+                                </p>
+                            </section>
+                        <!--added on 13-Sep-2015 to provide two column layout structure list<subMenuItemListWrapper> lstSubMenuListWrapper-->
+                        <apex:repeat value="{!lstSubMenuListWrapper}" var="SubMenuListWrapper">
+                            <section class="section-with-columns">  
+                                <div class="row">
+                                    <div class="row-same-height">
+                                        <apex:repeat value="{!SubMenuListWrapper.subMenuWrapperList}" var="SubMenu">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-sm-height with-bottom-line">
+                                                <section class="section-nav">
+                                                    <h4>{!SubMenu.subMenuItem.Name}</h4>
+                                                    <p>
+                                                        {!SubMenu.subMenuItem.SH_Secondary_Page_Description__c}
+                                                    </p>
+                                                    <ul>
+                                                        <apex:repeat value="{!SubMenu.lstTopLevel2Content}" var="Level2Content">
+                                                            <!--Changed on sutter request on 05-Nov-2015 to pass menu name in breadcrumb and pass category subcategory from submenu on article and other link click-->
+                                                            <!--
+                                                            <li><a href="{!If(isPreview,'#',Level2Content.link) + If(OR(IsBlank(Level2Content.link), Level2Content.contentType == 'Tool'),'', if(Contains(Level2Content.link,'?') ,'&','?') + 'L1='+ URLENCODE(strL1) + '&L1Id='+ URLENCODE(strL1Id) + '&L2='+ URLENCODE(strL2) + '&L2Id='+ URLENCODE(strL2Id) + '&M=' + URLENCODE(strCategoryForHelp) + '&SM=' + URLENCODE(strSubCategoryForHelp) + '&T=' + URLENCODE(strTeamForHelp) + '&CI=' + URLENCODE(strCustomerIntentForHelp)) }" target="{!If(Level2Content.contentType == 'Tool','_self' , Level2Content.target)}"><i class="icon icon-benefits"></i><span>{!Level2Content.objSObject['name']}</span></a></li>
+                                                            -->
+                                                            <li><a href="{!If(isPreview,'#',Level2Content.link) + If(OR(IsBlank(Level2Content.link), Level2Content.contentType == 'Tool'),'', if(Contains(Level2Content.link,'?') ,'&','?') + 'L1='+ URLENCODE(strL1) + '&L1Id='+ URLENCODE(strL1Id) + '&L2='+ URLENCODE(SubMenu.subMenuItem.Name) + '&L2Id='+ URLENCODE(SubMenu.subMenuItem.id) + '&M=' + URLENCODE(SubMenu.subMenuItem.SH_Function__c) + '&SM=' + URLENCODE(SubMenu.subMenuItem.SH_Sub_Function__c) + '&T=' + URLENCODE(SubMenu.subMenuItem.SH_Team__c) + '&CI=' + URLENCODE(SubMenu.subMenuItem.SH_Customer_Intent__c)) }" target="{!If(Level2Content.contentType == 'Tool','_self' , Level2Content.target)}"><i class="icon icon-benefits"></i><span>{!Level2Content.objSObject['name']}</span></a></li>
+                                                        </apex:repeat>
+                                                    </ul>
+                                                    <p>
+                                                        <br/>
+                                                        <a href="{!IF(isPreview,'#','SH_LevelTwo?id='+ SubMenu.subMenuItem.ID)}" class="link background-orange"><i class="icon icon-arrow-right"></i>View More</a>
+                                                    </p>
+                                                </section>
+                                                <div class="bottom-line"><hr/></div>
+                                            </div>
+                                        </apex:repeat>
+                                    </div>
+                                </div>
+                            </section>
+                        </apex:repeat>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    
+    <!-- Footer -->
+    <c:SH_Footer ></c:SH_Footer>
+    
+    </body>
+    <apex:form >
+        <!-- added on 25-Aug-2015 for Notification -->
+        <apex:inputHidden id="hdnToolArticle" value="{!strToolArticeId}"/>
+        <apex:inputHidden id="hdnBrowserName" value="{!browserName}"/>
+        <apex:actionfunction name="showNotification" action="{!showNotification}"/>
+    </apex:form>
+</apex:page>

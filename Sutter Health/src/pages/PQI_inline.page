@@ -1,0 +1,20 @@
+<apex:page standardController="Potential_Quality_Issue__c" sidebar="false" showHeader="false" standardStylesheets="true" tabStyle="Opportunity">
+<apex:includeScript value="{!URLFOR($Resource.JQueryCollapsible,'JqueryCollapse/jquery.min.js')}"/>
+ <style>
+     .actionColumn, .pbButton {
+         display:none !important;
+     }
+ </style>
+ <!--<script>
+ $(document).ready(function()   
+     {
+     var test =$("tr.tertiaryPalette:first");
+     test.nextAll().find('span.actionLink[title*="Approve"]').css('display','none');
+     test.nextAll().find('span.actionLink').css('color','#FFFFFF');
+     test.find().find('span.actionLink').css('color','#FFFFFF');
+     $("tr.tertiaryPalette").css('background-color','b4c374');
+     $("tr.tertiaryPalette").css('border-color','b4c374');
+     }); 
+ </script>-->
+ <apex:relatedList list="ProcessSteps" pageSize="100" />
+</apex:page>

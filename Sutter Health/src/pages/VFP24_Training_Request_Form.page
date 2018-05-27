@@ -1,0 +1,81 @@
+<!--
+*     Page Name   : VFP24_Training_Request_Form
+*     Author      : Apoorv Kuchhal
+*     Date        : 26-Aug-2014 
+*     Project Name: CRM - SFT - Sutter Health
+*     Description :Ability for an S3 employee (of any level) to submit a request for Training
+-->
+
+<apex:page standardController="Case" showheader="true"  extensions="VFC24_Training_Request_Form">
+    <apex:includeScript value="/support/console/22.0/integration.js"/>
+        <script type="text/javascript">
+            
+            function closeTab() {
+                //if (sforce.console.isInConsole()) {    
+                    //First find the ID of the current tab to close it
+                    sforce.console.getEnclosingTabId(closeSubtab);
+                //}      
+            }
+                
+            var closeSubtab = function closeSubtab(result) {
+                //Now that we have the tab ID, we can close it
+                var tabId = result.id;
+                sforce.console.closeTab(tabId);
+            };  
+        </script>
+
+        <apex:pageMessages id="pgMsg"/>
+        <apex:form id="pgform">
+            <apex:outputPanel id="formarea" rendered="{!!showMsg}">     
+                <apex:sectionHeader title="Customer Inquiry Edit" subtitle="New Customer Inquiry" />
+
+                <apex:pageBlock title="Training Request Form" mode="Edit" id="pgblk1"  >
+                   <apex:pageBlockButtons >
+                       <apex:commandButton action="{!saveAndSend}"  value="Submit"   reRender="pgMsg, pgform" /> 
+                       <apex:commandButton action="{!Cancel}" oncomplete="closeTab();" value="Cancel" />        
+                   </apex:pageBlockButtons>
+                   <br/>
+                
+                   <!--<apex:pageBlockSection title="Training Information" columns="2" id="pgblk1" collapsible="false" rendered="{!renderform}" >-->
+                   <apex:pageBlockSection title="Training Information" columns="2" id="pgblk1" collapsible="false" >
+                   
+                       <apex:inputField value="{!case.Subject}" required="true" taborderhint="1"/>
+                       <apex:outputField value="{!caseRecord.ContactId}" label="Requested By" /> 
+                       <apex:outputLabel ></apex:outputLabel>
+                       <apex:inputField value="{!case.Request_On_Behalf_Of__c}" style="width: 150px; height: 18px;" taborderhint="6"/>
+                       <apex:inputField value="{!case.Type_Training__c}" required="true" taborderhint="2" />
+                       <apex:outputLabel ></apex:outputLabel>
+                       <apex:inputField value="{!case.Sub_Type__c}" taborderhint="3"/>
+                       <apex:inputField value="{!case.SME_Point_s_of_Contact__c}" style="width: 150px; height: 18px;" required="true" taborderhint="7"/>
+                       <apex:inputField value="{!case.Time_Frame__c}" required="true" taborderhint="4"/>
+                       <apex:inputField value="{!case.Functional_Area__c}" required="true" taborderhint="8"/> 
+                       <apex:outputLabel ></apex:outputLabel>
+                       <apex:inputField value="{!case.Team_Training__c}" required="true" taborderhint="9"/>
+                       <apex:inputField value="{!case.Internal_Comments__c}" style="width: 400px; height: 50px;" required="true" taborderhint="5"/>
+                       <apex:inputField value="{!case.Priority__c}" taborderhint="10"/>
+                   </apex:pageBlockSection>
+               </apex:pageBlock>
+           </apex:outputPanel>
+        
+           <apex:outputpanel id="thankyoumsg" rendered="{!showMsg}">
+                       <div>
+                       <p><b>Thank you for your submission. Your Training Request number is {!caseNum}.</b></p>
+                       </div>
+                       <span style="width:30%;margin-left:150px;">
+                            <apex:commandButton action="{!okay}"  value="OK" />
+                        </span>
+           </apex:outputpanel>
+           
+           <!-- Component for GTM-->
+                     <c:Portal_User_Info />
+           <!-- Component for GTM-->
+           
+       </apex:form>   
+       
+       <!-- Start Google Tag Manager -->
+    <apex:outputLabel value="{!$Label.GTMCustomLabel}" rendered="false"></apex:outputLabel> 
+    <apex:includeScript value="{!$Resource.GTMJavaScript}" />
+    <!-- End Google Tag Manager -->
+
+        
+</apex:page>

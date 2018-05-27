@@ -1,0 +1,110 @@
+<apex:page sidebar="false" showHeader="false" standardController="SHP_Benefit_Grid__c" >
+    <html>
+  <!-- Begin Default Content REMOVE THIS -->
+  <head>
+   <style type="text/css">
+     
+     p { margin-left:5%;
+         margin-right:5%;
+         text-indent: 50px;
+         font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+         font-size: 11px;
+         font-style: normal;
+         font-variant: normal;
+         font-weight: 400;
+         align="center";
+         word-wrap: break-word;
+         line-height: 20px;}
+     
+   </style>
+  </head>
+ 
+ <apex:outPutpanel rendered="{!if (SHP_Benefit_Grid__c.SHP_Benefit_Plan_Year__c == 2015, true, false )}" >
+  <body style="border:1px solid black;">
+    <p>
+    <br/>
+      1 Family deductibles and out-of-pocket maximums are equal to 2 times the individual values.  Except for high-deductible health plans (HDHPs) linked
+      to Health Savings Accounts (HSAs), in a family plan, an individual is responsible only for the single out-of-pocket deductible and a single 
+      out-of-pocket maximum amount.  Cost sharing payments (deductibles, copayments, and coinsurance, but not premiums) for essential health benefits
+      made by each individual apply to the deductible and out-of-pocket maximum.  However, cost sharing payments made for non-emergent out-of-network 
+      services that are no plan-authorized exceptions do not apply to the in-network family deductible or out-of-pocket maximum.  The family deductible 
+      amount may be satisfied by any combination of individual deductible payments, after which member copays or coinsurance apply until the family 
+      out-of-pocket maximum is reached.  Once the family out-of-pocket maximum is reached, the plan pays all costs for covered services for all family 
+      members.  Under HDHP HSA plans, each family member is responsible for an individual deductible of $2600 until the family as a whole meets the 
+      family deductible.  For HDHPs linked to HSAs, each family member must meet the individual out-of-pocket maximum equal to the "self-only enrollment:
+      amount (minimum of $2600) until the family as a whole meets the out-of-pocket maximum amount. <br/>
+      <br/>
+      Medical or prescription services are subject to a deductible as indicated within each benefit plan’s services listing. The member must pay for 
+      these services when services are rendered until the deductible or coinsurance is met in that plan year. Charges for services subject to a dedu 
+      ctible are based on SHP’s contracted rate with the provider of service."<br/>
+      2 Including, but not limited to: annual physical examinations, immunizations (adult and pediatric), maternity care (after initial diagnosis and 
+      pre-and post natal visits), well baby care up to age two; breast, cervical, prostate and colorectal cancer screenings. Preventive care services 
+      are available at no cost. For a complete list of preventive services please refer to the Combined Disclosure Form and Evidence of Coverage.<br/>
+      3 Copays apply per prescription for up to a 30-day supply of prescribed and medically necessary generic or brand-name drugs in accordance with 
+      formulary guidelines. A 100-day supply is available, at twice the 30-day copay price, through the mail-order form. For 2014 plans, prescription
+      drug deductibles or copays do not contribute toward the plan year medical deductible or plan year medical out-of-pocket maximum unless the plan
+      is a high deductible health plan. For plans effective 1/1/2015 and after, all prescription drug cost sharing contributes toward the out of pocket
+      maximum.<br/>
+      4 The deductible and annual out-of-pocket maximum amounts are aggregate, i.e. the family amount must be met before benefits will apply for any 
+      member of the family. "HE" plans valid through November 2015 for groups with effective dates on or before 12/1/2014.  New plan ID "HE" valid for
+      plans with effective dates beginning January 2015.<br/> 
+      5 Member cost sharing for oral anti-cancer drugs shall not exceed $200 per prescription per 30-day supply. For HDHP plans, this applies after the 
+      deductible is met. Copays apply per prescription for up to a 30-day supply of prescribed and medically necessary generic or brand-name drugs in 
+      accordance with formulary guidelines.  A 100-day supply is available, at twice the 30-day copay price, through the mail-order pharmacy.  Prescription 
+      drug deductibles and copays contribute toward the plan year medical out-of-pocket maximum. Speciality medications are only available for a 30-day supply.<br/>
+      6 All benefits are covered at 20% or 50% when obtained with prior authorization if elected as an optional benefit by your employer group.  Reference
+      your Group Membership Agreement and Disclosure Form and Evidence of Coverage for details regarding the coverage of infertility services.
+      Optional infertility services do not apply to the plan deductible or out of pocket maximum.<br/>
+      7 "Other Practitioner Office Visits" include Therapy Visits, other office visits not provided by either Primary Care or Speciality Physicians or 
+      not specified in another benefit category.  Member cost-sharing will be charge as a separate copay from a preventive service provided during an 
+      office visit.<br/>
+      8 This category of services include all Food and Drug Administration approved contraceptive methods, sterilization procedures, and patient edu
+      cation and counseling for all women with reproductive capacity.  This does not include termination of pregnancy or male sterilization procedures,
+      which are covered under "outpatient surgeries and certain other outpatient procedures."<br/>
+      
+    </p>
+    
+      
+  </body>
+  </apex:outPutpanel>
+  
+  <apex:outPutpanel rendered="{!if (SHP_Benefit_Grid__c.SHP_Benefit_Plan_Year__c != 2015, true, false )}" >
+  <body style="border:1px solid black;">
+    <p>
+    <br/>
+     1 Family deductibles and out-of-pocket maximums are equal to 2 times the individual values.  Except for high-deductible health plans (HDHPs) linked to Health Savings Accounts (HSAs), 
+     in a family plan, an individual is responsible only for the single out-of-pocket deductible and a single out-of-pocket maximum amount.  
+     Cost sharing payments (deductibles, copayments, and coinsurance, but not premiums) for essential health benefits made by each individual apply to the deductible and out-of-pocket maximum. 
+     However, cost sharing payments made for non-emergent out-of-network services that are not plan-authorized exceptions do not apply to the in-network family deductible or out-of-pocket maximum.  
+     The family deductible amount may be satisfied by any combination of individual deductible payments, after which member copays or coinsurance apply until the family out-of-pocket maximum is reached.  
+     Once the family out-of-pocket maximum is reached, the plan pays all costs for covered services for all family members.
+     For HDHPs linked to HSAs, in other than self-only coverage, an individual’s payment toward a deductible, if required, must be the higher of the specified deductible amount for individual coverage or $2600 for Plan Year 2016.
+     In coverage other than self-only coverage, an individual’s out of pocket contribution is limited to the individual’s annual out of pocket maximum. <br/>
+      <br/>
+    Medical or prescription services are subject to a deductible as indicated within each benefit plan’s services listing. 
+    The member must pay for these services when services are rendered until the deductible or coinsurance is met in that plan year. 
+    Charges for services subject to a deductible are based on SHP’s contracted rate with the provider of service.<br/>                              
+    2 Cost sharing amounts for all in-network services, including those applied to a deductible, accumulate toward the out-of-pocket maximum unless otherwise stated. 
+    (See #5 regarding prescription drug cost sharing.)  <br/>
+    3 Scheduled prenatal visits and the first postpartum visit. <br/>
+    4 Copays apply per prescription for up to a 30-day supply of prescribed and medically necessary generic or brand-name drugs in accordance with formulary guidelines. 
+    A 100-day supply is available, at twice the 30-day copay price, through the mail-order form. 
+    For plans effective 1/1/2015 and after, all prescription drug cost sharing contributes toward the out of pocket maximum.<br/>                                   
+    5 Subject to prior authorization.  Except for HDHP HSA-eligible plans, Member Cost Share will not exceed $100 per prescription per 30-day supply. 
+    Sexual dysfunction medications have a 50% cost share and are limited to 8 doses per 30-day supply.  <br/>
+    6 All benefits are covered at 20% or 50% when obtained with prior authorization if elected as an optional benefit by your employer group. 
+    Reference your Group Membership Agreement and Disclosure Form and Evidence of Coverage for details regarding the coverage of infertility services. 
+    Optional infertility services do not apply to the plan deductible or out of pocket maximum.<br/>
+    7 Mental and behavioral health services include substance use disorder treatment services.<br/>
+    8 This category of services include all Food and Drug Administration approved contraceptive methods, sterilization procedures, and patient education and counseling for all women with reproductive capacity. 
+    This does not include termination of pregnancy or male sterilization procedures, which are covered under "outpatient surgeries and certain other outpatient procedures."<br/>
+      
+    </p>
+    
+      
+  </body>
+  </apex:outPutpanel>
+ 
+  <!-- End Default Content REMOVE THIS -->
+</html>
+</apex:page>

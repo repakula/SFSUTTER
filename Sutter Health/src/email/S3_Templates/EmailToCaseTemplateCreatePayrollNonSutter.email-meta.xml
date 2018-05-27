@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Payroll email-to-case auto response for non sutter emails.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>S3_Letterhead</letterhead>
+    <name>EmailToCaseTemplateCreatePayrollNonSutter</name>
+    <style>freeForm</style>
+    <subject>Thank you.</subject>
+    <textOnly>Thank you for contacting the Sutter Health Payroll Department.  Unfortunately, we cannot respond to email inquiries sent from outside of the Sutter Health email network.  This is necessary to protect the privacy of your data.</textOnly>
+    <type>html</type>
+</EmailTemplate>

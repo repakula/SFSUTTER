@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Sutter_Shared_Services</letterhead>
+    <name>Rejected Lead</name>
+    <style>freeForm</style>
+    <subject>Lead Rejected</subject>
+    <textOnly>Hi
+
+A new lead {!Lead.Name} is rejected by the Sales Managers.
+
+Rejection Reason provided: {!Lead.Rejection_Reason__c}
+Comments: {!Lead.Approval_Rejection_Comments__c}
+
+Regards</textOnly>
+    <type>html</type>
+</EmailTemplate>

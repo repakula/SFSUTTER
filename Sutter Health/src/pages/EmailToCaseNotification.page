@@ -1,0 +1,48 @@
+<apex:page controller="EmailToCaseNotificationController" tabStyle="Case">
+	<apex:stylesheet value="{!$Resource.EmailToCaseNotificationStyle}" />
+	<apex:includeScript value="/support/console/25.0/integration.js"/>
+    <apex:form >
+        <apex:pageBlock id="myPageId">
+        	<apex:includeScript value="/support/console/32.0/integration.js"/>
+	    	<script type="text/javascript">
+		        var stringvalue='{!recordCount}';
+		        if(stringvalue>0) {
+		      		// sforce.console.setCustomConsoleComponentVisible(true); 
+		      		// sforce.console.setCustomConsoleComponentWindowVisible(true); 
+		       		sforce.console.blinkCustomConsoleComponentButtonText('New Emails: ' + stringvalue, 600);
+		       } else {
+		        	//sforce.console.setCustomConsoleComponentVisible(false);
+		        	sforce.console.blinkCustomConsoleComponentButtonText('Email Alerts', 600);
+		        }
+	       		function openTabFunc(caseId,caseNumber) {
+	            	if(caseId != '') {
+	                	sforce.console.openPrimaryTab(null, '/' + caseId, true, caseNumber);
+	             	}
+	         	}
+	     	</script>
+		    <apex:pageBlockSection collapsible="false" columns="1" title="New Emails From Customer">
+		    	<apex:actionPoller action="{!callMethod}" reRender="myPageId" interval="{!$Label.Polling_Interval}" />
+		    	<apex:pageBlockTable value="{!ListCases}" var="obj" id="out">
+			        <apex:column style="text-align:left" headervalue="Case Number">
+			            <apex:outputLink onclick="openTabFunc('{!obj.caseId}','{!obj.strCaseNumber}'); return false;">
+			                {!obj.strCaseNumber}
+			            </apex:outputLink>
+			        </apex:column>
+			        <apex:column value="{!obj.FromAddress}" headerValue="From Email" />
+				</apex:pageBlockTable>
+			</apex:pageBlockSection>
+			<div style="text-align:center;">
+			    <apex:commandbutton action="{!doFirst}" value="<<" rendered="{!hasPrevious}" styleClass="button" />
+			    <apex:commandbutton value="<" rendered="{!NOT(hasPrevious)}" disabled="true" />
+			    <apex:commandbutton action="{!doPrevious}" rendered="{!hasPrevious}" value="<" styleClass="button" />
+			    <apex:commandbutton value="<<" rendered="{!NOT(hasPrevious)}" disabled="true" />
+			    <b><apex:outputLabel value=" (page {!pageNumber} of {!totalPages}) " rendered="{!IF(totalPages>0,true,false)}"/></b>
+			
+			    <apex:commandbutton action="{!doNext}" rendered="{!hasNext}" value=">" styleClass="button" />
+			    <apex:commandbutton value=">" rendered="{!NOT(hasNext)}" disabled="true" />
+			    <apex:commandbutton action="{!doLast}" value=">>" rendered="{!hasNext}" styleClass="button" />
+			    <apex:commandbutton value=">>" rendered="{!NOT(hasNext)}" disabled="true" />
+			</div>
+		</apex:pageBlock>
+    </apex:form>
+</apex:page>

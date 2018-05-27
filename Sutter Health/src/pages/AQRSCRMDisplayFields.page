@@ -1,0 +1,75 @@
+<apex:page controller="AQRSCRMController">
+<script>
+function displayClass()
+{
+    document.getElementById("displayModal").style.display = "block";
+}
+
+</script>
+  <apex:form id="displayform">
+    <apex:commandlink action="{!fetchDisplayFields}"  value="Select Display Fields"  oncomplete="displayClass();" rerender="displayFieldPanel"/>
+      
+       <div class="modal-dialog" id="displayModal" style="display:none;">
+    <div class="modal-content" id="display1Modal">
+    <div class="modal-header" align="center">
+    <span id="PVP_Show_Fields"><h5><b>View More Fields from Pre-Visit Planning Table</b></h5></span>
+    <span id="GIC_Show_Fields" style="display:none;"><h5><b>View More Fields from Gaps In Care Table</b></h5></span>
+
+    <span><button type="button" style="float:right;">
+    <span class="glyphicon glyphicon-remove" aria-hidden="true" onclick="hidePopup();"></span>
+    </button></span>
+    </div>
+    <!-- Begin # DIV Form -->
+    <div id="div-forms">
+    <apex:pageMessages ></apex:pageMessages>
+    <!-- Begin # Login Form -->
+    <div class="modal-body">
+    <apex:panelGrid columns="3" id="displayFieldPanel">
+    <apex:panelGroup >
+    <b>Available Fields</b><br/>   
+    <apex:selectList label="Available Fields" id="unselected_list" required="false"
+    value="{!selected}" multiselect="true" size="15"  style="width:303px">
+    <apex:selectOptions value="{!unSelectedOptions}"/>
+    </apex:selectList>
+    </apex:panelGroup>
+    <apex:panelGroup >
+    <p style="clear:both;"></p>
+    <br/><br/>
+    <apex:commandButton value=">>" style="width:24px;" action="{!DoSelect}" styleClass="btn btndesign addFieldButton"
+    reRender="unselected_list,selected_list"/>
+    <br/>
+    <apex:commandButton value="<<" style="width:24px;" action="{!DoUnselect}" styleClass="btn btndesign addFieldButton"
+    reRender="unselected_list,selected_list"/>
+    </apex:panelGroup>
+    <apex:panelGroup >
+    <b>Selected Fields</b><br/>
+    <apex:selectList label="Selected Fields" id="selected_list" required="false"
+    value="{!unselected}" multiselect="true" size="15"  style="width:303px">
+    <apex:selectOptions value="{!selectedOptions}"/>
+    </apex:selectList>
+    </apex:panelGroup>
+    <apex:PanelGroup >
+    <!-- <apex:commandButton action="{!save}" value="Submit" id="theSubmitButton" style="float:right;margin-top:15px;"/>
+    <apex:commandButton action="{!cancel}" value="Cancel" id="theCancelButton" onclick="window.top.close();" style="float:right;margin-top:15px;"/>
+    <apex:commandButton value="Cancel" id="theCancelButton" onclick="window.top.close();" style="float:right;margin-top:15px;"/>-->
+    </apex:PanelGroup>
+    </apex:panelGrid>
+    <!-- <apex:iframe src="/apex/AQRSShowMoreFieds" scrolling="true" height="360px" width="100%" /> -->
+    <!--<apex:commandLink value="Submit" action="{!setDisplayFields}" target="_parent" styleClass="btn" style="text-decoration:none;padding:4px;"/>-->
+    </div>
+    <div class="modal-footer">
+    <apex:commandLink value="Submit" action="{!setDisplayFields}"  rerender="displayform" styleClass="btn searchbtn" style="text-decoration:none;padding:4px;"/>
+    <apex:commandLink value="Cancel"  id="theCancelButton" rerender="PatinetPVPList,pvvDatatable" onclick="hidePopup();"  styleClass="btn searchbtn" style="text-decoration:none;padding:4px;" />
+    <div>
+    </div>
+    </div>
+    <!-- End # Login Form -->
+    <!-- End # DIV Form -->
+    </div>
+    </div>
+    </div>
+    
+    
+  
+    </apex:form>
+</apex:page>

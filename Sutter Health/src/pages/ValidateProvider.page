@@ -1,0 +1,695 @@
+<!--
+    Author        : Shakti Mehtani 
+    Date Created  : 06/11/2014 (DD/MM/YYYY)
+    Description   : For validating Provider's Information
+*       History
+*      
+*       VERSION         AUTHOR              DATE              DETAIL 
+*         1.0          Shakti Mehtani       11/06/2014       Initial Creation
+          2.0          IDC         12/04/15        Added JSENCODE
+-->
+
+<apex:page id="thePage" controller="ValidateProviderController" sidebar="false" action="{!ifUserAuthenticated}">  
+<head>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<script type="text/javascript" src="{!$Resource.Jquery}"></script>
+
+<script type="text/javascript">
+
+    var format = function(type,e,input) { 
+        /* to prevent backspace, enter and other keys from interfering w mask code apply by attribute onkeydown=FormatPhone(control) */ 
+    
+        evt = e || window.event; /* firefox uses reserved object e for event */
+    
+        if(evt != null) {
+            var BlockedKeyCodes = new Array(8,27,13,9); //8 is backspace key 
+            var len = BlockedKeyCodes.length; 
+            var block = false; 
+            var str = ''; 
+            var pressedkey = evt.which || evt.keyCode; 
+            
+            for (i=0; i<len; i++){ 
+                str=BlockedKeyCodes[i].toString(); 
+                if (str.indexOf(pressedkey) >=0 ) block=true;  
+            } 
+            if (block) return true;
+        } 
+    
+    
+       s = input.value; 
+       if (s.charAt(0) =='+') return false; 
+       filteredValues = '"`!@#$%^&*()_+|~-=\QWERT YUIOP{}ASDFGHJKL:ZXCVBNM<>?qwertyuiop[]asdfghjkl;zxcvbnm,./\\\'';  
+       var i; 
+       var c;
+       var returnString = ''; 
+    
+       /* Search through string and append to unfiltered values to returnString. */ 
+        if(type=='phone') {
+            for (i = 0; i < s.length; i++) {  
+                c = s.charAt(i); 
+                
+                //11-Digit number format if leading number is 1
+                if (s.charAt(0) == 1){
+                
+                    if ((filteredValues.indexOf(c) == -1) && (returnString.length <  15 )) { 
+                        if (returnString.length==1) returnString +='('; 
+                        if (returnString.length==5) returnString +=')'; 
+                        if (returnString.length==6) returnString +='-'; 
+                        if (returnString.length==10) returnString +='-'; 
+                        returnString += c; 
+                    } 
+                
+                } else {
+                     //10-Digit number format
+                     if ((filteredValues.indexOf(c) == -1) && (returnString.length <  14 )) { 
+                        if (returnString.length==0) returnString +='('; 
+                        if (returnString.length==4) returnString +=')'; 
+                        if (returnString.length==5) returnString +='-'; 
+                        if (returnString.length==9) returnString +='-'; 
+                        returnString += c; 
+                    }
+                }
+            }
+        } else if(type=='zip') {
+            
+            for (i = 0; i < s.length; i++) {  
+                c = s.charAt(i); 
+                if ((filteredValues.indexOf(c) == -1) && (returnString.length < 10  )) { 
+                    if (returnString.length==5) returnString +='-'; 
+                    returnString += c; 
+                }
+            }
+        }
+     
+       input.value = returnString; 
+       return false;
+    }
+    
+    var doLogout = function() {   
+        var url = '{!JSENCODE(logoutURL)}';
+        var retURL = '{!JSENCODE(logoutRetURL)}';
+
+        var hostname = window.location.hostname;
+        var protocol = window.location.protocol;
+        
+        var url = protocol + '//' + hostname + url + '?retUrl=' + protocol.replace(':','%3A') + '%2F%2F' + hostname + retURL;
+
+        window.location.assign(url);
+    }
+</script>
+
+
+<script type="text/javascript">
+
+    var offsetfromcursorX=5; //Customize x offset of tooltip
+    var offsetfromcursorY=0; //Customize y offset of tooltip
+    
+    var offsetdivfrompointerX=10; //Customize x offset of tooltip DIV relative to pointer image
+    var offsetdivfrompointerY=14; //Customize y offset of tooltip DIV relative to pointer image. Tip: Set it to (height_of_pointer_image-1).
+    var pointerImgURL = "{!URLFOR($Resource.toolTip, 'pointer.gif')}";
+    document.write('<div id="dhtmltooltip"></div>'); //write out tooltip DIV
+    document.write('<img id="dhtmlpointer" src="'+ pointerImgURL + '">'); //write out pointer image
+    
+    var ie=document.all;
+    var ns6=document.getElementById && !document.all;
+    var enabletip=false;
+    if (ie||ns6)
+    var tipobj=document.all? document.all["dhtmltooltip"] : document.getElementById? document.getElementById("dhtmltooltip") : "";
+    
+    var pointerobj=document.all? document.all["dhtmlpointer"] : document.getElementById? document.getElementById("dhtmlpointer") : "";
+    
+    function ietruebody(){
+        return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body;
+    }
+    
+    function ddrivetip(thetext, thewidth, thecolor){
+        if (ns6||ie){
+            if (typeof thewidth!="undefined") tipobj.style.width=thewidth+"px";
+            if (typeof thecolor!="undefined" && thecolor!="") tipobj.style.backgroundColor=thecolor;
+            tipobj.innerHTML=thetext;
+            enabletip=true;
+            return false;
+        }
+    }
+    
+    function positiontip(e){
+        if (enabletip){
+            var nondefaultpos=false;
+            var curX=(ns6)?e.pageX : event.clientX+ietruebody().scrollLeft;
+            var curY=(ns6)?e.pageY : event.clientY+ietruebody().scrollTop;
+            //Find out how close the mouse is to the corner of the window
+            var winwidth=ie&&!window.opera? ietruebody().clientWidth : window.innerWidth-20;
+            var winheight=ie&&!window.opera? ietruebody().clientHeight : window.innerHeight-20;
+            
+            var rightedge=ie&&!window.opera? winwidth-event.clientX-offsetfromcursorX : winwidth-e.clientX-offsetfromcursorX;
+            var bottomedge=ie&&!window.opera? winheight-event.clientY-offsetfromcursorY - 125 : winheight-e.clientY-offsetfromcursorY -125;
+            
+            var leftedge=(offsetfromcursorX<0)? offsetfromcursorX*(-1) : -1000;
+            
+            //if the horizontal distance isn't enough to accomodate the width of the context menu
+            if (rightedge<tipobj.offsetWidth){
+                //move the horizontal position of the menu to the left by it's width
+                tipobj.style.left=curX-tipobj.offsetWidth+"px";
+                nondefaultpos=true;
+            } else if (curX<leftedge)
+                tipobj.style.left="5px";
+            else{
+                //position the horizontal position of the menu where the mouse is positioned
+                tipobj.style.left=curX+offsetfromcursorX-offsetdivfrompointerX+"px";
+                pointerobj.style.left=curX+offsetfromcursorX+"px";
+            }
+            
+            //same concept with the vertical position
+            if (bottomedge<tipobj.offsetHeight){
+                tipobj.style.top=curY-tipobj.offsetHeight-offsetfromcursorY-125+"px";
+                nondefaultpos=true;
+            }
+            else{
+                tipobj.style.top=curY+offsetfromcursorY+offsetdivfrompointerY-125+"px";
+                pointerobj.style.top=curY+offsetfromcursorY-125+"px";
+            }
+            
+            tipobj.style.visibility="visible";
+            
+            if (!nondefaultpos)
+                pointerobj.style.visibility="visible";
+            else
+                pointerobj.style.visibility="hidden";
+        }
+    }
+    
+    function hideddrivetip(){
+        if (ns6||ie){
+            enabletip=false;
+            tipobj.style.visibility="hidden";
+            pointerobj.style.visibility="hidden";
+            tipobj.style.left="-1000px";
+            tipobj.style.backgroundColor='';
+            tipobj.style.width='';
+        }
+    }
+    
+    document.onmousemove=positiontip;
+
+</script>
+
+
+<style type="text/css">
+    table {
+        font-family:arial;
+        font-size:12px;
+    } 
+    
+    .main {
+        padding:10px 30px 10px 30px;
+        border:15px solid #00AAA6;
+        border-radius:10px;
+        box-shadow: 10px 10px 5px #888888;
+        -moz-box-shadow:    10px 10px 5px #888888;
+        -webkit-box-shadow: 10px 10px 5px #888888;
+    }
+    
+    .title {
+        font-size:20px;
+        font-weight:bold;
+        color:#5C5A5B;
+    }
+
+    .style-1 {
+        color:#0000FF;
+        font-size:16px;
+    }
+
+    .style-2 {
+        font-size:16px;
+        font-weight:bold;
+        color:#166699;
+        
+    }
+    
+    .spacer-5 {
+        height:5px;
+    }
+    
+    .spacer-6 {
+        height:6px;
+    }
+    
+    .spacer-10 {
+        height:10px;
+    }
+    
+    .spacer-15 {
+        height:15px;
+    }
+    
+    .spacer-23 {
+        height:23px;
+    }
+    
+    .spacer-30 {
+        height:30px;
+    }
+    .footer-link {
+        font-size:12px;
+        color:#166699;
+        text-decoration:none;
+    }
+    .footer-link:hover {
+        color:#9B99AA;
+    }
+    .footer-text {
+        font-size:12px;
+        color:#9B99AA;
+    }
+
+    #header {
+        padding-top:10px;
+    }
+    .label {
+        font-weight:bold;
+        text-align:left;
+    }
+
+    fieldset {
+        border:1px solid #166699;
+        border-radius:5px;
+    }
+    
+    .legendStyle {
+        color:#166699;
+        font-weight:bold;
+        vertical-align:middle;
+        height:30px;
+    }
+    
+    .info {
+        font-size:14px;
+        color:#5C5A5B;
+        text-align:left;
+    }
+    
+    .textRed {
+        color:red;
+    }
+    
+    .x-button {
+      font: bold 20px Arial;
+      text-decoration: none;
+      background: #c3c3c3;
+      color: #333333;
+      padding: 4px 8px 4px 8px;
+      border-top: 1px solid #CCCCCC;
+      border-right: 1px solid #707070;
+      border-bottom: 1px solid #707070;
+      border-left: 1px solid #CCCCCC
+      cursor: pointer;
+    }
+    
+    .x-button:active {
+        text-decoration:none;
+        background: #c3c3c3;
+        color: #333333;
+        cursor: pointer;
+    }
+    
+    .x-button:hover {
+        text-decoration:none;
+        background: #E0EEEF;
+        color: #333333;
+        cursor: pointer;
+    }
+    
+    .x-toolTipImg {
+        height:17px;
+        width:17px;
+        line-height:17px;
+        /*padding-left:10px;*/
+    }
+    
+    /*Start - ToolTip CSS*/
+    #dhtmltooltip{
+        position: absolute;
+        left: -300px;
+        width: 150px;
+        border: 1px solid black;
+        padding: 2px;
+        background-color: lightyellow;
+        visibility: hidden;
+        z-index: 100;
+        /*Remove below line to remove shadow. Below line should always appear last within this CSS*/
+        filter: progid:DXImageTransform.Microsoft.Shadow(color=gray,direction=135);
+    }
+        
+        #dhtmlpointer{
+        position:absolute;
+        left: -300px;
+        z-index: 101;
+        visibility: hidden;
+    }
+    
+    input, textarea, td {
+        margin:0px;
+        padding:0px;
+    }
+        /*End - ToolTip CSS*/
+    
+</style>
+
+</META>
+</head> 
+
+<body>
+
+<apex:form id="theForm">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <!--Left Space-->
+        <td width="10%"></td>
+        <!--START - MAIN-->
+        <td align="center">
+            <table border="0" cellpadding="0" cellspacing="0" width="768px">
+
+                <!--START - HEADER-->
+                <tr><td align="center" valign="top" id="header">
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%">                 
+                        <tr>
+                            <td class="style-1" valign="top" align="left">
+                                <apex:outputText rendered="{!(providerInfo.lastModifiedDate != null)}">
+                                    Last Validated On : {!providerInfo.lastModifiedDate}
+                                </apex:outputText>
+                            </td>
+                            <td valign="top" align="right"><apex:image id="theLogo" value="{!$Resource.logo}" width="180" height="67"/></td>                          
+                        </tr>
+                            
+                    </table>
+                </td></tr>
+                <!--END - HEADER-->
+
+      <!--          <tr><td class="spacer-5"></td></tr>             -->
+                <tr><td align="left"></td></tr>
+      <!--          <tr><td class="spacer-5"></td></tr>             -->
+                <tr><td class="spacer-30"></td></tr>            
+
+
+                <!-- FORM START - RENDERED if section = form -->
+                <apex:outputText rendered="{!(section == 'form')}">
+                    <tr><td>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="main">   
+    
+                            <tr>
+                                <td class="spacer-30"></td>
+                            </tr>    
+                        
+                            <tr><td class="info">
+                                Please validate your Sutter Health contact information below, or make any necessary changes.<br/><span class="textRed">All fields are required.</span>
+                            </td></tr>
+    
+                           <tr><td class="spacer-15"></td></tr>           
+                            
+                            <tr><td align="left"><apex:pageMessages /></td></tr>  
+                            
+                            <tr><td class="spacer-15"></td></tr>          
+    
+                            <tr><td class="style-2" align="left">{!providerInfo.name}</td></tr>              
+                            <tr><td class="spacer-30"></td></tr>    
+                            
+                            
+                            
+                            <tr><td>
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr><td colspan="3" class="label" align="left">Email</td></tr>   
+                                    <tr>
+                                        <td width="10%" class="spacer-5"></td>
+                                        <td width="1%"></td>
+                                        <td></td>
+                                     </tr> 
+
+                                    <tr>
+                                         <td align="left" valign="middle">
+
+                                        <apex:inputField id="email" value="{!summaryObj.Email__c}" style="width:240px;margin-right:0px;" />
+                                        </td>
+                                        <td></td>
+                                        <td  align="left" valign="middle">
+                                            <apex:image styleClass="x-toolTipImg" value="{!URLFOR($Resource.tooltip, 'questionMarkIcon.jpg')}"
+                                              
+                                                onmouseover="ddrivetip('{!$Label.CL55_Help_Text_Email}', 300)"
+                                                onmouseout="hideddrivetip()"  />
+                                        </td>
+                                    </tr>   
+            
+                                    <tr><td colspan="3" class="spacer-10"></td></tr>    
+            
+                                    <tr><td colspan="3" class="label" align="left">Mobile Phone</td></tr>    
+                                    <tr><td colspan="3" class="spacer-5"></td></tr> 
+                                    <tr>
+                                        <td align="left" valign="middle">
+                                            <apex:inputField id="mobile" value="{!summaryObj.Mobile_Phone__c}" style="width:240px;margin-right:0px;" />
+                                        </td>
+                                        <td></td>
+                                        <td align="left" valign="middle">
+                                            <apex:image styleClass="x-toolTipImg" value="{!URLFOR($Resource.tooltip, 'questionMarkIcon.jpg')}"
+                                                onmouseover="ddrivetip('{!$Label.CL56_Help_Text_MobilePhone}', 300)" 
+                                                onmouseout="hideddrivetip()"  />
+                                        </td>
+                                    </tr>
+                                    
+              <!--                      <tr><td colspan="3" class="spacer-10"></td></tr>    -->
+                                    <tr><td colspan="3" class="spacer-5"></td></tr> 
+                                    <tr>
+                                        <td align="left" valign="middle">
+                                            <apex:inputField value="{!summaryObj.Ok_to_Text__c}" />&nbsp;&nbsp;OK to Text ?
+                                        </td>
+                                        <td colspan="2"></td>
+                                    </tr>
+                                    
+                                    <tr><td colspan="3" class="spacer-10"></td></tr>
+                <!--                    <tr><td colspan="3" class="spacer-5"></td></tr>   -->
+        
+                                    
+                                    <tr><td colspan="3" class="label" align="left">Preferred Sutter EHR Communication Method</td></tr>
+                                    <tr><td colspan="3" class="spacer-5"></td></tr> 
+                                    <tr>
+                                        <td align="left" valign="middle" style="height:20px;">
+                                            <apex:inputField value="{!summaryObj.Preferred_Communication_Method__c}" style="width:245px;margin-right:0px;" />
+                                        </td>
+                                        <td></td>
+                                        <td align="left" valign="middle">
+                                            <apex:image styleClass="x-toolTipImg" value="{!URLFOR($Resource.tooltip, 'questionMarkIcon.jpg')}"
+                                                onmouseover="ddrivetip('{!$Label.CL57_Help_Text_PreferredCommunicationMethod}', 300)" 
+                                                onmouseout="hideddrivetip()"  />                                    
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td></tr>
+                            
+                                                    
+                            <tr><td class="spacer-23"></td></tr>
+                            
+                            <tr><td>
+                                <fieldset class="fieldsSetStyle">
+                                    <legend class="legendStyle">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding-top:7px;">
+                                            <tr>
+                                                <td nowrap="true">Primary Clinical Contact Information</td>
+                                                <td width="2%">&nbsp;</td>
+                                                <td>
+                                                <apex:image styleClass="x-toolTipImg" value="{!URLFOR($Resource.tooltip, 'questionMarkIcon.jpg')}"
+                                                    onmouseover="ddrivetip('{!$Label.CL58_Help_Text_PrimaryContactInformation}', 300)" 
+                                                    onmouseout="hideddrivetip()"  />
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </legend>
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding:0px;margin:0px;">
+                                        <tr>
+                                            <!-- START - Address Section -->
+                                            <td width="60%" valign="top">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding:0px;margin:0px;">
+                                                    <tr>
+                                                        <td width="3%">&nbsp;&nbsp;</td>
+                                                        <td width="10%" class="spacer-6"></td>
+                                                        <td width="2%">&nbsp;</td> 
+                                                        <td width="10%"></td>
+                                                        <td width="2%">&nbsp;</td>
+                                                        <td width="73%"></td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td></td>
+                                                        <td class="label" colspan="5">Street Address</td>
+                                                    </tr>
+                
+                                                    <tr><td colspan="6" class="spacer-5"></td></tr>         
+                
+                                                    <tr>
+                                                        <td></td>
+                                                        <td colspan="5" align="left">
+                                                            <apex:inputTextArea id="sc_streetAddress" rows="3" value="{!providerInfo.sc_address}" style="width:396px;margin-right:0px;" />
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                    <tr><td colspan="6" class="spacer-10"></td></tr>    
+                
+                                                    <tr>
+                                                        <td></td>
+                                                        <td class="label">City</td>
+                                                        <td></td>
+                                                        <td class="label">State</td>
+                                                        <td></td>
+                                                        <td class="label">Zip Code</td>
+                                                    </tr>
+                
+                                                    <tr><td colspan="6" class="spacer-5"></td></tr> 
+                                            
+                                                    <tr>
+                                                        <td></td>
+                                                        <td align="left"><apex:inputField id="sc_city" value="{!summaryObj.Secure_City__c}" style="width:140px;" /></td>
+                                                        <td></td>
+                                                        <td align="left"><apex:inputField id="sc_state" value="{!summaryObj.Secure_State__c}" style="width:138px;" /></td>
+                                                        <td></td>
+                                                        <td align="left"><apex:inputField id="sc_zipCode" value="{!summaryObj.Secure_Zip_Code__c}" style="width:108px;" onKeyUp="format('zip',null,this)" /></td>
+                                                    </tr>
+                
+                                                    <tr><td colspan="6" class="spacer-10"></td></tr>
+                                                </table> 
+                                            </td>
+                                            <!-- END - Address Section -->
+                                            
+                                            <td width="10%">&nbsp;</td>
+                                            
+                                            <!-- START - Phone & Fax Section -->
+                                            <td width="30%" valign="top">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <tr><td class="spacer-6">&nbsp;</td></tr>    
+                
+                                                    <tr><td class="label">Phone</td></tr>
+                                                    <tr><td class="spacer-5"></td></tr>         
+                                                    <tr><td align="left"><apex:inputField id="sc_phone" value="{!summaryObj.Secure_Phone__c}" style="width:180px;" /></td></tr>
+                                                    <tr><td class="spacer-10"></td></tr>    
+                
+                                                    <tr><td class="label">Fax</td></tr>
+                                                    <tr><td class="spacer-5"></td></tr> 
+                                                    <tr><td align="left"><apex:inputField id="sc_fax" value="{!summaryObj.Secure_Fax__c}" style="width:180px;" /></td></tr>
+                                                    <tr><td class="spacer-10"></td></tr>
+                                                </table> 
+                                            </td>
+                                            <!-- END - Phone & Fax Section  -->
+                                        </tr>
+                                        
+                                        <tr><td colspan="3" class="spacer-10"></td></tr>
+                                        <tr><td colspan="3" class="spacer-5"></td></tr>
+                                    </table>
+                                </fieldset>
+                            </td></tr>
+    
+                            <tr><td class="spacer-30"></td></tr>    
+                        
+                            <tr><td align="center">
+                                <apex:commandButton action="{!save}" value="Save" id="theButton" style="padding: 2px;width: 96px;height: 37px;font-size: 2em;background: #00AAA6;color: white;border-radius: 4px;border-top: 1px solid #CCCCCC;border-right: 1px solid #707070;border-bottom: 1px solid #707070;border-left: 1px solid #CCCCCC;"/>
+
+
+                            </td></tr>
+    
+                            <tr><td class="spacer-30"></td></tr>
+                        </table>
+                    </td></tr>
+                </apex:outputText>
+                <!-- FORM END -->
+                
+                <!-- START - SUCCESS PAGE - RENDERED if section = success -->
+                <apex:outputText rendered="{!(section == 'success')}">
+                <!-- <apex:outputText rendered="{!(1 == 1)}">-->
+                    <tr><td>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="main">   
+                            <tr><td colspan="2" class="spacer-30"></td></tr> 
+                            <tr>
+                                <td width="20%" align="center"><apex:image value="{!$Resource.rightIcon}" /></td>
+                                <td align="center" style="font-size:18px;font-weight:bold;color:green;line-height:50px;">
+                                    Your validated contact information has been saved.
+                                    <br/><br/>
+                                    <a class="x-button" onClick="javascript:doLogout()" style="background: #00AAA6;color: white;border-radius: 4px;">Logout</a>
+                                </td>
+                            </tr>
+                            <tr><td colspan="2" class="spacer-30"></td></tr> 
+                        </table>
+                    </td></tr>
+                </apex:outputText>
+                <!-- END - SUCCESS PAGE -->
+                
+                <!-- START - ERROR PAGE - RENDERED if section = error -->
+                <apex:outputText rendered="{!(section == 'error')}">
+                <!-- <apex:outputText rendered="{!(1 == 1)}">-->
+                    <tr><td>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="main">   
+                            <tr><td colspan="2" class="spacer-30"></td></tr> 
+                            <tr>
+                                <td width="20%" align="center"></td>
+                                <td align="center" style="font-size:18px;font-weight:bold;color:red;line-height:50px;">
+                                    Unauthorized Access.
+                                    <br/><br/>
+                                    <a class="x-button" onClick="javascript:doLogout('{!JSENCODE(logoutURL)}','{!JSENCODE(logoutRetURL)}')">Logout</a>
+                                </td>
+                            </tr>
+                            <tr><td colspan="2" class="spacer-30"></td></tr> 
+                        </table>
+                    </td></tr>
+                </apex:outputText>
+                <!-- END - ERROR PAGE -->
+                
+                <tr><td class="spacer-30"></td></tr>
+
+                <!--START - FOOTER-->
+                <tr><td>
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tr><td align="center" valign="top" height="20px">
+                            <a href="http://www.sutterhealth.org/about/" class="footer-link">About our Sutter Health network</a> 
+                            <span class="footer-text"> | </span> 
+                            <a href="http://www.sutterhealth.org/thedoctorforyou/about_doctors.html" class="footer-link">About the Doctors on this Site</a>
+                            <span class="footer-text"> | </span> 
+                            <a href="http://www.sutterhealth.org/contact" class="footer-link">Contact Us</a>
+                            <span class="footer-text"> | </span> 
+                            <a href="http://www.sutterhealth.org/policy/" class="footer-link">Privacy Policy</a>
+                            <span class="footer-text"> | </span> 
+                            <a href="http://www.sutterhealth.org/accessibility_footer.html" class="footer-link">Accessibility</a>
+                        </td></tr>
+                        <tr class="footer-text" align="center"><td>
+                            Copyright &copy; 2014 Sutter Health. All rights reserved. Sutter Health is a registered trademark of Sutter Health &reg; , Reg. U.S. Patent. &amp; Trademark office.
+                        </td></tr>
+                    </table>
+
+                </td></tr>
+                <!--END - FOOTER--> 
+
+                <tr><td class="spacer-10"></td></tr>            
+            </table>
+        </td>
+        <!--END - MAIN-->
+
+        <!--Right Space-->
+        <td width="10%"></td>
+    </tr>
+</table>
+</apex:form>
+<script type="text/javascript">
+    if(document.getElementById('thePage:theForm:sc_zipCode')) {
+        format('zip',null,document.getElementById('thePage:theForm:sc_zipCode'));
+    }
+    
+    document.getElementById('thePage:theForm:mobile').focus();
+    document.getElementById('thePage:theForm:mobile').blur();
+    
+    document.getElementById('thePage:theForm:sc_phone').focus();
+    document.getElementById('thePage:theForm:sc_phone').blur();
+    
+    document.getElementById('thePage:theForm:sc_fax').focus();
+    document.getElementById('thePage:theForm:sc_fax').blur();
+    
+    if($("div[class='zen-pageMsg textOnly highImportance']").html() == null) {
+        $("div#x-custLogInMsg").css("display","block");
+        $("div#x-custLogInMsg").html('{!JSENCODE(logInMsg)}');
+    }
+</script>
+</body>
+</apex:page>

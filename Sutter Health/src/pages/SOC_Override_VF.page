@@ -1,0 +1,170 @@
+<apex:page controller="SOC_Override_Class" id="pg">
+    <script src="/soap/ajax/28.0/connection.js" type="text/javascript"></script>
+    <script src="/soap/ajax/28.0/apex.js" type="text/javascript"></script>
+    <apex:includeScript value="/support/console/28.0/integration.js"/>
+    <script type="text/javascript" language="javascript" src="{!URLFOR($Resource.jQueryDataTablesZip, 'js/jquery.js')}"></script>
+    <script type="text/javascript" language="javascript" src="{!URLFOR($Resource.jQueryDataTablesZip, 'js/jquery.dataTables.js')}"></script>
+    <apex:stylesheet value="{!URLFOR($Resource.jQueryDataTablesZip, 'css/jquery.dataTables.css')}"/>
+    <script>
+        function openTabFunc(prId, socId,providerName,caseId){
+            if(prId != '') {
+                sforce.console.openPrimaryTab(null, '/apex/SOCCall?providerId='+prId + '&socId='+socId + '&caseId=' + caseId, true, providerName);
+            } else {
+                alert('Provider is not attached to the value');
+            }
+        }
+        
+        function noenter(ev)  {
+            if (window.event && window.event.keyCode == 13 || ev.which == 13) {
+                javascriptSearchProvider();
+                return false;
+             } else {
+                  return true;
+             }
+         }
+        
+        
+    </script>
+    <style type="text/css">
+        .sorting {
+            background: #f2f3f3 url('{! URLFOR($Resource.jQueryDataTablesZip, 'images/sort_both.png') }') no-repeat center right !important;
+            padding-right: 20px !important;
+        }
+        .sorting_asc {
+            background: #f2f3f3 url('{! URLFOR($Resource.jQueryDataTablesZip, 'images/sort_asc.png') }') no-repeat center right !important;
+            padding-right: 20px !important;
+        }
+        .sorting_desc {
+            background: #f2f3f3 url('{! URLFOR($Resource.jQueryDataTablesZip, 'images/sort_desc.png') }') no-repeat center right !important;
+            padding-right: 20px !important;
+        }
+        .sorting_asc_disabled {
+            background: #f2f3f3 url('{! URLFOR($Resource.jQueryDataTablesZip, 'images/sort_asc_disabled.png') }') no-repeat center right !important;
+            padding-right: 20px !important;
+        }
+        .sorting_desc_disabled {
+            background: #f2f3f3 url('{! URLFOR($Resource.jQueryDataTablesZip, 'images/sort_desc_disabled.png') }') no-repeat center right !important;
+            padding-right: 20px !important;
+        }
+        table.dataTable tr.odd { background-color: white; }
+        table.dataTable tr.even { background-color: white; }
+        table.dataTable tr.odd td.sorting_1 { background-color: white; }
+        table.dataTable tr.odd td.sorting_2 { background-color: white; }
+        table.dataTable tr.odd td.sorting_3 { background-color: white; }
+        table.dataTable tr.even td.sorting_1 { background-color: white; }
+        table.dataTable tr.even td.sorting_2 { background-color: white; }
+        table.dataTable tr.even td.sorting_3 { background-color: white; }
+        .dataTables_length, .dataTables_filter, .dataTables_info, .dataTables_paginate {
+            padding: 3px;
+        }
+        
+         #contentLoading {
+          background-color: black;
+          position: fixed;
+          top: 0; right: 0; bottom: 0; left: 0;
+          opacity: 0.5;
+          -moz-opacity:0.5;
+          z-index: 999999;
+         }
+        
+    </style>
+    <style>
+        table thead tr.x-grid3-hd-row td.x-grid3-td-ACTION_COLUMN  {
+            display : none;
+        }
+        table.x-grid3-row-table tbody tr td.x-grid3-td-ACTION_COLUMN {
+            display : none;
+        } 
+    </style>
+    <div id="socPanelistView" style="width:49%; height:100%; float:left">
+        <apex:enhancedList type="SOC_Queue__c" height="600" rowsPerPage="50" customizable="true" id="YourListViewId" /> 
+    </div>
+    <apex:form id="frm">
+        <apex:actionFunction name="javascriptSearchProvider" action="{!SearchProvider}" rerender="frm,searchResultsPanel" status="status"/>
+        <div id="contentLoading" style="display:none;">
+            <div style="text-align: center;margin-top:400px;">
+                <!--<img src="/img/loading.gif" alt="Please Wait.." />-->
+                <b style="color:white;font-size:14px;">Please Wait..</b>
+            </div>
+        </div>
+
+            <apex:outputPanel style="width:49%; height:100%; float:right; padding-top:2.9%" id="righPanel">
+                <apex:pageMessages id="pgmsg"/>
+                <apex:pageBlock title="Search for Provider/Facility">
+                    <!-- This section rendered if search value is equal to Provider according to Provider First name Provider Last name and providerNPI text values -->
+                    <apex:pageblockSection >
+                        Please Select Provider Type :
+                        <apex:selectList value="{!providerType}" multiselect="false" size="1">
+                            <apex:actionSupport event="onchange" action="{!onProviderTypeChange}" rerender="Pgblksec1, frm" />
+                            <!-- <apex:selectOption itemValue="None" itemLabel="--None--"/>   -->
+                            <apex:selectOption itemValue="SER" itemLabel="SER"/>
+                            <apex:selectOption itemValue="EAF" itemLabel="EAF"/> 
+                        </apex:selectList><p/>
+                    </apex:pageblockSection>
+                    <apex:pageBlockSection id="Pgblksec1">
+                        <apex:inputText rendered="{!if(providerType=='SER',true,false)}" value="{!providerNPI}" label="Ser Id" onkeypress="return noenter(event);"/> 
+                        <apex:inputText rendered="{!if(providerType=='SER',true,false)}" value="{!providerEmPID}" label="Emp Id" onkeypress="return noenter(event);"/>
+                       
+                        <apex:inputText rendered="{!if(providerType=='SER',true,false)}" value="{!providerFirstName}" label="Provider First Name:" onkeypress="return noenter(event);"/>
+                        <apex:inputText rendered="{!if(providerType=='SER',true,false)}" value="{!providerLastName}" label="Provider Last Name:" onkeypress="return noenter(event);"/>
+                         <apex:inputText rendered="{!if(providerType=='SER',true,false)}" value="{!providerId}" label="Provider Id:" onkeypress="return noenter(event);"/>
+                        
+                        <apex:inputText rendered="{!if(providerType=='EAF',true,false)}" value="{!faciltyID}" label="EAF ID" onkeypress="return noenter(event);"/> 
+                        <apex:inputText rendered="{!if(providerType=='EAF',true,false)}" value="{!facilityName}" label="Facility Name" onkeypress="return noenter(event);"/>
+                        <apex:pageBlockSectionItem rendered="{!if(providerType=='SER' || providerType =='EAF',true,false)}"> 
+                            <!--Search button invokes SearchProvider action for provider search--> 
+                            <apex:commandButton style="width:2000" action="{!SearchProvider}" value="Search" rerender="frm,searchResultsPanel" status="status"/>
+                            <apex:actionstatus id="status">
+                                <apex:facet name="start"> 
+                                    <span style="color:red;font-weight:bold;padding-left:5px;">Searching...</span>
+                                    <img src="/img/loading.gif" alt="" />
+                                </apex:facet>
+                            </apex:actionstatus>
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                </apex:pageBlock>
+            
+            <!-- Output Panel for search result for Provider search -->
+            <apex:outputPanel id="searchResultsPanel" rendered="{!showProviderResults}">
+                <apex:pageBlock title="Search Results" >
+                    <apex:pageBlockTable var="provider" value="{!conWrapList}" rendered="{!if(providerType=='SER',true,false)}">
+                        <apex:column headerValue="Provider Name">
+                            <apex:outputLink onclick="openTabFunc('{!provider.socContact.Id}', '{!provider.conSoc.Id}', '{!provider.socContact.ServiceTabLabel__c}', ''); return false;" rendered="{!provider.conSoc.OwnerId == $User.Id || provider.socOwner == 'In Queue' || provider.socOwner == ''}">{!provider.socContact.ServiceTabLabel__c}</apex:outputLink>
+                            <apex:outputText rendered="{!provider.conSoc.OwnerId != $User.Id && provider.socOwner != 'In Queue'  &&  provider.socOwner != '' }">{!provider.socContact.ServiceTabLabel__c}</apex:outputText>
+                        </apex:column>
+                        <apex:column headerValue="Address" value="{!provider.socContact.Provider_Correspondence_Address__c}"/>
+                        <apex:column headerValue="License" value="{!provider.socContact.Provider_License_Number__c}"/>
+                        <apex:column headerValue="Specialty" value="{!provider.socContact.Provider_Specialty__c}"/>                      
+                        <apex:column value="{!provider.socContact.Phone}"/>
+                        <apex:column headerValue="SOC Queue Record Status" value="{!provider.conSoc.Status__c}"/>
+                        <apex:column headerValue="SOC Owner Name"  value="{!provider.conSoc.Owner.Name}"/>
+                    </apex:pageBlockTable>
+                    <apex:pageBlockTable var="facility" value="{!facilityWrapList}" rendered="{!if(providerType=='EAF',true,false)}">
+                        <apex:column headerValue="Facility Name">
+                            <apex:outputLink onclick="openTabFunc('{!facility.socFacility.Id}', '{!facility.facSoc.Id}', '{!facility.socFacility.Name}', ''); return false;" rendered="{!facility.socFacOwner == 'In Queue' || facility.facSoc.OwnerId == $User.Id || facility.socFacOwner == ''}">{!facility.socFacility.Name}</apex:outputLink>
+                            <apex:outputText rendered="{!facility.facSoc.OwnerId != $User.Id && facility.socFacOwner != 'In Queue' && facility.socFacOwner != ''}">{!facility.socFacility.Name}</apex:outputText>
+                        </apex:column>               
+                        <apex:column value="{!facility.socFacility.PHONE__c}"/>
+                        <apex:column headerValue="SOC Queue Record Status" value="{!facility.facSoc.Status__c}"/>
+                        <apex:column headerValue="SOC Owner Name"  value="{!facility.facSoc.Owner.Name}"/>
+                    </apex:pageBlockTable>    
+                </apex:pageBlock>
+            </apex:outputPanel>
+
+            </apex:outputPanel>
+            
+        <script type="text/javascript" language="javascript">
+            
+            function loading(val) {
+                  if (val) {
+                    document.getElementById('contentLoading').style.display = 'block';
+                  }
+                  else {
+                    document.getElementById('contentLoading').style.display = 'none';
+                  }
+             }
+        </script>
+        <apex:actionStatus id="loading" onstart="loading(true);" onstop="loading(false);" />
+    </apex:form>
+    
+</apex:page>

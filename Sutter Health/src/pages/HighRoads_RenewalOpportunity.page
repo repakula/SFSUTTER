@@ -1,0 +1,48 @@
+<!-- *********************************************************************
+*     Page Name   : HighRoads_RenewOpportunity 
+*     Author      : IDC Offshore
+*     Date        : 17-Oct-2016  
+*     Project Name: SHP Project
+*     Description : Req 3980 - Page for renewing the opportunity from Account
+					Once the user clicks on the Renew Opporutnity Button
+*************************************************************************-->
+<apex:page controller="HighRoads_RenewOpportunity" action="{!isOpportunityExists}">
+    <head>
+        <script>
+        	function closeAndRefreshParent(){
+                window.opener.location.href="/{!accId}";
+                self.close();
+            }
+        	
+        </script>
+    </head>
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageMessages escape="false"></apex:pageMessages><br/>
+            <apex:outputPanel rendered="{!IF(isExists == true && renewalPlanNotExists == false && oppCreated == false && isErrorOccured == false,true,false)}">
+                <apex:actionStatus id="createstatus">
+                    <apex:facet name="start">
+                        <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.75; z-index: 1000; background-color: black;">
+                            &nbsp;
+                        </div>
+                        <div >
+                            <img src="{!$Resource.Processing_Image}" />
+                        </div>
+                    </apex:facet>
+                </apex:actionStatus>
+                <apex:commandButton value="Continue" action="{!renewOpportunity}" status="createstatus" style="border-radius: 6px;width: 80px;font-size: 10px;padding: 5px;font-weight: bold;"/>&nbsp;&nbsp;
+                <apex:commandButton value="Cancel" onclick="window.close();" style="border-radius: 6px;width: 80px;font-size: 10px;padding: 5px;font-weight: bold;"/>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!IF(renewalPlanNotExists == true && oppCreated == false && isErrorOccured == false,true,false)}">
+                <apex:commandButton value="Continue" action="{!createOppandRates}" style="border-radius: 6px;width: 80px;font-size: 10px;padding: 5px;font-weight: bold;align:center"/>&nbsp;&nbsp;
+                <apex:commandButton value="Cancel" onclick="window.close();" style="border-radius: 6px;width: 80px;font-size: 10px;padding: 5px;font-weight: bold;align:center"/>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!IF(oppCreated == true && isErrorOccured == false,true,false)}">
+                <apex:commandButton value="OK" action="{!redirectToOpp}" style="border-radius: 6px;width: 80px;font-size: 10px;padding: 5px;font-weight: bold;align:center"/>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!IF(isErrorOccured == true,true,false)}">
+                <apex:commandButton value="Cancel" onclick="window.close();" style="border-radius: 6px;width: 80px;font-size: 10px;padding: 5px;font-weight: bold;align:center"/>
+            </apex:outputPanel>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

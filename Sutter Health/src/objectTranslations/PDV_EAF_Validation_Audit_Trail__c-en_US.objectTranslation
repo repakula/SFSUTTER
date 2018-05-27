@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>EAF Validation Audit Trail</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>EAF Validation Audit Trails</value>
+    </caseValues>
+    <fields>
+        <label><!-- ADDRESS --></label>
+        <name>ADDRESS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address Change --></label>
+        <name>Address_Change__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address Line 1 --></label>
+        <name>Address_Line_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address Line 2 --></label>
+        <name>Address_Line_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address Modified --></label>
+        <name>Address_Modified__c</name>
+    </fields>
+    <fields>
+        <label><!-- Attn To --></label>
+        <name>Attn_To__c</name>
+    </fields>
+    <fields>
+        <label><!-- CITY --></label>
+        <name>CITY__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- EAF Validation Audit Trails --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- EAF Facility --></label>
+        <name>EAF_Facility__c</name>
+        <relationshipLabel><!-- EAF Validation Audit Trails --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- FAX NUMBER --></label>
+        <name>FAX_NUMBER__c</name>
+    </fields>
+    <fields>
+        <label><!-- Facility ID --></label>
+        <name>Facility_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Floor --></label>
+        <name>Floor__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Verified date --></label>
+        <name>Last_Verified_date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Names Changes Suggested --></label>
+        <name>Names_Changes_Suggested__c</name>
+    </fields>
+    <fields>
+        <label><!-- PHONE --></label>
+        <name>PHONE__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone Extension --></label>
+        <name>Phone_Extension__c</name>
+    </fields>
+    <fields>
+        <label><!-- STATE --></label>
+        <name>STATE__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sent to MDM --></label>
+        <name>Sent_to_MDM__c</name>
+    </fields>
+    <fields>
+        <label><!-- Serial Number --></label>
+        <name>Serial_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Suite --></label>
+        <name>Suite__c</name>
+    </fields>
+    <fields>
+        <label><!-- Verified By --></label>
+        <name>Verified_By__c</name>
+        <relationshipLabel><!-- EAF Validation Audit Trails --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- ZIP CODE --></label>
+        <name>ZIP_CODE__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

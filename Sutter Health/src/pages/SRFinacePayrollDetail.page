@@ -1,0 +1,392 @@
+<apex:page standardController="Case" extensions="SubmitCaseController" id="pg1">
+
+<style>
+.label { 
+        
+        text-align: left;        
+                
+    }
+.color{
+       color: #4A4A56;font-family: Arial,Helvetica,sans-serif;padding-left: 0px;
+}  
+
+.Margin{
+       padding-left: 300px;  }
+</style>
+<!-- Javascript -->
+
+<script type="text/javascript">
+   
+    var tempdate;
+    var totalminutesIn = 0;
+    var totalminutesOut = 0;
+    var PTOValue = '';
+    var flag;
+    function EmpNumandMan(lookupId) {
+        EmpNumandMan1(lookupId);
+    }
+    
+    function DateValidation() {
+        var periodVal = document.getElementById('{!$Component.frm.pb.block1.pbsit5.Epperiod}').value;
+        var dateArray = periodVal.split("/");
+        var yearVal = dateArray[2];
+        if(yearVal.length == 4)
+        {
+            var d = new Date((document.getElementById('{!$Component.frm.pb.block1.pbsit5.Epperiod}').value));
+            if (d.getDay() != 6 ){
+                alert('Please select Saturday only');
+                (document.getElementById('{!$Component.frm.pb.block1.pbsit5.Epperiod}').value) = '';  
+            }
+        }
+        else
+        {
+            dateArray[2] = '20' + dateArray[2];
+            var joinedDate = dateArray.join('/');
+            var d = new Date(joinedDate);
+            document.getElementById('{!$Component.frm.pb.block1.pbsit5.Epperiod}').value = joinedDate;
+            if (d.getDay() != 6 ){
+                alert('Please select Saturday only');
+                (document.getElementById('{!$Component.frm.pb.block1.pbsit5.Epperiod}').value) = '';  
+            }
+        }
+        
+    }
+
+    function validateHhMmIn(obj) {
+        var timeValue = obj.value;
+        if(timeValue == "" || timeValue.indexOf(":")<0)
+            {
+                alert("Invalid Time format");
+                obj.value = '';
+                obj.focus();
+                totalminutesIn = 0;
+                return false;
+            }
+            else
+            {
+                var sHours = timeValue.split(':')[0];
+                var sMinutes = timeValue.split(':')[1];
+                if(sHours == "" || isNaN(sHours) || parseInt(sHours)>23)
+                {
+                    alert("Invalid Time format"); 
+                    obj.value = '';
+                    obj.focus();
+                    return false;
+                }
+                else if(parseInt(sHours) == 0)
+                    sHours = "00";
+                else if (sHours <10 && sHours.length==1)
+                    sHours = "0"+sHours;
+        
+                if(sMinutes == "" || isNaN(sMinutes) || parseInt(sMinutes)>59)
+                {
+                    alert("Invalid Time format"); 
+                    obj.value = '';
+                    obj.focus();
+                    return false;
+                }
+                else if(parseInt(sMinutes) == 0)
+                    sMinutes = "00";
+                else if (sMinutes <10 && sMinutes.length==1)
+                    sMinutes = "0"+sMinutes;    
+                obj.value = sHours + ":" + sMinutes; 
+                totalminutesIn = parseInt(sHours) * 60 + parseInt(sMinutes); 
+                             
+
+                if(PTOValue != "" ){
+                alert('Please enter either In/Out Punch or PTO'); 
+                obj.value = '';
+                }               
+                      
+            }
+ 
+            return true;    
+    } 
+    
+function validateHhMmOut(obj) {
+        var timeValue = obj.value;
+        if(timeValue == "" || timeValue.indexOf(":")<0)
+            {
+                alert("Invalid Time format");
+                obj.value = '';
+                obj.focus();
+                totalminutesOut = 0;                
+                return false;
+            }
+            else
+            {
+                var sHours = timeValue.split(':')[0];
+                var sMinutes = timeValue.split(':')[1];
+                if(sHours == "" || isNaN(sHours) || parseInt(sHours)>23)
+                {
+                    alert("Invalid Time format");
+                    obj.value = '';
+                    obj.focus();
+                    return false;
+                }
+                else if(parseInt(sHours) == 0)
+                    sHours = "00";
+                else if (sHours <10 && sHours.length==1)
+                    sHours = "0"+sHours;
+        
+                if(sMinutes == "" || isNaN(sMinutes) || parseInt(sMinutes)>59)
+                {
+                    alert("Invalid Time format");
+                    obj.value = '';
+                    obj.focus();
+                    return false;
+                }
+                else if(parseInt(sMinutes) == 0)
+                    sMinutes = "00";
+                else if (sMinutes <10 && sMinutes.length==1)
+                    sMinutes = "0"+sMinutes;    
+        
+                obj.value = sHours + ":" + sMinutes; 
+                totalminutesOut = parseInt(sHours) * 60 + parseInt(sMinutes); 
+            
+                if(PTOValue != "" ){
+                alert('Please enter either In/Out Punch or PTO'); 
+                
+                obj.value = ''; 
+                }      
+            }
+        
+            return true;    
+    }
+    
+    function validatePTO(obj){
+       PTOValue = obj.value;
+       if(((parseInt(totalminutesOut)> 0 ) || ( parseInt(totalminutesIn)> 0 )) && (PTOValue != "")){
+       alert('Please enter either In/Out Punch or PTO');
+       obj.value = '';
+       PTOValue = ''; 
+       flag = false;
+       } 
+ 
+    return true;
+    }          
+       
+        
+    </script>            
+
+
+
+<apex:pageMessages />
+
+    
+   <apex:form id="fm">
+   <apex:actionFunction name="EmpNumandMan1" action="{!EmpNumandMan}" reRender="numpanel,EMPManager" >   
+        <apex:param name="EmployeeName" assignTo="{!EmployeeName}" value=""/>
+   </apex:actionFunction>
+   </apex:form>
+   
+   <apex:form id="frm">      
+     <apex:outputPanel id="out"> 
+    <apex:pageBlock id="pb" title="Service Request">
+         <apex:pageBlockButtons location="bottom">
+            <apex:commandButton value="Submit Case"  action="{!submitCase}"  />
+            <apex:commandButton action="{!NewCase}" value="New Case" />
+         </apex:pageBlockButtons>
+         
+          <font color="red">
+        <apex:outputText style="font-style:italic; font-weight:800" value="This form is for use only to report an employee who has received incorrect pay on a prior pay period. Submitting this form for another purpose could delay processing your request. If you are a time keeper you must attach approval from the employees manager for any request. Employees cannot, under any circumstances, submit their own request."/>
+        </font>
+         
+         
+        <apex:pageBlockSection title="Finance Payroll Service Request Detail"  showHeader="true" columns="1" id="block1">
+     
+            <apex:outputPanel id="casepanel">
+                      <apex:outputLabel value="Case Number" for="CasNumber" /> 
+                      <apex:outputLabel value="{!c.CaseNumber}" style="margin-left:95px"/>        
+            </apex:outputPanel>              
+            
+            
+            <apex:outputPanel styleClass="color" id="numpanel">
+                     <apex:outputLabel value="Employee Number" for="EmpNumber" />
+                    <apex:outputLabel value="{!c.Cust_Employee_Number__c}" style="margin-left:68px"/>       
+            </apex:outputPanel>
+
+            
+            <apex:outputPanel styleClass="color" id="EmpName">
+                    <apex:pageBlockSectionItem id="ename"> 
+                      <apex:outputLabel value="Employee Name" style="margin-right:80px"/ >
+                      <apex:actionRegion >
+                      <apex:inputField value="{!c.CusContactName__c}" id="contactid" >
+                           <apex:actionSupport event="onchange" reRender="" oncomplete="EmpNumandMan('{!c.CusContactName__c}')"/>
+                      </apex:inputField>
+                      </apex:actionRegion>
+                    </apex:pageBlockSectionItem>
+            </apex:outputPanel> 
+                    
+
+            <apex:outputPanel styleClass="color" id="EMPManager">
+
+                   <apex:outputLabel value="Manager Name" for="EmpMName" />
+              
+                  <apex:outputLabel value="{!c.Cust_Manager_Name__c}" style="margin-left:90px" />         
+
+            </apex:outputPanel>
+            
+            <apex:inputField value="{!c.Prior_Period_Adjustment__c}" rendered="" id="ReqType"  style="margin-left:45px">
+                            
+                       </apex:inputField>
+
+      <!--      <apex:outputPanel styleClass="color">         
+                    <apex:pageBlockSectionItem id="pbsit1">
+                     <apex:outputLabel value="Prior Period Adjustment" for="ReqType"/>
+                   <apex:actionRegion >
+                   <apex:inputField value="{!c.Prior_Period_Adjustment__c}" id="ReqType"  style="margin-left:45px">
+                            <apex:actionSupport event="onchange" reRender="amountreq,paytype,reason,timecardren,msg" />  
+                       </apex:inputField>       
+                    </apex:actionRegion>
+                    </apex:pageBlockSectionItem> 
+            </apex:outputPanel> -->
+
+            <apex:outputPanel id="reason">
+                <apex:pageBlockSectionItem id="pbsit2">
+                      <apex:outputLabel value="Reason" for="ReassonPay"  styleClass="color" />
+                      <apex:inputField id="reason" value="{!c.Reason_Payroll__c}" style="margin-left:130px;"/>          
+                </apex:pageBlockSectionItem>
+            </apex:outputPanel> 
+
+            <apex:outputPanel styleClass="color">        
+                    <apex:pageBlockSectionItem id="pbsit5">
+                      <apex:outputLabel escape="false" value="Effective Pay Period End <br/>(MM/DD/YY)" for="Efpayperiod"/>
+                      <apex:inputField id="Epperiod" value="{!c.Effective_Pay_period__c}" showDatePicker="false" style="margin-left:105px;" onchange="DateValidation()"/>          
+                    </apex:pageBlockSectionItem>
+            </apex:outputPanel> 
+
+            
+      
+            
+            <apex:outputPanel styleClass="color">                 
+                    <apex:pageBlockSectionItem >
+                      <apex:outputLabel value="Describe the Issue" for="Desc"/>
+                      <apex:inputField value="{!c.Comments__c}" style="width:150px;margin-left:71px"/>          
+                    </apex:pageBlockSectionItem> 
+            </apex:outputPanel> 
+
+          <!--  <apex:outputPanel styleClass="color">         
+                    <apex:pageBlockSectionItem >
+                      <apex:outputLabel value="Comments" for="Comm"/>
+                      <apex:inputField value="{!c.Description}" style="width:150px;margin-left:110px" />          
+                    </apex:pageBlockSectionItem> 
+            </apex:outputPanel>-->
+            
+            <apex:outputPanel styleClass="color"> 
+                    <apex:pageBlockSectionItem >
+                      <apex:outputLabel value="File" for="file"/>
+                      <apex:inputFile value="{!attachment.body}" filename="{!attachment.name}" id="file" style="margin-left:144px"/>
+                    </apex:pageBlockSectionItem>
+            </apex:outputPanel>   
+             
+           </apex:pageBlockSection>       
+            
+            <apex:outputPanel id="timecardren">
+                      
+                
+                <apex:pageBlockSection title="Time Card" showHeader="true" columns="2" id="block3" >
+                  <!--   
+                  <apex:outputPanel id="message">
+                        <div align="center">
+                            <apex:outputText >Please enter the payroll date and time to be adjusted. For PTO and holiday adjustments, indicate the date and number of PTO/HOL hours to be adjusted. Do not enter In Punch and Out Punch times when PTO/HOL value is entered</apex:outputText>
+                        </div>
+                    </apex:outputPanel>-->
+                                
+                    <tr>
+                        <td colspan="4">
+                            Please enter the payroll date and time to be adjusted. For PTO and holiday adjustments, indicate the date and number of PTO/HOL hours to be adjusted. Do not enter In Punch and Out Punch times when PTO/HOL value is entered
+                        </td>
+                    </tr>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value=""  for="TCmsg1" />
+                    </apex:pageBlockSectionItem>  
+                    
+                    <apex:pageBlockSectionItem >
+                      <apex:outputLabel value="Date (MM/DD/YY)" for="TCDate"  />
+                      <apex:inputField value="{!TCard.Date__c}" showDatePicker="false"  />          
+                    </apex:pageBlockSectionItem> 
+                    
+                    <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+
+
+
+                    <apex:pageBlockSectionItem >
+                      <apex:outputLabel value="In Punch (Format 24HH:MM)" for="TCInPunch" />
+                      <apex:inputField value="{!TCard.In_Punch_Time__c}" style="width: 50px;" onchange="validateHhMmIn(this)"  />          
+                    </apex:pageBlockSectionItem> 
+
+                    <apex:pageBlockSectionItem >
+                      <apex:outputLabel value="Out Punch (Format 24HH:MM)" for="TCOutPunch" />
+                      <apex:inputField value="{!TCard.Out_Punch_Time__c}" style="width: 50px;" onchange="validateHhMmOut(this)" />          
+                      
+                    </apex:pageBlockSectionItem> 
+                    
+                    <apex:pageBlockSectionItem id="ptosc">
+                      <apex:outputLabel value="PTO/HOL" for="TCPTOHOL" />
+                      <apex:inputField id="ptohol" value="{!TCard.PTO_HOL__c}" onchange="validatePTO(this)"  />          
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                      <apex:outputLabel value="Cost Center" for="TCCostCenter" />
+                      <apex:inputField value="{!TCard.Cost_Center__c}" />          
+                    </apex:pageBlockSectionItem> 
+                     
+                     
+                    
+                     <apex:pageBlockSectionItem >
+                      <apex:outputLabel value="" for="TCmsg3" />
+                    </apex:pageBlockSectionItem>  
+                                           
+                    
+                    <apex:pageBlockSectionItem >
+                    <apex:commandButton action="{!InsertTimecard}" value="Add Time Card" disabled="{!(ISNULL(tcr))}" style="margin-left:285px" />
+                     </apex:pageBlockSectionItem> 
+
+                 
+                 </apex:pageBlockSection>
+            
+            
+            
+            </apex:outputPanel> 
+            
+         
+                
+ 
+            
+     </apex:pageBlock>
+     </apex:outputPanel>
+
+     <apex:detail relatedList="true"></apex:detail>
+<apex:pageblock id="TimeCards" title="Related TimeCards"  >
+   <apex:pageBlockTable value="{!tcr}" var="o" rendered="{!NOT(ISNULL(tcr))}">
+        <apex:column value="{!o.Name}"/>       
+        <apex:column value="{!o.Date__c}"/>
+        <apex:column value="{!o.In_Punch_Time__c}"/>
+        <apex:column value="{!o.Out_Punch_Time__c}"/>
+        <apex:column value="{!o.PTO_HOL__c}"/>
+        <apex:column value="{!o.Cost_Center__c}"/>       
+        
+        
+   </apex:pageBlockTable>
+   <apex:outputLabel value="No records to display" rendered="false" styleClass="noRowsHeader"></apex:outputLabel>
+   
+ </apex:pageblock>     
+    
+     
+    <!-- Component for GTM-->
+                     <c:Portal_User_Info />
+           <!-- Component for GTM-->
+    </apex:form> 
+
+<!-- <apex:relatedList list="TimeCards__r"  />     -->
+ 
+<apex:relatedList subject="{!case}"  list="CombinedAttachments" />
+    
+        <!-- Start Google Tag Manager -->
+        <apex:outputLabel value="{!$Label.GTMCustomLabel}" rendered="false"></apex:outputLabel> 
+        <apex:includeScript value="{!$Resource.GTMJavaScript}" />
+        <!-- End Google Tag Manager -->
+
+</apex:page>

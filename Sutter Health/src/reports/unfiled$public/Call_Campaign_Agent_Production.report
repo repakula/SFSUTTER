@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact_Validation_Summary__c$Name</field>
+    </columns>
+    <columns>
+        <field>Contact_Validation_Summary__c$Validated_Source__c</field>
+    </columns>
+    <columns>
+        <field>Contact_Validation_Summary__c$Status__c</field>
+    </columns>
+    <description>Modified by Katie Van Lent for Sarah Volzer to use.</description>
+    <filter>
+        <criteriaItems>
+            <column>Contact_Validation_Summary__c$Last_Verified_Date__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>greaterThan</operator>
+            <value>8/1/2015 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact_Validation_Summary__c$Address_Type__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Primary</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact_Validation_Summary__c$Status__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Validated</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact_Validation_Summary__c$Validated_Source__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>SFCA</value>
+        </criteriaItems>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>Contact_Validation_Summary__c$Owner</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Contact_Validation_Summary__c$Last_Verified_Date__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Call Campaign Agent Production</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Provider_Information_Summaries__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Contact_Validation_Summary__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

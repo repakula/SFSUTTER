@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>CUST_CREATED_NAME</field>
+    </columns>
+    <columns>
+        <field>Document_Generation_Request__c.Account__c</field>
+    </columns>
+    <columns>
+        <field>Document_Generation_Request__c.Status__c</field>
+    </columns>
+    <columns>
+        <field>CUST_OWNER_NAME</field>
+    </columns>
+    <columns>
+        <field>Document_Generation_Request__c.Request_Status__c</field>
+    </columns>
+    <description>Captures all DGR&apos;s with Documents Generated and Pending Approval from the sales team.</description>
+    <filter>
+        <criteriaItems>
+            <column>Document_Generation_Request__c.Request_Status__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Approved by BPA QA</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>DGR&apos;s Pending Sales Approval Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntityAuditHistory$Document_Generation_Request__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

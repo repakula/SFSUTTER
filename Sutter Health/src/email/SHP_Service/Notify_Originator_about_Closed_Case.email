@@ -1,0 +1,6 @@
+Dear {!NullValue(Case.CreatedBy, "User")},
+ 
+        This is to notify you that the service request {!Case.CaseNumber} opened by you on {!Case.CreatedDate} is now completed.
+
+Regards,
+SHP Service / Sales

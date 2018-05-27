@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_32771666</developerName>
+        <masterLabel>Contact Center Area</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <otherBucketLabel>Other</otherBucketLabel>
+        <sourceColumnName>Case.Team__c</sourceColumnName>
+        <useOther>true</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>[Tier 1] RC CBO Customer Service</sourceValue>
+            </sourceValues>
+            <value>CBO</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>[Tier 1] AP / Purchasing / Supply Chain</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 2] Finance Accounts Payable</sourceValue>
+            </sourceValues>
+            <value>AP/SC</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>[Tier 1] HR Recruitment</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 1] HR Benefits</sourceValue>
+            </sourceValues>
+            <value>HR</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>[Tier 2] Finance Payroll / T&amp;E</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>[Tier 1] Payroll T&amp;E / Compensation</sourceValue>
+            </sourceValues>
+            <value>Payroll</value>
+        </values>
+    </buckets>
+    <colorRanges>
+        <columnName>RowCount</columnName>
+        <highBreakpoint>10.0</highBreakpoint>
+        <highColor>#54C2C2</highColor>
+        <lowBreakpoint>3.0</lowBreakpoint>
+        <lowColor>#FFFFFF</lowColor>
+        <midColor>#C2C254</midColor>
+    </colorRanges>
+    <columns>
+        <field>Case.Tier_Created_By__c</field>
+    </columns>
+    <columns>
+        <field>Case.Tier_Last_Worked_Inquiry__c</field>
+    </columns>
+    <columns>
+        <field>Case.DNIS__c</field>
+    </columns>
+    <columns>
+        <field>CASE_NUMBER</field>
+    </columns>
+    <columns>
+        <field>Case.CALLID__c</field>
+    </columns>
+    <columns>
+        <field>STATUS</field>
+    </columns>
+    <columns>
+        <field>Case.Requestor_Number__c</field>
+    </columns>
+    <columns>
+        <field>Case.CALLDATETIME__c</field>
+    </columns>
+    <columns>
+        <field>Case.EXITPATH__c</field>
+    </columns>
+    <columns>
+        <field>Case.DEV__c</field>
+    </columns>
+    <description>Draft report in progress</description>
+    <filter>
+        <criteriaItems>
+            <column>RECORDTYPE</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Case.S3_Interaction_Log_Case_RT,Case.S3_Patient_Interaction_Log,Case.S3_Interaction_Log_RO,Case.S3_Patient_Interaction_Log_RO</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case.Function__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case.Tier_Created_By__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notContain</operator>
+            <value>Tier 3</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ORIGIN</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Phone</value>
+        </criteriaItems>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case.DNISTYPECODE__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case.ANI__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case.Function__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case.Sub_Function__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>S3 CC Unique Callers - DRAFT</name>
+    <params>
+        <name>units</name>
+        <value>h</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CaseList</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATEONLY</dateColumn>
+        <interval>INTERVAL_THISWEEK</interval>
+    </timeFrameFilter>
+</Report>

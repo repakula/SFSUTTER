@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Account_Class__c</fullName>
+        <description>For Example- Inpatient/Outpatient/Newborn/Ambulatory Surgery</description>
+        <externalId>false</externalId>
+        <label>Account Class</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Account_Create_Date__c</fullName>
+        <description>Date and Time stamp when the patient Account was created</description>
+        <externalId>false</externalId>
+        <label>Account Create Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Account_Number__c</fullName>
+        <description>Number generated when a patient is scheduled or entered in the system</description>
+        <externalId>false</externalId>
+        <label>Account Number</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Admission_Type__c</fullName>
+        <description>For Example- Elective/Newborn etc.</description>
+        <externalId>false</externalId>
+        <label>Admission Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Auth_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Auth Code</label>
+        <length>5</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Company_Code__c</fullName>
+        <description>Lawson Company Code</description>
+        <externalId>false</externalId>
+        <label>Company Code</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Completion_by_Pt_Advocate__c</fullName>
+        <description>Timestamp when the Patient Advocate has completed working on an account.</description>
+        <externalId>false</externalId>
+        <label>Completion by Pt Advocate</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Distrib_Date__c</fullName>
+        <description>Lawson AP Close Date &quot;Distribution Date&quot;</description>
+        <externalId>false</externalId>
+        <label>Distrib Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>EDI_Error_Message__c</fullName>
+        <description>Lawson matching process error message from MA54 MA126 and AP126</description>
+        <externalId>false</externalId>
+        <label>EDI Error Message</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>EDI_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>EDI Number</label>
+        <length>15</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Entity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Entity</label>
+        <referenceTo>S3_Deployment__c</referenceTo>
+        <relationshipLabel>S3 Metric Data</relationshipLabel>
+        <relationshipName>Metric_Data_Entitlement</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Guarantor_Verification_Time__c</fullName>
+        <description>The time stamp when the Gurantor verified the account</description>
+        <externalId>false</externalId>
+        <label>Guarantor Verification Time</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Guarantor_verification_User__c</fullName>
+        <description>Name of the Guarantor</description>
+        <externalId>false</externalId>
+        <label>Guarantor verification User</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Handling_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Handling Code</label>
+        <length>3</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hospital_Account_Verification_Time__c</fullName>
+        <description>HAR - When the patient account was verified</description>
+        <externalId>false</externalId>
+        <label>Hospital Account Verification Time</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Hospital_Account_Verification_User__c</fullName>
+        <description>Name of the HAR verifier</description>
+        <externalId>false</externalId>
+        <label>Hospital Account Verification User</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Invoice_Amount__c</fullName>
+        <description>Lawson Transaction Amount</description>
+        <externalId>false</externalId>
+        <label>Invoice Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Invoice_Date__c</fullName>
+        <description>Lawson AP Invoice Date</description>
+        <externalId>false</externalId>
+        <label>Invoice Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Invoice_Number__c</fullName>
+        <description>Lawson Invoice Number</description>
+        <externalId>false</externalId>
+        <label>Invoice Number</label>
+        <length>25</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Location__c</fullName>
+        <description>Lawson Location code for PO/AP</description>
+        <externalId>false</externalId>
+        <label>Location</label>
+        <length>6</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Member_Verification_Time__c</fullName>
+        <description>The time when the member verification occurred</description>
+        <externalId>false</externalId>
+        <label>Member Verification Time</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Member_verification_User__c</fullName>
+        <description>Name of the member verifier</description>
+        <externalId>false</externalId>
+        <label>Member verification User</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Metric_Link__c</fullName>
+        <externalId>false</externalId>
+        <label>S3 Operations</label>
+        <referenceTo>S3_Ops__c</referenceTo>
+        <relationshipLabel>S3 Metric Data</relationshipLabel>
+        <relationshipName>S3_Metric_Data_to_Ops</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>true</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Operator__c</fullName>
+        <description>Lawson operator code for initiating the process</description>
+        <externalId>false</externalId>
+        <label>Operator</label>
+        <length>5</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PO_Number__c</fullName>
+        <description>Purchase Order Number</description>
+        <externalId>false</externalId>
+        <label>PO Number</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Patient_Advocate__c</fullName>
+        <description>This field in Financial Clearance data for the Patient Advocate person/number stamp</description>
+        <externalId>false</externalId>
+        <label>Patient Advocate</label>
+        <length>150</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Patient_Verification_Time__c</fullName>
+        <description>The timestamp (date/time) when the patient was verified</description>
+        <externalId>false</externalId>
+        <label>Patient Verification Time</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Patient_Verification_User__c</fullName>
+        <description>The Name of the person who verified the patient</description>
+        <externalId>false</externalId>
+        <label>Patient Verification User</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Processing_Level__c</fullName>
+        <description>Lawson Processing Level</description>
+        <externalId>false</externalId>
+        <label>Processing Level</label>
+        <length>4</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Received_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Received Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Remit_to_Code__c</fullName>
+        <description>Lawson screen code for next step in processing</description>
+        <externalId>false</externalId>
+        <label>Remit to Code</label>
+        <length>4</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Run_Group__c</fullName>
+        <description>Lawson Run Group for matching process</description>
+        <externalId>false</externalId>
+        <label>Run Group</label>
+        <length>15</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>S3_GA_Sessions__c</fullName>
+        <externalId>false</externalId>
+        <label>S3_GA_Sessions</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>S3_GA_Users__c</fullName>
+        <externalId>false</externalId>
+        <label>S3_GA_Users</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Service_End__c</fullName>
+        <description>When the patient checked out (Discharge)</description>
+        <externalId>false</externalId>
+        <label>Service End</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Service_Expected__c</fullName>
+        <description>The patient schedule date and time</description>
+        <externalId>false</externalId>
+        <label>Service Expected</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Service_Start__c</fullName>
+        <description>When the patient checked in</description>
+        <externalId>false</externalId>
+        <label>Service Start</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Term_Code__c</fullName>
+        <description>Lawson Term Code should be the payment terms of the invoice (non-standard input)</description>
+        <externalId>false</externalId>
+        <label>Term Code</label>
+        <length>6</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Uninsured__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>If the patient has insurance or not</description>
+        <externalId>false</externalId>
+        <label>Uninsured</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Vendor_ID__c</fullName>
+        <description>Lawson vendor ID</description>
+        <externalId>false</externalId>
+        <label>Vendor ID</label>
+        <length>15</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>S3 Metric Data</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>M{00000000}</displayFormat>
+        <label>S3 Metric Data ID</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>S3 Metric Data</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

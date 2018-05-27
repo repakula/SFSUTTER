@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>OLDVAL</field>
+    </columns>
+    <columns>
+        <field>NEWVAL</field>
+    </columns>
+    <columns>
+        <field>Contact.Employee_Job_Code_Description__c</field>
+    </columns>
+    <columns>
+        <field>FIRST_NAME</field>
+    </columns>
+    <columns>
+        <field>LAST_NAME</field>
+    </columns>
+    <columns>
+        <field>CREATED_DATE</field>
+    </columns>
+    <columns>
+        <field>Contact.Employee_Affiliate_HireDate__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Employee_ID__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Employee_Process_Level__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Employee_EEO_SubCode__c</field>
+    </columns>
+    <description>Listing of employees with job code changes within the last 7 days</description>
+    <filter>
+        <criteriaItems>
+            <column>field_key</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Employee Job Code</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.Employee_Affiliate_Facility__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Sutter Shared Services</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Contact.Employee_Department__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>S3 Employee Job Code Changes</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>ContactAuditHistory</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_LAST7</interval>
+    </timeFrameFilter>
+</Report>

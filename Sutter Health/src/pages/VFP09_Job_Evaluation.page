@@ -1,0 +1,78 @@
+<!--
+*     Page Name   : VFP09_Job_Evaluation
+*     Author      : Venkat Ramesh
+*     Date        : 09-Jul-2014 
+*     Project Name: CRM - SFT - Sutter Health
+*     Description : Req-3119 Job Evaluation Form
+-->
+<apex:page standardController="Case" showheader="true" extensions="VFC09_Job_Evaluation">
+    <apex:pageMessages />
+    <apex:form >
+    <apex:sectionHeader title="Customer Inquiry Edit" subtitle="New Customer Inquiry" />
+        <apex:pageBlock title="Customer Inquiry Edit" mode="Edit">
+        <apex:pageBlockButtons >
+            <apex:commandButton action="{!saveAndSend}" value="Submit"/>
+            <apex:commandButton action="{!Cancel}" value="Cancel"/>
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection title="Report Section" columns="2" collapsible="false">
+            <apex:outputField value="{!caseRecord.ContactId}" label="Requested By"/>
+            <apex:outputField value="{!case.Status}"/> 
+           <apex:inputField value="{!case.Subject1__c}" required="true"/>   
+            <apex:outputField value="{!case.Origin}"/>
+            <apex:inputField value="{!case.Contact_Phone_Number__c}" required="true"/> 
+            <apex:inputField value="{!case.Requestor_Email__c}" required="true"/>
+        </apex:pageBlockSection>
+
+        <apex:pageBlockSection title="Type Of Request" columns="2" collapsible="false">
+            <apex:inputField value="{!case.Establish_New_Job__c}"/>
+            <apex:outputLabel ></apex:outputLabel>
+            <apex:inputField value="{!case.Revision_to_Current_Job__c}"/>
+            <apex:inputField value="{!case.Other_Request__c}"/>        
+            <apex:inputField value="{!case.Update_description_only__c}"/>
+            <apex:inputField value="{!case.Please_specify__c}" style="width: 250px; height: 50px;"/>
+            <apex:outputLabel ></apex:outputLabel>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="Revision to Current Job" columns="1" collapsible="false">
+            <apex:inputField value="{!case.New_Job_Title__c}"/>
+            <apex:inputField value="{!case.List_3_5_key_significant_changes__c}" required="true" style="width: 350px; height: 50px;"/> 
+            <apex:inputField value="{!case.List_any_job_title_which_may_be_impacted__c}" required="true" style="width: 350px; height: 50px;"/>
+         </apex:pageBlockSection>
+        <apex:pageBlockSection title="Position Duties" columns="1" collapsible="false">
+            <apex:inputField value="{!case.Describe_the_differences__c}" required="true" style="width: 350px; height: 50px;"/> 
+        </apex:pageBlockSection>    
+        <apex:pageBlockSection title="Comparison (Similar) Positions" columns="2" collapsible="false">
+            <apex:inputField value="{!case.Employee_Name__c}" required="true" /> 
+            <apex:inputField value="{!case.Job_Title__c}" required="true" />
+            <apex:inputField value="{!case.Location__c}" required="true" />
+            <apex:inputField value="{!case.Department__c}" required="true" />
+            <apex:inputField value="{!case.Employee_Name1__c}" required="true" /> 
+            <apex:inputField value="{!case.Job_Title1__c}" required="true" />
+            <apex:inputField value="{!case.Location1__c}" required="true" />
+            <apex:inputField value="{!case.Department1__c}" required="true" />
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="Additional Information" columns="1" collapsible="false">
+            <apex:inputField value="{!case.Describe_how_this_position_is_comparable__c}" required="true" style="width: 350px; height: 50px;"/> 
+            <apex:inputField value="{!case.Any_additional_information__c}" style="width: 350px; height: 50px;"/>
+        </apex:pageBlockSection> 
+        <apex:pageBlockSection title="Attachments" columns="1" collapsible="false">
+                <apex:outputPanel styleClass="color"> 
+                    <apex:pageBlockSectionItem >
+                      <apex:outputLabel value="Attach File" for="file"/>
+                      <apex:inputFile value="{!attachment.body}" filename="{!attachment.name}" id="file" style="margin-left:144px"/>
+                    </apex:pageBlockSectionItem>
+                </apex:outputPanel>
+        </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <!-- Component for GTM-->
+                     <c:Portal_User_Info />
+           <!-- Component for GTM-->
+        
+    </apex:form>
+    
+    <!-- Start Google Tag Manager -->
+    <apex:outputLabel value="{!$Label.GTMCustomLabel}" rendered="false"></apex:outputLabel> 
+    <apex:includeScript value="{!$Resource.GTMJavaScript}" />
+    <!-- End Google Tag Manager -->
+
+</apex:page>

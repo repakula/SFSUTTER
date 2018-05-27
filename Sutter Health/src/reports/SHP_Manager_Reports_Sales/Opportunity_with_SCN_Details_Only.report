@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Opportunity$Plan_Effective_Date__c</field>
+    </columns>
+    <columns>
+        <field>Opportunity$Name</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Sold_Case_Notification__r$Name</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Sold_Case_Notification__r$CreatedDate</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Sold_Case_Notification__r$Owner</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Sold_Case_Notification__r$Stage__c</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Sold_Case_Notification__r$SHP_Sales_Representative__c</field>
+    </columns>
+    <description>Captures Status of SCN, Owner, Creation Dates &amp; AM Assigned</description>
+    <filter>
+        <criteriaItems>
+            <column>Opportunity$StageName</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Closed Won</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity$Type</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>New Business</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Opportunity with SCN Details Only</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Opportunities_with_SCN__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Opportunity$Name</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Opportunity$Plan_Effective_Date__c</dateColumn>
+        <endDate>2015-12-31</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2015-12-01</startDate>
+    </timeFrameFilter>
+</Report>

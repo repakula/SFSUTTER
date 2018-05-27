@@ -1,0 +1,303 @@
+<apex:page controller="SafetyCare_CC" docType="html-5.0" showHeader="false" standardStylesheets="false">
+
+    <head>
+    <link href="{!URLFOR($Resource.Bootstrap, 'bootstrap-3.3.6-dist/css/bootstrap.css')}" rel="stylesheet"/>
+    <apex:includeScript value="{!URLFOR($Resource.jquery1121min, '/jquery-1.12.1.min.js')}"  />
+    <apex:includeScript value="{!URLFOR($Resource.modernizrCustom, '/modernizr-custom.js')}"  />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    </head>
+  <style>
+  body{
+    background-color:rgb(0,150,136);
+  }
+  .panel-body{
+    background-color:rgb(255,255,255);
+    
+  }
+  .bg-white{
+    background-color:rgb(255,255,255);
+  }
+  .radio-error {
+  	border-color: red !important;
+  	border-style: solid;
+    border-width: 2px;
+	}
+  .has-error {
+  	border-color: red !important;
+	}
+  </style>
+  
+  
+    <apex:outputPanel rendered="{!not(completed)}">
+    <div class="container">
+        <div class="panel panel-default panel-body">
+            <div class="row ">
+            	<img src="{!URLFOR($Resource.SafetyPics, 'safetyPic144.png')}" Class="img-responsive center-block hidden-xs hidden-sm img-thumbnail" alt="Responsive image"/>
+            	<img src="{!URLFOR($Resource.SafetyPics, 'safetyPic108.png')}" Class="img-responsive center-block hidden-md hidden-lg img-thumbnail" alt="Responsive image"/>
+            </div>
+            <apex:form id="careForm">
+	            <div class="row text-center">
+	            	<h2>Sutter Health Safe Care Culture</h2>
+	            	<h4>One event aspect per entry.  Complex harm events may need more than one entry.</h4>
+	            	<apex:messages />
+	            	<hr></hr>
+	            </div>
+	            <div class="form-group">
+	                <label class="control-label col-sm-12" for="affiliate">Where were you providing care when event occurred?</label>
+	                <div class="col-sm-12">
+	                <apex:inputField id="affiliate" value="{!safetyCare.Affiliate__c}" styleClass="form-control" required="true"/>
+	                </div>
+	            </div>
+	           <div class="col-sm-12">
+	           <label for="radio" class="col-sm-12 control-label">Type of Event</label>
+	            <apex:repeat value="{!eventOptions}" var="event">
+	                <div class="radio">
+	                  <label>
+	                    <input type="radio" name="eventRadios" value="{!event}" required="required" onchange="setHiddenValue(this,'{!$Component.hiddenType}');checkMRNRequired(this);"/>
+	                    {!event}
+	                  </label>
+	                </div>
+	                
+	                </apex:repeat>
+	           </div>
+	           <apex:inputField styleClass="hidden" id="hiddenType" value="{!safetyCare.Type_of_Event__c}"/>
+	           <apex:ActionRegion >
+		           <div class="col-sm-12">
+		           <label for="radio" class="col-sm-12 control-label">Category of Event</label>
+		            <apex:repeat value="{!categoryOptions}" var="category">
+		                <div class="radio">
+		                  <label>
+		                    <input required="required" type="radio" name="categoryRadios" value="{!category}" onchange="setHiddenValue(this,'{!$Component.hiddenCategory}');rerenderAction();" />
+		                    {!category}
+		                  </label>
+		                </div>
+		                
+		                </apex:repeat>
+		           </div>
+		        	<apex:actionFunction name="rerenderAction" oncomplete="addRequired('{!$Component.Finding}');" rerender="findingList"/>
+	           	</apex:actionRegion>
+	           	<apex:inputField styleClass="hidden" id="hiddenCategory" value="{!safetyCare.Category_of_Event__c}"/>
+	           	<div class="form-group">
+	           		<label class="control-label col-sm-12" for="Finding">Finding</label>
+	                <div id="dependentPicklist" class="col-sm-12" >
+	                    <apex:outputPanel id="findingList">
+	                    <apex:inputField id="Finding" value="{!safetyCare.Causes__c}" styleClass="form-control" required="true"/>
+	                    </apex:outputPanel>
+	                </div>
+	            </div>
+	            <div class="form-group">
+	                <label class="control-label col-sm-12" for="tip">Tip(s) to avoid situation in future </label>
+	                <div  class="col-sm-12" >
+	                    <apex:inputField id="tip" value="{!safetyCare.Tip_To_Avoid__c}" styleClass="form-control" />
+	                </div>
+	            </div>
+	            <div class="form-group">
+	                <label class="control-label col-sm-12" for="name">Your Name</label>
+	                <div class="col-sm-12" >
+	                    <apex:inputField id="name" value="{!safetyCare.Username__c}" styleClass="form-control" required="true" />
+	                </div> 
+	            </div>
+	            <div class="form-group">
+	                <label class="control-label col-sm-12" for="department">Your Department</label>
+	                <div class="col-sm-12" >
+	                    <apex:inputField id="department" value="{!safetyCare.Department__c}" styleClass="form-control"/>
+	                </div> 
+	            </div>
+	            <div class="form-group">
+	                <label class="control-label col-sm-12" for="mrn">MRN (If Applicable)</label>
+	                <div id="mrnWrap" class="col-sm-12" >
+	                    <apex:inputField id="mrn" value="{!safetyCare.MRN__c}" styleClass="form-control" />
+	                </div> 
+	            </div>
+	            
+	            <div class="col-sm-12">
+	                <label class="control-label col-sm-12" for="button"></label>
+	                <apex:commandButton styleClass="btn btn-success" onclick="return validateForm('{!$Component.careForm}');" action="{!SaveAndComplete}" value="Submit" />
+	            </div>
+            </apex:form>
+        </div>
+    </div>
+    </apex:outputPanel>
+    <apex:outputPanel rendered="{!completed}">
+    <div class="container">
+       
+        <div class="panel panel-default panel-body">
+            <apex:outputPanel rendered="{!not(surveySaved)}">
+            <apex:form >
+            
+            <div class="form-group">
+                <label class="control-label col-sm-12" for="question1">Compared with MIDAS tool</label>
+                <div class="col-sm-12">
+                    <apex:inputField id="question1" value="{!safetySurvey.Question_1__c}" styleClass="form-control" onchange="checkOtherVisible(this,'{!$Component.other}');"/>
+                </div>
+            </div>
+            <div id="otherWrapper" class="form-group hidden">
+                <label class="control-label col-sm-12" for="other">Other</label>
+                <div class="col-sm-12">
+                <apex:inputField id="other" value="{!safetySurvey.Q1_Other__c}" styleClass="form-control"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-12" for="category">Suggestions for improvements in this tool</label>
+                <div class="col-sm-12">
+                    <apex:inputField id="category" value="{!safetySurvey.Suggestions__c}" styleClass="form-control" />
+                </div>
+            </div> 
+            
+            
+            <div class="form-group">
+               <label class="control-label col-sm-12" for="button"></label>
+                <div class="col-xs-12 col-xs-offset-2 col-md-4">
+                    <apex:commandButton styleClass="btn btn-success" action="{!SaveSurvey}" value="Save Survey and Exit" />
+                </div>
+                <div class="col-xs-12 col-xs-offset-2 col-md-4">
+                    <apex:commandButton styleClass="btn btn-success" action="{!SaveAndNew}" value="Save and New" />
+                </div>
+            </div>
+           
+            </apex:form>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!surveySaved}">
+                <h2> Thanks for submitting!</h2>
+            </apex:outputPanel>
+        </div>
+        </div>
+        
+    </apex:outputPanel>
+    
+   <script>
+    j$ = jQuery.noConflict();
+    var MutationObserver = window.WebKitMutationObserver || window.MutationObserver ||window.MozMutationObserver;
+    if (typeof MutationObserver != 'undefined') {
+        // Defining observer
+        var observer = new MutationObserver(function(mutations) { 
+            if(!j$('#dependentPicklist select').first().hasClass('form-control')){
+                j$('#dependentPicklist select').first().addClass('form-control');
+                
+            }
+            if(!j$('#dependentPicklist select').first().attr('required')){
+                j$('#dependentPicklist select').first().attr('required','required');
+            }
+        });
+        
+        // A target object fot the observer
+        var myNode = document.querySelector('#dependentPicklist'); 
+        if(myNode){
+            // Assigning observer to the dependent picklist
+            observer.observe(myNode, {
+                childList: true,
+                subtree: true,
+                attributes: true
+            });
+        }
+    }
+    function checkOtherVisible(input,otherId){
+        if(input.value == 'Other'){
+             document.getElementById('otherWrapper').classList.add('show');
+             document.getElementById('otherWrapper').classList.remove('hidden');
+        }
+        else{
+            document.getElementById('otherWrapper').classList.add('hidden');
+            document.getElementById('otherWrapper').classList.remove('show');
+        }
+    }
+    /* Capture value from specified input and set it on specified hidden input
+    */
+    function setHiddenValue(input,hiddenInputId){
+         document.getElementById(hiddenInputId).value = input.value; 
+    }
+    /* Salesforce dependent picklists lose all style classes when rendered.  
+    */
+    function addRequired(inputId){
+    	var currentElement = document.getElementById(inputId);
+    	if(!currentElement.hasAttribute('required') || currentElement.getAttribute('required').includes('required')){
+    		currentElement.setAttribute('required','required');
+    	}
+    	if(!currentElement.className || !currentElement.className.includes('form-control')){
+    		currentElement.className += ' form-control';
+    	}
+    }
+    /* MRN input field is required for certain types of events but not for others.
+    */
+    function checkMRNRequired(input){
+        if(input.value.localeCompare('Teamwork Failures') === 0 || input.value.localeCompare('Safety Improvement Opportunity [No error occurred--YET, but one could!]') === 0){
+            if(j$('#mrnWrap input').first().attr('required')){
+                j$('#mrnWrap input').first().removeAttr('required');
+            }
+        }
+        else{
+            if(!j$('#mrnWrap input').first().attr('required')){
+                j$('#mrnWrap input').first().attr('required','required');
+            }
+        }
+    }
+    
+    function validateForm(formId){
+    	//If browser does not have form validation then manually check for required input flag
+    	if (!Modernizr.formvalidation) {
+    		var errors = false;
+    		var elem = document.getElementById(formId).elements;
+    		var validatedRadios = [];
+    		for(var i = 0; i < elem.length; i++){
+    			var currentElement =  elem[i];
+	    		var parent = currentElement.parentNode;
+    			
+    			if(currentElement.hasAttribute('required') && currentElement.getAttribute('required').includes('required')){
+    				
+    				if(currentElement.hasAttribute('type') && currentElement.getAttribute('type').includes('radio')){
+
+    					if(!contains(validatedRadios,currentElement.name)){
+    						validatedRadios.push(currentElement.name);
+    						var radioElements = document.getElementsByName(currentElement.name);
+    						var checkedRadio = false;
+    						for(var j = 0; j < radioElements.length; j++){
+    							checkedRadio = radioElements[j].checked || checkedRadio;
+    						}
+    						if(!checkedRadio){
+    							errors = true;
+    							for(var j = 0; j < radioElements.length; j++){
+    								if(!radioElements[j].className.includes('radio-error')){
+    									radioElements[j].className += ' radio-error'
+    								}
+    							}
+    						}
+    					}
+    				}
+    				else if(!currentElement.value){
+	    				if(!parent.className.includes('has-error')){
+	    					parent.className += ' has-error';
+	    				}
+    					errors = true;
+    				}
+    			}
+    			
+    		}
+    		if(errors){
+    			return false;
+    		}
+    		else{
+    			return true;
+    		}
+    	}
+    	else{
+    		//Validation preformed by browser
+    		//console.log('auto validate');
+    		return true;
+    	}
+    }
+    
+    /* Search through array looking for specified object.
+    	Parameters : inArray - array to search, obj - object to find in array    	
+    	Return : Boolean true is the object is found in array else false    
+    */
+    function contains(inArray, obj) {
+	    for (var i = 0; i < inArray.length; i++) {
+	        if (inArray[i] === obj) {
+	            return true;
+	        }
+	    }
+	    return false;
+	}
+    </script>
+
+</apex:page>

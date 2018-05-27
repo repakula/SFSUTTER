@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Trigger Settings</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Trigger Settings</value>
+    </caseValues>
+    <fields>
+        <label><!-- Is Active --></label>
+        <name>SH_Is_Active__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field is used to restrict the user to publish records more than the specified count --></help>
+        <label><!-- Max Publish Count --></label>
+        <name>SH_Max_Publish_Count__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

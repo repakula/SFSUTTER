@@ -1,0 +1,43 @@
+<apex:component >
+    <apex:stylesheet value="{!URLFOR($Resource.PDI_Portalbootstrap, 'css/font-awesome.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.PDI_Portalbootstrap, 'css/homestyle.css')}"/> 
+    
+    <apex:stylesheet value="{!URLFOR($Resource.PDI_Portalbootstrap, 'css/animate.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.PDI_Portalbootstrap, 'css/colors/red.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.PDI_Portalbootstrap, 'css/colors/jade.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.PDI_Portalbootstrap, 'css/colors/blue.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.PDI_Portalbootstrap, 'css/colors/beige.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.PDI_Portalbootstrap, 'css/colors/cyan.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.PDI_Portalbootstrap, 'css/colors/green.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.PDI_Portalbootstrap, 'css/colors/orange.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.PDI_Portalbootstrap, 'css/colors/peach.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.PDI_Portalbootstrap, 'css/colors/pink.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.PDI_Portalbootstrap, 'css/colors/purple.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.PDI_Portalbootstrap, 'css/colors/sky-blue.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.PDI_Portalbootstrap, 'css/colors/yellow.css')}"/>
+    
+    <apex:stylesheet value="{!URLFOR($Resource.PDI_Portalbootstrap, 'asset/css/3.3.6/bootstrap.css')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.PDI_Portalbootstrap, 'js/jquery.min.js')}"/> 
+    <apex:includeScript value="{!URLFOR($Resource.PDI_Portalbootstrap, 'asset/js/3.3.6/bootstrap.js')}"/> 
+    <apex:includeScript value="{!URLFOR($Resource.PDIwave2, 'wave2/bootstrap.js')}"/>   
+    
+    <apex:includeScript value="{!URLFOR($Resource.PDI_Portalbootstrap, 'js/googleapi.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.PDI_Portalbootstrap, 'js/jquery-2.1.4.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.PDI_Portalbootstrap, 'js/jquery.migrate.js')}"/> 
+    <apex:includeScript value="{!URLFOR($Resource.PDI_Portalbootstrap, 'js/modernizrr.js')}"/> 
+    <apex:includeScript value="{!URLFOR($Resource.PDI_Portalbootstrap, 'js/jquery.fitvids.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.PDI_Portalbootstrap, 'js/jquery.slicknav.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.PDI_Portalbootstrap, 'js/jquery.parallax.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.PDI_Portalbootstrap, 'js/jquery.nicescroll.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.PDI_Portalbootstrap, 'js/jquery.easypiechart.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.PDI_Portalbootstrap, 'js/jquery.lettering.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.PDI_Portalbootstrap, 'js/jquery.textillate.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.PDI_Portalbootstrap, 'js/count-to.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.PDI_Portalbootstrap, 'js/jquery.appear.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.PDI_Portalbootstrap, 'js/jquery.isotope.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.PDI_Portalbootstrap, 'js/nivo-lightbox.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.PDI_Portalbootstrap, 'js/owl.carousel.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.PDI_Portalbootstrap, 'js/backtotopJS.js')}"/>
+  
+    
+</apex:component>

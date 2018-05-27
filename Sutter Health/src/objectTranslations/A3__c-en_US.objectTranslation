@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>A3</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>A3</value>
+    </caseValues>
+    <fields>
+        <help><!-- What problem are you talking about and why? --></help>
+        <label><!-- Background --></label>
+        <name>Background__c</name>
+    </fields>
+    <fields>
+        <label><!-- Champion --></label>
+        <name>Champion__c</name>
+        <relationshipLabel><!-- A3 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Coach --></label>
+        <name>Coach__c</name>
+        <relationshipLabel><!-- A3 (Coach) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Confirmed Problem Statement --></label>
+        <name>Confirmed_Problem_Statement__c</name>
+    </fields>
+    <fields>
+        <help><!-- Where do things stand now? --></help>
+        <label><!-- Current Conditions --></label>
+        <name>Current_Conditions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expected Benefit --></label>
+        <name>Expected_Benefit__c</name>
+    </fields>
+    <fields>
+        <help><!-- What do you propose and why? (Improvement AND Benefit(s) of Improvement) --></help>
+        <label><!-- Experiments --></label>
+        <name>Experiments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Why does the problem or need exist? (Top Contributor(s) of the Performance Gap AND Root Causes) --></help>
+        <label><!-- Gap Analysis --></label>
+        <name>Gap_Analysis__c</name>
+    </fields>
+    <fields>
+        <label><!-- Goal Statement --></label>
+        <name>Goal_Statement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Initial Problem Statement --></label>
+        <name>Initial_Problem_Statement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Update --></label>
+        <name>Last_Update__c</name>
+    </fields>
+    <fields>
+        <label><!-- Process Owner --></label>
+        <name>Process_Owner__c</name>
+        <relationshipLabel><!-- A3 (Process Owner) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- What specific outcome is required? --></help>
+        <label><!-- Target Conditions Goal(s) --></label>
+        <name>Target_Conditions_Goal_s__c</name>
+    </fields>
+    <fields>
+        <label><!-- Team --></label>
+        <name>Team__c</name>
+    </fields>
+    <fields>
+        <label><!-- Title --></label>
+        <name>Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- VS Owner --></label>
+        <name>VS_Owner__c</name>
+        <relationshipLabel><!-- A3 (VS Owner) --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>A3 Layout</layout>
+        <sections>
+            <label><!-- Action Plan --></label>
+            <section>Action Plan</section>
+        </sections>
+        <sections>
+            <label><!-- Background --></label>
+            <section>Background</section>
+        </sections>
+        <sections>
+            <label><!-- Current Conditions --></label>
+            <section>Current Conditions</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Experiments --></label>
+            <section>Experiments</section>
+        </sections>
+        <sections>
+            <label><!-- Gap Analysis --></label>
+            <section>Gap Analysis</section>
+        </sections>
+        <sections>
+            <label><!-- Study, Reflect, Plan Next Steps --></label>
+            <section>Study, Reflect, Plan Next Steps</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Target Conditions --></label>
+            <section>Target Conditions</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

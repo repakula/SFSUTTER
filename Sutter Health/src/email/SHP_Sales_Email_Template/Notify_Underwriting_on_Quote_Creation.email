@@ -1,0 +1,11 @@
+<html>
+<body>
+Hi,<br/><br/>
+
+U/W has approved the RFP/RFR Form: {!Proposal__c.RFP_Form__c} for {!Proposal__c.Account_Name__c}/DBA: {!Proposal__c.DBA__c}, {!Proposal__c.Email_Employer_Type__c} and Quote <a href="'{!$Label.HR193_QuoteListViewURL}'">{!Proposal__c.Name}</a> has been generated. Please review and attach quotes.
+<br/><br/>
+Be sure to change your dropdown list to "U/W Queue" after you follow the Quote - link.
+<br/><br/>
+Thank you.<br/>
+</body>
+</html>

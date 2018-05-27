@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>text</bucketType>
+        <developerName>BucketField_28715994</developerName>
+        <masterLabel>Reporting Record Type</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <otherBucketLabel>Other</otherBucketLabel>
+        <sourceColumnName>Case.Customer_Inquiry_Type__c</sourceColumnName>
+        <useOther>true</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Benefits</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Benefits RO</sourceValue>
+            </sourceValues>
+            <value>Benefits</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Billing</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Billing RO</sourceValue>
+            </sourceValues>
+            <value>Billing</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Claim Review</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Claim Review RO</sourceValue>
+            </sourceValues>
+            <value>Claim Review</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Eligibility</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Eligibility RO</sourceValue>
+            </sourceValues>
+            <value>Eligibility</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Enrollment</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Enrollment RO</sourceValue>
+            </sourceValues>
+            <value>Enrollment</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Grievance</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Grievance RO</sourceValue>
+            </sourceValues>
+            <value>Grievance</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Provider Dispute</sourceValue>
+            </sourceValues>
+            <value>Provider Dispute</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Clinical Notifications RO</sourceValue>
+            </sourceValues>
+            <value>Clinical Notifications</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Portal Questions</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Portal Questions RO</sourceValue>
+            </sourceValues>
+            <value>Portal Questions</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Correspondence</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Correspondence RO</sourceValue>
+            </sourceValues>
+            <value>Correspondence</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>OOA/OON</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>OOA/OON RO</sourceValue>
+            </sourceValues>
+            <value>OOA/OON</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>COC Request RO</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>COC Request</sourceValue>
+            </sourceValues>
+            <value>COC Request</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>SHP Billing Invoice Question</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>SHP Billing Invoice Question RO</sourceValue>
+            </sourceValues>
+            <value>SHP Billing Invoice Question</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>SHP Internal Service Request</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>SHP Internal Service Request RO</sourceValue>
+            </sourceValues>
+            <value>Internal Service Request</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Documentation</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Documentation RO</sourceValue>
+            </sourceValues>
+            <value>Documentation</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Complaint</sourceValue>
+            </sourceValues>
+            <value>Complaint</value>
+        </values>
+    </buckets>
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <aggregate>Average</aggregate>
+            <axisBinding>y</axisBinding>
+            <column>AGE</column>
+        </chartSummaries>
+        <chartType>HorizontalBarGrouped</chartType>
+        <enableHoverLabels>true</enableHoverLabels>
+        <expandOthers>true</expandOthers>
+        <groupingColumn>CREATED_DATEONLY</groupingColumn>
+        <legendPosition>Right</legendPosition>
+        <location>CHART_TOP</location>
+        <secondaryGroupingColumn>BucketField_28715994</secondaryGroupingColumn>
+        <showAxisLabels>true</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>true</showValues>
+        <size>Large</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <title>SHP TAT Over 2 Days by Type (Ave 4CM)</title>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <columns>
+        <field>CASE_NUMBER</field>
+    </columns>
+    <columns>
+        <field>Case.Reason__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Average</aggregateTypes>
+        <field>AGE</field>
+    </columns>
+    <columns>
+        <field>CLOSED_DATEONLY</field>
+    </columns>
+    <columns>
+        <field>OWNER</field>
+    </columns>
+    <description>This captures the type of calls and what number take longer than 48 hours to close including all customers inquiries</description>
+    <filter>
+        <criteriaItems>
+            <column>RECORDTYPE</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Case.Benefits,Case.Benefits_RO,Case.Billing,Case.Billing_RO,Case.Claim_Review_RO,Case.Complaint,Case.Complaint_RO,Case.Eligibility,Case.Eligibility_RO,Case.Enrollment,Case.Enrollment_RO,Case.Grievance_RO,Case.Provider_Dispute_RO,Case.SHP_Service_Claim_Review_Service_Request,Case.SHP_Service_Grievance_Service_Request,Case.SHP_Service_Provider_Dispute_Service_Request,Case.Clinical_Notifications,Case.Clinical_Notifications_RO,Case.Portal_Questions,Case.Portal_Questions_RO,Case.Correspondence,Case.Correspondence_RO,Case.OOA_OON,Case.OOA_OON_RO,Case.COC_Request,Case.COC_Request_RO,Case.Non_SHP_Contact_RO,Case.Non_SHP_Contact_Service_Request,Case.SHP_Billing_Invoice_Question,Case.SHP_Billing_Invoice_Question_RO,Case.SHP_Internal_Service_Request,Case.SHP_Internal_Service_Request_RO,Case.Documentation,Case.Documentation_RO</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>AGE</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>greaterThan</operator>
+            <value>2</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Month</dateGranularity>
+        <field>CREATED_DATEONLY</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_28715994</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>SHP TAT &gt; 2 Days by Record Type Avg Days</name>
+    <params>
+        <name>units</name>
+        <value>d</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CaseList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATEONLY</dateColumn>
+        <interval>INTERVAL_LASTTHISMONTH</interval>
+    </timeFrameFilter>
+</Report>

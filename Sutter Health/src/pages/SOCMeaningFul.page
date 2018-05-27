@@ -1,0 +1,340 @@
+<apex:page controller="SOC_MeaningFull_Class" id="pg" showHeader="false" sidebar="false" standardStylesheets="false">
+<script src="/soap/ajax/28.0/connection.js" type="text/javascript"></script>
+    <script src="/soap/ajax/28.0/apex.js" type="text/javascript"></script>
+    <script type="text/javascript" language="javascript" src="{!URLFOR($Resource.jQueryDataTablesZip, 'js/jquery.js')}"></script>
+    <script type="text/javascript" language="javascript" src="{!URLFOR($Resource.jQueryDataTablesZip, 'js/jquery.dataTables.js')}"></script>
+    <apex:stylesheet value="{!URLFOR($Resource.jQueryDataTablesZip, 'css/jquery.dataTables.css')}"/>
+
+    <script type='text/javascript'>
+        function noenter(ev)  {
+            if (window.event && window.event.keyCode == 13 || ev.which == 13) {
+                javascriptLogin();
+                return false;
+             } else {
+                  return true;
+             }
+         }
+    </script>
+    <style type="text/css">
+        .sorting {
+            background: #f2f3f3 url('{! URLFOR($Resource.jQueryDataTablesZip, 'images/sort_both.png') }') no-repeat center right !important;
+            padding-right: 20px !important;
+        }
+        .sorting_asc {
+            background: #f2f3f3 url('{! URLFOR($Resource.jQueryDataTablesZip, 'images/sort_asc.png') }') no-repeat center right !important;
+            padding-right: 20px !important;
+        }
+        .sorting_desc {
+            background: #f2f3f3 url('{! URLFOR($Resource.jQueryDataTablesZip, 'images/sort_desc.png') }') no-repeat center right !important;
+            padding-right: 20px !important;
+        }
+        .sorting_asc_disabled {
+            background: #f2f3f3 url('{! URLFOR($Resource.jQueryDataTablesZip, 'images/sort_asc_disabled.png') }') no-repeat center right !important;
+            padding-right: 20px !important;
+        }
+        .sorting_desc_disabled {
+            background: #f2f3f3 url('{! URLFOR($Resource.jQueryDataTablesZip, 'images/sort_desc_disabled.png') }') no-repeat center right !important;
+            padding-right: 20px !important;
+        }
+        table.dataTable tr.odd { background-color: white; }
+        table.dataTable tr.even { background-color: white; }
+        table.dataTable tr.odd td.sorting_1 { background-color: white; }
+        table.dataTable tr.odd td.sorting_2 { background-color: white; }
+        table.dataTable tr.odd td.sorting_3 { background-color: white; }
+        table.dataTable tr.even td.sorting_1 { background-color: white; }
+        table.dataTable tr.even td.sorting_2 { background-color: white; }
+        table.dataTable tr.even td.sorting_3 { background-color: white; }
+        .dataTables_length, .dataTables_filter, .dataTables_info, .dataTables_paginate {
+            padding: 3px;
+        }
+        
+        html, body,form {
+            height: 100%;
+        }
+        
+        #canvas {
+            height:100%;
+        }
+        
+
+        .clear {
+            clear: both;
+        }
+
+       
+        
+        .spacer-5 {
+            height:5px;
+        }
+    
+        .spacer-10 {
+            height:10px;
+        }
+        
+        .spacer-20 {
+            height:20px;
+        }
+    
+        .spacer-30 {
+            height:30px;
+        }
+        
+        .x-submitButton {
+            width: 345px;
+            height:45px;
+            background-color:#00A9A0;
+            color:#fff; 
+            border-radius: 4px;
+            border-top: 1px solid #CCCCCC;
+            border-right: 1px solid #707070;
+            border-bottom: 1px solid #707070;
+            border-left: 1px solid #CCCCCC; 
+            font-size: 16pt;
+            font-weight: bold;
+            text-align:center;
+        }
+        
+        .footer {
+            font-size:12px;
+            padding-top:10px;
+        }
+        
+        
+        
+        .content {
+            min-height: 417px;
+            width: 419px;
+            margin: 0 auto;
+            font-family:arial;
+            font-size:12px;
+        }
+        
+        #loginBox {
+            background-color: #F5F5F5;
+            border: 2px solid #AAAAAA;
+        }
+        
+        .label {
+            color: #333333;
+            font-size: 13px;
+            font-weight: bold;
+            padding-top: 10px;
+            text-align:left;
+        }
+        
+        input.text {
+            border: 1px solid #AAAAAA;
+            color: #5E5E5E;
+            padding: 12px;
+            width: 320px;
+            color: #586064;
+            background-color: #f3f5f6;
+            margin-top: 3px;
+            -webkit-appearance: none;
+        }
+     
+        #escalatedCasesHeader {
+            width: 100%;
+            background-color: #00A9A0;
+            font-size: x-large;
+            text-align: center;
+            margin-left: 5px;
+            margin-right: 5px;
+            border-radius: 5px;
+        }
+        
+        #escalatedCasesPara {
+            color: white;
+            font-weight: bold;
+            padding: 5px;
+        }
+        
+        .dataTables_filter {
+            display : none;
+        }
+        
+    </style>
+    <apex:form id="frm" style="width: 100%">
+        <apex:actionFunction name="javascriptLogin" action="{!loginMethod}" />
+        <apex:pageMessages id="pgmsg"/>
+            <apex:outputPanel style="width:100%; height:100%; float:left; padding-top:0px" id="righPanel" rendered="{!isLoggedIn}">
+                
+                <table width="100%" style="margin-top: 30px;" id="searchInputTable">
+                    <tr>
+                        <td width="33%">
+                            <div align="center">
+                                <b style="font-size: medium;">Case No :</b> <input type="text" id="inputText"></input>
+                            </div>
+                        </td>
+                        <td width="33%">
+                            <div align="center">
+                                <b style="font-size: medium;">Provider Id :</b> <input type="text" id="providerId"></input>
+                            </div>
+                        </td>
+                        <td width="33%">
+                            <div align="center">
+                                <b style="font-size: medium;">EAF ID :</b> <input type="text" id="eafId"></input>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                
+                <div id="escalatedCasesHeader">
+                    <p id="escalatedCasesPara">Escalated Cases</p> 
+                </div>
+                <apex:pageBlock >
+                    <apex:pageBlockTable value="{!socCaseList}" var="c" styleClass="dataTable" title="Summary Of Care">
+                        <apex:column >
+                            <apex:facet name="header">Transaction Number</apex:facet>
+                            <apex:outputLink value="/Meaningfuluse/SOCCall?caseId={!c.Id}&providerId={!c.EAF_Facility__c}&socId={!mapCaseIdToSOCId[c.Id]}" target="_self" rendered="{!!ISNULL(c.EAF_Facility__c)}">{!c.CaseNumber}</apex:outputLink>
+                            <apex:outputLink value="/Meaningfuluse/SOCCall?caseId={!c.Id}&providerId={!c.ContactId}&socId={!mapCaseIdToSOCId[c.Id]}" target="_self" rendered="{!!ISNULL(c.ContactId)}">{!c.CaseNumber}</apex:outputLink>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header">Type</apex:facet>
+                                {!c.Provider_Type__c}
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header">Provider Id/EAF Id</apex:facet>
+                                {!c.Provider_Id_EAF_ID__c}
+                        </apex:column> 
+                        <apex:column >
+                            <apex:facet name="header">Provider Name</apex:facet>
+                                {!c.Provider_Name__c}
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header">Escalation Reason</apex:facet>
+                                {!c.PDV_Escalation_Reason__c}
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header">Escalation Agent</apex:facet>
+                                {!c.owner.name}
+                        </apex:column>
+                    </apex:pageBlockTable>
+                </apex:pageBlock>
+                <script type="text/javascript" language="javascript">
+                    var j$ = jQuery.noConflict();
+                    j$(document).ready(function(){
+                    
+                        var table = j$('table.dataTable').DataTable();
+                         
+                        j$( "#searchInputTable :input" ).keyup(function () {
+                            table.search( j$(this).val() ).draw();
+                        });
+                        
+                    });
+                </script>
+                
+                <div align="center">
+                    <apex:commandButton styleClass="x-submitButton" id="logoutbtnId" action="{!logoutFromSite}" value="Log Out" rendered="{!isLoggedIn}" oncomplete="window.location.reload()"/>
+                </div>
+            </apex:outputPanel>
+            
+            
+            
+            <apex:outputPanel id="loginPanel" rendered="{!!isLoggedIn}">
+                <!-- <div style="width:500px; margin:0 auto; margin-top: 10%;">
+                    <apex:pageBlock title="Login">
+                        <apex:pageblocksection columns="1">
+                            <apex:pageblocksectionitem >
+                                Username : <apex:inputtext value="{!username}" />
+                            </apex:pageblocksectionitem>
+                            <apex:pageblocksectionitem >
+                                Password : <apex:inputSecret value="{!password}" />
+                            </apex:pageblocksectionitem>
+                        
+                            <apex:pageBlockSectionItem >
+                                Search button invokes SearchProvider action for provider search 
+                                <apex:commandButton style="width:2000" action="{!loginMethod}" value="Login" status="status" rerender="frm"/>
+                                <apex:actionstatus id="status">
+                                    <apex:facet name="start"> 
+                                        <span style="color:red;font-weight:bold;padding-left:5px;">Logging In...</span>
+                                        <img src="/img/loading.gif" alt="" />
+                                    </apex:facet>
+                                </apex:actionstatus>
+                            </apex:pageBlockSectionItem>
+                            </apex:pageblocksection>
+                    </apex:pageBlock>
+                </div> -->
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" id="canvas">
+                    <tr>
+                    <td width="30%"></td>
+                    <td>
+                        <table border="0" cellpadding="0" cellspacing="0" class="content">
+                        <tr><td id="loginBox">
+                            
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td width="10%"></td>
+                                            <td class="spacer-20">&nbsp;</td>
+                                            <td width="10%"></td>
+                                        </tr>
+                                        
+                                        <tr><td colspan="3" align="center"><apex:image id="theLogo" value="{!$Resource.logo}" width="200" height="60" /></td></tr>
+                                        
+                                        <tr><td colspan="3" class="spacer-20">&nbsp;</td></tr>
+                                        <tr>
+                                            <td></td>
+                                            <td><apex:pageMessages id="error" /></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr><td colspan="3"  class="spacer-20">&nbsp;</td></tr>
+                                        
+                                        <tr>
+                                            <td></td>
+                                            <td class="label">{!$Label.site.username}</td><!--  (Username must be in Sutter email format) -->
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td><apex:inputText styleClass="text" id="username" value="{!username}"/></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr><td colspan="3" class="spacer-10">&nbsp;</td></tr>
+                                        
+                                        
+                                        <tr>
+                                            <td></td>
+                                            <td class="label">{!$Label.site.password}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td><apex:inputSecret styleClass="text" id="password" value="{!password}" onkeypress="return noenter(event);" /></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr><td colspan="3" class="spacer-20">&nbsp;</td></tr>
+                                        
+                                        <tr><td colspan="3" class="spacer-20">&nbsp;</td></tr>
+                                        
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                <apex:commandButton value="Log in" styleClass="x-submitButton" action="{!loginMethod}" id="submitbutton" />
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        <tr><td colspan="3" class="spacer-20">&nbsp;</td></tr>
+            
+                                        <!-- <tr>
+                                            <td></td>
+                                            <td><a href="/providers/secur/forgotpassword.jsp" style="font-size:12px;">Forgot your password?</a></td>
+                                            <td></td>
+                                        </tr> -->
+                                        <tr><td colspan="3" class="spacer-20">&nbsp;</td></tr>
+                                        
+                                    </table>
+                        </td></tr>
+                        
+                        <tr><td class="footer" align="center">Copyright &copy; 2014 Sutter Health. All rights reserved.</td></tr>
+                        </table>
+                    </td>
+                    <td width="30%"></td>
+                    </tr>
+                </table>
+            </apex:outputPanel>
+            <br />
+            
+    </apex:form>
+    
+    
+</apex:page>

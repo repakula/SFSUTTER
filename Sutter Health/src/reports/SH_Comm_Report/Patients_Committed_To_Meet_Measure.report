@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Communication_Log__c.Contact_Name__c</field>
+    </columns>
+    <columns>
+        <field>Communication_Log__c.Foundation__c</field>
+    </columns>
+    <columns>
+        <field>Communication_Log__c.Facility__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Communication_Log__c.Patient_Committed_to_Measure__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Yes</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Communication_Log__c.Contacted_About__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Patients Committed To Meet-Measure</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Communication_Log__c</reportType>
+    <scope>user</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Communication_Log__c.Current_year_AWV_date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

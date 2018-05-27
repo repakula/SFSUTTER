@@ -1,0 +1,672 @@
+<!-- 
+    Page Name: VFP45_SHP_RFPForm 
+    Author: IDC Offshore
+    Date: 23-Feb-2016
+    Description: Page for VFC45_SHP_RFPForm controller to create new Incumbent Carrier of RFPForm record type. 
+    History:
+    VERSION    AUTHOR              DATE         DETAIL 
+    1.0        Prerna Chandak      14-4-2016    To render vf page as PDF on "Generate PDF" button, else as visualforce.
+    1.1        Prerna Chandak      15-4-2016    To display current offerings section with all associated incumbent carrier records when a PDF is generated from RFP Form.
+    1.2        Haritha             7-20-2016    enable/disable General Agent section based on "General agent applicable" field value
+    1.3        Bhaskar Bellapu     9-26-2016    Req 3890 Render the plans Horizontally and 
+     the Rate to Quote to Tier Ratios and added formula fields as per req no: 3880 wave 2 new RFP Form 
+    1.4        Offshore            16-03-2017   SHP7 Update RFP Formulas
+                                                SHP20  SHP SA Subs minus Valid Waiver (Removed the deleted field in this class)
+                                                SFSHP-4 Sales - Request for Proposal (RFP) - Save Data in Each Version
+    2.0        Deloitte            19-04-2017   SHP26 Rejection reason
+-->
+
+<apex:page standardController="Incumbent_Carrier__c" extensions="VFC45_SHP_RFPForm" sidebar="true" renderAs="{!if($CurrentPage.Parameters.isNew == 'false' , 'PDF', null)}" id="page" >
+
+
+ <apex:stylesheet value="{!URLFOR($Resource.PDFCss, 'PDFCss/Theme3.css')}"/>
+ <apex:stylesheet value="{!URLFOR($Resource.PDFCss, 'PDFCss/Theme3_dStandard.css')}"/>
+ <apex:stylesheet value="{!URLFOR($Resource.PDFCss, 'PDFCss/Theme3_elements.css')}"/>
+ <apex:stylesheet value="{!$Resource.RFP_FormattingStyles}"/> 
+
+    <div style="color: red;font-size: 1pc;margin: 1pc;">
+        <apex:outputText rendered="{!ReadOnly}"> This version of RFP form cannot be modified as there is a newer version available</apex:outputText>
+    </div>
+    <apex:form >
+        <apex:pageMessages />
+        <apex:outputPanel rendered="{!IF(mandatoryFieldsAreNotFilled == true || isSmallGroup == true || isIndividualAccount == true,true,false)}">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <apex:commandButton value="Cancel" action="{!RedirectToOpportunity}" />
+        </apex:outputPanel>
+        <apex:pageBlock title="{!IF (RelatedOpportunity.Renewed_Opportunity__c== true, 'RFR Form', 'RFP Form')}" tabStyle="Account" rendered="{!IF(mandatoryFieldsAreNotFilled == false && isSmallGroup == false && isIndividualAccount == false,true,false)}">
+            <apex:pageBlockSection title="{!$Label.SHP_RFP_49}" columns="2">
+               
+                
+                <apex:outPutText Label="{!$Label.SHP_RFP_50}" value="{!RelatedOpportunity.Account.Account_Executive__r.FirstName} {!RelatedOpportunity.Account.Account_Executive__r.LastName}" /> 
+                <apex:outputText Label="{!$Label.SHP_RFP_51}" rendered="{!IF(RFPForm.CreatedBy.Name != null , true ,false)}" value="{!RFPForm.CreatedBy.Name}"/>
+                <apex:outputText Label="{!$Label.SHP_RFP_51}" rendered="{!IF(RFPForm.CreatedBy.Name ==null , true , false)}" value="{!$User.FirstName} {!$User.LastName}"/>
+                
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="{!$Label.SHP_RFP_52}" columns="3">
+                
+            </apex:pageBlockSection>
+             
+             
+             <apex:outPutPanel id="EmployerInfo3RdRowId" styleClass="SectionRowClass">
+                 <table class="detailList"  border="1" cellpadding="0" cellspacing="0" width="100%">
+                     <tbody>
+                         
+                          <tr>
+                            <td class="SectionRowClassFirst" style="vertical-align:middle;width:12.5%">
+                                <apex:outputLabel value="{!$Label.SHP_RFP_03}" for="EmployerId" styleClass="labelCol vfLabelColTextWrap  first "/>
+                            </td> 
+                            <td class="SectionRowClassFirst" style="vertical-align:middle;width:37.5%" colspan="3">
+                                 <apex:outPutText value="{!RelatedOpportunity.Account.Name}" id="EmployerId" />
+                            </td>
+                            <td class="SectionRowClassFirst" style="vertical-align:middle;width:12.5%" >
+                                <apex:outputLabel value="{!$Label.SHP_RFP_04}" for="ErCityId" styleClass="labelCol vfLabelColTextWrap  first " />
+                            </td> 
+                            <td class="SectionRowClassFirst" style="vertical-align:middle;width:12.5%" >
+                                <apex:outPutText value="{!RelatedOpportunity.Account.BillingCity}" id="ErCityId"/>
+                            </td>
+                            <td class="SectionRowClassFirst" style="vertical-align:middle;width:12.5%" >
+                                <apex:outputLabel value=" Total Medical Eligible Subs" for="TotalMedicalEligSubs" styleClass="labelCol vfLabelColTextWrap  first " />
+                            </td> 
+                            <td class="SectionRowClassFirst" style="vertical-align:middle;width:12.5%" >
+                                <apex:outPutText value="{!RelatedOpportunity.Full_Time_Employees__c}" id="TotalMedicalEligSubs"/>
+                            </td>
+                           </tr> 
+                         
+                          <tr>
+                            <td class="SectionRowClassFirst" style="vertical-align:middle;width:12.5%" >
+                                <apex:outputLabel value="{!$Label.SHP_RFP_06}" for="DBAId" styleClass="labelCol vfLabelColTextWrap  first "/>
+                            </td>
+                            <td class="SectionRowClassFirst" style="vertical-align:middle;width:37.5%" colspan="3">
+                                <apex:outputText value="{!IF(RelatedOpportunity.Account.DBA__c != NULL && RelatedOpportunity.Account.DBA__c != '',RelatedOpportunity.Account.DBA__c,'N/A')}" id="DBAId"/>
+                            </td>
+                            <td class="SectionRowClassFirst" style="vertical-align:middle;width:12.5%" >
+                                <apex:outputLabel value="{!$Label.SHP_RFP_07}" for="ErZipId" styleClass="labelCol vfLabelColTextWrap  first " />
+                            </td>
+                            <td class="SectionRowClassFirst" style="vertical-align:middle;width:12.5%"  >
+                                <apex:outputText value="{!RelatedOpportunity.Account.BillingPostalCode}" id="ErZipId"/>
+                            </td>
+                            <td class="SectionRowClassFirst" style="vertical-align:middle;width:12.5%" >
+                                <apex:outputLabel value="Total Subs in SHP Service Areas (SA)" for="TotalSubsinSA" styleClass="labelCol vfLabelColTextWrap  first " />
+                            </td>
+                            <td class="SectionRowClassFirst" style="vertical-align:middle;width:12.5%"  >
+                                <apex:outputText value="{!RelatedOpportunity.Total_Subs_in_SHP_Service_Areas_SA__c}" id="TotalSubsinSA"/>
+                            </td>
+                        </tr> 
+                         <tr>
+                            <td class="SectionRowClassFirst" style="vertical-align:middle;width:12.5%">
+                                <apex:outputLabel value="{!$Label.SHP_RFP_09}" for="ReasonForMarketId" styleClass="labelCol vfLabelColTextWrap  first "/>
+                            </td>
+                            <td class="SectionRowClassFirst" style="vertical-align:middle;width:37.5%" colspan="3">
+                                <apex:inputField value="{!RFPForm.Reason_for_Market_Check__c}" id="ReasonForMarketId" rendered="{!if($CurrentPage.Parameters.OpportunityId != NULL,true,false)}"  />
+                                <apex:outputField value="{!RFPForm.Reason_for_Market_Check__c}" id="ReasonForMarketId1" rendered="{!if($CurrentPage.Parameters.isNew == 'false',true,false)}"/>
+                            </td> 
+                            <td class="SectionRowClassFirst" style="vertical-align:middle;width:12.5%" >
+                                <apex:outputLabel value="{!$Label.SHP_RFP_10}" for="SICCodeId" styleClass="labelCol vfLabelColTextWrap  first " />
+                            </td>
+                            <td class="SectionRowClassFirst" style="vertical-align:middle;width:12.5%"  >
+                                <apex:outPutText value="{!RelatedOpportunity.Account.SIC_Code__c}" id="SICCodeId"/>
+                            </td>
+                            <td class="SectionRowClassFirst" style="vertical-align:middle;width:12.5%" >
+                                <apex:outputLabel value="Total SHP SA Subs with Valid Waivers" for="TotalSHPSAValidWaiver" styleClass="labelCol vfLabelColTextWrap  first " />
+                            </td>
+                            <td class="SectionRowClassFirst" style="vertical-align:middle;width:12.5%"  >
+                                <apex:outPutText value="{!RelatedOpportunity.Total_SHP_SA_Subs_with_Valid_Waivers__c}" id="TotalSHPSAValidWaiver"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="SectionRowClassFirst" style="vertical-align:middle;width:12.5%">
+                                <apex:outputLabel value="Request Type" for="RFPType" styleClass="labelCol vfLabelColTextWrap  first "/>
+                            </td>
+                            <td class="SectionRowClassFirst" style="vertical-align:middle;width:37.5%" colspan="3">
+                                <apex:selectList value="{!RFPForm.RFP_Type__c}" multiselect="false" size="1" rendered="{!if($CurrentPage.Parameters.OpportunityId != NULL,true,false)}" >
+                                    <apex:selectOptions value="{!RFPTypes}" ></apex:selectOptions>
+                                </apex:selectList>
+                                <!--<apex:inputField value=" {!RFPForm.RFP_Type__c}" id="RFPType" rendered="{!if($CurrentPage.Parameters.OpportunityId != NULL,true,false)}"/>-->
+                                <apex:outputField value=" {!RFPForm.RFP_Type__c}" id="RFPType1" rendered="{!if($CurrentPage.Parameters.isNew == 'false',true,false)}"/>
+                            </td>
+                            <td class="SectionRowClassFirst" style="vertical-align:middle;width:12.5%">
+                                <apex:outputLabel value="# of Quotes Requested" for="NoOfDocuments" styleClass="labelCol vfLabelColTextWrap  first "/>
+                            </td>
+                            <td class="SectionRowClassFirst" style="vertical-align:middle;width:37.5%" colspan="3">
+                                <apex:inputField value="{!RFPForm.No_of_Quotes_Requested__c}" id="NoOfDocuments" rendered="{!if($CurrentPage.Parameters.OpportunityId != NULL,true,false)}"  />
+                                <apex:outputField value="{!RFPForm.No_of_Quotes_Requested__c}" id="NoOfDocuments1" rendered="{!if($CurrentPage.Parameters.isNew == 'false',true,false)}"/>
+                            </td>
+                            
+                            
+                        </tr>
+                        <tr>
+                            <td class="SectionRowClass" style="vertical-align:middle;width:12.5%" >
+                                <apex:outputLabel value="{!$Label.SHP_RFP_12}" for="ContributionsEEId" styleClass="labelCol vfLabelColTextWrap  first "/>
+                            </td>
+                            <td class="SectionRowClass" style="vertical-align:middle;width:12.5%" >
+                                <apex:outPutText value=" {!RelatedOpportunity.Contribution_s_EE__c}" id="ContributionsEEId"/>
+                            </td>
+                            <td class="SectionRowClass" style="vertical-align:middle;width:12.5%" >
+                                <apex:outputLabel value="{!$Label.SHP_RFP_13}" for="DependentId" styleClass="labelCol vfLabelColTextWrap  first " />
+                            </td>
+                            <td class="SectionRowClass" style="vertical-align:middle;width:12.5%" >
+                                <apex:outPutText value="{!RelatedOpportunity.Dependent_Contribution__c}" id="DependentId"/>
+                            </td>
+                            <td class="SectionRowClass" style="vertical-align:middle;width:12.5%">
+                                <apex:outputLabel value="{!$Label.SHP_RFP_14}" for="TRSliceId" styleClass="labelCol vfLabelColTextWrap  first " />
+                            </td>
+                            <td class="SectionRowClass" style="vertical-align:middle;width:12.5%">
+                                <apex:outPutText value="{!RelatedOpportunity.Additional_Buy_Ups__c}" id="TRSliceId"  /> 
+                            </td>
+                            <td class="SectionRowClass" style="vertical-align:middle;width:12.5%">
+                                <apex:outputLabel value="SHP SA Subs minus Valid Waiver" for="SHPSASubsminusValidWaiver" styleClass="labelCol vfLabelColTextWrap  first " />
+                            </td>
+                            <td class="SectionRowClass" style="vertical-align:middle;width:12.5%">
+                                <apex:outPutText value="{!RelatedOpportunity.SHP_SA_Subs_minus_Valid_Waiver__c}" id="SHPSASubsminusValidWaiver"  /> 
+                            </td> 
+                        </tr>
+                        <tr>
+                            <td class="SectionRowClass" style="vertical-align:middle;width:12.5%">
+                                <apex:outputLabel value="{!$Label.SHP_RFP_16}" for="QuoteEDateId" styleClass="labelCol vfLabelColTextWrap  first "/>
+                            </td>
+                            <td class="SectionRowClass" style="vertical-align:middle;width:12.5%">
+                                 <apex:outPutText value="{0,date,MM/dd/yy}"> <apex:param value="{!RelatedOpportunity.Plan_Effective_Date__c}" id="QuoteEDateId"/> </apex:outPutText>
+                            </td>
+                            <td class="SectionRowClass" style="vertical-align:middle;width:12.5%">
+                                <apex:outputLabel value="{!$Label.SHP_RFP_17}" for="GrpRenwlId" styleClass="labelCol vfLabelColTextWrap  first " />
+                            </td>
+                            <td class="SectionRowClass" style="vertical-align:middle;width:12.5%">
+                                <apex:outPutText value="{0,date,MM/dd/yy}"> <apex:param value="{!RelatedOpportunity.Group_Renewal_Date__c}" id="GrpRenwlId"/> </apex:outPutText>
+                            </td>
+                            <td class="SectionRowClass" style="vertical-align:middle;width:12.5%">
+                                <apex:outputLabel value="Slicing with Carrier Name" for="slicingCarrierName" styleClass="labelCol vfLabelColTextWrap  first " />
+                            </td>
+                            <td class="SectionRowClass" style="vertical-align:middle;width:12.5%">
+                                <apex:outputText value="{!RelatedOpportunity.Slicing_with_Carrier_Name__c}" id="slicingCarrierName" /> 
+                            </td>
+                            <td class="SectionRowClass" style="vertical-align:middle;width:12.5%">
+                                <apex:outputLabel value="{!$Label.SHP_RFP_18}" for="RateTierId" styleClass="labelCol vfLabelColTextWrap  first " />
+                            </td>
+                            <td class="SectionRowClass" style="vertical-align:middle;width:12.5%" >
+                                <apex:inputField value="{!RFPForm.Tiered_Rates__c}" id="RateTierId" rendered="{!if($CurrentPage.Parameters.OpportunityId != NULL,true,false)}"  />
+                                <apex:outputField value="{!RFPForm.Tiered_Rates__c}" id="RateTierId1" rendered="{!if($CurrentPage.Parameters.isNew == 'false',true,false)}"/>
+                            </td>
+                            
+                        </tr>
+                        
+                        <tr>
+                            <td class="SectionRowClass" style="vertical-align:middle;width:12.5%">
+                                <apex:outputLabel value="SHP Participation" for="SHPParticipation" styleClass="labelCol vfLabelColTextWrap  first " />
+                            </td>
+                            <td class="SectionRowClass" style="vertical-align:middle;width:12.5%" >
+                                <apex:outputText value="{!RelatedOpportunity.SHP_SA_Subs_minus_Valid_Waiver__c}" id="SHPParticipation"/>
+                            </td>
+                            <td class="SectionRowClass" style="vertical-align:middle;width:12.5%"> 
+                                <apex:outputLabel value="{!$Label.SHP_RFP_53}" for="StageId" styleClass="labelCol vfLabelColTextWrap  first " />
+                            </td>
+                            <td class="SectionRowClass" style="vertical-align:middle;width:12.5%">
+                                <apex:outPutText value="{!RFPForm.Stage__c }" id="StageId"  />
+                            </td>
+                            <!-- @SHP26 Rejection Reason Void Starts -->
+                            <td class="SectionRowClass" style="vertical-align:middle;width:12.5%" >
+                                <apex:outputLabel value="Rejection Reason" for="RFPType" styleClass="labelCol vfLabelColTextWrap  first "/>
+                            </td>
+                            <td class="SectionRowClass" style="vertical-align:middle;width:12.5%" >
+                                <apex:selectList value="{!RFPForm.Reject_Reason__c}" multiselect="false" size="1" >
+                                    <apex:selectOptions value="{!RejectionTypes}" ></apex:selectOptions>
+                                </apex:selectList>
+                            </td>
+                            <!-- @SHP26 Rejection Reason Void Ends -->                            
+                        </tr>
+                        
+                    </tbody>
+                 </table>
+                 <br/>
+                 <table columns="2" class="detailList">
+                 <tbody>
+                 <tr>
+                 <td>
+                 <apex:outputLink target="_blank" value="{!RedirectToCensusPage}" styleClass="labelCol vfLabelColTextWrap  first " style="float:left;" rendered="{!if($CurrentPage.Parameters.isNew == '',true,false)}">Upload Census Data </apex:outputLink>
+                 </td>
+                 <td>
+                 <apex:outputLink target="_blank" value="{!$Label.SHP_RFP_Summary_Report}" styleClass="labelCol vfLabelColTextWrap  first " style="float:right;" rendered="{!if($CurrentPage.Parameters.isNew == '',true,false)}" > RFP Summary Report
+                     <apex:param name="pv0"  value="{!RelatedOpportunity.Name}"/>
+                 </apex:outputLink>
+                 </td>
+                 </tr>
+                 </tbody>
+                 </table>
+                 
+             </apex:outPutPanel>    
+            
+            <apex:pageBlockSection title="{!$Label.SHP_RFP_55}" columns="2"  >
+              <apex:outPutText value="{!RelatedOpportunity.Broker1__r.Name}" label="{!$Label.SHP_RFP_20}" style="float:left"/>
+              <apex:outPutText value="{!RelatedOpportunity.Broker_Rep1__r.Name}" label="{!$Label.SHP_RFP_21}" style="float:left"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection columns="2" >
+               
+                <apex:outPutText value=" {!RelatedOpportunity.Strategic_Broker__c}"  label="{!$Label.SHP_RFP_22}" id="StrategicBrokerId" style="text-align:left;"/>
+                <apex:outPutText value="{!RelatedOpportunity.Commission__c}" label="{!$Label.SHP_RFP_23}" id="CommisionId" />
+                <apex:inputField value="{!RelatedOpportunity.Broker_of_Record__c}" label="{!$Label.SHP_RFP_24}" id="BORId" rendered="{!if($CurrentPage.Parameters.OpportunityId != NULL,true,false)}" />
+                <apex:outputField value="{!RelatedOpportunity.Broker_of_Record__c}" label="{!$Label.SHP_RFP_24}" id="BORId1" rendered="{!if($CurrentPage.Parameters.isNew == 'false',true,false)}"/>
+                <apex:outPutText value="{0,date,MM/dd/yy}" label="{!$Label.SHP_RFP_25}" > <apex:param value="{!RelatedOpportunity.RFP_Due_Date__c}" id="QuoteDueDateId"  /> </apex:outPutText>
+            </apex:pageBlockSection>
+        <br/>
+            <table class="detailList" border="0" cellpadding="0" cellspacing="0" >
+            <tbody>
+                <tr>
+                    <td style="width:13%; text-align:center;">
+                        <apex:outputLabel value="{!$Label.SHP_RFP_26}" for="StrategyStatmentId" styleClass="labelCol vfLabelColTextWrap  first " style="margin: 10px;" />
+                    </td>
+                    <td style="width:85%">
+                        <apex:inputTextarea value="{!RFPForm.Strategy_Statement__c}" styleClass="inputTextAreaClass" id="StrategyStatmentId"  />
+                    </td>
+                </tr>
+            </tbody>
+            </table>                                 
+
+     <!--Req 3182 Highroads Change Start - enable/disable GA Section -->                 
+                   
+            <apex:outputpanel id="pgBlock">                  
+            <apex:pageBlockSection title="{!$Label.SHP_RFP_100}" columns="2" rendered="{!IF(RFPForm.General_Agent_Applicable__c = true , true , false)}">                                  
+                  <apex:outputField value="{!RFPForm.General_Agent_Applicable__c}" label="{!$Label.SHP_RFP_104}" style="float:left">
+                  <apex:actionSupport event="onchange" rerender="pgBlock"/>
+                  </apex:outputField>
+                  <apex:outputField value="{!RFPForm.General_Agent__c}" label="{!$Label.SHP_RFP_101}" style="float:left"/>
+                  <apex:outputField value="{!RFPForm.GA_Contact__c}" label="{!$Label.SHP_RFP_102}" style="float:left"/>
+                  <apex:outputField value="{!RFPForm.GA_Commission__c}" label="{!$Label.SHP_RFP_103}" style="float:left"/>               
+            </apex:pageBlockSection>                                       
+             </apex:outputpanel>
+             
+     <!--Req 3182 Highroads Change End - enable/disable GA Section -->
+             
+            <apex:pageBlockSection title="{!$Label.SHP_RFP_48}" columns="1" rendered="{!if($CurrentPage.Parameters.isNew == '',true,false)}" >
+            <apex:pageBlockSectionItem >
+                <apex:outputPanel id="CurrentOfferingPanel" styleClass="container"  >
+                   <!-- <div id = "CurrentOfferingOuterDiv" class="CurrentOfferingsMainDiv"> -->
+                    
+                           <!-- <div id="offeringDataTablePanel" Class="offeringDataTableDiv" style="page-break-after:always;" > -->
+                             
+                     <table border="1" style="border-collapse: collapse;width:100%">
+                         <tr>
+                             <td>
+                                <apex:repeat value="{!RelatedIncumbentCarrierList}" var="RFPObj">
+                                    
+                                             <table border="1" style="border: 1px solid black;width:100%" >
+                                                <tr>
+                                                    <th style="text-align:center;width:100%" colspan="10">
+                                                   
+                                                    {!RFPObj.PlanName}
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th style="text-align:center;width:10%">
+                                                        Current Carrier(s)
+                                                    </th>
+                                                    <th style="text-align:center;width:10%">
+                                                        Product
+                                                    </th>
+                                                    <th style="text-align:center;width:10%">
+                                                        Deductible
+                                                    </th>
+                                                    <th style="text-align:center;width:10%">
+                                                        OOPM
+                                                    </th>
+                                                    <th style="text-align:center;width:10%">
+                                                        DOV
+                                                    </th>
+                                                    <th style="text-align:center;width:10%">
+                                                        Specialist OV
+                                                    </th>
+                                                    <th style="text-align:center;width:10%" >
+                                                        IP
+                                                    </th>
+                                                    <th style="text-align:center;width:10%" >
+                                                        ER
+                                                    </th>
+                                                    <th style="text-align:center;width:10%" >
+                                                        RX
+                                                    </th>
+                                                    <th style="text-align:center;width:10%">
+                                                        SHP Plans to Quote
+                                                    </th>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <apex:outputText value="{!RFPObj.RFPFormRec.Incumbent_Carrier__c}" rendered="{!If(RFPObj.RFPFormRec.Incumbent_Carrier__c !='OTHER' ,true,false) }"/>
+                                                        <apex:outputText value="{!RFPObj.RFPFormRec.Other_Competitive_Carrier__c}" rendered="{!If(RFPObj.RFPFormRec.Incumbent_Carrier__c =='OTHER' ,true,false) }"/>
+                                                    </td>
+                                                    <td>
+                                                        <apex:inputText value="{!RFPObj.RFPFormRec.Product__c}" styleClass="TableInputTextBox" />
+                                                        
+                                                    </td>
+                                                    <td>
+                                                        <apex:inputText value="{!RFPObj.RFPFormRec.Deductible__c}" styleClass="TableInputTextBox" /> 
+                                                    </td>
+                                                    <td>
+                                                        <apex:inputText value="{!RFPObj.RFPFormRec.OOPM__c}" styleClass="TableInputTextBox" />
+                                                    </td>
+                                                    <td>
+                                                         <apex:inputText value="{!RFPObj.RFPFormRec.DOV__c}" styleClass="TableInputTextBox" />
+                                                    </td>
+                                                    <td>
+                                                        <apex:inputText value="{!RFPObj.RFPFormRec.Specialist_OV__c}" styleClass="TableInputTextBox" />
+                                                    </td>
+                                                    <td>
+                                                        <apex:inputText value="{!RFPObj.RFPFormRec.IP__c}" styleClass="TableInputTextBox" />
+                                                    </td>
+                                                    <td>
+                                                        <apex:inputText value="{!RFPObj.RFPFormRec.ER__c}" styleClass="TableInputTextBox" />
+                                                    </td>
+                                                    <td>
+                                                        <apex:inputText value="{!RFPObj.RFPFormRec.RX__c}" styleClass="TableInputTextBox" />
+                                                    </td>
+                                                    <td>
+                                                        <apex:inputField value="{!RFPObj.RFPFormRec.SHP_Plans_to_Quote__c}" styleClass="TableInputTextBox" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <th style="text-align:right;width:10%">
+                                                        Current Rates:
+                                                    </th>
+                                                    <td>
+                                                         <apex:inputText value="{!RFPObj.RFPFormRec.EC__c}" styleClass="TableInputTextBox" />
+                                                    </td>
+                                                    <td>
+                                                         <apex:inputText value="{!RFPObj.RFPFormRec.EE__c}" styleClass="TableInputTextBox" />
+                                                    </td>
+                                                    <td>
+                                                        <apex:inputText value="{!RFPObj.RFPFormRec.EF__c}" styleClass="TableInputTextBox" />
+                                                    </td>
+                                                    <td>
+                                                         <apex:inputText value="{!RFPObj.RFPFormRec.ES__c}" styleClass="TableInputTextBox" />
+                                                    </td>
+                                                    <td>
+                                                         <apex:inputText value="{!RFPObj.RFPFormRec.ECH__c}" styleClass="TableInputTextBox" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <th style="text-align:right;width:10%">
+                                                        Renewal Rates:
+                                                    </th>
+                                                    <td>
+                                                         <apex:inputText value="{!RFPObj.RFPFormRec.EC_Renewal__c}" styleClass="TableInputTextBox" />
+                                                    </td>
+                                                    <td>
+                                                         <apex:inputText value="{!RFPObj.RFPFormRec.EE_Renewal__c}" styleClass="TableInputTextBox" />
+                                                    </td>
+                                                    <td>
+                                                        <apex:inputText value="{!RFPObj.RFPFormRec.EF_Renewal__c}" styleClass="TableInputTextBox" />
+                                                    </td>
+                                                    <td>
+                                                         <apex:inputText value="{!RFPObj.RFPFormRec.ES_Renewal__c}" styleClass="TableInputTextBox" />
+                                                    </td>
+                                                    <td>
+                                                         <apex:inputText value="{!RFPObj.RFPFormRec.ECH_Renewal__c}" styleClass="TableInputTextBox" />
+                                                    </td>
+                                                    <th style="text-align:right;border-bottom-style: solid;width:10%">
+                                                        % Change:
+                                                    </th>
+                                                    <td style="border-bottom-style: solid;">
+                                                        <apex:inputText value="{!RFPObj.RFPFormRec.Change__c}" styleClass="TableInputTextBox"/>
+                                                        <!--<apex:outputText value="{!RFPObj.percentChange}" styleClass="TableInputTextBox"/>-->
+                                                    </td>
+                                                 </tr>
+                                                 <tr>
+                                                     <td></td>
+                                                    <th style="text-align:right;width:10%">
+                                                        Tier Ratios:
+                                                    </th>
+                                                    <td>
+                                                        <apex:outputText value="{!RFPObj.ratioes_to_Quote3}" styleClass="TableInputTextBox"/>
+                                                    </td>
+                                                     <td>
+                                                        <apex:outputText value="{!RFPObj.ratioes_to_Quote}" styleClass="TableInputTextBox"/>
+                                                    </td>
+                                                     <td>
+                                                        <apex:outputText value="{!RFPObj.ratioes_to_Quote4}" styleClass="TableInputTextBox"/>
+                                                    </td>
+                                                     <td>
+                                                        <apex:outputText value="{!RFPObj.ratioes_to_Quote2}" styleClass="TableInputTextBox"/>
+                                                    </td>
+                                                     <td>
+                                                        <apex:outputText value="{!RFPObj.ratioes_to_Quote5}" styleClass="TableInputTextBox"/>
+                                                    </td>
+                                                 </tr>
+                                                    
+                                             </table>
+                                        
+                                        </apex:repeat>
+                                 </td>
+                                   </tr>
+                              </table>
+                         <!--     </div> -->
+                   <!-- </div> -->
+                    
+                </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                
+                <apex:outputPanel id="PaginationButtons" styleClass="PaginationButtonClass">
+                     <apex:commandButton action="{!First}"  title="Beginning" value="<<" disabled="{!disablePrevious}" reRender="CurrentOfferingPanel,PaginationButtons" status="counterStatus"/>
+                     <apex:commandButton action="{!Previous}" title="Previous" value="<Previous" disabled="{!disablePrevious}" reRender="CurrentOfferingPanel,PaginationButtons" status="counterStatus"/>        
+                     <apex:commandButton action="{!Next}"  title="Next" value="Next>" disabled="{!disableNext}" reRender="CurrentOfferingPanel,PaginationButtons" status="counterStatus"/>
+                     <apex:commandButton action="{!Last}"  title="End" value=">>" disabled="{!disableNext}" reRender="CurrentOfferingPanel,PaginationButtons" status="counterStatus"/>
+                     <apex:outputText value="Showing Page {!PageNumber} of Total {!TotalPages} Pages " styleClass="labelCol vfLabelColTextWrap  first " />
+                     <apex:actionStatus id="counterStatus" >
+                         <apex:facet name="start" >
+                             <img src="/img/loading.gif" />                    
+                         </apex:facet>
+                     </apex:actionStatus>   
+                </apex:outputPanel>
+                </apex:pageBlockSection>
+                 
+                <apex:pageBlockSection title="Current Offerings " columns="1" rendered="{!if($CurrentPage.Parameters.isNew == 'false',true,false)}"  >
+            <apex:pageBlockSectionItem >
+                <apex:outputPanel id="CurrentOfferingPanel" style="page-break-inside:always; width:100%;" >
+                    <!--<div id = "CurrentOfferingOuterDiv" class="CurrentOfferingsMainDiv" style="page-break-after:auto;"> 
+                             
+                             <div id="offeringDataTablePanel" Class="offeringDataTableDiv" style="page-break-after:always;"> -->
+                             <apex:variable var="ent" value="{!IncumbentCarrierDataList}" />
+                             <apex:outputPanel rendered="{!totalCount !=0}">
+                             <apex:repeat value="{!IncumbentCarrierDataList}" var="RFPObjList" >
+                             <br/>
+                                <table border="1" style = "page-break-inside:auto" >
+                                
+                                    <tr style = "page-break-inside:auto; page-break-after:auto">
+                                    <td style = "page-break-inside:auto; page-break-after:auto">
+                                   <apex:repeat value="{!RFPObjList.rfpFormList}" var="RFPObj" >
+                                             
+                                               <table border="1"  style = "page-break-inside:auto">
+                                                <tr style = "page-break-inside:always; page-break-after:auto">
+                                                    <th style="text-align:center;width:100%" colspan="10">
+                                                   
+                                                    {!RFPObj.PlanName}
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th style="text-align:center;width:10%">
+                                                        Current <br/>Carrier(s)
+                                                    </th>
+                                                    <th style="text-align:center;width:10%">
+                                                        Product
+                                                    </th>
+                                                    <th style="text-align:center;width:10%">
+                                                        Deductible
+                                                    </th>
+                                                    <th style="text-align:center;width:10%">
+                                                        OOPM
+                                                    </th>
+                                                    <th style="text-align:center;width:10%">
+                                                        DOV
+                                                    </th>
+                                                    <th style="text-align:center;width:10%">
+                                                        Specialist<br/>OV
+                                                    </th>
+                                                    <th style="text-align:center;width:10%" >
+                                                        IP
+                                                    </th>
+                                                    <th style="text-align:center;width:10%" >
+                                                        ER
+                                                    </th>
+                                                    <th style="text-align:center;width:10%" >
+                                                        RX
+                                                    </th>
+                                                    <th style="text-align:center;width:10%">
+                                                        SHP Plans to<br/>Quote
+                                                    </th>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <apex:outputText value="{!RFPObj.RFPFormRec.Incumbent_Carrier__c}" rendered="{!If(RFPObj.RFPFormRec.Incumbent_Carrier__c !='OTHER' ,true,false) }"/>
+                                                        <apex:outputText value="{!RFPObj.RFPFormRec.Other_Competitive_Carrier__c}" rendered="{!If(RFPObj.RFPFormRec.Incumbent_Carrier__c =='OTHER' ,true,false) }"/>
+                                                    </td>
+                                                    <td>
+                                                        <apex:outputText value="{!RFPObj.RFPFormRec.Product__c}" styleClass="TableInputTextBox"/>
+                                                        
+                                                    </td>
+                                                    <td>
+                                                        <apex:outputText value="{!RFPObj.RFPFormRec.Deductible__c}" styleClass="TableInputTextBox"/> 
+                                                    </td>
+                                                    <td>
+                                                        <apex:outputText value="{!RFPObj.RFPFormRec.OOPM__c}" styleClass="TableInputTextBox" />
+                                                    </td>
+                                                    <td>
+                                                         <apex:outputText value="{!RFPObj.RFPFormRec.DOV__c}" styleClass="TableInputTextBox" />
+                                                    </td>
+                                                    <td style="border-bottom-style: solid;">
+                                                        <apex:outputText value="{!RFPObj.RFPFormRec.Specialist_OV__c}" styleClass="TableInputTextBox"/>
+                                                    </td>
+                                                    <td style="border-bottom-style: solid;">
+                                                        <apex:outputText value="{!RFPObj.RFPFormRec.IP__c}" styleClass="TableInputTextBox"/>
+                                                    </td>
+                                                    <td style="border-bottom-style: solid;">
+                                                        <apex:outputText value="{!RFPObj.RFPFormRec.ER__c}" styleClass="TableInputTextBox"/>
+                                                    </td>
+                                                    <td style="border-bottom-style: solid;">
+                                                        <apex:outputText value="{!RFPObj.RFPFormRec.RX__c}" styleClass="TableInputTextBox"/>
+                                                    </td>
+                                                    <td style="border-bottom-style: solid;">
+                                                        <apex:outputText value="{!RFPObj.RFPFormRec.SHP_Plans_to_Quote__r.Name}" styleClass="TableInputTextBox"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <th style="text-align:right;width:10%">
+                                                        Current Rates:
+                                                    </th>
+                                                    <td>
+                                                         <apex:outputText value="{!RFPObj.RFPFormRec.EC__c}" styleClass="TableInputTextBox"/>
+                                                    </td>
+                                                    <td>
+                                                         <apex:outputText value="{!RFPObj.RFPFormRec.EE__c}" styleClass="TableInputTextBox"/>
+                                                    </td>
+                                                    <td>
+                                                        <apex:outputText value="{!RFPObj.RFPFormRec.EF__c}" styleClass="TableInputTextBox"/>
+                                                    </td>
+                                                    <td>
+                                                         <apex:outputText value="{!RFPObj.RFPFormRec.ES__c}" styleClass="TableInputTextBox"/>
+                                                    </td>
+                                                    <td>
+                                                         <apex:outputText value="{!RFPObj.RFPFormRec.ECH__c}" styleClass="TableInputTextBox"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <th style="text-align:right;width:10%">
+                                                        Renewal Rates:
+                                                    </th>
+                                                    <td>
+                                                         <apex:outputText value="{!RFPObj.RFPFormRec.EC_Renewal__c}" styleClass="TableInputTextBox"/>
+                                                    </td>
+                                                    <td>
+                                                         <apex:outputText value="{!RFPObj.RFPFormRec.EE_Renewal__c}" styleClass="TableInputTextBox"/>
+                                                    </td>
+                                                    <td>
+                                                        <apex:outputText value="{!RFPObj.RFPFormRec.EF_Renewal__c}" styleClass="TableInputTextBox"/>
+                                                    </td>
+                                                    <td>
+                                                         <apex:outputText value="{!RFPObj.RFPFormRec.ES_Renewal__c}" styleClass="TableInputTextBox"/>
+                                                    </td>
+                                                    <td>
+                                                         <apex:outputText value="{!RFPObj.RFPFormRec.ECH_Renewal__c}" styleClass="TableInputTextBox"/>
+                                                    </td>
+                                                    <th style="text-align:right;border-bottom-style: solid;width:10%">
+                                                        % Change:
+                                                    </th>
+                                                    <td style="border-bottom-style: solid;width:10%">
+                                                        <apex:outputText value="{!RFPObj.RFPFormRec.Change__c}" styleClass="TableInputTextBox"/>
+                                                        <!--<apex:outputText value="{!RFPObj.percentChange}" styleClass="TableInputTextBox"/>-->
+                                                    </td>
+                                                 </tr>
+                                                 <tr>
+                                                    <td></td>
+                                                    <th style="text-align:right;width:10%">
+                                                        Tier Ratios:
+                                                    </th>
+                                                    <td>
+                                                        <apex:outputText value="{!RFPObj.ratioes_to_Quote3}" styleClass="TableInputTextBox"/>
+                                                    </td>
+                                                     <td>
+                                                        <apex:outputText value="{!RFPObj.ratioes_to_Quote}" styleClass="TableInputTextBox"/>
+                                                    </td>
+                                                     <td>
+                                                        <apex:outputText value="{!RFPObj.ratioes_to_Quote4}" styleClass="TableInputTextBox"/>
+                                                    </td>
+                                                     <td>
+                                                        <apex:outputText value="{!RFPObj.ratioes_to_Quote2}" styleClass="TableInputTextBox"/>
+                                                    </td>
+                                                     <td>
+                                                        <apex:outputText value="{!RFPObj.ratioes_to_Quote5}" styleClass="TableInputTextBox"/>
+                                                    </td>
+                                                 </tr>
+
+                                            </table> 
+                                          
+                                        </apex:repeat>
+                                        </td>
+                                   </tr>
+                              </table>
+                              </apex:repeat>
+                              </apex:outputPanel>
+
+                </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+           </apex:pageBlockSection>
+    <br/>
+           <table class="detailList" border="0" cellpadding="0" cellspacing="0">
+               <tbody>
+                   <tr>
+                       <td style="width:13%; text-align:left;" >
+                           <apex:outputLabel value="Special Instructions: " for="SpecialInstructionId" styleClass="labelCol vfLabelColTextWrap  first "  />
+                       </td>
+                       <td style="width:85%; text-align:left;" >
+                           <apex:inputTextarea value="{!RFPForm.Special_Instuctions__c}" styleClass="inputTextAreaClass" id="SpecialInstructionId" />
+                       </td>
+                   </tr>
+               </tbody>
+           </table>
+            <apex:pageBlockSection title="Underwriting Rejection Reason" columns="2"  rendered="{!if(($CurrentPage.Parameters.OpportunityId != NULL && isUnderwritingUser == true ) || $CurrentPage.Parameters.isNew == 'false',true,false) }">
+                <table class="detailList" border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                        <tr style="aligh:left;">
+                            <td style="width:13%; text-align:left;" >
+                                <apex:outputField value="{!RFPForm.Reject_Reason__c}" id="rejectReason1" rendered="{!if($CurrentPage.Parameters.isNew == 'false',true,false)}"/>
+                            </td>
+                            <td style="width:85%; text-align:left;" >
+                                <apex:inputField value="{!RFPForm.Reject_Reason__c}" id="rejectReason" rendered="{!if($CurrentPage.Parameters.OpportunityId != NULL && isUnderwritingUser == true,true,false) }"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </apex:pageBlockSection>
+            
+
+           <apex:pageBlockButtons location="Bottom" >
+                    <apex:commandButton value="Save" action="{!saveForm}" rendered="{!if($CurrentPage.Parameters.isNew == '',true,false)}" disabled="{!ReadOnly}"/>
+                    <apex:commandButton value="Cancel" action="{!RedirectToOpportunity}" rendered="{!if($CurrentPage.Parameters.isNew == '',true,false)}" />
+                    <!--<apex:commandButton value="Submit for Underwriter Review" action="{!saveAndSubmit}" rendered="{!if($CurrentPage.Parameters.isNew == '' && !isMember,true,false)}"/>-->
+           </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+
+</apex:page>

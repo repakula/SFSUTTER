@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>PDI Campaign History</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>PDI Campaigns</value>
+    </caseValues>
+    <fields>
+        <label><!-- Campaign Initiator --></label>
+        <name>Campaign_Initiator__c</name>
+    </fields>
+    <fields>
+        <label><!-- Campaign Status --></label>
+        <name>Campaign_Status__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Failed</masterLabel>
+            <translation><!-- Failed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partially Completed</masterLabel>
+            <translation><!-- Partially Completed --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- End Date and Time --></label>
+        <name>End_Date_and_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Inactive --></label>
+        <name>Inactive__c</name>
+    </fields>
+    <fields>
+        <label><!-- Resigned From Sutter --></label>
+        <name>Resigned_From_Sutter__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retired/Departed --></label>
+        <name>Retired_Departed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Date and Time --></label>
+        <name>Start_Date_and_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status Description --></label>
+        <name>Status_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Trading Partner --></label>
+        <name>Trading_Partner__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,8 @@
+<!-- 
+    Page Name: VFP47_SHPDispatcherRFPFORMNew
+    Author: IDC Offshore
+    Date: 24-Feb-2016
+    Description: Page for creating New records of RFPForm record type. -->
+<apex:page standardController="Incumbent_Carrier__c"  extensions="VFC47_SHP_DispatcherRFPFormNew" action="{!nullValue(redir.url, urlFor($Action.Incumbent_Carrier__c.New, null, null, true))}" >
+  
+</apex:page>

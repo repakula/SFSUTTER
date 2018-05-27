@@ -1,0 +1,5 @@
+Dear {!NullValue(Case.CreatedBy, "User")},
+This is to notify you that the exempt greviance {!Case.CaseNumber} opened by you on {!Case.CreatedDate} is still in open status and has passed 18 hours since creation. 
+
+Regards,
+SHP Service

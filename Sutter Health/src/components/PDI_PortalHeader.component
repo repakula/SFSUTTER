@@ -1,0 +1,89 @@
+<apex:component >
+    <!-- Start Top Bar -->
+        <apex:outputPanel rendered="{!if($Api.Session_ID != null && $User.LastName == 'Site Guest User',true,false)}">
+            <div class="top-bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9" style="float:left;" id="headerEmailNewLine">
+                            <!-- Start Contact Info -->
+                           <span style="font-size: 12px;"><a href="#"> {!$Label.PDI_Header_Email_New_Line}</a> <a href="#"><i class="fa fa-phone"></i> {!$Label.PDI_Header_Phone_New_Line} </a> | <a href="{!$Label.PDI_Header_HN_Email} "><i class="fa fa-envelope-o"></i> {!$Label.PDI_HeaderN_Email}</a></span>
+                            <!-- End Contact Info -->
+                        </div>
+                        <!-- .col-md-6 -->
+                        <div class="col-md-3">
+                            <!-- Start Social Links -->
+                            <ul class="social-list">
+                            </ul><!-- End Social Links -->
+                        </div><!-- .col-md-6 -->
+                    </div><!-- .row -->
+                    
+                    <div class="row">
+                        <div class="col-md-9" style="float:left;" id="headerEmail">
+                            <!-- Start Contact Info -->
+                            <span style="font-size: 12px;"><a href="#"> {!$Label.PDI_Header_Email}</a> <a href="#"><i class="fa fa-phone"></i> {!$Label.PDI_Header_Phone} </a></span>
+                            <!-- End Contact Info -->
+                        </div>
+                        <!-- .col-md-6 -->
+                        <div class="col-md-3">
+                            <!-- Start Social Links -->
+                            <ul class="social-list">
+                            </ul><!-- End Social Links -->
+                        </div><!-- .col-md-6 -->
+                    </div><!-- .row -->
+                </div><!-- .container -->
+            </div>
+        </apex:outputPanel>
+      <!-- .top-bar -->
+      <!-- End Top Bar -->
+      
+        <apex:outputPanel rendered="{!if($Api.Session_ID != null && $User.LastName != 'Site Guest User',true,false)}">
+            <div class="top-bar1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-9" style="float:left;" id="headerEmailNewLine">
+                            <!-- Start Contact Info -->
+                            <span style="font-size: 12px;"><a href="#"> {!$Label.PDI_Header_Email_New_Line}</a> <a href="#"><i class="fa fa-phone"></i> {!$Label.PDI_Header_Phone_New_Line} </a> | <a href="{!$Label.PDI_Header_HN_Email} "><i class="fa fa-envelope-o"></i> {!$Label.PDI_HeaderN_Email}</a></span>
+                            
+                            <!-- End Contact Info -->
+                        </div>
+                        
+                        <!-- .col-md-6 -->
+                        <div class="col-xs-3" id="rightAlignUsername">
+                            <ul class="social-list"><!-- Start Social Links -->
+                                <div class="right_headerdiv">
+                                    <apex:outputPanel rendered="{!if($Api.Session_ID != null && $User.LastName != 'Site Guest User' && $Site.IsPasswordExpired == false,true,false)}">
+                                        <div class="dropdown">
+                                            <button class="dropbtn" >{!$User.FirstName} {!$User.LastName}</button>
+                                            <div class="dropdown-content">
+                                                <a href="javascript:providerChangePassword();" style="padding: 2px 2px;">Change Password</a>
+                                                <a href="/providers/secur/logout.jsp" style="padding: 2px 2px;">Log Out</a>
+                                            </div>
+                                        </div>
+                                    </apex:outputPanel>
+                                </div>
+                            </ul><!-- End Social Links -->
+                        </div><!-- .col-md-6 -->
+                    </div><!-- .row -->
+                    
+                    <div class="row">
+                        <div class="col-xs-8" style="float:left;" id="headerEmail">
+                            <!-- Start Contact Info -->
+                            <span style="font-size: 12px;"><a href="#"> {!$Label.PDI_Header_Email}</a> <a href="#"><i class="fa fa-phone"></i> {!$Label.PDI_Header_Phone} </a></span>
+                            
+                            <!-- End Contact Info -->
+                        </div>
+                        
+                        
+                    </div><!-- .row -->
+                    
+                    
+                    
+                </div><!-- .container -->
+            </div>
+        </apex:outputPanel>
+    <script>
+        function providerChangePassword(){
+            redirectoChangePass();
+        }
+    </script>
+</apex:component>

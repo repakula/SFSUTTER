@@ -1,0 +1,78 @@
+<!--
+*     Page Name   : Portal_FLOW
+*     Author      : ACN Onshore
+*     Date        : 15-OCT-2013
+*     Project Name: CRM - SFT - Sutter Health
+*     Description : Visual Force Page for embedding the Visual Flow.
+-->
+
+
+<apex:page controller="flowPagePOCExtension" standardStylesheets="false">
+    
+    <apex:includeScript value="{!URLFOR($Resource.SurveyForce, '/jquery.js')}"  />
+    
+    <script>
+        var $j = jQuery.noConflict();
+        $j(document).ready(function() {
+            $j('#iframeKM').load(function(){
+                //alert('Inside Ready')
+                $j(this).contents().find('.globalHeaderBar').css('display','none');
+                $j(this).contents().find('.zen').css('display','none');
+                $j(this).contents().find('.globalHeaderBar').css('display','none');
+                $j(this).contents().find('.bodyDiv').css('border','none'); 
+                $j(this).contents().find('.body').css('sfdcBody','none'); 
+               
+                $j('#iframeKM').contents().find('img').each(function(){
+                    var href= this.src;
+                    if (href.indexOf('ImageServer') > 0){
+                        $j(this).hide();
+                    } 
+                });   
+            });
+       });
+  </script>
+  
+    <!-- Displays error message if an exception is thrown -->  
+    <apex:messages />  
+    
+    <!-- Passes the userContactId to the flow and renders the KMSection -->
+    <flow:interview buttonLocation="bottom" interview="{!myFlow}" rerender="KMSection" buttonStyle="color:#000;background:#00A9A0;border-color:#07837f;" name="Portal_FLOW" finishLocation="{!URLFOR('/ACN_Employee_Customer_Inquiries?flowflag=yes')}">
+        <apex:param name="ContactId_POC_Var" value="{!userContactId}" />
+    </flow:interview>
+    
+    <!-- Displays the KM Search box -->
+    <apex:outputPanel id="KMSection" rendered="true">
+    <script>
+        $j('#iframeKM').load(function(){
+                //alert('Inside Ready')
+                $j(this).contents().find('.globalHeaderBar').css('display','none');
+                $j(this).contents().find('.zen').css('display','none');
+                $j(this).contents().find('.globalHeaderBar').css('display','none');
+                $j(this).contents().find('.bodyDiv').css('border','none'); 
+                $j(this).contents().find('.body').css('sfdcBody','none'); 
+               
+                $j('#iframeKM').contents().find('img').each(function(){
+                    var href= this.src;
+                    if (href.indexOf('ImageServer') > 0){
+                        $j(this).hide();
+                    } 
+                });   
+            });
+    </script>
+        <apex:iframe src="/knowledge/knowledgeHome.apexp?search={!searchTag}" id="iframeKM"/> 
+    </apex:outputPanel>
+   <apex:form >
+   <!-- Component for GTM-->
+                     <c:Portal_User_Info />
+           <!-- Component for GTM-->
+           
+   </apex:form>
+    
+            <!-- GTM START -->
+        <!-- Start Google Tag Manager -->
+        <apex:outputLabel value="{!$Label.GTMCustomLabel}" rendered="false"></apex:outputLabel> 
+        <apex:includeScript value="{!$Resource.GTMJavaScript}" />
+        <!-- End Google Tag Manager -->
+        <!-- GTM END -->
+        
+</apex:page>

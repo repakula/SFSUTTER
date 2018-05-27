@@ -1,0 +1,1515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Anniversary_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Employee__r.Employee_Anniversary_Date__c</formula>
+        <label>Anniversary Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Approved_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Approved Date</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Approved__c</fullName>
+        <externalId>false</externalId>
+        <label>Approved</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Unapproved</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Budgeted__c</fullName>
+        <externalId>false</externalId>
+        <label>Budgeted</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Budgeted</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Unbudgeted</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Business_Release__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Release</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>BR 1</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BR 2</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BR 3</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BR 4</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BR 5</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BR 6</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BR 7</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BR 8</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BR 9</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BR 10</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BR 11</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BR 12</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BR 13</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BR 14</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BR 15</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BR 16</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SOPS 1</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SOPS 2</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SOPS 3</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SOPS 4</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SOPS 5</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Computer_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>false</externalId>
+        <label>Computer ID</label>
+        <length>14</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Cost_Center__c</fullName>
+        <externalId>false</externalId>
+        <label>Cost Center</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>551020</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>551021</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>551022</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>618611</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8400</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8401</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8402</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8403</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8406</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8510</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8511</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8512</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8514</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8515</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8519</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8530</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8531</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8532</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8533</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8534</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8535</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8536</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8537</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8538</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8539</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8561</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8562</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8569</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8590</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8610</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8611</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8613</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8614</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8616</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8617</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8619</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8650</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8651</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8653</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8654</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8656</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8658</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8659</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8699</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8700</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8701</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8702</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8703</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8704</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8705</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8706</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8707</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8708</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8709</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>8710</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Employee__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Employee</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>S3 Position</relationshipLabel>
+        <relationshipName>S3_Position_Emp</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Function__c</fullName>
+        <externalId>false</externalId>
+        <label>Function</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Adminstration</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Contact Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Finance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Human Resources</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Revenue Cycle</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Supply Chain</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Leadership</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Support</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Credential Verification</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Document Management Center</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>eQuip</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HR - Project/Growth</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Job_Code_Hierarchy__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Job Code Hierarchy</label>
+        <referenceTo>S3_PCD__c</referenceTo>
+        <relationshipLabel>S3 Positions (Job Code Hierarchy)</relationshipLabel>
+        <relationshipName>S3_Position_Heirarchy</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Job_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Job Code</label>
+        <length>10</length>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Job_Title__c</fullName>
+        <externalId>false</externalId>
+        <label>Job Title</label>
+        <length>60</length>
+        <required>true</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Level__c</fullName>
+        <externalId>false</externalId>
+        <label>Level</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>5</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>1</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Location</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>North 1st Flr</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>North 2nd Flr</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>North 3rd Flr</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>South 1st Flr</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>South 2nd Flr</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>South 3rd Flr</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DMC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Home-Remote</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Affiliate</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Mapped_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>When will this SFT mapped position start at S3?</inlineHelpText>
+        <label>Mapped Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Open_Position__c</fullName>
+        <externalId>false</externalId>
+        <formula>OR( 
+ispickval( Status__c , &quot;Active&quot;),
+ISNULL( Employee__c ) 
+)</formula>
+        <label>Open Position</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Process_Team__c</fullName>
+        <externalId>false</externalId>
+        <label>Process Team</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Administrative Assistant</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Analytics</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bad Debt and Charity</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Business Release</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Chart Completion</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Claims</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Clerical Support</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Coding</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Correspondence Team</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Denial Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Denial Team</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Desktop Support</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Document Imaging</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>EMPI</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Facilities</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Financial Analysis</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Front Desk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HIM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Lean</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Liaison</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Nurse Auditor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Operations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Patient Access</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Patient Advocate</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Payment Variance Team</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Payor Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Payor Relations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pre-Service</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Processing Team</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Quality &amp; Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ROI</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>S3 HR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SLA Reporting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Transcription</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Reports_To__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Reports To</label>
+        <referenceTo>S3_PCD__c</referenceTo>
+        <relationshipLabel>S3 Positions</relationshipLabel>
+        <relationshipName>S3_Position_Reports_To</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>S3_Positiom_Change_Control__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Change Control</label>
+        <referenceTo>S3_Ops__c</referenceTo>
+        <relationshipLabel>S3 Positions</relationshipLabel>
+        <relationshipName>S3_Positions_ChangeControl</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>S3_Position_Control__c</fullName>
+        <externalId>false</externalId>
+        <label>Position Control</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SFT_Impact__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>SFT Impact</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Schedule__c</fullName>
+        <externalId>false</externalId>
+        <label>Schedule</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Full Time</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Part Time</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Seat__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Seat</label>
+        <length>6</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Proposed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Discontinued</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Sub_Function__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub-Function</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Function__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>HR Data &amp; Reporting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Administrative Assistant</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Operations Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Performance Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CBO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Payroll</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Charge Capture/CDM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Patient Access</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HIM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Accounting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Accounts Payable</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Compensation &amp; Benefits</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HR IS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Recruitment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HR Delivery</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Learning &amp; Workforce Relations Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>eQuip Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>eQuip Tech</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>eQuip</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Clinical Engineering</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Medical Physics</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Asset Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Aramark</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Purchasing</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>eQuip</controllingFieldValue>
+                <valueName>eQuip Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>eQuip</controllingFieldValue>
+                <valueName>eQuip Tech</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>eQuip</controllingFieldValue>
+                <valueName>eQuip</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>eQuip</controllingFieldValue>
+                <valueName>Clinical Engineering</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>eQuip</controllingFieldValue>
+                <valueName>Medical Physics</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>eQuip</controllingFieldValue>
+                <valueName>Asset Management</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>eQuip</controllingFieldValue>
+                <valueName>Aramark</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Adminstration</controllingFieldValue>
+                <controllingFieldValue>Contact Center</controllingFieldValue>
+                <controllingFieldValue>Supply Chain</controllingFieldValue>
+                <controllingFieldValue>Leadership</controllingFieldValue>
+                <controllingFieldValue>Credential Verification</controllingFieldValue>
+                <controllingFieldValue>Document Management Center</controllingFieldValue>
+                <valueName>N/A</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HR - Project/Growth</controllingFieldValue>
+                <controllingFieldValue>Human Resources</controllingFieldValue>
+                <valueName>Recruitment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finance</controllingFieldValue>
+                <valueName>Payroll</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finance</controllingFieldValue>
+                <valueName>Accounting</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finance</controllingFieldValue>
+                <valueName>Accounts Payable</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Human Resources</controllingFieldValue>
+                <valueName>HR Data &amp; Reporting</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Human Resources</controllingFieldValue>
+                <valueName>Compensation &amp; Benefits</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Human Resources</controllingFieldValue>
+                <valueName>HR IS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Human Resources</controllingFieldValue>
+                <valueName>HR Delivery</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Human Resources</controllingFieldValue>
+                <valueName>Learning &amp; Workforce Relations Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Revenue Cycle</controllingFieldValue>
+                <valueName>CBO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Revenue Cycle</controllingFieldValue>
+                <valueName>Charge Capture/CDM</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Revenue Cycle</controllingFieldValue>
+                <valueName>Patient Access</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Revenue Cycle</controllingFieldValue>
+                <valueName>HIM</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Supply Chain</controllingFieldValue>
+                <valueName>Purchasing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Leadership</controllingFieldValue>
+                <controllingFieldValue>Support</controllingFieldValue>
+                <valueName>Performance Management</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Support</controllingFieldValue>
+                <valueName>Administrative Assistant</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Support</controllingFieldValue>
+                <valueName>Operations Management</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Temp_Employee__c</fullName>
+        <externalId>false</externalId>
+        <formula>Temp_Staff__r.Worker_Name__c</formula>
+        <label>Temp Employee</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Temp_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Temp_Staff__r.Engagement_Through_Date__c</formula>
+        <label>Temp End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Temp_Staff__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Temp Staff</label>
+        <referenceTo>S3_Staffing__c</referenceTo>
+        <relationshipLabel>S3 Positions</relationshipLabel>
+        <relationshipName>S3_Positions_Temp</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Temp_Supervisor__c</fullName>
+        <externalId>false</externalId>
+        <formula>Temp_Staff__r.Reports_To__c</formula>
+        <label>Temp Supervisor</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Term_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Term End Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Term__c</fullName>
+        <externalId>false</externalId>
+        <label>Term</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Regular</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Temporary</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Limited (LLT)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Per Diem</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Limited Term</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Discontinued</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Vacancy_Reason__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What is the reason for this postion to be open if not actively recruiting?</inlineHelpText>
+        <label>Vacancy Reason</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Posted</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Planned Vacancy</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Re-Evaluating</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Not Actively Recruiting</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Workgroup__c</fullName>
+        <externalId>false</externalId>
+        <label>Workgroup</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CC-Admin</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CC-AP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CC-CBO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Administrative Assistant</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Desktop Support</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>S3 HR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Facilities</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Financial Analysis</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Lean</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Front Desk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SLA Reporting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Business Release</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Outpatient</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Inpatient</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Emergency</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Associates</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Education</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Quality</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Coding</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>S3 Position</label>
+    <listViews>
+        <fullName>Administration</fullName>
+        <columns>NAME</columns>
+        <columns>Cost_Center__c</columns>
+        <columns>Employee__c</columns>
+        <columns>Function__c</columns>
+        <columns>Sub_Function__c</columns>
+        <columns>Job_Code__c</columns>
+        <columns>Reports_To__c</columns>
+        <columns>Anniversary_Date__c</columns>
+        <columns>Computer_ID__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Function__c</field>
+            <operation>equals</operation>
+            <value>Adminstration,Support</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Rejected,Discontinued</value>
+        </filters>
+        <filters>
+            <field>Cost_Center__c</field>
+            <operation>equals</operation>
+            <value>8611</value>
+        </filters>
+        <label>Administration</label>
+    </listViews>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>S3_Position_Control__c</columns>
+        <columns>Function__c</columns>
+        <columns>Sub_Function__c</columns>
+        <columns>Status__c</columns>
+        <columns>Job_Code__c</columns>
+        <columns>Job_Title__c</columns>
+        <columns>Approved_Date__c</columns>
+        <columns>Employee__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Job_Code_List</fullName>
+        <columns>NAME</columns>
+        <columns>S3_Position_Control__c</columns>
+        <columns>Status__c</columns>
+        <columns>Function__c</columns>
+        <columns>Sub_Function__c</columns>
+        <columns>Cost_Center__c</columns>
+        <columns>Schedule__c</columns>
+        <columns>Reports_To__c</columns>
+        <columns>Seat__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Job_Code__c</field>
+            <operation>equals</operation>
+            <value>90053401</value>
+        </filters>
+        <label>Job Code List</label>
+    </listViews>
+    <nameField>
+        <displayFormat>PCD{000000}</displayFormat>
+        <label>S3 PCD Number</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>S3 Positions</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Function__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Sub_Function__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Job_Title__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Level__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Location__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Job_Code__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Job_Code_Hierarchy__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Function__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Sub_Function__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Reports_To__c</lookupDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Cost_Center__c</searchFilterFields>
+        <searchFilterFields>Job_Code__c</searchFilterFields>
+        <searchFilterFields>Job_Code_Hierarchy__c</searchFilterFields>
+        <searchFilterFields>Job_Title__c</searchFilterFields>
+        <searchFilterFields>Workgroup__c</searchFilterFields>
+        <searchFilterFields>S3_Positiom_Change_Control__c</searchFilterFields>
+        <searchFilterFields>S3_Position_Control__c</searchFilterFields>
+        <searchResultsAdditionalFields>Function__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Sub_Function__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Job_Title__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Level__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Location__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Open_Position__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Job_Code__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Job_Code_Hierarchy__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+</CustomObject>

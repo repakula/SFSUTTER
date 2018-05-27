@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>PCRM_Letter_Head</letterhead>
+    <name>Provider Community: Provider Welcome Email For TeleForm</name>
+    <style>freeForm</style>
+    <subject>In response to your fax – Welcome to Sutter Provider Hub!</subject>
+    <textOnly>Thank you for faxing your accurate contact information back to our team! We would like to welcome you to Sutter Provider Hub, and have created an account in your name
+
+Sutter Provider Hub is a new self-service program that will allow you to simply and rapidly update/validate your Sutter Health contact information systemwide. Accurate information ensures consistently effective support for you, as well as safe, secure delivery of our shared patients’ Protected Health Information (PHI). Sutter Provider Hub will help us improve the processes for keeping accurate provider contact information, since current methods have not been simple, transparent, or consistently employed.
+
+Below is the information we received from you via fax:
+
+Email: {!Receiving_User.Email}
+
+Mobile Phone: {!Receiving_User.MobilePhone}
+
+Ok To Text: {!Receiving_User.Ok_To_Text__c}
+
+Preferred Contact Method: {!Receiving_User.Preferred_Communication_Method__c}
+
+Confidential Patient Information:
+
+Street Address: {!Receiving_User.Provider_Correspondence_Address__c}
+
+City: {!Receiving_User.Provider_Correspondence_City__c}
+
+State:{!Receiving_User.Provider_Correspondence_State__c}
+
+Zip Code: {!Receiving_User.Provider_Correspondence_PostalCode__c}
+
+Phone: {!Receiving_User.Provider_Correspondence_Phone__c}
+
+Fax: {!Receiving_User.Provider_Correspondence_Fax__c}
+
+Please follow the access instructions below to make any updates to your information.  Keep these instructions for future reference, as we will be asking you to revalidate your contact information every six months to ensure accuracy.
+
+Go to www.sutterproviderhub.com
+
+Username: {!Receiving_User.Username}
+
+Password: Go to www.sutterproviderhub.com to choose your own password.
+
+To access this site again, or if the link above does not work, copy and paste www.sutterproviderhub.com into your web browser and use the Forgot Password link, if necessary.
+
+For technical support, please contact the IS Service Desk at 888-888-6044 or servicedesk@sutterhealth.org and reference the CRM-Salesforce Team.
+
+We appreciate your help with this important effort!
+
+Thank you,
+
+Arieh Rosenbaum, M.D.
+
+c/o Sutter Provider Hub Team
+
+
+To confirm the authenticity of this message, please contact the IS Service Desk by phone, or Arieh Rosenbaum, M.D. Chief Medical Information Officer, West Bay Region
+
+
+(Rosenba@Sutterhealth.org)</textOnly>
+    <type>html</type>
+</EmailTemplate>

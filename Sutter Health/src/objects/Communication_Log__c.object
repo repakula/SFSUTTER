@@ -1,0 +1,1495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Communication log is used to record the Outreach/call details when Outreach staff attempts to contact patient on Pre-visit plan / Gaps in Care.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>AIM_patient__c</fullName>
+        <description>AIM patient</description>
+        <externalId>false</externalId>
+        <label>AIM patient</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AQRS_Reference_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>AQRS Reference Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BMI__c</fullName>
+        <description>BMI</description>
+        <externalId>false</externalId>
+        <label>BMI</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Call_result__c</fullName>
+        <description>Call Result</description>
+        <externalId>false</externalId>
+        <label>Call result</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Not available</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No Answer/Busy</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Left Message</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Canceled</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Reminder rule failed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Duplicate reminder</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Delivery type mismatch</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No email address on file</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Missing or Invalid Number</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Incomplete setup to send messages</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Patient updates disabled</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Duplicate update</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Patient not accepting updates</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Patient is not signed up for updates</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sent to Communication Vendor</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Call_time__c</fullName>
+        <description>Call time</description>
+        <externalId>false</externalId>
+        <label>Call time</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Morning</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Afternoon</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Evening</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Comments_Spoke_with_Patient__c</fullName>
+        <description>LEFT MESSAGE/SPOKE WITH PATIENT - comments</description>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Contact_Name__c</fullName>
+        <description>Contact Name</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Patient Name</inlineHelpText>
+        <label>Patient Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact_method__c</fullName>
+        <description>Contact method</description>
+        <externalId>false</externalId>
+        <label>Contact method</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>E-mail</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>General</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>In Person</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mail</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Patient Portal Message</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Telephone</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Contacted_About__c</fullName>
+        <description>Contacted About</description>
+        <externalId>false</externalId>
+        <label>Contacted About</label>
+        <length>30000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Current_year_AWV_date__c</fullName>
+        <description>Current year AWV date (blank if none yet)</description>
+        <externalId>false</externalId>
+        <label>Current year AWV date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Department_Care_Center__c</fullName>
+        <externalId>false</externalId>
+        <label>Department (Care Center)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Department_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Department ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dialed_Phone__c</fullName>
+        <description>Dialed Phone Number</description>
+        <externalId>false</externalId>
+        <label>Phone # dialed</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Division__c</fullName>
+        <externalId>false</externalId>
+        <label>Division</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CPN Network</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mills Peninsula</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SPMF LAKE DIVISION</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SPMF SONOMA DIVISION</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Documentation_Note__c</fullName>
+        <description>Documentation Note (HNO)</description>
+        <externalId>false</externalId>
+        <label>Documentation Note</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>EPIC_Error_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>EPIC Error Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EPIC_Reference__c</fullName>
+        <description>EPIC Reference Number</description>
+        <externalId>false</externalId>
+        <label>EPIC Reference #</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EPIC_Response_Message__c</fullName>
+        <description>EPIC Response Message</description>
+        <externalId>false</externalId>
+        <label>EPIC Response Message</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>EPIC_Sync_Date__c</fullName>
+        <description>EPIC Sync Date</description>
+        <externalId>false</externalId>
+        <label>EPIC Sync Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Encounter_Date__c</fullName>
+        <description>Encounter Date</description>
+        <externalId>false</externalId>
+        <label>Encounter Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Epic_Patient_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Epic Patient ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Facility__c</fullName>
+        <externalId>false</externalId>
+        <label>Facility</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>SEBMF</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SGMF</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SMF</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SPMF</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Foundation__c</fullName>
+        <externalId>false</externalId>
+        <label>Foundation</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>EAST BAY PHYSICIANS MEDICAL GROUP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GOULD MEDICAL GROUP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PALO ALTO MEDICAL FOUNDATION</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SUTTER MEDICAL GROUP</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Initials__c</fullName>
+        <externalId>false</externalId>
+        <formula>$User.FirstName&amp;&quot; &quot;&amp;$User.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Initials</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Letter_Sent_Date__c</fullName>
+        <description>Letter Sent Date</description>
+        <externalId>false</externalId>
+        <label>Letter Sent Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>MHO_MESSAGE_SENT__c</fullName>
+        <description>MHO MESSAGE SENT?</description>
+        <externalId>false</externalId>
+        <label>MHO MESSAGE SENT?</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>MHO_Message_Sent_Date__c</fullName>
+        <description>MHO Message Sent Date</description>
+        <externalId>false</externalId>
+        <label>MHO Message Sent Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Measure__c</fullName>
+        <externalId>false</externalId>
+        <label>Measure</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>General</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Diabetes mellitus</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hypertension</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Asthma</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Congestive heart failure</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Chronic kidney disease</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Obesity</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Preventive Screening</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Immunizations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Coronary artery disease</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Chronic liver disease</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Chronic obstructive pulmonary disease</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cystic fibrosis</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HIV/AIDS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Osteoporosis</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cervical Cancer Screening</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Breast Cancer Screening</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Colorectal Cancer Screening</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tobacco Cessation Counseling</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tetanus, diphtheria, pertussis</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Human papillomavirus</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Meningococcal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Influenza</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pneumococcal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hepatitis A</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hepatitis B</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Inactivated poliovirus</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Measles, mumps, rubella</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Varicella</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rotavirus</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Diphtheria, tetanus, pertussis</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Haemophilus influenzae type b</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Medication Transition</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fall Risk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>All Topics</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Non-Clinical Communication</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Care Coordination</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Chlamydia Screening</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Depression</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Need_Reminder__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Need Reminder</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Next_Appointment_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Appointment Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>E-mail</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>General</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>In Person</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mail</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Patient Portal Message</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Telephone</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Next_Planned_Appointment__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Planned Appointment</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Next_contact_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Followup Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_contacts__c</fullName>
+        <description>Number of contacts</description>
+        <externalId>false</externalId>
+        <label>Number of contacts</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Optum_Form__c</fullName>
+        <description>Optum Form</description>
+        <externalId>false</externalId>
+        <label>Optum Form</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Outreach_Call__c</fullName>
+        <externalId>false</externalId>
+        <label>Outreach Call</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AWV</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Gap in Care</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>General</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pre-Visit</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Outreach_staff__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Outreach Staff</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Communication_Logs</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PCP__c</fullName>
+        <description>PCP - Provider Information</description>
+        <externalId>false</externalId>
+        <label>PCP</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>EVANS, NANCY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FISH, JENNIFER CECILIA MD</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FARNER, STEVEN HOWARD</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FIRTH, THOMAS ALAN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SARINGAN, GEMMA MD</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Patient_Committed_to_Measure__c</fullName>
+        <description>Patient Committed to Measure Outreach</description>
+        <externalId>false</externalId>
+        <label>Patient Committed to Measure</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Patient_MRN__c</fullName>
+        <description>Patient MRN</description>
+        <externalId>false</externalId>
+        <label>Patient MRN</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Patient_Moved__c</fullName>
+        <description>Patient Moved</description>
+        <externalId>false</externalId>
+        <label>Patient Moved</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Patient_Outreach_Complete__c</fullName>
+        <externalId>false</externalId>
+        <label>Patient Outreach Complete</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Patient_died__c</fullName>
+        <description>Patient died</description>
+        <externalId>false</externalId>
+        <label>Patient died</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Phone_Type_I_CAL_90__c</fullName>
+        <externalId>false</externalId>
+        <label>Phone Type (I CAL 90)</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Mobile</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pager</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Home Fax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other Fax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Assistant</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TTY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Home Phone</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Work Phone</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Video Phone</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Walkie Talkie</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Txt Reminder</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>JDM Comm</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Physician_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Physician Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Prior_year_AWV_date__c</fullName>
+        <description>Prior year AWV date</description>
+        <externalId>false</externalId>
+        <label>Prior year AWV date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Provider_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Provider ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>QI_confirmed__c</fullName>
+        <description>QI confirmed?</description>
+        <externalId>false</externalId>
+        <label>QI confirmed?</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Reason_for_Call__c</fullName>
+        <defaultValue>&quot;201 - Health Maintenance&quot;</defaultValue>
+        <description>Reason for Call</description>
+        <externalId>false</externalId>
+        <label>Reason for Call</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Relationship_to_the_Patient__c</fullName>
+        <externalId>false</externalId>
+        <label>Relationship to the Patient</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Brother</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Father</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mother</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>On Call Provider</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other Relative</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sister</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Uncle</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Self</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Spouse</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Significant Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Child</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Parent</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Guardian</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Grandparent</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Grandchild</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Niece/Nephew</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Coworker/Associate</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Friend</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PCP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Lab</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Radiology</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Guarantor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Carrier</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Employer Group</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Network</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Provider</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pharmacy</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Payor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Interpreter</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Emergency Contact</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Son</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Daughter</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Aunt</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Caregiver</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pharmacist</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Nurse</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Physician</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Specialist/Consultant</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Physical Therapist</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mental Health Provider</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Nutritionist</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cousin</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Attorney&apos;s Office</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Copy Service</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Reminder_Activity_Date__c</fullName>
+        <description>Reminder Activity Date</description>
+        <externalId>false</externalId>
+        <label>Reminder Activity Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Sent_MHO_Letter__c</fullName>
+        <description>Sent MHO/Letter</description>
+        <externalId>false</externalId>
+        <label>Sent MHO/Letter</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Speciality__c</fullName>
+        <description>Speciality</description>
+        <externalId>false</externalId>
+        <label>Speciality</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Cardiac</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Nuero</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Status_Date__c</fullName>
+        <description>Status Date</description>
+        <externalId>false</externalId>
+        <label>Status Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>Status</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Appointment scheduled</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Deceased</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Insurance termed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Moved</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Moved out of state</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Patient Committed to Service</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Patient Declined</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Transferred care</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Telephone_encounter_created__c</fullName>
+        <externalId>false</externalId>
+        <label>Telephone encounter created?</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Upcoming_Visit_Provider__c</fullName>
+        <description>Upcoming Visit Provider</description>
+        <externalId>false</externalId>
+        <label>Next Visit Provider</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>EVANS, NANCY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FARNER, STEVEN HOWARD</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FIRTH, THOMAS ALAN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FISH, JENNIFER CECILIA MD</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SARINGAN, GEMMA MD</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Upcoming_visit_apt_time__c</fullName>
+        <description>Upcoming visit apt time</description>
+        <externalId>false</externalId>
+        <label>Next Visit Appt</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>User_ID__c</fullName>
+        <defaultValue>$User.Alias</defaultValue>
+        <externalId>false</externalId>
+        <label>User ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Communication Log</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>OBJECT_ID</columns>
+        <columns>NAME</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Call_result__c</columns>
+        <columns>Foundation__c</columns>
+        <columns>Encounter_Date__c</columns>
+        <columns>Reminder_Activity_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>CL-{00000}</displayFormat>
+        <label>Communication Log</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Communication Logs</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Contact_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Contacted_About__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Call_result__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Patient_Committed_to_Measure__c</customTabListAdditionalFields>
+        <searchResultsAdditionalFields>Contact_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Call_result__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CREATED_DATE</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

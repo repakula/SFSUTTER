@@ -1,0 +1,1534 @@
+<!--
+*     Page Name   : SOCCall
+*     Class Name  : SOCCallController
+*     Author      : IDC Offshore
+*     Project Name: CRM - SFT - Sutter Health
+*     
+*
+*       History
+*      
+*       VERSION         AUTHOR              DATE              DETAIL 
+*         1.0          IDC                                 Initial Creation
+          2.0          IDC         12/04/15        Added JSENCODE and HTMLENCODE for HTML and JS components
+
+-->
+
+
+<apex:page sidebar="false" standardController="SOC_Queue__c" extensions="SOCCallController" id="pg" action="{!checkAllparameters}" standardstylesheets="true"> 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+    <script src="/soap/ajax/28.0/connection.js" type="text/javascript"></script>
+    <script src="/soap/ajax/28.0/apex.js" type="text/javascript"></script>
+    <apex:includeScript value="/support/console/31.0/integration.js"/>  
+    <style>
+        #MainDiv {
+            Width:95%;
+            height:100%;
+            /*border:1px solid red;*/
+            margin : 0px auto;
+        }
+        #LeftContent {
+            height: 688px;
+            border:1px solid lightgray; 
+            float:left;
+            -webkit-box-shadow: inset -2px 3px 17px -1px rgba(0,0,0,0.75);
+            -moz-box-shadow: inset -2px 3px 17px -1px rgba(0,0,0,0.75); 
+            box-shadow: inset -2px 3px 17px -1px rgba(0,0,0,0.75);
+        }
+        .leftwidthFfull { 
+            Width:100% !important;
+        }
+        .leftwidth {
+            Width:50% !important;
+        }
+        .rightContentDisplay {
+            display:block;
+        }
+        .rightContentDisplayHide {
+            display:none;
+        }
+        .validateBtnDisplay {
+            display:block;
+        }
+        .validateBtnDisplayHide {
+            display:none;
+        }
+        .Display {
+            display:block;
+        }
+        .DisplayHide {
+            display:none;
+        }
+        #RightContent {
+            Width:49%;
+            border:1px solid lightgray;
+            float:right;
+            -webkit-box-shadow: inset -2px 3px 17px -1px rgba(0,0,0,0.75);
+            -moz-box-shadow: inset -2px 3px 17px -1px rgba(0,0,0,0.75);
+            box-shadow: inset -2px 3px 17px -1px rgba(0,0,0,0.75);
+            min-height:688px;
+        }
+        /*.pbSubsection {
+            max-height:250px;
+            min-height:250px;
+            overflow-y: scroll;
+        }*/
+        
+        .pbSubsection1 {
+            max-height:350px;
+            min-height:350px;
+            overflow-y: scroll;
+        }
+        .pbBody .pbSubheader {
+            text-align:left;
+        }
+        .leftTd {
+            text-align: right;
+            padding: 5px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .rightTd {
+            text-align: light;
+            padding: 5px;
+            font-size: 12px;
+            /*font-weight: bold;*/
+        }
+        .pbButton {
+            display: none;
+        }
+        .pbButtonb {
+            display: none;
+        }
+        .pbSubsection {
+            overflow-y: hidden;
+        }
+        .DivAddress .pbSubsection {
+          overflow-y: scroll;
+          max-height: 310px;
+          min-height: 245px;
+          height: 483px;
+        }
+        .bPageBlock .pbBody .pbSubheader {
+            background-color: #c0be72 !important;
+        }
+        .overlay {
+            opacity: 0.9;
+            position: absolute;
+            background: black;
+            top: 0px;
+            left: 0px;
+            z-index: 99999;
+            height: 100%;
+        }
+        .OverlayContainer {
+            width: 80%;
+            z-index: 99999;
+            position: relative;
+              margin: 0px auto;
+              margin-top: -300px;
+              top:-665px;
+              background: white;
+              height: 600px;
+              border-radius: 10px 10px 10px 10px;
+              overflow-y:scroll;
+        }
+        /*#cover {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 5;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+        
+        #loginScreen {
+            height: 380px;
+            width: 340px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+            display: none;
+            background: url(login.png) no-repeat;
+            border: 5px solid #cccccc;
+            border-radius: 10px;
+        }
+        
+        #loginScreen:target, #loginScreen:target + #cover {
+            display: block;
+            opacity: 2;
+        }*/
+        fieldset legend {
+          font-weight: bold;
+          color: black;
+          text-align: left;
+        }
+        .addressUpdateDiv{
+            width: 90%;
+            margin: 0px auto;
+            padding-top: 25px;
+        }
+        
+        span#saveMsgCustInqId {
+            display: block;
+            text-align: center;
+            color: green;
+            font-weight: bold;
+        }
+        @-webkit-keyframes fade {
+            0% {
+                opacity: 0;
+            }
+            
+            10% {
+                opacity: 1;
+            }
+            
+            90% {
+                opacity: 1;
+            }
+            
+            100% {
+                opacity: 0;
+            }
+        }
+        
+        span#saveMsgCustInqId {
+            
+            margin: 0 auto;
+            text-align: center;
+            -webkit-animation: fade 6s;
+            -webkit-animation-fill-mode: both;
+        }
+        .requiredInput {
+            position: relative;
+            height: 100%;
+        }
+        .requiredInput .requiredBlock {
+          background-color: #c00;
+          position: absolute;
+          left: -4px;
+          width: 3px;
+          top: 1px;
+          bottom: 1px;
+       }
+       #contentLoading {
+          /*background-color: black;*/
+          position: fixed;
+          top: 0; right: 0; bottom: 0; left: 0;
+          opacity: 0.5;
+          -moz-opacity:0.5;
+          z-index: 999999;
+      }
+      #contentLoadingPrinting {
+          /*background-color: black;*/
+          position: fixed;
+          top: 0; right: 0; bottom: 0; left: 0;
+          opacity: 0.5;
+          -moz-opacity:0.5;
+          z-index: 999999;
+      }
+    </style>
+    <div id="contentLoading" style="display:none;">
+      <div style="text-align: center;margin-top:400px;">
+        <!--<img src="/img/loading.gif" alt="Please Wait.." />-->
+        <img src="/img/loading.gif" alt="" />
+        <b style="color:black;font-size:14px;">Please Wait..</b>
+      </div>
+    </div>
+    <div id="contentLoadingPrinting" style="display:none;">
+      <div style="text-align: center;margin-top:400px;">
+        <img src="/img/loading.gif" alt="" />
+        <b style="color:black;font-size:14px;">Printing.....</b>
+      </div>
+    </div>
+    <apex:form id="frm">
+        <apex:outputpanel id="hiddenPnl">
+        <apex:inputhidden value="{!isAllAddressValidates}" id="showValidateInputId"/>
+        <apex:inputhidden value="{!isCreatingCase}" id="HiddenCreatingCase"/>
+        <!-- --{!isCreatingCase}--- --> 
+        <apex:inputhidden id="AddressValidatechk" value="{!isAddressValidAllFields}" />
+        <apex:inputhidden id="AddressValidatechk1" value="{!isAddressValidAllFields}" />
+        <apex:inputhidden id="CancelCase" value="{!isCancelCaseOk}" />
+        <apex:inputhidden id="SOCAssociatedToProv" value="{!isProviderExist}" />
+        <apex:inputhidden id="SOCExist" value="{!isSOCExists}" />
+        <apex:inputhidden id="ProviderName" value="{!providerName}" />
+        <apex:inputhidden id="CaseStatus" value="{!caseStatus}" />
+        <!-- Print -->
+        <apex:inputhidden value="{!printedAddressId}" id="printAddId"/>
+        <apex:inputhidden value="{!printSOCName}" id="printSOCNameId"/>
+        
+        <script>
+            var providerName = '{!$Component.ProviderName}';
+            sforce.console.getFocusedPrimaryTabId(fn_set_title);
+            function fn_set_title(result) {
+                var str_vf_ID = document.getElementById(providerName).value;
+                sforce.console.setTabTitle(str_vf_ID);
+            };
+            
+            var format = function(type,e,input) { 
+                    /* to prevent backspace, enter and other keys from interfering w mask code apply by attribute onkeydown=FormatPhone(control) */ 
+                
+                    evt = e || window.event; /* firefox uses reserved object e for event */
+                
+                    if(evt != null) {
+                        var BlockedKeyCodes = new Array(8,27,13,9); //8 is backspace key 
+                        var len = BlockedKeyCodes.length; 
+                        var block = false; 
+                        var str = ''; 
+                        var pressedkey = evt.which || evt.keyCode; 
+                        
+                        for (i=0; i<len; i++){ 
+                            str=BlockedKeyCodes[i].toString(); 
+                            if (str.indexOf(pressedkey) >=0 ) block=true;  
+                        } 
+                        if (block) return true;
+                    } 
+                
+                
+                   s = input.value; 
+                   if (s.charAt(0) =='+') return false; 
+                   filteredValues = '"`!@#$%^&*()_+|~-=\QWERT YUIOP{}ASDFGHJKL:ZXCVBNM<>?qwertyuiop[]asdfghjkl;zxcvbnm,./\\\'';  
+                   var i; 
+                   var c;
+                   var returnString = ''; 
+                
+                   /* Search through string and append to unfiltered values to returnString. */ 
+                    if(type=='phone') {
+                        for (i = 0; i < s.length; i++) {  
+                            c = s.charAt(i); 
+                            
+                            //11-Digit number format if leading number is 1
+                            if (s.charAt(0) == 1){
+                            
+                                if ((filteredValues.indexOf(c) == -1) && (returnString.length <  15 )) { 
+                                    if (returnString.length==1) returnString +='('; 
+                                    if (returnString.length==5) returnString +=')'; 
+                                    if (returnString.length==6) returnString +='-'; 
+                                    if (returnString.length==10) returnString +='-'; 
+                                    returnString += c; 
+                                } 
+                            
+                            } else {
+                                 //10-Digit number format
+                                 if ((filteredValues.indexOf(c) == -1) && (returnString.length <  14 )) { 
+                                    if (returnString.length==0) returnString +='('; 
+                                    if (returnString.length==4) returnString +=')'; 
+                                    if (returnString.length==5) returnString +='-'; 
+                                    if (returnString.length==9) returnString +='-'; 
+                                    returnString += c; 
+                                }
+                            }
+                        }
+                    } else if(type=='zip') {
+                        
+                        for (i = 0; i < s.length; i++) {  
+                            c = s.charAt(i); 
+                            if ((filteredValues.indexOf(c) == -1) && (returnString.length < 10  )) { 
+                                if (returnString.length==5) returnString +='-'; 
+                                returnString += c; 
+                            }
+                        }
+                    }
+                 
+                   input.value = returnString; 
+                   return false;
+                }
+            
+        </script> 
+        <script>
+        
+            function openTabFunc(caseId,caseNumber){
+                if(caseId != '') {
+                    sforce.console.openPrimaryTab(null, '/apex/SOCCaseDetail?caseId=' + caseId, true, caseNumber);
+                } 
+            } 
+        
+        </script>
+        </apex:outputpanel>
+        
+        <apex:outputpanel rendered="{!isProviderExist}">
+        <div id="MainDiv">
+            <div id="LeftContent" class="leftwidthFfull"> 
+                <div style="margin:10px;">
+                    <div style="text-align: center;margin-top: 10px;overflow-y: scroll;height: 275px;">
+                            <div class="apexp"><div class="bPageBlock brandSecondaryBrd apexDefaultPageBlock secondaryPalette"><div class="pbBody">
+                            <div><!-- <div class="pbSubheader brandTertiaryBgr first tertiaryPalette"><h3>Provider Detail</h3></div>
+                            <apex:detail subject="{!providerId}" inlineEdit="false"  relatedList="false" title="false"/> -->
+                            <apex:pageblock >
+                                <apex:pageBlocksection rendered="{!if(prefix=='003',true,false)}" title="Provider Details" columns="2"  collapsible="true">
+                                    <apex:outputtext value="{!contactInfo.Name}" />
+                                    <apex:outputtext value="{!contactInfo.Provider_Title__c}" />
+                                    <apex:outputtext value="{!contactInfo.Provider_License_Number__c}" />
+                                    <apex:outputtext value="{!contactInfo.email}" />
+                                    <apex:outputtext value="{!contactInfo.Provider_License_State__c}" />
+                                    <apex:outputtext value="{!contactInfo.Gender__c}" />
+                                    <apex:outputtext value="{!contactInfo.Provider_NPI__c}" />
+                                    <apex:outputtext value="{!contactInfo.Provider_Service_Status__c}" />
+                                    <apex:outputtext value="{!contactInfo.Provider_SHIS_Enterprise_ID__c}" />
+                                    <apex:outputtext value="{!contactInfo.Provider_Name_Suffix__c}" />
+                                    <apex:outputtext value="{!contactInfo.Provider_ID__c}" />
+                                    <apex:outputtext value="{!contactInfo.Preferred_Communication_Method__c}" />
+                                    <apex:outputtext value="{!contactInfo.Provider_UPIN__c}" />
+                                    <apex:outputtext value="{!contactInfo.Provider_Active_Status__c}" />
+                                    <!-- <apex:outputtext value="{!contactInfo.Provider_Active_Status_Date__c}" /> -->
+                                    <apex:outputtext value="{!contactInfo.Provider_Specialty__c}" />
+                                    <apex:outputtext value="{!contactInfo.Provider_Credential_Status__c}" />
+                                </apex:pageBlocksection>
+                                <apex:pageBlocksection rendered="{!if(prefix=='003',false,true)}" title="Facility Details" columns="2"  collapsible="true">
+                                    <apex:outputtext value="{!faciltyInfo.Name}" />
+                                    <apex:outputtext value="{!faciltyInfo.Facility_ID__c}" />
+                                    <!-- <apex:outputtext value="{!faciltyInfo.ADDRESS__c}" />
+                                    <apex:outputtext value="{!faciltyInfo.Suite__c}" />
+                                    <apex:outputtext value="{!faciltyInfo.Floor__c}" />
+                                    <apex:outputtext value="{!faciltyInfo.PHONE__c}" />
+                                    <apex:outputtext value="{!faciltyInfo.Phone_Extension__c}" />
+                                    <apex:outputtext value="{!faciltyInfo.FAX_NUMBER__c}" />
+                                    <apex:outputtext value="{!faciltyInfo.CITY__c}" />
+                                    <apex:outputtext value="{!faciltyInfo.STATE__c}" />
+                                    <apex:outputtext value="{!faciltyInfo.ZIP_CODE__c}" /> -->
+                                    <!-- <apex:outputtext value="{!faciltyInfo.Preferred_Communication_Method__c}" /> -->
+                                </apex:pageBlocksection>
+                            </apex:pageblock> 
+                            <apex:pageblock id="pgBlk1">
+                            <apex:pageBlocksection title="Customer Inquires" columns="1" id="pgblkbody1"  collapsible="false">
+                                <apex:pageBlockTable value="{!wrCaseLst}" var="obj">
+                                <apex:column style="text-align:left" headervalue="Case Number" >
+                                    <apex:outputLink rendered="{!if($Profile.Name != 'Meaningful Use Profile',true,false)}" 
+                                        onclick="openTabFunc('{!JSENCODE(obj.caseId)}','{!JSENCODE(obj.strCaseNumber)}'); return false;">{!obj.strCaseNumber}
+                                    </apex:outputLink>
+                                    <apex:outputLink target="_blank" rendered="{!if($Profile.Name == 'Meaningful Use Profile',true,false)}" 
+                                        value="/Meaningfuluse/SOCCaseDetail?caseId={!obj.caseId}">{!obj.strCaseNumber}
+                                    </apex:outputLink>
+                                </apex:column>
+                                <apex:column style="text-align:left" headervalue="Contact Name" >
+                                    <apex:outputtext escape="false"  value="{!HTMLENCODE(obj.strCaseContactName)}" />
+                                </apex:column>
+                                <apex:column style="text-align:left" headervalue="Contact Number" >
+                                    <apex:outputtext escape="false"  value="{!HTMLENCODE(obj.strCaseContactNumber)}" />
+                                </apex:column>
+                                <apex:column style="text-align:left" headervalue="Origin" >
+                                    <apex:outputtext escape="false"  value="{!HTMLENCODE(obj.strCaseOrigin)}" />
+                                </apex:column>
+                                <apex:column style="text-align:left" headervalue="Status" >
+                                    <apex:outputtext escape="false"  value="{!HTMLENCODE(obj.strStatus)}" />
+                                </apex:column>
+                                <apex:column style="text-align:left" headervalue="Escalated Reason" >
+                                    <apex:outputtext escape="false"  value="{!HTMLENCODE(obj.strCaseEscaltionReason)}" />
+                                </apex:column>
+                                <apex:column style="text-align:left" headervalue="Subject" >
+                                    <apex:outputtext escape="false"  value="{!HTMLENCODE(obj.strSubject)}" />
+                                </apex:column>
+                                </apex:pageBlockTable>
+                            </apex:pageBlocksection>
+                        </apex:pageblock>
+                          </div></div>
+                         </div></div>   
+                    </div>
+                    <div style="text-align: center;min-height:10px;margin-bottom: 10px;" class="DivAddress" id="DivAddressSection" >
+                        <apex:pageblock id="pgBlk">
+                            <apex:pageBlocksection title="Address Validation" columns="1" id="pgblkbody"  collapsible="false">
+                                <apex:pageBlockTable value="{!wrAddressValidationlist}" var="obj">
+                                <apex:column ondblclick="showAddressUpdateDiv('{!JSENCODE(obj.recordId)}');return false;">
+                                    <apex:inputCheckbox styleclass="unique" value="{!obj.isSelected}" id="addressCheckId"/>
+                                </apex:column>
+                                <apex:column ondblclick="showAddressUpdateDiv('{!JSENCODE(obj.recordId)}');return false;" style="text-align:left" headervalue="S#" >
+                                    <apex:outputtext escape="false"  value="{!HTMLENCODE(obj.strSnumber)}" />
+                                </apex:column>
+                                <apex:column ondblclick="showAddressUpdateDiv('{!JSENCODE(obj.recordId)}');return false;" style="text-align:left" headervalue="Street Address" >
+                                    <apex:outputtext escape="false"  value="{!HTMLENCODE(obj.strStreetAddress)}" />
+                                </apex:column>
+                                <apex:column ondblclick="showAddressUpdateDiv('{!JSENCODE(obj.recordId)}');return false;" style="text-align:left" headervalue="Suite" >
+                                    <apex:outputtext escape="false"  value="{!HTMLENCODE(obj.strSuite)}" />
+                                </apex:column>
+                                <apex:column ondblclick="showAddressUpdateDiv('{!JSENCODE(obj.recordId)}');return false;" style="text-align:left" headervalue="Floor" >
+                                    <apex:outputtext escape="false"  value="{!HTMLENCODE(obj.strFloor)}" />
+                                </apex:column>
+                                <apex:column style="text-align:left" headervalue="City" ondblclick="showAddressUpdateDiv('{!JSENCODE(obj.recordId)}');return false;">
+                                    <apex:outputtext escape="false"  value="{!HTMLENCODE(obj.strCity)}" />
+                                </apex:column>
+                                <apex:column style="text-align:left" headervalue="State" ondblclick="showAddressUpdateDiv('{!JSENCODE(obj.recordId)}');return false;">
+                                    <apex:outputtext escape="false"  value="{!HTMLENCODE(obj.strstate)}" />
+                                </apex:column>
+                                <apex:column style="text-align:left" headervalue="Zip Code" ondblclick="showAddressUpdateDiv('{!JSENCODE(obj.recordId)}');return false;">
+                                    <apex:outputtext escape="false"  value="{!HTMLENCODE(obj.strZipCode)}" />
+                                </apex:column>
+                                <apex:column style="text-align:left;width:10%;" headervalue="Phone" ondblclick="showAddressUpdateDiv('{!JSENCODE(obj.recordId)}');return false;">
+                                    <apex:outputtext escape="false"  value="{!HTMLENCODE(obj.strPhone)}" />
+                                </apex:column>
+                                <apex:column style="text-align:left;width:10%;" headervalue="Fax" ondblclick="showAddressUpdateDiv('{!JSENCODE(obj.recordId)}');return false;">
+                                    <apex:outputtext escape="false"  value="{!HTMLENCODE(obj.strFax)}" />
+                                </apex:column>
+                                <apex:column style="text-align:left" headervalue="Address Type" ondblclick="showAddressUpdateDiv('{!JSENCODE(obj.recordId)}');return false;">
+                                    <apex:outputtext escape="false"  value="{!HTMLENCODE(obj.straddressType)}" />
+                                </apex:column>
+                                <apex:column style="text-align:left" headervalue="Last Validated Date" ondblclick="showAddressUpdateDiv('{!JSENCODE(obj.recordId)}');return false;" id="lastValidDate">
+                                    <apex:outputtext value="{!obj.lastValidatedDate}" />
+                                </apex:column>
+                                <apex:column style="text-align:left" headervalue="Validate Y/N" ondblclick="showAddressUpdateDiv('{!JSENCODE(obj.recordId)}');return false;" id="isValidated">
+                                    <apex:outputtext value="{!obj.isValidated}" />
+                                </apex:column>
+                                <apex:column style="text-align:left" headervalue="Address Modified" ondblclick="showAddressUpdateDiv('{!JSENCODE(obj.recordId)}');return false;">
+                                    <apex:outputtext value="{!obj.strAddressModified}" />
+                                </apex:column>
+                                </apex:pageBlockTable>
+                            </apex:pageBlocksection>
+                        </apex:pageblock>
+                        <apex:outputpanel id="BtnPnl">
+                        <!-- --{!isCreatingCase}-- -->
+                        <div style="text-align: center;" id="leftDivButtons">
+                             <!-- -- {!wrAddressValidationlist.size}--{!isCreatingCase} -- -->
+                            <apex:CommandButton value="Ready To Send SOC Documents" rendered="{!if(caseStatus != 'Closed' && socStatus != 'Sent' && 
+                                $Profile.Name != 'Meaningful Use Profile',true,false)}" 
+                                    onclick="SendSOCDocJS();return false;" />&nbsp;
+                            <apex:CommandButton value="Contact Provider" rendered="{!!if(isAllAddressValidates,true,false)}" onclick="showRightDiv();return false;" id="contactProviderbtn" />&nbsp;
+                            <apex:CommandButton id="ValidateAddress" rendered="{!if(caseStatus == 'Closed',false,true)}" styleclass="validateBtnDisplayHide" 
+                                                onclick="validateAllchkAddress();return false;" value="Validate Addresses"  />
+                            <apex:CommandButton id="NewAddress"  
+                                        onclick="showAddressInsertDiv();return false;" value="Add New Address" 
+                                        rendered="{!if(wrAddressValidationlist.size<6 &&  isCreatingCase && prefix=='003' && caseStatus != 'Closed',true,false)}"  />
+                            <apex:CommandButton value="Print Address" onclick="printAllChecked();return false;" rendered="{!isPrintAddButton}" />&nbsp;
+                            <apex:CommandButton value="View Explanation Letter" onclick="openPDFScreen();return false;" rendered="{!isViewAddress}" status="loadingPrint"/>&nbsp;
+                        </div>
+                        <script>
+                            
+                            if('{!isCreatingCase}' == 'true') {
+                                $('#LeftContent').removeClass('leftwidthFfull');
+                                $('#LeftContent').addClass('leftwidth');
+                                $('#RightContent').removeClass('rightContentDisplayHide');
+                                $('#RightContent').addClass('rightContentDisplay');
+                                isRightDivVisible = 'true';
+                                $('.validateBtnDisplayHide').removeClass('validateBtnDisplayHide');
+                                $('#ValidateAddress').addClass('validateBtnDisplay');
+                                $('#NewAddress').addClass('validateBtnDisplay');
+                                $('input[id$=contactProviderbtn]').css("display", "none");
+                            }
+                        </script> 
+                        </apex:outputpanel>
+                    </div>
+                </div>
+            </div>
+            <div id="RightContent" class="rightContentDisplayHide">
+                <div style="margin:10px;">
+                    <!-- <apex:iframe src="https://suttercrm--preprod51.cs11.my.salesforce.com/500/e?RecordType=012Z00000000pBq&cas28=01513218&cas28_lkid=500Z0000009FB7h&ekp=500&ent=Case&isdtp=mn"/>  -->
+                    <apex:outputpanel id="CasePnl">
+                        <!-- --{!isCreatingCase}-- -->
+                        <apex:pageMessages id="pgmsgCase" />
+                        <apex:sectionHeader title="Customer Inquiry" subtitle="{!caseObj.casenumber}"/>
+                        <!-- //Escalate CR -->
+                        <apex:pageblock id="PgblkCase" rendered="{!if(caseStatus != 'Closed' && caseStatus != 'Cannot Reach' && caseObj.OwnerId == $User.Id && MUCaseStatus != 'Closed',true,false)}" mode="Edit" title="Customer Inquiry Edit">
+                                <div class="pbSubsection">
+                                    <table class="detailList" border="0">
+                                        <tbody>
+                                            <tr>
+                                                <th class="labelCol vfLabelColTextWrap  first " scope="row">
+                                                    <label>Provider Name</label>
+                                                </th>
+                                                <td class="dataCol  first "><apex:outputtext value="{!caseObj.Provider_Name__c}" /></td>
+                                                <th class="labelCol vfLabelColTextWrap  first " scope="row">
+                                                    <label>Provider Type</label>
+                                                </th>
+                                                <td class="dataCol  first "><apex:outputtext value="{!caseObj.Provider_Type__c}" /></td>
+                                            </tr>
+                                            <tr>
+                                                <th class="labelCol vfLabelColTextWrap " scope="row">
+                                                    <label>Provider Id</label>
+                                                </th>
+                                                <td class="dataCol  first "><apex:outputtext value="{!caseObj.Provider_Id_EAF_ID__c}" /></td>
+                                                <th class="labelCol vfLabelColTextWrap  first " scope="row">
+                                                    <label>Origin</label>
+                                                </th>
+                                                <td class="dataCol  first "><apex:inputfield value="{!caseObj.Origin}" /></td>
+                                            </tr>
+                                            <tr>
+                                                <th class="labelCol vfLabelColTextWrap  first " scope="row">
+                                                    <label>Directly connected provider?</label>
+                                                </th>
+                                                <td class="dataCol  first ">
+                                                <apex:inputfield value="{!caseObj.Direct_Talk_to_Provider__c}">
+                                                    <apex:actionsupport event="onchange" action="{!fillContactName}" status="loading1"  reRender="CasePnl"/> 
+                                                </apex:inputfield>
+                                                </td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <th class="labelCol vfLabelColTextWrap " scope="row">
+                                                    <label>Contact Name</label>
+                                                </th>
+                                                <td class="dataCol  first ">
+                                                <div class="requiredInput">
+                                                    <div class="requiredBlock"></div>
+                                                    <apex:inputfield id="ContactName1" value="{!caseObj.PDV_Contact_Name__c}" />
+                                                    </div>
+                                                </td>
+                                                <th class="labelCol vfLabelColTextWrap " scope="row">
+                                                    <label>Contact Number</label>
+                                                </th>
+                                                <td class="dataCol  first ">
+                                                <div class="requiredInput">
+                                                    <div class="requiredBlock"></div>
+                                                    <apex:inputtext id="ContactNumber" onblur="formatPhone(this.id,this.value);" value="{!strCaseContactPhoneNumber}" /> 
+                                                </div>
+                                                </td>
+                                            </tr>
+                                                <th class="labelCol vfLabelColTextWrap  first " scope="row">
+                                                    <label>Contact Validated or not ?</label>
+                                                </th>
+                                                <td class="dataCol  first ">
+                                                <div class="requiredInput">
+                                                    <div class="requiredBlock"></div>
+                                                    <apex:inputfield value="{!caseObj.Validated_or_not__c}" />
+                                                </div>
+                                              </td>
+                                                <apex:outputpanel layout="none" rendered="{!if(prefix=='003',true,false)}">
+                                                    <th class="labelCol vfLabelColTextWrap " scope="row">
+                                                        <label>Change Communication Preference To Fax?</label>
+                                                    </th>
+                                                    <td class="dataCol  first ">
+                                                        <div class="requiredInput">
+                                                        <div class="requiredBlock"></div>
+                                                            <apex:inputfield value="{!caseObj.Communication_Preference_Changed_To_Fax__c}" />
+                                                        </div>
+                                                    </td>
+                                                </apex:outputpanel>
+                                            <tr>
+                                                
+                                                <th class="labelCol vfLabelColTextWrap  first " scope="row">
+                                                    <label>Status</label>
+                                                </th>
+                                                <td class="dataCol  first ">
+                                                    <div class="requiredInput">
+                                                    <div class="requiredBlock"></div>
+                                                        <apex:inputfield value="{!caseObj.status}" />
+                                                    </div>
+                                                </td>
+                                                <th class="labelCol vfLabelColTextWrap  first " scope="row">
+                                                    <label>Escalation Reason</label>
+                                                </th>
+                                                <td class="dataCol  first "><apex:inputfield value="{!caseObj.PDV_Escalation_Reason__c}" /></td>
+                                            </tr>
+                                            <tr>
+                                                <th class="labelCol vfLabelColTextWrap " scope="row">
+                                                    <label>Subject</label>
+                                                </th>
+                                                <td class="dataCol  first " >
+                                                <div class="requiredInput">
+                                                    <div class="requiredBlock"></div>
+                                                    <apex:inputfield value="{!caseObj.Common_Subject_Lines__c}" />
+                                                </div>
+                                                </td>
+                                                <th class="labelCol vfLabelColTextWrap " scope="row">
+                                                    <label>SOC Document Status</label>
+                                                </th>
+                                                <td class="dataCol  first "><apex:outputtext id="SOCDocStatus" value="{!caseObj.SOC_Document_Status__c}" /></td>
+                                            </tr>
+                                            <tr>
+                                                <th class="labelCol vfLabelColTextWrap  first " scope="row">
+                                                    <label>Comments</label>
+                                                </th>
+                                                <td class="dataCol  first " colspan="4"><apex:inputfield style="width: 98%;height: 80px;resize: none;" value="{!caseObj.description}" rendered="{!IF(loggedInUserRoleName != 'MU Agent',true,false)}"/>
+                                                <apex:outputText value="{!caseObj.description}" rendered="{!IF(loggedInUserRoleName == 'MU Agent',true,false)}"/>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            <!-- </apex:Pageblocksection> -->
+                            
+                                <!-- --{!MUCaseStatus}-- -->
+                            <apex:outputpanel rendered="{!if(MUCaseStatus != 'Closed' && loggedInUserRoleName == 'MU Agent',true,false)}">
+                                <div class="pbSubsection">
+                                    <table class="detailList" border="0">
+                                        <tbody>
+                                            <tr>
+                                                <th class="labelCol vfLabelColTextWrap  first " scope="row">
+                                                    <label>MU Status</label>
+                                                </th>
+                                                <td class="dataCol  first ">
+                                                <div class="requiredInput">
+                                                    <div class="requiredBlock"></div>
+                                                    <!-- <apex:inputtext  
+                                                    value="{!caseMUStatus}" /> -->
+                                                    <apex:selectlist size="1" value="{!caseMUStatus}" multiselect="false">
+                                                        <apex:selectoptions value="{!caseMUStatusLstOption}" />
+                                                    </apex:selectlist>
+                                                </div>
+                                               </td>
+                                               <th class="labelCol vfLabelColTextWrap " scope="row">
+                                                    <label>&nbsp;</label>
+                                                </th>
+                                                <td class="dataCol  first ">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="labelCol vfLabelColTextWrap  first " scope="row">
+                                                    <label>MU Comments</label>
+                                                </th>
+                                                <td colspan="3" class="dataCol  first ">
+                                                <div class="requiredInput">
+                                                    <div class="requiredBlock"></div>
+                                                <apex:inputtextarea style="width: 97%;height: 80px;resize: none;" 
+                                                    value="{!caseMUReason}" />
+                                                    </div></td>
+                                            </tr>
+                                         </tbody>
+                                     </table>
+                                </div>
+                           </apex:outputpanel>
+                           
+                        </apex:pageblock>
+                        <!-- //Escalate CR -->
+                        <apex:pageblock rendered="{!if(caseStatus == 'Closed' || caseStatus == 'Cannot Reach' || caseObj.OwnerId != $User.Id || MUCaseStatus == 'Closed',true,false)}"> 
+                            <apex:pageBlockSection collapsible="false" title="Customer Inquiry Detail" columns="2" id="custInqSectionId">
+                            
+                                <apex:outputtext value="{!caseObj.Provider_Name__c}" />
+                                <apex:outputtext value="{!caseObj.Provider_Type__c}" />
+                                
+                                <apex:outputtext value="{!caseObj.Provider_Id_EAF_ID__c}" />
+                                <apex:outputtext value="{!caseObj.Origin}" />
+                                
+                                <apex:outputtext value="{!caseObj.Direct_Talk_to_Provider__c}" />
+                                <apex:outputtext />
+                                
+                                <apex:outputtext value="{!caseObj.PDV_Contact_Name__c}" />
+                                <apex:outputtext value="{!caseObj.Contact_Number__c}" />
+                               
+                                <apex:outputtext value="{!caseObj.Validated_or_not__c}" />
+                                
+                                <apex:outputtext rendered="{!if(prefix=='003',true,false)}" value="{!caseObj.Communication_Preference_Changed_To_Fax__c}" />
+                                
+                                <!-- <apex:outputpanel layout="inline" rendered="{!if(prefix=='003',true,false)}">
+                                        <apex:outputLabel value="Change Communication Preference To Fax?"></apex:outputLabel>
+                                        &nbsp;&nbsp;<apex:outputField value="{!caseObj.Communication_Preference_Changed_To_Fax__c}" />
+                                </apex:outputpanel> -->
+                                
+                                <apex:outputtext value="{!caseObj.status}" />
+                                <apex:outputtext value="{!caseObj.PDV_Escalation_Reason__c}" />
+                                
+                                <apex:outputtext value="{!caseObj.Common_Subject_Lines__c}" />
+                                <apex:outputtext value="{!caseObj.SOC_Document_Status__c}" />
+                                
+                                <apex:outputtext style="width: 100%;height: 80px;resize: none;" value="{!caseObj.description}" />
+                                
+                                <apex:outputtext />
+                             </apex:Pageblocksection>
+                             <apex:Pageblocksection columns="1">
+                                <apex:outputpanel rendered="{!if((caseStatus=='Closed' || MUCaseStatus == 'Closed')  && loggedInUserRoleName == 'MU Agent',true,false)}">
+                                    <div class="pbSubsection">
+                                        <table class="detailList" border="0">
+                                            <tbody>
+                                                <tr>
+                                                    <th class="labelCol vfLabelColTextWrap  first " scope="row">
+                                                        <label>MU Status</label>
+                                                    </th>
+                                                    <td class="dataCol  first ">
+                                                        <apex:outputtext value="{!caseMUStatus}" />
+                                                    </td>
+                                                    <th class="labelCol vfLabelColTextWrap  first " scope="row">
+                                                        <label>MU Comments</label>
+                                                    </th>
+                                                    <td class="dataCol  first ">
+                                                        <apex:outputtext style="width: 100%;height: 80px;resize: none;" value="{!caseMUReason}" />
+                                                    </td>
+                                                </tr>
+                                             </tbody>
+                                        </table>
+                                   </div>
+                                </apex:outputpanel>
+                             </apex:Pageblocksection>
+                            
+                        </apex:pageblock>
+                        <apex:outputPanel rendered="{!isCustInqSaved}">
+                            <span id="saveMsgCustInqId">Customer Inquiry has been Saved.</span>
+                        </apex:outputPanel>
+                        <br></br>
+                        <div style="text-align:center; width:100%">
+                           
+                            <apex:commandButton rendered="{!if(caseStatus != 'Closed' && caseObj.OwnerId == $User.Id && caseStatus != 'Cannot Reach' && loggedInUserRoleName == 'SOC Supervisor',true,false)}" value="Approve" 
+                                        action="{!approveCase}" rerender="CasePnl,pgBlk1,BtnPnl,hiddenPnl" status="status"/>&nbsp;
+                            <apex:commandButton rendered="{!if(caseStatus != 'Closed' && caseObj.OwnerId == $User.Id && caseStatus != 'Cannot Reach' && loggedInUserRoleName != 'MU Agent',true,false )}" value="Save" 
+                                        action="{!updateCase}" rerender="CasePnl,pgBlk1,BtnPnl,hiddenPnl" status="status"/>&nbsp;
+                           
+                            <apex:commandButton rendered="{!if(loggedInUserRoleName == 'MU Agent' && MUCaseStatus != 'Closed' && caseObj.OwnerId == $User.Id && socStatus != 'Print',true,false)}" value="Save MU" 
+                                        action="{!updateCaseMU}" rerender="CasePnl,pgBlk1,BtnPnl,hiddenPnl,pgblkbody" status="status"/>&nbsp;    <!-- && MUCaseStatus != 'Closed' -->      
+                            
+                            <apex:commandButton value="Cancel" rendered="{!if(caseStatus != 'Closed' && caseStatus != 'Cannot Reach' && caseObj.OwnerId == $User.Id && MUCaseStatus != 'Closed',true,false)}" action="{!cancelCase}" 
+                                            onComplete="cancelOnComp();return false;"  rerender="CasePnl,pgBlk1,hiddenPnl" />
+                                    
+                            <apex:commandButton value="Back To SOC" rendered="{!if((caseStatus == 'Closed' || caseStatus == 'Cannot Reach' || caseStatus == 'Escalate To Meaningful Use')  
+                                    && caseObj.ownerId != $User.Id && loggedInUserRoleName != 'MU Agent',true,false)}" 
+                                    onComplete="backToSOC();return false;"  rerender="CasePnl,pgBlk1,hiddenPnl" /> <!-- && caseObj.ownerId != $User.Id  -->
+                            
+                            <apex:commandButton value="Back To SOC" rendered="{!if(loggedInUserRoleName == 'MU Agent' && (MUCaseStatus == 'Closed' ||  socStatus == 'Print' || caseObj.OwnerId != $User.Id),true,false)}" 
+                                    onComplete="backToSOC();return false;"  rerender="CasePnl,pgBlk1,hiddenPnl" /> 
+                                    
+                            <!-- <apex:commandButton value="Cancel" rendered="{!if(MUCaseStatus == 'Closed' ,true,false)}" action="{!cancelCase}"
+                                    onComplete="cancelOnComp();return false;"  rerender="CasePnl,pgBlk1,hiddenPnl" />    -->     
+                                    
+                            <apex:commandButton rendered="{!if(caseStatus != 'Closed' && caseObj.OwnerId == $User.Id && caseStatus != 'Cannot Reach' && loggedInUserRoleName == 'SOC Supervisor',true,false)}" value="Reject" 
+                                        action="{!rejectCase}" rerender="CasePnl,pgBlk1,BtnPnl,hiddenPnl" status="status"/>&nbsp;
+                                             
+                            <apex:actionstatus id="status">
+                             
+                            
+                            <apex:facet name="start"> 
+                                <span style="color:red;font-weight:bold;padding-left:5px;">Saving.....</span>
+                                <img src="/img/loading.gif" alt="" />
+                            </apex:facet>
+                        </apex:actionstatus>
+                         <script>
+                            if(document.getElementById('pg:frm:PgblkCase:ContactNumber') != null) {
+                                var value11 = document.getElementById('pg:frm:PgblkCase:ContactNumber').value;
+                                if(value11 != '') {
+                                    var numbers = value11.replace(/\D/g, ''),
+                                    char = {0:'(',3:') ',6:'-'};
+                                    var tempVal = '';
+                                    for (var i = 0; i < numbers.length; i++) {
+                                        tempVal += (char[i]||'') + numbers[i];
+                                    }
+                                    document.getElementById('pg:frm:PgblkCase:ContactNumber').value = tempVal;
+                                }
+                            }
+                        </script>
+                        </div>
+                        <br/><!-- --{!lstCaseAddressHistory}-- -->
+                    <!--    <div style="height:195px;overflow:scroll;padding-left: 100px;"> -->
+                   <!--    <apex:pageblock id="pgBlkAddressHistory">
+                            <apex:pageBlocksection title="Address History" columns="1" id="AddHisPbSec"  collapsible="false"> 
+                                <apex:pageBlockTable value="{!lstCaseAddressHistory}" var="obj">
+                                <apex:column headerValue="Address Modified ?">
+                                    <apex:outputtext value="{!obj.addressModified}" />
+                                </apex:column> 
+                                <apex:column headerValue="Last Modified Date"> 
+                                    <apex:outputtext value="{!obj.lastModifiedDate}"/>
+                                </apex:column> 
+                               <apex:column headerValue=""> 
+                                    <apex:outputtext value="{!obj.strAddress}"/>
+                               </apex:column> 
+                                </apex:pageBlockTable>
+                            </apex:pageBlocksection>
+                       </apex:pageblock> -->
+                       <!-- --{!lstCaseAddressHistory}-- -->
+                       <!-- <apex:outputpanel rendered="{!if(lstCaseAddressHistory.size>0,true,false)}"> -->
+                      <apex:pageblock id="pgBlkAddressHistory" title="Customer Inquiry Log"> 
+                        <div style="height:140px;overflow:scroll;padding-left: 50px;">
+                         <table style="width:100%;border-collapse: collapse;background-color: lightgray;" border="1" cellpadding="5">  
+                         <tr>
+                         <th>Modified By</th><th>Remarks</th></tr>     
+                         <apex:repeat value="{!lstCaseAddressHistory}" var="obj" id="theRepeat" rows="5">
+                          <tr><td>{!obj.strAddressModifiedBy}</td><td><apex:outputtext escape="False" value="{!obj.strAddress}" /></td></tr>
+                         </apex:repeat>
+                         </table>
+                       </div>
+                       </apex:pageblock>
+                       <!-- </apex:outputpanel> -->
+                    </apex:outputpanel>
+                </div>
+            </div>
+        </div>
+        </apex:outputpanel>
+        <apex:outputpanel rendered="{!!isProviderExist}">
+            <div id="MainDiv" style="text-align: center;">
+                <apex:pageMessage summary="SOC record is not associated to any Provider/Facilty." severity="Error" strength="3"  />
+                <apex:commandbutton onclick="closeTab();" value="Close"/>
+            </div>
+        </apex:outputpanel>
+        <apex:outputpanel rendered="{!!isSOCExists}">
+            <div id="OverlayDiv" class="Display" style="clear:both;">
+                <div id="AddressUpdateSection" style="width:100%;" class="overlay">
+                </div>
+                <div class="OverlayContainer">
+                    <div id="MainDiv" style="text-align: center;margin-top:15px;">
+                        <apex:pageMessage summary="Provider/Facility record is not associated to any SOC record. Please click on Create SOC Button to create." severity="Error" strength="3"  />
+                        <apex:commandbutton onclick="createSOC();return false;" value="Create SOC"/>&nbsp;
+                        <apex:commandbutton onclick="closeTab();" value="Close"/>
+                    </div>
+                </div>
+            </div>
+        </apex:outputpanel>
+        <!-- {!isSOCInQueue} -->
+        <apex:outputpanel rendered="{!isSOCInQueue}">
+            <div id="OverlayDiv" class="Display" style="clear:both;">
+                <div id="AddressUpdateSection" style="width:100%;" class="overlay">
+                </div>
+                <div class="OverlayContainer">
+                    <div id="MainDiv" style="text-align: center;margin-top:15px;">
+                        <apex:pageMessage summary="This SOC folder is in SOC Queue. Please click on &quot;Accept Case&quot; button to accept." severity="Error" escape="false" strength="3"  />
+                        <apex:commandbutton onclick="aceeptSOC();return false;" value="Accept SOC"/>&nbsp;
+                        <apex:commandbutton onclick="closeTab();" value="Close"/>
+                    </div>
+                </div>
+            </div>
+        </apex:outputpanel>
+        <!-- is Case escalated to Supervisor //Escalate CR-->
+         <apex:outputpanel rendered="{!if(isCaseInQueue && (loggedInUserRoleName == 'MU Agent' || loggedInUserRoleName == 'SOC Supervisor'),true,false)}">
+            <div id="OverlayDiv" class="Display" style="clear:both;">
+                <div id="AddressUpdateSection" style="width:100%;" class="overlay"> 
+                </div>
+                <div class="OverlayContainer">
+                    <div id="MainDiv" style="text-align: center;margin-top:15px;">
+                        <apex:pageMessage summary="This SOC folder is in {!caseObj.Owner.Name} Queue. Please click on &quot;Accept Case&quot; button to accept." 
+                                        severity="info" escape="false" strength="3"  />
+                        <apex:commandbutton onclick="aceeptCase();return false;" value="Accept Case"/>&nbsp;
+                        <apex:commandbutton onclick="closeTab();" value="Close"/>
+                    </div>
+                </div>
+            </div>
+        </apex:outputpanel>
+        
+        
+         <div id="OverlayDiv" class="DisplayHide" style="clear:both;">
+              <div id="AddressUpdateSection" style="width:100%;" class="overlay">
+              </div>
+                <div class="OverlayContainer">
+                 <apex:outputpanel id="AddressPanel">
+                 <!-- ---{!addressRecordId}--- -->
+                 <apex:outputpanel rendered="{!if(addressRecordId != null,true,false)}">
+                 <apex:outputPanel id="AddressPnl">
+                  <apex:outputpanel id="AddressValPnl">
+                   <apex:pageMessages id="pgMsg"/> 
+                   <!-- <apex:inputtext id="AddressValidatechk" value="{!isAddressValidAllFields}" /> -->
+                  </apex:outputpanel>
+                 </apex:outputPanel>
+                    <div class="addressUpdateDiv" style="text-align: center;">
+                      <apex:CommandButton value="Validate" onclick="saveaddress();return false;" />&nbsp;
+                      <apex:CommandButton value="Deactivate" rendered="{!if(newAddress.straddressType == 'Secondary' && prefix=='003',true,false)}" 
+                                onclick="deletaddress('{!addressRecordId}');return false;" />&nbsp;
+                      <apex:CommandButton value="Cancel" onclick="hideAddressUpdateDiv();return false;" />
+                    </div>
+                     <div class="addressUpdateDiv">
+                        <div style="width:100%;margin-bottom:10px;"><span class="requiredLegend brandTertiaryFgr"><span class="requiredExampleOuter">
+                            <span class="requiredExample">&nbsp;</span></span><span class="requiredMark">*</span><span class="requiredText"> = Required Information</span>
+                            </span>
+                            </div>
+                     <fieldset>
+                     <legend>New Address</legend>
+                     <table style="width:100%" border="0">
+                        <apex:outputpanel layout="none" rendered="{!if(newAddress.straddressType == 'Primary' && prefix=='003',true,false)}">
+                        <tr style="height: 25px;">
+                            <td>Email</td>
+                            <td>
+                                <div >
+                                    <apex:inputtext tabindex="1" maxlength="255" label="Street Address" value="{!newAddress.strEmail}" /> 
+                                </div>
+                            </td>
+                            <td>Mobile Phone</td>
+                            <td colspan="3">
+                                <div >
+                                    <apex:inputtext tabindex="6"  id="MobilePhonetxt" onblur="formatPhone(this.id,this.value);" value="{!newAddress.strMobilePhone}" />&nbsp;
+                                    <span ><apex:inputcheckbox value="{!newAddress.strOkToText}" style="margin-top: -10px;" />&nbsp;OK to Text ?</span>     
+                                </div>
+                            </td>
+                            
+                        </tr>
+                        </apex:outputpanel>
+                        <tr style="height: 25px;">
+                            <td>Street</td>
+                            <td>
+                                <div class="requiredInput"><div class="requiredBlock"></div>
+                                    <apex:inputtext tabindex="2" maxlength="255" id="StreetAddress" label="Street Address" onblur="replaceWords(this.id,this.value);" value="{!newAddress.strStreetAddress}" />
+                                </div>
+                            </td>
+                            <td>Phone</td>
+                            <td colspan="3">
+                                <div class="requiredInput" style="float:left;"><div id="ReqPhone" class="requiredBlock"></div>
+                                    <apex:inputtext tabindex="7" id="Phonetxt" onblur="formatPhone(this.id,this.value);" value="{!newAddress.strPhone}" />       
+                                </div>&nbsp;
+                                Ext&nbsp;<apex:inputtext style="width:10%" tabindex="8" maxlength="6" value="{!newAddress.strPhoneExt}" /> 
+                            </td>
+                        </tr>
+                    
+                        <tr style="height: 25px;">
+                            <td>Suite</td>
+                            <td>
+                                <apex:inputtext tabindex="3" onblur="replaceWords(this.id,this.value);" id="strSuite" maxlength="255" label="Suite" value="{!newAddress.strSuite}" />
+                            </td>
+                            <td>&nbsp;</td>
+                            <td colspan="2">
+                                <span ><apex:inputcheckbox style="margin-top: -10px;" id="PhoneCheck" value="{!phoneCheck}" onclick="removeMandatory('{!$Component.Phonetxt}','Phone');" /> Decline Phone?</span>
+                            </td>
+                        </tr>
+                    
+                        <tr style="height: 25px;">
+                            <td>Floor</td>
+                            <td>
+                                <apex:inputtext tabindex="4" onblur="replaceWords(this.id,this.value);" id="strFloor" maxlength="255" label="Floor" value="{!newAddress.strFloor}" />
+                            </td>
+                            <td>Fax</td>
+                            <td>
+                                <div class="requiredInput"><div id="ReqFax" class="requiredBlock"></div>
+                                    <apex:inputtext tabindex="9" id="faxtxt" onblur="formatPhone(this.id,this.value);" value="{!newAddress.strFax}" />       
+                                </div>  
+                            </td>
+                        </tr>
+                        <tr style="height: 25px;">
+                            <td>&nbsp;</td>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>&nbsp;</td>
+                            <td colspan="2">
+                                <span><apex:inputcheckbox style="margin-top: -10px;" id="FaxCheck" value="{!faxCheck}" onclick="removeMandatory1('{!$Component.faxtxt}','Fax');" /> Decline Fax?</span>
+                            </td>
+                        </tr>
+                        <tr style="height: 25px;">
+                            <td>City</td>
+                            <td>
+                                <div class="requiredInput"><div class="requiredBlock"></div>
+                                    <apex:inputtext tabindex="5" maxlength="255" label="City" value="{!newAddress.strCity}" />       
+                                </div>
+                            </td>
+                            <td>State</td>
+                            <td>
+                                <div class="requiredInput"><div class="requiredBlock"></div>
+                                    <apex:selectlist tabindex="10" value="{!newAddress.strState}"  size="1" multiselect="false">
+                                        <apex:selectoptions value="{!statePkList}" />
+                                    </apex:selectlist>      
+                                </div>
+                            </td>
+                            <td>Zip Code</td>
+                            <td>
+                                <div class="requiredInput"><div class="requiredBlock"></div>
+                                    <apex:inputtext style="width:50%" tabindex="11" id="ZipCodetxt1" onKeyUp="format('zip',null,this)" value="{!newAddress.strZipCode}" />       
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Attn To 
+                            </td>
+                            <td>
+                                <apex:inputtext tabindex="4" maxlength="255" style="width:99%;" label="Attn To" value="{!newAddress.strAttenTo}" />        
+                            </td>
+                        </tr>
+                        <apex:outputpanel layout="none" rendered="{!if((newAddress.straddressType == 'Primary' && prefix == '003') || prefix != '003',true,false)}">
+                        <tr>
+                            <td style="width:15%">
+                                Name Changes for Facility/Provider suggested 
+                            </td>
+                            <td>
+                                <apex:inputtext tabindex="4" maxlength="255" style="width:99%;" label="Attn To" value="{!newAddress.strNameChangesSugg}" />        
+                            </td>
+                        </tr>
+                        </apex:outputpanel>
+                    </table>
+                   </fieldset></div>
+                   <br/>
+                   <div class="addressUpdateDiv">
+                   <apex:outputpanel rendered="{!if(wrOldAddressLst != null && wrOldAddressLst.size>0,true,false)}">
+                   <fieldset style="margin-bottom: 15px;">
+                    <legend>Addresses History</legend>
+                    <apex:pageblock id="pgBlk2">
+                             <apex:pageBlockTable value="{!wrOldAddressLst}" var="obj">
+                             <apex:column style="text-align:left" headervalue="Street Address">
+                                 <apex:outputtext escape="false"  value="{!HTMLENCODE(obj.strStreetAddress)}" />
+                             </apex:column>
+                             <apex:column style="text-align:left" headervalue="Suite" >
+                                 <apex:outputtext escape="false"  value="{!HTMLENCODE(obj.strSuite)}" />
+                             </apex:column>
+                             <apex:column style="text-align:left" headervalue="Floor" >
+                                 <apex:outputtext escape="false"  value="{!HTMLENCODE(obj.strFloor)}" />
+                             </apex:column>
+                             <apex:column style="text-align:left" headervalue="City">
+                                 <apex:outputtext escape="false"  value="{!HTMLENCODE(obj.strCity)}" />
+                             </apex:column>
+                             <apex:column style="text-align:left" headervalue="State" >
+                                 <apex:outputtext escape="false"  value="{!HTMLENCODE(obj.strstate)}" />
+                             </apex:column>
+                             <apex:column style="text-align:left" headervalue="Zip Code">
+                                 <apex:outputtext escape="false"  value="{!HTMLENCODE(obj.strZipCode)}" />
+                             </apex:column>
+                             <apex:column style="text-align:left" headervalue="Phone">
+                                 <apex:outputtext escape="false"  value="{!HTMLENCODE(obj.strPhone)}" />
+                             </apex:column>
+                             <apex:column style="text-align:left" headervalue="Fax">
+                                 <apex:outputtext escape="false"  value="{!HTMLENCODE(obj.strFax)}" />
+                             </apex:column>
+                             <apex:column style="text-align:left" headervalue="Address Type">
+                                 <apex:outputtext escape="false"  value="{!HTMLENCODE(obj.straddressType)}" />
+                             </apex:column>
+                             <apex:column style="text-align:left" headervalue="Address Modified" >
+                                 <apex:outputtext value="{!obj.strAddressModified}" />
+                             </apex:column>
+                             <apex:column style="text-align:left" headervalue="Last Modified Date">
+                                 <apex:outputtext escape="false"  value="{!HTMLENCODE(obj.lastmodifiedDate)}" />
+                             </apex:column>
+                             <apex:column style="text-align:left" headervalue="Last Modified By">
+                                 <apex:outputtext escape="false"  value="{!HTMLENCODE(obj.lastmodifiedBy)}" />
+                             </apex:column>
+                             </apex:pageBlockTable>
+                     </apex:pageblock>
+                    </fieldset>
+                    </apex:outputpanel>
+                   </div>
+                   <div class="addressUpdateDiv" style="text-align: center;">
+                     <apex:CommandButton value="Validate" onclick="saveaddress();return false;" />&nbsp;
+                     <apex:CommandButton value="Deactivate" rendered="{!if(newAddress.straddressType == 'Secondary' && prefix=='003',true,false)}" 
+                      onclick="deletaddress('{!addressRecordId}');return false;" />&nbsp;
+            
+                     <apex:CommandButton value="Cancel" onclick="hideAddressUpdateDiv();return false;" />
+                   </div>
+                   <script>
+                       if('{!phoneCheck}' == 'true') {
+                            $('#ReqPhone').removeClass('requiredBlock');
+                            document.getElementById('{!$Component.pg:frm:Phonetxt}').readOnly = true;   
+                       }
+                        if('{!faxCheck}' == 'true') {
+                            $('#ReqFax').removeClass('requiredBlock');
+                            document.getElementById('{!$Component.pg:frm:faxtxt}').readOnly = true; 
+                       }
+                   </script>
+                   </apex:outputpanel>
+                   
+                   <apex:outputpanel rendered="{!if(isBlank(addressRecordId),true,false)}">
+                    <apex:outputPanel id="AddressPnl1">
+                    <apex:pageMessages id="pgMsg1"/> 
+                    </apex:outputPanel>
+                    <div class="addressUpdateDiv" style="text-align: center;">
+                      <apex:CommandButton value="Save" onclick="saveNewaddress();return false;" />&nbsp;
+                      <apex:CommandButton value="Cancel" onclick="hideAddressUpdateDiv();return false;" />
+                    </div>
+                    <div class="addressUpdateDiv">
+                        <div style="width:100%;margin-bottom:10px;"><span class="requiredLegend brandTertiaryFgr"><span class="requiredExampleOuter">
+                            <span class="requiredExample">&nbsp;</span></span><span class="requiredMark">*</span><span class="requiredText"> = Required Information</span>
+                            </span>
+                            </div>
+                     <fieldset>
+                     <legend>New Address</legend>
+                     <table style="width:100%">
+                        <tr style="height: 25px;">
+                            <td>Street</td>
+                            <td>
+                                <div class="requiredInput"><div class="requiredBlock"></div>
+                                    <apex:inputtext tabindex="1" onblur="replaceWords(this.id,this.value);"  id="strAddress1" maxlength="255" label="Street Address" value="{!newAddress.strStreetAddress}" />
+                                </div>
+                            </td>
+                            <td>Phone</td>
+                            <td colspan="3">
+                                <div class="requiredInput" style="float:left;"><div id="ReqPhone" class="requiredBlock"></div>
+                                    <apex:inputtext tabindex="5" id="Phonetxt1" onblur="formatPhone(this.id,this.value);" value="{!newAddress.strPhone}" />      
+                                </div>&nbsp;
+                                Ext&nbsp;<apex:inputtext style="width:10%" tabindex="6" maxlength="6" value="{!newAddress.strPhoneExt}" /> 
+                                
+                            </td>
+                        </tr>
+                    
+                        <tr style="height: 25px;">
+                            <td>Suite</td>
+                            <td>
+                                <apex:inputtext tabindex="2" onblur="replaceWords(this.id,this.value);" id="strSuite1" maxlength="255" label="Suite" value="{!newAddress.strSuite}" />
+                            </td>
+                            <td>&nbsp;</td>
+                            <td colspan="2">
+                                <apex:inputcheckbox id="PhoneCheck1" value="{!phoneCheck}" onclick="removeMandatory('{!$Component.Phonetxt1}','Phone');" /> Decline Phone?
+                            </td>
+                        </tr>
+                    
+                        <tr style="height: 25px;">
+                            <td>Floor</td>
+                            <td>
+                                <apex:inputtext tabindex="3" onblur="replaceWords(this.id,this.value);"  id="strFloor1" maxlength="255" label="Floor" value="{!newAddress.strFloor}" />
+                            </td>
+                            <td>Fax</td>
+                            <td>
+                                <div class="requiredInput"><div id="ReqFax" class="requiredBlock"></div>
+                                    <apex:inputtext tabindex="7" id="faxtxt1" onblur="formatPhone(this.id,this.value);" value="{!newAddress.strFax}" />      
+                                </div>  
+                            </td>
+                        </tr>
+                        <tr style="height: 25px;">
+                            <td>&nbsp;</td>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>&nbsp;</td>
+                            <td colspan="2">
+                                <apex:inputcheckbox id="FaxCheck1" value="{!faxCheck}" onclick="removeMandatory1('{!$Component.faxtxt1}','Fax');" /> Decline Fax?
+                            </td>
+                        </tr>
+                        <tr style="height: 25px;">
+                            <td>City</td>
+                            <td>
+                                <div class="requiredInput"><div class="requiredBlock"></div>
+                                    <apex:inputtext tabindex="4" maxlength="255" label="City" value="{!newAddress.strCity}" />       
+                                </div>
+                            </td>
+                            <td>State</td>
+                            <td>
+                                <div class="requiredInput"><div class="requiredBlock"></div>
+                                    <apex:selectlist tabindex="8" value="{!newAddress.strState}"  size="1" multiselect="false">
+                                        <apex:selectoptions value="{!statePkList}" />
+                                    </apex:selectlist>      
+                                </div>
+                            </td>
+                            <td>Zip Code</td>
+                            <td>
+                                <div class="requiredInput"><div class="requiredBlock"></div>
+                                    <apex:inputtext tabindex="9" style="width:50%" id="ZipCodetxt" onKeyUp="format('zip',null,this)" value="{!newAddress.strZipCode}"  />       
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Attn To 
+                            </td>
+                            <td>
+                                <apex:inputtext tabindex="4" maxlength="255" style="width:99%;" label="Attn To" value="{!newAddress.strAttenTo}" />       
+                            </td>
+                        </tr>
+                        <!-- <apex:outputpanel layout="none">
+                        <tr>
+                            <td>
+                                Name Changes for Facility/Provider suggested 
+                            </td>
+                            <td>
+                                <apex:inputtext tabindex="4" maxlength="255" style="width:99%;" label="Attn To" value="{!newAddress.strNameChangesSugg}" />        
+                            </td>
+                        </tr>
+                        </apex:outputpanel> -->
+                    </table>
+                   </fieldset></div>
+                   <div class="addressUpdateDiv" style="text-align: center;">
+                      <apex:CommandButton value="Save" onclick="saveNewaddress();return false;" />&nbsp;
+                      <apex:CommandButton value="Cancel" onclick="hideAddressUpdateDiv();return false;" />
+                   </div>
+                   <script>
+                       if('{!phoneCheck}' == 'true') {
+                            $('#ReqPhone').removeClass('requiredBlock');
+                            document.getElementById('{!$Component.pg:frm:Phonetxt1}').readOnly = true;  
+                       }
+                        if('{!faxCheck}' == 'true') {
+                            $('#ReqFax').removeClass('requiredBlock');
+                            document.getElementById('{!$Component.pg:frm:faxtxt1}').readOnly = true;    
+                       }
+                   </script>
+                   </apex:outputpanel>
+                   </apex:outputpanel>
+                 </div>
+            </div>
+            <apex:actionFunction name="SaveUpdatedAddress" action="{!saveUpdatedAddress}" onComplete="saveaddressOnComplete();return false;" reRender="pgBlk,BtnPnl,AddressPanel,hiddenPnl,pgBlkAddressHistory" 
+                status="loading" />
+        <apex:actionFunction name="SaveNewAddressAF" action="{!saveUpdatedAddress}" onComplete="saveaddressInsertOnComplete();return false;" reRender="pgBlk,BtnPnl,AddressPanel,hiddenPnl,pgBlkAddressHistory" 
+            status="loading" />
+        <apex:actionFunction name="deleteAddressAF" action="{!deleteAddress}" onComplete="saveaddressOnComplete();return false;" reRender="AddressPnl,pgBlk,BtnPnl,pgBlkAddressHistory" status="loading" />
+        <apex:actionFunction name="SetAddressRecordId" action="{!setAddressParam}" reRender="AddressPanel" status="loading">
+             <apex:param name="RecordId" value="" assignTo="{!addressRecordId}" />
+        </apex:actionFunction>
+        <apex:actionFunction name="passCheckedValues" action="{!updateSOCStatus}" reRender="CasePnl,hiddenPnl" status="loading" oncomplete="showValidatePopup(); return false;">
+        </apex:actionFunction>
+         <apex:actionFunction name="createCaseAF" action="{!createCase}" reRender="CasePnl,BtnPnl,hiddenPnl" status="loading" />
+         <apex:actionFunction name="validateAddressAF" action="{!validateAddress}" reRender="AddressPanel,pgBlk,BtnPnl,pgBlkAddressHistory" 
+                    status="loading1" oncomplete="showValidateMsg();return false;"/>
+         <apex:actionFunction name="HideOverlayDivCancel" action="{!hideOverlayDivCall}" status="loading" reRender="AddressPnl,AddressPnl1,pgBlk,AddressPanel,BtnPnl" />
+         <apex:actionFunction name="createNewAddressJS" action="{!createNewAddress}" status="loading" reRender="AddressPanel" />
+         <apex:actionFunction name="createSOCAF" action="{!createSOCCall}" status="loading"  />
+         <apex:actionFunction name="acceptSOCAF" action="{!acceptSOCCall}" status="loading"  />
+         <apex:actionFunction name="printAddressesAF" action="{!printAddressMethod}" reRender="printAddId, printSOCNameId, pg:frm:BtnPnl" 
+                                 oncomplete="openPDFScreen();return false;" status="loadingPrint"/>
+         <apex:actionStatus id="loading" onstart="loading(true);" onstop="loading(false);" />
+         <apex:actionStatus id="loadingPrint" onstart="loadingPrint(true);" onstop="loadingPrint(false);" />
+         <!-- //Escalate CR -->
+         <apex:actionFunction name="acceptCaseAF" action="{!acceptAssociatedCase}" status="loading"  />
+        <script>
+            
+            function deletaddress(recordId) {
+                if(confirm('Are you sure to deactivate the Secondary Address?')) {
+                    deleteAddressAF();
+                }
+            }
+            
+            var tempValuePhone = '-1';
+            var tempValueFax = '-1';
+            function removeMandatory(element,type) {
+                if(tempValuePhone == '-1') {
+                    tempValuePhone = document.getElementById(element).value;
+                }
+                if(type == 'Phone') {
+                    //alert(tempValuePhone);
+                    if($('#ReqPhone').hasClass('requiredBlock')) {
+                        $('#ReqPhone').removeClass('requiredBlock');
+                        document.getElementById(element).readOnly = true;
+                        document.getElementById(element).value = '';
+                    } else {
+                        $('#ReqPhone').addClass('requiredBlock');
+                        document.getElementById(element).readOnly = false;
+                        document.getElementById(element).value = tempValuePhone;
+                    }
+                }
+            }
+            
+            function removeMandatory1(element,type) {
+                if(tempValueFax == '-1') {
+                    tempValueFax = document.getElementById(element).value;
+                }
+                if(type == 'Fax') {
+                    var tempValue = document.getElementById(element).value;
+                    if($('#ReqFax').hasClass('requiredBlock')) {
+                        $('#ReqFax').removeClass('requiredBlock');
+                        document.getElementById(element).readOnly = true;
+                        document.getElementById(element).value = '';
+                    } else {
+                        $('#ReqFax').addClass('requiredBlock');
+                        document.getElementById(element).readOnly = false;
+                        document.getElementById(element).value = tempValueFax;
+                    }
+                }  
+            }
+            
+            function showValidatePopup(){
+                var validateFlag = $('input[id$=showValidateInputId]').val();
+                var isCreatingCase = $('input[id$=HiddenCreatingCase]').val();
+                //var socStatus= document.getElementById('pg:frm:PgblkCase:SOCDocStatus').innerHTML;
+                if(validateFlag == 'false') {
+                    alert('Please validate the Addresses first.');    
+                }
+                else {
+                     if(isCreatingCase == 'true') {
+                        alert('Case SOC Document Status has been updated Successfully.');
+                     }  else {
+                        alert('SOC Queue Status has been updated Successfully.');
+                        closeTab();
+                     }
+                }
+            }
+            
+            function cancelOnComp() {
+                var validateFlag = $('input[id$=CancelCase]').val();
+                if(validateFlag == 'true') {
+                    var ConfirmFlag = confirm('Are you sure you want to cancel the case ?');
+                    if(validateFlag == 'true' && ConfirmFlag) {
+                        closeTab();
+                    }
+                }
+            }
+            
+            function backToSOC() {
+               closeTab();
+            }
+            
+            
+            var isRightDivVisible;
+            function showRightDiv() {
+                $('#LeftContent').removeClass('leftwidthFfull');
+                $('#LeftContent').addClass('leftwidth');
+                $('#RightContent').removeClass('rightContentDisplayHide');
+                $('#RightContent').addClass('rightContentDisplay');
+                isRightDivVisible = 'true';
+                $('.validateBtnDisplayHide').removeClass('validateBtnDisplayHide');
+                $('#ValidateAddress').addClass('validateBtnDisplay');
+                $('#NewAddress').addClass('validateBtnDisplay');
+                $('input[id$=contactProviderbtn]').css("display", "none");
+                $('.pbSubsection1').addClass('pbSubsection1');
+                //alert(1);
+                createCaseAF();
+                $('.pbSubsection1').addClass('pbSubsection1');
+            }
+            
+            function showAddressUpdateDiv(recordId) {
+                //alert(isRightDivVisible);
+                //alert('{!caseStatus}');
+                var caseStatus = $('input[id$=CaseStatus]').val();
+                if(isRightDivVisible == 'true' && caseStatus != 'Closed') {
+                    //alert(recordId);
+                    $('#OverlayDiv').removeClass('DisplayHide');
+                    $('#OverlayDiv').addClass('Display');
+                    SetAddressRecordId(recordId);
+                } 
+            }
+            
+            function showAddressInsertDiv() {
+                if(isRightDivVisible == 'true') {
+                    $('#OverlayDiv').removeClass('DisplayHide');
+                    $('#OverlayDiv').addClass('Display');
+                    createNewAddressJS();
+                } 
+            }
+            
+            function hideAddressUpdateDiv() {
+                if(isRightDivVisible == 'true') {
+                //alert(recordId);
+                    $('#OverlayDiv').addClass('DisplayHide');
+                    $('#OverlayDiv').removeClass('Display');
+                    $('input[id$=PhoneCheck]').prop('checked', false);
+                    $('input[id$=FaxCheck]').prop('checked', false);
+                    $('input[id$=PhoneCheck1]').prop('checked', false);
+                    $('input[id$=FaxCheck1]').prop('checked', false);
+                    HideOverlayDivCancel();
+                } 
+            }
+            
+            function saveaddress() {
+                SaveUpdatedAddress();
+            }
+            
+            function saveNewaddress() {
+                SaveNewAddressAF();
+            } 
+            
+            function saveaddressOnComplete() {
+                var validateFlag = $('input[id$=AddressValidatechk]').val();
+                if(validateFlag == 'true') {
+                    $('#OverlayDiv').addClass('DisplayHide');
+                    $('#OverlayDiv').removeClass('Display');
+                    $('input[id$=PhoneCheck]').prop('checked', false);
+                    $('input[id$=FaxCheck]').prop('checked', false);
+                }
+            }
+            
+            function saveaddressInsertOnComplete() {
+                var validateFlag = $('input[id$=AddressValidatechk1]').val();
+                if(validateFlag == 'true') {
+                    $('#OverlayDiv').addClass('DisplayHide');
+                    $('#OverlayDiv').removeClass('Display');
+                    $('input[id$=PhoneCheck1]').prop('checked', false);
+                    $('input[id$=FaxCheck1]').prop('checked', false);
+                }
+            }
+            
+            function SendSOCDocJS() {
+                var socStatus;
+                if(document.getElementById('pg:frm:PgblkCase:SOCDocStatus') != null) {
+                    socStatus = document.getElementById('pg:frm:PgblkCase:SOCDocStatus').innerHTML;
+                }
+                var isCreatingCase = $('input[id$=HiddenCreatingCase]').val();
+                if(socStatus == 'Sent' && isCreatingCase == 'true') {
+                    alert('Send Document Status is aleady updated to sent.');
+                } else {
+                    passCheckedValues();
+                }
+            }
+            
+            function validateAllchkAddress() {
+                if($('#DivAddressSection input:checked').length == 0) {
+                    alert('Please select atleast one record.');
+                } else {
+                    validateAddressAF();
+                }
+            }
+            
+            //print
+            function printAllChecked() {
+                if($('#DivAddressSection input:checked').length == 0) {
+                    alert('Please select a record.');
+                } else if($('#DivAddressSection input:checked').length > 1){
+                    alert('Only one record can be selected for Printing.');
+                } 
+                else {
+                    printAddressesAF();
+                }
+            }
+            
+            //print
+            function openPDFScreen(){
+                var summaryId = document.getElementById('pg:frm:printAddId').value;
+                var socName = document.getElementById('pg:frm:printSOCNameId').value;
+                
+                window.open('/apex/VF_SOC_print_address?id=' + summaryId + '&socName=' + socName, '_blank');
+            }
+            
+            function showValidateMsg() {
+                alert('Selected addresses are validated.');
+            }
+            
+            $(document).ready(function(){
+                //alert('{!isCreatingCase}');
+                if('{!isCreatingCase}' == 'true') {
+                    $('#LeftContent').removeClass('leftwidthFfull');
+                    $('#LeftContent').addClass('leftwidth');
+                    $('#RightContent').removeClass('rightContentDisplayHide');
+                    $('#RightContent').addClass('rightContentDisplay');
+                    isRightDivVisible = 'true';
+                    $('.validateBtnDisplayHide').removeClass('validateBtnDisplayHide');
+                    $('#ValidateAddress').addClass('validateBtnDisplay');
+                    $('#NewAddress').addClass('validateBtnDisplay');
+                    $('input[id$=contactProviderbtn]').css("display", "none");
+                }
+            });
+            
+            function formatPhone(obj,value1) {
+                //alert(obj);
+                //alert(value1);
+                var numbers = value1.replace(/\D/g, ''),
+                char = {0:'(',3:') ',6:'-'};
+                //alert(numbers);
+                var tempVal = '';
+                for (var i = 0; i < numbers.length; i++) {
+                    tempVal += (char[i]||'') + numbers[i];
+                }
+                //alert(tempVal);
+                document.getElementById(obj).value = tempVal;
+            }
+            
+            function replaceWords(obj,value) {
+                var tempVal = value;
+                var tempVal1;
+                //alert(tempVal);
+                if(value != '') {
+                    //alert(1);
+                    tempVal1 = value.replace(/street/gi, "ST").replace(/SUITE/gi, "STE").replace(/ROAD/gi, "RD").replace(/FLOOR/gi, "FL").replace(/AVENUE/gi, "AVE").replace(/DRIVE/gi, "DR").replace(/DEPARTMENT/gi, "DEPT").replace(/Parkway/gi, "PKWAY");
+                    document.getElementById(obj).value = tempVal1;
+                }
+                //alert(tempVal1);
+                //alert(obj)
+                
+                //var str = "Mr Blue has a blue house and a blue car";
+                //var res = value.replace(/street/gi, "ST");
+                //alert(res);
+            }
+            
+            function loading(val) {
+                  if (val) {
+                    document.getElementById('contentLoading').style.display = 'block';
+                  }
+                  else {
+                    document.getElementById('contentLoading').style.display = 'none';
+                  }
+             }
+             
+             //print
+             function loadingPrint(val) {
+                  if (val) {
+                    document.getElementById('contentLoadingPrinting').style.display = 'block';
+                  }
+                  else {
+                    document.getElementById('contentLoadingPrinting').style.display = 'none';
+                  }
+             }
+            
+             var closeSubtab = function closeSubtab(result) {
+                //Now that we have the tab ID, we can close it
+                var tabId = result.id;
+                sforce.console.refreshNavigationTab();
+                sforce.console.closeTab(tabId);
+             };
+             
+             function closeTab() {
+                sforce.console.getEnclosingTabId(closeSubtab);
+             }
+                
+             function createSOC() {
+                var flag = confirm('Are you sure you want to create a SOC Record?');
+                if(flag == true) {
+                    createSOCAF();
+                }
+             }
+             
+             function aceeptSOC() {
+                var flag = confirm('Are you sure you want to accept the SOC Record?');
+                if(flag == true) {
+                    acceptSOCAF();
+                }
+             }
+             
+             //Escalate CR
+             function aceeptCase() {
+                var flag = confirm('Are you sure you want to accept the Associated Case?');
+                if(flag == true) {
+                    acceptCaseAF();
+                }
+             }
+             
+        </script>
+    </apex:form>
+ </apex:page>

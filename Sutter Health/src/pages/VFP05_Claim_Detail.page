@@ -1,0 +1,311 @@
+<!--
+*     Page Name   : VFP05_Claim_Detail_Sak
+*     Author      : Eric Pellish/Offshore
+*     Date        : 20-Nov-2013
+*     Project Name: CRM - SFT - Sutter Health
+*     Description : Visual force page to display the Claim Detail response from Health Edge. Also contains pagination and Expand/
+*     Collapse all functionality
+-->
+<apex:page id="page" controller="VFC05_Claim_Detail" title="Claim Detail" action="{!showClaimDetail}" showHeader="false" sidebar="false">
+  <apex:includeScript value="/support/console/28.0/integration.js"/>
+<style>
+.col1{width: 15%;}        
+.col2{border-style: solid;border-width: 1px;border-color: grey;width: 20%;}
+.col3{width: 15%;text-align: right;} 
+.backcolor {background-color: white}
+.fieldbox {border-style: solid}    
+div.pbSubheader {background-color: #E6E6E6;color: black!important}
+</style>
+    <script type="text/javascript">
+    
+    window.onload = function fn_collapse_all_sections()
+        {
+            var no_of_line_item = {!lst_claim_line_item.size};
+            var element_id;
+            for (var i =0; i<no_of_line_item; i++ )
+            {
+                
+                element_id = "page:theform:pageblock:lineItemRepeat:"+i+":lineItem";
+                twistSection(document.getElementById(element_id).childNodes[0].childNodes[0]);
+                
+             subsection_id1 = "page:theform:pageblock:lineItem_admin_discharge";
+                    twistSection(document.getElementById(subsection_id1).childNodes[0].childNodes[0]);
+               
+               subsection_id2 = "page:theform:pageblock:lineItem_payer";
+                     twistSection(document.getElementById(subsection_id2).childNodes[0].childNodes[0]); 
+                
+              subsection_id3 = "page:theform:pageblock:lineItem_procedure_code";
+                    twistSection(document.getElementById(subsection_id3).childNodes[0].childNodes[0]);  
+                
+                subsection_id4 = "page:theform:pageblock:lineItemRepeat:"+i+":lineItem:lineItem_cp_hcpcs";
+                     twistSection(document.getElementById(subsection_id4).childNodes[0].childNodes[0]); 
+                     
+              subsection_id5 = "page:theform:pageblock:lineItem_provider";
+                    twistSection(document.getElementById(subsection_id5).childNodes[0].childNodes[0]);
+                subsection_id6 = "page:theform:pageblock:lineItem_subscriber";
+                     twistSection(document.getElementById(subsection_id6).childNodes[0].childNodes[0]);    
+              
+              subsection_id7 = "page:theform:pageblock:lineItem_financial";
+                    twistSection(document.getElementById(subsection_id7).childNodes[0].childNodes[0]); 
+                
+                subsection_id_patient = "page:theform:pageblock:lineItemRepeat:"+i+":lineItem:lineItem_patient";
+                     twistSection(document.getElementById(subsection_id_patient).childNodes[0].childNodes[0]);   
+                
+                subsection_id9 = "page:theform:pageblock:lineItemRepeat:"+i+":lineItem:lineItem_denial";
+                    twistSection(document.getElementById(subsection_id9).childNodes[0].childNodes[0]);
+               
+               subsection_id10 = "page:theform:pageblock:lineItem_adjustment";
+                     twistSection(document.getElementById(subsection_id10).childNodes[0].childNodes[0]); 
+                     
+                     
+                subsection_id11 = "page:theform:pageblock:lineItemRepeat:"+i+":lineItem:lineItem_diagnosis_code";
+                     twistSection(document.getElementById(subsection_id11).childNodes[0].childNodes[0]);
+            } 
+              fn_set_tab_title();
+        }   
+        
+        function twistSubSectionOnNext()
+        {
+            var no_of_line_item = {!lst_claim_line_item.size};
+            var element_id;
+            for (var i =0; i<no_of_line_item; i++ )
+            {
+                
+                element_id = "page:theform:pageblock:lineItemRepeat:"+i+":lineItem";
+                    twistSection(document.getElementById(element_id).childNodes[0].childNodes[0]);
+
+                subsection_id4 = "page:theform:pageblock:lineItemRepeat:"+i+":lineItem:lineItem_cp_hcpcs";
+                    twistSection(document.getElementById(subsection_id4).childNodes[0].childNodes[0]);
+
+                subsection_id_patient = "page:theform:pageblock:lineItemRepeat:"+i+":lineItem:lineItem_patient";
+                    twistSection(document.getElementById(subsection_id_patient).childNodes[0].childNodes[0]);   
+
+                subsection_id9 = "page:theform:pageblock:lineItemRepeat:"+i+":lineItem:lineItem_denial";
+                    twistSection(document.getElementById(subsection_id9).childNodes[0].childNodes[0]);
+
+                subsection_id11 = "page:theform:pageblock:lineItemRepeat:"+i+":lineItem:lineItem_diagnosis_code";
+                    twistSection(document.getElementById(subsection_id11).childNodes[0].childNodes[0]);
+            }
+        }
+        
+        function expandAll(intVar)
+        {
+            var no_of_line_item = {!lst_claim_line_item.size};
+            var element_id;
+            
+            subsection_id4 = intVar + ":lineItem_cp_hcpcs";
+            var title_id4 = document.getElementById(subsection_id4).childNodes[0].childNodes[0].title;
+            if(title_id4.indexOf("Show Section") != -1){
+                 twistSection(document.getElementById(subsection_id4).childNodes[0].childNodes[0]);
+            }
+           
+            subsection_id_patient = intVar + ":lineItem_patient";
+            var title_id_patient = document.getElementById(subsection_id_patient).childNodes[0].childNodes[0].title;
+            if(title_id_patient.indexOf("Show Section") != -1){
+                 twistSection(document.getElementById(subsection_id_patient).childNodes[0].childNodes[0]);   
+            }
+          
+            subsection_id9 = intVar + ":lineItem_denial";
+            var title_id9 = document.getElementById(subsection_id9).childNodes[0].childNodes[0].title;
+            if(title_id9.indexOf("Show Section") != -1){
+                twistSection(document.getElementById(subsection_id9).childNodes[0].childNodes[0]);
+            }
+          
+           subsection_id11 = intVar + ":lineItem_diagnosis_code";
+            var title_id11 = document.getElementById(subsection_id11).childNodes[0].childNodes[0].title;
+            if(title_id11.indexOf("Show Section") != -1){
+                 twistSection(document.getElementById(subsection_id11).childNodes[0].childNodes[0]); 
+            } 
+        
+        }
+        
+        function collapseAll(intVar)
+        {
+            var no_of_line_item = {!lst_claim_line_item.size};
+            var element_id;
+            
+            subsection_id4 = intVar + ":lineItem_cp_hcpcs";
+            var title_id4 = document.getElementById(subsection_id4).childNodes[0].childNodes[0].title;
+            if(title_id4.indexOf("Hide Section") != -1){
+                 twistSection(document.getElementById(subsection_id4).childNodes[0].childNodes[0]);
+            }
+           
+            
+            subsection_id_patient = intVar + ":lineItem_patient";
+            var title_id_patient = document.getElementById(subsection_id_patient).childNodes[0].childNodes[0].title;
+            if(title_id_patient.indexOf("Hide Section") != -1){
+                 twistSection(document.getElementById(subsection_id_patient).childNodes[0].childNodes[0]);   
+            }
+           
+            subsection_id9 = intVar + ":lineItem_denial";
+            var title_id9 = document.getElementById(subsection_id9).childNodes[0].childNodes[0].title;
+            if(title_id9.indexOf("Hide Section") != -1){
+                twistSection(document.getElementById(subsection_id9).childNodes[0].childNodes[0]);
+            }
+            
+           subsection_id11 = intVar + ":lineItem_diagnosis_code";
+            var title_id11 = document.getElementById(subsection_id11).childNodes[0].childNodes[0].title;
+            if(title_id11.indexOf("Hide Section") != -1){
+                 twistSection(document.getElementById(subsection_id11).childNodes[0].childNodes[0]); 
+            }
+            
+        }
+        
+    <!-- Java Script fn_set_tab_titlefunction to collapse Line Items -->
+        function fn_set_tab_title() 
+        {
+            sforce.console.getFocusedPrimaryTabId(showTabId);
+        }
+        
+        var showTabId = function showTabId(result) 
+        {
+            sforce.console.setTabTitle('Claim Detail');
+        };
+        
+    
+    </script>
+    <apex:form id="theform">
+    <apex:pageBlock id="errorDiv" rendered="{!showError}">
+        <apex:outputText value="{!$Label.Claim_Header_Error_Message}"/>
+        <apex:pageMessages id="errorMessg" />
+    </apex:pageBlock>
+    <apex:pageBlock id="pageblock" rendered="{!!showError}">
+        
+            <apex:pageBlockSection columns="2" id="pbSection">
+                    <apex:pageBlockSectionItem ><apex:outputLabel value="Claim ID:"/><apex:outputText value="{!claimOne.claim_id}" /></apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><apex:outputLabel value="Claim Type:"/><apex:outputText value="{!claimOne.claim_type}" /></apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><apex:outputLabel value="Claim Line Number:"/><apex:outputText value="{!claimOne.claim_line_no}" /></apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><apex:outputLabel value="Claim Date of Service:"/><apex:outputText value="{!claimOne.claim_date_service}" /></apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><apex:outputLabel value="Claim Source:"/><apex:outputText value="{!claimOne.claim_source}" /></apex:pageBlockSectionItem>
+                   <apex:pageBlockSectionItem ><apex:outputLabel value="Health Plan ID:"/><apex:outputText value="{!claimOne.str_Health_Plan_ID}" /></apex:pageBlockSectionItem>
+                   <apex:pageBlockSectionItem ><apex:outputLabel value="Plan Name:"/><apex:outputText value="{!claimOne.str_Plan_Name}" /></apex:pageBlockSectionItem>
+                   <apex:pageBlockSectionItem ><apex:outputLabel value="Group Name:"/><apex:outputText value="{!claimOne.str_Group_Name}" /></apex:pageBlockSectionItem>
+                   <apex:pageBlockSectionItem ><apex:outputLabel value="Benefit Plan Type:"/><apex:outputText value="{!claimOne.str_Benefit_Plan_Type}" /></apex:pageBlockSectionItem>
+             </apex:pageBlockSection>
+             
+             <apex:pageBlockSection id="lineItem_financial" title="Financial">
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Payment Date:"/><apex:outputText value="{!claimOne.str_Payment_Date}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Batch Number:"/><apex:outputText value="{!claimOne.str_Batch_Number}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Clearinghouse Number:"/><apex:outputText value="{!claimOne.str_Clearinghouse_Number}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Pay To:"/><apex:outputText value="{!claimOne.str_Pay_To}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Check Number:"/><apex:outputText value="{!claimOne.str_Check_Number}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Member Responsibility Amount:"/><apex:outputText value="{!claimOne.str_Member_Responsibility_Amount}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Plan Paid Amount:"/><apex:outputText value="{!claimOne.str_Plan_Paid_Amount}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Total Allowed Amount:"/><apex:outputText value="{!claimOne.str_Total_Allowed_Amount}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="In-Network Allowed Amount:"/><apex:outputText value="{!claimOne.str_InNetwork_Allowed_Amount}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Out Network Allowed Amount:"/><apex:outputText value="{!claimOne.str_Out_Network_Allowed_Amount}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Coinsurance Amount:"/><apex:outputText value="{!claimOne.str_Coinsurance_Amount}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Copay Amount:"/><apex:outputText value="{!claimOne.str_Copay_Amount}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Deductible Amount:"/><apex:outputText value="{!claimOne.str_Deductible_Amount}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Non Covered Charges:"/><apex:outputText value="{!claimOne.str_Non_Covered_Charges}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="EOB Paid Amount:"/><apex:outputText value="{!claimOne.str_EOB_Paid_Amount}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="HCC Amount:"/><apex:outputText value="{!claimOne.str_HCC_Amount}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="HRA Amount:"/><apex:outputText value="{!claimOne.str_HRA_Amount}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Requested Amount:"/><apex:outputText value="{!claimOne.str_Requested_Amount}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Member Paid Amount:"/><apex:outputText value="{!claimOne.str_Member_Paid_Amount}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Network Savings:"/><apex:outputText value="{!claimOne.str_Network_Savings}" /></apex:pageBlockSectionItem>
+                    </apex:pageBlockSection> 
+                    
+                     <apex:pageBlockSection id="lineItem_provider" title="Provider">
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Provider Name:"/><apex:outputText value="{!claimOne.str_Provider_Name}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Provider NPI:"/><apex:outputText value="{!claimOne.str_Provider_NPI}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Type of Bill:"/><apex:outputText value="{!claimOne.str_Type_of_Bill}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Fed Tax Number:"/><apex:outputText value="{!claimOne.str_Fed_Tax_Number}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Attending Physician:"/><apex:outputText value="{!claimOne.str_Attending_Physician}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Operating Physician:"/><apex:outputText value="{!claimOne.str_Operating_Physician}" /></apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                    
+                      <apex:pageBlockSection id="lineItem_admin_discharge" title="Admission/Discharge">
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Admission Date:"/><apex:outputText value="{!claimOne.str_Admission_Date}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Admission Hour:"/><apex:outputText value="{!claimOne.str_Admission_Hour}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Admission Type:"/><apex:outputText value="{!claimOne.str_Admission_Type}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Admission Source:"/><apex:outputText value="{!claimOne.str_Admission_Source}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Discharge Hour:"/><apex:outputText value="{!claimOne.str_Discharge_Hour}" /></apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>  
+                    
+                 <apex:pageBlockSection id="lineItem_payer" title="Payer">
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Payer Name:"/><apex:outputText value="{!claimOne.str_Payer_Name}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Responsible Party Name:"/><apex:outputText value="{!claimOne.str_Responsible_Party_Name}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Responsible Party Address:"/><apex:outputText value="{!claimOne.str_Responsible_Party_Address}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Responsible Party City:"/><apex:outputText value="{!claimOne.str_Responsible_Party_City}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Responsible Party State:"/><apex:outputText value="{!claimOne.str_Responsible_Party_State}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Responsible Party Zip:"/><apex:outputText value="{!claimOne.str_Responsible_Party_Zip}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Responsible Party Phone:"/><apex:outputText value="{!claimOne.str_Responsible_Party_Phone}" /></apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>  
+                    
+                <apex:pageBlockSection id="lineItem_procedure_code" title="Procedure codes">
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Procedure Code:"/><apex:outputText value="{!claimOne.str_Procedure_Code}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Other Procedure Code:"/><apex:outputText value="{!claimOne.str_Other_Procedure_Code}" /></apex:pageBlockSectionItem>             
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Condition Codes:"/><apex:outputText value="{!claimOne.str_Condition_Codes}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Occurrence Code:"/><apex:outputText value="{!claimOne.str_Occurrence_Code}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Occurrence Span:"/><apex:outputText value="{!claimOne.str_Occurrence_Span}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Admit Diagnosis:"/><apex:outputText value="{!claimOne.str_Admit_Diagnosis}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Patient Reason Diagnosis:"/><apex:outputText value="{!claimOne.str_Patient_Reason_Diagnosis}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Treatment Authorization Codes:"/><apex:outputText value="{!claimOne.str_Treatment_Authorization_Codes}" /></apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>  
+                    
+                    <apex:pageBlockSection id="lineItem_subscriber" title="Subscriber">
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Subscriber First Name:"/><apex:outputText value="{!claimOne.str_Subscriber_First_Name}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Subscriber Last Name:"/><apex:outputText value="{!claimOne.str_Subscriber_Last_Name}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Subscriber City:"/><apex:outputText value="{!claimOne.str_Subscriber_City}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Subscriber State:"/><apex:outputText value="{!claimOne.str_Subscriber_State}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Subscriber Zip Code:"/><apex:outputText value="{!claimOne.str_Subscriber_Zip_Code}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Subscription ID:"/><apex:outputText value="{!claimOne.str_Subscription_ID}" /></apex:pageBlockSectionItem>
+                    </apex:pageBlockSection> 
+                    
+                     <apex:pageBlockSection id="lineItem_adjustment" title="Adjustment">
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Adjustment Code:"/><apex:outputText value="{!claimOne.str_Adjustment_Code}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Adjustment Code Desc:"/><apex:outputText value="{!claimOne.str_Adjustment_Code_Desc}" /></apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>  
+
+            <apex:outputPanel id="panel">
+                <script>
+                    twistSubSectionOnNext();
+                </script>
+            <apex:repeat id="lineItemRepeat" value="{!paginateList}" var="cd" first="0">
+                <apex:pageBlockSection >
+                </apex:pageBlockSection> 
+                <apex:pageBlockSection id="lineItem" title="Line Number {!cd.int_claim_no}: Start of Service: {!cd.str_start_service}, End of Service: {!cd.str_end_service}, HCPCS Code: {!cd.cpt_hcpcs_code}, Denial Code: {!cd.str_denial_code}, Billed = {!cd.billed}, HCC Amount = {!cd.hcc_amount}" columns="1">
+                 <!--   <apex:pageBlockSection columns="2">
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Health Plan ID:"/><apex:outputText value="{!cd.str_Health_Plan_ID}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Plan Name:"/><apex:outputText value="{!cd.str_Plan_Name}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Group Name:"/><apex:outputText value="{!cd.str_Group_Name}" /></apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem ><apex:outputLabel value="Benefit Plan Type:"/><apex:outputText value="{!cd.str_Benefit_Plan_Type}" /></apex:pageBlockSectionItem>
+                    </apex:pageBlockSection> -->
+
+                <a id="expand" onclick="expandAll('{!$Component.page.theform.pageblock.lineItemRepeat.lineItem}');" ><u>Expand All</u></a>
+                <a id="expand" onclick="collapseAll('{!$Component.page.theform.pageblock.lineItemRepeat.lineItem}');" ><u>Collapse All</u></a>
+                
+                <apex:pageBlockSection id="lineItem_diagnosis_code" title="Diagnosis code">
+                    <apex:pageBlockSectionItem ><apex:outputLabel value="Diagnosis Code:"/><apex:outputText value="{!cd.str_Diagnosis_Code}" /></apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+
+                <apex:pageBlockSection id="lineItem_cp_hcpcs" title="CPT/HCPCS">
+                    <apex:pageBlockSectionItem ><apex:outputLabel value="Service Code:"/><apex:outputText value="{!cd.str_Service_Code}" /></apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><apex:outputLabel value="Service Code Description:"/><apex:outputText value="{!cd.str_Service_Code_Description}" /></apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+
+                <apex:pageBlockSection id="lineItem_patient" title="Patient">
+                    <apex:pageBlockSectionItem ><apex:outputLabel value="Patient Name:"/><apex:outputText value="{!cd.str_Patient_Name}" /></apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><apex:outputLabel value="Patient Address:"/><apex:outputText value="{!cd.str_Patient_Address}" /></apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><apex:outputLabel value="Patient Birthday:"/><apex:outputText value="{!cd.str_Patient_Birthday}" /></apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><apex:outputLabel value="Patient Sex:"/><apex:outputText value="{!cd.str_Patient_Sex}" /></apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><apex:outputLabel value="P. Rel (Patient's relationship to insured):"/><apex:outputText value="{!cd.str_P_Rel_Patients_relationship_to_insured}" /></apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+
+                <apex:pageBlockSection id="lineItem_denial" title="Denial">
+                    <apex:pageBlockSectionItem ><apex:outputLabel value="Denial Code Desc:"/><apex:outputText value="{!cd.str_Denial_Code_Desc}" /></apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem ><apex:outputLabel value="Denial Code:"/><apex:outputText value="{!cd.str_Denial_Code}" /></apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+
+                </apex:pageBlockSection>
+            </apex:repeat>
+            </apex:outputPanel>
+                <apex:panelGrid columns="2">
+                    <apex:commandLink value="Previous" action="{!PreviousBtnClick}" rerender="panel"/>
+                    <apex:commandLink value="Next" action="{!NextBtnClick}" rerender="panel" />
+                </apex:panelGrid>
+        
+    </apex:pageBlock>
+        </apex:form>
+</apex:page>

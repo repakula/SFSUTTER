@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <acrossGroupingContext>GRAND_SUMMARY</acrossGroupingContext>
+        <calculatedFormula>User.Profile.UserLicense.TotalLicenses:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA2</developerName>
+        <downGroupingContext>User$Profile.UserLicense.Name</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Total License Count</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>User.IsActive:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA4</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Total Active</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <acrossGroupingContext>GRAND_SUMMARY</acrossGroupingContext>
+        <calculatedFormula>User.Profile.UserLicense.TotalLicenses:SUM -User.IsActive:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA5</developerName>
+        <downGroupingContext>User$Profile.UserLicense.Name</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Licenses Remaining</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <buckets>
+        <bucketType>text</bucketType>
+        <developerName>BucketField_33016808</developerName>
+        <masterLabel>LOB</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <otherBucketLabel>Other</otherBucketLabel>
+        <sourceColumnName>User$Profile</sourceColumnName>
+        <useOther>true</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>S3 Call Center Lead</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>S3 Credentialing Verification Agent</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>S3 Document Management Center Agent</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>S3 Finance Accounting Agent</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>S3 Finance Accounts Payable Agent</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>S3 Finance Payroll Agent</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>S3 Flex Agent</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>S3 Human Resources Agent</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>S3 Revenue Cycle Agent</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>S3 Service Management</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>S3 Supply Chain Agent</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Knowledge Article Manager</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Executive Services Team</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Community Portal Manager</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Community Portal</sourceValue>
+            </sourceValues>
+            <value>S3</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>SHP Administrators</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>SHP Agent</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>SHP Correspondence</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>SHP Management</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>SHP Sales</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>SHP Sales Read Only</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>SHP Onboard Reporting</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>SHP PSR Agent</sourceValue>
+            </sourceValues>
+            <value>SHP</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>System Administrator</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Integration</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Standard User</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Manage User Profile</sourceValue>
+            </sourceValues>
+            <value>IS</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>SOC</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>PDV Community Provider</sourceValue>
+            </sourceValues>
+            <value>PDV</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Survey Force Profile</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Sutter Health Employee Community Profile</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>CRMSearch Profile</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Sutter Provider Hub Profile</sourceValue>
+            </sourceValues>
+            <value>Sites User (IS)</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>SHMMN</sourceValue>
+            </sourceValues>
+            <value>SHMMN</value>
+        </values>
+    </buckets>
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>FORMULA4</column>
+        </chartSummaries>
+        <chartType>VerticalColumnStackedTo100</chartType>
+        <enableHoverLabels>true</enableHoverLabels>
+        <expandOthers>true</expandOthers>
+        <groupingColumn>User$Profile.UserLicense.Name</groupingColumn>
+        <legendPosition>Right</legendPosition>
+        <location>CHART_TOP</location>
+        <secondaryGroupingColumn>BucketField_33016808</secondaryGroupingColumn>
+        <showAxisLabels>false</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>false</showValues>
+        <size>Medium</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <columns>
+        <field>User$Name</field>
+    </columns>
+    <columns>
+        <field>User$Profile</field>
+    </columns>
+    <columns>
+        <field>User$UserRole</field>
+    </columns>
+    <columns>
+        <field>User$Department</field>
+    </columns>
+    <columns>
+        <field>User$Division</field>
+    </columns>
+    <columns>
+        <field>User$CompanyName</field>
+    </columns>
+    <columns>
+        <field>User$CreatedDate</field>
+    </columns>
+    <columns>
+        <field>User$LastLoginDate</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>User$IsActive</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_33016808</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>User$Profile.UserLicense.Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>User by License Type</name>
+    <params>
+        <name>co</name>
+        <value>0</value>
+    </params>
+    <reportType>Users_and_Licenses__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>User$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

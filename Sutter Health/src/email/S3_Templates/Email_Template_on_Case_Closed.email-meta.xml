@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email Template on Case Closed</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Sutter_Shared_Services_Letterhead</letterhead>
+    <name>Email Template on Case Closed</name>
+    <style>freeForm</style>
+    <subject>Email to Case: Closed Service Request Auto Response</subject>
+    <textOnly>Hello,
+
+
+Service Request {!Case.CaseNumber} has already been resolved and was closed on {!Case.ClosedDate}. We are sorry; this email thread is no longer being monitored.
+
+
+We hope your inquiry has been resolved to your satisfaction. If you have additional questions, please give us a call at 916-297-9300 and we will be happy to assist you further.
+
+
+If you have an new inquiry please create a new email thread and send to S3CCAPSCO@sutterhealth.org
+
+
+
+Thank you,
+
+
+
+The Accounts Payable Team</textOnly>
+    <type>html</type>
+</EmailTemplate>

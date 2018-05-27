@@ -1,0 +1,20 @@
+<apex:component >
+     
+   <apex:attribute required="true" name="recordId" type="String" description="Record id"/>
+   <apex:attribute required="true" name="displayname" type="String" description="display"/>
+   
+    <!-- <a href="/{!recordId}" id="{!Id}" onblur="LookupHoverDetail.getHover('{!recordId}').hide();" 
+       onfocus="LookupHoverDetail.getHover('{!recordId}', '/{!recordId}/m?retURL=%2F{!recordId}&isAjaxRequest=1').show();" 
+       onmouseout="LookupHoverDetail.getHover('{!recordId}').hide();" 
+       onmouseover="LookupHoverDetail.getHover('{!recordId}', '/{!recordId}/m?retURL=%2F{!recordId}&isAjaxRequest=1').show();">
+       {!displayname}
+       href="/{!recordId}"
+   </a>  -->
+   <a style="color:white" href="" id="{!recordId}" onblur="LookupHoverDetail.getHover('{!recordId}').hide();" 
+       onfocus="LookupHoverDetail.getHover('{!recordId}', '/{!recordId}/m?retURL=%2F{!recordId}&isAjaxRequest=1').show();" 
+       onmouseout="LookupHoverDetail.getHover('{!recordId}').hide();" 
+       onmouseover="LookupHoverDetail.getHover('{!recordId}', '/{!recordId}/m?retURL=%2F{!recordId}&isAjaxRequest=1').show();">
+       {!displayname}
+   </a>
+   
+</apex:component>

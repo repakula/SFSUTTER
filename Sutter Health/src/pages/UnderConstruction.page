@@ -1,0 +1,32 @@
+<apex:page showHeader="false" title="{!$Label.site.site_under_construction}">
+  <apex:composition template="StdExceptionTemplate">
+    <apex:define name="icon">
+      <apex:image url="{!URLFOR($Resource.SiteSamples, 'img/tools.gif')}"/>
+    </apex:define>
+    <apex:define name="error">
+     <!-- <apex:outputText escape="false" styleClass="title" value="{!$Label.site.under_construction}">
+        <apex:param value="{!$Site.CurrentSiteUrl}"/> 
+      </apex:outputText> -->
+      <br/>
+      <br/>
+ <script>
+var timeout = setTimeout("timeoutFunction()",1)
+<!--var timeout = setTimeout(function(){alert("File Not Foud");},1000);-->
+function timeoutFunction()
+{
+window.open("http://mysutterconnection.com","_self");
+}
+</script>
+
+  
+         <apex:outputText value=" You are attempting to access MySutter content without logging in. Please return to "/>
+            <a href="mysutterconnection.com">MySutter Connection</a>
+          <apex:outputText value=" and login." />
+            <br/>
+            <br/>   
+                  <apex:outputText escape="false" value="{!$Label.site.get_in_touch}">
+                   <apex:param value="mailto:{!$Site.AdminEmailAddress}"/>
+                   <apex:param value="{!$Label.site.email_us}"/>    </apex:outputText>
+   </apex:define>
+  </apex:composition>
+</apex:page>

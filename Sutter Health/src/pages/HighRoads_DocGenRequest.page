@@ -1,0 +1,105 @@
+<apex:page standardController="Document_Generation_Request__c" extensions="HighRoads_DocGenRequest">
+
+    <apex:includeScript value="https://code.jquery.com/jquery-1.11.1.min.js"/>
+    <apex:includeScript value="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.js"/>
+    <apex:stylesheet value="https://cdn.datatables.net/1.10.7/css/jquery.dataTables.css"/>
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js" />
+    
+    <style type="text/css">
+            table.planTable {
+        		background:#eeeff0;
+        		padding: 8px;
+                font-family: verdana,arial,sans-serif;
+                font-size:11px;
+                border: 1px solid #4682B4;
+                border-collapse: collapse;
+        		border-radius : 10px;
+            }
+            table.planTable th { 
+        		color:white;           
+                background:#4682b4;
+                border-width: 1px;
+                padding: 8px;
+                border-style: solid;
+                border-color: #4682b4;            
+            }
+            
+            table.planTable td {
+                border-width: 1px;
+                padding: 8px;
+                border-style: solid;
+                border-color: #999999;
+            }
+    </style>
+    
+    <style>
+       table {border-collapse:collapse; table-layout:fixed; width:950px;}
+       table td {border:solid 1px #fab; width:90px; word-wrap:break-word;}
+   </style>
+    
+	<apex:form >
+        <apex:inputHidden id="relatedId" value="{!Document_Generation_Request__c.Related_Object_Id__c}"/>
+        <apex:inputHidden id="relatedCreatedDate" value="{!Document_Generation_Request__c.CreatedDate}"/>
+        <apex:pageBlock >
+       		<apex:outputPanel id="tablePanel">
+                <apex:commandButton style="float:right;" value="Export File Names" action="{!exportFiles}" immediate="true" /> <br/><br/>
+            	<table border="0" id="planTable" class="planTable">
+                	<thead>
+                    	<tr>                               
+                        	<th>Plan Name</th>
+                            <th>Type</th>
+                            <th>Benefit Plan Id</th>
+                            <th>EOC</th>
+                            <th>SBC</th>
+                            <th>BCM</th>
+                            <th>Ancillary EOC</th>
+                            <th>Ancillary SOB</th>
+                            <th>Ancillary GSA</th>
+                            <apex:repeat value="{!planRiderWrapperList}" var="planName">                        
+                                <tr>
+                                    <td rowspan="+{!planName.sizeOfPlanWrappers}+">{!planName.Name}</td>
+                                    <apex:repeat value="{!planName.planWrapperList}" var="plan">
+                                		<tr>
+                                            <td><apex:outputText value="{!plan.Name}"></apex:outputText></td>
+                                            <td><apex:outputText value="{!plan.benefitId}"></apex:outputText></td>
+                                            <td>
+                                                <apex:outputPanel rendered="{!IF(plan.EOC != NULL , true, false)}">
+                                                   <apex:outputText value="{!plan.EOC}"></apex:outputText>
+                                                </apex:outputPanel>
+                                            </td>
+                                            <td>
+                                               <apex:outputPanel rendered="{!IF(plan.SBC != NULL , true, false)}">
+                                                   <apex:outputText value="{!plan.SBC}"></apex:outputText>
+                                               </apex:outputPanel> 
+                                            </td>
+                                            <td>
+                                                <apex:outputPanel rendered="{!IF(plan.BCM != NULL , true, false)}">
+                                                   <apex:outputText value="{!plan.BCM}"></apex:outputText>
+                                                </apex:outputPanel>
+                                            </td>
+                                            <td>
+                                                <apex:outputPanel rendered="{!IF(plan.ancillaryEOC != NULL , true, false)}">
+                                                   <apex:outputText value="{!plan.ancillaryEOC}"></apex:outputText>
+                                                </apex:outputPanel>
+                                            </td>
+                                            <td>
+                                                <apex:outputPanel rendered="{!IF(plan.ancillarySOB != NULL , true, false)}">
+                                                   <apex:outputText value="{!plan.ancillarySOB}"></apex:outputText>
+                                                </apex:outputPanel>
+                                            </td>
+                                            <td>
+                                                <apex:outputPanel rendered="{!IF(plan.ancillaryGSA != NULL , true, false)}">
+                                                    <apex:outputText value="{!plan.ancillaryGSA}"></apex:outputText>
+                                                </apex:outputPanel>
+                                            </td>
+                                        </tr>
+                                    </apex:repeat>
+                                </tr>
+                            </apex:repeat>
+                        </tr>
+                    </thead>
+                </table>
+            </apex:outputPanel>
+        </apex:pageBlock>
+    </apex:form>         
+</apex:page>

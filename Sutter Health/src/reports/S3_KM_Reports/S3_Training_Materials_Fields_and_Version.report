@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Training_Material__ka$ArticleNumber</field>
+    </columns>
+    <columns>
+        <field>Training_Material__ka.Training_Material__kav$Title</field>
+    </columns>
+    <columns>
+        <field>Training_Material__ka.Training_Material__kav$Functional_Area__c</field>
+    </columns>
+    <columns>
+        <field>Training_Material__ka.Training_Material__kav$Sub_Function__c</field>
+    </columns>
+    <columns>
+        <field>Training_Material__ka.Training_Material__kav$Summary</field>
+    </columns>
+    <columns>
+        <field>Training_Material__ka.Training_Material__kav$LastModifiedDate</field>
+    </columns>
+    <columns>
+        <field>Training_Material__ka.Training_Material__kav$IsVisibleInApp</field>
+    </columns>
+    <columns>
+        <field>Training_Material__ka.Training_Material__kav$IsVisibleInCsp</field>
+    </columns>
+    <description>Training Material Articles and Custom Fields with Version history</description>
+    <filter>
+        <criteriaItems>
+            <column>Training_Material__ka$ArchivedDate</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Training_Material__ka.Training_Material__kav$IsLatestVersion</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>S3 Training Materials Fields and Version</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Training_Materials_Custom_Fields_with_Versions__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Training_Material__ka$ArchivedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

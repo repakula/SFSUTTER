@@ -1,0 +1,339 @@
+<apex:page docType="html-5.0" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" action="{!forwardToLoginPage}" controller="SH_MyCases">
+    <head>
+        <title>{!activePgName}</title>
+        <c:SH_HeaderResource />
+    </head>
+    
+    <style>
+        .big-logo {margin-top:12px;}
+        .fontSize14{
+            font-size: 14px !important;
+         }
+         #content tr:nth-child(2n) section.search-list-section.featured {
+            background: white;
+         }
+         #content section.search-list-section.featured {
+            padding: 30px 0 10px;
+         }
+         #content section.search-list-section a {
+            color: #00a9a5;
+         }
+         #content section.search-list-section a:hover {
+            text-decoration: underline;
+         }
+         #content section.search-list-section h2 {
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 22px;
+         }
+         #content section.search-list-section label {
+            padding-top: 0;
+         }
+         #content section.search-list-section .excerpt {
+            border-bottom: 0;
+         }
+    </style>
+    <body id="home" class="search show-notification menu-open menu-visibility">
+        <c:SH_SearchBar isPreview="{!isPreview}"/>
+        <!-- notification popup -->
+        <c:SH_Notification isPreview="{!isPreview}" id="notifComponent" Title="{!strTitle}" Description="{!strDescription}" Info="{!strInfo}" BrowserTitle="{!strBrowserTitle}" BrowserDescription="{!strBrowserDescription}" BrowserInfo="{!strBrowserInfo}" BrowserNotify="{!IsBrowser}" Notify="{!IsNotify}"/>
+        <!-- Menu Item -->
+        <c:SH_MenuItem lstMenuItem="{!lstMenuItem }" isPreview="{!isPreview}" Category="{!strCategoryForHelp}" SubCategory="{!strSubCategoryForHelp}"  Team="{!strTeamForHelp}" CustomerIntent="{!strCustomerIntentForHelp}" L1="{!strL1}" L1Id="{!strL1Id}" L2="{!strL2}" L2Id="{!strL2Id}"/>
+        
+        <!-- content -->
+        <div id="content-wrapper">
+            <!-- Header-->
+            <c:SH_Header isPreview="{!isPreview}" actiVePg="{!activePgName}" breadCrumbs="{!BreadCrumbs}"/>
+            
+            <div id="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="container ">
+                            <div class="row">   
+                                <div class="col-xs-12">
+                                    <section class="text-section title">    
+                                        <h1>My Service Requests</h1>   
+                                        <p>
+                                            <apex:outputPanel rendered="{!if(strCase == 'C',true,false)}">
+                                                {!objHelp.SH_My_Closed_Case_Title__c}
+                                            </apex:outputPanel>
+                                            <apex:outputPanel rendered="{!if(strCase == 'O',true,false)}">
+                                                {!objHelp.SH_My_Open_Case_Title__c}
+                                            </apex:outputPanel> 
+                                        </p>
+                                    </section>
+                                    
+                                    <!--modifed on 30-Dec-2015 for Sutter request starts-->
+                                    <section class="service-request-section">
+                                        <section class="form-section">
+                                            <apex:form >                         
+                                                <div class="form-group">
+                                                    <select class="selectpicker" title="Date">
+                                                        <option>Date (Newest First)</option>
+                                                        <option>Date (Oldest First)</option>
+                                                        <option>Status (Ascending)</option>
+                                                        <option>Status (Descending)</option>
+                                                    </select>
+                                                    <div style="clear:both"></div>
+                                                </div>  
+                                                <apex:inputHidden value="{!selectedSortField}" id="sortField" />
+                                                <apex:actionFunction name="SortCases" action="{!sortCases}"/>
+                                                
+                                                <hr />
+                                            </apex:form>    
+                                        </section>
+                                        <apex:repeat value="{!lstCase}" var="vCase">
+                                            <article>
+                                                <h4>{!vCase.Subject} <span class="new">{!vCase.status}</span></h4>
+                                                <!--<label>Subject Description:</label>-->
+                                                <p>{!IF(len(vCase.description)>137, Left(vCase.description, 137)+'...', vCase.description)}</p>
+                                                <a href="SH_CaseDetail?Id={!vCase.id}&C={!IF(vCase.IsClosed, 'C', 'O') + '&IsCase=true' + strBreadCrum}" class="read-more" style="color:#f58025;">Read more <i class="icon icon-arrow-right"></i></a>
+                                                <label class="info">
+                                                    <span >SERVICE REQUEST:</span> <a style="color: #f58025;" href="SH_CaseDetail?Id={!vCase.id}&C={!IF(vCase.IsClosed, 'C', 'O') + '&IsCase=true' + strBreadCrum}">{!vCase.CaseNumber}</a>, 
+                                                    <span class="created">
+                                                        Created On: 
+                                                        <span class="date">
+                                                            <apex:outputText value="{0,date,MMMM d','  yyyy}">
+                                                                 <apex:param value="{!vCase.CreatedDate}" />
+                                                            </apex:outputText> 
+                                                        </span>
+                                                    </span>
+                                                </label>
+                                                <label>
+                                                    <apex:outputPanel layout="none" rendered="{!Not(vCase.IsClosed)}">  
+                                                        <a href="{!'SH_CaseComment?C=O&IsCase=true&Id='+ vCase.id+strBreadCrum}" style="cursor:pointer;"> ENTER-COMMENTS
+                                                        </a>
+                                                    </apex:outputPanel>
+                                                </label>
+                                            </article>  
+                                        </apex:repeat>
+                                    </section>
+                                    <!--modifed on 30-Dec-2015 for Sutter request Ends-->
+
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="container-fluid">
+                      <div class="row">
+                          <section class="pagination-section">
+                              <div class="container no-padding">
+                                  <div class="row">
+                                      <div class="col-md-6 col-sm-12 pagination-left">                                    
+                                          <a id="aLeftArrow" href="javascript:ShowDataPrev();" class="left "><!--disabled-->
+                                              <span class="data-icon icon-dotted-circle">
+                                                  <span  title="Previous"  class="data-icon icon-arrow-right"></span>
+                                              </span>
+                                          </a>
+                                          <label id="tota_page">Showing results 1 -10</label>
+                                          <a id="aRightArrow" href="javascript:ShowDataNext()" class="right">
+                                              <span class="data-icon icon-dotted-circle">
+                                                  <span title="Next" class="data-icon icon-arrow-right"></span>
+                                              </span>
+                                          </a>
+                                      </div>
+                                      <div id="pageRecordCount" class="col-md-6 col-sm-12 pagination-right text-right">                                    
+                                          Results per page:  <span class="fontSize14 inner-record-count" id="span10"><a href="javascript:ResetPagination(10);">10 </a></span><span class="fontSize14 readonly-span">10</span> <span>|</span><span  class="inner-record-count fontSize14" id="span30"><a href="javascript:ResetPagination(30);">30</a> </span><span class="fontSize14 readonly-span">30</span> <span>|</span>  <span  class="inner-record-count fontSize14" id="span50"><a href="javascript:ResetPagination(50);">50</a> </span><span class="fontSize14 readonly-span">50</span>
+                                      </div>
+                                  </div>
+                              </div>
+                           </section>
+                       </div>
+                   </div>
+                   <!--modifed on 30-Dec-2015 for Sutter request starts-->
+                    <script>
+                        jQuery(function(){
+                            var selectedOption = jQuery('[id$="sortField"]').val();
+                            jQuery(".selectpicker > option").each(function () {
+                                if(selectedOption == jQuery(this).val()) {
+                                    jQuery(this).attr('selected', 'selected');
+                                }   
+                            });
+                            
+                            jQuery('.selectpicker').on('change',function(){
+                                var sortField = jQuery(this).val();
+                                jQuery('[id$="sortField"]').val(sortField);
+                                SortCases();
+                            });
+                        });
+                    
+                   var tcount = jQuery('section.service-request-section article').length;
+                   
+                   var perpage = 10;
+                   var totalpage = tcount / perpage;
+                   var Navigate = 1;
+                  
+                   // Tracking current page number and total page
+                   var ofPage = Navigate;
+                   if(totalpage > parseInt(totalpage))
+                          totalpage = parseInt(totalpage) + 1;
+                  
+                   //Recalculate-PageSize & ShowDataFirst
+                   function ResetPagination(pageSize){
+                       perpage = pageSize;
+                       totalpage = tcount / perpage;
+                       ShowDataFirst();
+                   }
+                   // First Button click  
+                   function ShowDataFirst() {
+                       var rowdata = perpage * (1 - 1);
+                       Navigate = 1;
+                       jQuery('section.service-request-section article').each(function (row, data) {
+                           if (row >= rowdata && row < rowdata + perpage) {
+                               jQuery(data).show();
+                           }
+                           else {
+                               jQuery(data).hide();
+                           }
+                       });
+                       
+                       ofPage = Navigate;
+                       if(ofPage > parseInt(ofPage))
+                           ofPage = parseInt(ofPage);                   
+                       jQuery('#tota_page').html('Showing results  ' + ofPage + ' - ' + Math.ceil(totalpage));  // tota_page is showing the page tracking
+                       jQuery('[id$="pageIndexId"]').val(ofPage); // remove it because it will set it 1 page after selecting more than 1 shortlist
+                       jQuery('#aLeftArrow').attr('disabled', 'disabled').addClass('disabled').removeAttr('href');
+                       if(Math.ceil(totalpage) == 1){
+                           jQuery('#aLeftArrow').attr('disabled', 'disabled').addClass('disabled').removeAttr('href');
+                           jQuery('#aRightArrow').attr('disabled', 'disabled').addClass('disabled').removeAttr('href');
+                       }else{
+                           jQuery('#aRightArrow').removeAttr('disabled', 'disabled').removeClass('disabled').attr('href','javascript:ShowDataNext();');
+                       }
+                   }
+                           
+                   // previous Button click
+                   function ShowDataPrev() {
+                       if(Navigate != 1){
+                           Navigate = Navigate - 1;
+                       }
+                       
+                       var rowdata = perpage * (Navigate - 1);
+                       jQuery('section.service-request-section article').each(function (row, data) {                        
+                           if (row >= rowdata && row < rowdata + perpage) {
+                               jQuery(data).show();                            
+                           }
+                           else if((rowdata + perpage) > 0) {
+                               jQuery(data).hide();
+                           }           
+                       });
+                       
+                       ofPage = Navigate;
+                       if(ofPage > parseInt(ofPage))
+                          ofPage = parseInt(ofPage) + 1;
+                       jQuery('#tota_page').text('Showing results ' + ofPage + ' - ' + Math.ceil(totalpage));  // tota_page is showing the page tracking
+                       jQuery('[id$="pageIndexId"]').val(ofPage);
+                       if(ofPage == 1){
+                           jQuery('#aLeftArrow').attr('disabled', 'disabled').addClass('disabled').removeAttr('href');
+                       }else{
+                           jQuery('#aLeftArrow').removeAttr('disabled', 'disabled').removeClass('disabled').attr('href','javascript:ShowDataPrev();');
+                       }
+                       if(Math.ceil(totalpage) > ofPage ){
+                           jQuery('#aRightArrow').removeAttr('disabled', 'disabled').removeClass('disabled').attr('href','javascript:ShowDataNext();');
+                       }
+                   }
+               
+                   // Next Button Click
+                   function ShowDataNext() {
+                       if(Navigate < 0) {
+                           Navigate = 1;
+                       }
+                       
+                       if (Navigate < totalpage) {
+                           Navigate = Navigate + 1;
+                       }
+                       var rowdata = perpage * (Navigate - 1);
+                       jQuery('section.service-request-section article').each(function (row, data) {
+                           if (row >= rowdata && row < rowdata + perpage) {
+                               jQuery(data).show();
+                           }
+                           else {            
+                               jQuery(data).hide();
+                           }            
+                       });
+                       
+                       ofPage = Navigate;
+                       if(ofPage > parseInt(ofPage))
+                          ofPage = parseInt(ofPage) + 1;
+                       jQuery('#tota_page').text('Showing results ' + ofPage + ' - ' + Math.ceil(totalpage));
+                       jQuery('[id$="pageIndexId"]').val(ofPage);
+                       jQuery('#aLeftArrow').removeAttr('disabled', 'disabled').removeClass('disabled').attr('href','javascript:ShowDataPrev();');
+                       if(ofPage == Math.ceil(totalpage)){
+                           jQuery('#aRightArrow').attr('disabled', 'disabled').addClass('disabled').removeAttr('href');
+                       }else{
+                           jQuery('#aRightArrow').removeAttr('disabled', 'disabled').removeClass('disabled').attr('href','javascript:ShowDataNext();');
+                       }                                       
+                   }
+               
+                   // last Button Click
+                   function ShowDataLast() {
+                       var rowdata = perpage * (totalpage - 1);
+                       Navigate = totalpage;
+                       jQuery('section.service-request-section article').each(function (row, data) {
+                           if (row >= rowdata && row < rowdata + perpage) {
+                               jQuery(data).show();
+                           }
+                           else {            
+                               jQuery(data).hide();
+                           }
+                       });
+                       
+                       ofPage = Navigate;
+                       if(ofPage > parseInt(ofPage))
+                          ofPage = parseInt(ofPage);
+                       jQuery('#tota_page').text('Showing results ' + ofPage + ' - ' + Math.ceil(totalpage));
+                       jQuery('[id$="pageIndexId"]').val(ofPage); // to add the value in input hidden field
+                   }
+                           
+                   // Reload the page for shortlist click
+                   function showfirstpage(currentPageIndex){
+                       var rowdata = perpage * (currentPageIndex - 1);
+                       Navigate = currentPageIndex;
+                       jQuery('section.service-request-section article').each(function (row, data) {
+                           if (row >= rowdata && row < rowdata + perpage) {
+                               jQuery(data).show();
+                           }
+                           else {
+                               jQuery(data).hide();
+                           }
+                       });
+                       
+                       ofPage = Navigate;
+                       if(ofPage > parseInt(ofPage))
+                           ofPage = parseInt(ofPage);                   
+                       jQuery('#tota_page').text('Showing results ' + ofPage + ' - ' + Math.ceil(totalpage));  // tota_page is showing the page tracking
+                   }
+                        
+                   jQuery('document').ready(function () {
+                       ShowDataFirst();
+                       EnableResultPerPage(jQuery('#span10 > a'));
+                       jQuery('#pageRecordCount a').click(function(){
+                           EnableResultPerPage(this);
+                       });
+                   });
+                   function EnableResultPerPage(current){
+                        
+                       jQuery('#pageRecordCount').find('a').each(function(){
+                           jQuery(this).parent().show();
+                           jQuery(this).parent().next().hide();
+                       });
+                       jQuery(current).parent().next().show();
+                       jQuery(current).parent().hide();
+                   }
+               </script>    
+            </div>  
+        </div>
+        
+        <!-- Footer -->
+        <c:SH_Footer ></c:SH_Footer>
+     </body>
+     <apex:form >
+        <!-- added on 25-Aug-2015 for Notification -->
+       <apex:inputHidden id="hdnToolArticle" value="{!strToolArticeId}"/>
+       <apex:inputHidden id="hdnBrowserName" value="{!browserName}"/>
+        <apex:actionfunction name="showNotification" action="{!showNotification}"/>
+     </apex:form>
+</apex:page>

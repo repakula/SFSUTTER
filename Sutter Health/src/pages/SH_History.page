@@ -1,0 +1,293 @@
+<apex:page docType="html-5.0" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" action="{!forwardToLoginPage}" controller="SH_History">
+    <head>
+        <title>{!activePgName}</title>
+        <c:SH_HeaderResource />
+    </head>
+    <style>
+        .fontSize14{
+            font-size: 14px !important;
+         }
+    </style>
+    <body id="home" class="search show-notification menu-open menu-visibility">
+        <c:SH_SearchBar isPreview="{!isPreview}"/>
+        <!-- notification popup -->
+        <c:SH_Notification isPreview="{!isPreview}" id="notifComponent" Title="{!strTitle}" Description="{!strDescription}" Info="{!strInfo}" BrowserTitle="{!strBrowserTitle}" BrowserDescription="{!strBrowserDescription}" BrowserInfo="{!strBrowserInfo}" BrowserNotify="{!IsBrowser}" Notify="{!IsNotify}"/>
+        <!-- Menu Item -->
+        <c:SH_MenuItem lstMenuItem="{!lstMenuItem }" isPreview="{!isPreview}" Category="{!strCategoryForHelp}" SubCategory="{!strSubCategoryForHelp}"/>
+        
+        <!-- content -->
+        <div id="content-wrapper">
+            <!-- Header-->
+            <c:SH_Header isPreview="{!isPreview}" actiVePg="{!activePgName}" breadCrumbs="{!BreadCrumbs}"/>
+            
+            <div id="content">
+                <apex:outputPanel rendered="{!if(IsSearchResultFound, true, false)}" >
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <section class="text-section title" style="border-bottom:0px">  
+                                <h1>List of articles you viewed in the past</h1>   
+                            </section>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <table id="tblWrapper" width="100%" cellpadding="0" cellspacing="0" >                                
+                                <apex:repeat value="{!lstArticleHistory}" var="ArticleHistory">
+                                    <tr>
+                                        <td>
+                                            <div class="row hoverRow">
+                                                <div class="col-xs-12">
+                                                    <a href="{!IF(isPreview,'#', 'SH_ArticleView?id=' + ArticleHistory.History.SH_Article_Id__c + '&H=true')}">
+                                                       <h2 style="float:left;">{!ArticleHistory.History.SH_Title__c}</h2>
+                                                    </a>
+                                                    <div style="clear:both"></div>
+                                                    <p class="excerpt">
+                                                        {!ArticleHistory.History.SH_Summary__c}
+                                                    </p>  
+                                                    <div> 
+                                                        <div style="margin-bottom:7px;">
+                                                            <b>Rating:</b>&nbsp;
+                                                            <apex:outputText value="{0, number, 0.00}">
+                                                                <apex:param value="{!ArticleHistory.rating}" />
+                                                            </apex:outputText>
+                                                            <span class="fieldSeparator"> | </span>
+                                                            <b>View Count:</b> {!ArticleHistory.History.SH_Record_Count__c}
+                                                        </div>
+                                                        <div>
+                                                            <b>Last Viewed Date:</b>&nbsp;  
+                                                            <apex:outputText value="{0,date,MMMM d','  yyyy}">
+                                                                 <apex:param value="{!ArticleHistory.History.Sh_View_Date__c}" />
+                                                            </apex:outputText>
+                                                        </div>
+                                                    </div>                                          
+                                                    <hr />
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr> 
+                                </apex:repeat>   
+                            </table>  
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                   <div class="row">
+                       <section class="pagination-section">
+                           <div class="container no-padding">
+                               <div class="row">
+                                   <div class="col-md-6 col-sm-12 pagination-left">                                    
+                                       <a id="aLeftArrow" href="javascript:ShowDataPrev();" class="left "><!--disabled-->
+                                           <span class="data-icon icon-dotted-circle">
+                                               <span  title="Previous"  class="data-icon icon-arrow-right"></span>
+                                           </span>
+                                       </a>
+                                       <label id="tota_page">Showing results 1 -10</label>
+                                       <a id="aRightArrow" href="javascript:ShowDataNext()" class="right">
+                                           <span class="data-icon icon-dotted-circle">
+                                               <span title="Next" class="data-icon icon-arrow-right"></span>
+                                           </span>
+                                       </a>
+                                   </div>
+                                   <div id="pageRecordCount" class="col-md-6 col-sm-12 pagination-right text-right">                                    
+                                       Results per page:  <span class="fontSize14 inner-record-count" id="span10">
+                                           <a href="javascript:ResetPagination(10);">10 </a></span><span class="fontSize14 readonly-span">10</span> <span>|</span><span  class="inner-record-count fontSize14" id="span30"><a href="javascript:ResetPagination(30);">30</a> </span><span class="fontSize14 readonly-span">30</span> <span>|</span>  <span  class="inner-record-count fontSize14" id="span50"><a href="javascript:ResetPagination(50);">50</a> </span><span class="fontSize14 readonly-span">50</span>
+                                   </div>
+                               </div>
+                           </div>
+                       </section>
+                   </div>
+               </div>   
+               <script>
+                   jQuery('document').ready(function () {
+                       ShowDataFirst();
+                       EnableResultPerPage(jQuery('#span10 > a'));
+                       jQuery('#pageRecordCount a').click(function(){
+                           EnableResultPerPage(this);
+                       });
+                   }); 
+                   var tcount = jQuery('[Id$=tblWrapper] tr').length;
+                   
+                   var perpage = 10;
+                   var totalpage = tcount / perpage;
+                   var Navigate = 1;
+                  
+                   // Tracking current page number and total page
+                   var ofPage = Navigate;
+                   if(totalpage > parseInt(totalpage))
+                          totalpage = parseInt(totalpage) + 1;
+                  
+                   //Recalculate-PageSize & ShowDataFirst
+                   function ResetPagination(pageSize){
+                       perpage = pageSize;
+                       totalpage = tcount / perpage;
+                       ShowDataFirst();
+                   }
+                   // First Button click  
+                   function ShowDataFirst() {
+                       var rowdata = perpage * (1 - 1);
+                       Navigate = 1;
+                       jQuery('#tblWrapper > tbody > tr').each(function (row, data) {
+                           if (row >= rowdata && row < rowdata + perpage) {
+                               jQuery(data).show();
+                           }
+                           else {
+                               jQuery(data).hide();
+                           }
+                       });
+                       
+                       ofPage = Navigate;
+                       if(ofPage > parseInt(ofPage))
+                           ofPage = parseInt(ofPage);                   
+                       jQuery('#tota_page').html('Showing results  ' + ofPage + ' - ' + Math.ceil(totalpage));  // tota_page is showing the page tracking
+                       jQuery('[id$="pageIndexId"]').val(ofPage); // remove it because it will set it 1 page after selecting more than 1 shortlist
+                       jQuery('#aLeftArrow').attr('disabled', 'disabled').addClass('disabled').removeAttr('href');
+                       if(Math.ceil(totalpage) == 1){
+                           jQuery('#aLeftArrow').attr('disabled', 'disabled').addClass('disabled').removeAttr('href');
+                           jQuery('#aRightArrow').attr('disabled', 'disabled').addClass('disabled').removeAttr('href');
+                       }else{
+                           jQuery('#aRightArrow').removeAttr('disabled', 'disabled').removeClass('disabled').attr('href','javascript:ShowDataNext();');
+                       }
+                   }
+                           
+                   // previous Button click
+                   function ShowDataPrev() {
+                       if(Navigate != 1){
+                           Navigate = Navigate - 1;
+                       }
+                       
+                       var rowdata = perpage * (Navigate - 1);
+                       jQuery('#tblWrapper > tbody > tr').each(function (row, data) {                        
+                           if (row >= rowdata && row < rowdata + perpage) {
+                               jQuery(data).show();                            
+                           }
+                           else if((rowdata + perpage) > 0) {
+                               jQuery(data).hide();
+                           }           
+                       });
+                       
+                       ofPage = Navigate;
+                       if(ofPage > parseInt(ofPage))
+                          ofPage = parseInt(ofPage) + 1;
+                       jQuery('#tota_page').text('Showing results ' + ofPage + ' - ' + Math.ceil(totalpage));  // tota_page is showing the page tracking
+                       jQuery('[id$="pageIndexId"]').val(ofPage);
+                       if(ofPage == 1){
+                           jQuery('#aLeftArrow').attr('disabled', 'disabled').addClass('disabled').removeAttr('href');
+                       }else{
+                           jQuery('#aLeftArrow').removeAttr('disabled', 'disabled').removeClass('disabled').attr('href','javascript:ShowDataPrev();');
+                       }
+                       if(Math.ceil(totalpage) > ofPage ){
+                           jQuery('#aRightArrow').removeAttr('disabled', 'disabled').removeClass('disabled').attr('href','javascript:ShowDataNext();');
+                       }
+                   }
+               
+                   // Next Button Click
+                   function ShowDataNext() {
+                       if(Navigate < 0) {
+                           Navigate = 1;
+                       }
+                       
+                       if (Navigate < totalpage) {
+                           Navigate = Navigate + 1;
+                       }
+                       var rowdata = perpage * (Navigate - 1);
+                       jQuery('#tblWrapper > tbody > tr').each(function (row, data) {
+                           if (row >= rowdata && row < rowdata + perpage) {
+                               jQuery(data).show();
+                           }
+                           else {            
+                               jQuery(data).hide();
+                           }            
+                       });
+                       
+                       ofPage = Navigate;
+                       if(ofPage > parseInt(ofPage))
+                          ofPage = parseInt(ofPage) + 1;
+                       jQuery('#tota_page').text('Showing results ' + ofPage + ' - ' + Math.ceil(totalpage));
+                       jQuery('[id$="pageIndexId"]').val(ofPage);
+                       jQuery('#aLeftArrow').removeAttr('disabled', 'disabled').removeClass('disabled').attr('href','javascript:ShowDataPrev();');
+                       if(ofPage == Math.ceil(totalpage)){
+                           jQuery('#aRightArrow').attr('disabled', 'disabled').addClass('disabled').removeAttr('href');
+                       }else{
+                           jQuery('#aRightArrow').removeAttr('disabled', 'disabled').removeClass('disabled').attr('href','javascript:ShowDataNext();');
+                       }                                       
+                   }
+               
+                   // last Button Click
+                   function ShowDataLast() {
+                       var rowdata = perpage * (totalpage - 1);
+                       Navigate = totalpage;
+                       jQuery('#tblWrapper > tbody > tr').each(function (row, data) {
+                           if (row >= rowdata && row < rowdata + perpage) {
+                               jQuery(data).show();
+                           }
+                           else {            
+                               jQuery(data).hide();
+                           }
+                       });
+                       
+                       ofPage = Navigate;
+                       if(ofPage > parseInt(ofPage))
+                          ofPage = parseInt(ofPage);
+                       jQuery('#tota_page').text('Showing results ' + ofPage + ' - ' + Math.ceil(totalpage));
+                       jQuery('[id$="pageIndexId"]').val(ofPage); // to add the value in input hidden field
+                   }
+                           
+                   // Reload the page for shortlist click
+                   function showfirstpage(currentPageIndex){
+                       var rowdata = perpage * (currentPageIndex - 1);
+                       Navigate = currentPageIndex;
+                       jQuery('#tblWrapper > tbody > tr').each(function (row, data) {
+                           if (row >= rowdata && row < rowdata + perpage) {
+                               jQuery(data).show();
+                           }
+                           else {
+                               jQuery(data).hide();
+                           }
+                       });
+                       
+                       ofPage = Navigate;
+                       if(ofPage > parseInt(ofPage))
+                           ofPage = parseInt(ofPage);                   
+                       jQuery('#tota_page').text('Showing results ' + ofPage + ' - ' + Math.ceil(totalpage));  // tota_page is showing the page tracking
+                   }
+                   
+                   function EnableResultPerPage(current){
+                        
+                       jQuery('#pageRecordCount').find('a').each(function(){
+                           jQuery(this).parent().show();
+                           jQuery(this).parent().next().hide();
+                       });
+                       jQuery(current).parent().next().show();
+                       jQuery(current).parent().hide();
+                   }
+               </script>      
+               </apex:outputPanel>
+               <apex:outputPanel rendered="{!if(IsSearchResultFound, false, true)}">                            
+                   <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12">  
+                                <section class="no-result-section">
+                                     <h1>Sorry, no history found</h1>    
+                                     <p>
+                                         We haven't found any history related to you.
+                                     </p>
+                                     <hr />
+                                 </section>
+                            </div>
+                        </div>
+                    </div>
+               </apex:outputPanel>   
+            </div>
+        </div> 
+  
+    <!-- Footer -->
+    <c:SH_Footer id="compFooter"></c:SH_Footer>
+    </body>
+    <apex:form >
+        <!-- added on 25-Aug-2015 for Notification -->
+        <apex:inputHidden id="hdnToolArticle" value="{!strToolArticeId}"/>
+        <apex:inputHidden id="hdnBrowserName" value="{!browserName}"/>
+        <apex:actionfunction name="showNotification" action="{!showNotification}"/>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,27 @@
+<apex:page Controller="testCommunicationLogClss"  >
+<apex:form >
+<apex:inputField value="{!commlog.Reminder_Activity_Date__c}" required="true"/>
+ <apex:pageBlock >
+ 
+ <apex:pageblockButtons >
+ <apex:commandButton action="{!addFieldValues}" value="Save"/>
+ </apex:pageblockButtons>
+
+ 
+ <apex:pageblockSection >
+  
+ <apex:inputField value="{!commlog.Contact_Name__c}" required="true"/>
+ <apex:inputField value="{!commlog.Reason_for_Call__c}" required="true"/>
+ <apex:inputField value="{!commlog.Dialed_Phone__c}" required="true"/>
+ <apex:inputField value="{!commlog.Call_result__c}" required="true"/>
+ <apex:inputField value="{!commlog.Relationship_to_the_Patient__c}" required="true"/>
+ 
+ <!--<apex:outputField value="{!Communication_Log__c.Patient_MRN__c}" />
+ <apex:outputField value="{!Communication_Log__c.Foundation__c}" />
+ <apex:outputField value="{!Communication_Log__c.PCP__c}" />
+ <apex:outputField value="{!Communication_Log__c.Optum_Form__c}" />-->
+ 
+ </apex:pageblockSection>
+ </apex:pageBlock>
+ </apex:form>
+</apex:page>

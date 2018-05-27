@@ -1,0 +1,64 @@
+<apex:component layout="none">
+  <apex:attribute name="isPreview" type="Boolean" description="True for preview pages." default="false" />
+  <apex:attribute name="lstMenuItem" description="This attribute accept list of strings." type="SH_Menu_Item__c[]" required="true"/>
+  <apex:attribute name="Category" description="This attribute used to set the Category on help and support." type="string" required="true"/>
+  <apex:attribute name="SubCategory" description="This attribute used to set the SubCategory on help and support." type="string" required="true"/>
+  <apex:attribute name="Team" description="This attribute used to set the Team on help and support." type="string"/>
+  <apex:attribute name="CustomerIntent" description="This attribute used to set the CustomerIntent on help and support." type="string" />
+  <apex:attribute name="isHAndSDisabled" type="Boolean" description="True for Disable Help & Support link." default="false" />
+  
+  <apex:attribute name="L1" description="This attribute used to set the SubCategory on help and support." type="string"/>
+  <apex:attribute name="L1Id" description="This attribute used to set the Team on help and support." type="string"/>
+  <apex:attribute name="L2" description="This attribute used to set the CustomerIntent on help and support." type="string" />
+  <apex:attribute name="L2Id" description="True for Disable Help & Support link." type="string"/>
+  
+  <apex:attribute name="LevelOneAciveId" description="This attribute used to pass menu id only from level one page." type="string" />
+  <apex:attribute name="LevelTwoAciveId" description="This attribute used to pass submenu id only from level two page." type="string"/>
+  <apex:attribute name="IsApplyClasses" description="This attribute used to pass submenu id only from level two page." type="boolean"/>
+      
+  <!-- menu -->
+    <div id="menu" class="background-cyan">
+        <div id="menu-inner">
+            <a id="menu-toggle" href="#">
+                <i class="data-icon icon-menu"></i>
+                <label>CLOSE MENU</label>
+            </a>
+            <div id="menu-navigation-wrapper">
+                <ul id="menu-navigation" role="tablist" aria-multiselectable="true">
+                    <apex:repeat value="{!lstMenuItem}" var="MenuItem">
+                        <li class="{!IF(MenuItem.Sub_Menu_Items__r.size >0, 'panel' , '' )} {!if(IsApplyClasses == true && MenuItem.Id = LevelOneAciveId,'opened','')}">
+                            <a href="{!IF(isPreview,'#','SH_LevelOne?id='+ MenuItem.ID)}" class="{!IF(MenuItem.Sub_Menu_Items__r.size >0, 'parent','')} {!if(IsApplyClasses == true && MenuItem.Id = LevelOneAciveId,'opened','')}">
+                                <div class="menu-url-wrapp"> 
+                                    <i class="data-icon {!MenuItem.SH_Icon__c}"></i>
+                                    <span>{!MenuItem.Name}</span>
+                                </div>
+                                <apex:outputPanel layout="none" rendered="{!IF(MenuItem.Sub_Menu_Items__r.size >0, true , false )}">
+                                    <span id="{!MenuItem.Id}" href="#{!MenuItem.Id}-submenu" class="plus-icon collapsed" data-toggle="collapse" data-parent="#menu-navigation" aria-expanded="false" aria-controls="{!MenuItem.Name}-submenu"></span>
+                                </apex:outputPanel>
+                            </a>
+                            <apex:outputPanel layout="none" rendered="{!IF(MenuItem.Sub_Menu_Items__r.size >0, true , false )}">
+                                <div id="{!MenuItem.Id}-submenu" class="panel-collapse collapse submenu {!if(IsApplyClasses == true && MenuItem.Id = LevelOneAciveId,'in','')}" role="tabpanel" aria-labelledby="{!MenuItem.Name}-submenu">
+                                    <hr />
+                                    <ul>
+                                    <apex:repeat value="{!MenuItem.Sub_Menu_Items__r}" var="SubMenu">
+                                        <li>
+                                            <a id="{!SubMenu.Id}" href="{!IF(isPreview,'#','SH_LevelTwo?id='+ SubMenu.ID)}" class="{!if(IsApplyClasses == true && SubMenu.ID = LevelTwoAciveId,'active-item','')}">{!SubMenu.Name}</a>
+                                        </li>
+                                    </apex:repeat>
+                                    </ul>
+                                </div>
+                            </apex:outputPanel>
+                            <hr />
+                        </li>
+                    </apex:repeat>
+                </ul>
+
+                <a id="help-button" href="{!IF(isPreview,'#',IF(isHAndSDisabled, '#', 'SH_Help_Support?M='+ URLENCODE(Category)+'&SM='+ URLENCODE(SubCategory)+'&T='+ URLENCODE(Team)+'&CI='+ URLENCODE(CustomerIntent)) + '&L1=' + URLENCODE(L1) + '&L1Id=' +  URLENCODE(L1Id) + '&L2=' + URLENCODE(L2) + '&L2Id=' + URLENCODE(L2Id))}">
+                    <i class="data-icon icon-help-circled"></i>
+                    <span>Help/Service Requests</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+</apex:component>

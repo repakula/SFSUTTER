@@ -1,0 +1,79 @@
+<!-- 
+ *     Name  : VFC18_EOW
+ *     Author      : Saket
+ *     Date        : 10/06/2014
+ *     Project Name: CRM - SFT - Sutter Health
+ *     Description :This page shows articles as per user Union,Status,Affiliate to manger and employee.
+ **/
+-->
+<apex:page controller="VFC_OE_14" action="{!OE_Recordcount}">
+    <apex:form >
+        <apex:actionFunction name="gotoLink" action="{!goToLink}"/>
+        <apex:pageMessages />
+        <apex:outputpanel rendered="{!!showMsg}">
+                   
+               <table style="width:60%;">
+                    <tr>
+                        <td style="text-align:left">
+                            <font color="#00a89d" face="Arial" size="5">2015 Benefits Open Enrollment</font>                       
+                        </td>  
+                    </tr> 
+                 </table>     
+                    <table border="0" width="800">
+                   <tr> 
+                                            
+                        <td width="280">
+                    
+                        <apex:commandLink value="" action="{!gotoLink}" target="_blank" >
+                        
+                         <img src="{!$Resource.OE_Image}" border="0" width="250" height="136" style="border:1px solid #ccc; padding:4px;" > </img> 
+                        </apex:commandLink> </td>  
+                      
+                        <td width="520" style="vertical-align:top;">
+                        <br></br>
+                        <p><font color="#333" size="3" face="Arial">{!numberDaysDue}</font></p>
+                        
+                        <apex:outputPanel rendered="{!isDaysShow}">
+                        
+                        <p><font color="#333" size="3" face="Arial">You have <b>{!numberDays} days</b> left to enroll!  </font></p>
+                        
+                        </apex:outputPanel>
+                        
+                        
+                         <apex:outputPanel rendered="{!isTimeShow}">
+                        
+                        <p><font color="#333" size="3" face="Arial">You have until <b>11:59PM PST</b> today to enroll!</font></p>
+                        
+                        </apex:outputPanel>
+                        
+                        
+                        <p><font color="#333" size="3" face="Arial"><strong>{!numberdaysDueperiod}</strong></font></p>
+                                
+                             
+                            <apex:outputPanel rendered="{!!isClosed}">
+                               
+                                <p><font color="#333" size="3" face="Arial">This is your once-a-year opportunity to review your benefits and make any changes to ensure you have the coverage you need for 2015</font>.</p>
+                                <font size="3">
+                                
+                                <apex:commandLink value="Enrollment Information >>" action="{!gotoLink}" target="_blank" /> </font>
+                            </apex:outputPanel>
+                           
+                           <br></br><br></br><br></br>
+
+                           <p><font color="#333" size="3" face="Arial">{!Closedstatustext}</font></p>
+                            
+                        </td>
+                    </tr>
+                </table>
+       
+        </apex:outputpanel>
+              
+        
+    </apex:form>
+    
+    <!-- Start Google Tag Manager -->
+    <apex:outputLabel value="{!$Label.GTMCustomLabel}" rendered="false"></apex:outputLabel> 
+    <apex:includeScript value="{!$Resource.GTMJavaScript}" />
+    <!-- End Google Tag Manager -->
+
+</apex:page>

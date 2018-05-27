@@ -1,0 +1,7 @@
+<html>
+<body>
+Hi,<br/><br/>
+The Sold Sign Off : <a href="'{!$Label.HR192_SSOListViewURL}'">{!Sold_Sign_Off__c.Name}</a> for {!Sold_Sign_Off__c.Account__c}/DBA: {!Sold_Sign_Off__c.DBA__c}, {!Sold_Sign_Off__c.Email_employer_Type__c} has been submitted for Approval. Please Review.<br/><br/>
+Thank you.<br/>
+</body>
+</html>

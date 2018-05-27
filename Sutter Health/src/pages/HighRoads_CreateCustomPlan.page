@@ -1,0 +1,34 @@
+<!--************************************************************************************************
+	Page Name    : HighRoads_CreateCustomPlan
+	Created Date : 10/27/2016
+	Description  : Used to create custom benefit plan. This page will be open when users clicks on
+				   Initiate Custom Plan button on Plan Selection Page.
+*************************************************************************************************-->
+
+<apex:page standardController="Custom_Benefit_Plan__c" extensions="HighRoads_CreateCustomBenefitPlan">
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <apex:form >
+        <div class="alert alert-warning">
+            <strong>Warning!</strong>&nbsp;&nbsp;<apex:outputText value="{!$Label.HR202_CustomPlanWarningMessage}"></apex:outputText>
+        </div>
+        <apex:outputPanel >
+            <apex:pageBlock title="Initiate Custom Plan">
+                <apex:pageBlockSection columns="2">
+                    <apex:inputField value="{!Custom_Benefit_Plan__c.Name}" required="true" />
+                    <apex:inputField value="{!Custom_Benefit_Plan__c.Benefit_Grid__c}" required="true" />
+                    <apex:inputField value="{!Custom_Benefit_Plan__c.Plan_Related_to_Account__c}" required="true" />
+                    <apex:inputField value="{!Custom_Benefit_Plan__c.Remarks__c}" required="true" />
+                </apex:pageBlockSection>
+                <apex:pageBlockButtons location="bottom">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <apex:commandButton value="Initiate Custom Plan" action="{!insertPlan}" />
+                </apex:pageBlockButtons>
+            </apex:pageBlock>
+        </apex:outputPanel>
+    </apex:form>
+    
+</apex:page>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>SCN Rejection by SHP Enrollment QA</name>
+    <style>none</style>
+    <subject>Sold Case Notification is not Approved - Employer Name: {!Employer_Group_Data__c.Opportunity_Account_Name__c}/DBA: {!Employer_Group_Data__c.DBA_Name__c} Employer Type: {!Employer_Group_Data__c.Email_Employer_Type__c}</subject>
+    <type>text</type>
+</EmailTemplate>

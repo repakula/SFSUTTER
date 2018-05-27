@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>The Benefit Plan Coverage object is used to store all benefit plan and coverage information for SHP Members.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Benefit_Grid_HCC_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(  ISBLANK(Benefit_Grid_Plan_ID__c ) ,  PlanCov_Bene_Plan_HCC_ID__c , HYPERLINK(&quot;javascript:if(typeof(srcUp)==&apos;function&apos;) {srcUp(&apos;/&quot;&amp;Benefit_Grid_Plan_ID__c&amp;&quot;?isdtp=vw&apos;);}&quot;+
+&quot; else { var newwindow = window.open(&apos;/&quot;&amp;Benefit_Grid_Plan_ID__c&amp;&quot;&apos;);}&quot;,
+PlanCov_Bene_Plan_HCC_ID__c,
+&quot;_self&quot;
+)
+ )</formula>
+        <label>Benefit Grid HCC ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Benefit_Grid_Plan_ID__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This Field will be populated by system and will capture the Plan ID being pushed from HR to Benefit Plan Coverage object</description>
+        <externalId>false</externalId>
+        <label>Benefit Grid Plan ID</label>
+        <referenceTo>SHP_Benefit_Grid__c</referenceTo>
+        <relationshipLabel>Benefit Plan Coverage</relationshipLabel>
+        <relationshipName>Benefit_Plan_Coverage</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Employer_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Req no 3156 OLTP Employer</description>
+        <externalId>false</externalId>
+        <label>Employer Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Benefit Plan Coverages</relationshipLabel>
+        <relationshipName>Benefit_Plan_Coverages</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PlanCov_Bene_Cover_Date_End__c</fullName>
+        <externalId>false</externalId>
+        <label>Benefit Coverage End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>PlanCov_Bene_Cover_Date_Start__c</fullName>
+        <externalId>false</externalId>
+        <label>Benefit Coverage Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>PlanCov_Bene_Cover_Desc__c</fullName>
+        <description>Detailed description of the specific benefit coverage.</description>
+        <externalId>false</externalId>
+        <label>Benefit Coverage Description</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PlanCov_Bene_Cover_HCC_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Benefit Coverage HCC ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PlanCov_Bene_Cover_HR_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Benefit Coverage HR ID</label>
+        <length>19</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PlanCov_Bene_Cover_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Benefit Coverage ID</label>
+        <length>9</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PlanCov_Bene_Cover_Name__c</fullName>
+        <description>Name of the specific benefit coverage associated to a benefit plan.</description>
+        <externalId>false</externalId>
+        <label>Benefit Coverage Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PlanCov_Bene_Plan_Date_End__c</fullName>
+        <externalId>false</externalId>
+        <label>Benefit Plan End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>PlanCov_Bene_Plan_Date_Start__c</fullName>
+        <externalId>false</externalId>
+        <label>Benefit Plan Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>PlanCov_Bene_Plan_HCC_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Benefit Plan HCC ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PlanCov_Bene_Plan_HR_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Benefit Plan HR ID</label>
+        <length>19</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PlanCov_Bene_Plan_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Benefit Plan ID</label>
+        <length>9</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PlanCov_Bene_Plan_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Benefit Plan Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PlanCov_Bene_Plan_Type__c</fullName>
+        <description>Type of a specific benefit plan (HMO, PPO etc).</description>
+        <externalId>false</externalId>
+        <label>Benefit Plan Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PlanCov_External_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>External ID used to match a benefit plan coverage record to the original record in HealthEdge when updating and/or inserting.  
+
+Composite key created from the concatenation of PlanCov_Member_HR_ID__c + PlanCov_Bene_Plan_HR_ID__c.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>HealthEdge Benefit Plan Coverage ID.</inlineHelpText>
+        <label>Benefit Plan Coverage	 External ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>PlanCov_Member_Date_Effective__c</fullName>
+        <externalId>false</externalId>
+        <label>Member Date Effective</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>PlanCov_Member_Date_Termination__c</fullName>
+        <externalId>false</externalId>
+        <label>Member Date Termination</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>PlanCov_Member_HCC_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Benefit Plan Member HCC ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PlanCov_Member_HR_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Benefit Plan Member  HR ID</label>
+        <length>19</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PlanCov_Member_ID__c</fullName>
+        <description>The member ID associated with a specific benefit plan.</description>
+        <externalId>false</externalId>
+        <label>Benefit Plan Member ID</label>
+        <length>21</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PlanCov_Member_Lookup__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup field to the Member object.</description>
+        <externalId>false</externalId>
+        <label>Member</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Benefit Plan Coverage</relationshipLabel>
+        <relationshipName>Benefit_Plans</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PlanCov_Subscriber_HCC_ID__c</fullName>
+        <description>Subscriber ID linked to a specific benefit plan.  A subscriber may have multiple members associated to them.</description>
+        <externalId>false</externalId>
+        <label>Benefit Plan Subscriber HCC ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PlanCov_Subscriber_HR_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Benefit Plan Subscriber HR ID</label>
+        <length>19</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PlanCov_Subscriber_ID__c</fullName>
+        <description>Subscriber ID linked to a specific benefit plan.  A subscriber may have multiple members associated to them.</description>
+        <externalId>false</externalId>
+        <label>Benefit Plan Subscriber ID</label>
+        <length>21</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Benefit Plan Coverage</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>PlanCov_External_ID__c</columns>
+        <columns>PlanCov_Bene_Cover_HCC_ID__c</columns>
+        <columns>PlanCov_Bene_Cover_HR_ID__c</columns>
+        <columns>NAME</columns>
+        <columns>PlanCov_Bene_Cover_Desc__c</columns>
+        <columns>PlanCov_Bene_Cover_Date_End__c</columns>
+        <columns>PlanCov_Bene_Cover_Name__c</columns>
+        <columns>PlanCov_Bene_Cover_Date_Start__c</columns>
+        <columns>PlanCov_Member_Lookup__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>oltpbenefitplancov</fullName>
+        <columns>PlanCov_Member_Lookup__c</columns>
+        <columns>PlanCov_External_ID__c</columns>
+        <columns>PlanCov_Bene_Cover_HCC_ID__c</columns>
+        <columns>PlanCov_Bene_Cover_HR_ID__c</columns>
+        <columns>NAME</columns>
+        <columns>PlanCov_Bene_Cover_Desc__c</columns>
+        <columns>PlanCov_Bene_Cover_Date_End__c</columns>
+        <columns>PlanCov_Bene_Cover_Name__c</columns>
+        <columns>PlanCov_Bene_Cover_Date_Start__c</columns>
+        <columns>PlanCov_Bene_Plan_HCC_ID__c</columns>
+        <columns>PlanCov_Bene_Plan_HR_ID__c</columns>
+        <columns>PlanCov_Member_HCC_ID__c</columns>
+        <columns>PlanCov_Member_HR_ID__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>LAST_UPDATE</field>
+            <operation>greaterThan</operation>
+            <value>4/10/2015 3:00 PM</value>
+        </filters>
+        <label>oltp-benefit-plan-cov</label>
+    </listViews>
+    <nameField>
+        <displayFormat>PLANCOV-{00000000}</displayFormat>
+        <label>Benefit Plan Coverage Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Benefit Plan Coverage</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>Private</sharingModel>
+</CustomObject>

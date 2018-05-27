@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Account1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>SHMMN_Information</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Account_Tier__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Tier</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active Accounts</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Affiliate Projects</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Meaningful Accounts</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Prospect</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Affiliate_Project__c</fullName>
+        <externalId>false</externalId>
+        <label>Affiliate Project</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Division__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Bay Area Project 1</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bay Area Project 2</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bay Area Project 3</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Valley Area Project 1</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Valley Area Project 2</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Valley Area Project 3</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Bay Area</controllingFieldValue>
+                <valueName>Bay Area Project 1</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Bay Area</controllingFieldValue>
+                <valueName>Bay Area Project 2</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Bay Area</controllingFieldValue>
+                <valueName>Bay Area Project 3</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Valley</controllingFieldValue>
+                <valueName>Valley Area Project 1</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Valley</controllingFieldValue>
+                <valueName>Valley Area Project 2</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Valley</controllingFieldValue>
+                <valueName>Valley Area Project 3</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Agreement_Signed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Agreement Signed</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Classification__c</fullName>
+        <externalId>false</externalId>
+        <label>Classification</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Health Plan Information Request</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Lead / Opportunity Out reach</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RFP Request</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Division__c</fullName>
+        <externalId>false</externalId>
+        <label>Division</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Bay Area</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Valley</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Market_Interest__c</fullName>
+        <externalId>false</externalId>
+        <label>Market Interest</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Annual Action Plan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Biometrics</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>EAP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Etips</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Executive Health</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Flu Clinic</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Health &amp; Wellness Screening Committee</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Health Coaching</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Health Fairs</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HRA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IHH</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LWFL Program</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mobile Clinic</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Occupational Health</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Onsite Clinics</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Onsite lectures</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Open Enrollment Participation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PEP Product</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Quarterly Newsletter</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Service Line promotion</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Survey</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Care At Home</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Health Plus (SHP)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tele-Medicine</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Open_Enrollment_Month__c</fullName>
+        <externalId>false</externalId>
+        <label>Open Enrollment Month</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Service_Line_Product_Promotion__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Line/Product Promotion</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Bariatric</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cardiology</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>EAP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Elder Care</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Executive Health</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IHH</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Lung Nodule Clinic</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Men&apos;s Health</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mental Health</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Neuroscience</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Occupational Medicine</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Oncology</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Orthopedics</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SHP (Sutter Health Plus)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sutter Care at Home</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Womens and Children</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <label>SHMMN Account Information</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>SA-{0000}</displayFormat>
+        <label>Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>SHMMN Information</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

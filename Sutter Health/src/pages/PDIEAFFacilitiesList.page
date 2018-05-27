@@ -1,0 +1,83 @@
+<apex:page controller="PDIEAFFacilitiesListController">
+    <apex:includeScript value="/support/console/38.0/integration.js"/>
+    <script type="text/javascript" src="{!$Resource.Jquery}">
+    </script>
+    <script>
+    function openTabFunc(EAFId, facilityName){
+        if(EAFId != '') {
+            sforce.console.openPrimaryTab(null, '/apex/PDIEAFFacilityDetail?EAFId='+EAFId, true, facilityName);
+        } else {
+            alert('Facility is not attached to the value');
+        }
+    }
+    function noenter(ev)  {
+        if (window.event && window.event.keyCode == 13 || ev.which == 13) {
+            javascriptSearchFacility();
+            return false;
+        } else {
+            return true;
+        }
+    }
+    </script>
+    <style>
+        table thead tr.x-grid3-hd-row td.x-grid3-td-ACTION_COLUMN  {
+        display : none;
+        }
+        table.x-grid3-row-table tbody tr td.x-grid3-td-ACTION_COLUMN {
+        display : none;
+        } 
+    </style>
+    <div id="EAFPanelListView" style="width:49%; height:100%; float:left">
+        <apex:enhancedList type="PDV_EAF_Facility__c" id="EAFListView" customizable="true" height="600" rowsPerPage="50"/>
+    </div>
+    <apex:form id="frm">
+        <apex:actionFunction name="javascriptSearchFacility" action="{!searchFacility}" rerender="frm,searchResultsPanel" status="status"/>
+        <apex:outputPanel style="width:49%; height:100%; float:right; padding-top:3%" id="righPanel">
+            <apex:pageMessages id="pgmsg"/>
+            <apex:pageBlock title="Search for Facility">
+                <apex:pageBlockSection id="Pgblksec1">
+                    <apex:inputText value="{!faciltyID}" label="EAF ID" onkeypress="return noenter(event);"/> 
+                    <apex:inputText value="{!facilityName}" label="Facility Name" onkeypress="return noenter(event);"/>
+                    <div align="center" draggable="false" >
+                        <apex:commandButton action="{!SearchFacility}" value="Search" rerender="frm,searchResultsPanel" status="status"/>
+                        <apex:actionstatus id="status">
+                            <apex:facet name="start"> 
+                                <span style="color:red;font-weight:bold;padding-left:5px;">Searching...</span>
+                                <img src="/img/loading.gif" alt="" />
+                            </apex:facet>
+                        </apex:actionstatus>
+                    </div>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+            <apex:outputPanel id="searchResultsPanel" rendered="{!showResults}">
+                <apex:pageBlock title="Search Results" >
+                    <apex:pageBlockButtons id="navigationButtonsPanelTop" location="top">
+                        <apex:commandbutton value="<< First" rendered="{!NOT(hasPrevious)}" disabled="true"/>
+                        <apex:commandbutton action="{!doFirst}" value="<< First" reRender="{!$Component.searchResultsPanel}"  rendered="{!hasPrevious}"/>
+                        <apex:commandbutton action="{!doPrevious}" rendered="{!hasPrevious}" value="<< Previous" reRender="{!$Component.searchResultsPanel}" />
+                        <apex:commandbutton rendered="{!NOT(hasPrevious)}" value="<< Previous" disabled="true"/>
+                        
+                        <b><apex:outputLabel value=" (page {!pageNumber} of {!totalPages}) " /></b>
+                        
+                        <apex:commandbutton action="{!doNext}" rendered="{!hasNext}" value="Next >>" reRender="{!$Component.searchResultsPanel}" />
+                        <apex:commandbutton rendered="{!NOT(hasNext)}" value="Next >>" disabled="true"/>
+                        <apex:commandbutton action="{!doLast}" value="Last >>" reRender="{!$Component.searchResultsPanel}" rendered="{!hasNext}"/>
+                        <apex:commandbutton value="Last >>" rendered="{!NOT(hasNext)}" disabled="true"/>
+                    </apex:pageBlockButtons>
+                    <apex:pageBlockTable var="facility" value="{!FacilitiesList}">
+                        <apex:column headerValue="Facility Name">
+                            <apex:outputLink onclick="openTabFunc('{!facility.Id}', '{!facility.Name}'); return false;">{!facility.Name}</apex:outputLink>
+                        </apex:column>
+                        <apex:column value="{!facility.Address_Line_1__c}"/>
+                        <apex:column value="{!facility.CITY__c}"/>
+                        <apex:column value="{!facility.STATE__c}"/>
+                        <apex:column value="{!facility.ZIP_CODE__c}"/>
+                        <apex:column value="{!facility.PHONE__c}"/>
+                        <apex:column value="{!facility.FAX_NUMBER__c}"/>
+                        <apex:column headerValue="Owner Name"  value="{!facility.Owner.Name}"/>
+                    </apex:pageBlockTable> 
+                </apex:pageBlock>
+            </apex:outputPanel>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

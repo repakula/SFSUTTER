@@ -1,0 +1,203 @@
+<apex:page id="thePage" controller="AutoAssignRecordsToAgentsController">
+    <apex:includeScript id="includeResource" value="{!$Resource.Jquery}"/>
+    <c:PDIEAFCSS />    
+    <body>
+        <apex:form id="theForm">
+            <div style="height:10px">
+            </div>
+            <div id="mainDiv" class="center">
+                <table align="center">
+                    <tr>
+                        <td>
+                            <table cellpadding="5px 10px 20px 10px">
+                                <tr>
+                                    <td colspan="2"><b Class="headerfont">Non Validated Provider Records Assignment</b></td>
+                                </tr>
+                                <tr><td colspan="2" height="20px"></td></tr>
+                                <tr>
+                                    <td><apex:outputLabel styleClass="normalfont">No. of Records to be Assigned: </apex:outputLabel>
+                                    </td>
+                                    <td>
+                                        <apex:outputPanel layout="block" styleClass="requiredInput" id="theOutputPanel">
+                                            <div class="requiredBlock"></div>
+                                            <apex:inputText id="recCount" styleClass="inputtext" value="{!recordCount}"/>
+                                        </apex:outputPanel></td>
+                                </tr>
+                                <tr>
+                                    <td><apex:outputLabel styleClass="normalfont">Assign Based On: </apex:outputLabel></td>
+                                    <td><apex:selectList styleClass="input" size="1" multiselect="false" value="{!selectedAssignBasedOn}">
+                                        <apex:selectOptions value="{!AssignBasedOn}">
+                                        </apex:selectOptions>
+                                        </apex:selectList>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><apex:outputLabel styleClass="normalfont">Sorting Order:</apex:outputLabel></td>
+                                    <td><apex:selectList styleClass="input" size="1" multiselect="false" value="{!selectedSortingOrder}">
+                                        <apex:selectOptions value="{!SortingOrder}">
+                                        </apex:selectOptions>
+                                        </apex:selectList></td>
+                                </tr>
+                                <tr><td colspan="2" height="20px"></td></tr>
+                                
+                                <tr><td colspan="2" align="center">
+                                    <apex:actionStatus id="status" >
+                                        <apex:facet name="start">
+                                            <apex:outputPanel >
+                                                Processing... <apex:image value="{!URLFOR($Resource.AjaxLoaderImage)}" height="20px" width="20px"/>
+                                            </apex:outputPanel>
+                                        </apex:facet>
+                                        <apex:facet name="stop">
+                                            <apex:outputPanel id="btnId" rendered="{!showAgents}">
+                                                <apex:actionFunction name="PerformAssign" action="{!Assign}" reRender="thePageBlock, statusReport, successMsg" status="status"/>
+                                                <apex:commandButton value="Save" onclick="validate();return false;" style="padding: 2px;width: 96px;height: 37px;font-size: 2em;background: #00AAA6;color: white;border-radius: 4px;border-top: 1px solid #CCCCCC;border-right: 1px solid #707070;border-bottom: 1px solid #707070;border-left: 1px solid #CCCCCC;"/>
+                                            </apex:outputPanel>
+                                        </apex:facet>
+                                    </apex:actionStatus>
+                                    <apex:outputPanel id="successMsg">
+                                        <apex:pageMessages ></apex:pageMessages>
+                                    </apex:outputPanel>
+                                    </td></tr>
+                            </table>
+                        </td>
+                        <td align="left">
+                            <table align="right">
+                                <tr><td align="center"><b><apex:outputLabel id="campaignStartDate" value="Campaign Start Date : " style="font-size:13px;"></apex:outputLabel>
+                                    <apex:outputText value="{!$Label.CL240_CampaignStartDate}" style="font-size:13px;"></apex:outputText></b></td></tr>
+                                <tr><td align="right">
+                                    <apex:outputPanel id="statusReport">
+                                        <apex:chart height="350" width="450" data="{!pieData}">
+                                            <apex:pieSeries dataField="data" labelField="name">
+                                                <apex:chartTips height="20" width="150" />
+                                            </apex:pieSeries>
+                                            <apex:legend position="bottom"/>
+                                        </apex:chart>  
+                                    </apex:outputPanel>
+                                    </td></tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div>
+                                <apex:pageBlock id="thePageBlock" title="Agents Tickets Status" rendered="{!showAgents}">
+                                    <apex:pageMessage severity="info" 
+                                                      strength="1" 
+                                                      summary="{!$Label.CL415_PDIAgentAssignHelpText}" 
+                                                      />
+                                    <script type="text/javascript">
+                                    $(document).ready(function(){
+                                        
+                                        if($("[id$=recCount]").val() == '')
+                                        {
+                                            $('.checkbox').each(function(){
+                                                this.checked = true;
+                                            });
+                                            $('#select_all').prop('checked',true);
+                                        }
+                                        
+                                        if($('.checkbox:checked').length == $('.checkbox').length){
+                                            $('#select_all').prop('checked',true);
+                                        }else{
+                                            $('#select_all').prop('checked',false);
+                                        }
+                                        
+                                        
+                                        $('#select_all').on('click',function(){
+                                            if(this.checked){
+                                                $('.checkbox').each(function(){
+                                                    this.checked = true;
+                                                });
+                                            }else{
+                                                $('.checkbox').each(function(){
+                                                    this.checked = false;
+                                                });
+                                            }
+                                        });
+                                        
+                                        $('.checkbox').on('click',function(){
+                                            if($('.checkbox:checked').length == $('.checkbox').length){
+                                                $('#select_all').prop('checked',true);
+                                            }else{
+                                                $('#select_all').prop('checked',false);
+                                            }
+                                        });
+                                    });
+                                    
+                                    function validate()
+                                    {
+                                        var count = document.getElementById('{!$Component.theForm.recCount}').value;
+                                        if(count == '' || count == 0)
+                                        {
+                                            alert('Please enter record count.');
+                                            return false;
+                                        }
+                                        else if (isNaN(count)) 
+                                        {
+                                            alert("Must input numbers for Record Count.");
+                                            return false;
+                                        }
+                                            else if(count > 100)
+                                            {
+                                                alert('Please enter record count <= 100.');
+                                                return false;
+                                            }
+                                                else
+                                                {
+                                                    var chkCount = 0;
+                                                    var arrCheckboxes = document.getElementsByTagName("input");
+                                                    for (var i=0; i<arrCheckboxes.length; i++) {
+                                                        if(arrCheckboxes[i].checked == true) {
+                                                            chkCount++;
+                                                        }
+                                                    }
+                                                    if (chkCount === 0) {
+                                                        alert("Please select at least one agent.");
+                                                        return false;
+                                                    } 
+                                                    else
+                                                    {
+                                                        PerformAssign();
+                                                    }
+                                                }
+                                        
+                                        
+                                    }
+                                    function selectAllCheckboxes(obj,receivedInputID){
+                                        var inputCheckBox = document.getElementsByTagName("input"); 
+                                        for(var i=0; i<inputCheckBox.length; i++){          
+                                            if(inputCheckBox[i].id.indexOf(receivedInputID)!=-1){                                     
+                                                inputCheckBox[i].checked = obj.checked;
+                                            }
+                                        }
+                                    }
+                                    </script>
+                                    <apex:pageBlockTable value="{!agentListToDisplay}" var="a">
+                                        <apex:column >
+                                            <apex:facet name="header">
+                                                <input type="checkbox" id="select_all"/>
+                                            </apex:facet>
+                                            <!--<input type="checkbox" class="checkbox" value="{!a.isAssign}"/>-->
+                                            <apex:inputCheckbox id="selectAgent" styleClass="checkbox" value="{!a.isAssign}"/>
+                                        </apex:column>
+                                        <apex:column headerValue="Agent Name" value="{!a.agent.name}"/>
+                                        <apex:column headerValue="Duplicate Phone Agent?">
+                                            <apex:inputCheckbox id="phoneAgent" styleClass="checkbox1" value="{!a.isPhoneAgent}"/>
+                                        </apex:column>
+                                        <apex:column headerValue="Today Open" value="{!a.todayOpen}"/>
+                                        <apex:column headerValue="Today Closed" value="{!a.todayClosed}"/>
+                                        <apex:column headerValue="Today Avg Res Time" value="{!a.todayAvg}"/>
+                                        <apex:column headerValue="Campaign To Date Open" value="{!a.campaignOpen}"/>
+                                        <apex:column headerValue="Campaign To Date Closed" value="{!a.campaignClosed}"/>
+                                        <apex:column headerValue="Campaign To Avg Res Time"  value="{!a.campaignAvg}"/>
+                                    </apex:pageBlockTable>
+                                </apex:pageBlock>
+                            </div>
+                        </td>
+                    </tr>
+                </table>  
+            </div>
+        </apex:form>
+        
+    </body>
+</apex:page>

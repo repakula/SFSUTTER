@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>None</caseAccessLevel>
+    <contactAccessLevel>None</contactAccessLevel>
+    <description>S3 Tier 3 RC Agent</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>S3 Tier 3 RC Agent</name>
+    <opportunityAccessLevel>None</opportunityAccessLevel>
+    <parentRole>S3_RC_Management</parentRole>
+</Role>

@@ -1,0 +1,40 @@
+<apex:page standardController="Opportunity" extensions="SHMMN_OpportunityUpdate" sidebar="false">
+    <apex:form >
+        <apex:pageBlock rendered="{!showPage}">
+            <apex:pageMessages />
+            <apex:pageBlockButtons >
+                <apex:commandButton value="{!$Label.CL_01_SM_Save}" action="{!Save}"/>
+                <apex:commandButton value="{!$Label.CL_02_SM_Cancel}" action="{!Cancel}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="{!$Label.CL_03_SM_OppDetails}">
+                <apex:outputField label="{!$Label.CL_04_SM_OppOwner}" value="{!opp.owner.name}"/>
+                <apex:outputField label="{!$Label.CL_05_SM_OppRecType}" value="{!opp.recordtype.name}"/>
+                <apex:outputField label="{!$Label.CL_06_SM_OppName}" value="{!opp.name}"/>
+                <apex:outputField label="{!$Label.CL_07_SM_AccName}" value="{!opp.account.name}"/>
+                <apex:outputField label="{!$Label.CL_08_SM_Type}" value="{!opp.account.name}"/>
+                <apex:outputField label="{!$Label.CL_09_SM_AccType}" value="{!opp.Account_Type__c}"/>
+                <apex:outputField label="{!$Label.CL_10_SM_Purchased}" value="{!opp.Purchased__c}"/>
+                <apex:outputField label="{!$Label.CL_11_SM_Stage}" value="{!opp.StageName}"/>  
+                <apex:outputField label="{!$Label.CL_12_SM_AccManager}" value="{!opp.Account_Manager__c}"/>  
+                <apex:outputField label="{!$Label.CL_13_SM_Probability}" value="{!opp.Probability}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="{!$Label.CL_14_SM_SHMMNDetails}" columns="2">
+                <apex:inputField label="{!$Label.CL_15_SM_SHMMNOpp}" value="{!opp.SHMMN_Opportunity__c}"/>
+                <apex:inputField label="{!$Label.CL_15_SM_DigitalCampaigns}" value="{!opp.Digital_Campaigns__c}" /> 
+                <apex:inputField label="{!$Label.CL_71_SM_StrategicOpp}" value="{!opp.Strategic_Opportunities__c}"/>
+                <apex:inputField label="{!$Label.CL_72_SM_DirectorofOpp}" value="{!opp.Director_of_Opportunity__c}"/>
+                <apex:inputField label="{!$Label.CL_70_SM_AnnualRevenue}" value="{!opp.Annual_Revenue__c}"/>
+                <apex:inputField label="{!$Label.CL_75_SM_DateOppShared}" value="{!opp.Date_Opportunity_Shared__c}"/>
+                <apex:inputField label="{!$Label.CL_16_SM_ServiceLine_PP}" value="{!opp.Service_Line_Product_Promotion__c}"/>
+                <apex:inputField label="{!$Label.CL_76_SM_OppSharedBy}" value="{!opp.Opportunity_Shared_By__c}"/>
+                <apex:inputField label="{!$Label.CL_69_SM_Classification}" value="{!opp.Classification__c}"/>
+             </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:pageBlock rendered="{!!showPage}">
+            <apex:pageMessages />
+            <apex:pageblockButtons >
+                <apex:commandButton value="{!$Label.CL_20_SM_BacktoOpp}" action="{!Cancel}"/>
+            </apex:pageblockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

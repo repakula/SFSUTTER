@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Request for Information</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Request for Information</value>
+    </caseValues>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Information Received --></label>
+        <name>Date_Information_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Information Requested --></label>
+        <name>Date_Information_Requested__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Request --></label>
+        <name>Service_Request__c</name>
+        <relationshipLabel><!-- Request for Information --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Request for Information Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- The Date Information Received can’t be set to a future date. --></errorMessage>
+        <name>Date_Information_Received</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Date Information Requested can’t be set to a future date. --></errorMessage>
+        <name>Date_Information_Requested</name>
+    </validationRules>
+</CustomObjectTranslation>

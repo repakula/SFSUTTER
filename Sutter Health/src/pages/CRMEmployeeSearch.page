@@ -1,0 +1,148 @@
+<apex:page controller="CRMEmployeeSearchController" tabStyle="Contact" title="Salesforce CRM Search">
+
+
+<script type="text/javascript">
+    setTimeout(function () { 
+      location.reload();
+    }, 60 * 60 * 1000);
+</script>
+
+
+  <apex:form >
+  <apex:pageMessages id="errorMessage"/>
+        <apex:outputPanel id="test">
+        <apex:pageBlock id="LoginBlock" rendered="{!!isLoggedIn}">
+        <Center><H4>Salesforce CRM Search</H4></Center>
+          <apex:panelGrid columns="2" style="margin-top:1em;" rendered="{!!isLoggedIn}">
+            <apex:outputLabel value="Username" for="username" />
+            <apex:inputText id="username" value="{!username}" />
+            <apex:outputLabel value="Password" for="password" />
+            <apex:inputSecret id="password" value="{!password}" />
+             <apex:commandButton action="{!LoginCall}" value="Login" reRender="MainBlock,errorMessage,LoginBlock,test"/>
+           </apex:panelGrid>
+       </apex:pageBlock> 
+       </apex:outputPanel>  
+
+  <apex:outputPanel id="MainBlock">
+      <apex:pageBlock id="SearchSections" rendered="{!isLoggedIn}">
+          <H4>Search for Employee/Provider User records:</H4> &nbsp;&nbsp;&nbsp;&nbsp;
+           <apex:selectList id="chooseSearchType" value="{!searchType}" size="1" multiselect="false">
+            <apex:selectOptions value="{!items}"/>
+            <apex:actionSupport event="onchange" reRender="MainBlock,reRenderBlock,employeeSearchSection,providerSearchSection,errorMessage" action="{!setRenderVariables}"/>
+          </apex:selectList> 
+          
+           <BR/><BR/><BR/>
+           
+           <apex:pageBlockSection title="CRM Employee Search" collapsible="false" id="employeeSearchSection" rendered="{!isEmployeeSearch}">
+              <apex:inputText label="First Name" value="{!firstName}"/>
+              <apex:inputText label="Last Name" value="{!lastName}" />
+              <apex:inputText label="Employee ID" value="{!employeeId}" />
+              <apex:inputText label="AD ID" value="{!employeeAdId}"  />
+              <BR/>
+          </apex:pageBlockSection>
+         
+         
+          <apex:outputPanel id="employeeButton" rendered="{!isEmployeeSearch}" style="margin-left:500px;">
+                 <apex:commandButton action="{!SearchEmployee}" value="Search" reRender="reRenderBlock,errorMessage" /> 
+                 <BR/>
+         </apex:outputPanel>
+         
+          <apex:pageBlockSection rendered="{!isProviderSearch}" id="providerSearchSection" title="CRM Provider Search" collapsible="false">
+              <apex:inputText label="First Name" value="{!pFirstName}"/>
+              <apex:inputText label="Last Name" value="{!pLastName}"/>
+              <apex:inputText label="Username" value="{!pUsername}"/>
+               <apex:inputText label="Email" value="{!pEmail}"/>
+              <apex:inputText label="Fax" value="{!pFax}"/>
+               
+               <BR/>
+          </apex:pageBlockSection>
+          
+          <apex:outputPanel id="providerButton" rendered="{!isProviderSearch}" style="margin-left:500px;">
+                 <apex:commandButton action="{!SearchProvider}" value="Search" reRender="reRenderBlock,errorMessage" /> 
+                 <BR/>
+         </apex:outputPanel>
+             
+         
+      </apex:pageBlock>
+
+      <apex:pageBlock id="reRenderBlock" rendered="{!isLoggedIn}">
+         
+            <apex:pageBlockTable value="{!currentEmployeeResultWrapperList}" var="wrap" rendered="{!isEmployeeSearch}">
+                <apex:column title="Employee Name" headerValue="Contact Name">
+                        <apex:outputLabel value="{!wrap.employeeName }"/>
+                    </apex:column>
+                    <apex:column title="Employee Email" headerValue="Contact Email">
+                            <apex:outputLabel value="{!wrap.employeeEmail}"/>
+                    </apex:column>
+                    <apex:column title="Username" headerValue="Username">
+                             <apex:outputLabel value="{!wrap.username }"/>
+                    </apex:column>
+                    <apex:column title="User Email" headerValue="User Email">
+                        <apex:outputLabel value="{!wrap.userEmail}"/>
+                    </apex:column>
+            </apex:pageBlockTable>
+            
+            <apex:pageBlockTable value="{!currentProviderResultWrapperList}" var="wrap" rendered="{!isProviderSearch}">
+                <apex:column title="Provider ID" headerValue="Provider ID">
+                        <apex:outputLabel value="{!wrap.ProviderID}"/>
+                    </apex:column>
+                    <apex:column title="Name" headerValue="Name">
+                            <apex:outputLabel value="{!wrap.ProviderName}"/>
+                    </apex:column>
+                    <apex:column title="Username" headerValue="Username">
+                        <apex:outputLabel value="{!wrap.Username}"/>
+                    </apex:column>
+                     <apex:column title="Email" headerValue="User Email">
+                             <apex:outputLabel value="{!wrap.UserEmail}"/>
+                    </apex:column>
+                    <apex:column title="Fax" headerValue="Fax">
+                        <apex:outputLabel value="{!wrap.Fax}"/>
+                    </apex:column>
+                     <apex:column title="Phone" headerValue="Phone">
+                        <apex:outputLabel value="{!wrap.Phone}"/>
+                    </apex:column>
+                     <apex:column title="City" headerValue="City">
+                        <apex:outputLabel value="{!wrap.City}"/>
+                    </apex:column>
+                     <apex:column title="State" headerValue="State">
+                        <apex:outputLabel value="{!wrap.State}"/>
+                    </apex:column>
+                     <apex:column title="Zip Code" headerValue="Zip Code">
+                        <apex:outputLabel value="{!wrap.Zip}"/>
+                    </apex:column>
+                    
+            </apex:pageBlockTable>
+            
+            <apex:outputPanel rendered="{!display}">
+                    <apex:outputPanel rendered="{!AND(IF(paginater.isAll, false, true), IF(paginater.totalPage == 1, false, true))}"> 
+                        <h4>Pages:</h4>
+                       <apex:repeat value="{!paginater.pageList}" var="pl"> 
+                            <apex:outputText rendered="{!!pl.isActive}">                
+                                 <apex:commandLink action="{!updatePage}" rerender="reRenderBlock">               
+                                     {!pl.pageNum}                                
+                                    <apex:param name="selectedPage" value="{!pl.pageNum}" assignTo="{!paginater.pageNum}" />  
+                                </apex:commandLink> 
+                                &nbsp;
+                            </apex:outputText> 
+                            <apex:outputText rendered="{!pl.isActive}" value="{!pl.pageNum}" /> 
+                        </apex:repeat> <br />
+                        <apex:outputPanel style="margin-left:45%" rendered="{!display}">
+                            <apex:outputText rendered="{!paginater.showPrevious}">         
+                               <apex:commandLink action="{!previousPage}" value="Prev |" rerender="reRenderBlock" />              
+                             </apex:outputText>
+                            <apex:outputText rendered="{!IF(paginater.showPrevious==false,true,false)}">         
+                               <apex:outputLabel value="Prev |"/>              
+                             </apex:outputText>                      
+                            <apex:outputText rendered="{!paginater.showNext}"> 
+                                <apex:commandLink action="{!nextPage}" value="Next" rerender="reRenderBlock" /> 
+                            </apex:outputText> 
+                            <apex:outputText rendered="{!IF(paginater.showNext==false,true,false)}"> 
+                                <apex:outputLabel value="Next"/> 
+                            </apex:outputText> 
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+                </apex:outputPanel>
+       </apex:pageBlock>
+  </apex:outputPanel>
+  </apex:form>
+</apex:page>

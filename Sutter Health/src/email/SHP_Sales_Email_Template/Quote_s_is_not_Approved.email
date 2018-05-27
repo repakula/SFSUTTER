@@ -1,0 +1,9 @@
+<html>
+<body>
+Hi,<br/><br/>
+
+Your Quote: <a href="'{!$Label.HR193_QuoteListViewURL}'">{!Proposal__c.Name}</a> for {!Proposal__c.Account_Name__c}/DBA: {!Proposal__c.DBA__c},  {!Proposal__c.Email_Employer_Type__c}  has been returned for review and re-submission by the Sales Team for the following: <br/><br/>
+Reason:  {!ApprovalRequest.Comments}<br/><br/>
+Thank you.<br/>
+</body>
+</html>

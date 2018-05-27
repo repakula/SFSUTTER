@@ -1,0 +1,1253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Action Log</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Action Log</value>
+    </caseValues>
+    <fields>
+        <label><!-- Above Ceiling Explanation --></label>
+        <name>Above_Ceiling_Explanation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Action Log Status --></label>
+        <name>Action_Log_Status__c</name>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Hold</masterLabel>
+            <translation><!-- On Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Affiliate --></label>
+        <name>Affiliate__c</name>
+        <picklistValues>
+            <masterLabel>All Bay</masterLabel>
+            <translation><!-- All Bay --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>All Valley</masterLabel>
+            <translation><!-- All Valley --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Alta Bates Medical Center</masterLabel>
+            <translation><!-- Alta Bates Medical Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>California Pacific Medical Center</masterLabel>
+            <translation><!-- California Pacific Medical Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Central Valley Medical Group</masterLabel>
+            <translation><!-- Central Valley Medical Group --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eden Medical Center</masterLabel>
+            <translation><!-- Eden Medical Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gould Medical Group</masterLabel>
+            <translation><!-- Gould Medical Group --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Memorial Hospital Los Banos</masterLabel>
+            <translation><!-- Memorial Hospital Los Banos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Memorial Medical Center</masterLabel>
+            <translation><!-- Memorial Medical Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Menlo Park Surgical Hospital</masterLabel>
+            <translation><!-- Menlo Park Surgical Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mills-Peninsula Health Services</masterLabel>
+            <translation><!-- Mills-Peninsula Health Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Novato Community Hospital</masterLabel>
+            <translation><!-- Novato Community Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Palo Alto Medical Foundation</masterLabel>
+            <translation><!-- Palo Alto Medical Foundation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Palo Alto Medical Foundation – Mills Div</masterLabel>
+            <translation><!-- Palo Alto Medical Foundation – Mills Div --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Leandro Hospital</masterLabel>
+            <translation><!-- San Leandro Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>St. Luke’s Hospital</masterLabel>
+            <translation><!-- St. Luke’s Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Summit Medical Center</masterLabel>
+            <translation><!-- Summit Medical Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Amador Hospital</masterLabel>
+            <translation><!-- Sutter Amador Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Auburn Faith Hospital</masterLabel>
+            <translation><!-- Sutter Auburn Faith Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Care at Home</masterLabel>
+            <translation><!-- Sutter Care at Home --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Center for Psychiatry</masterLabel>
+            <translation><!-- Sutter Center for Psychiatry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Coast Hospital</masterLabel>
+            <translation><!-- Sutter Coast Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Davis Hospital</masterLabel>
+            <translation><!-- Sutter Davis Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Delta Medical Center</masterLabel>
+            <translation><!-- Sutter Delta Medical Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter East Bay Medical Foundation</masterLabel>
+            <translation><!-- Sutter East Bay Medical Foundation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Gould Medical Foundation</masterLabel>
+            <translation><!-- Sutter Gould Medical Foundation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Lakeside Hospital</masterLabel>
+            <translation><!-- Sutter Lakeside Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Maternity and Surgery Center</masterLabel>
+            <translation><!-- Sutter Maternity and Surgery Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Medical Center Sacramento</masterLabel>
+            <translation><!-- Sutter Medical Center Sacramento --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Medical Foundation</masterLabel>
+            <translation><!-- Sutter Medical Foundation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Medical Foundation – Contracted</masterLabel>
+            <translation><!-- Sutter Medical Foundation – Contracted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Pacific Medical Foundation</masterLabel>
+            <translation><!-- Sutter Pacific Medical Foundation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Roseville Medical Center</masterLabel>
+            <translation><!-- Sutter Roseville Medical Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Santa Rosa</masterLabel>
+            <translation><!-- Sutter Santa Rosa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Solano Medical Center</masterLabel>
+            <translation><!-- Sutter Solano Medical Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Tracy Community Hospital</masterLabel>
+            <translation><!-- Sutter Tracy Community Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>System</masterLabel>
+            <translation><!-- System --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Air Flow Explanation --></label>
+        <name>Air_Flow_Explanation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Application Services --></label>
+        <name>Application_Services__c</name>
+    </fields>
+    <fields>
+        <label><!-- BAA? --></label>
+        <name>BAA__c</name>
+    </fields>
+    <fields>
+        <label><!-- CRF Submitted? --></label>
+        <name>CRF_Submitted__c</name>
+    </fields>
+    <fields>
+        <help><!-- Contractor education completed for Hospital Fire and Emergency procedures --></help>
+        <label><!-- Completed: Hospital Fire/Emergency Proc --></label>
+        <name>Completed_Hospital_Fire_Emergency_Proc__c</name>
+    </fields>
+    <fields>
+        <label><!-- Completed: Infection Control Req --></label>
+        <name>Completed_Infection_Control_Req__c</name>
+    </fields>
+    <fields>
+        <label><!-- Confined Space Explanation --></label>
+        <name>Confined_Space_Explanation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Construction Activity Type --></label>
+        <name>Construction_Activity_Type__c</name>
+        <picklistValues>
+            <masterLabel>A</masterLabel>
+            <translation><!-- A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B</masterLabel>
+            <translation><!-- B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C</masterLabel>
+            <translation><!-- C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D</masterLabel>
+            <translation><!-- D --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Construction Clean Required --></label>
+        <name>Construction_Clean_Required__c</name>
+    </fields>
+    <fields>
+        <label><!-- Construction Matrix Class --></label>
+        <name>Construction_Matrix_Class__c</name>
+        <picklistValues>
+            <masterLabel>I</masterLabel>
+            <translation><!-- I --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>II</masterLabel>
+            <translation><!-- II --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>III</masterLabel>
+            <translation><!-- III --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IV</masterLabel>
+            <translation><!-- IV --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Construction Operation Hours --></label>
+        <name>Construction_Operation_Hours__c</name>
+    </fields>
+    <fields>
+        <label><!-- Construction Operation --></label>
+        <name>Construction_Operation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Item Name --></label>
+        <name>Contract_Item_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Signed Actual Date --></label>
+        <name>Contract_Signed_Actual_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Signed Target Date --></label>
+        <name>Contract_Signed_Target_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Type --></label>
+        <name>Contract_Type__c</name>
+        <picklistValues>
+            <masterLabel>Net new</masterLabel>
+            <translation><!-- Net new --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Renewal</masterLabel>
+            <translation><!-- Renewal --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Contractor/Consultant? --></label>
+        <name>Contractor_Consultant__c</name>
+    </fields>
+    <fields>
+        <label><!-- DF Approval Date --></label>
+        <name>DF_Approval_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DSOC Completed? --></label>
+        <name>DSOC_Completed__c</name>
+    </fields>
+    <fields>
+        <label><!-- DSO Notes --></label>
+        <name>DSO_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- DSO Primary Contact --></label>
+        <name>DSO_Primary_Contact__c</name>
+        <relationshipLabel><!-- Action Log (DSO Primary Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- DSO Review Status --></label>
+        <name>DSO_Review_Status__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Started</masterLabel>
+            <translation><!-- Not Started --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Date BAA last executed --></label>
+        <name>Date_BAA_last_executed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date MSA last executed --></label>
+        <name>Date_MSA_last_executed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Detail --></label>
+        <name>Detail__c</name>
+    </fields>
+    <fields>
+        <label><!-- Director Facilities --></label>
+        <name>Director_Facilities__c</name>
+        <relationshipLabel><!-- Action Log (Director Facilities) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Duration --></label>
+        <name>Duration__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dust Explanation --></label>
+        <name>Dust_Explanation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Executive Sponsor --></label>
+        <name>Executive_Sponsor__c</name>
+    </fields>
+    <fields>
+        <label><!-- Food for Thought --></label>
+        <name>Food_for_Thought__c</name>
+    </fields>
+    <fields>
+        <label><!-- Go Live --></label>
+        <name>Go_Live__c</name>
+    </fields>
+    <fields>
+        <label><!-- HSO Approval Date --></label>
+        <name>HSO_Approval_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Environmental hazard Management and mitigation measures required --></help>
+        <label><!-- Hazard Management/Mitigation Measures --></label>
+        <name>Hazard_Management_Mitigation_Measures__c</name>
+    </fields>
+    <fields>
+        <help><!-- Are Hazardous materials or chemicals present? --></help>
+        <label><!-- Hazard: Materials/Chemicals Present --></label>
+        <name>Hazard_Materials_Chemicals_Present__c</name>
+    </fields>
+    <fields>
+        <help><!-- List of Environmental Hazard(s) Present --></help>
+        <label><!-- Hazards Present --></label>
+        <name>Hazards_Present__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hospital Safety Officer --></label>
+        <name>Hospital_Safety_Officer__c</name>
+        <relationshipLabel><!-- Action Log (Hospital Safety Officer) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Hot Permit Explanation --></label>
+        <name>Hot_Permit_Explanation__c</name>
+    </fields>
+    <fields>
+        <label><!-- ICC Approval Date --></label>
+        <name>ICC_Approval_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- ISSC Topic --></label>
+        <name>ISSC_Topic__c</name>
+        <picklistValues>
+            <masterLabel>Action Item Review</masterLabel>
+            <translation><!-- Action Item Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Check in/Roll call</masterLabel>
+            <translation><!-- Check in/Roll call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hot Topics/Misc</masterLabel>
+            <translation><!-- Hot Topics/Misc --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Physician Updates</masterLabel>
+            <translation><!-- Physician Updates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Project Review</masterLabel>
+            <translation><!-- Project Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Round Robin</masterLabel>
+            <translation><!-- Round Robin --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Impact: Above Ceiling Permit Required --></label>
+        <name>Impact_Above_Ceiling_Permit_Required__c</name>
+    </fields>
+    <fields>
+        <help><!-- Will there be any impact on Air Flow --></help>
+        <label><!-- Impact: Air Flow --></label>
+        <name>Impact_Air_Flow__c</name>
+    </fields>
+    <fields>
+        <label><!-- Impact: Confined Space --></label>
+        <name>Impact_Confined_Space__c</name>
+    </fields>
+    <fields>
+        <help><!-- Will the project create any dust --></help>
+        <label><!-- Impact: Dust --></label>
+        <name>Impact_Dust__c</name>
+    </fields>
+    <fields>
+        <help><!-- Is a Hot Permit Required --></help>
+        <label><!-- Impact: Hot Permit Required --></label>
+        <name>Impact_Hot_Permit_Required__c</name>
+    </fields>
+    <fields>
+        <help><!-- Will the project create noise disturbance --></help>
+        <label><!-- Impact: Noise Disturbance --></label>
+        <name>Impact_Noise_Disturbance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Impact: Other Permit(s) --></label>
+        <name>Impact_Other_Permit__c</name>
+    </fields>
+    <fields>
+        <help><!-- Will the project create a vibration disturbance --></help>
+        <label><!-- Impact: Vibration Disturbance --></label>
+        <name>Impact_vibration_disturbance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Infection Control Coordinator --></label>
+        <name>Infection_Control_Coordinator__c</name>
+        <relationshipLabel><!-- Action Log (Infection Control Coordinator) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Infection Control Group --></label>
+        <name>Infection_Control_Group__c</name>
+        <picklistValues>
+            <masterLabel>1</masterLabel>
+            <translation><!-- 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3</masterLabel>
+            <translation><!-- 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4</masterLabel>
+            <translation><!-- 4 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Infection Control Permit Required --></label>
+        <name>Infection_Control_Permit_Required__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please attach an Infection Control Evaluation if Interim Life Safety Measures are required --></help>
+        <label><!-- Interim Life Safety Measures Required --></label>
+        <name>Interim_Life_Safety_Measures_Required__c</name>
+    </fields>
+    <fields>
+        <label><!-- Interruption/Shutdown Explanation --></label>
+        <name>Interruption_Shutdown_Explanation__c</name>
+    </fields>
+    <fields>
+        <label><!-- LOTO Explanation --></label>
+        <name>LOTO_Explanation__c</name>
+    </fields>
+    <fields>
+        <label><!-- LOTO Required --></label>
+        <name>LOTO_Required__c</name>
+    </fields>
+    <fields>
+        <label><!-- MOU Completed? --></label>
+        <name>MOU_Completed__c</name>
+    </fields>
+    <fields>
+        <label><!-- MSA? --></label>
+        <name>MSA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Main Business Owner --></label>
+        <name>Main_Business_Owner__c</name>
+    </fields>
+    <fields>
+        <label><!-- Material/Chemical Hazard Explanation --></label>
+        <name>Material_Chemical_Hazard_Explanation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Attendee --></label>
+        <name>Meeting_Attendee__c</name>
+        <relationshipLabel><!-- Action Log (Meeting Attendee) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Noise Disturbance Explanation --></label>
+        <name>Noise_Disturbance_Explanation__c</name>
+    </fields>
+    <fields>
+        <label><!-- OGC Notes --></label>
+        <name>OGC_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- OGC Primary Contact --></label>
+        <name>OGC_Primary_Contact__c</name>
+    </fields>
+    <fields>
+        <label><!-- OGC Review Status --></label>
+        <name>OGC_Review_Status__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Process</masterLabel>
+            <translation><!-- In Process --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Started</masterLabel>
+            <translation><!-- Not Started --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Offshore Resources? --></label>
+        <name>Offshore_Resources__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other Permit(s) Explanation --></label>
+        <name>Other_Permit_s_Explanation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Owner --></label>
+        <name>Owner__c</name>
+    </fields>
+    <fields>
+        <label><!-- PHI? --></label>
+        <name>PHI__c</name>
+    </fields>
+    <fields>
+        <label><!-- PII --></label>
+        <name>PII__c</name>
+    </fields>
+    <fields>
+        <label><!-- Presentation Time --></label>
+        <name>Presentation_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Presenter --></label>
+        <name>Presenter__c</name>
+        <relationshipLabel><!-- Action Log (Presenter) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Priority --></label>
+        <name>Priority__c</name>
+        <picklistValues>
+            <masterLabel>Critical</masterLabel>
+            <translation><!-- Critical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Project Cost --></label>
+        <name>Project_Cost__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Impact --></label>
+        <name>Project_Impact__c</name>
+        <picklistValues>
+            <masterLabel>Bay</masterLabel>
+            <translation><!-- Bay --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Local</masterLabel>
+            <translation><!-- Local --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>System</masterLabel>
+            <translation><!-- System --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Valley</masterLabel>
+            <translation><!-- Valley --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Notes about the project that are specific to the IS/SS/OGC collaboration. --></help>
+        <label><!-- Project Notes --></label>
+        <name>Project_Notes__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Project Server project number --></help>
+        <label><!-- Project Number --></label>
+        <name>Project_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Related Project --></label>
+        <name>Related_Project__c</name>
+        <relationshipLabel><!-- Action Log --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Renewal Date --></label>
+        <name>Renewal_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Management and mitigation measures required --></help>
+        <label><!-- Required Management/Mitigation Measures --></label>
+        <name>Required_Management_Mitigation_Measure__c</name>
+    </fields>
+    <fields>
+        <label><!-- Review Level --></label>
+        <name>Review_Level__c</name>
+        <picklistValues>
+            <masterLabel>Detailed Review Required</masterLabel>
+            <translation><!-- Detailed Review Required --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>High Level Review Sufficient</masterLabel>
+            <translation><!-- High Level Review Sufficient --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Review Completed</masterLabel>
+            <translation><!-- Review Completed --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Risk --></label>
+        <name>Risk__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- SRA Completed? --></label>
+        <name>SRA_Completed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secondary Affiliate --></label>
+        <name>Secondary_Affiliate__c</name>
+        <picklistValues>
+            <masterLabel>Alta Bates Medical Center</masterLabel>
+            <translation><!-- Alta Bates Medical Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>California Pacific Medical Center</masterLabel>
+            <translation><!-- California Pacific Medical Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Central Valley Medical Group</masterLabel>
+            <translation><!-- Central Valley Medical Group --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eden Medical Center</masterLabel>
+            <translation><!-- Eden Medical Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gould Medical Group</masterLabel>
+            <translation><!-- Gould Medical Group --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Memorial Hospital Los Banos</masterLabel>
+            <translation><!-- Memorial Hospital Los Banos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Memorial Medical Center</masterLabel>
+            <translation><!-- Memorial Medical Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Menlo Park Surgical Hospital</masterLabel>
+            <translation><!-- Menlo Park Surgical Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mills-Peninsula Health Services</masterLabel>
+            <translation><!-- Mills-Peninsula Health Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Novato Community Hospital</masterLabel>
+            <translation><!-- Novato Community Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Palo Alto Medical Foundation</masterLabel>
+            <translation><!-- Palo Alto Medical Foundation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Palo Alto Medical Foundation – Mills Div</masterLabel>
+            <translation><!-- Palo Alto Medical Foundation – Mills Div --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Leandro Hospital</masterLabel>
+            <translation><!-- San Leandro Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>St. Luke’s Hospital</masterLabel>
+            <translation><!-- St. Luke’s Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Summit Medical Center</masterLabel>
+            <translation><!-- Summit Medical Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Amador Hospital</masterLabel>
+            <translation><!-- Sutter Amador Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Auburn Faith Hospital</masterLabel>
+            <translation><!-- Sutter Auburn Faith Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Care at Home</masterLabel>
+            <translation><!-- Sutter Care at Home --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Center for Psychiatry</masterLabel>
+            <translation><!-- Sutter Center for Psychiatry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Coast Hospital</masterLabel>
+            <translation><!-- Sutter Coast Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Davis Hospital</masterLabel>
+            <translation><!-- Sutter Davis Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Delta Medical Center</masterLabel>
+            <translation><!-- Sutter Delta Medical Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter East Bay Medical Foundation</masterLabel>
+            <translation><!-- Sutter East Bay Medical Foundation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Gould Medical Foundation</masterLabel>
+            <translation><!-- Sutter Gould Medical Foundation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Lakeside Hospital</masterLabel>
+            <translation><!-- Sutter Lakeside Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Maternity and Surgery Center</masterLabel>
+            <translation><!-- Sutter Maternity and Surgery Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Medical Center Sacramento</masterLabel>
+            <translation><!-- Sutter Medical Center Sacramento --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Medical Foundation</masterLabel>
+            <translation><!-- Sutter Medical Foundation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Medical Foundation – Contracted</masterLabel>
+            <translation><!-- Sutter Medical Foundation – Contracted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Pacific Medical Foundation</masterLabel>
+            <translation><!-- Sutter Pacific Medical Foundation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Roseville Medical Center</masterLabel>
+            <translation><!-- Sutter Roseville Medical Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Santa Rosa</masterLabel>
+            <translation><!-- Sutter Santa Rosa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Solano Medical Center</masterLabel>
+            <translation><!-- Sutter Solano Medical Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Tracy Community Hospital</masterLabel>
+            <translation><!-- Sutter Tracy Community Hospital --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Strategic Sourcing Notes --></label>
+        <name>Strategic_Sourcing_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Strategic Sourcing Primary Contact --></label>
+        <name>Strategic_Sourcing_Primary_Contact__c</name>
+        <relationshipLabel><!-- Action Log (Strategic Sourcing Primary Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Strategic Sourcing Status --></label>
+        <name>Strategic_Sourcing_Status__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Hold</masterLabel>
+            <translation><!-- On Hold --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Technical Services --></label>
+        <name>Technical_Services__c</name>
+    </fields>
+    <fields>
+        <label><!-- Terminal Clean Required --></label>
+        <name>Terminal_Clean_Required__c</name>
+    </fields>
+    <fields>
+        <label><!-- Topic --></label>
+        <name>Topic__c</name>
+    </fields>
+    <fields>
+        <label><!-- Utility Interruption/Shutdown Procedure --></label>
+        <name>Utility_Interruption_Shutdown_Procedure__c</name>
+    </fields>
+    <fields>
+        <label><!-- Utility: Interruptions Required --></label>
+        <name>Utility_Interruptions_Required__c</name>
+    </fields>
+    <fields>
+        <help><!-- List of utility(s) affected --></help>
+        <label><!-- Utility(s) Affected --></label>
+        <name>Utility_s_Affected__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vibration Disturbance Explanation --></label>
+        <name>Vibration_Disturbance_Explanation__c</name>
+    </fields>
+    <layouts>
+        <layout>Agenda Items Layout</layout>
+        <sections>
+            <label><!-- Application Services --></label>
+            <section>Application Services</section>
+        </sections>
+        <sections>
+            <label><!-- CMIO Updates --></label>
+            <section>CMIO Updates</section>
+        </sections>
+        <sections>
+            <label><!-- CNE Update --></label>
+            <section>CNE Update</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Downtimes --></label>
+            <section>Downtimes</section>
+        </sections>
+        <sections>
+            <label><!-- Other --></label>
+            <section>Other</section>
+        </sections>
+        <sections>
+            <label><!-- Project Services --></label>
+            <section>Project Services</section>
+        </sections>
+        <sections>
+            <label><!-- Round Robin --></label>
+            <section>Round Robin</section>
+        </sections>
+        <sections>
+            <label><!-- Service Level Goals --></label>
+            <section>Service Level Goals</section>
+        </sections>
+        <sections>
+            <label><!-- Technical Services --></label>
+            <section>Technical Services</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ChAM Agenda Items Layout</layout>
+        <sections>
+            <label><!-- Contractor Education Completed --></label>
+            <section>Contractor Education Completed</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Environmental Hazards Present --></label>
+            <section>Environmental Hazards Present</section>
+        </sections>
+        <sections>
+            <label><!-- Fire Prevention/Life Safety Evaluation --></label>
+            <section>Fire Prevention/Life Safety Evaluation</section>
+        </sections>
+        <sections>
+            <label><!-- Infection Control Evaluation --></label>
+            <section>Infection Control Evaluation</section>
+        </sections>
+        <sections>
+            <label><!-- Operations --></label>
+            <section>Operations</section>
+        </sections>
+        <sections>
+            <label><!-- Other Impacts of the Environment --></label>
+            <section>Other Impacts of the Environment</section>
+        </sections>
+        <sections>
+            <label><!-- Project Evaluation Review and Approval --></label>
+            <section>Project Evaluation Review and Approval</section>
+        </sections>
+        <sections>
+            <label><!-- Utility Systems Evaluation --></label>
+            <section>Utility Systems Evaluation</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ISSC</layout>
+        <sections>
+            <label><!-- Application Services --></label>
+            <section>Application Services</section>
+        </sections>
+        <sections>
+            <label><!-- CMIO Updates --></label>
+            <section>CMIO Updates</section>
+        </sections>
+        <sections>
+            <label><!-- CNE Update --></label>
+            <section>CNE Update</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Downtimes --></label>
+            <section>Downtimes</section>
+        </sections>
+        <sections>
+            <label><!-- Other --></label>
+            <section>Other</section>
+        </sections>
+        <sections>
+            <label><!-- Project Services --></label>
+            <section>Project Services</section>
+        </sections>
+        <sections>
+            <label><!-- Round Robin --></label>
+            <section>Round Robin</section>
+        </sections>
+        <sections>
+            <label><!-- Service Level Goals --></label>
+            <section>Service Level Goals</section>
+        </sections>
+        <sections>
+            <label><!-- Technical Services --></label>
+            <section>Technical Services</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ISSC - SAFH</layout>
+        <sections>
+            <label><!-- Application Services --></label>
+            <section>Application Services</section>
+        </sections>
+        <sections>
+            <label><!-- CMIO Updates --></label>
+            <section>CMIO Updates</section>
+        </sections>
+        <sections>
+            <label><!-- CNE Update --></label>
+            <section>CNE Update</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Downtimes --></label>
+            <section>Downtimes</section>
+        </sections>
+        <sections>
+            <label><!-- Other --></label>
+            <section>Other</section>
+        </sections>
+        <sections>
+            <label><!-- Project Services --></label>
+            <section>Project Services</section>
+        </sections>
+        <sections>
+            <label><!-- Round Robin --></label>
+            <section>Round Robin</section>
+        </sections>
+        <sections>
+            <label><!-- Service Level Goals --></label>
+            <section>Service Level Goals</section>
+        </sections>
+        <sections>
+            <label><!-- Technical Services --></label>
+            <section>Technical Services</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ISSC - SAH</layout>
+        <sections>
+            <label><!-- Application Services --></label>
+            <section>Application Services</section>
+        </sections>
+        <sections>
+            <label><!-- CMIO Updates --></label>
+            <section>CMIO Updates</section>
+        </sections>
+        <sections>
+            <label><!-- CNE Update --></label>
+            <section>CNE Update</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Downtimes --></label>
+            <section>Downtimes</section>
+        </sections>
+        <sections>
+            <label><!-- Other --></label>
+            <section>Other</section>
+        </sections>
+        <sections>
+            <label><!-- Project Services --></label>
+            <section>Project Services</section>
+        </sections>
+        <sections>
+            <label><!-- Round Robin --></label>
+            <section>Round Robin</section>
+        </sections>
+        <sections>
+            <label><!-- Service Level Goals --></label>
+            <section>Service Level Goals</section>
+        </sections>
+        <sections>
+            <label><!-- Technical Services --></label>
+            <section>Technical Services</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Leadership</layout>
+        <sections>
+            <label><!-- Application Services --></label>
+            <section>Application Services</section>
+        </sections>
+        <sections>
+            <label><!-- CMIO Updates --></label>
+            <section>CMIO Updates</section>
+        </sections>
+        <sections>
+            <label><!-- CNE Update --></label>
+            <section>CNE Update</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Downtimes --></label>
+            <section>Downtimes</section>
+        </sections>
+        <sections>
+            <label><!-- General Information --></label>
+            <section>General Information</section>
+        </sections>
+        <sections>
+            <label><!-- Other --></label>
+            <section>Other</section>
+        </sections>
+        <sections>
+            <label><!-- Project Services --></label>
+            <section>Project Services</section>
+        </sections>
+        <sections>
+            <label><!-- Round Robin --></label>
+            <section>Round Robin</section>
+        </sections>
+        <sections>
+            <label><!-- Service Level Goals --></label>
+            <section>Service Level Goals</section>
+        </sections>
+        <sections>
+            <label><!-- Technical Services --></label>
+            <section>Technical Services</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>One-on-One</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- General Information --></label>
+            <section>General Information</section>
+        </sections>
+        <sections>
+            <label><!-- Other --></label>
+            <section>Other</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Rounding</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Other --></label>
+            <section>Other</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>SOW</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- DSO --></label>
+            <section>DSO</section>
+        </sections>
+        <sections>
+            <label><!-- General Information --></label>
+            <section>General Information</section>
+        </sections>
+        <sections>
+            <label><!-- Information Services --></label>
+            <section>Information Services</section>
+        </sections>
+        <sections>
+            <label><!-- OGC --></label>
+            <section>OGC</section>
+        </sections>
+        <sections>
+            <label><!-- Other --></label>
+            <section>Other</section>
+        </sections>
+        <sections>
+            <label><!-- Strategic Sourcing --></label>
+            <section>Strategic Sourcing</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- New --></label>
+        <name>New</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- ChAM --></label>
+        <name>ChAM</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- ISSC --></label>
+        <name>ISSC</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- IS/SS/OGC --></label>
+        <name>IS_SS_OGC</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Leadship --></label>
+        <name>Leadship</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- One-on-One --></label>
+        <name>One_on_One</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Rounding --></label>
+        <name>Rounding</name>
+    </recordTypes>
+    <startsWith>Vowel</startsWith>
+    <webLinks>
+        <label><!-- Print --></label>
+        <name>Print</name>
+    </webLinks>
+</CustomObjectTranslation>

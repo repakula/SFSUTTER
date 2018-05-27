@@ -1,0 +1,2465 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Close</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>DeleteSeries</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>NewTask</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>ActivityDate</fullName>
+    </fields>
+    <fields>
+        <fullName>CallDisposition</fullName>
+    </fields>
+    <fields>
+        <fullName>CallDurationInSeconds</fullName>
+    </fields>
+    <fields>
+        <fullName>CallObject</fullName>
+    </fields>
+    <fields>
+        <fullName>CallType</fullName>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+    </fields>
+    <fields>
+        <fullName>Email</fullName>
+    </fields>
+    <fields>
+        <fullName>IsRecurrence</fullName>
+    </fields>
+    <fields>
+        <fullName>IsVisibleInSelfService</fullName>
+    </fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Phone</fullName>
+    </fields>
+    <fields>
+        <fullName>Priority</fullName>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>RecurrenceInterval</fullName>
+    </fields>
+    <fields>
+        <fullName>RecurrenceRegeneratedType</fullName>
+    </fields>
+    <fields>
+        <fullName>Status</fullName>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Subject</fullName>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>TaskSubtype</fullName>
+    </fields>
+    <fields>
+        <fullName>Type</fullName>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>WhatId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>WhoId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <recordTypes>
+        <fullName>Broker_Task</fullName>
+        <active>true</active>
+        <description>This record type is used for Broker Task</description>
+        <label>SHMMN Broker Task</label>
+        <picklistValues>
+            <picklist>Annual_Action_Plan__c</picklist>
+            <values>
+                <fullName>Follow-up Meeting Details For Renewal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow-up with Broker For Renewal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Employer Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Reminder on Upcoming Renewals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Welcome Kit</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Candidate_Connect__c</picklist>
+            <values>
+                <fullName>30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Digital_Campaigns__c</picklist>
+            <values>
+                <fullName>12-Week Stress Less</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12-Week Weight Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4-Week DeStress Your Work</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4-Week Hydration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6-Month Weight Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Breast cancer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Diabetes prevention</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dine on Nine%E2%80%93fruits %26 vegetable series</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Headache management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthy heart</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthy pregnancy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overcoming healthy lifestyle obstacles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sleep</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Smoking cessation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IC_Meeting_Type__c</picklist>
+            <values>
+                <fullName>Account Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Annual Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intro Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Upsell</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wellness Meeting</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Incumbent_Carriers__c</picklist>
+            <values>
+                <fullName>AETNA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ANTHEM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BLUE SHIELD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CAL CHOICE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CALPERS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CHINESE COMMUNITY HEALTH PLAN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CIGNA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HEALTH NET</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KAISER</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OTHER</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SELF FUNDED</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SHP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UNITED Health Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WHA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market_Interest__c</picklist>
+            <values>
+                <fullName>Annual Action Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biometrics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EAP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Etips</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Executive Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Flu Clinic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HRA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health %26 Wellness Screening Committee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Coaching</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Fairs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IHH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LWFL Program</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile Clinic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Occupational Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onsite Clinics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onsite lectures</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open Enrollment Participation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PEP Product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly Newsletter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Line promotion %28then sub tier with service line%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Care At Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Health Plus %28SHP%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tele-Medicine</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Mode__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Person</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WebEx</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Result__c</picklist>
+            <values>
+                <fullName>Follow Up Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Received Agreement Details</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Received Information For Prospect Account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Received Opportunity Details</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Type__c</picklist>
+            <values>
+                <fullName>1st Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow-up Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Touch Point Meeting</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Service_Line_Product_Promotion__c</picklist>
+            <values>
+                <fullName>Bariatric</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cardiology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EAP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Elder Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Executive Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IHH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lung Nodule Clinic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Men%27s Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mental Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neuroscience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Occupational Medicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oncology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orthopedics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SHP %28Sutter Health Plus%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Care at Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Womens and Children</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deferred</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Waiting on someone else</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Strategic_Opportunities__c</picklist>
+            <values>
+                <fullName>Executive Engagement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Experiment A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Experiment B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Experiment C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Experiment D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile Clinic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On-Site Clinic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PEP Product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PHM Collaboration</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>F2F Meeting %28Face to Face%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RFP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Virtual Meeting</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Training_Type__c</picklist>
+            <values>
+                <fullName>Documentation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HealthStream</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Patient Build</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System Build</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Validation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Additional Documentation Requested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Call Back to Requestor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Call Supporting Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FWA case</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MSP case</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outbound Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overpayment case</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Received email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sent Requested information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sent email internal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subrogation case</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Employer_Task</fullName>
+        <active>true</active>
+        <description>This record type is used for Employer Task.</description>
+        <label>SHMMN Employer Task</label>
+        <picklistValues>
+            <picklist>Annual_Action_Plan__c</picklist>
+            <values>
+                <fullName>Follow-up Meeting Details For Renewal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow-up with Broker For Renewal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Employer Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Reminder on Upcoming Renewals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Welcome Kit</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Candidate_Connect__c</picklist>
+            <values>
+                <fullName>30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Digital_Campaigns__c</picklist>
+            <values>
+                <fullName>12-Week Stress Less</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12-Week Weight Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4-Week DeStress Your Work</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4-Week Hydration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6-Month Weight Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Breast cancer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Diabetes prevention</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dine on Nine%E2%80%93fruits %26 vegetable series</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Headache management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthy heart</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthy pregnancy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overcoming healthy lifestyle obstacles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sleep</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Smoking cessation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IC_Meeting_Type__c</picklist>
+            <values>
+                <fullName>Account Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Annual Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intro Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Upsell</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wellness Meeting</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Incumbent_Carriers__c</picklist>
+            <values>
+                <fullName>AETNA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ANTHEM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BLUE SHIELD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CAL CHOICE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CALPERS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CHINESE COMMUNITY HEALTH PLAN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CIGNA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HEALTH NET</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KAISER</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OTHER</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SELF FUNDED</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SHP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UNITED Health Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WHA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market_Interest__c</picklist>
+            <values>
+                <fullName>Annual Action Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biometrics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EAP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Etips</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Executive Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Flu Clinic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HRA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health %26 Wellness Screening Committee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Coaching</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Fairs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IHH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LWFL Program</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile Clinic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Occupational Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onsite Clinics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onsite lectures</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open Enrollment Participation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PEP Product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly Newsletter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Line promotion %28then sub tier with service line%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Care At Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Health Plus %28SHP%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tele-Medicine</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Mode__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Person</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WebEx</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Result__c</picklist>
+            <values>
+                <fullName>Follow Up Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Received Agreement Details</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Received Information For Prospect Account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Received Opportunity Details</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Type__c</picklist>
+            <values>
+                <fullName>1st Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow-up Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Touch Point Meeting</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Service_Line_Product_Promotion__c</picklist>
+            <values>
+                <fullName>Bariatric</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cardiology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EAP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Elder Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Executive Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IHH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lung Nodule Clinic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Men%27s Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mental Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neuroscience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Occupational Medicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oncology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orthopedics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SHP %28Sutter Health Plus%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sutter Care at Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Womens and Children</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deferred</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Waiting on someone else</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Strategic_Opportunities__c</picklist>
+            <values>
+                <fullName>Executive Engagement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Experiment A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Experiment B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Experiment C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Experiment D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile Clinic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On-Site Clinic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PEP Product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PHM Collaboration</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>F2F Meeting %28Face to Face%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RFP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Virtual Meeting</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Training_Type__c</picklist>
+            <values>
+                <fullName>Documentation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HealthStream</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Patient Build</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System Build</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Validation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Additional Documentation Requested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Call Back to Requestor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Call Supporting Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FWA case</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MSP case</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outbound Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overpayment case</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Received email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sent Requested information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sent email internal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subrogation case</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Meeting</fullName>
+        <active>false</active>
+        <description>This record type is used for Meeting</description>
+        <label>Meeting</label>
+        <picklistValues>
+            <picklist>Candidate_Connect__c</picklist>
+            <values>
+                <fullName>30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Mode__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Person</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Result__c</picklist>
+            <values>
+                <fullName>Follow Up Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Received Information For Prospect Account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Received Opportunity Details</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Type__c</picklist>
+            <values>
+                <fullName>1st Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow-up Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Touch Point Meeting</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deferred</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Waiting on someone else</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject</picklist>
+            <values>
+                <fullName>Account Planning Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Introductory Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wellness Meeting</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Training_Type__c</picklist>
+            <values>
+                <fullName>Documentation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HealthStream</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Patient Build</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System Build</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Validation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Other_Activities</fullName>
+        <active>false</active>
+        <description>This record type is used for Other Activities</description>
+        <label>Other Activities</label>
+        <picklistValues>
+            <picklist>Candidate_Connect__c</picklist>
+            <values>
+                <fullName>30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Mode__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Person</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Result__c</picklist>
+            <values>
+                <fullName>Follow Up Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Received Information For Prospect Account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Received Opportunity Details</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Type__c</picklist>
+            <values>
+                <fullName>1st Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow-up Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Touch Point Meeting</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deferred</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Waiting on someone else</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject</picklist>
+            <values>
+                <fullName>Account Planning Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Introductory Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wellness Meeting</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Training_Type__c</picklist>
+            <values>
+                <fullName>Documentation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HealthStream</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Patient Build</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System Build</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Validation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>SHMMN_Broker_Task</fullName>
+        <active>false</active>
+        <label>SHMMN Broker Meeting</label>
+        <picklistValues>
+            <picklist>Candidate_Connect__c</picklist>
+            <values>
+                <fullName>30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Mode__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Person</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WebEx</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Result__c</picklist>
+            <values>
+                <fullName>Follow Up Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Received Agreement Details</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Received Information For Prospect Account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Received Opportunity Details</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Type__c</picklist>
+            <values>
+                <fullName>1st Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow-up Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Touch Point Meeting</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deferred</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Waiting on someone else</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject</picklist>
+            <values>
+                <fullName>Attestation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CCHI Product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CPMC Clinic Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Carrier Conversation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employer Product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IHH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Market Update</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Occ Med</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PEP Conversation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SHP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Line Promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Training_Type__c</picklist>
+            <values>
+                <fullName>Documentation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HealthStream</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Patient Build</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System Build</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Validation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>SHP_Sales_Task</fullName>
+        <active>true</active>
+        <label>SHP Sales Task</label>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deferred</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Waiting on someone else</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject</picklist>
+            <values>
+                <fullName>Broker Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-communication</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Missed Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RFP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Letter%2FQuote</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Service_Task</fullName>
+        <active>true</active>
+        <description>This Task is specific to Service Cloud.</description>
+        <label>Service Task</label>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deferred</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Waiting on someone else</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject</picklist>
+            <values>
+                <fullName>Broker Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-communication</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manager Feedback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Missed Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RFP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Letter%2FQuote</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Additional Documentation Requested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Call Back to Requestor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Call Supporting Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FWA case</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MSP case</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outbound Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overpayment case</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Received email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sent Requested information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sent email internal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subrogation case</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Sourcing_Connect_Task</fullName>
+        <active>true</active>
+        <description>HR Sourcing</description>
+        <label>Sourcing Connect Task</label>
+        <picklistValues>
+            <picklist>Candidate_Connect__c</picklist>
+            <values>
+                <fullName>30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deferred</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Waiting on someone else</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject</picklist>
+            <values>
+                <fullName>Broker Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-communication</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Missed Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RFP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Letter%2FQuote</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Training_Type__c</picklist>
+            <values>
+                <fullName>Documentation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HealthStream</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Patient Build</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System Build</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Validation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Training_Task</fullName>
+        <active>true</active>
+        <description>Task Record type created in Release 6.1</description>
+        <label>Training Task</label>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deferred</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject</picklist>
+            <values>
+                <fullName>Broker Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-communication</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manager Feedback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Missed Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RFP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Letter%2FQuote</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Training</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Training_Type__c</picklist>
+            <values>
+                <fullName>Documentation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HealthStream</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Patient Build</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System Build</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Validation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Additional Documentation Requested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Call Back to Requestor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Call Supporting Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FWA case</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MSP case</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outbound Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overpayment case</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Received email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sent Requested information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sent email internal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subrogation case</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>Enter_Actual_hours_during_closure</fullName>
+        <active>true</active>
+        <description>The actual hours are required during closure</description>
+        <errorConditionFormula>AND( ISPICKVAL(Status,&apos;Completed&apos;)   , ISBLANK(Actual_Hours__c), RecordType.DeveloperName = &apos;Training_Task&apos; )</errorConditionFormula>
+        <errorDisplayField>Actual_Hours__c</errorDisplayField>
+        <errorMessage>Please Enter the actual hours before Closing</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Enter_Projected_hours_only_during_insert</fullName>
+        <active>true</active>
+        <description>The Project hours are mandatory during insert and then cannot be updated later.</description>
+        <errorConditionFormula>OR(AND(ISNEW(),ISBLANK(Projected_Hours__c ),  RecordType.DeveloperName = &apos;Training_Task&apos;  ),  ISCHANGED(Projected_Hours__c))</errorConditionFormula>
+        <errorDisplayField>Projected_Hours__c</errorDisplayField>
+        <errorMessage>Projected hours should be entered during creation</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Mandatory_Other_type_if_type_is_Other</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+INCLUDES(Incumbent_Carriers__c , &apos;OTHER&apos;),ISBLANK( Please_specify_other__c ))</errorConditionFormula>
+        <errorDisplayField>Please_specify_other__c</errorDisplayField>
+        <errorMessage>Please specify other.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Meeting_result_required</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF(AND(OR(RecordType.Name = &apos;SHMMN Broker Task&apos;,RecordType.Name = &apos;SHMMN Employer Task&apos;), ISPICKVAL(Status,&apos;Completed&apos;),  ISPICKVAL(Meeting_Result__c,&apos;&apos;)),true,false)</errorConditionFormula>
+        <errorMessage>Meeting Result is required when meeting is marked as Completed.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Training_Status_On_Hold</fullName>
+        <active>true</active>
+        <description>This validation rule is used for the status field, if it is on Hold then Reason needs to provided</description>
+        <errorConditionFormula>AND( ISPICKVAL(Status,&apos;On Hold&apos;), ISBLANK(Reason__c), RecordType.DeveloperName = &apos;Training_Task&apos; )</errorConditionFormula>
+        <errorDisplayField>Reason__c</errorDisplayField>
+        <errorMessage>Please Provide Reason When Status is On Hold</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>New_TaskC</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Task</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/VF_CustomTaskRedirect?
+what_id={!Case.Id}&amp;
+retURL=%2F{!Case.Id}&amp;
+RecordTypeName=Training+Task&amp;
+ent=Task</url>
+    </webLinks>
+</CustomObject>

@@ -1,0 +1,12 @@
+<apex:page >
+  <apex:form >
+  <!-- Component for GTM-->
+        <c:Portal_User_Info />
+   <!-- Component for GTM-->
+  
+    <!-- Start Google Tag Manager -->
+    <apex:outputLabel value="{!$Label.GTMCustomLabel}" rendered="false"></apex:outputLabel> 
+    <apex:includeScript value="{!$Resource.GTMJavaScript}" />
+    <!-- End Google Tag Manager -->
+  </apex:form>  
+</apex:page>

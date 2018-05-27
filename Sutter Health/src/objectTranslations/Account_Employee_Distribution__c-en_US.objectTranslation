@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Employee Distribution</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Employee Distribution</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Employee Distribution --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- County Percent --></label>
+        <name>County_Percent__c</name>
+    </fields>
+    <fields>
+        <label><!-- County --></label>
+        <name>County__c</name>
+        <picklistValues>
+            <masterLabel>Alameda</masterLabel>
+            <translation><!-- Alameda --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amador</masterLabel>
+            <translation><!-- Amador --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contra Costa</masterLabel>
+            <translation><!-- Contra Costa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>El Dorado</masterLabel>
+            <translation><!-- El Dorado --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lake</masterLabel>
+            <translation><!-- Lake --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marin</masterLabel>
+            <translation><!-- Marin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Merced</masterLabel>
+            <translation><!-- Merced --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Napa</masterLabel>
+            <translation><!-- Napa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nevada</masterLabel>
+            <translation><!-- Nevada --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Placer</masterLabel>
+            <translation><!-- Placer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sacramento</masterLabel>
+            <translation><!-- Sacramento --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Francisco</masterLabel>
+            <translation><!-- San Francisco --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Joaquin</masterLabel>
+            <translation><!-- San Joaquin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Mateo</masterLabel>
+            <translation><!-- San Mateo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Santa Clara</masterLabel>
+            <translation><!-- Santa Clara --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Santa Cruz</masterLabel>
+            <translation><!-- Santa Cruz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Solano</masterLabel>
+            <translation><!-- Solano --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sonoma</masterLabel>
+            <translation><!-- Sonoma --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stanislaus</masterLabel>
+            <translation><!-- Stanislaus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter</masterLabel>
+            <translation><!-- Sutter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yolo</masterLabel>
+            <translation><!-- Yolo --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Region --></label>
+        <name>Region__c</name>
+        <picklistValues>
+            <masterLabel>CVR</masterLabel>
+            <translation><!-- CVR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EBR</masterLabel>
+            <translation><!-- EBR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OOSA</masterLabel>
+            <translation><!-- OOSA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PCR</masterLabel>
+            <translation><!-- PCR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SSR</masterLabel>
+            <translation><!-- SSR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WBR</masterLabel>
+            <translation><!-- WBR --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Employee Distribution Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- County should be selected if County Percent is not blank --></errorMessage>
+        <name>County_Cannot_be_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- County Percent cannot be blank if County is selected --></errorMessage>
+        <name>County_Perc_cannot_be_Blank</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -1,0 +1,98 @@
+<apex:component >
+<apex:attribute required="false" name="correspondenceEmployer" type="Correspondence_Letter__c[]" description="Correspondence List" />
+    <apex:attribute required="false" name="prvCorrespondenceMember" type="boolean" description="Pagination  state" />
+    <apex:attribute required="false" name="nxtCorrespondenceMember" type="boolean" description="Pagination  state" />
+     <apex:attribute required="false" name="outputPanel" type="string" description="output panel"/>
+    <apex:attribute required="false" name="checkCorrespondenceEmployer" type="boolean" description="Correspondence boolean" />
+    <apex:attribute required="false" name="fstbtn" type="ApexPages.Action" description="first Button for Pagination"/>
+    <apex:attribute required="false" name="prvbtn" type="ApexPages.Action" description="Prev Button for Pagination"/>
+    <apex:attribute required="false" name="nextbtn" type="ApexPages.Action" description="Next button"/>
+    <apex:attribute required="false" name="endbtn" type="ApexPages.Action" description="Last Button"/>
+    <apex:attribute required="false" name="tabId" type="string" description="tab id "/>
+    <apex:attribute required="false" name="CorrespondenceEmployerMember" type="string" description="apex param "/>
+    <apex:attribute required="false" name="labelValue" type="string" description="label Value "/>   
+
+    <apex:outputPanel rendered="{!checkCorrespondenceEmployer}">
+        <apex:variable value="{!1}" var="counterCorrespondence" />
+        <table border="1" class="tableheadings" align="Center">
+            <tr>
+                <td>{!$Label.Cl_166_Correspondence_ID}</td>
+                <td>{!$Label.CL167_Correspondence_Display_Name} </td>
+                <td>{!$Label.CL173_Correspondence_Entity_Subject_HCC_ID} </td>
+                <td>{!$Label.CL168_Mailing_Address}</td>
+                <td>{!$Label.CL169_DateTime_Triggered}</td>
+                <td>{!$Label.CL170_DateTime_Generated}</td>
+                <td>{!$Label.CL171_Date_Printed}</td>
+                <td>{!$Label.CL172_Date_Transferred_to_Post_Office}</td>
+            </tr>
+        </table>
+        <apex:repeat value="{!correspondenceEmployer}" var="corresEmployer">
+            <table border="1" class="tabledata">
+
+                <tr style="background-color:{!if(MOD(counterCorrespondence,2)==0,'#cfeef8','White')}">
+                    <td width="10%">
+
+                        <a href="#" onClick='window.open("{!corresEmployer.CorrespondenceOnBase_URL__c}","_blank")'>{!corresEmployer.SHP_Correspondence_ID__c}</a>
+
+                    </td>
+
+                    <td width="10%"> {!corresEmployer.SHP_Correspondence_Display_Name__c}</td>
+                    <td>{!corresEmployer.SHP_Correspondence_Entity_Subject_HCC_ID__c}</td>
+                    <td>{!corresEmployer.SHP_Mailing_Address__c}</td>
+                    <td>
+                        <apex:outputText value=" {0,date,MM/dd/yy HH:mm a}">
+                            <apex:param value="{!corresEmployer.SHP_DateTime_Triggered__c}" />
+                        </apex:outputText>
+                    </td>
+                   
+                    <td>
+                        <apex:outputText value=" {0,date,MM/dd/yy HH:mm a}">
+                            <apex:param value="{!corresEmployer.SHP_DateTime_Generated__c}" />
+                        </apex:outputText>
+                    </td>
+                   
+                    <td>
+                        <apex:outputText value=" {0,date,MM/dd/yy}">
+                            <apex:param value="{!corresEmployer.SHP_Date_Printed__c}" />
+                        </apex:outputText>
+                    </td>
+                    
+                    <td>
+                        <apex:outputText value=" {0,date,MM/dd/yy}">
+                            <apex:param value="{!corresEmployer.SHP_Date_Transferred_to_Post_Office__c}" />
+                        </apex:outputText>
+                    </td>
+                    
+                </tr>
+            </table>
+            <apex:variable value="{!counterCorrespondence + 1}" var="counterCorrespondence" />
+        </apex:repeat>
+        <apex:panelGrid columns="4" styleclass="panelgrid">
+            <apex:commandLink value="|<<" action="{!fstbtn}" reRender="{!outputPanel}" rendered="{!prvCorrespondenceMember}" styleclass="commandlink" status="loadStatus">
+                <apex:param name="{!CorrespondenceEmployerMember}" assignTo="{!tabID}" value="{!labelValue}" />
+
+            </apex:commandLink>
+            <apex:commandLink value="<" action="{!prvbtn}" reRender="{!outputPanel}" rendered="{!prvCorrespondenceMember}" styleclass="commandlink" status="loadStatus">
+                <apex:param name="{!CorrespondenceEmployerMember}" assignTo="{!tabID}" value="{!labelValue}" />
+
+            </apex:commandLink>
+            <apex:commandLink value=">" action="{!nextbtn}" reRender="{!outputPanel}"  rendered="{!nxtCorrespondenceMember}" styleclass="commandlink" status="loadStatus">
+                <apex:param name="{!CorrespondenceEmployerMember}" assignTo="{!tabID}" value="{!labelValue}" />
+
+            </apex:commandLink>
+            <apex:commandLink value=">>|" action="{!endbtn}" reRender="{!outputPanel}" rendered="{!nxtCorrespondenceMember}" styleclass="commandlink" status="loadStatus">
+                <apex:param name="{!CorrespondenceEmployerMember}" assignTo="{!tabID}" value="{!labelValue}" />
+
+            </apex:commandLink>
+            <apex:actionStatus id="loadStatus">
+                <apex:facet name="start">
+                    <img src="/img/loading.gif" />
+                </apex:facet>
+            </apex:actionStatus>
+        </apex:panelGrid>
+    </apex:outPutPanel>
+     <apex:outputpanel rendered="{!!checkCorrespondenceEmployer}">
+        <apex:outputText value="No Record Found" styleClass="noRecord">
+        </apex:outputtext>
+    </apex:outputPanel>
+</apex:component>

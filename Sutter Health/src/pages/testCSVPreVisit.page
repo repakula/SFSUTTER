@@ -1,0 +1,6 @@
+<apex:page controller="AQRSCRMController"  readOnly="true" contentType="application/vnd.csv#PatientPVPList.csv">
+{!headerPVP}
+  <apex:repeat value="{!recievedpatientPVPList}" var="PVP">    
+   {!PVP.outReached},{!PVP.patient_name},{!PVP.patient_mrn},<apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!PVP.patient_dob}"/></apex:outputText> ,{!PVP.patient_gender},{!PVP.preferred_communication_method},{!PVP.email_address},{!PVP.patient_home_phone},{!PVP.possible_actions_needed},"{!PVP.provider_ID}",{!PVP.measure_Name}, {!PVP.next_appointment_type},{!PVP.payor_Name},{!PVP.patient_Race},{!PVP.facility_ID},{!PVP.division_name},{!PVP.last_awv_date},{!PVP.date_of_last_appointment},{!PVP.date_of_next_appointment},"{!PVP.patient_home_address}","{!PVP.next_appointment_provider}",{!PVP.specialty},{!PVP.next_appointment_department_name},{!PVP.population},{!PVP.department_Name},{!PVP.last_appointment_type},{!PVP.next_Appointment_Time},{!PVP.quality_gaps},{!PVP.hcc_gaps},{!PVP.awv_gaps},{!PVP.total_Gaps}
+   </apex:repeat>
+</apex:page>

@@ -1,0 +1,15 @@
+Help Desk - Please create a Service Request and assign to the Functional Group “Sutter Health Plan” to take the next steps for the EDI feed. Details are found below.
+
+{!Employer_Group_Data__c.CreatedBy}
+This is to let you know that the SCN for the {!Employer_Group_Data__c.Company_Name__c} has been approved by Enrollment team and the Enrollment Method is Electronic, please take the next steps for EDI feed.
+Vendor Name: {!Employer_Group_Data__c.Vendor_Name__c}
+Vendor Contact Name: {!Employer_Group_Data__c.Vendor_Contact_Name__c}
+Vendor Contact Phone: {!Employer_Group_Data__c.Vendor_Contact_Phone__c}
+Vendor Contact Email: {!Employer_Group_Data__c.Vendor_Contact_Email__c}
+EDI Vendor Name:  {!Employer_Group_Data__c.EDI_Vendor_Name__c}
+EDI Vendor Phone: {!Employer_Group_Data__c.EDI_Vendor_Phone__c}
+EDI Vendor Email:  {!Employer_Group_Data__c.EDI_Vendor_E_Mail__c}
+
+
+Regards,
+SHP Sales

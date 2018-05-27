@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Activity</value>
+        </caseValues>
+        <name>subject_activity</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <label><!-- Actual Hours --></label>
+        <name>Actual_Hours__c</name>
+    </fields>
+    <fields>
+        <label><!-- Annual Action Plan --></label>
+        <name>Annual_Action_Plan__c</name>
+        <picklistValues>
+            <masterLabel>Follow-up Meeting Details For Renewal</masterLabel>
+            <translation><!-- Follow-up Meeting Details For Renewal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Follow-up with Broker For Renewal</masterLabel>
+            <translation><!-- Follow-up with Broker For Renewal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Send Employer Survey</masterLabel>
+            <translation><!-- Send Employer Survey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Send Reminder on Upcoming Renewals</masterLabel>
+            <translation><!-- Send Reminder on Upcoming Renewals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Send Welcome Kit</masterLabel>
+            <translation><!-- Send Welcome Kit --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Candidate Connect --></label>
+        <name>Candidate_Connect__c</name>
+        <picklistValues>
+            <masterLabel>30</masterLabel>
+            <translation><!-- 30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60</masterLabel>
+            <translation><!-- 60 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>90</masterLabel>
+            <translation><!-- 90 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Completed Date --></label>
+        <name>Completed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DB Activity Type --></label>
+        <name>DB_Activity_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Digital Campaigns --></label>
+        <name>Digital_Campaigns__c</name>
+        <picklistValues>
+            <masterLabel>12-Week Stress Less</masterLabel>
+            <translation><!-- 12-Week Stress Less --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12-Week Weight Management</masterLabel>
+            <translation><!-- 12-Week Weight Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4-Week DeStress Your Work</masterLabel>
+            <translation><!-- 4-Week DeStress Your Work --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4-Week Hydration</masterLabel>
+            <translation><!-- 4-Week Hydration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6-Month Weight Management</masterLabel>
+            <translation><!-- 6-Month Weight Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Breast cancer</masterLabel>
+            <translation><!-- Breast cancer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Diabetes prevention</masterLabel>
+            <translation><!-- Diabetes prevention --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dine on Nine–fruits &amp; vegetable series</masterLabel>
+            <translation><!-- Dine on Nine–fruits &amp; vegetable series --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Headache management</masterLabel>
+            <translation><!-- Headache management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Healthy heart</masterLabel>
+            <translation><!-- Healthy heart --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Healthy pregnancy</masterLabel>
+            <translation><!-- Healthy pregnancy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Overcoming healthy lifestyle obstacles</masterLabel>
+            <translation><!-- Overcoming healthy lifestyle obstacles --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sleep</masterLabel>
+            <translation><!-- Sleep --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Smoking cessation</masterLabel>
+            <translation><!-- Smoking cessation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- IC Meeting Type --></label>
+        <name>IC_Meeting_Type__c</name>
+        <picklistValues>
+            <masterLabel>Account Management</masterLabel>
+            <translation><!-- Account Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Annual Planning</masterLabel>
+            <translation><!-- Annual Planning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Intro Meeting</masterLabel>
+            <translation><!-- Intro Meeting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Upsell</masterLabel>
+            <translation><!-- Upsell --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wellness Meeting</masterLabel>
+            <translation><!-- Wellness Meeting --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Carrier Partners --></label>
+        <name>Incumbent_Carriers__c</name>
+        <picklistValues>
+            <masterLabel>AETNA</masterLabel>
+            <translation><!-- AETNA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ANTHEM</masterLabel>
+            <translation><!-- ANTHEM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BLUE SHIELD</masterLabel>
+            <translation><!-- BLUE SHIELD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CAL CHOICE</masterLabel>
+            <translation><!-- CAL CHOICE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CALPERS</masterLabel>
+            <translation><!-- CALPERS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CHINESE COMMUNITY HEALTH PLAN</masterLabel>
+            <translation><!-- CHINESE COMMUNITY HEALTH PLAN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CIGNA</masterLabel>
+            <translation><!-- CIGNA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HEALTH NET</masterLabel>
+            <translation><!-- HEALTH NET --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KAISER</masterLabel>
+            <translation><!-- KAISER --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OTHER</masterLabel>
+            <translation><!-- OTHER --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SELF FUNDED</masterLabel>
+            <translation><!-- SELF FUNDED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SHP</masterLabel>
+            <translation><!-- SHP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UNITED Health Care</masterLabel>
+            <translation><!-- UNITED Health Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WHA</masterLabel>
+            <translation><!-- WHA --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Market Interest --></label>
+        <name>Market_Interest__c</name>
+        <picklistValues>
+            <masterLabel>Annual Action Plan</masterLabel>
+            <translation><!-- Annual Action Plan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Biometrics</masterLabel>
+            <translation><!-- Biometrics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EAP</masterLabel>
+            <translation><!-- EAP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Etips</masterLabel>
+            <translation><!-- Etips --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Executive Health</masterLabel>
+            <translation><!-- Executive Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Flu Clinic</masterLabel>
+            <translation><!-- Flu Clinic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HRA</masterLabel>
+            <translation><!-- HRA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health &amp; Wellness Screening Committee</masterLabel>
+            <translation><!-- Health &amp; Wellness Screening Committee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Coaching</masterLabel>
+            <translation><!-- Health Coaching --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Fairs</masterLabel>
+            <translation><!-- Health Fairs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IHH</masterLabel>
+            <translation><!-- IHH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LWFL Program</masterLabel>
+            <translation><!-- LWFL Program --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mobile Clinic</masterLabel>
+            <translation><!-- Mobile Clinic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Occupational Health</masterLabel>
+            <translation><!-- Occupational Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Onsite Clinics</masterLabel>
+            <translation><!-- Onsite Clinics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Onsite lectures</masterLabel>
+            <translation><!-- Onsite lectures --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open Enrollment Participation</masterLabel>
+            <translation><!-- Open Enrollment Participation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PEP Product</masterLabel>
+            <translation><!-- PEP Product --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly Newsletter</masterLabel>
+            <translation><!-- Quarterly Newsletter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Line promotion (then sub tier with service line)</masterLabel>
+            <translation><!-- Service Line promotion (then sub tier with service line) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Survey</masterLabel>
+            <translation><!-- Survey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Care At Home</masterLabel>
+            <translation><!-- Sutter Care At Home --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Health Plus (SHP)</masterLabel>
+            <translation><!-- Sutter Health Plus (SHP) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tele-Medicine</masterLabel>
+            <translation><!-- Tele-Medicine --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Meeting Agenda --></label>
+        <name>Meeting_Agenda__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Mode --></label>
+        <name>Meeting_Mode__c</name>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Person</masterLabel>
+            <translation><!-- In Person --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phone</masterLabel>
+            <translation><!-- Phone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WebEx</masterLabel>
+            <translation><!-- WebEx --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Meeting Result --></label>
+        <name>Meeting_Result__c</name>
+        <picklistValues>
+            <masterLabel>Follow Up Meeting</masterLabel>
+            <translation><!-- Follow Up Meeting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meeting Cancelled</masterLabel>
+            <translation><!-- Meeting Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Received Agreement Details</masterLabel>
+            <translation><!-- Received Agreement Details --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Received Information For Prospect Account</masterLabel>
+            <translation><!-- Received Information For Prospect Account --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Received Opportunity Details</masterLabel>
+            <translation><!-- Received Opportunity Details --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Meeting Type --></label>
+        <name>Meeting_Type__c</name>
+        <picklistValues>
+            <masterLabel>1st Meeting</masterLabel>
+            <translation><!-- 1st Meeting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Follow-up Meeting</masterLabel>
+            <translation><!-- Follow-up Meeting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Touch Point Meeting</masterLabel>
+            <translation><!-- Touch Point Meeting --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Meeting With Executive --></label>
+        <name>Meeting_With_Executive__c</name>
+    </fields>
+    <fields>
+        <label><!-- Please specify other --></label>
+        <name>Please_specify_other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Projected Hours --></label>
+        <name>Projected_Hours__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter Reason why Status is On Hold or Deferred --></help>
+        <label><!-- Reason --></label>
+        <name>Reason__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Line/Product Promotion --></label>
+        <name>Service_Line_Product_Promotion__c</name>
+        <picklistValues>
+            <masterLabel>Bariatric</masterLabel>
+            <translation><!-- Bariatric --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cardiology</masterLabel>
+            <translation><!-- Cardiology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EAP</masterLabel>
+            <translation><!-- EAP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Elder Care</masterLabel>
+            <translation><!-- Elder Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Executive Health</masterLabel>
+            <translation><!-- Executive Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IHH</masterLabel>
+            <translation><!-- IHH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lung Nodule Clinic</masterLabel>
+            <translation><!-- Lung Nodule Clinic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Men&apos;s Health</masterLabel>
+            <translation><!-- Men&apos;s Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mental Health</masterLabel>
+            <translation><!-- Mental Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Neuroscience</masterLabel>
+            <translation><!-- Neuroscience --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Occupational Medicine</masterLabel>
+            <translation><!-- Occupational Medicine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oncology</masterLabel>
+            <translation><!-- Oncology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Orthopedics</masterLabel>
+            <translation><!-- Orthopedics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SHP (Sutter Health Plus)</masterLabel>
+            <translation><!-- SHP (Sutter Health Plus) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sutter Care at Home</masterLabel>
+            <translation><!-- Sutter Care at Home --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Womens and Children</masterLabel>
+            <translation><!-- Womens and Children --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Strategic Opportunities --></label>
+        <name>Strategic_Opportunities__c</name>
+        <picklistValues>
+            <masterLabel>Executive Engagement</masterLabel>
+            <translation><!-- Executive Engagement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Experiment A</masterLabel>
+            <translation><!-- Experiment A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Experiment B</masterLabel>
+            <translation><!-- Experiment B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Experiment C</masterLabel>
+            <translation><!-- Experiment C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Experiment D</masterLabel>
+            <translation><!-- Experiment D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mobile Clinic</masterLabel>
+            <translation><!-- Mobile Clinic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On-Site Clinic</masterLabel>
+            <translation><!-- On-Site Clinic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PEP Product</masterLabel>
+            <translation><!-- PEP Product --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PHM Collaboration</masterLabel>
+            <translation><!-- PHM Collaboration --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Topic --></label>
+        <name>Topic__c</name>
+    </fields>
+    <fields>
+        <label><!-- Task Type --></label>
+        <name>Training_Type1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Task Type --></label>
+        <name>Training_Type__c</name>
+        <picklistValues>
+            <masterLabel>Documentation</masterLabel>
+            <translation><!-- Documentation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HealthStream</masterLabel>
+            <translation><!-- HealthStream --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meeting</masterLabel>
+            <translation><!-- Meeting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patient Build</masterLabel>
+            <translation><!-- Patient Build --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Review</masterLabel>
+            <translation><!-- Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>System Build</masterLabel>
+            <translation><!-- System Build --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Training</masterLabel>
+            <translation><!-- Training --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Validation</masterLabel>
+            <translation><!-- Validation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Type Value --></label>
+        <name>Type_Value__c</name>
+    </fields>
+</CustomObjectTranslation>

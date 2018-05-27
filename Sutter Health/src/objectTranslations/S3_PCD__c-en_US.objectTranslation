@@ -1,0 +1,990 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>S3 Position</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>S3 Positions</value>
+    </caseValues>
+    <fields>
+        <label><!-- Anniversary Date --></label>
+        <name>Anniversary_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approved Date --></label>
+        <name>Approved_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approved --></label>
+        <name>Approved__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unapproved</masterLabel>
+            <translation><!-- Unapproved --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Budgeted --></label>
+        <name>Budgeted__c</name>
+        <picklistValues>
+            <masterLabel>Budgeted</masterLabel>
+            <translation><!-- Budgeted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unbudgeted</masterLabel>
+            <translation><!-- Unbudgeted --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Business Release --></label>
+        <name>Business_Release__c</name>
+        <picklistValues>
+            <masterLabel>BR 1</masterLabel>
+            <translation><!-- BR 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BR 10</masterLabel>
+            <translation><!-- BR 10 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BR 11</masterLabel>
+            <translation><!-- BR 11 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BR 12</masterLabel>
+            <translation><!-- BR 12 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BR 13</masterLabel>
+            <translation><!-- BR 13 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BR 14</masterLabel>
+            <translation><!-- BR 14 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BR 15</masterLabel>
+            <translation><!-- BR 15 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BR 16</masterLabel>
+            <translation><!-- BR 16 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BR 2</masterLabel>
+            <translation><!-- BR 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BR 3</masterLabel>
+            <translation><!-- BR 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BR 4</masterLabel>
+            <translation><!-- BR 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BR 5</masterLabel>
+            <translation><!-- BR 5 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BR 6</masterLabel>
+            <translation><!-- BR 6 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BR 7</masterLabel>
+            <translation><!-- BR 7 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BR 8</masterLabel>
+            <translation><!-- BR 8 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BR 9</masterLabel>
+            <translation><!-- BR 9 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SOPS 1</masterLabel>
+            <translation><!-- SOPS 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SOPS 2</masterLabel>
+            <translation><!-- SOPS 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SOPS 3</masterLabel>
+            <translation><!-- SOPS 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SOPS 4</masterLabel>
+            <translation><!-- SOPS 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SOPS 5</masterLabel>
+            <translation><!-- SOPS 5 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Computer ID --></label>
+        <name>Computer_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cost Center --></label>
+        <name>Cost_Center__c</name>
+        <picklistValues>
+            <masterLabel>551020</masterLabel>
+            <translation><!-- 551020 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>551021</masterLabel>
+            <translation><!-- 551021 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>551022</masterLabel>
+            <translation><!-- 551022 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>618611</masterLabel>
+            <translation><!-- 618611 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8400</masterLabel>
+            <translation><!-- 8400 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8401</masterLabel>
+            <translation><!-- 8401 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8402</masterLabel>
+            <translation><!-- 8402 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8403</masterLabel>
+            <translation><!-- 8403 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8406</masterLabel>
+            <translation><!-- 8406 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8510</masterLabel>
+            <translation><!-- 8510 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8511</masterLabel>
+            <translation><!-- 8511 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8512</masterLabel>
+            <translation><!-- 8512 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8514</masterLabel>
+            <translation><!-- 8514 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8515</masterLabel>
+            <translation><!-- 8515 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8519</masterLabel>
+            <translation><!-- 8519 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8530</masterLabel>
+            <translation><!-- 8530 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8531</masterLabel>
+            <translation><!-- 8531 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8532</masterLabel>
+            <translation><!-- 8532 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8533</masterLabel>
+            <translation><!-- 8533 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8534</masterLabel>
+            <translation><!-- 8534 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8535</masterLabel>
+            <translation><!-- 8535 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8536</masterLabel>
+            <translation><!-- 8536 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8537</masterLabel>
+            <translation><!-- 8537 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8538</masterLabel>
+            <translation><!-- 8538 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8539</masterLabel>
+            <translation><!-- 8539 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8561</masterLabel>
+            <translation><!-- 8561 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8562</masterLabel>
+            <translation><!-- 8562 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8569</masterLabel>
+            <translation><!-- 8569 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8590</masterLabel>
+            <translation><!-- 8590 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8610</masterLabel>
+            <translation><!-- 8610 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8611</masterLabel>
+            <translation><!-- 8611 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8613</masterLabel>
+            <translation><!-- 8613 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8614</masterLabel>
+            <translation><!-- 8614 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8616</masterLabel>
+            <translation><!-- 8616 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8617</masterLabel>
+            <translation><!-- 8617 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8619</masterLabel>
+            <translation><!-- 8619 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8650</masterLabel>
+            <translation><!-- 8650 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8651</masterLabel>
+            <translation><!-- 8651 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8653</masterLabel>
+            <translation><!-- 8653 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8654</masterLabel>
+            <translation><!-- 8654 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8656</masterLabel>
+            <translation><!-- 8656 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8658</masterLabel>
+            <translation><!-- 8658 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8659</masterLabel>
+            <translation><!-- 8659 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8699</masterLabel>
+            <translation><!-- 8699 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8700</masterLabel>
+            <translation><!-- 8700 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8701</masterLabel>
+            <translation><!-- 8701 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8702</masterLabel>
+            <translation><!-- 8702 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8703</masterLabel>
+            <translation><!-- 8703 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8704</masterLabel>
+            <translation><!-- 8704 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8705</masterLabel>
+            <translation><!-- 8705 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8706</masterLabel>
+            <translation><!-- 8706 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8707</masterLabel>
+            <translation><!-- 8707 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8708</masterLabel>
+            <translation><!-- 8708 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8709</masterLabel>
+            <translation><!-- 8709 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8710</masterLabel>
+            <translation><!-- 8710 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Employee --></label>
+        <name>Employee__c</name>
+        <relationshipLabel><!-- S3 Position --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Function --></label>
+        <name>Function__c</name>
+        <picklistValues>
+            <masterLabel>Adminstration</masterLabel>
+            <translation><!-- Adminstration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contact Center</masterLabel>
+            <translation><!-- Contact Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credential Verification</masterLabel>
+            <translation><!-- Credential Verification --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Document Management Center</masterLabel>
+            <translation><!-- Document Management Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance</masterLabel>
+            <translation><!-- Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR - Project/Growth</masterLabel>
+            <translation><!-- HR - Project/Growth --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Human Resources</masterLabel>
+            <translation><!-- Human Resources --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leadership</masterLabel>
+            <translation><!-- Leadership --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revenue Cycle</masterLabel>
+            <translation><!-- Revenue Cycle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Supply Chain</masterLabel>
+            <translation><!-- Supply Chain --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Support</masterLabel>
+            <translation><!-- Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eQuip</masterLabel>
+            <translation><!-- eQuip --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Job Code Hierarchy --></label>
+        <name>Job_Code_Hierarchy__c</name>
+        <relationshipLabel><!-- S3 Positions (Job Code Hierarchy) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Job Code --></label>
+        <name>Job_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job Title --></label>
+        <name>Job_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Level --></label>
+        <name>Level__c</name>
+        <picklistValues>
+            <masterLabel>0</masterLabel>
+            <translation><!-- 0 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1</masterLabel>
+            <translation><!-- 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3</masterLabel>
+            <translation><!-- 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4</masterLabel>
+            <translation><!-- 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5</masterLabel>
+            <translation><!-- 5 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Location --></label>
+        <name>Location__c</name>
+        <picklistValues>
+            <masterLabel>Affiliate</masterLabel>
+            <translation><!-- Affiliate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DMC</masterLabel>
+            <translation><!-- DMC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Home-Remote</masterLabel>
+            <translation><!-- Home-Remote --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>North 1st Flr</masterLabel>
+            <translation><!-- North 1st Flr --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>North 2nd Flr</masterLabel>
+            <translation><!-- North 2nd Flr --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>North 3rd Flr</masterLabel>
+            <translation><!-- North 3rd Flr --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>South 1st Flr</masterLabel>
+            <translation><!-- South 1st Flr --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>South 2nd Flr</masterLabel>
+            <translation><!-- South 2nd Flr --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>South 3rd Flr</masterLabel>
+            <translation><!-- South 3rd Flr --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- When will this SFT mapped position start at S3? --></help>
+        <label><!-- Mapped Date --></label>
+        <name>Mapped_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Open Position --></label>
+        <name>Open_Position__c</name>
+    </fields>
+    <fields>
+        <label><!-- Process Team --></label>
+        <name>Process_Team__c</name>
+        <picklistValues>
+            <masterLabel>Administrative Assistant</masterLabel>
+            <translation><!-- Administrative Assistant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Analytics</masterLabel>
+            <translation><!-- Analytics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bad Debt and Charity</masterLabel>
+            <translation><!-- Bad Debt and Charity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business Release</masterLabel>
+            <translation><!-- Business Release --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chart Completion</masterLabel>
+            <translation><!-- Chart Completion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Claims</masterLabel>
+            <translation><!-- Claims --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clerical Support</masterLabel>
+            <translation><!-- Clerical Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coding</masterLabel>
+            <translation><!-- Coding --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Correspondence Team</masterLabel>
+            <translation><!-- Correspondence Team --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Denial Management</masterLabel>
+            <translation><!-- Denial Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Denial Team</masterLabel>
+            <translation><!-- Denial Team --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Desktop Support</masterLabel>
+            <translation><!-- Desktop Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Document Imaging</masterLabel>
+            <translation><!-- Document Imaging --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMPI</masterLabel>
+            <translation><!-- EMPI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Facilities</masterLabel>
+            <translation><!-- Facilities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Financial Analysis</masterLabel>
+            <translation><!-- Financial Analysis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Front Desk</masterLabel>
+            <translation><!-- Front Desk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HIM</masterLabel>
+            <translation><!-- HIM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lean</masterLabel>
+            <translation><!-- Lean --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Liaison</masterLabel>
+            <translation><!-- Liaison --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nurse Auditor</masterLabel>
+            <translation><!-- Nurse Auditor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operations</masterLabel>
+            <translation><!-- Operations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patient Access</masterLabel>
+            <translation><!-- Patient Access --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patient Advocate</masterLabel>
+            <translation><!-- Patient Advocate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payment Variance Team</masterLabel>
+            <translation><!-- Payment Variance Team --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payor Management</masterLabel>
+            <translation><!-- Payor Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payor Relations</masterLabel>
+            <translation><!-- Payor Relations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pre-Service</masterLabel>
+            <translation><!-- Pre-Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Processing Team</masterLabel>
+            <translation><!-- Processing Team --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quality &amp; Training</masterLabel>
+            <translation><!-- Quality &amp; Training --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ROI</masterLabel>
+            <translation><!-- ROI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S3 HR</masterLabel>
+            <translation><!-- S3 HR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SLA Reporting</masterLabel>
+            <translation><!-- SLA Reporting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Training</masterLabel>
+            <translation><!-- Training --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transcription</masterLabel>
+            <translation><!-- Transcription --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Reports To --></label>
+        <name>Reports_To__c</name>
+        <relationshipLabel><!-- S3 Positions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Change Control --></label>
+        <name>S3_Positiom_Change_Control__c</name>
+        <relationshipLabel><!-- S3 Positions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Position Control --></label>
+        <name>S3_Position_Control__c</name>
+    </fields>
+    <fields>
+        <label><!-- SFT Impact --></label>
+        <name>SFT_Impact__c</name>
+    </fields>
+    <fields>
+        <label><!-- Schedule --></label>
+        <name>Schedule__c</name>
+        <picklistValues>
+            <masterLabel>Full Time</masterLabel>
+            <translation><!-- Full Time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Part Time</masterLabel>
+            <translation><!-- Part Time --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Seat --></label>
+        <name>Seat__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Discontinued</masterLabel>
+            <translation><!-- Discontinued --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Proposed</masterLabel>
+            <translation><!-- Proposed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sub-Function --></label>
+        <name>Sub_Function__c</name>
+        <picklistValues>
+            <masterLabel>Accounting</masterLabel>
+            <translation><!-- Accounting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accounts Payable</masterLabel>
+            <translation><!-- Accounts Payable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Administrative Assistant</masterLabel>
+            <translation><!-- Administrative Assistant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aramark</masterLabel>
+            <translation><!-- Aramark --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Asset Management</masterLabel>
+            <translation><!-- Asset Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CBO</masterLabel>
+            <translation><!-- CBO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Charge Capture/CDM</masterLabel>
+            <translation><!-- Charge Capture/CDM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clinical Engineering</masterLabel>
+            <translation><!-- Clinical Engineering --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compensation &amp; Benefits</masterLabel>
+            <translation><!-- Compensation &amp; Benefits --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HIM</masterLabel>
+            <translation><!-- HIM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR Data &amp; Reporting</masterLabel>
+            <translation><!-- HR Data &amp; Reporting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR Delivery</masterLabel>
+            <translation><!-- HR Delivery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR IS</masterLabel>
+            <translation><!-- HR IS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Learning &amp; Workforce Relations Services</masterLabel>
+            <translation><!-- Learning &amp; Workforce Relations Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Physics</masterLabel>
+            <translation><!-- Medical Physics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operations Management</masterLabel>
+            <translation><!-- Operations Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patient Access</masterLabel>
+            <translation><!-- Patient Access --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payroll</masterLabel>
+            <translation><!-- Payroll --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Performance Management</masterLabel>
+            <translation><!-- Performance Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purchasing</masterLabel>
+            <translation><!-- Purchasing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recruitment</masterLabel>
+            <translation><!-- Recruitment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eQuip</masterLabel>
+            <translation><!-- eQuip --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eQuip Services</masterLabel>
+            <translation><!-- eQuip Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eQuip Tech</masterLabel>
+            <translation><!-- eQuip Tech --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Temp Employee --></label>
+        <name>Temp_Employee__c</name>
+    </fields>
+    <fields>
+        <label><!-- Temp End Date --></label>
+        <name>Temp_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Temp Staff --></label>
+        <name>Temp_Staff__c</name>
+        <relationshipLabel><!-- S3 Positions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Temp Supervisor --></label>
+        <name>Temp_Supervisor__c</name>
+    </fields>
+    <fields>
+        <label><!-- Term End Date --></label>
+        <name>Term_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Term --></label>
+        <name>Term__c</name>
+        <picklistValues>
+            <masterLabel>Discontinued</masterLabel>
+            <translation><!-- Discontinued --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Limited (LLT)</masterLabel>
+            <translation><!-- Limited (LLT) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Limited Term</masterLabel>
+            <translation><!-- Limited Term --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Per Diem</masterLabel>
+            <translation><!-- Per Diem --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regular</masterLabel>
+            <translation><!-- Regular --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Temporary</masterLabel>
+            <translation><!-- Temporary --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- What is the reason for this postion to be open if not actively recruiting? --></help>
+        <label><!-- Vacancy Reason --></label>
+        <name>Vacancy_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Not Actively Recruiting</masterLabel>
+            <translation><!-- Not Actively Recruiting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planned Vacancy</masterLabel>
+            <translation><!-- Planned Vacancy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Posted</masterLabel>
+            <translation><!-- Posted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Re-Evaluating</masterLabel>
+            <translation><!-- Re-Evaluating --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Workgroup --></label>
+        <name>Workgroup__c</name>
+        <picklistValues>
+            <masterLabel>Administrative Assistant</masterLabel>
+            <translation><!-- Administrative Assistant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Associates</masterLabel>
+            <translation><!-- Associates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business Release</masterLabel>
+            <translation><!-- Business Release --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CC-AP</masterLabel>
+            <translation><!-- CC-AP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CC-Admin</masterLabel>
+            <translation><!-- CC-Admin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CC-CBO</masterLabel>
+            <translation><!-- CC-CBO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coding</masterLabel>
+            <translation><!-- Coding --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Desktop Support</masterLabel>
+            <translation><!-- Desktop Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Education</masterLabel>
+            <translation><!-- Education --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Emergency</masterLabel>
+            <translation><!-- Emergency --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Facilities</masterLabel>
+            <translation><!-- Facilities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Financial Analysis</masterLabel>
+            <translation><!-- Financial Analysis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Front Desk</masterLabel>
+            <translation><!-- Front Desk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inpatient</masterLabel>
+            <translation><!-- Inpatient --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lean</masterLabel>
+            <translation><!-- Lean --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outpatient</masterLabel>
+            <translation><!-- Outpatient --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quality</masterLabel>
+            <translation><!-- Quality --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S3 HR</masterLabel>
+            <translation><!-- S3 HR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SLA Reporting</masterLabel>
+            <translation><!-- SLA Reporting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Training</masterLabel>
+            <translation><!-- Training --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>S3 Position Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Management Information --></label>
+            <section>Management Information</section>
+        </sections>
+        <sections>
+            <label><!-- Position Details --></label>
+            <section>Position Details</section>
+        </sections>
+        <sections>
+            <label><!-- Position Status --></label>
+            <section>Position Status</section>
+        </sections>
+        <sections>
+            <label><!-- S3 Ops Comments --></label>
+            <section>S3 Ops Comments</section>
+        </sections>
+        <sections>
+            <label><!-- Temp Staff --></label>
+            <section>Temp Staff</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

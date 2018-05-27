@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>New Version</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>PCRM_Letter_Head</letterhead>
+    <name>Sutter Health Contact Information Validated V1</name>
+    <style>freeForm</style>
+    <subject>Sutter Health Contact Information Validated</subject>
+    <textOnly>Dear {!Contact_Validation_Audit_Trail__c.First_Name__c} {!Contact_Validation_Audit_Trail__c.Last_Name__c} {!Contact_Validation_Audit_Trail__c.Provider_Name_Suffix__c},
+
+Thank you for validating your Sutter Health contact information. Submitted changes will be forwarded to all Sutter applications shortly.
+
+We appreciate your time as maintaining accurate provider contact information is vital to ensuring our patients receive the highest levels of care.
+
+Validated information has been recorded as follows:
+
+Email: {!Contact_Validation_Audit_Trail__c.Email__c}
+Mobile Phone: {!Contact_Validation_Audit_Trail__c.Mobile_Phone__c}
+Preferred Contact Method: {!Contact_Validation_Audit_Trail__c.Preferred_Communication_Method__c}
+
+Confidential Patient Information:
+Street Address:{!Contact_Validation_Audit_Trail__c.Secure_Street_Address__c}
+City: {!Contact_Validation_Audit_Trail__c.Secure_City__c}
+State: {!Contact_Validation_Audit_Trail__c.Secure_State__c}
+Zip Code: {!Contact_Validation_Audit_Trail__c.Secure_Zip_Code__c}
+Phone: {!Contact_Validation_Audit_Trail__c.Secure_Phone__c}
+Fax: {!Contact_Validation_Audit_Trail__c.Secure_Fax__c}
+
+Thank you,
+Sutter Provider Connect Team</textOnly>
+    <type>html</type>
+</EmailTemplate>

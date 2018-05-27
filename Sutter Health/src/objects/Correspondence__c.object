@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>Correspondence</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Correspondence</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Address_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Address 2</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Address__c</fullName>
+        <externalId>false</externalId>
+        <formula>Street__c + &quot;, &quot; + City__c + &quot;, &quot; + State__c + &quot;, &quot; + ZipCode__c + &quot;, &quot; + Country__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Address</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Address_same_as_Default__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Address same as Default</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>City__c</fullName>
+        <externalId>false</externalId>
+        <label>City</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Closed_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Closed Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Subscriber Name</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Correspondences</relationshipLabel>
+        <relationshipName>Correspondences</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Correspondence_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Correspondence Definition</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Member_Type__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Age 26 Dependent Termination Letter</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Certificate of Creditable Coverage</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Coordination of Benefits Form</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Disabled Dependent Certification Form</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Enrollment Forms</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Evidence of Coverage - Acupuncture</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Evidence of Coverage - Acupuncture and Chiropractic</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Evidence of Coverage - All</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Evidence of Coverage - Chiropractic</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Evidence of Coverage - Dental</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Evidence of Coverage - Infertility</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Evidence of Coverage - Medical</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Evidence of Coverage - Orthotics and Prosthetics</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Evidence of Coverage - Vision</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Explanation of Benefits - Out of Area Only</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Group Subscriber Termination Letter</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ID Cards – All Members</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Member ID Card</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Member Renewal Letter with ID Cards</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>New Member Welcome Letter with ID Cards</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Premium Bill</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Provider Directory</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other - Please Specify in Comments</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Member</controllingFieldValue>
+                <valueName>Age 26 Dependent Termination Letter</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Member</controllingFieldValue>
+                <valueName>Certificate of Creditable Coverage</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Member</controllingFieldValue>
+                <valueName>Coordination of Benefits Form</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Member</controllingFieldValue>
+                <valueName>Disabled Dependent Certification Form</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Member</controllingFieldValue>
+                <valueName>Enrollment Forms</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Member</controllingFieldValue>
+                <valueName>Evidence of Coverage - Acupuncture</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Member</controllingFieldValue>
+                <valueName>Evidence of Coverage - Acupuncture and Chiropractic</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Member</controllingFieldValue>
+                <valueName>Evidence of Coverage - All</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Member</controllingFieldValue>
+                <valueName>Evidence of Coverage - Chiropractic</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Member</controllingFieldValue>
+                <valueName>Evidence of Coverage - Dental</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Member</controllingFieldValue>
+                <valueName>Evidence of Coverage - Infertility</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Member</controllingFieldValue>
+                <valueName>Evidence of Coverage - Medical</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Member</controllingFieldValue>
+                <valueName>Evidence of Coverage - Orthotics and Prosthetics</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Member</controllingFieldValue>
+                <valueName>Evidence of Coverage - Vision</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Member</controllingFieldValue>
+                <valueName>Explanation of Benefits - Out of Area Only</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Member</controllingFieldValue>
+                <valueName>Group Subscriber Termination Letter</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Member</controllingFieldValue>
+                <valueName>ID Cards – All Members</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Member</controllingFieldValue>
+                <valueName>Member ID Card</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Member</controllingFieldValue>
+                <valueName>Member Renewal Letter with ID Cards</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Member</controllingFieldValue>
+                <valueName>New Member Welcome Letter with ID Cards</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Member</controllingFieldValue>
+                <valueName>Premium Bill</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Member</controllingFieldValue>
+                <valueName>Provider Directory</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Member</controllingFieldValue>
+                <valueName>Other - Please Specify in Comments</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Country__c</fullName>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Date_Mailed__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Mailed</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_Sent_To_Vendor__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Sent to Print Vendor</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Days_Taken_To_Close__c</fullName>
+        <externalId>false</externalId>
+        <label>Days Taken to Close</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Email_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>Email Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Fax_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Fax Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Member_Provider_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>Member/Provider Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Member_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Correspondence Recipient Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Member</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Broker</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Provider</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Employer</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Overnight__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Overnight checkbox</description>
+        <externalId>false</externalId>
+        <label>Overnight</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Relationship_To_Sub__c</fullName>
+        <externalId>false</externalId>
+        <label>Relationship to Subscriber</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Broker</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Daughter</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dependent</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Doctor&apos;s Office Representative</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Employer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Lawyer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Member</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Practitioner</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Provider</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Self</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Son</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Spouse</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Subscriber</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Supplier</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Send_To__c</fullName>
+        <externalId>false</externalId>
+        <label>Send To</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Service_Request__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Service Request</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Correspondences</relationshipLabel>
+        <relationshipName>Correspondences</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>State__c</fullName>
+        <externalId>false</externalId>
+        <label>State</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pending</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Closed</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Street__c</fullName>
+        <externalId>false</externalId>
+        <label>Address 1</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Subject_Id_f__c</fullName>
+        <description>Created to get member id of Subject for Reporting purpose</description>
+        <externalId>false</externalId>
+        <formula>Subject_Name__r.Member_ID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Subject ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Subject_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Subject Name</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Correspondences (Test Contact)</relationshipLabel>
+        <relationshipName>Correspondences1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Subscriber_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Service_Request__r.Contact.Member_ID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Subscriber ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Subscriber_Id_Prefix__c</fullName>
+        <externalId>false</externalId>
+        <formula>LEFT(Service_Request__r.Contact.Member_ID__c,7)</formula>
+        <label>Subscriber Id Prefix</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Triggered_in_Health_Rules__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Triggered in Health Rules</description>
+        <externalId>false</externalId>
+        <label>Triggered in Health Rules</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Vehicle_of_Correspondence__c</fullName>
+        <externalId>false</externalId>
+        <label>Vehicle of Correspondence</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mail</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ZipCode__c</fullName>
+        <externalId>false</externalId>
+        <label>Zip Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Correspondence</label>
+    <nameField>
+        <displayFormat>C-{000000}</displayFormat>
+        <label>Correspondence Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Correspondences</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <webLinks>
+        <fullName>New_Correspondence1</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>New Correspondence</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/Correspondence?ServiceId={!Case.Id}&amp;ContactId={!Contact.Id}</url>
+    </webLinks>
+</CustomObject>

@@ -1,0 +1,45 @@
+<apex:page standardController="SHMMN_Incumbent_Carrier__c" extensions="SHMMN_SHMMNIncumebnt">
+    <style>        
+        .fieldNamesTableDiv{
+        width:16%;
+        text-align:center;
+        font-weight: bold;
+        }
+        .valeNamesTableDiv{               
+        position: relative;
+        left: 100px;
+        }
+        .valeTableDiv{               
+        width: 70%;
+        }
+    </style>
+    <apex:form >
+        <apex:pageBlock > 
+            <apex:pageMessages id="msg"/> 
+            <apex:pageBlockSection title="{!$Label.CL_55_SM_AccountDetail}" columns="2">
+                <apex:outputField value="{!shmmnAccount.Name}"/>
+                <apex:outputField value="{!shmmnAccount.Employer_Type__c}"/>
+                <apex:outputField value="{!shmmnAccount.Status__c}"/>
+                <apex:outputField value="{!shmmnAccount.NumberOfEmployees}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="{!$Label.CL_56_SM_SHMMNIncbmntCarrier}" columns="3">
+                <apex:outputLabel value="{!$Label.CL_57_SM_IncumbentCarrier}" for="EmployerId" styleClass="valeNamesTableDiv" />
+                <apex:outputLabel value="{!$Label.CL_58_SM_SubProduct}" for="EmployerId"  styleClass="valeNamesTableDiv" />
+                <apex:outputLabel value="{!$Label.CL_59_SM_Percentage}" for="EmployerId" styleClass="valeNamesTableDiv"  />
+            </apex:pageBlockSection>
+            <apex:pageBlockSection columns="3" id="pg"  >
+                <apex:repeat value="{!incumbentList }" var="res"   >
+                    <apex:inputField value="{!res.obj['Incumbent_Carrier__c']}" label="" styleClass="valeTableDiv" />
+                    <apex:inputField value="{!res.obj['Sub_Product__c']}" label=""  styleClass="valeTableDiv" />
+                    <apex:inputField value="{!res.obj['Contain__c']}"  label="" styleClass="valeNamesTableDiv"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+            <apex:commandLink value="{!$Label.CL_60_SM_Add}" action="{!increaseList}" reRender="pg"/>
+            <apex:commandLink value="{!$Label.CL_61_SM_Remove}" action="{!decreaseList}" reRender="pg"/>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="{!$Label.CL_01_SM_Save}" action="{!saveIncumbentCarriers}" reRender="msg" />
+                <apex:commandButton value="{!$Label.CL_02_SM_Cancel}" action="{!cancel}" />  
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>SH_Article_Link__c</fullName>
+        <description>For Developer, Admins only</description>
+        <externalId>false</externalId>
+        <inlineHelpText>For Developer, Admins only</inlineHelpText>
+        <label>SH_ArticleID_Transform_CODE</label>
+        <length>18</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SH_Article_Tool_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>Article/Tool Id</label>
+        <length>15</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SH_Article_Tool__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(SH_Article_Tool_Id__c), &apos;&apos;, 
+LEFT($Api.Partner_Server_URL_260, FIND( &apos;/services&apos;, $Api.Partner_Server_URL_260)) +SH_Article_Tool_Id__c)</formula>
+        <label>Article/Tool</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SH_Carousel_description__c</fullName>
+        <description>This is the description of the title of the headliner image. This description will be visible at the front end portal</description>
+        <externalId>false</externalId>
+        <label>Carousel description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>SH_Content_Link__c</fullName>
+        <description>This field is used to store internal or external url (must be fully qualified url)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field is used to store internal or external url (must be fully qualified url)</inlineHelpText>
+        <label>Content Link</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SH_Content_Target__c</fullName>
+        <description>This field is used to open the link in same tab (_self) or in different tab (_blank)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field is used to open the link in same tab (_self) or in different tab (_blank)</inlineHelpText>
+        <label>Content Target</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>_self</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>_blank</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SH_Content_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Content Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Article</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tool</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SH_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>65000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>SH_Help_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Help Text</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SH_Icon__c</fullName>
+        <externalId>false</externalId>
+        <label>Icon</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SH_Is_Preview__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Preview</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SH_Is_Publish__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Publish</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SH_Order_of_display__c</fullName>
+        <externalId>false</externalId>
+        <label>Order of display</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SH_Production_Id__c</fullName>
+        <description>stores the production id for the article/Tool (should be removed after copying value in SH_Article_Link__c field and deployment on production)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>stores the production id for the article/Tool</inlineHelpText>
+        <label>Production Id</label>
+        <length>18</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SH_Title__c</fullName>
+        <externalId>false</externalId>
+        <label>Title</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Home Page Carousel</label>
+    <nameField>
+        <displayFormat>HP-{0000}</displayFormat>
+        <label>Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Home Page Carousels</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>SH_Title__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>SH_Content_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>SH_Order_of_display__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>SH_Is_Preview__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>SH_Is_Publish__c</customTabListAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Article_ToolId_required</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( ISBLANK(SH_Article_Tool_Id__c), 
+OR(ISPICKVAL(SH_Content_Type__c, &apos;Article&apos;), ISPICKVAL(SH_Content_Type__c, &apos;Tool&apos;)))</errorConditionFormula>
+        <errorDisplayField>SH_Article_Tool_Id__c</errorDisplayField>
+        <errorMessage>Required</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Content_Link_Required</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( ISBLANK( SH_Content_Link__c ), ISPICKVAL(SH_Content_Type__c, &apos;Other&apos;))</errorConditionFormula>
+        <errorDisplayField>SH_Content_Link__c</errorDisplayField>
+        <errorMessage>Content_Link_Required</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Icon_required_on_publish_preview</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+ ISBLANK( SH_Icon__c ),
+ OR( SH_Is_Preview__c,  SH_Is_Publish__c)
+)</errorConditionFormula>
+        <errorMessage>Please assign icon before publish/preview.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Invalid_ArticleTool_ID</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF(ISBLANK(SH_Article_Tool_Id__c), false, 
+OR(NOT(BEGINS(SH_Article_Tool_Id__c , &apos;kA&apos;)), NOT(LEN(SH_Article_Tool_Id__c ) == 15)) 
+)</errorConditionFormula>
+        <errorDisplayField>SH_Article_Tool_Id__c</errorDisplayField>
+        <errorMessage>Invalid Article/Tool ID</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>SH_Assign_Icon</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Assign Icon</masterLabel>
+        <openType>noSidebar</openType>
+        <protected>false</protected>
+        <url>/apex/SH_Icons_Reference?id={!SH_HomePage_carousel__c.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>SH_Preview</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Preview</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>var isPreview = {!SH_HomePage_carousel__c.SH_Is_Preview__c};
+if(isPreview ) {
+    //window.location = &apos;/apex/SH_Landing?cmd=true&apos;;
+	(function(window, undefined){
+		var win = window.open(&apos;/apex/SH_Landing?cmd=true&apos;, &apos;_blank&apos;);
+		win.focus();
+	})(window);
+}
+else
+    alert(&apos;Please mark the record for preview first.&apos;);</url>
+    </webLinks>
+    <webLinks>
+        <fullName>SH_Preview_Unpreview</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Preview / Unpreview</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/apex.js&quot;)} 
+try{
+var res=sforce.apex.execute(&quot;SH_ToggleWebService&quot;,&quot;togglePublishChk&quot;,{objectName:&quot;SH_HomePage_carousel__c&quot;,fieldName:&quot;SH_Is_Preview__c&quot;, recordId: &apos;{!SH_HomePage_carousel__c.Id}&apos;}); 
+if(res==&apos;true&apos;) 
+alert(&apos;Preview successfully&apos;); 
+else if (res==&apos;false&apos;) 
+alert(&apos;Unpreview successfully&apos;); 
+parent.location.href=parent.location.href;
+} 
+catch(err) { 
+var faultstring=err.faultstring; 
+	var compareTerm=&quot;FIELD_CUSTOM_VALIDATION_EXCEPTION,&quot;;
+	var finalCompareTerm = &quot;: [&quot;;
+	var finalCompareTermStartIndex = faultstring.indexOf(finalCompareTerm);
+	var compareTermStartIndex = faultstring.indexOf(compareTerm);
+
+	if(compareTermStartIndex &gt;-1 &amp;&amp; finalCompareTermStartIndex  &gt; -1  &amp;&amp; finalCompareTermStartIndex &gt; compareTermStartIndex ) {
+		var compareTermEndIndex = compareTerm.length;
+		var compareTermIndex = compareTermStartIndex + compareTermEndIndex ;
+		var errorMsg = faultstring.substring(compareTermIndex , finalCompareTermStartIndex );
+		alert(errorMsg); 
+	}
+	else {alert(faultstring);} 
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>SH_Publish_Unpublish</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Publish / Unpublish</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/apex.js&quot;)} 
+try{ 
+var res=sforce.apex.execute(&quot;SH_ToggleWebService&quot;,&quot;togglePublishChk&quot;,{objectName:&quot;SH_HomePage_carousel__c&quot;,fieldName:&quot;SH_Is_Publish__c&quot;, recordId: &apos;{!SH_HomePage_carousel__c.Id}&apos;}); 
+if(res==&apos;true&apos;) 
+alert(&apos;Published successfully&apos;); 
+else if (res==&apos;false&apos;) 
+alert(&apos;Unpublished successfully&apos;); 
+parent.location.href=parent.location.href; 
+} 
+catch(err) { 
+var faultstring=err.faultstring; 
+	var compareTerm=&quot;FIELD_CUSTOM_VALIDATION_EXCEPTION,&quot;;
+	var finalCompareTerm = &quot;: [&quot;;
+	var finalCompareTermStartIndex = faultstring.indexOf(finalCompareTerm);
+	var compareTermStartIndex = faultstring.indexOf(compareTerm);
+
+	if(compareTermStartIndex &gt;-1 &amp;&amp; finalCompareTermStartIndex  &gt; -1  &amp;&amp; finalCompareTermStartIndex &gt; compareTermStartIndex ) {
+		var compareTermEndIndex = compareTerm.length;
+		var compareTermIndex = compareTermStartIndex + compareTermEndIndex ;
+		var errorMsg = faultstring.substring(compareTermIndex , finalCompareTermStartIndex );
+		alert(errorMsg); 
+	}
+	else {alert(faultstring);} 
+}</url>
+    </webLinks>
+</CustomObject>

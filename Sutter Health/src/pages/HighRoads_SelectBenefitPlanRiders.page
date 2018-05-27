@@ -1,0 +1,167 @@
+<!-- ***************************************************************************
+   *     Page Name   : HighRoads_SelectBenefitPlanRiders 
+   *     Author      : IDC - Offshore
+   *     Date        : 6/22/2016
+   *     Project Name: SHP Wave 2 Changes
+   *     Description : Req-3980 - Page is used to select the benefit plan riders
+   *****************************************************************************-->
+<apex:page controller="HighRoads_SelectBenefitPlan" showHeader="false" sidebar="true">
+    <apex:includeScript value="https://code.jquery.com/jquery-1.11.1.min.js"/>
+    <apex:includeScript value="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.js"/>
+    <apex:stylesheet value="https://cdn.datatables.net/1.10.7/css/jquery.dataTables.css"/> 
+    <style>
+        table.planTable {
+            font-family: verdana,arial,sans-serif;
+            font-family: verdana,arial,sans-serif;
+            font-size:11px;
+            color:#333333;
+            border: 1px solid #4682B4;
+            border-collapse: collapse;
+            }
+            table.planTable th {
+            color:white;
+            background:#4682B4;
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color:#4682B4;
+            
+            }
+            table.planTable td {
+            background:#EAEDED;
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            }
+        
+        #overlay {
+            background-color: grey;
+            opacity: 0.5;
+            filter: Alpha(opacity=50); /* IE8 and earlier */
+            color: black;
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            z-index: 5000;
+            top: 0;
+            left: 0;
+            float: left;
+            text-align: center;
+            padding-top: 25%;
+        }
+    </style>
+    <head>
+        <script type="text/javascript" >
+        function toggleProductClass(id)
+        {
+            productClass = getProductClass(id);
+            if(!productClass){      
+                return false;
+            }
+            if(productClass.style.display == 'none')
+            {
+                productClassID = getProductClass(id+'_control');
+                productClassID.src='{!$Resource.Collapse}';
+                productClass.style.display = '';
+            }
+            else
+            {
+                productClassID = getProductClass(id+'_control');
+                productClassID.src='{!$Resource.Expand}';
+                productClass.style.display = 'none';
+            }    
+            return false;
+        }
+        function getProductClass(id)
+        {
+            var productClass = false; 
+            if(document.getElementById)
+                productClass = document.getElementById(id);
+            else if(document.all)
+                productClass = document.all[id];
+                else if(document.layers)
+                    productClass = document.layers[id];
+            
+            return productClass;
+        }
+        
+      	
+        </script>
+        <script>
+            jQuery(window).load(function(){
+                jQuery('#overlay').fadeOut();
+            });
+        
+        </script>
+    </head>
+    <div id="overlay">
+        <img src="{!URLFOR($Resource.Processing_Image)}" alt="Loading" /><br/>
+        Please wait...
+    </div>
+    <div id = "page">
+    <body>
+        <apex:form >
+            
+            <apex:pageBlock title="Rider Benefit Plans For {!selectedPlanName}" >
+                <apex:pageMessages ></apex:pageMessages>
+                <apex:commandButton style="float:right;" value="Associate Riders" action="{!associateRiders}" rendered="{!IF(riderPlanPageList != NULL && riderPlanPageList.size>0,true,false)}" />
+                <apex:commandButton style="float:right;" value="Back" action="{!backFromRider}" /><br/>
+                <apex:commandlink value="Expand All" action="{!expandAll}" reRender="dataPanel" status="toggleStatus" immediate="true" style="color:blue" />&nbsp;
+                |&nbsp;<apex:commandlink value="Collapse All" action="{!collapseAll}" reRender="dataPanel" status="toggleStatus" immediate="true" style="color:blue" /><br/>
+                <apex:actionStatus startText="Please wait...." stopText="" id="toggleStatus" />
+                <apex:outputLabel rendered="{!IF(riderPlanPageList == NULL || riderPlanPageList.size=0,true,false)}" style="color:red;font-size:20"><b><center>Sorry!! There are no riders for this product family.</center></b></apex:outputLabel>
+                <apex:outputPanel id="dataPanel" rendered="{!IF(riderPlanPageList != NULL && riderPlanPageList.size>0,true,false)}" >
+                    <table border="0" id="planTableee" class="planTable" style="width:65%" align="center">
+                        <thead>
+                            <tr>
+                                <th width="20%"></th>
+                                <th width="5%">Plan ID</th>
+                                <th width="5%">Associate</th>
+                                <th width="15%">Plan Name</th>
+                                <th width="10%">Cost Share</th>
+                                <th width="10%">Visit Limit</th>
+                            </tr>
+                        </thead>
+                        	
+                            <apex:repeat value="{!riderPlanPageList}" var="pagerider">
+                                <tr>
+                                <td ><b><a href="#"  onclick="toggleProductClass('{!pagerider.productClass}')" ><img id='{!pagerider.productClass}_control'  src="{!if(show == 'true',$Resource.Collapse,$Resource.Expand)}"/></a>{!pagerider.productClass}</b></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                </tr>
+                                
+                                <tbody id='{!pagerider.productClass}' style="display:{!show};">
+                                    
+                                    <apex:repeat value="{!pagerider.riderList}" var="rider">
+                                        <tr>
+                                            <td></td>
+                                             
+                                            <td >
+                                                <apex:outputText value="{!rider.planId}"></apex:outputText>
+                                            </td>
+                                            <td>
+                                                <apex:inputCheckbox value="{!rider.associate}"/>
+                                            </td>
+                                            <td>
+                                                <apex:outputText value="{!rider.planName}"></apex:outputText>
+                                            </td>
+                                            <td>
+                                                <apex:outputText value="{!rider.costShare}"></apex:outputText>
+                                            </td>
+                                            <td>   
+                                                <apex:outputText value="{!rider.visitLimit}"></apex:outputText>
+                                            </td>
+                                        </tr>
+                                    </apex:repeat>
+                                </tbody>
+                            </apex:repeat>
+                    </table>
+                </apex:outputPanel>
+            </apex:pageBlock>  
+        </apex:form>
+    </body>
+    </div>
+</apex:page>

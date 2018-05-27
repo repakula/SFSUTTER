@@ -1,0 +1,9 @@
+<!-- 
+    Page Name: VFP46_SHP_DispatcherRFPEdit
+    Author: IDC Offshore
+    Date: 24-Feb-2016
+    Description: Page for editing existing records of RFPForm record type. -->
+
+<apex:page standardController="Incumbent_Carrier__c" extensions="VFC46_SHP_DispatcherRFPEdit"  
+    action="{!nullValue(redir.url, urlFor($Action.Incumbent_Carrier__c.Edit, Incumbent_Carrier__c.id, null, true))}">
+</apex:page>

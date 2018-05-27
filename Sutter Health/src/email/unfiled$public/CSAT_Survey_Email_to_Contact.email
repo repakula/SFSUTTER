@@ -1,0 +1,9 @@
+Dear {!Contact.FirstName},
+
+Exceeding customer expectations is our goal at Sutter Health. Based on your experiences with Service Request # {!Case.CaseNumber} (opened  {!Case.CreatedDate} and resolved {!Case.ClosedDate}), please take a moment to help us evaluate our service by answering four survey questions. We will share your comments with our leadership and make recommendations for change that will improve your experience with Sutter Health.  
+
+The survey can be accessed by clicking the below link.
+
+http://sutterhealth.force.com/SurveyForce/TakeSurvey?id=a0AG000000EpKdtMAF&cId={!Contact.Id}&caId={!Case.Id}
+
+Thank you for your time.

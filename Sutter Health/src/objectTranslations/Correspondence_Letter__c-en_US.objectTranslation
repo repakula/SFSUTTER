@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Correspondence Letter</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Correspondence Letters</value>
+    </caseValues>
+    <fields>
+        <label><!-- BrokerContact --></label>
+        <name>BrokerContact__c</name>
+        <picklistValues>
+            <masterLabel>none</masterLabel>
+            <translation><!-- none --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Contact List --></label>
+        <name>Contact_List__c</name>
+        <picklistValues>
+            <masterLabel>none</masterLabel>
+            <translation><!-- none --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- CorrespondenceOnBase  URL --></label>
+        <name>CorrespondenceOnBase_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Letter Content --></label>
+        <name>Letter_Content__c</name>
+    </fields>
+    <fields>
+        <label><!-- Letterbody --></label>
+        <name>Letterbody__c</name>
+    </fields>
+    <fields>
+        <label><!-- On Base URL --></label>
+        <name>On_Base_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address Line 1 --></label>
+        <name>SHP_Address_Line_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address Line 2 --></label>
+        <name>SHP_Address_Line_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address Line 3 --></label>
+        <name>SHP_Address_Line_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- City --></label>
+        <name>SHP_City__c</name>
+    </fields>
+    <fields>
+        <label><!-- CorrespondenceOnBase ID --></label>
+        <name>SHP_CorrespondenceOnBase_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Correspondence Definition --></label>
+        <name>SHP_Correspondence_Definition__c</name>
+    </fields>
+    <fields>
+        <label><!-- Correspondence Display Name --></label>
+        <name>SHP_Correspondence_Display_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Correspondence Entity Recipient HCC ID --></label>
+        <name>SHP_Correspondence_Entity_Recipient_HCC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Correspondence Entity Recipient Type --></label>
+        <name>SHP_Correspondence_Entity_Recipient_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Correspondence Entity Subject HCC ID --></label>
+        <name>SHP_Correspondence_Entity_Subject_HCC_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Correspondence Entity Subject Type --></label>
+        <name>SHP_Correspondence_Entity_Subject_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Correspondence External id --></label>
+        <name>SHP_Correspondence_External_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Correspondence File Name --></label>
+        <name>SHP_Correspondence_File_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Correspondence ID --></label>
+        <name>SHP_Correspondence_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Custom Message Code --></label>
+        <name>SHP_Custom_Message_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- DateTime Generated --></label>
+        <name>SHP_DateTime_Generated__c</name>
+    </fields>
+    <fields>
+        <label><!-- DateTime Resent --></label>
+        <name>SHP_DateTime_Resent__c</name>
+    </fields>
+    <fields>
+        <label><!-- DateTime Triggered --></label>
+        <name>SHP_DateTime_Triggered__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Printed --></label>
+        <name>SHP_Date_Printed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Transferred Print Vendor --></label>
+        <name>SHP_Date_Transferred_Print_Vendor__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Transferred to Post Office --></label>
+        <name>SHP_Date_Transferred_to_Post_Office__c</name>
+    </fields>
+    <fields>
+        <label><!-- SHP Employer Group --></label>
+        <name>SHP_Employer_Group__c</name>
+        <relationshipLabel><!-- Correspondence Letters --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Entity ID --></label>
+        <name>SHP_Entity_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Entity Type --></label>
+        <name>SHP_Entity_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- IsReplacement --></label>
+        <name>SHP_IsReplacement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Logical Delete? --></label>
+        <name>SHP_Is_Logical_Delete__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mailing Address --></label>
+        <name>SHP_Mailing_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- SHP Member Id --></label>
+        <name>SHP_Member_Id__c</name>
+        <relationshipLabel><!-- Correspondence Letters --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- OnBaseID --></label>
+        <name>SHP_OnBaseID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parent Correspondence ID Lookup --></label>
+        <name>SHP_Parent_Correspondence_ID_Lookup__c</name>
+        <relationshipLabel><!-- Correspondence Letters --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Parent Correspondence ID --></label>
+        <name>SHP_Parent_Correspondence_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source --></label>
+        <name>SHP_Source__c</name>
+    </fields>
+    <fields>
+        <label><!-- State --></label>
+        <name>SHP_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Zip Code --></label>
+        <name>SHP_ZipCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Selected Template Name --></label>
+        <name>Selected_Template_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Selected Template --></label>
+        <name>Selected_Template__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VP Marketing Rejected</masterLabel>
+            <translation><!-- VP Marketing Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VP Marketing Review</masterLabel>
+            <translation><!-- VP Marketing Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VP Sales Rejected</masterLabel>
+            <translation><!-- VP Sales Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VP Sales Review</masterLabel>
+            <translation><!-- VP Sales Review --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Subject --></label>
+        <name>Subject__c</name>
+    </fields>
+    <fields>
+        <label><!-- Subscriber --></label>
+        <name>Subscriber__c</name>
+        <relationshipLabel><!-- Dependent_Correspondence --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- To Contact List --></label>
+        <name>To_Contact_List__c</name>
+    </fields>
+    <fields>
+        <label><!-- queryForContact --></label>
+        <name>queryForContact__c</name>
+    </fields>
+    <layouts>
+        <layout>Correspondence Letter Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Target Audience --></label>
+            <section>Target Audience</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Correspondence Letter Layout RO</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Target Audience --></label>
+            <section>Target Audience</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>SHP Member</layout>
+        <sections>
+            <label><!-- Correspondence Address detail --></label>
+            <section>Correspondence Address detail</section>
+        </sections>
+        <sections>
+            <label><!-- Correspondence Detail --></label>
+            <section>Correspondence Detail</section>
+        </sections>
+        <sections>
+            <label><!-- Correspondence Message Details --></label>
+            <section>Correspondence Message Details</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Correspondence Letter --></label>
+        <name>Correspondence_Letter</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Correspondence Letter RO --></label>
+        <name>Correspondence_Letter_RO</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- SHP Employer Member --></label>
+        <name>SHP_Employer_Member</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Preview --></label>
+        <name>Preview</name>
+    </webLinks>
+</CustomObjectTranslation>

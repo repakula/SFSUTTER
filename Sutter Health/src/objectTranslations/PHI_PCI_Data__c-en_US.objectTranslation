@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>PHI_PCI Data</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>PHI_PCI Data</value>
+    </caseValues>
+    <fields>
+        <label><!-- PHI_PCI Data --></label>
+        <name>CC_SSN_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Number --></label>
+        <name>Case_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Inquiry --></label>
+        <name>Case_Record_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Completed? --></label>
+        <name>Completed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Inquiry/Comment? --></label>
+        <name>Customer_Inquiry_Comment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Inquiry Link --></label>
+        <name>Customer_Inquiry_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+    </fields>
+    <layouts>
+        <layout>PHI_PCI Data Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- S3 --></label>
+        <name>S3</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- SHP --></label>
+        <name>SHP</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

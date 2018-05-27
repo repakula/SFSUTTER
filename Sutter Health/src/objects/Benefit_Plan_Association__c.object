@@ -1,0 +1,947 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Benefit Plan Associations</relationshipLabel>
+        <relationshipName>Benefit_Plan_Associations</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Ancillary_EOC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Ancillary EOC</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Ancillary_GSA__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Ancillary GSA</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Ancillary_SOB__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Ancillary SOB</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>BCM__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>BCM</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Benefit_Plan_Metadata__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Benefit Plan Metadata</label>
+        <referenceTo>Benefit_Plan_Metadata__c</referenceTo>
+        <relationshipLabel>Benefit Plan Associations</relationshipLabel>
+        <relationshipName>Benefit_Plan_Associations</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Cost_Share__c</fullName>
+        <externalId>false</externalId>
+        <formula>Benefit_Plan_Metadata__r.Cost_Share__c</formula>
+        <label>Cost Share</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Custom__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Benefit_Plan_Metadata__r.Plan_Type__c=&apos;Custom&apos;,&apos;Yes&apos;,&apos;No&apos;)</formula>
+        <label>Custom Plan?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DOV__c</fullName>
+        <externalId>false</externalId>
+        <formula>Benefit_Plan_Metadata__r.DOV__c</formula>
+        <label>DOV</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Deductible__c</fullName>
+        <externalId>false</externalId>
+        <formula>Benefit_Plan_Metadata__r.Deductible__c +&apos;/&apos;+ Benefit_Plan_Metadata__r.Ind_Family_Deductible__c +&apos;/&apos;+ Benefit_Plan_Metadata__r.Family_Deductible__c</formula>
+        <label>Deductible(Indv+Indv+Family/Family)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ECH_Early_Retiree__c</fullName>
+        <externalId>false</externalId>
+        <label>ECH (Early Retiree)</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ECH__c</fullName>
+        <externalId>false</externalId>
+        <label>ECH</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EC_Early_Retiree__c</fullName>
+        <externalId>false</externalId>
+        <label>EC (Early Retiree)</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EC__c</fullName>
+        <externalId>false</externalId>
+        <label>EC</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EE_1_Early_Retiree__c</fullName>
+        <externalId>false</externalId>
+        <label>EE+1(Early Retiree)</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EE_1__c</fullName>
+        <externalId>false</externalId>
+        <label>EE+1</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EE_2_Early_Retiree__c</fullName>
+        <externalId>false</externalId>
+        <label>EE+2 (Early Retiree)</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EE_2__c</fullName>
+        <externalId>false</externalId>
+        <label>EE+2</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EE_Early_Retiree__c</fullName>
+        <externalId>false</externalId>
+        <label>EE (Early Retiree)</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EE__c</fullName>
+        <externalId>false</externalId>
+        <label>EE</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EF_Early_Retiree__c</fullName>
+        <externalId>false</externalId>
+        <label>EF(Early Retiree)</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EF__c</fullName>
+        <externalId>false</externalId>
+        <label>EF</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EOC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>EOC</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ER__c</fullName>
+        <externalId>false</externalId>
+        <formula>Benefit_Plan_Metadata__r.Emergency_Room__c</formula>
+        <label>ER</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ES_Early_Retiree__c</fullName>
+        <externalId>false</externalId>
+        <label>ES (Early Retiree)</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ES__c</fullName>
+        <externalId>false</externalId>
+        <label>ES</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>First_Year_Give_Away__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>First Year Give Away</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IP__c</fullName>
+        <externalId>false</externalId>
+        <formula>Benefit_Plan_Metadata__r.Inpatient__c</formula>
+        <label>IP</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Included_in_Medical_Rate__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Included in Medical Rate</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Medical_or_Rider__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Raider_ID__c &lt;&gt; NULL,Raider_ID__r.Medical_OR_Rider__c,Benefit_Plan_Metadata__r.Medical_OR_Rider__c)</formula>
+        <label>Medical or Rider</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OOPM__c</fullName>
+        <externalId>false</externalId>
+        <formula>Benefit_Plan_Metadata__r.Out_of_Pocket_Maximum__c+&apos;/&apos;+ Benefit_Plan_Metadata__r.Ind_Family_OOPM__c +&apos;/&apos;+ Benefit_Plan_Metadata__r.Family_OOPM__c</formula>
+        <label>OOPM(Indv/Indv+Family/Family)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OP__c</fullName>
+        <externalId>false</externalId>
+        <formula>Benefit_Plan_Metadata__r.Outpatient__c</formula>
+        <label>OP</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OV__c</fullName>
+        <externalId>false</externalId>
+        <formula>Benefit_Plan_Metadata__r.Office_Visit__c</formula>
+        <label>OV</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Rate_Card__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity Rate Card</label>
+        <referenceTo>Rate_Card__c</referenceTo>
+        <relationshipLabel>Benefit Plan Associations</relationshipLabel>
+        <relationshipName>Benefit_Plan_Associations</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Benefit Plan Associations</relationshipLabel>
+        <relationshipName>Benefit_Plan_Associations</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Plan_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Raider_ID__r.Plan_Name__c != NULL, Benefit_Plan_Metadata__r.Plan_Name__c  &amp; &quot;/&quot;  &amp;  Raider_ID__r.Plan_Name__c , Benefit_Plan_Metadata__r.Plan_Name__c)</formula>
+        <label>Plan Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Plan_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>Benefit_Plan_Metadata__r.Plan_Type__c</formula>
+        <label>Plan Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Plan_Year__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Raider_ID__c &lt;&gt; NULL , Raider_ID__r.Plan_Year__c, Benefit_Plan_Metadata__r.Plan_Year__c )</formula>
+        <label>Plan Year</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Class__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Raider_ID__c &lt;&gt; NULL,Raider_ID__r.Product_Class__c,Benefit_Plan_Metadata__r.Product_Class__c)</formula>
+        <label>Product Class</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <externalId>false</externalId>
+        <formula>Benefit_Plan_Metadata__r.Product__c</formula>
+        <label>Product</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Proposal__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Quote</label>
+        <referenceTo>Proposal__c</referenceTo>
+        <relationshipLabel>Benefit Plan Associations</relationshipLabel>
+        <relationshipName>Benefit_Plan_Associations</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Quote_Benefit_Version__c</fullName>
+        <externalId>false</externalId>
+        <label>Quote Benefit Version</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quote_Rate_Card__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Quote Rate Card</label>
+        <referenceTo>Rate_Card__c</referenceTo>
+        <relationshipLabel>Benefit Plan Associations (Quote Rate Card)</relationshipLabel>
+        <relationshipName>Benefit_Plan_Associations2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RFP_Benefit_Version__c</fullName>
+        <externalId>false</externalId>
+        <label>RFP Benefit Version</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RFP_Form__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>RFP Form</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Incumbent_Carrier__c.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>RFP_Form</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Incumbent_Carrier__c</referenceTo>
+        <relationshipLabel>Benefit Plan Associations</relationshipLabel>
+        <relationshipName>Benefit_Plan_Associations</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RFP_Rate_Card__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>RFP Rate Card</label>
+        <referenceTo>Rate_Card__c</referenceTo>
+        <relationshipLabel>Benefit Plan Associations (RFP Rate Card)</relationshipLabel>
+        <relationshipName>Benefit_Plan_Associations1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RX_Tier_1__c</fullName>
+        <externalId>false</externalId>
+        <formula>Benefit_Plan_Metadata__r.RX_Tier_1__c+&apos;/&apos;+ Benefit_Plan_Metadata__r.RX_Tier_2__c +&apos;/&apos;+ Benefit_Plan_Metadata__r.RX_Tier_3__c +&apos;/&apos;+ Benefit_Plan_Metadata__r.RX_Tier_4__c</formula>
+        <label>RX Tier 1/2/3/4</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Raider_ID__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Rider Plan Name</label>
+        <referenceTo>Benefit_Plan_Metadata__c</referenceTo>
+        <relationshipLabel>Benefit Plan Associations (Raider ID)</relationshipLabel>
+        <relationshipName>Benefit_Plan_Associations1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Rx_Deductible_Ind_Ind_Family_Family__c</fullName>
+        <externalId>false</externalId>
+        <formula>Benefit_Plan_Metadata__r.Rx_Deductible_Individual__c +&apos;/&apos;+  Benefit_Plan_Metadata__r.Rx_Deductible_Ind_Family__c  +&apos;/&apos;+  Benefit_Plan_Metadata__r.Rx_Deductible_Family__c</formula>
+        <label>Rx Deductible Ind/Ind+Family/Family</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SBC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>SBC</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SCN_Benefit_Version__c</fullName>
+        <externalId>false</externalId>
+        <label>SCN Benefit Version</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SCN_Rate_Card__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>SCN Rate Card</label>
+        <referenceTo>Rate_Card__c</referenceTo>
+        <relationshipLabel>Benefit Plan Associations (SCN Rate Card)</relationshipLabel>
+        <relationshipName>Benefit_Plan_Associations4</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>SOV__c</fullName>
+        <externalId>false</externalId>
+        <formula>Benefit_Plan_Metadata__r.Specialist_Office_Visit__c</formula>
+        <label>SOV</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SSO_Benefit_Version__c</fullName>
+        <externalId>false</externalId>
+        <label>SSO Benefit Version</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SSO_Rate_Card__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>SSO Rate Card</label>
+        <referenceTo>Rate_Card__c</referenceTo>
+        <relationshipLabel>Benefit Plan Associations (SSO Rate Card)</relationshipLabel>
+        <relationshipName>Benefit_Plan_Associations3</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Sold_Case_Notification__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Sold Case Notification</label>
+        <referenceTo>Employer_Group_Data__c</referenceTo>
+        <relationshipLabel>Benefit Plan Associations</relationshipLabel>
+        <relationshipName>Benefit_Plan_Associations</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Sold_Sign_Off__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Sold Sign Off</label>
+        <referenceTo>Sold_Sign_Off__c</referenceTo>
+        <relationshipLabel>Benefit Plan Associations</relationshipLabel>
+        <relationshipName>Benefit_Plan_Associations</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Version_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Opportunity Benefit Version</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Visit_Limit__c</fullName>
+        <externalId>false</externalId>
+        <formula>Benefit_Plan_Metadata__r.Visit_Limit__c</formula>
+        <label>Visit Limit</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Benefit Plan Association</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>Account__c</columns>
+        <columns>OBJECT_ID</columns>
+        <columns>NAME</columns>
+        <columns>Benefit_Plan_Metadata__c</columns>
+        <columns>Raider_ID__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>RFP_Form__c</columns>
+        <columns>Proposal__c</columns>
+        <columns>Sold_Case_Notification__c</columns>
+        <columns>Sold_Sign_Off__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Account__c</field>
+            <operation>contains</operation>
+            <value>1124</value>
+        </filters>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Plan Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Benefit Plan Associations</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Benefit_Plan_Metadata__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Raider_ID__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Deductible__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OOPM__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OV__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Product__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Custom__c</customTabListAdditionalFields>
+        <excludedStandardButtons>New</excludedStandardButtons>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <lookupDialogsAdditionalFields>Benefit_Plan_Metadata__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Raider_ID__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Deductible__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>OOPM__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>OV__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Product__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Custom__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Benefit_Plan_Metadata__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Raider_ID__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Deductible__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>OOPM__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>OV__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Product__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Custom__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <webLinks>
+        <fullName>Retrieve_Plans</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Edit Plan Selections</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>if({!Opportunity.Is_Child_Record_Created__c == TRUE }){
+ alert(&apos;You cannot modify plans as RFP/SCN is created for this Opportunity&apos;);
+}else if({!TEXT(Opportunity.StageName)== &apos;Closed Lost&apos;} || {!TEXT(Opportunity.StageName)==&apos;Closed - Duplicate&apos;} || {!TEXT(Opportunity.StageName)== &apos;Closed Won&apos;} ){
+    alert(&apos;You cannot modify plans on a Closed Won/Lost/Duplicate Opportunity&apos;);
+}else{
+window.open(&quot;/apex/HighRoads_SelectBenefitPlan?oppid={!Opportunity.Id}&amp;accountId={!Opportunity.AccountId}&amp;employerType={!Opportunity.Employer_Type__c}&quot;,&quot;_blank&quot;,&apos;height=500,width=1200,resizable=yes,scrollbars=yes,toolbar=n‌​o,menubar=no&apos;); 
+
+
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Retrieve_Plans_Quote</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Edit Plan Selections</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>if({!Proposal__c.Is_Child_Record_Created__c == TRUE }){
+alert(&apos;You can not select plans as SSO is created for this Quote&apos;);
+}else if({! TEXT(Proposal__c.Stage__c) ==&apos;Rejected by Sales&apos; } ){ 
+alert(&apos;You can not select plans as Quote is Rejected&apos;);
+}else{ 
+window.open(&quot;/apex/HighRoads_SelectBenefitPlan?quoteId={!Proposal__c.Id}&amp;accountId={!Proposal__c.Tech_Account_Id__c}&amp;employerType={!Proposal__c.Employer_Type__c}&quot;, &quot;_blank&quot;,&apos;height=500,width=1200,resizable=yes,scrollbars=yes,toolbar=n‌​o,menubar=no&apos;); 
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Retrieve_Plans_RFP</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Edit Plan Selections</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>if({!Incumbent_Carrier__c.Is_Child_Record_Created__c == TRUE }){
+alert(&apos;You can not select plans as Quote is created for this RFP&apos;);
+}else if({!TEXT(Incumbent_Carrier__c.Stage__c) == &apos;Rejected by Underwriting&apos;}){ 
+alert(&apos;You can not select plans as RFP is Rejected&apos;); 
+}else{
+window.open(&quot;/apex/HighRoads_SelectBenefitPlan?rfpId={!Incumbent_Carrier__c.Id}&amp;accountId={!Incumbent_Carrier__c.Tech_Account_Id__c}&amp;employerType={!Incumbent_Carrier__c.Employer_Type__c}&quot;, &quot;_blank&quot;,&apos;height=500,width=1200,resizable=yes,scrollbars=yes,toolbar=n‌​o,menubar=no&apos;); 
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Retrieve_Plans_SCN</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Edit Plan Selections</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>if({! TEXT(Employer_Group_Data__c.Stage__c)  ==&apos;Rejected by Underwriting&apos; } ||  {!TEXT(Employer_Group_Data__c.Stage__c)  == &apos;Rejected&apos;} ){
+    alert(&apos;You can not select plans as Sold Case Notification is Rejected&apos;); 
+}else{
+window.open(&quot;/apex/HighRoads_SelectBenefitPlan?scnId={!Employer_Group_Data__c.Id}&amp;accountId={!Employer_Group_Data__c.Tech_Account_Id__c}&amp;employerType={!Employer_Group_Data__c.Employer_Type__c}&quot;, &quot;_blank&quot;,&apos;height=500,width=1200,resizable=yes,scrollbars=yes,toolbar=n‌​o,menubar=no&apos;); 
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Retrieve_Plans_SSO</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Edit Plan Selections</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>if({!Sold_Sign_Off__c.Is_Child_Record_Created__c == TRUE }){
+alert(&apos;You can not select plans as Sold Case Notification is created for this SSO&apos;);
+}
+else{ 
+window.open(&quot;/apex/HighRoads_SelectBenefitPlan?ssoId={!Sold_Sign_Off__c.Id}&amp;accountId={!Sold_Sign_Off__c.Tech_Account_Id__c}&amp;employerType={!Sold_Sign_Off__c.Employer_Type__c}&quot;, &quot;_blank&quot;,&apos;height=500,width=1200,resizable=yes,scrollbars=yes,toolbar=n‌​o,menubar=no&apos;); 
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Select_Rates</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Select Rates</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>if({!Opportunity.Is_Child_Record_Created__c == TRUE }){ 
+alert(&apos;You cannot modify rates as RFP/SCN is created for this Opportunity&apos;); 
+}else if({!TEXT(Opportunity.StageName)== &apos;Closed Lost&apos;} || {!TEXT(Opportunity.StageName)==&apos;Closed - Duplicate&apos;} || {!TEXT(Opportunity.StageName)== &apos;Closed Won&apos;} ){ 
+alert(&apos;You cannot modify rates on a Closed Won/Lost/Duplicate Opportunity&apos;); 
+}else{ 
+window.open(&quot;/apex/HighRoads_RatesSelection?recordId={!Opportunity.Id}&quot;,&quot;_blank&quot;,&apos;height=500,width=1200,resizable=yes,scrollbars=yes,toolbar=n‌​o,menubar=no&apos;);
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Select_Rates_Quote</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Select Rates</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>if({!Proposal__c.Is_Child_Record_Created__c == TRUE }){
+alert(&apos;You can not select Rates as SSO is created for this Quote&apos;);
+}else if({! TEXT(Proposal__c.Stage__c) ==&apos;Rejected by Sales&apos; } ){ 
+alert(&apos;You can not select Rates as Quote is Rejected&apos;);
+}else{
+window.open(&quot;/apex/HighRoads_RatesSelection?recordId={!Proposal__c.Id}&quot;,&quot;_blank&quot;,&apos;height=500,width=1200,resizable=yes,scrollbars=yes,toolbar=n‌​o,menubar=no&apos;); 
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Select_Rates_RFP</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Select Rates</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>if({!Incumbent_Carrier__c.Is_Child_Record_Created__c == TRUE }){
+alert(&apos;You can not select Rates as Quote is created for this RFP&apos;);
+}else if({!TEXT(Incumbent_Carrier__c.Stage__c) == &apos;Rejected by Underwriting&apos;}){ 
+alert(&apos;You can not select Rates as RFP is Rejected&apos;); 
+}else{
+window.open(&quot;/apex/HighRoads_RatesSelection?recordId={!Incumbent_Carrier__c.Id}&quot;,&quot;_blank&quot;,&apos;height=500,width=1200,resizable=yes,scrollbars=yes,toolbar=n‌​o,menubar=no&apos;); 
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Select_Rates_SCN</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Select Rates</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>if({! TEXT(Employer_Group_Data__c.Stage__c)  ==&apos;Rejected by Underwriting&apos; } ||  {!TEXT(Employer_Group_Data__c.Stage__c)  == &apos;Rejected&apos;} ){
+    alert(&apos;You can not select Rates as Sold Case Notification is Rejected&apos;); 
+}else{
+window.open(&quot;/apex/HighRoads_RatesSelection?recordId={!Employer_Group_Data__c.Id}&quot;,&quot;_blank&quot;,&apos;height=500,width=1200,resizable=yes,scrollbars=yes,toolbar=n‌​o,menubar=no&apos;);
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Select_Rates_SSO</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Select Rates</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>if({!Sold_Sign_Off__c.Is_Child_Record_Created__c == TRUE }){
+alert(&apos;You can not select Rates as Sold Case Notification is created for this SSO&apos;);
+}
+else{ 
+window.open(&quot;/apex/HighRoads_RatesSelection?recordId={!Sold_Sign_Off__c.Id}&quot;,&quot;_blank&quot;,&apos;height=500,width=1200,resizable=yes,scrollbars=yes,toolbar=n‌​o,menubar=no&apos;);
+}</url>
+    </webLinks>
+</CustomObject>

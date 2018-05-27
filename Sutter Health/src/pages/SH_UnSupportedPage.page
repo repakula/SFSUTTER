@@ -1,0 +1,115 @@
+<apex:page docType="html-5.0" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false">
+    <head>
+        <title>UnSupported Page</title>
+        <apex:stylesheet value="{!URLFOR($Resource.SutterHealthCare, 'css/bootstrap.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.SutterHealthCare, 'css/font.css')}"/>
+    </head>
+    <style>
+        /*************
+        HEADER
+        *************/
+        
+        #header {
+            border-bottom: 5px solid #f47f24;
+        }
+        .safari-windows #header { 
+            min-height: 100%;
+        }
+        #header-top {
+            height: 65px;
+            line-height: 65px;
+        }
+        
+        
+        #top-navigation li {
+            float: left;
+            margin-left: 20px;
+        }
+        #top-navigation a {
+            display: block;
+            font-weight: bold;
+            letter-spacing: 0.025em;
+            color: #666666;
+            font-size: 12px;
+            transition: all 0.2s ease-in 0s;
+            -webkit-transition: all 0.2s ease-in 0s;
+            -o-transition: all 0.2s ease-in 0s;
+        }
+        
+        #top-navigation a:hover{
+            text-decoration: none;
+            color: #333333;
+            transition: all 0.2s ease-in 0s;
+            -webkit-transition: all 0.2s ease-in 0s;
+            -o-transition: all 0.2s ease-in 0s;
+        }
+        
+        #top-navigation a span.link-text {
+            cursor: pointer;
+            max-width: inherit;
+            font-weight: bold;
+        }
+        ul, ol {
+            list-style: outside none none;
+            padding: 0;
+            margin: 0;
+        }
+        
+    </style>
+    <body id="home" class="show-notification search menu-open menu-visibility">
+       <!-- content -->
+       
+        <div id="content-wrapper" style="text-align:center;">
+            <!-- Header-->
+            <div id="header" class="header">
+                <!-- header top section -->
+                <div id="header-top">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="pull-center">
+                                    <a href="#" class="logo big-logo">
+                                        <apex:image value="{!URLFOR($Resource.SutterHealthCare, 'img/logo@2x.png')}" width="269" height="41"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="content" >
+                <!-- Exception Pnl Starts-->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <section class="text-section with-icon title">
+                                <!--<h1>Error</h1>    -->
+                                <br/>
+                                <p>
+                                    <span style="font-weight:bold;color:#00a9a5;">MySutter</span> <span style="font-weight:bold;color:#f47f24;">Connection</span> supports the following browsers:
+                                </p>
+                                 <p>
+                                    <label>Internet Explorer 9 and Above</label><br/>
+                                    <label>Google Chrome</label><br/>
+                                    <p>
+                                        <span>If you are using a Sutter Health desktop or laptop, please contact the Sutter Health IS Help Desk to upgrade:</span><br/>
+                                        <label>Phone: 1-888-888-6044</label><br/>
+                                        <label>Email Address: <a href="mailto:servicedesk@sutterhealth.org"> servicedesk@sutterhealth.org</a></label><br/>
+                                    </p>
+                                </p>
+                               
+                             </section>
+                             <section class="text-section with-icon title">  
+                                <p>
+                                    If you are using a personal desktop or laptop to access <span style="font-weight:bold;color:#00a9a5;">MySutter</span> <span style="font-weight:bold;color:#f47f24;">Connection</span>, please upgrade to one of the supported browsers listed above.
+                                </p>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+     </body>
+</apex:page>

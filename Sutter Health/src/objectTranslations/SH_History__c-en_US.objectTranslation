@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>History</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Histories</value>
+    </caseValues>
+    <fields>
+        <label><!-- Article Id --></label>
+        <name>SH_Article_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Record Count --></label>
+        <name>SH_Record_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- Summary --></label>
+        <name>SH_Summary__c</name>
+    </fields>
+    <fields>
+        <label><!-- Title --></label>
+        <name>SH_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>SH_User__c</name>
+        <relationshipLabel><!-- Histories --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- View Date --></label>
+        <name>Sh_View_Date__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

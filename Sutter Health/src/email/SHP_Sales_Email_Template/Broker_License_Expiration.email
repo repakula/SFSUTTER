@@ -1,0 +1,7 @@
+{!Contact.OwnerFirstName}
+
+Please let {!Contact.Name} from the Brokerage firm of {!Account.Name} know that his/her Brokers license will be expiring in {!Contact.Days_Until_Expiration__c} days. 
+
+Their email address is {!Contact.Email} 
+For more information about {!Contact.Name} please click here:  {!Contact.Link}.
+Thank you!

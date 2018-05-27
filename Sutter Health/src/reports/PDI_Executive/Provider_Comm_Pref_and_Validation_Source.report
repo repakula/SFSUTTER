@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact_Validation_Summary__c$Name</field>
+    </columns>
+    <columns>
+        <field>Contact_Validation_Summary__c.Cases__r$CaseNumber</field>
+    </columns>
+    <description>What is the validation source for providers who have changed their EHR Communication Preference? (PDI and Case)</description>
+    <filter>
+        <criteriaItems>
+            <column>Contact_Validation_Summary__c$PDI_Campaign__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>2016 Wave1</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact_Validation_Summary__c$Is_Comm_Pref_EHR_Changed__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact_Validation_Summary__c$Status__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Validated</value>
+        </criteriaItems>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>Contact_Validation_Summary__c.Cases__r$Direct_Talk_to_Provider__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Contact_Validation_Summary__c$Validated_Source__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Provider Comm Pref and Validation Source</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>PDI_and_Case__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Contact_Validation_Summary__c$Assigned_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

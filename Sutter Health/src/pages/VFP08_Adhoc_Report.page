@@ -1,0 +1,115 @@
+<!--
+*     Page Name   : VFP08_Adhoc_Report
+*     Author      : Atul Gupta
+*     Date        : 19-Jun-2014 
+*     Project Name: CRM - SFT - Sutter Health
+*     Description : 
+-->
+<apex:page standardController="Case" showheader="true" extensions="VFC08_Adhoc_Report">
+    <apex:pageMessages escape="false"/>
+    <apex:form >
+    <apex:sectionHeader title="Customer Inquiry Edit" subtitle="New Customer Inquiry" />
+        <apex:pageBlock title="Customer Inquiry Edit" mode="Edit">
+        <apex:pageBlockButtons >
+            <apex:commandButton action="{!saveAndSend}" value="Submit" reRender="pgMsg"/>
+            <apex:commandButton action="{!Cancel}" value="Cancel"/>
+        </apex:pageBlockButtons>
+        <apex:pageMessages id="pgMsg" escape="false"/>
+        <font color="red">
+        <apex:outputText style="font-style:italic; font-weight:800" value="Please use the HR Data Request Form below to request the creation and/or distribution of HR data reports.  Any requests for personal information or requests for changes to data should be requested through the Employee Line at 1-855-398-1631"/>
+        <br/>
+        <apex:outputText style="font-style:normal; font-weight:600" value="All requests will be reviewed to ensure that the requestor has the appropriate level of access to receive any data.  Requests for sensitive data may require approval from the affiliate Human Resources department."/>
+        <br/>
+        <apex:outputText style="font-style:italic; font-weight:800" value="Please allow for up to 4 business days for turnaround of any report requests."/> 
+    
+        </font>
+        <br/><br/>
+        <apex:pageBlockSection title="Report Section" columns="2" collapsible="false">
+            <apex:outputField value="{!caseRecord.ContactId}" label="Requested By"/>
+            <apex:outputField value="{!case.Status}"/> 
+            <apex:inputField value="{!case.Subject__c}" required="true"/>   
+            <apex:outputField value="{!case.Origin}"/>
+            <apex:inputField value="{!case.Contact_Phone_Number__c}"/> 
+            <apex:inputField value="{!case.Date_Requested__c}"/>
+            <apex:inputField value="{!case.Requestor_Email__c}" required="true"/>
+            <apex:inputField value="{!case.Date_Needed__c}" required="true"/>
+            <apex:inputField value="{!case.Comments__c}" required="true" style="width: 250px; height: 50px;"/>
+            <apex:inputField value="{!case.Recipients__c}" style="width: 250px; height: 50px;"/>
+            <apex:outputLabel ></apex:outputLabel>
+            <apex:inputField value="{!case.Internal_Comments__c}" label="Comments" style="width: 250px; height: 50px;"/>
+            <apex:pageBlockSectionItem >
+                
+            </apex:pageBlockSectionItem>            
+            <apex:outputLabel ></apex:outputLabel>
+
+            <apex:outputText value="{!caseRecord.Note__c}"/>
+            <apex:outputLabel ></apex:outputLabel>
+            <apex:pageBlockSectionItem >
+                                    Reports Link: <apex:outputLink value="{!caseRecord.Reports_Link__c}" target="_blank" id="theLink">HR Standard Reports Library</apex:outputLink>        
+            </apex:pageBlockSectionItem>            
+                                    
+        </apex:pageBlockSection>
+        
+        <apex:outputPanel id="Rs">
+         <apex:pageBlockSection title="Details Of Previous Request" collapsible="false">
+         <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Report has been Previously Requested?" for="report_Requested" />
+                <apex:actionRegion >
+                    <apex:inputField value="{!case.Report_Previously_Requested__c}"  required="true" id="report_Requested">
+                        <apex:actionSupport event="onchange" reRender="Rs"/>
+                    </apex:inputField>
+                </apex:actionRegion>  
+             </apex:pageBlockSectionItem> 
+
+              <apex:pageBlockSectionItem rendered="{!IF(case.Report_Previously_Requested__c=='Yes',true,false)}">
+                <apex:outputLabel value="Service Request Number" for="report_Requested" />
+                <apex:inputfield value="{!case.Service_Request_Number__c}"/>
+             </apex:pageBlockSectionItem>  
+             
+             <apex:pageBlockSectionItem rendered="{!IF(case.Report_Previously_Requested__c=='Yes',true,false)}">
+                <apex:outputLabel value="Date of Requested Last Report" for="report_Requested" />
+                <apex:inputfield value="{!case.Date_of_Requested_Last_Report__c}"/>
+             </apex:pageBlockSectionItem>  
+            
+            <apex:pageBlockSectionItem rendered="{!IF(case.Report_Previously_Requested__c=='Yes',true,false)}">
+                <apex:outputLabel value="Reporting Team Member" for="report_Requested" />
+                <apex:inputfield value="{!case.Reporting_Team_Member__c}"/>
+            </apex:pageBlockSectionItem>  
+            
+          
+         </apex:pageBlockSection>       
+     </apex:outputPanel> 
+
+        <apex:pageBlockSection title="Record Selection" columns="2" collapsible="false">
+            <apex:inputField value="{!case.Lawson_Company_Numbers_Needed__c}" required="true" style="width: 250px; height: 50px;"/>
+            <apex:inputField value="{!case.Process_Level__c}" style="width: 250px; height: 50px;"/>
+            <apex:inputField value="{!case.Accounting_Unit_s__c}" style="width: 250px; height: 50px;"/>
+            <apex:inputField value="{!case.Location_s__c}" style="width: 250px; height: 50px;"/> 
+            <apex:inputField value="{!case.Employee_Status__c}" required="true"/>
+            <apex:inputField value="{!case.Additional_Record_Selection_instructions__c}" style="width: 250px; height: 50px;"/>
+            <apex:inputField value="{!case.Current_Date__c}"/>
+            <apex:inputField value="{!case.Date_Range_from__c}"/>
+            <apex:inputField value="{!case.As_of_Date__c}"/>
+            <apex:inputField value="{!case.Date_Range_to__c}"/> 
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="Fields to be Displayed on Report" columns="1" collapsible="false">
+            <apex:inputField value="{!case.Job_Position__c}" style="margin-center:285px"/> 
+            <apex:inputField value="{!case.Personal__c}" style="margin-center:285px;"/>
+            <apex:inputField value="{!case.Other_Fields__c}" style="margin-center:285px;"/>
+            <apex:inputField value="{!case.Compensation_Benefits__c}" style="margin-center:285px;"/>
+            <apex:inputField value="{!case.Additional_Fields__c}" style="width: 280px; height: 50px;"/>  
+        </apex:pageBlockSection> 
+        </apex:pageBlock>
+        
+        <!-- Component for GTM-->
+                     <c:Portal_User_Info />
+        <!-- Component for GTM-->
+        
+    </apex:form>
+    
+    <!-- Start Google Tag Manager -->
+    <apex:outputLabel value="{!$Label.GTMCustomLabel}" rendered="false"></apex:outputLabel> 
+    <apex:includeScript value="{!$Resource.GTMJavaScript}" />
+    <!-- End Google Tag Manager -->
+
+</apex:page>

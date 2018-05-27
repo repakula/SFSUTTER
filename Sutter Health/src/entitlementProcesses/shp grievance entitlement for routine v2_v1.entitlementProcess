@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntitlementProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <SObjectType>Case</SObjectType>
+    <active>true</active>
+    <description>Entitlement Process for SHP Grievance Service Requests</description>
+    <entryStartDateField>Case.Date_Grievance_Requested__c</entryStartDateField>
+    <exitCriteriaFilterItems>
+        <field>Case.IsClosed</field>
+        <operation>equals</operation>
+        <value>true</value>
+    </exitCriteriaFilterItems>
+    <isVersionDefault>true</isVersionDefault>
+    <milestones>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Grievance RO, Grievance</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Reason__c</field>
+            <operation>equals</operation>
+            <value>Member Appeal, Member Grievance, Group Contract Holder Grievance</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Secondary_Reason__c</field>
+            <operation>equals</operation>
+            <value>Routine</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Acknowledgement Letter to Complainant</milestoneName>
+        <minutesToComplete>7200</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Grievance RO, Grievance</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Reason__c</field>
+            <operation>equals</operation>
+            <value>DMHC Additional Information, DMHC Notification</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Secondary_Reason__c</field>
+            <operation>equals</operation>
+            <value>Routine</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Acknowledgement Letter to DMHC</milestoneName>
+        <minutesToComplete>7200</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Grievance RO, Grievance</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Reason__c</field>
+            <operation>equals</operation>
+            <value>DMHC Additional Information, DMHC Notification, Member Appeal, Member Grievance, Group Contract Holder Grievance</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Secondary_Reason__c</field>
+            <operation>equals</operation>
+            <value>Routine</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Determination Letter</milestoneName>
+        <minutesToComplete>43200</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Grievance RO, Grievance</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Reason__c</field>
+            <operation>equals</operation>
+            <value>DMHC Additional Information, DMHC Notification, Member Appeal, Member Grievance, Group Contract Holder Grievance</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Request_Clinical_Records__c</field>
+            <operation>equals</operation>
+            <value>true</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Secondary_Reason__c</field>
+            <operation>equals</operation>
+            <value>Routine</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Request Clinical Records</milestoneName>
+        <minutesToComplete>21600</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Grievance RO, Grievance</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Reason__c</field>
+            <operation>equals</operation>
+            <value>DMHC Additional Information, DMHC Notification, Member Appeal, Member Grievance, Group Contract Holder Grievance</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Secondary_Reason__c</field>
+            <operation>equals</operation>
+            <value>Routine</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Research and Recommendation</milestoneName>
+        <minutesToComplete>36000</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Grievance RO, Grievance</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Reason__c</field>
+            <operation>equals</operation>
+            <value>DMHC Additional Information, DMHC Notification, Member Appeal, Member Grievance, Group Contract Holder Grievance</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Secondary_Reason__c</field>
+            <operation>equals</operation>
+            <value>Routine</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Medical Director Review and Determination</milestoneName>
+        <minutesToComplete>41760</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Secondary_Reason__c</field>
+            <operation>equals</operation>
+            <value>Routine</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Secondary_Issue_Description__c</field>
+            <operation>equals</operation>
+            <value>Provider Directory Inaccuracy</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Provider Network Notification</milestoneName>
+        <minutesToComplete>2880</minutesToComplete>
+        <timeTriggers>
+            <actions>
+                <name>Reminder_Notification_1day_before_Provider_Network_Services_is_hitting_the_miles</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>-1</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <name>SHP Grievance Entitlement for Routine V2</name>
+    <versionMaster>552J00000004ChB</versionMaster>
+    <versionNumber>1</versionNumber>
+</EntitlementProcess>

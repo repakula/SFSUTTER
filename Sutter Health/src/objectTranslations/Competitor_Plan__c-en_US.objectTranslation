@@ -1,0 +1,1052 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Competitor Plan</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Competitor Plans</value>
+    </caseValues>
+    <fields>
+        <label><!-- Age Banded Total Premium --></label>
+        <name>Age_Banded_Total_Premium__c</name>
+    </fields>
+    <fields>
+        <label><!-- Carrier --></label>
+        <name>Carrier__c</name>
+        <picklistValues>
+            <masterLabel>Aetna</masterLabel>
+            <translation><!-- Aetna --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Anthem Blue Cross</masterLabel>
+            <translation><!-- Anthem Blue Cross --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Blue Shield</masterLabel>
+            <translation><!-- Blue Shield --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cal Choice</masterLabel>
+            <translation><!-- Cal Choice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Net</masterLabel>
+            <translation><!-- Health Net --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kaiser</masterLabel>
+            <translation><!-- Kaiser --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>United Health Care</masterLabel>
+            <translation><!-- United Health Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Western Health Advantage</masterLabel>
+            <translation><!-- Western Health Advantage --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Coinsurance --></label>
+        <name>Coinsurance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deductible --></label>
+        <name>Deductible__c</name>
+    </fields>
+    <fields>
+        <label><!-- EE + Family Rate --></label>
+        <name>EE_Family_Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- EE Rate --></label>
+        <name>EE_Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- EE + S rate --></label>
+        <name>EE_S_rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- EE + CC Rate --></label>
+        <name>EE__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number Of Employees --></label>
+        <name>Number_Of_Employees__c</name>
+    </fields>
+    <fields>
+        <label><!-- OOPM --></label>
+        <name>OOPM__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCP --></label>
+        <name>PCP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan Type --></label>
+        <name>Plan_Type__c</name>
+        <picklistValues>
+            <masterLabel>DHMO</masterLabel>
+            <translation><!-- DHMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EPO</masterLabel>
+            <translation><!-- EPO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HMO</masterLabel>
+            <translation><!-- HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HRA</masterLabel>
+            <translation><!-- HRA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HSA</masterLabel>
+            <translation><!-- HSA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PPO</masterLabel>
+            <translation><!-- PPO --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Plan --></label>
+        <name>Plan__c</name>
+        <picklistValues>
+            <masterLabel>Advantage 10-20/300a/250ded Platinum</masterLabel>
+            <translation><!-- Advantage 10-20/300a/250ded Platinum --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Advantage 20-40/1000d/1000ded Gold</masterLabel>
+            <translation><!-- Advantage 20-40/1000d/1000ded Gold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Advantage 20-40/1000d/500ded Gold</masterLabel>
+            <translation><!-- Advantage 20-40/1000d/500ded Gold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Advantage 30-50/25%/1750ded Silver</masterLabel>
+            <translation><!-- Advantage 30-50/25%/1750ded Silver --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Advantage 50-75/30%/4500ded Bronze</masterLabel>
+            <translation><!-- Advantage 50-75/30%/4500ded Bronze --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aetna HMO Deductible A Bronze</masterLabel>
+            <translation><!-- Aetna HMO Deductible A Bronze --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aetna HMO Deductible A Silver</masterLabel>
+            <translation><!-- Aetna HMO Deductible A Silver --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aetna Value Network A Gold HMO</masterLabel>
+            <translation><!-- Aetna Value Network A Gold HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aetna Value Network A Platinum HMO</masterLabel>
+            <translation><!-- Aetna Value Network A Platinum HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aetna Value Network B Gold HMO</masterLabel>
+            <translation><!-- Aetna Value Network B Gold HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Anthem Blue Cross A Bronze EPO</masterLabel>
+            <translation><!-- Anthem Blue Cross A Bronze EPO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Anthem Blue Cross A Gold PPO</masterLabel>
+            <translation><!-- Anthem Blue Cross A Gold PPO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Anthem Blue Cross A Silver EPO</masterLabel>
+            <translation><!-- Anthem Blue Cross A Silver EPO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Anthem Blue Cross A Silver PPO</masterLabel>
+            <translation><!-- Anthem Blue Cross A Silver PPO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Anthem Blue Cross Select A Gold HMO</masterLabel>
+            <translation><!-- Anthem Blue Cross Select A Gold HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Anthem Blue Cross Select A Platinum HMO</masterLabel>
+            <translation><!-- Anthem Blue Cross Select A Platinum HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Anthem Blue Cross Select A Silver HMO</masterLabel>
+            <translation><!-- Anthem Blue Cross Select A Silver HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Anthem Blue Cross Select B Gold HMO</masterLabel>
+            <translation><!-- Anthem Blue Cross Select B Gold HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Anthem Blue Cross Select B Gold PPO</masterLabel>
+            <translation><!-- Anthem Blue Cross Select B Gold PPO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Anthem Blue Cross Select B Silver PPO</masterLabel>
+            <translation><!-- Anthem Blue Cross Select B Silver PPO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Anthem Blue Cross Select C Gold PPO</masterLabel>
+            <translation><!-- Anthem Blue Cross Select C Gold PPO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Anthem Blue Cross Select D Gold PPO</masterLabel>
+            <translation><!-- Anthem Blue Cross Select D Gold PPO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Basic Exclusive PPO</masterLabel>
+            <translation><!-- Basic Exclusive PPO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Basic Full PPO 3500 HSA Compatable</masterLabel>
+            <translation><!-- Basic Full PPO 3500 HSA Compatable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Basic Full PPO 4500</masterLabel>
+            <translation><!-- Basic Full PPO 4500 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Basic Full PPO 5500 HSA Compatable</masterLabel>
+            <translation><!-- Basic Full PPO 5500 HSA Compatable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bronze 3500/30 Deductible HSA</masterLabel>
+            <translation><!-- Bronze 3500/30 Deductible HSA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bronze 4500/40% Deductible HSA</masterLabel>
+            <translation><!-- Bronze 4500/40% Deductible HSA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bronze 5000/60 Deductible</masterLabel>
+            <translation><!-- Bronze 5000/60 Deductible --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bronze 5000/60 PPO</masterLabel>
+            <translation><!-- Bronze 5000/60 PPO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bronze PPO $60/$5000</masterLabel>
+            <translation><!-- Bronze PPO $60/$5000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bronze PPO $60/$5000 w/Infertility</masterLabel>
+            <translation><!-- Bronze PPO $60/$5000 w/Infertility --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Bronze HMO Deductible 5500</masterLabel>
+            <translation><!-- CA Bronze HMO Deductible 5500 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Bronze MC 3500 50/50</masterLabel>
+            <translation><!-- CA Bronze MC 3500 50/50 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Bronze MC 4000 Copay Plan</masterLabel>
+            <translation><!-- CA Bronze MC 4000 Copay Plan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Bronze MC 6350 100/50</masterLabel>
+            <translation><!-- CA Bronze MC 6350 100/50 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Bronze MC HSA 2500 50/50</masterLabel>
+            <translation><!-- CA Bronze MC HSA 2500 50/50 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Bronze MC HSA 3500 70/50</masterLabel>
+            <translation><!-- CA Bronze MC HSA 3500 70/50 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Bronze MC HSA 6300 100/50</masterLabel>
+            <translation><!-- CA Bronze MC HSA 6300 100/50 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Bronze MC Plan</masterLabel>
+            <translation><!-- CA Bronze MC Plan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Gold AVN HMO 10</masterLabel>
+            <translation><!-- CA Gold AVN HMO 10 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Gold AVN HMO 20</masterLabel>
+            <translation><!-- CA Gold AVN HMO 20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Gold AVN HMO 30</masterLabel>
+            <translation><!-- CA Gold AVN HMO 30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Gold HMO 10</masterLabel>
+            <translation><!-- CA Gold HMO 10 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Gold HMO 20</masterLabel>
+            <translation><!-- CA Gold HMO 20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Gold HMO 30</masterLabel>
+            <translation><!-- CA Gold HMO 30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Gold HMO Copay Plan</masterLabel>
+            <translation><!-- CA Gold HMO Copay Plan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Gold MC 500 80/50</masterLabel>
+            <translation><!-- CA Gold MC 500 80/50 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Gold MC Copay Plan</masterLabel>
+            <translation><!-- CA Gold MC Copay Plan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Gold PPO 750 80/50</masterLabel>
+            <translation><!-- CA Gold PPO 750 80/50 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Platinum HMO Copay Plan</masterLabel>
+            <translation><!-- CA Platinum HMO Copay Plan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Platinum MC Copay Plan</masterLabel>
+            <translation><!-- CA Platinum MC Copay Plan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Silver HMO Deductible 1000</masterLabel>
+            <translation><!-- CA Silver HMO Deductible 1000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Silver HMO Deductible 1500</masterLabel>
+            <translation><!-- CA Silver HMO Deductible 1500 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Silver HMO Deductible 2000</masterLabel>
+            <translation><!-- CA Silver HMO Deductible 2000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Silver HMO Deductible Copay Plan</masterLabel>
+            <translation><!-- CA Silver HMO Deductible Copay Plan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Silver MC 1000 60/50</masterLabel>
+            <translation><!-- CA Silver MC 1000 60/50 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Silver MC 1000 75/50</masterLabel>
+            <translation><!-- CA Silver MC 1000 75/50 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Silver MC 1500 60/50</masterLabel>
+            <translation><!-- CA Silver MC 1500 60/50 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Silver MC 2000 60/50</masterLabel>
+            <translation><!-- CA Silver MC 2000 60/50 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA Silver MC Coinsurance Plan</masterLabel>
+            <translation><!-- CA Silver MC Coinsurance Plan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CAPITAL BRONZE 60</masterLabel>
+            <translation><!-- CAPITAL BRONZE 60 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CAPITAL BRONZE 60B HSA</masterLabel>
+            <translation><!-- CAPITAL BRONZE 60B HSA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CAPITAL GOLD 80</masterLabel>
+            <translation><!-- CAPITAL GOLD 80 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CAPITAL PLATINUM 90</masterLabel>
+            <translation><!-- CAPITAL PLATINUM 90 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CAPITAL SILVER 70</masterLabel>
+            <translation><!-- CAPITAL SILVER 70 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CAPITAL SILVER 70 HSA</masterLabel>
+            <translation><!-- CAPITAL SILVER 70 HSA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Core Direct Access gkua</masterLabel>
+            <translation><!-- Core Direct Access gkua --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Core DirectAccess Plus gsdf</masterLabel>
+            <translation><!-- Core DirectAccess Plus gsdf --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Core DirectAccess Plus w/Dental gsdf</masterLabel>
+            <translation><!-- Core DirectAccess Plus w/Dental gsdf --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Core DirectAccess gfua</masterLabel>
+            <translation><!-- Core DirectAccess gfua --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Core DirectAccess gtdf</masterLabel>
+            <translation><!-- Core DirectAccess gtdf --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Core DirectAccess w/HSA gjua</masterLabel>
+            <translation><!-- Core DirectAccess w/HSA gjua --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Core DirectAccess w/HSA gmua</masterLabel>
+            <translation><!-- Core DirectAccess w/HSA gmua --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Core DirectAccess w/HSA gpua</masterLabel>
+            <translation><!-- Core DirectAccess w/HSA gpua --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enhanced Exclusive HMO</masterLabel>
+            <translation><!-- Enhanced Exclusive HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enhanced Exclusive HMO $55</masterLabel>
+            <translation><!-- Enhanced Exclusive HMO $55 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enhanced Full HMO $55</masterLabel>
+            <translation><!-- Enhanced Full HMO $55 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enhanced Full PPO 1250</masterLabel>
+            <translation><!-- Enhanced Full PPO 1250 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enhanced Full PPO 2000</masterLabel>
+            <translation><!-- Enhanced Full PPO 2000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enhanced Full PPO 2000 HSA Compatable</masterLabel>
+            <translation><!-- Enhanced Full PPO 2000 HSA Compatable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Essential DirectAccess Plus gbpa</masterLabel>
+            <translation><!-- Essential DirectAccess Plus gbpa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Essential DirectAccess Plus gbqa</masterLabel>
+            <translation><!-- Essential DirectAccess Plus gbqa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Essential DirectAccess gbwa</masterLabel>
+            <translation><!-- Essential DirectAccess gbwa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Essential DirectAccess gtob</masterLabel>
+            <translation><!-- Essential DirectAccess gtob --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Essential DirectAccess guob</masterLabel>
+            <translation><!-- Essential DirectAccess guob --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Essential DirectAccess w/HSA gzra</masterLabel>
+            <translation><!-- Essential DirectAccess w/HSA gzra --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Essential Guided Access Plus gboa</masterLabel>
+            <translation><!-- Essential Guided Access Plus gboa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Essential Guided Access Plus w/Dental gboa</masterLabel>
+            <translation><!-- Essential Guided Access Plus w/Dental gboa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GATEWAY 1500 HSA</masterLabel>
+            <translation><!-- GATEWAY 1500 HSA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GATEWAY 1800 HSA</masterLabel>
+            <translation><!-- GATEWAY 1800 HSA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GATEWAY 20</masterLabel>
+            <translation><!-- GATEWAY 20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GATEWAY 30</masterLabel>
+            <translation><!-- GATEWAY 30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GATEWAY 4000B HSA</masterLabel>
+            <translation><!-- GATEWAY 4000B HSA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GATEWAY 4010</masterLabel>
+            <translation><!-- GATEWAY 4010 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GATEWAY 4020</masterLabel>
+            <translation><!-- GATEWAY 4020 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GATEWAY 5020</masterLabel>
+            <translation><!-- GATEWAY 5020 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GATEWAY 5500B HSA</masterLabel>
+            <translation><!-- GATEWAY 5500B HSA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GATEWAY 70</masterLabel>
+            <translation><!-- GATEWAY 70 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold 0/30 Copay</masterLabel>
+            <translation><!-- Gold 0/30 Copay --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold 0/30 PPO</masterLabel>
+            <translation><!-- Gold 0/30 PPO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold 2000/30 Deductible HRA</masterLabel>
+            <translation><!-- Gold 2000/30 Deductible HRA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold 500/30 Deductible</masterLabel>
+            <translation><!-- Gold 500/30 Deductible --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold PPO $30/$0</masterLabel>
+            <translation><!-- Gold PPO $30/$0 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold PPO $30/$0 w/Infertility</masterLabel>
+            <translation><!-- Gold PPO $30/$0 w/Infertility --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Net A Bronze PPO</masterLabel>
+            <translation><!-- Health Net A Bronze PPO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Net A Gold HMO</masterLabel>
+            <translation><!-- Health Net A Gold HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Net A Gold PPO</masterLabel>
+            <translation><!-- Health Net A Gold PPO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Net A Silver PPO</masterLabel>
+            <translation><!-- Health Net A Silver PPO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Net B Gold HMO</masterLabel>
+            <translation><!-- Health Net B Gold HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kaiser A Bronze HMO</masterLabel>
+            <translation><!-- Kaiser A Bronze HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kaiser A Gold HMO</masterLabel>
+            <translation><!-- Kaiser A Gold HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kaiser A Platinum HMO</masterLabel>
+            <translation><!-- Kaiser A Platinum HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kaiser A Silver HMO</masterLabel>
+            <translation><!-- Kaiser A Silver HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kaiser B Bronze HMO</masterLabel>
+            <translation><!-- Kaiser B Bronze HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kaiser B Gold HMO</masterLabel>
+            <translation><!-- Kaiser B Gold HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kaiser B Silver HMO</masterLabel>
+            <translation><!-- Kaiser B Silver HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kaiser C Bronze HMO</masterLabel>
+            <translation><!-- Kaiser C Bronze HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kaiser C Silver HMO</masterLabel>
+            <translation><!-- Kaiser C Silver HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-Differential PPO 2000/20% Silver</masterLabel>
+            <translation><!-- Non-Differential PPO 2000/20% Silver --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platinum 0/20 Copay</masterLabel>
+            <translation><!-- Platinum 0/20 Copay --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platinum 0/20 PPO</masterLabel>
+            <translation><!-- Platinum 0/20 PPO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platinum PPO $20/$0</masterLabel>
+            <translation><!-- Platinum PPO $20/$0 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platinum PPO $20/$0 w/Infertility</masterLabel>
+            <translation><!-- Platinum PPO $20/$0 w/Infertility --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preferred DirectAccess gwfa</masterLabel>
+            <translation><!-- Preferred DirectAccess gwfa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preferred DirectAccess gyfa</masterLabel>
+            <translation><!-- Preferred DirectAccess gyfa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preferred DirectAccess gzfa</masterLabel>
+            <translation><!-- Preferred DirectAccess gzfa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preferred DirectAccess w/HRA gfra</masterLabel>
+            <translation><!-- Preferred DirectAccess w/HRA gfra --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preferred DirectAccess w/HRA gkkb</masterLabel>
+            <translation><!-- Preferred DirectAccess w/HRA gkkb --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preferred DirectAccess w/HRA gsob</masterLabel>
+            <translation><!-- Preferred DirectAccess w/HRA gsob --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preferred Exclusive HMO</masterLabel>
+            <translation><!-- Preferred Exclusive HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preferred Exclusive HMO $30</masterLabel>
+            <translation><!-- Preferred Exclusive HMO $30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preferred Full HMO $30</masterLabel>
+            <translation><!-- Preferred Full HMO $30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preferred Full PPO 0</masterLabel>
+            <translation><!-- Preferred Full PPO 0 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preferred Full PPO 750</masterLabel>
+            <translation><!-- Preferred Full PPO 750 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preferred Guided Access gfca</masterLabel>
+            <translation><!-- Preferred Guided Access gfca --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preferred Guided Access gxba</masterLabel>
+            <translation><!-- Preferred Guided Access gxba --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preferred Guided Access gzba</masterLabel>
+            <translation><!-- Preferred Guided Access gzba --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Core Direct Access gkua</masterLabel>
+            <translation><!-- Select Core Direct Access gkua --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Core DirectAccess Plus gsdf</masterLabel>
+            <translation><!-- Select Core DirectAccess Plus gsdf --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Core DirectAccess Plus w/Dental gsdf</masterLabel>
+            <translation><!-- Select Core DirectAccess Plus w/Dental gsdf --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Core DirectAccess gdbf</masterLabel>
+            <translation><!-- Select Core DirectAccess gdbf --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Core DirectAccess gfua</masterLabel>
+            <translation><!-- Select Core DirectAccess gfua --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Core DirectAccess gtdf</masterLabel>
+            <translation><!-- Select Core DirectAccess gtdf --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Core DirectAccess w/HSA gjua</masterLabel>
+            <translation><!-- Select Core DirectAccess w/HSA gjua --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Core DirectAccess w/HSA gmua</masterLabel>
+            <translation><!-- Select Core DirectAccess w/HSA gmua --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Core DirectAccess w/HSA gpua</masterLabel>
+            <translation><!-- Select Core DirectAccess w/HSA gpua --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Essential DirectAccess Plus gbpa</masterLabel>
+            <translation><!-- Select Essential DirectAccess Plus gbpa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Essential DirectAccess Plus gbqa</masterLabel>
+            <translation><!-- Select Essential DirectAccess Plus gbqa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Essential DirectAccess gbwa</masterLabel>
+            <translation><!-- Select Essential DirectAccess gbwa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Essential DirectAccess gcbf</masterLabel>
+            <translation><!-- Select Essential DirectAccess gcbf --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Essential DirectAccess gtob</masterLabel>
+            <translation><!-- Select Essential DirectAccess gtob --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Essential DirectAccess guob</masterLabel>
+            <translation><!-- Select Essential DirectAccess guob --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Essential DirectAccess w/HSA gzra</masterLabel>
+            <translation><!-- Select Essential DirectAccess w/HSA gzra --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Essential Guided Access Plus gboa</masterLabel>
+            <translation><!-- Select Essential Guided Access Plus gboa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Essential Guided Access Plus w/Dental gboa</masterLabel>
+            <translation><!-- Select Essential Guided Access Plus w/Dental gboa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Essential Guided Access gyaf</masterLabel>
+            <translation><!-- Select Essential Guided Access gyaf --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Plus 15/10% Platinum</masterLabel>
+            <translation><!-- Select Plus 15/10% Platinum --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Plus 15/1000/10% Gold</masterLabel>
+            <translation><!-- Select Plus 15/1000/10% Gold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Plus 15/250/10% Gold</masterLabel>
+            <translation><!-- Select Plus 15/250/10% Gold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Plus 15/500/10% Gold</masterLabel>
+            <translation><!-- Select Plus 15/500/10% Gold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Plus 25/1800/20% Silver</masterLabel>
+            <translation><!-- Select Plus 25/1800/20% Silver --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Plus 4500/20% Bronze</masterLabel>
+            <translation><!-- Select Plus 4500/20% Bronze --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Plus HSA 1500/20% Silver</masterLabel>
+            <translation><!-- Select Plus HSA 1500/20% Silver --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Plus HSA 2000/20% Silver</masterLabel>
+            <translation><!-- Select Plus HSA 2000/20% Silver --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Plus HSA 3500/20% Bronze</masterLabel>
+            <translation><!-- Select Plus HSA 3500/20% Bronze --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Plus HSA 5000/20% Bronze</masterLabel>
+            <translation><!-- Select Plus HSA 5000/20% Bronze --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Preferred DirectAccess Plus gbbf</masterLabel>
+            <translation><!-- Select Preferred DirectAccess Plus gbbf --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Preferred DirectAccess Plus gjca</masterLabel>
+            <translation><!-- Select Preferred DirectAccess Plus gjca --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Preferred DirectAccess Plus gmca</masterLabel>
+            <translation><!-- Select Preferred DirectAccess Plus gmca --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Preferred DirectAccess Plus gnca</masterLabel>
+            <translation><!-- Select Preferred DirectAccess Plus gnca --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Preferred DirectAccess gwfa</masterLabel>
+            <translation><!-- Select Preferred DirectAccess gwfa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Preferred DirectAccess gyfa</masterLabel>
+            <translation><!-- Select Preferred DirectAccess gyfa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Preferred DirectAccess gzfa</masterLabel>
+            <translation><!-- Select Preferred DirectAccess gzfa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Preferred DirectAccess w/HRA gfra</masterLabel>
+            <translation><!-- Select Preferred DirectAccess w/HRA gfra --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Preferred DirectAccess w/HRA gkkb</masterLabel>
+            <translation><!-- Select Preferred DirectAccess w/HRA gkkb --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Preferred DirectAccess w/HRA gsob</masterLabel>
+            <translation><!-- Select Preferred DirectAccess w/HRA gsob --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Preferred Guided Access Plus gpaa</masterLabel>
+            <translation><!-- Select Preferred Guided Access Plus gpaa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Preferred Guided Access Plus gsaa</masterLabel>
+            <translation><!-- Select Preferred Guided Access Plus gsaa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Preferred Guided Access Plus gxaf</masterLabel>
+            <translation><!-- Select Preferred Guided Access Plus gxaf --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Preferred Guided Access Plus gzna</masterLabel>
+            <translation><!-- Select Preferred Guided Access Plus gzna --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Preferred Guided Access gfca</masterLabel>
+            <translation><!-- Select Preferred Guided Access gfca --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Preferred Guided Access gxba</masterLabel>
+            <translation><!-- Select Preferred Guided Access gxba --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Preferred Guided Access gzba</masterLabel>
+            <translation><!-- Select Preferred Guided Access gzba --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Premier Direct Access Plus gabf</masterLabel>
+            <translation><!-- Select Premier Direct Access Plus gabf --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Premier Guided Access Plus gjaa</masterLabel>
+            <translation><!-- Select Premier Guided Access Plus gjaa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Select Premier Guided Access Plus gwaf</masterLabel>
+            <translation><!-- Select Premier Guided Access Plus gwaf --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Signature 10-20/300a/250ded Platinum</masterLabel>
+            <translation><!-- Signature 10-20/300a/250ded Platinum --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Signature 20-40/1000d/1000ded Gold</masterLabel>
+            <translation><!-- Signature 20-40/1000d/1000ded Gold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Signature 20-40/1000d/500ded Gold</masterLabel>
+            <translation><!-- Signature 20-40/1000d/500ded Gold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Signature 30-50/25%/1750ded Silver</masterLabel>
+            <translation><!-- Signature 30-50/25%/1750ded Silver --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Signature 50-75/30%/4500ded Bronze</masterLabel>
+            <translation><!-- Signature 50-75/30%/4500ded Bronze --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver 1000/40 Deductible</masterLabel>
+            <translation><!-- Silver 1000/40 Deductible --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver 1500/20% Deductible HSA</masterLabel>
+            <translation><!-- Silver 1500/20% Deductible HSA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver 1500/45 Deductible</masterLabel>
+            <translation><!-- Silver 1500/45 Deductible --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver 1500/45 PPO</masterLabel>
+            <translation><!-- Silver 1500/45 PPO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver PPO $45/$1500</masterLabel>
+            <translation><!-- Silver PPO $45/$1500 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver PPO $45/$1500 w/Infertility</masterLabel>
+            <translation><!-- Silver PPO $45/$1500 w/Infertility --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>State Select 20/10% Platinum</masterLabel>
+            <translation><!-- State Select 20/10% Platinum --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>State Select 30/20% Gold</masterLabel>
+            <translation><!-- State Select 30/20% Gold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>State Select 45/1500/20% Silver</masterLabel>
+            <translation><!-- State Select 45/1500/20% Silver --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>State Select HSA 4500/40% Bronze</masterLabel>
+            <translation><!-- State Select HSA 4500/40% Bronze --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ultimate Exclusive HMO</masterLabel>
+            <translation><!-- Ultimate Exclusive HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ultimate Exclusive HMO $25</masterLabel>
+            <translation><!-- Ultimate Exclusive HMO $25 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ultimate Full HMO $25</masterLabel>
+            <translation><!-- Ultimate Full HMO $25 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ultimate Full PPO 0</masterLabel>
+            <translation><!-- Ultimate Full PPO 0 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ultimate Full PPO 150</masterLabel>
+            <translation><!-- Ultimate Full PPO 150 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Western Health A Bronze HMO</masterLabel>
+            <translation><!-- Western Health A Bronze HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Western Health A Gold HMO</masterLabel>
+            <translation><!-- Western Health A Gold HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Western Health A Platinum HMO</masterLabel>
+            <translation><!-- Western Health A Platinum HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Western Health A Silver HMO</masterLabel>
+            <translation><!-- Western Health A Silver HMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WholeCare HMO Gold $35</masterLabel>
+            <translation><!-- WholeCare HMO Gold $35 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WholeCare HMO Gold $45</masterLabel>
+            <translation><!-- WholeCare HMO Gold $45 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WholeCare HMO Gold Standard Copay</masterLabel>
+            <translation><!-- WholeCare HMO Gold Standard Copay --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WholeCare HMO Platinum $15</masterLabel>
+            <translation><!-- WholeCare HMO Platinum $15 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WholeCare HMO Platinum $20</masterLabel>
+            <translation><!-- WholeCare HMO Platinum $20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WholeCare HMO Platinum $25</masterLabel>
+            <translation><!-- WholeCare HMO Platinum $25 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WholeCare HMO Platinum Standard Copay</masterLabel>
+            <translation><!-- WholeCare HMO Platinum Standard Copay --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Purchased --></label>
+        <name>Purchased__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote --></label>
+        <name>Quote__c</name>
+        <relationshipLabel><!-- Competitor Plans --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RX Deductible --></label>
+        <name>RX_Deductible__c</name>
+    </fields>
+    <fields>
+        <label><!-- RX Tier 1 --></label>
+        <name>RX_Tier_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- RX Tier 2 --></label>
+        <name>RX_Tier_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- RX Tier 3 --></label>
+        <name>RX_Tier_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rate Type --></label>
+        <name>Rate_Type__c</name>
+        <picklistValues>
+            <masterLabel>Current</masterLabel>
+            <translation><!-- Current --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Renewal</masterLabel>
+            <translation><!-- Renewal --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Renewal Increase --></label>
+        <name>Renewal_Increase__c</name>
+    </fields>
+    <fields>
+        <label><!-- SPC --></label>
+        <name>SPC__c</name>
+    </fields>
+    <layouts>
+        <layout>Competitor Plan Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

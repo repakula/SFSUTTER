@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>This custom  setting used to hold common setting that were used in community site. EG: mashape key(for word correction)</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>SH_Case_Record_Type_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>Case Record Type Id</label>
+        <length>18</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SH_Home_Page_Slider_Interval__c</fullName>
+        <defaultValue>8000</defaultValue>
+        <description>homeSliderInterval in ms (4000 ms for 4 s)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>homeSliderInterval in ms (4000 ms for 4 s)</inlineHelpText>
+        <label>Home Page Slider Interval</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SH_Mashape_Account_Endpoint_URL__c</fullName>
+        <description>Endpoint url</description>
+        <externalId>false</externalId>
+        <label>Mashape Account Endpoint URL</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>SH_Mashape_Account_Key__c</fullName>
+        <description>Mashape Account Key : Used for word suggestions and corrections</description>
+        <externalId>false</externalId>
+        <label>Mashape Account Key</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Community Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

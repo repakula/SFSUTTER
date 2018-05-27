@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Employee Solutions</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Employee Solutions</value>
+    </caseValues>
+    <fields>
+        <label><!-- Action Comments --></label>
+        <name>Action_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Anniversary Date --></label>
+        <name>Contact_Ann_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Department --></label>
+        <name>Contact_Department__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact ID --></label>
+        <name>Contact_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Job Code Description --></label>
+        <name>Contact_Job_Code_Desc__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Job Code --></label>
+        <name>Contact_Job_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Status --></label>
+        <name>Contact_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Supervisor --></label>
+        <name>Contact_Supervisor__c</name>
+    </fields>
+    <fields>
+        <help><!-- Who is the person (other than the subject) that you are working on with this matter? --></help>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Employee Solutions (Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Contacted By --></label>
+        <name>Contacted_By__c</name>
+        <picklistValues>
+            <masterLabel>Compliance</masterLabel>
+            <translation><!-- Compliance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Employee</masterLabel>
+            <translation><!-- Employee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lead</masterLabel>
+            <translation><!-- Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Disciplinary Action --></label>
+        <name>Disciplinary_Action__c</name>
+        <picklistValues>
+            <masterLabel>Final Warning</masterLabel>
+            <translation><!-- Final Warning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspension</masterLabel>
+            <translation><!-- Suspension --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Termination</masterLabel>
+            <translation><!-- Termination --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Verbal Coaching</masterLabel>
+            <translation><!-- Verbal Coaching --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Written</masterLabel>
+            <translation><!-- Written --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Disciplinary Comments --></label>
+        <name>Disciplinary_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Emp Supervisor --></label>
+        <name>Emp_Supervisor__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employee Anniversary Date --></label>
+        <name>Employee_Anniversary_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employee ID --></label>
+        <name>Employee_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employee Job Code Desc --></label>
+        <name>Employee_Job_Code_Desc__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employee Job Code --></label>
+        <name>Employee_Job_Code__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of employee --></help>
+        <label><!-- Employee --></label>
+        <name>Employee__c</name>
+        <relationshipLabel><!-- Employee Solutions Interactions --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Was this entered into Lawson? --></help>
+        <label><!-- Entered in Lawson --></label>
+        <name>Entered_in_Lawson__c</name>
+    </fields>
+    <fields>
+        <label><!-- Function --></label>
+        <name>Function__c</name>
+        <picklistValues>
+            <masterLabel>Contact Center</masterLabel>
+            <translation><!-- Contact Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance</masterLabel>
+            <translation><!-- Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR</masterLabel>
+            <translation><!-- HR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rev Cycle</masterLabel>
+            <translation><!-- Rev Cycle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Supply Chain</masterLabel>
+            <translation><!-- Supply Chain --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Svc and Perf Mgmt</masterLabel>
+            <translation><!-- Svc and Perf Mgmt --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Indexed to ePR? --></label>
+        <name>Indexed_to_ePR__c</name>
+    </fields>
+    <fields>
+        <help><!-- What date was this issue brought up to Employee Relations? --></help>
+        <label><!-- Initial Contact --></label>
+        <name>Initial_Contact__c</name>
+    </fields>
+    <fields>
+        <help><!-- What Lead are you working with for this request? --></help>
+        <label><!-- Lead --></label>
+        <name>Lead__c</name>
+        <relationshipLabel><!-- Employee Solutions (Lead) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Notes --></label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Origin --></label>
+        <name>Origin__c</name>
+        <picklistValues>
+            <masterLabel>Contact Center</masterLabel>
+            <translation><!-- Contact Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electronic (e-mail or IM)</masterLabel>
+            <translation><!-- Electronic (e-mail or IM) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In-Person</masterLabel>
+            <translation><!-- In-Person --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phone</masterLabel>
+            <translation><!-- Phone --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Outcome --></label>
+        <name>Outcome__c</name>
+        <picklistValues>
+            <masterLabel>Change Control</masterLabel>
+            <translation><!-- Change Control --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Conversation</masterLabel>
+            <translation><!-- Conversation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DAN</masterLabel>
+            <translation><!-- DAN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Job Description Review</masterLabel>
+            <translation><!-- Job Description Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PIP</masterLabel>
+            <translation><!-- PIP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Referred to Ed</masterLabel>
+            <translation><!-- Referred to Ed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Referred to Lead</masterLabel>
+            <translation><!-- Referred to Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Referred to Leader</masterLabel>
+            <translation><!-- Referred to Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Referred to SSLT</masterLabel>
+            <translation><!-- Referred to SSLT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Termination</masterLabel>
+            <translation><!-- Termination --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- What was the interaction regarding? --></help>
+        <label><!-- Primary Topic --></label>
+        <name>Primary_Topic__c</name>
+        <picklistValues>
+            <masterLabel>Attendance</masterLabel>
+            <translation><!-- Attendance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Conduct_Behavior</masterLabel>
+            <translation><!-- Conduct_Behavior --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Discrimination</masterLabel>
+            <translation><!-- Discrimination --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Harassment</masterLabel>
+            <translation><!-- Harassment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Job Change</masterLabel>
+            <translation><!-- Job Change --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Performance</masterLabel>
+            <translation><!-- Performance --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Re-Opened Date --></label>
+        <name>Re_Opened_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Related To --></label>
+        <name>Related_Log__c</name>
+        <relationshipLabel><!-- Related Employee Solutions --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- What root cause can this problem be attributed too? --></help>
+        <label><!-- Root Cause --></label>
+        <name>Root_Cause__c</name>
+        <picklistValues>
+            <masterLabel>No System Failsafe</masterLabel>
+            <translation><!-- No System Failsafe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Poor Policy</masterLabel>
+            <translation><!-- Poor Policy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Skill Mismatch</masterLabel>
+            <translation><!-- Skill Mismatch --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Re-Opened</masterLabel>
+            <translation><!-- Re-Opened --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sub Function --></label>
+        <name>Sub_Function__c</name>
+        <picklistValues>
+            <masterLabel>Accounting</masterLabel>
+            <translation><!-- Accounting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accounts Payable</masterLabel>
+            <translation><!-- Accounts Payable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accounts Receivable Account and Managed Care</masterLabel>
+            <translation><!-- Accounts Receivable Account and Managed Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Benefits</masterLabel>
+            <translation><!-- Benefits --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CBO</masterLabel>
+            <translation><!-- CBO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDM</masterLabel>
+            <translation><!-- CDM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compensation</masterLabel>
+            <translation><!-- Compensation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contact Center</masterLabel>
+            <translation><!-- Contact Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credentialing Verification</masterLabel>
+            <translation><!-- Credentialing Verification --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DMC</masterLabel>
+            <translation><!-- DMC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data &amp; Analytics</masterLabel>
+            <translation><!-- Data &amp; Analytics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Education</masterLabel>
+            <translation><!-- Education --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Employee Solutions</masterLabel>
+            <translation><!-- Employee Solutions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HIM</masterLabel>
+            <translation><!-- HIM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HRIS</masterLabel>
+            <translation><!-- HRIS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Learning and Delivery and Administration</masterLabel>
+            <translation><!-- Learning and Delivery and Administration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PAC</masterLabel>
+            <translation><!-- PAC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payroll</masterLabel>
+            <translation><!-- Payroll --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recruitment</masterLabel>
+            <translation><!-- Recruitment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standard Reporting, Audit, and Systems</masterLabel>
+            <translation><!-- Standard Reporting, Audit, and Systems --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Supply Chain</masterLabel>
+            <translation><!-- Supply Chain --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Svc and Perf Mgmt</masterLabel>
+            <translation><!-- Svc and Perf Mgmt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workforce Relations</masterLabel>
+            <translation><!-- Workforce Relations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eQuip</masterLabel>
+            <translation><!-- eQuip --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Granular detail of Primary Topic --></help>
+        <label><!-- Subject --></label>
+        <name>Subject__c</name>
+        <picklistValues>
+            <masterLabel>Discrimination/Harassment in the workplace</masterLabel>
+            <translation><!-- Discrimination/Harassment in the workplace --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Disruptive behavior</masterLabel>
+            <translation><!-- Disruptive behavior --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dissatisfied with Leader</masterLabel>
+            <translation><!-- Dissatisfied with Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dress code/appearance</masterLabel>
+            <translation><!-- Dress code/appearance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Engagement/Job Satisfaction</masterLabel>
+            <translation><!-- Engagement/Job Satisfaction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Excessive Unscheduled Absences</masterLabel>
+            <translation><!-- Excessive Unscheduled Absences --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Failure to follow instructions</masterLabel>
+            <translation><!-- Failure to follow instructions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Failure to meet Introductory</masterLabel>
+            <translation><!-- Failure to meet Introductory --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fitness for duty</masterLabel>
+            <translation><!-- Fitness for duty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HIPPAA/PHI</masterLabel>
+            <translation><!-- HIPPAA/PHI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insubordination</masterLabel>
+            <translation><!-- Insubordination --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leave Early</masterLabel>
+            <translation><!-- Leave Early --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leave of absence/disability related</masterLabel>
+            <translation><!-- Leave of absence/disability related --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legal issues</masterLabel>
+            <translation><!-- Legal issues --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Violation of Policies and Procedures</masterLabel>
+            <translation><!-- Other Violation of Policies and Procedures --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Policy compliance</masterLabel>
+            <translation><!-- Policy compliance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quality of work</masterLabel>
+            <translation><!-- Quality of work --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quantity of work</masterLabel>
+            <translation><!-- Quantity of work --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tardiness</masterLabel>
+            <translation><!-- Tardiness --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Work rules</masterLabel>
+            <translation><!-- Work rules --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workplace threats or violence</masterLabel>
+            <translation><!-- Workplace threats or violence --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Employee Solutions Layout</layout>
+        <sections>
+            <label><!-- Contact Highlights --></label>
+            <section>Contact Highlights</section>
+        </sections>
+        <sections>
+            <label><!-- Contacted By (if different from Employee) --></label>
+            <section>Contacted By (if different from Employee)</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Employee Info --></label>
+            <section>Employee Info</section>
+        </sections>
+        <sections>
+            <label><!-- Interaction --></label>
+            <section>Interaction</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- ER Log --></label>
+        <name>ER_Log</name>
+    </recordTypes>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

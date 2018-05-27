@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CallCenter xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <adapterUrl>https://localhost:11001</adapterUrl>
+    <displayName>4.0 Connector with CTI 4.0_v2</displayName>
+    <displayNameLabel>Display Name</displayNameLabel>
+    <internalNameLabel>Internal Name</internalNameLabel>
+    <sections>
+        <items>
+            <label>Description</label>
+            <name>reqDescription</name>
+            <value>Integrates Interactive Intelligence CIC with Salesforce.com</value>
+        </items>
+        <items>
+            <label>CTI Connector ProgId</label>
+            <name>reqProgId</name>
+            <value>ININSalesforceConnector.ININAdapterBa40.1</value>
+        </items>
+        <items>
+            <label>Version</label>
+            <name>reqVersion</name>
+            <value>4.0</value>
+        </items>
+        <items>
+            <label>CTI Adapter URL</label>
+            <name>reqAdapterUrl</name>
+            <value>https://localhost:11001</value>
+        </items>
+        <label>General Information</label>
+        <name>reqGeneralInfo</name>
+    </sections>
+    <sections>
+        <items>
+            <label>CTI Configuration Name</label>
+            <name>CtiConfigurationName</name>
+            <value xsi:nil="true"/>
+        </items>
+        <label>Configuration Options</label>
+        <name>reqConfiguration</name>
+    </sections>
+    <sections>
+        <items>
+            <label>XML Attribute Definition #1</label>
+            <name>CallAttr0</name>
+            <value>&lt;attribute interaction=&quot;SF_PhoneNumber&quot; field=&quot;PhoneActual__c&quot; inbound=&quot;true&quot; outbound=&quot;true&quot;/&gt;</value>
+        </items>
+        <items>
+            <label>XML Attribute Definition #2</label>
+            <name>CallAttr1</name>
+            <value>&lt;attribute interaction=&quot;SF_TransferredFrom&quot; field=&quot;TransferredFrom__c&quot; inbound=&quot;true&quot; outbound=&quot;true&quot;/&gt;</value>
+        </items>
+        <items>
+            <label>XML Attribute Definition #3</label>
+            <name>CallAttr2</name>
+            <value>&lt;attribute interaction=&quot;SF_TransferredTo&quot; field=&quot;TransferredTo__c&quot; inbound=&quot;true&quot; outbound=&quot;true&quot;/&gt;</value>
+        </items>
+        <items>
+            <label>XML Attribute Definition #4</label>
+            <name>CallAttr3</name>
+            <value>&lt;attribute interaction=&quot;SF_ConferencedWith&quot; field=&quot;ConferencedWith__c&quot; inbound=&quot;true&quot; outbound=&quot;true&quot;/&gt;</value>
+        </items>
+        <items>
+            <label>XML Attribute Definition #5</label>
+            <name>CallAttr4</name>
+            <value>&lt;attribute interaction=&quot;SF_IRRecorded&quot; field=&quot;InteractionRecorded__c&quot; inbound=&quot;true&quot; outbound=&quot;true&quot;/&gt;</value>
+        </items>
+        <items>
+            <label>XML Attribute Definition #6</label>
+            <name>CallAttr5</name>
+            <value xsi:nil="true"/>
+        </items>
+        <items>
+            <label>XML Attribute Definition #7</label>
+            <name>CallAttr6</name>
+            <value xsi:nil="true"/>
+        </items>
+        <items>
+            <label>XML Attribute Definition #8</label>
+            <name>CallAttr7</name>
+            <value xsi:nil="true"/>
+        </items>
+        <items>
+            <label>XML Attribute Definition #9</label>
+            <name>CallAttr8</name>
+            <value xsi:nil="true"/>
+        </items>
+        <items>
+            <label>XML Attribute Definition #10</label>
+            <name>CallAttr9</name>
+            <value xsi:nil="true"/>
+        </items>
+        <label>Synchronizes interaction attributes to Salesforce&apos;s Call Log activities.  (See documentation for XML formatting)</label>
+        <name>CallLogAttributeSync</name>
+    </sections>
+    <sections>
+        <items>
+            <label>Pop Account Code Dialog on Disconnect</label>
+            <name>PopAccountCodeDialogOnDisconnect</name>
+            <value>true</value>
+        </items>
+        <items>
+            <label>Create Salesforce Call Log Activity on Interactions that have not been connected</label>
+            <name>CreateCallLogOnInteractionsNotConnected</name>
+            <value>false</value>
+        </items>
+        <items>
+            <label>When an Interaction disconnects, the Salesforce Call Log will automatically open in edit mode in the Last Calls section of the Softphone</label>
+            <name>OpenAndEditCallLogOnDisconnect</name>
+            <value>false</value>
+        </items>
+        <label>Default User Options</label>
+        <name>DefaultUserOptions</name>
+    </sections>
+    <sections>
+        <items>
+            <label>Show an advanced transfer button similar to the tranfer functionality in the Interaction Client</label>
+            <name>ShowInternalTransferButton</name>
+            <value>false</value>
+        </items>
+        <items>
+            <label>Directory name to use for the speed dial. (e.g. Company Directory)</label>
+            <name>SpeedDialDirectory</name>
+            <value xsi:nil="true"/>
+        </items>
+        <items>
+            <label>Column from the speed dial list which contains the number to dial.  Valid options are Extension, HomePhone, BusinessPhone, MobilePhone</label>
+            <name>SpeedDialNumberToDial</name>
+            <value xsi:nil="true"/>
+        </items>
+        <items>
+            <label>Add inbound interaction to Salesforce Softphone on Alerting event (Set to true to add interaction when interaction is in alerting state, false to add interaction when interaction is added to user&apos;s queue.)</label>
+            <name>SendScreenPopOnAlerting</name>
+            <value>false</value>
+        </items>
+        <label>Global User Options</label>
+        <name>GlobalUserOptions</name>
+    </sections>
+    <version>4</version>
+</CallCenter>

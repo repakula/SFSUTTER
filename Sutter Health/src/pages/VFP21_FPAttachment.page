@@ -1,0 +1,66 @@
+<!--
+*     Page Name   : VFP21_FPAttachment
+*     Author      : Rahul Nasa
+*     Date        : 18-Aug-2014 
+*     Project Name: CRM - SFT - Sutter Health
+*     Description : Req-3143 
+-->
+<apex:page standardController="Case" showheader="true" extensions="VFC21_FPAttachment">
+    <apex:pageMessages />
+    <apex:form >
+    <apex:sectionHeader title="Customer Inquiry Edit" subtitle="{!$Label.New_Customer_Inquiry}" />
+        <apex:pageBlock title="{!$Label.Payroll_Upload_Form}" mode="Edit">
+          <br/>    
+    <apex:outputText style="font-style:normal; font-weight:800" value="This form is used exclusively to submit upload spreadsheets to payroll for processing. Do not submit any other type of payroll request using this form as it will cause a delay in processing. Should you have any questions contact the Sutter Employee Line at 855-398-1631."/>
+    <br/>
+     <!-- <apex:outputText style="font-style:normal; font-weight:800" value="Should you have any questions contact the Sutter Employee Line at 855-398-1631"/> -->
+        <apex:pageBlockButtons >
+            <apex:commandButton action="{!saveAndSend}" value="{!$Label.Submit}"/>
+            <apex:commandButton action="{!Cancel}" value="{!$Label.LABS_SF_Cancel}"/>
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection title="{!$Label.Request_Type_Section}" columns="2" collapsible="false" showHeader="false">
+       
+            
+  
+           
+           
+        </apex:pageBlockSection>
+   
+        <apex:pageBlockSection title="{!$Label.Request_Info}" columns="2" collapsible="false" >
+                  <apex:outputField value="{!caseRecord.ContactId}" label="{!$Label.Submitted_By}"/>
+            <apex:inputField value="{!case.Requestor_Name_Attachment__c}" required="true"/>            
+            <apex:outputField value="{!case.Affiliate__c}" />             
+            <apex:inputField value="{!case.Pay_Period_Date__c}" required="true"/> 
+              <apex:inputField value="{!case.Employee__c}" required="true"/>
+            
+           
+        </apex:pageBlockSection>
+        
+ 
+        
+             <apex:pageBlockSection title="{!$Label.Description_Information}" columns="1" collapsible="false" >
+            
+            <apex:inputField value="{!case.Internal_Comments__c}" style="width: 350px; height: 50px;" required="true"/>
+        </apex:pageBlockSection> 
+        
+        <apex:pageBlockSection title="{!$Label.Attachments}" columns="1" collapsible="false">
+                <apex:outputPanel styleClass="color"> 
+                    <apex:pageBlockSectionItem >
+                      <apex:outputLabel value="{!$Label.Attach_File}"  for="file"  />
+                      <apex:inputFile value="{!attachment.body}" filename="{!attachment.name}" id="file" style="margin-left:174px"  />
+                    </apex:pageBlockSectionItem>
+                </apex:outputPanel>
+        </apex:pageBlockSection>
+        </apex:pageBlock>
+        <!-- Component for GTM-->
+                     <c:Portal_User_Info />
+           <!-- Component for GTM-->
+        
+    </apex:form>
+    
+    <!-- Start Google Tag Manager -->
+    <apex:outputLabel value="{!$Label.GTMCustomLabel}" rendered="false"></apex:outputLabel> 
+    <apex:includeScript value="{!$Resource.GTMJavaScript}" />
+    <!-- End Google Tag Manager -->
+
+</apex:page>
